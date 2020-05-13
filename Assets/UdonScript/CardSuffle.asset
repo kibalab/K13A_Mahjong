@@ -1,0 +1,2483 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
+  m_Name: CardSuffle
+  m_EditorClassIdentifier: 
+  serializedUdonProgramAsset: {fileID: 11400000, guid: bfa78be604b61844381542484cf89396,
+    type: 2}
+  udonAssembly: ".data_start\r\n\r\n    .export cardManager1\r\n    .export cardManager2\r\n
+    \   .export cardManager3\r\n    .export cardManager4\r\n    .export shuffleInt\r\n\r\n
+    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\r\n    shuffleInt: %SystemInt32Array, null\r\n    cardManager1:
+    %VRCUdonUdonBehaviour, null\r\n    cardManager2: %VRCUdonUdonBehaviour, null\r\n
+    \   cardManager3: %VRCUdonUdonBehaviour, null\r\n    cardManager4: %VRCUdonUdonBehaviour,
+    null\r\n    __0_g_Int32: %SystemInt32, null\r\n    __0_i_Int32: %SystemInt32,
+    null\r\n    __0_j_Int32: %SystemInt32, null\r\n    __0_temp_Int32: %SystemInt32,
+    null\r\n    __0_top_Int32: %SystemInt32, null\r\n    __0_x_Int32: %SystemInt32,
+    null\r\n    __1_i_Int32: %SystemInt32, null\r\n    __2_i_Int32: %SystemInt32,
+    null\r\n    __0_a_Int32Array: %SystemInt32Array, null\r\n    __0_b_Int32Array:
+    %SystemInt32Array, null\r\n    __0_c_Int32Array: %SystemInt32Array, null\r\n    __0_d_Int32Array:
+    %SystemInt32Array, null\r\n    __0_randArray_Int32Array: %SystemInt32Array, null\r\n
+    \   __1_a_Int32Array: %SystemInt32Array, null\r\n    __0_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __2_const_intnl_SystemInt32: %SystemInt32, null\r\n    __3_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __5_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
+    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
+    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
+    \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __10_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __11_intnl_SystemInt32: %SystemInt32, null\r\n    __12_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __13_intnl_SystemInt32: %SystemInt32, null\r\n    __14_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __15_intnl_SystemInt32: %SystemInt32, null\r\n    __16_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __17_intnl_SystemInt32: %SystemInt32, null\r\n    __18_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __19_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __20_intnl_SystemInt32: %SystemInt32, null\r\n    __21_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __22_intnl_SystemInt32: %SystemInt32, null\r\n    __23_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __24_intnl_SystemInt32: %SystemInt32, null\r\n    __25_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __26_intnl_SystemInt32: %SystemInt32, null\r\n    __27_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __28_intnl_SystemInt32: %SystemInt32, null\r\n    __29_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __30_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __31_intnl_SystemInt32: %SystemInt32, null\r\n    __32_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __33_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __9_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_returnValSymbol_Int32Array:
+    %SystemInt32Array, null\r\n    __0_intnl_SystemInt32Array: %SystemInt32Array,
+    null\r\n    __1_intnl_returnValSymbol_Int32Array: %SystemInt32Array, null\r\n
+    \   __1_intnl_SystemInt32Array: %SystemInt32Array, null\r\n    __2_intnl_SystemInt32Array:
+    %SystemInt32Array, null\r\n    __3_intnl_SystemInt32Array: %SystemInt32Array,
+    null\r\n    __4_intnl_SystemInt32Array: %SystemInt32Array, null\r\n    __5_intnl_SystemInt32Array:
+    %SystemInt32Array, null\r\n    __6_intnl_SystemInt32Array: %SystemInt32Array,
+    null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
+    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
+    %SystemString, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
+    \       \r\n         # using System;\r\n        \r\n         # using UdonSharp;\r\n
+    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
+    CardSuffle : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # public
+    CardManager cardManager1;\r\n        \r\n         # public CardManager cardManager2;\r\n
+    \       \r\n         # public CardManager cardManager3;\r\n        \r\n         #
+    public CardManager cardManager4;\r\n        \r\n         # public int[] shuffleInt
+    = new int[52];\r\n        \r\n         # public override void Interact()\r\n    .export
+    _interact\r\n        \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # int[] a = Shuffle();\r\n        PUSH,
+    __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000003EC\r\n        PUSH,
+    __0_intnl_returnValSymbol_Int32Array\r\n        PUSH, __0_intnl_SystemInt32Array\r\n
+    \       COPY\r\n        PUSH, __0_intnl_SystemInt32Array\r\n        PUSH, __1_a_Int32Array\r\n
+    \       COPY\r\n        \r\n         # int[] b = Shuffle();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000003EC\r\n        PUSH, __0_intnl_returnValSymbol_Int32Array\r\n
+    \       PUSH, __1_intnl_SystemInt32Array\r\n        COPY\r\n        PUSH, __1_intnl_SystemInt32Array\r\n
+    \       PUSH, __0_b_Int32Array\r\n        COPY\r\n        \r\n         # int[]
+    c = Shuffle();\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
+    0x000003EC\r\n        PUSH, __0_intnl_returnValSymbol_Int32Array\r\n        PUSH,
+    __2_intnl_SystemInt32Array\r\n        COPY\r\n        PUSH, __2_intnl_SystemInt32Array\r\n
+    \       PUSH, __0_c_Int32Array\r\n        COPY\r\n        \r\n         # int[]
+    d = Shuffle();\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
+    0x000003EC\r\n        PUSH, __0_intnl_returnValSymbol_Int32Array\r\n        PUSH,
+    __3_intnl_SystemInt32Array\r\n        COPY\r\n        PUSH, __3_intnl_SystemInt32Array\r\n
+    \       PUSH, __0_d_Int32Array\r\n        COPY\r\n        \r\n         # for (int
+    i = 0; i < 13; i++)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
+    __0_i_Int32\r\n        COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000003D0\r\n
+    \       \r\n         # {\r\n        \r\n         # cardManager1.SetCard(a[i].ToString(),
+    i);\r\n        PUSH, __1_a_Int32Array\r\n        PUSH, __0_i_Int32\r\n        PUSH,
+    __1_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __1_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, cardManager1\r\n
+    \       PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager1\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
+    __0_i_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager1\r\n        PUSH, __2_const_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       \r\n         # cardManager2.SetCard(b[i].ToString(), i);\r\n        PUSH,
+    __0_b_Int32Array\r\n        PUSH, __0_i_Int32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
+    __2_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, cardManager2\r\n        PUSH,
+    __0_const_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager2\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
+    __0_i_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager2\r\n        PUSH, __2_const_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       \r\n         # cardManager3.SetCard(c[i].ToString(), i);\r\n        PUSH,
+    __0_c_Int32Array\r\n        PUSH, __0_i_Int32\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
+    __3_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, cardManager3\r\n        PUSH,
+    __0_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager3\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
+    __0_i_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager3\r\n        PUSH, __2_const_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       \r\n         # cardManager4.SetCard(d[i].ToString(), i);\r\n        PUSH,
+    __0_d_Int32Array\r\n        PUSH, __0_i_Int32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
+    __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, cardManager4\r\n        PUSH,
+    __0_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager4\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
+    __0_i_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, cardManager4\r\n        PUSH, __2_const_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __2_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        COPY\r\n
+    \       JUMP, 0x000000FC\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public int[] Shuffle()\r\n    .export Shuffle\r\n
+    \       \r\n    Shuffle:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # int[] randArray = new int[13];\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemInt32Array\r\n
+    \       EXTERN, \"SystemInt32Array.__ctor__SystemInt32__SystemInt32Array\"\r\n
+    \       PUSH, __5_intnl_SystemInt32Array\r\n        PUSH, __4_intnl_SystemInt32Array\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemInt32Array\r\n        PUSH, __0_randArray_Int32Array\r\n
+    \       COPY\r\n        \r\n         # int top = 0;\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_top_Int32\r\n        COPY\r\n        \r\n         # for (int
+    i = 0; i < 13;) {\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
+    __1_i_Int32\r\n        COPY\r\n        PUSH, __1_i_Int32\r\n        PUSH, __5_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __5_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006D0\r\n
+    \       \r\n         # int g = UnityEngine.Random.Range(11, 47);\r\n        PUSH,
+    __3_const_intnl_SystemInt32\r\n        PUSH, __4_const_intnl_SystemInt32\r\n        PUSH,
+    __6_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineRandom.__Range__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __6_intnl_SystemInt32\r\n        PUSH, __0_g_Int32\r\n        COPY\r\n
+    \       \r\n         # if (shuffleInt[g - 1] != 4)\r\n        PUSH, __0_g_Int32\r\n
+    \       PUSH, __7_intnl_SystemInt32\r\n        COPY\r\n        PUSH, __7_intnl_SystemInt32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __8_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, shuffleInt\r\n        PUSH, __8_intnl_SystemInt32\r\n        PUSH,
+    __9_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __9_intnl_SystemInt32\r\n        PUSH, __5_const_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006C8\r\n
+    \       \r\n         # {\r\n        \r\n         # shuffleInt[g - 1] ++;\r\n        PUSH,
+    __0_g_Int32\r\n        PUSH, __10_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
+    __10_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __11_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, shuffleInt\r\n        PUSH, __11_intnl_SystemInt32\r\n        PUSH,
+    __13_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __13_intnl_SystemInt32\r\n        PUSH, __12_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, shuffleInt\r\n        PUSH, __11_intnl_SystemInt32\r\n
+    \       PUSH, __14_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __14_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __15_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, shuffleInt\r\n        PUSH, __11_intnl_SystemInt32\r\n        PUSH,
+    __15_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
+    \       \r\n         # randArray[top++] = g;\r\n        PUSH, __0_top_Int32\r\n
+    \       PUSH, __16_intnl_SystemInt32\r\n        COPY\r\n        PUSH, __0_top_Int32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __17_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __17_intnl_SystemInt32\r\n        PUSH, __0_top_Int32\r\n        COPY\r\n
+    \       PUSH, __0_randArray_Int32Array\r\n        PUSH, __16_intnl_SystemInt32\r\n
+    \       PUSH, __0_g_Int32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
+    \       \r\n         # i++;\r\n        PUSH, __1_i_Int32\r\n        PUSH, __18_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __1_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __19_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __19_intnl_SystemInt32\r\n        PUSH, __1_i_Int32\r\n        COPY\r\n
+    \       JUMP, 0x00000454\r\n        \r\n         # sortArray(randArray, 13);\r\n
+    \       PUSH, __0_randArray_Int32Array\r\n        PUSH, __0_a_Int32Array\r\n        COPY\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __0_x_Int32\r\n        COPY\r\n
+    \       PUSH, __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000760\r\n
+    \       PUSH, __1_intnl_returnValSymbol_Int32Array\r\n        PUSH, __6_intnl_SystemInt32Array\r\n
+    \       COPY\r\n        \r\n         # return randArray;\r\n        PUSH, __0_randArray_Int32Array\r\n
+    \       PUSH, __0_intnl_returnValSymbol_Int32Array\r\n        COPY\r\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public int[] sortArray(int[] a, int x)\r\n
+    \   .export sortArray\r\n        \r\n    sortArray:\r\n        \r\n        PUSH,
+    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
+    int i;\r\n        \r\n         # int j;\r\n        \r\n         # int temp;\r\n
+    \       \r\n         # for (i = (x - 1); i >= 0; i--)\r\n        PUSH, __0_x_Int32\r\n
+    \       PUSH, __20_intnl_SystemInt32\r\n        COPY\r\n        PUSH, __20_intnl_SystemInt32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __21_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __21_intnl_SystemInt32\r\n        PUSH, __2_i_Int32\r\n        COPY\r\n
+    \       PUSH, __2_i_Int32\r\n        PUSH, __22_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __22_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_GreaterThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A84\r\n
+    \       \r\n         # {\r\n        \r\n         # for (j = 1; j <= i; j++)\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __0_j_Int32\r\n        COPY\r\n
+    \       PUSH, __0_j_Int32\r\n        PUSH, __23_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __23_intnl_SystemInt32\r\n        PUSH, __2_i_Int32\r\n        PUSH,
+    __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A34\r\n
+    \       \r\n         # {\r\n        \r\n         # if (a[j - 1] > a[j])\r\n        PUSH,
+    __0_j_Int32\r\n        PUSH, __24_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
+    __24_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __25_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __0_a_Int32Array\r\n        PUSH, __25_intnl_SystemInt32\r\n        PUSH,
+    __26_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __0_a_Int32Array\r\n        PUSH, __0_j_Int32\r\n        PUSH, __27_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
+    __26_intnl_SystemInt32\r\n        PUSH, __27_intnl_SystemInt32\r\n        PUSH,
+    __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000009E4\r\n
+    \       \r\n         # {\r\n        \r\n         # temp = a[j - 1];\r\n        PUSH,
+    __0_j_Int32\r\n        PUSH, __28_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
+    __28_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __29_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __0_a_Int32Array\r\n        PUSH, __29_intnl_SystemInt32\r\n        PUSH,
+    __30_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __30_intnl_SystemInt32\r\n        PUSH, __0_temp_Int32\r\n        COPY\r\n
+    \       \r\n         # a[j - 1] = a[j];\r\n        PUSH, __0_a_Int32Array\r\n
+    \       PUSH, __0_j_Int32\r\n        PUSH, __31_intnl_SystemInt32\r\n        EXTERN,
+    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH, __0_j_Int32\r\n
+    \       PUSH, __32_intnl_SystemInt32\r\n        COPY\r\n        PUSH, __32_intnl_SystemInt32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __33_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __0_a_Int32Array\r\n        PUSH, __33_intnl_SystemInt32\r\n        PUSH,
+    __31_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
+    \       \r\n         # a[j] = temp;\r\n        PUSH, __0_a_Int32Array\r\n        PUSH,
+    __0_j_Int32\r\n        PUSH, __0_temp_Int32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
+    \       PUSH, __0_j_Int32\r\n        PUSH, __24_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __0_j_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
+    __25_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __25_intnl_SystemInt32\r\n        PUSH, __0_j_Int32\r\n        COPY\r\n
+    \       JUMP, 0x00000800\r\n        PUSH, __2_i_Int32\r\n        PUSH, __23_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __2_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __24_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __24_intnl_SystemInt32\r\n        PUSH, __2_i_Int32\r\n        COPY\r\n
+    \       JUMP, 0x000007A8\r\n        \r\n         # return a;\r\n        PUSH,
+    __0_a_Int32Array\r\n        PUSH, __1_intnl_returnValSymbol_Int32Array\r\n        COPY\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n.code_end\r\n"
+  assemblyError: 
+  sourceCsScript: {fileID: 11500000, guid: c7461da2fb0c3774da86465212021fbc, type: 3}
+  behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
+  compileErrors: []
+  debugInfo:
+    serializedDebugSpans:
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 2
+      line: 0
+      lineChar: 0
+      spanCodeSection: "\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 2
+      endSourceChar: 2
+      line: 1
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 2
+      endSourceChar: 8
+      line: 1
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 8
+      endSourceChar: 17
+      line: 1
+      lineChar: 6
+      spanCodeSection: "System;\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 17
+      endSourceChar: 23
+      line: 2
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 23
+      endSourceChar: 35
+      line: 2
+      lineChar: 6
+      spanCodeSection: "UdonSharp;\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 35
+      endSourceChar: 41
+      line: 3
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 41
+      endSourceChar: 55
+      line: 3
+      lineChar: 6
+      spanCodeSection: "UnityEngine;\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 55
+      endSourceChar: 61
+      line: 4
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 61
+      line: 4
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 61
+      endSourceChar: 65
+      line: 4
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 65
+      endSourceChar: 75
+      line: 4
+      lineChar: 10
+      spanCodeSection: "SDKBase;\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 75
+      endSourceChar: 81
+      line: 5
+      lineChar: 0
+      spanCodeSection: 'using '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 81
+      endSourceChar: 81
+      line: 5
+      lineChar: 6
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 81
+      endSourceChar: 85
+      line: 5
+      lineChar: 6
+      spanCodeSection: VRC.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 85
+      endSourceChar: 94
+      line: 5
+      lineChar: 10
+      spanCodeSection: "Udon;\r\n\r\n"
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 94
+      endSourceChar: 118
+      line: 7
+      lineChar: 0
+      spanCodeSection: 'public class CardSuffle '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 118
+      endSourceChar: 120
+      line: 7
+      lineChar: 24
+      spanCodeSection: ': '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 120
+      endSourceChar: 120
+      line: 7
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 120
+      endSourceChar: 147
+      line: 7
+      lineChar: 26
+      spanCodeSection: "UdonSharpBehaviour\r\n{\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 147
+      endSourceChar: 154
+      line: 9
+      lineChar: 4
+      spanCodeSection: 'public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 154
+      endSourceChar: 154
+      line: 9
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 154
+      endSourceChar: 185
+      line: 9
+      lineChar: 11
+      spanCodeSection: "CardManager cardManager1;\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 185
+      endSourceChar: 192
+      line: 10
+      lineChar: 4
+      spanCodeSection: 'public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 192
+      endSourceChar: 192
+      line: 10
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 192
+      endSourceChar: 223
+      line: 10
+      lineChar: 11
+      spanCodeSection: "CardManager cardManager2;\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 223
+      endSourceChar: 230
+      line: 11
+      lineChar: 4
+      spanCodeSection: 'public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 230
+      endSourceChar: 230
+      line: 11
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 230
+      endSourceChar: 261
+      line: 11
+      lineChar: 11
+      spanCodeSection: "CardManager cardManager3;\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 261
+      endSourceChar: 268
+      line: 12
+      lineChar: 4
+      spanCodeSection: 'public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 268
+      endSourceChar: 268
+      line: 12
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 268
+      endSourceChar: 299
+      line: 12
+      lineChar: 11
+      spanCodeSection: "CardManager cardManager4;\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 299
+      endSourceChar: 306
+      line: 13
+      lineChar: 4
+      spanCodeSection: 'public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 306
+      endSourceChar: 306
+      line: 13
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 306
+      endSourceChar: 306
+      line: 13
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 306
+      endSourceChar: 343
+      line: 13
+      lineChar: 11
+      spanCodeSection: "int[] shuffleInt = new int[52];\r\n    "
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 343
+      endSourceChar: 380
+      line: 14
+      lineChar: 4
+      spanCodeSection: "public override void Interact()\r\n    "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 380
+      endSourceChar: 391
+      line: 15
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 391
+      endSourceChar: 391
+      line: 16
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 391
+      endSourceChar: 391
+      line: 16
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 391
+      endSourceChar: 391
+      line: 16
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 391
+      endSourceChar: 391
+      line: 16
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 391
+      endSourceChar: 399
+      line: 16
+      lineChar: 8
+      spanCodeSection: 'int[] a '
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 399
+      endSourceChar: 401
+      line: 16
+      lineChar: 16
+      spanCodeSection: '= '
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 401
+      endSourceChar: 401
+      line: 16
+      lineChar: 18
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 63
+      startSourceChar: 401
+      endSourceChar: 421
+      line: 16
+      lineChar: 18
+      spanCodeSection: "Shuffle();\r\n        "
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 421
+      endSourceChar: 421
+      line: 17
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 421
+      endSourceChar: 421
+      line: 17
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 421
+      endSourceChar: 421
+      line: 17
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 421
+      endSourceChar: 421
+      line: 17
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 421
+      endSourceChar: 429
+      line: 17
+      lineChar: 8
+      spanCodeSection: 'int[] b '
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 429
+      endSourceChar: 431
+      line: 17
+      lineChar: 16
+      spanCodeSection: '= '
+    - startInstruction: 64
+      endInstruction: 63
+      startSourceChar: 431
+      endSourceChar: 431
+      line: 17
+      lineChar: 18
+      spanCodeSection: 
+    - startInstruction: 64
+      endInstruction: 119
+      startSourceChar: 431
+      endSourceChar: 451
+      line: 17
+      lineChar: 18
+      spanCodeSection: "Shuffle();\r\n        "
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 451
+      endSourceChar: 451
+      line: 18
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 451
+      endSourceChar: 451
+      line: 18
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 451
+      endSourceChar: 451
+      line: 18
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 451
+      endSourceChar: 451
+      line: 18
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 451
+      endSourceChar: 459
+      line: 18
+      lineChar: 8
+      spanCodeSection: 'int[] c '
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 459
+      endSourceChar: 461
+      line: 18
+      lineChar: 16
+      spanCodeSection: '= '
+    - startInstruction: 120
+      endInstruction: 119
+      startSourceChar: 461
+      endSourceChar: 461
+      line: 18
+      lineChar: 18
+      spanCodeSection: 
+    - startInstruction: 120
+      endInstruction: 175
+      startSourceChar: 461
+      endSourceChar: 481
+      line: 18
+      lineChar: 18
+      spanCodeSection: "Shuffle();\r\n        "
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 481
+      endSourceChar: 481
+      line: 19
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 481
+      endSourceChar: 481
+      line: 19
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 481
+      endSourceChar: 481
+      line: 19
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 481
+      endSourceChar: 481
+      line: 19
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 481
+      endSourceChar: 489
+      line: 19
+      lineChar: 8
+      spanCodeSection: 'int[] d '
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 489
+      endSourceChar: 491
+      line: 19
+      lineChar: 16
+      spanCodeSection: '= '
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 491
+      endSourceChar: 491
+      line: 19
+      lineChar: 18
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 231
+      startSourceChar: 491
+      endSourceChar: 511
+      line: 19
+      lineChar: 18
+      spanCodeSection: "Shuffle();\r\n        "
+    - startInstruction: 232
+      endInstruction: 231
+      startSourceChar: 511
+      endSourceChar: 516
+      line: 20
+      lineChar: 8
+      spanCodeSection: for (
+    - startInstruction: 232
+      endInstruction: 231
+      startSourceChar: 516
+      endSourceChar: 516
+      line: 20
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 232
+      endInstruction: 231
+      startSourceChar: 516
+      endSourceChar: 516
+      line: 20
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 232
+      endInstruction: 231
+      startSourceChar: 516
+      endSourceChar: 522
+      line: 20
+      lineChar: 13
+      spanCodeSection: 'int i '
+    - startInstruction: 232
+      endInstruction: 231
+      startSourceChar: 522
+      endSourceChar: 524
+      line: 20
+      lineChar: 19
+      spanCodeSection: '= '
+    - startInstruction: 232
+      endInstruction: 251
+      startSourceChar: 524
+      endSourceChar: 527
+      line: 20
+      lineChar: 21
+      spanCodeSection: '0; '
+    - startInstruction: 252
+      endInstruction: 251
+      startSourceChar: 527
+      endSourceChar: 527
+      line: 20
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 252
+      endInstruction: 271
+      startSourceChar: 527
+      endSourceChar: 531
+      line: 20
+      lineChar: 24
+      spanCodeSection: 'i < '
+    - startInstruction: 272
+      endInstruction: 319
+      startSourceChar: 531
+      endSourceChar: 549
+      line: 20
+      lineChar: 28
+      spanCodeSection: "13; i++)\r\n        "
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 549
+      endSourceChar: 564
+      line: 21
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 564
+      endSourceChar: 564
+      line: 22
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 564
+      endSourceChar: 564
+      line: 22
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 564
+      endSourceChar: 564
+      line: 22
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 564
+      endSourceChar: 577
+      line: 22
+      lineChar: 12
+      spanCodeSection: cardManager1.
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 577
+      endSourceChar: 585
+      line: 22
+      lineChar: 25
+      spanCodeSection: SetCard(
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 585
+      endSourceChar: 585
+      line: 22
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 585
+      endSourceChar: 585
+      line: 22
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 585
+      endSourceChar: 585
+      line: 22
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 585
+      endSourceChar: 587
+      line: 22
+      lineChar: 33
+      spanCodeSection: a[
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 587
+      endSourceChar: 587
+      line: 22
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 320
+      endInstruction: 319
+      startSourceChar: 587
+      endSourceChar: 590
+      line: 22
+      lineChar: 35
+      spanCodeSection: i].
+    - startInstruction: 320
+      endInstruction: 375
+      startSourceChar: 590
+      endSourceChar: 602
+      line: 22
+      lineChar: 38
+      spanCodeSection: 'ToString(), '
+    - startInstruction: 376
+      endInstruction: 463
+      startSourceChar: 602
+      endSourceChar: 619
+      line: 22
+      lineChar: 50
+      spanCodeSection: "i);\r\n            "
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 619
+      endSourceChar: 619
+      line: 23
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 619
+      endSourceChar: 619
+      line: 23
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 619
+      endSourceChar: 619
+      line: 23
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 619
+      endSourceChar: 632
+      line: 23
+      lineChar: 12
+      spanCodeSection: cardManager2.
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 632
+      endSourceChar: 640
+      line: 23
+      lineChar: 25
+      spanCodeSection: SetCard(
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 640
+      endSourceChar: 640
+      line: 23
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 640
+      endSourceChar: 640
+      line: 23
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 640
+      endSourceChar: 640
+      line: 23
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 640
+      endSourceChar: 642
+      line: 23
+      lineChar: 33
+      spanCodeSection: b[
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 642
+      endSourceChar: 642
+      line: 23
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 464
+      endInstruction: 463
+      startSourceChar: 642
+      endSourceChar: 645
+      line: 23
+      lineChar: 35
+      spanCodeSection: i].
+    - startInstruction: 464
+      endInstruction: 519
+      startSourceChar: 645
+      endSourceChar: 657
+      line: 23
+      lineChar: 38
+      spanCodeSection: 'ToString(), '
+    - startInstruction: 520
+      endInstruction: 607
+      startSourceChar: 657
+      endSourceChar: 674
+      line: 23
+      lineChar: 50
+      spanCodeSection: "i);\r\n            "
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 674
+      endSourceChar: 674
+      line: 24
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 674
+      endSourceChar: 674
+      line: 24
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 674
+      endSourceChar: 674
+      line: 24
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 674
+      endSourceChar: 687
+      line: 24
+      lineChar: 12
+      spanCodeSection: cardManager3.
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 687
+      endSourceChar: 695
+      line: 24
+      lineChar: 25
+      spanCodeSection: SetCard(
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 695
+      endSourceChar: 695
+      line: 24
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 695
+      endSourceChar: 695
+      line: 24
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 695
+      endSourceChar: 695
+      line: 24
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 695
+      endSourceChar: 697
+      line: 24
+      lineChar: 33
+      spanCodeSection: c[
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 697
+      endSourceChar: 697
+      line: 24
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 608
+      endInstruction: 607
+      startSourceChar: 697
+      endSourceChar: 700
+      line: 24
+      lineChar: 35
+      spanCodeSection: i].
+    - startInstruction: 608
+      endInstruction: 663
+      startSourceChar: 700
+      endSourceChar: 712
+      line: 24
+      lineChar: 38
+      spanCodeSection: 'ToString(), '
+    - startInstruction: 664
+      endInstruction: 751
+      startSourceChar: 712
+      endSourceChar: 729
+      line: 24
+      lineChar: 50
+      spanCodeSection: "i);\r\n            "
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 729
+      endSourceChar: 729
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 729
+      endSourceChar: 729
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 729
+      endSourceChar: 729
+      line: 25
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 729
+      endSourceChar: 742
+      line: 25
+      lineChar: 12
+      spanCodeSection: cardManager4.
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 742
+      endSourceChar: 750
+      line: 25
+      lineChar: 25
+      spanCodeSection: SetCard(
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 750
+      endSourceChar: 750
+      line: 25
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 750
+      endSourceChar: 750
+      line: 25
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 750
+      endSourceChar: 750
+      line: 25
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 750
+      endSourceChar: 752
+      line: 25
+      lineChar: 33
+      spanCodeSection: d[
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 752
+      endSourceChar: 752
+      line: 25
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 752
+      endInstruction: 751
+      startSourceChar: 752
+      endSourceChar: 755
+      line: 25
+      lineChar: 35
+      spanCodeSection: i].
+    - startInstruction: 752
+      endInstruction: 807
+      startSourceChar: 755
+      endSourceChar: 767
+      line: 25
+      lineChar: 38
+      spanCodeSection: 'ToString(), '
+    - startInstruction: 808
+      endInstruction: 995
+      startSourceChar: 767
+      endSourceChar: 794
+      line: 25
+      lineChar: 50
+      spanCodeSection: "i);\r\n        }\r\n    }\r\n    "
+    - startInstruction: 996
+      endInstruction: 1003
+      startSourceChar: 794
+      endSourceChar: 822
+      line: 28
+      lineChar: 4
+      spanCodeSection: "public int[] Shuffle()\r\n    "
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 822
+      endSourceChar: 835
+      line: 29
+      lineChar: 4
+      spanCodeSection: "{\r\n\r\n        "
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 835
+      endSourceChar: 835
+      line: 31
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 835
+      endSourceChar: 835
+      line: 31
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 835
+      endSourceChar: 835
+      line: 31
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 835
+      endSourceChar: 835
+      line: 31
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 835
+      endSourceChar: 851
+      line: 31
+      lineChar: 8
+      spanCodeSection: 'int[] randArray '
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 851
+      endSourceChar: 853
+      line: 31
+      lineChar: 24
+      spanCodeSection: '= '
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 853
+      endSourceChar: 857
+      line: 31
+      lineChar: 26
+      spanCodeSection: 'new '
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 857
+      endSourceChar: 857
+      line: 31
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 857
+      endSourceChar: 860
+      line: 31
+      lineChar: 30
+      spanCodeSection: int
+    - startInstruction: 1004
+      endInstruction: 1003
+      startSourceChar: 860
+      endSourceChar: 861
+      line: 31
+      lineChar: 33
+      spanCodeSection: '['
+    - startInstruction: 1004
+      endInstruction: 1067
+      startSourceChar: 861
+      endSourceChar: 875
+      line: 31
+      lineChar: 34
+      spanCodeSection: "13];\r\n        "
+    - startInstruction: 1068
+      endInstruction: 1067
+      startSourceChar: 875
+      endSourceChar: 875
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1068
+      endInstruction: 1067
+      startSourceChar: 875
+      endSourceChar: 875
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1068
+      endInstruction: 1067
+      startSourceChar: 875
+      endSourceChar: 875
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1068
+      endInstruction: 1067
+      startSourceChar: 875
+      endSourceChar: 883
+      line: 32
+      lineChar: 8
+      spanCodeSection: 'int top '
+    - startInstruction: 1068
+      endInstruction: 1067
+      startSourceChar: 883
+      endSourceChar: 885
+      line: 32
+      lineChar: 16
+      spanCodeSection: '= '
+    - startInstruction: 1068
+      endInstruction: 1087
+      startSourceChar: 885
+      endSourceChar: 897
+      line: 32
+      lineChar: 18
+      spanCodeSection: "0;\r\n        "
+    - startInstruction: 1088
+      endInstruction: 1087
+      startSourceChar: 897
+      endSourceChar: 902
+      line: 33
+      lineChar: 8
+      spanCodeSection: for (
+    - startInstruction: 1088
+      endInstruction: 1087
+      startSourceChar: 902
+      endSourceChar: 902
+      line: 33
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 1088
+      endInstruction: 1087
+      startSourceChar: 902
+      endSourceChar: 902
+      line: 33
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 1088
+      endInstruction: 1087
+      startSourceChar: 902
+      endSourceChar: 908
+      line: 33
+      lineChar: 13
+      spanCodeSection: 'int i '
+    - startInstruction: 1088
+      endInstruction: 1087
+      startSourceChar: 908
+      endSourceChar: 910
+      line: 33
+      lineChar: 19
+      spanCodeSection: '= '
+    - startInstruction: 1088
+      endInstruction: 1107
+      startSourceChar: 910
+      endSourceChar: 913
+      line: 33
+      lineChar: 21
+      spanCodeSection: '0; '
+    - startInstruction: 1108
+      endInstruction: 1107
+      startSourceChar: 913
+      endSourceChar: 913
+      line: 33
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 1108
+      endInstruction: 1127
+      startSourceChar: 913
+      endSourceChar: 917
+      line: 33
+      lineChar: 24
+      spanCodeSection: 'i < '
+    - startInstruction: 1128
+      endInstruction: 1175
+      startSourceChar: 917
+      endSourceChar: 922
+      line: 33
+      lineChar: 28
+      spanCodeSection: '13;) '
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 922
+      endSourceChar: 937
+      line: 33
+      lineChar: 33
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 937
+      endSourceChar: 937
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 937
+      endSourceChar: 937
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 937
+      endSourceChar: 937
+      line: 34
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 937
+      endSourceChar: 943
+      line: 34
+      lineChar: 12
+      spanCodeSection: 'int g '
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 943
+      endSourceChar: 945
+      line: 34
+      lineChar: 18
+      spanCodeSection: '= '
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 945
+      endSourceChar: 945
+      line: 34
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 945
+      endSourceChar: 945
+      line: 34
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 945
+      endSourceChar: 945
+      line: 34
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 945
+      endSourceChar: 957
+      line: 34
+      lineChar: 20
+      spanCodeSection: UnityEngine.
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 957
+      endSourceChar: 964
+      line: 34
+      lineChar: 32
+      spanCodeSection: Random.
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 964
+      endSourceChar: 970
+      line: 34
+      lineChar: 39
+      spanCodeSection: Range(
+    - startInstruction: 1176
+      endInstruction: 1175
+      startSourceChar: 970
+      endSourceChar: 974
+      line: 34
+      lineChar: 45
+      spanCodeSection: '11, '
+    - startInstruction: 1176
+      endInstruction: 1227
+      startSourceChar: 974
+      endSourceChar: 992
+      line: 34
+      lineChar: 49
+      spanCodeSection: "47);\r\n            "
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 992
+      endSourceChar: 996
+      line: 35
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 996
+      endSourceChar: 996
+      line: 35
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 996
+      endSourceChar: 996
+      line: 35
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 996
+      endSourceChar: 1007
+      line: 35
+      lineChar: 16
+      spanCodeSection: shuffleInt[
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1007
+      endSourceChar: 1007
+      line: 35
+      lineChar: 27
+      spanCodeSection: 
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1007
+      endSourceChar: 1007
+      line: 35
+      lineChar: 27
+      spanCodeSection: 
+    - startInstruction: 1228
+      endInstruction: 1247
+      startSourceChar: 1007
+      endSourceChar: 1011
+      line: 35
+      lineChar: 27
+      spanCodeSection: 'g - '
+    - startInstruction: 1248
+      endInstruction: 1311
+      startSourceChar: 1011
+      endSourceChar: 1017
+      line: 35
+      lineChar: 31
+      spanCodeSection: '1] != '
+    - startInstruction: 1312
+      endInstruction: 1359
+      startSourceChar: 1017
+      endSourceChar: 1033
+      line: 35
+      lineChar: 37
+      spanCodeSection: "4)\r\n            "
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1033
+      endSourceChar: 1052
+      line: 36
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1052
+      endSourceChar: 1052
+      line: 37
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1052
+      endSourceChar: 1052
+      line: 37
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1052
+      endSourceChar: 1052
+      line: 37
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1052
+      endSourceChar: 1063
+      line: 37
+      lineChar: 16
+      spanCodeSection: shuffleInt[
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1063
+      endSourceChar: 1063
+      line: 37
+      lineChar: 27
+      spanCodeSection: 
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 1063
+      endSourceChar: 1063
+      line: 37
+      lineChar: 27
+      spanCodeSection: 
+    - startInstruction: 1360
+      endInstruction: 1379
+      startSourceChar: 1063
+      endSourceChar: 1067
+      line: 37
+      lineChar: 27
+      spanCodeSection: 'g - '
+    - startInstruction: 1380
+      endInstruction: 1559
+      startSourceChar: 1067
+      endSourceChar: 1091
+      line: 37
+      lineChar: 31
+      spanCodeSection: "1] ++;\r\n                "
+    - startInstruction: 1560
+      endInstruction: 1559
+      startSourceChar: 1091
+      endSourceChar: 1091
+      line: 38
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1560
+      endInstruction: 1559
+      startSourceChar: 1091
+      endSourceChar: 1110
+      line: 38
+      lineChar: 16
+      spanCodeSection: 'randArray[top++] = '
+    - startInstruction: 1560
+      endInstruction: 1663
+      startSourceChar: 1110
+      endSourceChar: 1130
+      line: 38
+      lineChar: 35
+      spanCodeSection: "g;\r\n                "
+    - startInstruction: 1664
+      endInstruction: 1663
+      startSourceChar: 1130
+      endSourceChar: 1130
+      line: 39
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1664
+      endInstruction: 1663
+      startSourceChar: 1130
+      endSourceChar: 1130
+      line: 39
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1664
+      endInstruction: 1743
+      startSourceChar: 1130
+      endSourceChar: 1170
+      line: 39
+      lineChar: 16
+      spanCodeSection: "i++;\r\n            }\r\n        }\r\n        "
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 1170
+      endSourceChar: 1170
+      line: 42
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 1170
+      endSourceChar: 1170
+      line: 42
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 1170
+      endSourceChar: 1180
+      line: 42
+      lineChar: 8
+      spanCodeSection: sortArray(
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 1180
+      endSourceChar: 1191
+      line: 42
+      lineChar: 18
+      spanCodeSection: 'randArray, '
+    - startInstruction: 1744
+      endInstruction: 1819
+      startSourceChar: 1191
+      endSourceChar: 1205
+      line: 42
+      lineChar: 29
+      spanCodeSection: "13);\r\n        "
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1205
+      endSourceChar: 1212
+      line: 43
+      lineChar: 8
+      spanCodeSection: 'return '
+    - startInstruction: 1820
+      endInstruction: 1879
+      startSourceChar: 1212
+      endSourceChar: 1237
+      line: 43
+      lineChar: 15
+      spanCodeSection: "randArray;\r\n    }\r\n\r\n    "
+    - startInstruction: 1880
+      endInstruction: 1887
+      startSourceChar: 1237
+      endSourceChar: 1281
+      line: 46
+      lineChar: 4
+      spanCodeSection: "public int[] sortArray(int[] a, int x)\r\n    "
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1281
+      endSourceChar: 1292
+      line: 47
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1292
+      endSourceChar: 1292
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1292
+      endSourceChar: 1292
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1292
+      endSourceChar: 1292
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1292
+      endSourceChar: 1308
+      line: 48
+      lineChar: 8
+      spanCodeSection: "int i;\r\n        "
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1308
+      endSourceChar: 1308
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1308
+      endSourceChar: 1308
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1308
+      endSourceChar: 1308
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1308
+      endSourceChar: 1324
+      line: 49
+      lineChar: 8
+      spanCodeSection: "int j;\r\n        "
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1324
+      endSourceChar: 1324
+      line: 50
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1324
+      endSourceChar: 1324
+      line: 50
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1324
+      endSourceChar: 1324
+      line: 50
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1324
+      endSourceChar: 1345
+      line: 50
+      lineChar: 8
+      spanCodeSection: "int temp;\r\n\r\n        "
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1345
+      endSourceChar: 1350
+      line: 52
+      lineChar: 8
+      spanCodeSection: for (
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1350
+      endSourceChar: 1354
+      line: 52
+      lineChar: 13
+      spanCodeSection: 'i = '
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1354
+      endSourceChar: 1355
+      line: 52
+      lineChar: 17
+      spanCodeSection: (
+    - startInstruction: 1888
+      endInstruction: 1887
+      startSourceChar: 1355
+      endSourceChar: 1355
+      line: 52
+      lineChar: 18
+      spanCodeSection: 
+    - startInstruction: 1888
+      endInstruction: 1907
+      startSourceChar: 1355
+      endSourceChar: 1359
+      line: 52
+      lineChar: 18
+      spanCodeSection: 'x - '
+    - startInstruction: 1908
+      endInstruction: 1959
+      startSourceChar: 1359
+      endSourceChar: 1363
+      line: 52
+      lineChar: 22
+      spanCodeSection: '1); '
+    - startInstruction: 1960
+      endInstruction: 1959
+      startSourceChar: 1363
+      endSourceChar: 1363
+      line: 52
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 1960
+      endInstruction: 1979
+      startSourceChar: 1363
+      endSourceChar: 1368
+      line: 52
+      lineChar: 26
+      spanCodeSection: 'i >= '
+    - startInstruction: 1980
+      endInstruction: 2027
+      startSourceChar: 1368
+      endSourceChar: 1385
+      line: 52
+      lineChar: 31
+      spanCodeSection: "0; i--)\r\n        "
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1385
+      endSourceChar: 1400
+      line: 53
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1400
+      endSourceChar: 1405
+      line: 54
+      lineChar: 12
+      spanCodeSection: for (
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1405
+      endSourceChar: 1409
+      line: 54
+      lineChar: 17
+      spanCodeSection: 'j = '
+    - startInstruction: 2028
+      endInstruction: 2047
+      startSourceChar: 1409
+      endSourceChar: 1412
+      line: 54
+      lineChar: 21
+      spanCodeSection: '1; '
+    - startInstruction: 2048
+      endInstruction: 2047
+      startSourceChar: 1412
+      endSourceChar: 1412
+      line: 54
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 2048
+      endInstruction: 2067
+      startSourceChar: 1412
+      endSourceChar: 1417
+      line: 54
+      lineChar: 24
+      spanCodeSection: 'j <= '
+    - startInstruction: 2068
+      endInstruction: 2115
+      startSourceChar: 1417
+      endSourceChar: 1438
+      line: 54
+      lineChar: 29
+      spanCodeSection: "i; j++)\r\n            "
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1438
+      endSourceChar: 1457
+      line: 55
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1457
+      endSourceChar: 1461
+      line: 56
+      lineChar: 16
+      spanCodeSection: if (
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1461
+      endSourceChar: 1461
+      line: 56
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1461
+      endSourceChar: 1461
+      line: 56
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1461
+      endSourceChar: 1463
+      line: 56
+      lineChar: 20
+      spanCodeSection: a[
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1463
+      endSourceChar: 1463
+      line: 56
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2116
+      endInstruction: 2115
+      startSourceChar: 1463
+      endSourceChar: 1463
+      line: 56
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2116
+      endInstruction: 2135
+      startSourceChar: 1463
+      endSourceChar: 1467
+      line: 56
+      lineChar: 22
+      spanCodeSection: 'j - '
+    - startInstruction: 2136
+      endInstruction: 2199
+      startSourceChar: 1467
+      endSourceChar: 1472
+      line: 56
+      lineChar: 26
+      spanCodeSection: '1] > '
+    - startInstruction: 2200
+      endInstruction: 2199
+      startSourceChar: 1472
+      endSourceChar: 1472
+      line: 56
+      lineChar: 31
+      spanCodeSection: 
+    - startInstruction: 2200
+      endInstruction: 2199
+      startSourceChar: 1472
+      endSourceChar: 1474
+      line: 56
+      lineChar: 31
+      spanCodeSection: a[
+    - startInstruction: 2200
+      endInstruction: 2199
+      startSourceChar: 1474
+      endSourceChar: 1474
+      line: 56
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 2200
+      endInstruction: 2279
+      startSourceChar: 1474
+      endSourceChar: 1495
+      line: 56
+      lineChar: 33
+      spanCodeSection: "j])\r\n                "
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1495
+      endSourceChar: 1518
+      line: 57
+      lineChar: 16
+      spanCodeSection: "{\r\n                    "
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1518
+      endSourceChar: 1518
+      line: 58
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1518
+      endSourceChar: 1525
+      line: 58
+      lineChar: 20
+      spanCodeSection: 'temp = '
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1525
+      endSourceChar: 1525
+      line: 58
+      lineChar: 27
+      spanCodeSection: 
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1525
+      endSourceChar: 1527
+      line: 58
+      lineChar: 27
+      spanCodeSection: a[
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1527
+      endSourceChar: 1527
+      line: 58
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 2280
+      endInstruction: 2279
+      startSourceChar: 1527
+      endSourceChar: 1527
+      line: 58
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 2280
+      endInstruction: 2299
+      startSourceChar: 1527
+      endSourceChar: 1531
+      line: 58
+      lineChar: 29
+      spanCodeSection: 'j - '
+    - startInstruction: 2300
+      endInstruction: 2383
+      startSourceChar: 1531
+      endSourceChar: 1556
+      line: 58
+      lineChar: 33
+      spanCodeSection: "1];\r\n                    "
+    - startInstruction: 2384
+      endInstruction: 2383
+      startSourceChar: 1556
+      endSourceChar: 1556
+      line: 59
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 2384
+      endInstruction: 2383
+      startSourceChar: 1556
+      endSourceChar: 1567
+      line: 59
+      lineChar: 20
+      spanCodeSection: 'a[j - 1] = '
+    - startInstruction: 2384
+      endInstruction: 2383
+      startSourceChar: 1567
+      endSourceChar: 1567
+      line: 59
+      lineChar: 31
+      spanCodeSection: 
+    - startInstruction: 2384
+      endInstruction: 2383
+      startSourceChar: 1567
+      endSourceChar: 1569
+      line: 59
+      lineChar: 31
+      spanCodeSection: a[
+    - startInstruction: 2384
+      endInstruction: 2383
+      startSourceChar: 1569
+      endSourceChar: 1569
+      line: 59
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 2384
+      endInstruction: 2499
+      startSourceChar: 1569
+      endSourceChar: 1594
+      line: 59
+      lineChar: 33
+      spanCodeSection: "j];\r\n                    "
+    - startInstruction: 2500
+      endInstruction: 2499
+      startSourceChar: 1594
+      endSourceChar: 1594
+      line: 60
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 2500
+      endInstruction: 2499
+      startSourceChar: 1594
+      endSourceChar: 1601
+      line: 60
+      lineChar: 20
+      spanCodeSection: 'a[j] = '
+    - startInstruction: 2500
+      endInstruction: 2691
+      startSourceChar: 1601
+      endSourceChar: 1661
+      line: 60
+      lineChar: 27
+      spanCodeSection: "temp;\r\n                }\r\n            }\r\n        }\r\n
+        \       "
+    - startInstruction: 2692
+      endInstruction: 2691
+      startSourceChar: 1661
+      endSourceChar: 1668
+      line: 64
+      lineChar: 8
+      spanCodeSection: 'return '
+    - startInstruction: 2692
+      endInstruction: 2692
+      startSourceChar: 1668
+      endSourceChar: 1668
+      line: 64
+      lineChar: 15
+      spanCodeSection: 
+  hasInteractEvent: 1
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11500000, guid: f1ac76a8372e67d4783720952f7b5303, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: fieldDefinitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
+        UdonSharp.Editor]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: cardManager1
+    - Name: $v
+      Entry: 7
+      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: CardManager, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCUdonUdonBehaviour
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: cardManager1
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: cardManager1
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: cardManager2
+    - Name: $v
+      Entry: 7
+      Data: 6|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 7|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCUdonUdonBehaviour
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: cardManager2
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: cardManager2
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: cardManager3
+    - Name: $v
+      Entry: 7
+      Data: 9|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 10|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCUdonUdonBehaviour
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: cardManager3
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: cardManager3
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: cardManager4
+    - Name: $v
+      Entry: 7
+      Data: 12|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 13|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: VRCUdonUdonBehaviour
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: cardManager4
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: cardManager4
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: shuffleInt
+    - Name: $v
+      Entry: 7
+      Data: 15|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 16|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 17|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Int32[], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: declarationType
+      Entry: 3
+      Data: 1
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemInt32Array
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: shuffleInt
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: shuffleInt
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
