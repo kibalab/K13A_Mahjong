@@ -350,41 +350,26 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>E:/Unity/K13A_majong/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
     <Reference Include="VRC.Udon.ClientBindings">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.ClientBindings.dll</HintPath>
-    </Reference>
-    <Reference Include="VRCSDK3-Editor">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3-Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="VRCSDK3">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VM">
-      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VM.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CognitoIdentity">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
-    </Reference>
-    <Reference Include="librsync.net">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/librsync/librsync.net.dll</HintPath>
     </Reference>
     <Reference Include="VRC.Udon.Common">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Common.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Core">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.Core.dll</HintPath>
+    <Reference Include="VRC.Udon.Security">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VM">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VM.dll</HintPath>
     </Reference>
     <Reference Include="VRC.Udon.Wrapper">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Wrapper.dll</HintPath>
     </Reference>
-    <Reference Include="VRC.Udon.Security">
-      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Security.dll</HintPath>
+    <Reference Include="AWSSDK.CognitoIdentity">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
-    <Reference Include="VRCSDKBase">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>
+    <Reference Include="AWSSDK.Core">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.S3.dll</HintPath>
@@ -395,14 +380,29 @@
     <Reference Include="DotZLib">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/DotZLib/DotZLib.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="Blake2Sharp">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/librsync/Blake2Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="librsync.net">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/librsync/librsync.net.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="VRCCore-Editor">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCCore-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>E:/Unity/K13A_majong/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -764,6 +764,14 @@
       <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
     </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
+      <Name>UdonSharp.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Editor.csproj">
+      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
+      <Name>UdonSharp.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="VRC.Udon.csproj">
       <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>
       <Name>VRC.Udon</Name>
@@ -775,14 +783,6 @@
     <ProjectReference Include="VRCSDK.ShaderStripping.csproj">
       <Project>{E904A13C-84E8-D6AF-4BBD-3ED67634E3F2}</Project>
       <Name>VRCSDK.ShaderStripping</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
-      <Name>UdonSharp.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Editor.csproj">
-      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
-      <Name>UdonSharp.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
