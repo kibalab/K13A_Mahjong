@@ -12,26 +12,39 @@ public class CardManager : UdonSharpBehaviour
     void Start()
     {
         findCards();
-        SetCard("14", 0);
+        Pickupable(false);
     }
 
     void findCards()
     {
         //배열의 0~13 은 소유카드 14는 추가카드
-        for (int i=0; i<=cardCount; i++)
+        for (int i = 0; i <= cardCount; i++)
         {
             cards[i] = this.gameObject.transform.GetChild(i).gameObject;
         }
     }
 
+    public void Pickupable(bool b)
+    {
+        foreach (GameObject card in cards)
+        {
+            card.GetComponent<BoxCollider>().enabled = b;
+        }
+    }
     public void SetCard(string name, int index)
     {
+        
         foreach (GameObject n in cardSprites)
         {
             if (n.name.Equals(name))
             {
+                
                 cards[index].transform.Find("Display").GetComponent<SpriteRenderer>().sprite = n.GetComponent<SpriteRenderer>().sprite;
                 return;
+            }
+            else
+            {
+                
             }
         }
         
