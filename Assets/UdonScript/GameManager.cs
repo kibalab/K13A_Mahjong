@@ -1,11 +1,11 @@
-using UdonSharp;
+ï»¿using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
 public class GameManager : UdonSharpBehaviour
 {
-    // ÀÌ°Ç ¾À¿¡¼­ ¿¬°áÇØ³õÀ½
+    // ì´ê±´ ì”¬ì—ì„œ ì—°ê²°í•´ë†“ìŒ
     public GameObject CardPool;
     public GameObject Sprites;
     public GameObject CardTable;
@@ -14,18 +14,18 @@ public class GameManager : UdonSharpBehaviour
 
     void Start()
     {
-        // ÇÁ¸®ÆÕ¿¡¼­ µ¿Àû»ı¼ºÇÑ ¾Öµé¿¡ °ªÀÌ Á¦´ë·Î ´ëÀÔÀÌ ¾È µÇ¼­
-        // ±×³É 136°³ ¸¸µé¾î³õ°í ½ÃÀÛÇÏ´Â°Ô ¼ÓÆíÇÒµí
+        // í”„ë¦¬íŒ¹ì—ì„œ ë™ì ìƒì„±í•œ ì• ë“¤ì— ê°’ì´ ì œëŒ€ë¡œ ëŒ€ì…ì´ ì•ˆ ë˜ì„œ
+        // ê·¸ëƒ¥ 136ê°œ ë§Œë“¤ì–´ë†“ê³  ì‹œì‘í•˜ëŠ”ê²Œ ì†í¸í• ë“¯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
 
-        // ¹Ø¿¡Ã³·³ »ı¼º ÇÏÀÚ¸¶ÀÚ °®´Ù¾²¸é Á¶¿ëÇÏ°Ô ¾ÈµÊ (Initialize°¡ ¾ÈºÒ¸²)
-        // »ı¼ºµÇ°í "Á¶±İ ÀÖ´Ù°¡" °®´Ù¾²¸é Initialize°¡ ºÒ¸²
-        // ¿ìµ¿ºñÇìºñ¾îÀÇ ÃÊ±âÈ­ ½Ã°£ÀÌ ÇÊ¿äÇÑ µí ÇÑµ¥ Á¤¸» Â¥ÁõÀÌ ³­´Ù
+        // ë°‘ì—ì²˜ëŸ¼ ìƒì„± í•˜ìë§ˆì ê°–ë‹¤ì“°ë©´ ì¡°ìš©í•˜ê²Œ ì•ˆë¨ (Initializeê°€ ì•ˆë¶ˆë¦¼)
+        // ìƒì„±ë˜ê³  "ì¡°ê¸ˆ ìˆë‹¤ê°€" ê°–ë‹¤ì“°ë©´ Initializeê°€ ë¶ˆë¦¼
+        // ìš°ë™ë¹„í—¤ë¹„ì–´ì˜ ì´ˆê¸°í™” ì‹œê°„ì´ í•„ìš”í•œ ë“¯ í•œë° ì •ë§ ì§œì¦ì´ ë‚œë‹¤
         /*
         var prefab = cards[0].gameObject;
         var newCard = VRCInstantiate(cards[0].gameObject);
         var cardComponent = gg.GetComponentInChildren<CardComponent>();
-        cardComponent.Initialize("¸¸", 5, true);
+        cardComponent.Initialize("ë§Œ", 5, true);
         */
 
         InitializeCards(cards);
@@ -45,13 +45,13 @@ public class GameManager : UdonSharpBehaviour
     {
         var index = 0;
 
-        foreach (var type in new string[3] { "¸¸", "»è", "Åë" })
+        foreach (var type in new string[3] { "ë§Œ", "ì‚­", "í†µ" })
         {
             foreach (var number in new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })
             {
                 for (int i = 0; i < 4; ++i)
                 {
-                    var isDora = (i == 3 ? true : false);
+                    var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5ë§Œ, 5ì‚­, 5í†µë§Œ 4ê°œì¤‘ ë„ë¼ í•˜ë‚˜ë¥¼ ê°€ì§€ê³ ìˆìŒ
                     cards[index++].Initialize(type, number, isDora);
                 }
             }
@@ -59,13 +59,13 @@ public class GameManager : UdonSharpBehaviour
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("¹é", 0, false);
-            cards[index++].Initialize("Áß", 0, false);
-            cards[index++].Initialize("¹ß", 0, false);
-            cards[index++].Initialize("µ¿", 0, false);
-            cards[index++].Initialize("¼­", 0, false);
-            cards[index++].Initialize("³²", 0, false);
-            cards[index++].Initialize("ºÏ", 0, false);
+            cards[index++].Initialize("ë°±", 0, false);
+            cards[index++].Initialize("ì¤‘", 0, false);
+            cards[index++].Initialize("ë°œ", 0, false);
+            cards[index++].Initialize("ë™", 0, false);
+            cards[index++].Initialize("ì„œ", 0, false);
+            cards[index++].Initialize("ë‚¨", 0, false);
+            cards[index++].Initialize("ë¶", 0, false);
         }
 
         UnityEngine.Debug.Log("total index = " + index);
@@ -103,29 +103,38 @@ public class GameManager : UdonSharpBehaviour
         int s = -1;
         var type = cardComponent.Type;
         var cardNum = cardComponent.CardNumber;
+        bool isDora = cardComponent.IsDora;
 
-        return UnityEngine.Random.Range(1, 4) * 10 + UnityEngine.Random.Range(1, 10);
+        //return UnityEngine.Random.Range(1, 4) * 10 + UnityEngine.Random.Range(1, 10); // ì•„ë˜ë¬¸ì œë¥¼ í•´ê²° í–ˆìŒìœ¼ë¡œ ì£¼ì„ì²˜ë¦¬í•¨
 
-        // ÀÌ°Å ¹Ø¿¡²¨ Àß ÀÛµ¿¾ÈÇÔ.. Å×½ºÆ®¿ëÀ¸·Î À§Ã³·³ ¾¸
-        if (type.Equals("¹é") || type.Equals("Áß") || type.Equals("¹ß"))
+        // ì´ê±° ë°‘ì—êº¼ ì˜ ì‘ë™ì•ˆí•¨.. í…ŒìŠ¤íŠ¸ìš©ìœ¼ë¡œ ìœ„ì²˜ëŸ¼ ì”€
+        // ã„´ ì´ê±° CardNumberê°€ 0ë¶€í„° ì‹œì‘í•œë‹¤ëŠ” ìƒê°ìœ¼ë¡œ ì§€ì •í•¨ (í˜„ì¬ëŠ” 1ë¶€í„°ì´ê¸°ì— ê°’ì„ 1ì”© ë‚´ë ¸ìŒ)
+        //    ê·¸ë¦¬ê³  ë„ë¼ Spriteë•Œë¬¸ì— í•œì¹¸ì”© ë°€ë¦¬ê¸¸ë˜ ë„ë¼í‘œì‹œë¥¼ ìœ„í•´ ì˜ˆì™¸ë¥¼ ì¶”ê°€í•¨
+        if (type.Equals("ë°±") || type.Equals("ì¤‘") || type.Equals("ë°œ")) // ë°±ì¤‘ë°œ, ë™ì„œë‚¨ë¶ ìŠ¤í”„ë¼ì´íŠ¸ í‘œì‹œ ì •ìƒì ìœ¼ë¡œ ì•ˆë¨
         {
-            s = 42 + cardNum;
+            s = 37 + cardNum;
         }
-        else if (type.Equals("µ¿") || type.Equals("¼­") || type.Equals("³²") || type.Equals("ºÏ"))
+        else if (type.Equals("ë™") || type.Equals("ì„œ") || type.Equals("ë‚¨") || type.Equals("ë¶"))
         {
-            s = 38 + cardNum;
+            s = 41 + cardNum;
         }
-        else if (type.Equals("¸¸"))
+        else if (type.Equals("ë§Œ"))
         {
-            s = 11 + cardNum;
+            s = 10 + cardNum;
+            if (cardNum >= 5) s++;
+            if(isDora) s++;
         }
-        else if (type.Equals("»è"))
+        else if (type.Equals("ì‚­"))
         {
-            s = 29 + cardNum;
+            s = 30 + cardNum;
+            if (cardNum >= 6) s++;
+            if (isDora) s++;
         }
-        else if (type.Equals("Åë"))
+        else if (type.Equals("í†µ"))
         {
             s = 20 + cardNum;
+            if (cardNum >= 7) s++;
+            if (isDora) s++;
         }
         return s;
     }
