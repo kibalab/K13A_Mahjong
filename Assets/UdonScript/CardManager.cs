@@ -33,20 +33,5 @@ public class CardManager : UdonSharpBehaviour
     }
     public void SetCard(string name, int index)
     {
-        
-        foreach (GameObject n in cardSprites)
-        {
-            if (n.name.Equals(name))
-            {
-                
-                cards[index].transform.Find("Display").GetComponent<SpriteRenderer>().sprite = n.GetComponent<SpriteRenderer>().sprite;
-                return;
-            }
-            else
-            {
-                
-            }
-        }
-        
     }
 }
