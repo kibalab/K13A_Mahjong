@@ -6,8 +6,8 @@ using VRC.Udon;
 
 public class KList : UdonSharpBehaviour
 {
-    KList ()
-    {
+    //KList ()
+    //{
 
-    }
+    //}
 }
