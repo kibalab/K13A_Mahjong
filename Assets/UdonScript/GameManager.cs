@@ -31,7 +31,7 @@ public class GameManager : UdonSharpBehaviour
         cards = ShuffleCards(cards);
     }
 
-    CardComponent[] InitializeCards(CardComponent[] cards)
+    void InitializeCards(CardComponent[] cards)
     {
         var index = 0;
 
@@ -46,6 +46,7 @@ public class GameManager : UdonSharpBehaviour
                 }
             }
         }
+
         for (int i = 0; i < 4; ++i)
         {
             cards[index++].Initialize("น้", 0, false);
@@ -58,8 +59,6 @@ public class GameManager : UdonSharpBehaviour
         }
 
         UnityEngine.Debug.Log("total index = " + index);
-
-        return cards;
     }
 
     Sprite GetCardSprite(int spriteNumber)
