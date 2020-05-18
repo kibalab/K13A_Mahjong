@@ -2,9 +2,10 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-/*
+
 public class Card : UdonSharpBehaviour
 {
+    /*
     public string type;
     public int spriteNum;
     public int cardNum;
@@ -55,5 +56,5 @@ public class Card : UdonSharpBehaviour
         isDora = b;
         return isDora;
     }
+    */
 }
-*/

@@ -5,6 +5,9 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
+
+
+    /*
 public struct Card
 {
     public string type;
@@ -63,8 +66,12 @@ public struct Card
             return isDora_;
         }
     }
+    */
+
+
 public class CardSuffle : UdonSharpBehaviour
 {
+        /*
     public CardManager cardManager1;
     public CardManager cardManager2;
     public CardManager cardManager3;
@@ -123,7 +130,6 @@ public class CardSuffle : UdonSharpBehaviour
         return shuffledCards;
     }
 
-    /*
     public int GetTsumo()
     {
 
@@ -164,7 +170,7 @@ public class CardSuffle : UdonSharpBehaviour
         }
         return -1;
     }
-    */
+    
 
     public int[] sortArray(int[] a, int x)
     {
@@ -185,5 +191,5 @@ public class CardSuffle : UdonSharpBehaviour
             }
         }
         return a;
-    }
+    }*/
 }
