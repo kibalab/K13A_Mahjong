@@ -18,6 +18,16 @@ public class GameManager : UdonSharpBehaviour
         // 그냥 136개 만들어놓고 시작하는게 속편할듯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
 
+        // 밑에처럼 생성 하자마자 갖다쓰면 조용하게 안됨 (Initialize가 안불림)
+        // 생성되고 "조금 있다가" 갖다쓰면 Initialize가 불림
+        // 우동비헤비어의 초기화 시간이 필요한 듯 한데 정말 짜증이 난다
+        /*
+        var prefab = cards[0].gameObject;
+        var newCard = VRCInstantiate(cards[0].gameObject);
+        var cardComponent = gg.GetComponentInChildren<CardComponent>();
+        cardComponent.Initialize("만", 5, true);
+        */
+
         InitializeCards(cards);
 
         foreach (var card in cards)
