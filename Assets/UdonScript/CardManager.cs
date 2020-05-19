@@ -70,7 +70,7 @@ public class CardManager : UdonSharpBehaviour
         {
             for (j = 1; j <= i; j++)
             {
-                if (cards[j - 1].normalCardNumber > cards[j].normalCardNumber)
+                if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
                 {
                     temp = cards[j - 1];
                     cards[j - 1] = cards[j];

@@ -36,7 +36,7 @@ public class GameManager : UdonSharpBehaviour
 
         foreach (var card in cards)
         {
-            var spriteNumber = card.normalCardNumber = GetCardSpriteNumber(card);
+            var spriteNumber = card.NormalCardNumber = GetCardSpriteNumber(card);
             var sprite = GetCardSprite(spriteNumber);
 
             card.SetSprite(sprite);
