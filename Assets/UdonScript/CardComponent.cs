@@ -7,6 +7,7 @@ public class CardComponent : UdonSharpBehaviour
 {
     public string Type;
     public int CardNumber;
+    public int normalCardNumber;
     public bool IsDora;
     
     public void Initialize(string type, int cardNumber, bool isDora)

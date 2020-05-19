@@ -10,13 +10,17 @@ public class GameManager : UdonSharpBehaviour
     public GameObject Sprites;
     public GameObject CardTable;
 
-    CardComponent[] cards;
+    public CardComponent[] cards;
+    public CardManager[] tables;
+
+
 
     void Start()
     {
         // 프리팹에서 동적생성한 애들에 값이 제대로 대입이 안 되서
         // 그냥 136개 만들어놓고 시작하는게 속편할듯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
+        tables = CardTable.GetComponentsInChildren<CardManager>();
 
         // 밑에처럼 생성 하자마자 갖다쓰면 조용하게 안됨 (Initialize가 안불림)
         // 생성되고 "조금 있다가" 갖다쓰면 Initialize가 불림
@@ -32,13 +36,32 @@ public class GameManager : UdonSharpBehaviour
 
         foreach (var card in cards)
         {
-            var spriteNumber = GetCardSpriteNumber(card);
+            var spriteNumber = card.normalCardNumber = GetCardSpriteNumber(card);
             var sprite = GetCardSprite(spriteNumber);
 
             card.SetSprite(sprite);
         }
 
         cards = ShuffleCards(cards);
+        setPositionCards();
+    }
+
+    void setPositionCards()
+    {
+        for(int i = 1; i <= tables.Length; ++i)
+        {
+            tables[i - 1].cards = new CardComponent[14];
+            for (int j = 1; j <= 14; ++j)
+            {
+                tables[i - 1].cards[j - 1] = cards[i * j];
+                //Transform cardPoint = tables[i - 1].transform.GetChild(j-1).transform; // 동:0 남:1 서:2 북:3  배패 개수:14개
+                //Debug.Log(cardPoint.gameObject.name);
+                //cards[i * j].SetPosition(cardPoint.position, cardPoint.rotation);
+
+            }
+            tables[i - 1].setCards();
+        }
+        
     }
 
     void InitializeCards(CardComponent[] cards)
