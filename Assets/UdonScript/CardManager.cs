@@ -8,28 +8,48 @@ public class CardManager : UdonSharpBehaviour
     public string positionName;
     private int cardCount = 13;
     public CardComponent[] cards;
-    public GameObject[] cardPoint = new GameObject[14];
+    public GameObject[] CardPoints;
     void Start()
     {
-        findPoints();
+        // 기존엔 리턴형을 만들어놓고 안 쓰고 있슴니다
+        // findPoints();
+        // 이럴땐 그냥 void로 하거나
+        // 아니면 아래처럼 정확히 리턴해서 받는 함수를 구현하도록 하죠
+
+        // CardPoints = FindPoints();
     }
-    GameObject[] findPoints()
+
+    // 사실 start가 버그의 주범입니다
+    // start 간의 순서도 바꿀 수 없고, 언제 됐는지 알기도 어려워서
+    // 타이밍을 잡을 수 있으면 (보통 매니저가 있으면) 이런거 만들어서 씁니다
+    public void Initialize()
+    {
+        CardPoints = FindPoints();
+    }
+
+    GameObject[] FindPoints()
     {
         //배열의 0~13 은 소유카드 14는 추가카드
+        var cardPoints = new GameObject[14];
         for (int i = 0; i <= cardCount; i++)
         {
             Debug.Log(this.gameObject.transform.GetChild(i).name);
-            cardPoint[i] = this.gameObject.transform.GetChild(i).gameObject;
+            cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
         }
-        return cardPoint;
+        return cardPoints;
     }
 
-    public void setCards()
+    public void SetCards(CardComponent[] pickedCards)
     {
-        for(int i = 0; i<= cardCount; i++)
+        cards = pickedCards;
+
+        for (int i = 0; i<= cardCount; i++)
         {
-            cards[i].SetPosition(cardPoint[i].transform.position, cardPoint[i].transform.rotation); 
+            var pointTransform = CardPoints[i].transform;
+            cards[i].SetPosition(pointTransform.position, pointTransform.transform.rotation); 
         }
+
+        SortCard();
     }
 
     public void Pickupable(bool b)
@@ -39,7 +59,8 @@ public class CardManager : UdonSharpBehaviour
             card.gameObject.GetComponent<BoxCollider>().enabled = b;
         }
     }
-    public CardComponent[] sortCard()
+
+    public CardComponent[] SortCard()
     {
         int i;
         int j;
@@ -59,7 +80,4 @@ public class CardManager : UdonSharpBehaviour
         }
         return cards;
     }
-
-
-
 }

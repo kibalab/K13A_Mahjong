@@ -13,7 +13,7 @@ public class GameManager : UdonSharpBehaviour
     public CardComponent[] cards;
     public CardManager[] tables;
 
-
+    private int currentCardIndex = 0;
 
     void Start()
     {
@@ -43,25 +43,61 @@ public class GameManager : UdonSharpBehaviour
         }
 
         cards = ShuffleCards(cards);
-        setPositionCards();
+        SetPositionCards();
     }
 
-    void setPositionCards()
+    void SetPositionCards()
     {
-        for(int i = 1; i <= tables.Length; ++i)
-        {
-            tables[i - 1].cards = new CardComponent[14];
-            for (int j = 1; j <= 14; ++j)
-            {
-                tables[i - 1].cards[j - 1] = cards[i * j];
-                //Transform cardPoint = tables[i - 1].transform.GetChild(j-1).transform; // 동:0 남:1 서:2 북:3  배패 개수:14개
-                //Debug.Log(cardPoint.gameObject.name);
-                //cards[i * j].SetPosition(cardPoint.position, cardPoint.rotation);
+        // 아래 코드는 책임이 너무 많습니다
+        // 카드를 고르고 테이블의 각 칸에 할당하는 책임까지 갖고 있네요
 
-            }
-            tables[i - 1].setCards();
+        //for(int i = 1; i <= tables.Length; ++i)
+        //{
+        //    tables[i - 1].cards = new CardComponent[14];
+        //    for (int j = 1; j <= 14; ++j)
+        //    {
+        //        tables[i - 1].cards[j - 1] = cards[i * j];
+        //        //Transform cardPoint = tables[i - 1].transform.GetChild(j-1).transform; // 동:0 남:1 서:2 북:3  배패 개수:14개
+        //        //Debug.Log(cardPoint.gameObject.name);
+        //        //cards[i * j].SetPosition(cardPoint.position, cardPoint.rotation);
+
+        //    }
+        //    tables[i - 1].setCards();
+        //}
+
+        // 1. 14개의 카드를 고른다
+        // 2. 카드 테이블에 넘겨준다
+        // 3. 나머지는 카드 테이블이 알아서 하게 합시다
+
+        for (int i = 0; i < tables.Length; ++i)
+        {
+            var pickedCards = GetNextCards(14);
+
+            var table = tables[i];
+            table.Initialize();
+            table.SetCards(pickedCards);
         }
-        
+    }
+
+    // 이렇게 GetNextCard를 구현한 다음
+    // 그걸 활용해서 GetNextCards를 짜는게 종종 있어요 기억해두세요
+
+    CardComponent[] GetNextCards(int count)
+    {
+        var pickedCards = new CardComponent[count];
+
+        for (var i = 0; i < 14; i++)
+        {
+            pickedCards[i] = GetNextCard();
+        }
+
+        return pickedCards;
+    }
+
+    CardComponent GetNextCard()
+    {
+        UnityEngine.Debug.Log("Get Card at " + currentCardIndex);
+        return cards[currentCardIndex++];
     }
 
     void InitializeCards(CardComponent[] cards)
