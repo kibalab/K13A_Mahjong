@@ -10,8 +10,16 @@ public class CardComponent : UdonSharpBehaviour
     public int NormalCardNumber;
     public bool IsDora;
 
-    public void Initialize(string type, int cardNumber, bool isDora)
+    public GameManager gameManager;
+
+    public override void Interact()
     {
+        gameManager.InteractEventQueue(this);
+    }
+
+    public void Initialize(string type, int cardNumber, bool isDora, GameManager gM)
+    {
+        gameManager = gM;
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;

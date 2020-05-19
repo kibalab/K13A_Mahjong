@@ -9,9 +9,14 @@ public class GameManager : UdonSharpBehaviour
     public GameObject CardPool;
     public GameObject Sprites;
     public GameObject CardTable;
+    public GameObject StashTable;
 
     public CardComponent[] cards;
     public CardManager[] tables;
+
+
+    public int turnNum = 0;
+    public string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
 
     private int currentCardIndex = 0;
 
@@ -44,6 +49,31 @@ public class GameManager : UdonSharpBehaviour
 
         cards = ShuffleCards(cards);
         SetPositionCards();
+    }
+    private bool isInterect = false;
+    private CardComponent interectedCard;
+    //public CardComponent[] StashedCards = new CardComponent[70]; // 이부분 U#에서 에러남
+    private void Update()
+    {
+        if (isInterect)
+        {
+            CardComponent lastedStashedCard = interectedCard;
+            if (lastedStashedCard != null)
+            {
+                //StashedCards[StashedCards.Length] = lastedStashedCard;
+            }
+
+            turnNum++;
+            if (turnNum >= 4) turnNum = 0;
+
+            isInterect = false;
+        }
+    }
+    
+    public void InteractEventQueue(CardComponent card) // CardComponent().Interect()
+    {
+        interectedCard = card;
+        isInterect = true;
     }
 
     void SetPositionCards()
@@ -111,21 +141,21 @@ public class GameManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    cards[index++].Initialize(type, number, isDora);
+                    cards[index++].Initialize(type, number, isDora, this);
                 }
             }
         }
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("동", 0, false);
-            cards[index++].Initialize("남", 1, false);
-            cards[index++].Initialize("서", 2, false);
-            cards[index++].Initialize("북", 3, false);
+            cards[index++].Initialize("동", 0, false, this);
+            cards[index++].Initialize("남", 1, false, this);
+            cards[index++].Initialize("서", 2, false, this);
+            cards[index++].Initialize("북", 3, false, this);
 
-            cards[index++].Initialize("백", 0, false);
-            cards[index++].Initialize("발", 1, false);
-            cards[index++].Initialize("중", 2, false);
+            cards[index++].Initialize("백", 0, false, this);
+            cards[index++].Initialize("발", 1, false, this);
+            cards[index++].Initialize("중", 2, false, this);
         }
 
         UnityEngine.Debug.Log("total index = " + index);

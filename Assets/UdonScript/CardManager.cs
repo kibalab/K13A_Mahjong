@@ -9,6 +9,7 @@ public class CardManager : UdonSharpBehaviour
     private int cardCount = 13;
     public CardComponent[] cards;
     public GameObject[] CardPoints;
+    public CardComponent[] StashCard;
     void Start()
     {
         // 기존엔 리턴형을 만들어놓고 안 쓰고 있슴니다
