@@ -10,7 +10,7 @@ public class GameManager : UdonSharpBehaviour
     public GameObject Sprites;
     public GameObject CardTable;
     public GameObject StashTable;
-
+    
     public CardComponent[] cards;
     public CardManager[] tables;
 
@@ -22,6 +22,7 @@ public class GameManager : UdonSharpBehaviour
 
     void Start()
     {
+        
         // 프리팹에서 동적생성한 애들에 값이 제대로 대입이 안 되서
         // 그냥 136개 만들어놓고 시작하는게 속편할듯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
@@ -37,6 +38,14 @@ public class GameManager : UdonSharpBehaviour
         cardComponent.Initialize("만", 5, true);
         */
 
+        KList a = (KList)GameObject.Find("EventQueue").GetComponent(typeof(MonoBehaviour));
+        a.Add(cards[1]);
+        a.Add(cards[2]);
+        a.Add(cards[3]);
+        a.Add(cards[4]);
+        Debug.Log(a.Count);
+        a.RemoveAt(1);
+        Debug.Log(a.Count);
         InitializeCards(cards);
 
         foreach (var card in cards)
@@ -126,7 +135,7 @@ public class GameManager : UdonSharpBehaviour
 
     CardComponent GetNextCard()
     {
-        UnityEngine.Debug.Log("Get Card at " + currentCardIndex);
+        //UnityEngine.Debug.Log("Get Card at " + currentCardIndex);
         return cards[currentCardIndex++];
     }
 
@@ -158,12 +167,12 @@ public class GameManager : UdonSharpBehaviour
             cards[index++].Initialize("중", 2, false, this);
         }
 
-        UnityEngine.Debug.Log("total index = " + index);
+        //UnityEngine.Debug.Log("total index = " + index);
     }
 
     Sprite GetCardSprite(int spriteNumber)
     {
-        UnityEngine.Debug.Log("spriteNumber = " + spriteNumber);
+        //UnityEngine.Debug.Log("spriteNumber = " + spriteNumber);
         var spriteGameObject = Sprites.transform.Find(spriteNumber.ToString());
         var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
 

@@ -34,7 +34,7 @@ public class CardManager : UdonSharpBehaviour
         var cardPoints = new GameObject[14];
         for (int i = 0; i <= cardCount; i++)
         {
-            Debug.Log(this.gameObject.transform.GetChild(i).name);
+            //Debug.Log(this.gameObject.transform.GetChild(i).name);
             cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
         }
         return cardPoints;
