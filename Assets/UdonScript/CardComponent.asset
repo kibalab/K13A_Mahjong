@@ -84,570 +84,570 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 0
-      endSourceChar: 2
+      endSourceChar: 0
       line: 0
-      lineChar: 0
-      spanCodeSection: "\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 2
-      endSourceChar: 2
-      line: 1
       lineChar: 0
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 2
-      endSourceChar: 8
-      line: 1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 8
-      endSourceChar: 20
-      line: 1
+      startSourceChar: 6
+      endSourceChar: 18
+      line: 0
       lineChar: 6
       spanCodeSection: "UdonSharp;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 20
-      endSourceChar: 26
-      line: 2
+      startSourceChar: 18
+      endSourceChar: 24
+      line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 26
-      endSourceChar: 40
-      line: 2
+      startSourceChar: 24
+      endSourceChar: 38
+      line: 1
       lineChar: 6
       spanCodeSection: "UnityEngine;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 40
-      endSourceChar: 46
-      line: 3
+      startSourceChar: 38
+      endSourceChar: 44
+      line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 46
-      line: 3
+      startSourceChar: 44
+      endSourceChar: 44
+      line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 50
-      line: 3
+      startSourceChar: 44
+      endSourceChar: 48
+      line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 50
-      endSourceChar: 60
-      line: 3
+      startSourceChar: 48
+      endSourceChar: 58
+      line: 2
       lineChar: 10
       spanCodeSection: "SDKBase;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 60
-      endSourceChar: 66
-      line: 4
+      startSourceChar: 58
+      endSourceChar: 64
+      line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 66
-      endSourceChar: 66
-      line: 4
+      startSourceChar: 64
+      endSourceChar: 64
+      line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 66
-      endSourceChar: 70
-      line: 4
+      startSourceChar: 64
+      endSourceChar: 68
+      line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 70
-      endSourceChar: 79
-      line: 4
+      startSourceChar: 68
+      endSourceChar: 77
+      line: 3
       lineChar: 10
       spanCodeSection: "Udon;\r\n\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 79
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 77
+      endSourceChar: 104
+      line: 5
       lineChar: 0
       spanCodeSection: 'public class CardComponent '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 108
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 106
+      line: 5
       lineChar: 27
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 108
-      endSourceChar: 108
-      line: 6
+      startSourceChar: 106
+      endSourceChar: 106
+      line: 5
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 108
-      endSourceChar: 135
-      line: 6
+      startSourceChar: 106
+      endSourceChar: 133
+      line: 5
       lineChar: 29
       spanCodeSection: "UdonSharpBehaviour\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 135
-      endSourceChar: 142
-      line: 8
+      startSourceChar: 133
+      endSourceChar: 140
+      line: 7
       lineChar: 4
       spanCodeSection: 'public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 142
-      endSourceChar: 142
-      line: 8
+      startSourceChar: 140
+      endSourceChar: 140
+      line: 7
       lineChar: 11
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 142
-      endSourceChar: 160
-      line: 8
+      startSourceChar: 140
+      endSourceChar: 158
+      line: 7
       lineChar: 11
       spanCodeSection: "string Type;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 160
-      endSourceChar: 167
-      line: 9
+      startSourceChar: 158
+      endSourceChar: 165
+      line: 8
       lineChar: 4
       spanCodeSection: 'public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 167
-      endSourceChar: 167
-      line: 9
+      startSourceChar: 165
+      endSourceChar: 165
+      line: 8
       lineChar: 11
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 167
-      endSourceChar: 188
-      line: 9
+      startSourceChar: 165
+      endSourceChar: 186
+      line: 8
       lineChar: 11
       spanCodeSection: "int CardNumber;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 188
-      endSourceChar: 195
-      line: 10
+      startSourceChar: 186
+      endSourceChar: 193
+      line: 9
       lineChar: 4
       spanCodeSection: 'public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 195
-      endSourceChar: 195
-      line: 10
+      startSourceChar: 193
+      endSourceChar: 193
+      line: 9
       lineChar: 11
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 195
-      endSourceChar: 219
-      line: 10
+      startSourceChar: 193
+      endSourceChar: 217
+      line: 9
       lineChar: 11
       spanCodeSection: "bool IsDora;\r\n    \r\n    "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 219
-      endSourceChar: 289
-      line: 12
+      startSourceChar: 217
+      endSourceChar: 287
+      line: 11
       lineChar: 4
       spanCodeSection: "public void Initialize(string type, int cardNumber, bool isDora)\r\n
         \   "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 289
-      endSourceChar: 300
-      line: 13
+      startSourceChar: 287
+      endSourceChar: 298
+      line: 12
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 300
-      endSourceChar: 300
-      line: 14
+      startSourceChar: 298
+      endSourceChar: 298
+      line: 13
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 300
-      endSourceChar: 307
-      line: 14
+      startSourceChar: 298
+      endSourceChar: 305
+      line: 13
       lineChar: 8
       spanCodeSection: 'Type = '
     - startInstruction: 8
       endInstruction: 27
-      startSourceChar: 307
-      endSourceChar: 322
-      line: 14
+      startSourceChar: 305
+      endSourceChar: 320
+      line: 13
       lineChar: 15
       spanCodeSection: "type;\r\n        "
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 322
-      endSourceChar: 322
-      line: 15
+      startSourceChar: 320
+      endSourceChar: 320
+      line: 14
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 322
-      endSourceChar: 335
-      line: 15
+      startSourceChar: 320
+      endSourceChar: 333
+      line: 14
       lineChar: 8
       spanCodeSection: 'CardNumber = '
     - startInstruction: 28
       endInstruction: 47
-      startSourceChar: 335
-      endSourceChar: 356
-      line: 15
+      startSourceChar: 333
+      endSourceChar: 354
+      line: 14
       lineChar: 21
       spanCodeSection: "cardNumber;\r\n        "
     - startInstruction: 48
       endInstruction: 47
-      startSourceChar: 356
-      endSourceChar: 356
-      line: 16
+      startSourceChar: 354
+      endSourceChar: 354
+      line: 15
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 48
       endInstruction: 47
-      startSourceChar: 356
-      endSourceChar: 365
-      line: 16
+      startSourceChar: 354
+      endSourceChar: 363
+      line: 15
       lineChar: 8
       spanCodeSection: 'IsDora = '
     - startInstruction: 48
       endInstruction: 87
-      startSourceChar: 365
-      endSourceChar: 387
-      line: 16
+      startSourceChar: 363
+      endSourceChar: 385
+      line: 15
       lineChar: 17
       spanCodeSection: "isDora;\r\n    }\r\n\r\n    "
     - startInstruction: 88
       endInstruction: 95
-      startSourceChar: 387
-      endSourceChar: 437
-      line: 19
+      startSourceChar: 385
+      endSourceChar: 435
+      line: 18
       lineChar: 4
       spanCodeSection: "public void SetParent(GameObject gameObject)\r\n    "
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 437
-      endSourceChar: 448
-      line: 20
+      startSourceChar: 435
+      endSourceChar: 446
+      line: 19
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 448
-      endSourceChar: 448
-      line: 21
+      startSourceChar: 446
+      endSourceChar: 446
+      line: 20
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 448
-      endSourceChar: 448
-      line: 21
+      startSourceChar: 446
+      endSourceChar: 446
+      line: 20
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 448
-      endSourceChar: 448
-      line: 21
+      startSourceChar: 446
+      endSourceChar: 446
+      line: 20
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 448
-      endSourceChar: 458
-      line: 21
+      startSourceChar: 446
+      endSourceChar: 456
+      line: 20
       lineChar: 8
       spanCodeSection: transform.
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 458
-      endSourceChar: 468
-      line: 21
+      startSourceChar: 456
+      endSourceChar: 466
+      line: 20
       lineChar: 18
       spanCodeSection: SetParent(
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 468
-      endSourceChar: 468
-      line: 21
+      startSourceChar: 466
+      endSourceChar: 466
+      line: 20
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 468
-      endSourceChar: 479
-      line: 21
+      startSourceChar: 466
+      endSourceChar: 477
+      line: 20
       lineChar: 28
       spanCodeSection: gameObject.
     - startInstruction: 96
       endInstruction: 163
-      startSourceChar: 479
-      endSourceChar: 505
-      line: 21
+      startSourceChar: 477
+      endSourceChar: 503
+      line: 20
       lineChar: 39
       spanCodeSection: "transform);\r\n    }\r\n\r\n    "
     - startInstruction: 164
       endInstruction: 171
-      startSourceChar: 505
-      endSourceChar: 547
-      line: 24
+      startSourceChar: 503
+      endSourceChar: 545
+      line: 23
       lineChar: 4
       spanCodeSection: "public void SetSprite(Sprite sprite)\r\n    "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 547
-      endSourceChar: 558
-      line: 25
+      startSourceChar: 545
+      endSourceChar: 556
+      line: 24
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 558
-      endSourceChar: 558
-      line: 26
+      startSourceChar: 556
+      endSourceChar: 556
+      line: 25
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 558
-      endSourceChar: 558
-      line: 26
+      startSourceChar: 556
+      endSourceChar: 556
+      line: 25
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 558
-      endSourceChar: 570
-      line: 26
+      startSourceChar: 556
+      endSourceChar: 568
+      line: 25
       lineChar: 8
       spanCodeSection: 'var display '
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 570
-      endSourceChar: 572
-      line: 26
+      startSourceChar: 568
+      endSourceChar: 570
+      line: 25
       lineChar: 20
       spanCodeSection: '= '
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 572
-      endSourceChar: 572
-      line: 26
+      startSourceChar: 570
+      endSourceChar: 570
+      line: 25
       lineChar: 22
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 572
-      endSourceChar: 572
-      line: 26
+      startSourceChar: 570
+      endSourceChar: 570
+      line: 25
       lineChar: 22
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 572
-      endSourceChar: 582
-      line: 26
+      startSourceChar: 570
+      endSourceChar: 580
+      line: 25
       lineChar: 22
       spanCodeSection: transform.
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 582
-      endSourceChar: 587
-      line: 26
+      startSourceChar: 580
+      endSourceChar: 585
+      line: 25
       lineChar: 32
       spanCodeSection: Find(
     - startInstruction: 172
       endInstruction: 223
-      startSourceChar: 587
-      endSourceChar: 608
-      line: 26
+      startSourceChar: 585
+      endSourceChar: 606
+      line: 25
       lineChar: 37
       spanCodeSection: "\"Display\");\r\n        "
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 608
-      endSourceChar: 608
-      line: 27
+      startSourceChar: 606
+      endSourceChar: 606
+      line: 26
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 608
-      endSourceChar: 608
-      line: 27
+      startSourceChar: 606
+      endSourceChar: 606
+      line: 26
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 608
-      endSourceChar: 621
-      line: 27
+      startSourceChar: 606
+      endSourceChar: 619
+      line: 26
       lineChar: 8
       spanCodeSection: 'var renderer '
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 621
-      endSourceChar: 623
-      line: 27
+      startSourceChar: 619
+      endSourceChar: 621
+      line: 26
       lineChar: 21
       spanCodeSection: '= '
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 623
-      endSourceChar: 623
-      line: 27
+      startSourceChar: 621
+      endSourceChar: 621
+      line: 26
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 623
-      endSourceChar: 623
-      line: 27
+      startSourceChar: 621
+      endSourceChar: 621
+      line: 26
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 623
-      endSourceChar: 631
-      line: 27
+      startSourceChar: 621
+      endSourceChar: 629
+      line: 26
       lineChar: 23
       spanCodeSection: display.
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 631
-      endSourceChar: 643
-      line: 27
+      startSourceChar: 629
+      endSourceChar: 641
+      line: 26
       lineChar: 31
       spanCodeSection: GetComponent
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 643
-      endSourceChar: 644
-      line: 27
+      startSourceChar: 641
+      endSourceChar: 642
+      line: 26
       lineChar: 43
       spanCodeSection: <
     - startInstruction: 224
       endInstruction: 275
-      startSourceChar: 644
-      endSourceChar: 674
-      line: 27
+      startSourceChar: 642
+      endSourceChar: 672
+      line: 26
       lineChar: 44
       spanCodeSection: "SpriteRenderer>();\r\n\r\n        "
     - startInstruction: 276
       endInstruction: 275
-      startSourceChar: 674
-      endSourceChar: 674
-      line: 29
+      startSourceChar: 672
+      endSourceChar: 672
+      line: 28
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 276
       endInstruction: 275
-      startSourceChar: 674
-      endSourceChar: 692
-      line: 29
+      startSourceChar: 672
+      endSourceChar: 690
+      line: 28
       lineChar: 8
       spanCodeSection: 'renderer.sprite = '
     - startInstruction: 276
       endInstruction: 319
-      startSourceChar: 692
-      endSourceChar: 714
-      line: 29
+      startSourceChar: 690
+      endSourceChar: 712
+      line: 28
       lineChar: 26
       spanCodeSection: "sprite;\r\n    }\r\n\r\n    "
     - startInstruction: 320
       endInstruction: 327
-      startSourceChar: 714
-      endSourceChar: 782
-      line: 32
+      startSourceChar: 712
+      endSourceChar: 780
+      line: 31
       lineChar: 4
       spanCodeSection: "public void SetPosition(Vector3 position, Quaternion rotation)\r\n
         \   "
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 782
-      endSourceChar: 793
-      line: 33
+      startSourceChar: 780
+      endSourceChar: 791
+      line: 32
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 793
-      endSourceChar: 793
-      line: 34
+      startSourceChar: 791
+      endSourceChar: 791
+      line: 33
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 793
-      endSourceChar: 793
-      line: 34
+      startSourceChar: 791
+      endSourceChar: 791
+      line: 33
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 793
-      endSourceChar: 793
-      line: 34
+      startSourceChar: 791
+      endSourceChar: 791
+      line: 33
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 793
-      endSourceChar: 803
-      line: 34
+      startSourceChar: 791
+      endSourceChar: 801
+      line: 33
       lineChar: 8
       spanCodeSection: transform.
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 803
-      endSourceChar: 826
-      line: 34
+      startSourceChar: 801
+      endSourceChar: 824
+      line: 33
       lineChar: 18
       spanCodeSection: SetPositionAndRotation(
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 826
-      endSourceChar: 836
-      line: 34
+      startSourceChar: 824
+      endSourceChar: 834
+      line: 33
       lineChar: 41
       spanCodeSection: 'position, '
     - startInstruction: 328
       endInstruction: 328
-      startSourceChar: 836
-      endSourceChar: 836
-      line: 34
+      startSourceChar: 834
+      endSourceChar: 834
+      line: 33
       lineChar: 51
       spanCodeSection: 
   hasInteractEvent: 0
