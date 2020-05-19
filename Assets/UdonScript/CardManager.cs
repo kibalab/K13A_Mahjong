@@ -48,7 +48,6 @@ public class CardManager : UdonSharpBehaviour
             var pointTransform = CardPoints[i].transform;
             cards[i].SetPosition(pointTransform.position, pointTransform.transform.rotation); 
         }
-
         SortCard();
     }
 
@@ -65,6 +64,7 @@ public class CardManager : UdonSharpBehaviour
         int i;
         int j;
         CardComponent temp;
+        Vector3 tTump;
 
         for (i = (cards.Length - 1); i >= 0; i--)
         {
@@ -72,9 +72,14 @@ public class CardManager : UdonSharpBehaviour
             {
                 if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
                 {
+                    tTump = cards[j - 1].transform.position;
+                    cards[j - 1].transform.position = cards[j].transform.position;
+                    cards[j].transform.position = tTump;
+
                     temp = cards[j - 1];
                     cards[j - 1] = cards[j];
                     cards[j] = temp;
+                    
                 }
             }
         }

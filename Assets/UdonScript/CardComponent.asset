@@ -15,17 +15,18 @@ MonoBehaviour:
   serializedUdonProgramAsset: {fileID: 11400000, guid: 2f7148184bce6c8468ea6f082d1aaa04,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export Type\r\n    .export CardNumber\r\n
-    \   .export IsDora\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n
-    \   __refl_const_intnl_udonTypeName: %SystemString, null\r\n    IsDora: %SystemBoolean,
-    null\r\n    CardNumber: %SystemInt32, null\r\n    Type: %SystemString, null\r\n
-    \   __0_this_intnl_UnityEngineTransform: %UnityEngineTransform, this\r\n    __0_isDora_Boolean:
-    %SystemBoolean, null\r\n    __0_gameObject_GameObject: %UnityEngineGameObject,
-    null\r\n    __0_cardNumber_Int32: %SystemInt32, null\r\n    __0_rotation_Quaternion:
-    %UnityEngineQuaternion, null\r\n    __0_sprite_Sprite: %UnityEngineSprite, null\r\n
-    \   __0_renderer_SpriteRenderer: %UnityEngineSpriteRenderer, null\r\n    __0_type_String:
-    %SystemString, null\r\n    __0_display_Transform: %UnityEngineTransform, null\r\n
-    \   __0_position_Vector3: %UnityEngineVector3, null\r\n    __0_const_intnl_SystemString:
-    %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_SystemUInt32:
+    \   .export NormalCardNumber\r\n    .export IsDora\r\n\r\n    __refl_const_intnl_udonTypeID:
+    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
+    \   IsDora: %SystemBoolean, null\r\n    CardNumber: %SystemInt32, null\r\n    NormalCardNumber:
+    %SystemInt32, null\r\n    Type: %SystemString, null\r\n    __0_this_intnl_UnityEngineTransform:
+    %UnityEngineTransform, this\r\n    __0_isDora_Boolean: %SystemBoolean, null\r\n
+    \   __0_gameObject_GameObject: %UnityEngineGameObject, null\r\n    __0_cardNumber_Int32:
+    %SystemInt32, null\r\n    __0_rotation_Quaternion: %UnityEngineQuaternion, null\r\n
+    \   __0_sprite_Sprite: %UnityEngineSprite, null\r\n    __0_renderer_SpriteRenderer:
+    %UnityEngineSpriteRenderer, null\r\n    __0_type_String: %SystemString, null\r\n
+    \   __0_display_Transform: %UnityEngineTransform, null\r\n    __0_position_Vector3:
+    %UnityEngineVector3, null\r\n    __0_const_intnl_SystemString: %SystemString,
+    null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_SystemUInt32:
     %SystemUInt32, null\r\n    __0_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer,
     null\r\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform, null\r\n    __1_intnl_UnityEngineTransform:
     %UnityEngineTransform, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
@@ -34,15 +35,16 @@ MonoBehaviour:
     \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
     CardComponent : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # public
     string Type;\r\n        \r\n         # public int CardNumber;\r\n        \r\n
-    \        # public bool IsDora;\r\n        \r\n         # public void Initialize(string
-    type, int cardNumber, bool isDora)\r\n    .export Initialize\r\n        \r\n    Initialize:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # Type = type;\r\n        PUSH, __0_type_String\r\n
-    \       PUSH, Type\r\n        COPY\r\n        \r\n         # CardNumber = cardNumber;\r\n
-    \       PUSH, __0_cardNumber_Int32\r\n        PUSH, CardNumber\r\n        COPY\r\n
-    \       \r\n         # IsDora = isDora;\r\n        PUSH, __0_isDora_Boolean\r\n
-    \       PUSH, IsDora\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \        # public int NormalCardNumber;\r\n        \r\n         # public bool
+    IsDora;\r\n        \r\n         # public void Initialize(string type, int cardNumber,
+    bool isDora)\r\n    .export Initialize\r\n        \r\n    Initialize:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # Type = type;\r\n        PUSH, __0_type_String\r\n        PUSH, Type\r\n
+    \       COPY\r\n        \r\n         # CardNumber = cardNumber;\r\n        PUSH,
+    __0_cardNumber_Int32\r\n        PUSH, CardNumber\r\n        COPY\r\n        \r\n
+    \        # IsDora = isDora;\r\n        PUSH, __0_isDora_Boolean\r\n        PUSH,
+    IsDora\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void SetParent(GameObject gameObject)\r\n
     \   .export SetParent\r\n        \r\n    SetParent:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
@@ -266,388 +268,409 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 193
-      endSourceChar: 217
+      endSourceChar: 220
       line: 9
       lineChar: 11
-      spanCodeSection: "bool IsDora;\r\n    \r\n    "
+      spanCodeSection: "int NormalCardNumber;\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 220
+      endSourceChar: 227
+      line: 10
+      lineChar: 4
+      spanCodeSection: 'public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 227
+      endSourceChar: 227
+      line: 10
+      lineChar: 11
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 227
+      endSourceChar: 247
+      line: 10
+      lineChar: 11
+      spanCodeSection: "bool IsDora;\r\n\r\n    "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 217
-      endSourceChar: 287
-      line: 11
+      startSourceChar: 247
+      endSourceChar: 317
+      line: 12
       lineChar: 4
       spanCodeSection: "public void Initialize(string type, int cardNumber, bool isDora)\r\n
         \   "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 287
-      endSourceChar: 298
-      line: 12
+      startSourceChar: 317
+      endSourceChar: 328
+      line: 13
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 298
-      endSourceChar: 298
-      line: 13
+      startSourceChar: 328
+      endSourceChar: 328
+      line: 14
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 298
-      endSourceChar: 305
-      line: 13
+      startSourceChar: 328
+      endSourceChar: 335
+      line: 14
       lineChar: 8
       spanCodeSection: 'Type = '
     - startInstruction: 8
       endInstruction: 27
-      startSourceChar: 305
-      endSourceChar: 320
-      line: 13
+      startSourceChar: 335
+      endSourceChar: 350
+      line: 14
       lineChar: 15
       spanCodeSection: "type;\r\n        "
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 320
-      endSourceChar: 320
-      line: 14
+      startSourceChar: 350
+      endSourceChar: 350
+      line: 15
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 28
       endInstruction: 27
-      startSourceChar: 320
-      endSourceChar: 333
-      line: 14
+      startSourceChar: 350
+      endSourceChar: 363
+      line: 15
       lineChar: 8
       spanCodeSection: 'CardNumber = '
     - startInstruction: 28
       endInstruction: 47
-      startSourceChar: 333
-      endSourceChar: 354
-      line: 14
+      startSourceChar: 363
+      endSourceChar: 384
+      line: 15
       lineChar: 21
       spanCodeSection: "cardNumber;\r\n        "
     - startInstruction: 48
       endInstruction: 47
-      startSourceChar: 354
-      endSourceChar: 354
-      line: 15
+      startSourceChar: 384
+      endSourceChar: 384
+      line: 16
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 48
       endInstruction: 47
-      startSourceChar: 354
-      endSourceChar: 363
-      line: 15
+      startSourceChar: 384
+      endSourceChar: 393
+      line: 16
       lineChar: 8
       spanCodeSection: 'IsDora = '
     - startInstruction: 48
       endInstruction: 87
-      startSourceChar: 363
-      endSourceChar: 385
-      line: 15
+      startSourceChar: 393
+      endSourceChar: 415
+      line: 16
       lineChar: 17
       spanCodeSection: "isDora;\r\n    }\r\n\r\n    "
     - startInstruction: 88
       endInstruction: 95
-      startSourceChar: 385
-      endSourceChar: 435
-      line: 18
+      startSourceChar: 415
+      endSourceChar: 465
+      line: 19
       lineChar: 4
       spanCodeSection: "public void SetParent(GameObject gameObject)\r\n    "
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 435
-      endSourceChar: 446
-      line: 19
+      startSourceChar: 465
+      endSourceChar: 476
+      line: 20
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 446
-      endSourceChar: 446
-      line: 20
+      startSourceChar: 476
+      endSourceChar: 476
+      line: 21
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 446
-      endSourceChar: 446
-      line: 20
+      startSourceChar: 476
+      endSourceChar: 476
+      line: 21
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 446
-      endSourceChar: 446
-      line: 20
+      startSourceChar: 476
+      endSourceChar: 476
+      line: 21
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 446
-      endSourceChar: 456
-      line: 20
+      startSourceChar: 476
+      endSourceChar: 486
+      line: 21
       lineChar: 8
       spanCodeSection: transform.
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 456
-      endSourceChar: 466
-      line: 20
+      startSourceChar: 486
+      endSourceChar: 496
+      line: 21
       lineChar: 18
       spanCodeSection: SetParent(
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 466
-      endSourceChar: 466
-      line: 20
+      startSourceChar: 496
+      endSourceChar: 496
+      line: 21
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
-      startSourceChar: 466
-      endSourceChar: 477
-      line: 20
+      startSourceChar: 496
+      endSourceChar: 507
+      line: 21
       lineChar: 28
       spanCodeSection: gameObject.
     - startInstruction: 96
       endInstruction: 163
-      startSourceChar: 477
-      endSourceChar: 503
-      line: 20
+      startSourceChar: 507
+      endSourceChar: 533
+      line: 21
       lineChar: 39
       spanCodeSection: "transform);\r\n    }\r\n\r\n    "
     - startInstruction: 164
       endInstruction: 171
-      startSourceChar: 503
-      endSourceChar: 545
-      line: 23
+      startSourceChar: 533
+      endSourceChar: 575
+      line: 24
       lineChar: 4
       spanCodeSection: "public void SetSprite(Sprite sprite)\r\n    "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 545
-      endSourceChar: 556
-      line: 24
+      startSourceChar: 575
+      endSourceChar: 586
+      line: 25
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 556
-      endSourceChar: 556
-      line: 25
+      startSourceChar: 586
+      endSourceChar: 586
+      line: 26
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 556
-      endSourceChar: 556
-      line: 25
+      startSourceChar: 586
+      endSourceChar: 586
+      line: 26
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 556
-      endSourceChar: 568
-      line: 25
+      startSourceChar: 586
+      endSourceChar: 598
+      line: 26
       lineChar: 8
       spanCodeSection: 'var display '
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 568
-      endSourceChar: 570
-      line: 25
+      startSourceChar: 598
+      endSourceChar: 600
+      line: 26
       lineChar: 20
       spanCodeSection: '= '
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 570
-      endSourceChar: 570
-      line: 25
+      startSourceChar: 600
+      endSourceChar: 600
+      line: 26
       lineChar: 22
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 570
-      endSourceChar: 570
-      line: 25
+      startSourceChar: 600
+      endSourceChar: 600
+      line: 26
       lineChar: 22
       spanCodeSection: 
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 570
-      endSourceChar: 580
-      line: 25
+      startSourceChar: 600
+      endSourceChar: 610
+      line: 26
       lineChar: 22
       spanCodeSection: transform.
     - startInstruction: 172
       endInstruction: 171
-      startSourceChar: 580
-      endSourceChar: 585
-      line: 25
+      startSourceChar: 610
+      endSourceChar: 615
+      line: 26
       lineChar: 32
       spanCodeSection: Find(
     - startInstruction: 172
       endInstruction: 223
-      startSourceChar: 585
-      endSourceChar: 606
-      line: 25
+      startSourceChar: 615
+      endSourceChar: 636
+      line: 26
       lineChar: 37
       spanCodeSection: "\"Display\");\r\n        "
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 606
-      endSourceChar: 606
-      line: 26
+      startSourceChar: 636
+      endSourceChar: 636
+      line: 27
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 606
-      endSourceChar: 606
-      line: 26
+      startSourceChar: 636
+      endSourceChar: 636
+      line: 27
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 606
-      endSourceChar: 619
-      line: 26
+      startSourceChar: 636
+      endSourceChar: 649
+      line: 27
       lineChar: 8
       spanCodeSection: 'var renderer '
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 619
-      endSourceChar: 621
-      line: 26
+      startSourceChar: 649
+      endSourceChar: 651
+      line: 27
       lineChar: 21
       spanCodeSection: '= '
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 621
-      endSourceChar: 621
-      line: 26
+      startSourceChar: 651
+      endSourceChar: 651
+      line: 27
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 621
-      endSourceChar: 621
-      line: 26
+      startSourceChar: 651
+      endSourceChar: 651
+      line: 27
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 621
-      endSourceChar: 629
-      line: 26
+      startSourceChar: 651
+      endSourceChar: 659
+      line: 27
       lineChar: 23
       spanCodeSection: display.
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 629
-      endSourceChar: 641
-      line: 26
+      startSourceChar: 659
+      endSourceChar: 671
+      line: 27
       lineChar: 31
       spanCodeSection: GetComponent
     - startInstruction: 224
       endInstruction: 223
-      startSourceChar: 641
-      endSourceChar: 642
-      line: 26
+      startSourceChar: 671
+      endSourceChar: 672
+      line: 27
       lineChar: 43
       spanCodeSection: <
     - startInstruction: 224
       endInstruction: 275
-      startSourceChar: 642
-      endSourceChar: 672
-      line: 26
+      startSourceChar: 672
+      endSourceChar: 702
+      line: 27
       lineChar: 44
       spanCodeSection: "SpriteRenderer>();\r\n\r\n        "
     - startInstruction: 276
       endInstruction: 275
-      startSourceChar: 672
-      endSourceChar: 672
-      line: 28
+      startSourceChar: 702
+      endSourceChar: 702
+      line: 29
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 276
       endInstruction: 275
-      startSourceChar: 672
-      endSourceChar: 690
-      line: 28
+      startSourceChar: 702
+      endSourceChar: 720
+      line: 29
       lineChar: 8
       spanCodeSection: 'renderer.sprite = '
     - startInstruction: 276
       endInstruction: 319
-      startSourceChar: 690
-      endSourceChar: 712
-      line: 28
+      startSourceChar: 720
+      endSourceChar: 742
+      line: 29
       lineChar: 26
       spanCodeSection: "sprite;\r\n    }\r\n\r\n    "
     - startInstruction: 320
       endInstruction: 327
-      startSourceChar: 712
-      endSourceChar: 780
-      line: 31
+      startSourceChar: 742
+      endSourceChar: 810
+      line: 32
       lineChar: 4
       spanCodeSection: "public void SetPosition(Vector3 position, Quaternion rotation)\r\n
         \   "
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 780
-      endSourceChar: 791
-      line: 32
+      startSourceChar: 810
+      endSourceChar: 821
+      line: 33
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 791
-      endSourceChar: 791
-      line: 33
+      startSourceChar: 821
+      endSourceChar: 821
+      line: 34
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 791
-      endSourceChar: 791
-      line: 33
+      startSourceChar: 821
+      endSourceChar: 821
+      line: 34
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 791
-      endSourceChar: 791
-      line: 33
+      startSourceChar: 821
+      endSourceChar: 821
+      line: 34
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 791
-      endSourceChar: 801
-      line: 33
+      startSourceChar: 821
+      endSourceChar: 831
+      line: 34
       lineChar: 8
       spanCodeSection: transform.
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 801
-      endSourceChar: 824
-      line: 33
+      startSourceChar: 831
+      endSourceChar: 854
+      line: 34
       lineChar: 18
       spanCodeSection: SetPositionAndRotation(
     - startInstruction: 328
       endInstruction: 327
-      startSourceChar: 824
-      endSourceChar: 834
-      line: 33
+      startSourceChar: 854
+      endSourceChar: 864
+      line: 34
       lineChar: 41
       spanCodeSection: 'position, '
     - startInstruction: 328
       endInstruction: 328
-      startSourceChar: 834
-      endSourceChar: 834
-      line: 33
+      startSourceChar: 864
+      endSourceChar: 864
+      line: 34
       lineChar: 51
       spanCodeSection: 
   hasInteractEvent: 0
@@ -661,211 +684,5 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: fieldDefinitions
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UdonSharp.FieldDefinition,
-        UdonSharp.Editor]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Type
-    - Name: $v
-      Entry: 7
-      Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 3|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 4|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: System.String, mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: SystemString
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: Type
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: Type
-    - Name: symbolDefaultValue
       Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fieldAttributes
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: userBehaviourSource
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: CardNumber
-    - Name: $v
-      Entry: 7
-      Data: 6|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 7|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 8|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: System.Int32, mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: SystemInt32
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: CardNumber
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: CardNumber
-    - Name: symbolDefaultValue
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fieldAttributes
-      Entry: 7
-      Data: 9|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: userBehaviourSource
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: IsDora
-    - Name: $v
-      Entry: 7
-      Data: 10|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 11|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 7
-      Data: 12|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: System.Boolean, mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 0
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: SystemBoolean
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: IsDora
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: IsDora
-    - Name: symbolDefaultValue
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fieldAttributes
-      Entry: 7
-      Data: 13|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: userBehaviourSource
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
       Data: 
