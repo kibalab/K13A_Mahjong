@@ -59,13 +59,14 @@ public class GameManager : UdonSharpBehaviour
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("백", 0, false);
-            cards[index++].Initialize("중", 0, false);
-            cards[index++].Initialize("발", 0, false);
             cards[index++].Initialize("동", 0, false);
-            cards[index++].Initialize("서", 0, false);
-            cards[index++].Initialize("남", 0, false);
-            cards[index++].Initialize("북", 0, false);
+            cards[index++].Initialize("남", 1, false);
+            cards[index++].Initialize("서", 2, false);
+            cards[index++].Initialize("북", 3, false);
+
+            cards[index++].Initialize("백", 0, false);
+            cards[index++].Initialize("발", 1, false);
+            cards[index++].Initialize("중", 2, false);
         }
 
         UnityEngine.Debug.Log("total index = " + index);
@@ -110,11 +111,11 @@ public class GameManager : UdonSharpBehaviour
         // 이거 밑에꺼 잘 작동안함.. 테스트용으로 위처럼 씀
         // ㄴ 이거 CardNumber가 0부터 시작한다는 생각으로 지정함 (현재는 1부터이기에 값을 1씩 내렸음)
         //    그리고 도라 Sprite때문에 한칸씩 밀리길래 도라표시를 위해 예외를 추가함
-        if (type.Equals("백") || type.Equals("중") || type.Equals("발")) // 백중발, 동서남북 스프라이트 표시 정상적으로 안됨
+        if (type.Equals("백") || type.Equals("발") || type.Equals("중")) // 백발중, 동남서북 스프라이트 표시 정상적으로 안됨
         {
-            s = 37 + cardNum;
+            s = 45 + cardNum;
         }
-        else if (type.Equals("동") || type.Equals("서") || type.Equals("남") || type.Equals("북"))
+        else if (type.Equals("동") || type.Equals("남") || type.Equals("서") || type.Equals("북")) //마작 방위패 순서 : 동남서북
         {
             s = 41 + cardNum;
         }
