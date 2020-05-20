@@ -43,6 +43,11 @@ public class KList : UdonSharpBehaviour
         return r;
     }
 
+    public object index(int i)
+    {
+        return cards1[i];
+    }
+
     public bool Clear()
     {
         cards1 = new object[0];
@@ -88,8 +93,9 @@ public class KList : UdonSharpBehaviour
         return cards1;
     }
 
-    public object[] RemoveAt(int index)
+    public object RemoveAt(int index)
     {
+        object r = cards1[index];
         cards2 = cards1;
         cards1 = new object[cards2.Length - 1];
         for (int i = 0, j = 0; i < cards2.Length; i++, j++)
@@ -105,6 +111,6 @@ public class KList : UdonSharpBehaviour
         }
         Count--;
         cards2 = new object[0];
-        return cards1;
+        return r;
     }
 }

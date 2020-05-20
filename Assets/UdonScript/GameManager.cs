@@ -10,9 +10,11 @@ public class GameManager : UdonSharpBehaviour
     public GameObject Sprites;
     public GameObject CardTable;
     public GameObject StashTable;
+    public GameObject EventQueueObject;
     
     public CardComponent[] cards;
     public CardManager[] tables;
+    public EventQueue eventQueue;
 
 
     public int turnNum = 0;
@@ -27,6 +29,7 @@ public class GameManager : UdonSharpBehaviour
         // 그냥 136개 만들어놓고 시작하는게 속편할듯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
         tables = CardTable.GetComponentsInChildren<CardManager>();
+        eventQueue = EventQueueObject.GetComponentInChildren<EventQueue>();
 
         // 밑에처럼 생성 하자마자 갖다쓰면 조용하게 안됨 (Initialize가 안불림)
         // 생성되고 "조금 있다가" 갖다쓰면 Initialize가 불림
@@ -38,14 +41,6 @@ public class GameManager : UdonSharpBehaviour
         cardComponent.Initialize("만", 5, true);
         */
 
-        KList a = (KList)GameObject.Find("EventQueue").GetComponent(typeof(MonoBehaviour));
-        a.Add(cards[1]);
-        a.Add(cards[2]);
-        a.Add(cards[3]);
-        a.Add(cards[4]);
-        Debug.Log(a.Count);
-        a.RemoveAt(1);
-        Debug.Log(a.Count);
         InitializeCards(cards);
 
         foreach (var card in cards)
@@ -59,30 +54,21 @@ public class GameManager : UdonSharpBehaviour
         cards = ShuffleCards(cards);
         SetPositionCards();
     }
-    private bool isInterect = false;
-    private CardComponent interectedCard;
+    
     //public CardComponent[] StashedCards = new CardComponent[70]; // 이부분 U#에서 에러남
     private void Update()
     {
-        if (isInterect)
+        if (!eventQueue.IsQueueEmpty())
         {
-            CardComponent lastedStashedCard = interectedCard;
+            CardComponent lastedStashedCard = eventQueue.Dequeue();
             if (lastedStashedCard != null)
             {
                 //StashedCards[StashedCards.Length] = lastedStashedCard;
             }
 
             turnNum++;
-            if (turnNum >= 4) turnNum = 0;
-
-            isInterect = false;
+            if (turnNum >= 4) turnNum = 0; 
         }
-    }
-    
-    public void InteractEventQueue(CardComponent card) // CardComponent().Interect()
-    {
-        interectedCard = card;
-        isInterect = true;
     }
 
     void SetPositionCards()
@@ -150,21 +136,21 @@ public class GameManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    cards[index++].Initialize(type, number, isDora, this);
+                    cards[index++].Initialize(type, number, isDora, eventQueue);
                 }
             }
         }
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("동", 0, false, this);
-            cards[index++].Initialize("남", 1, false, this);
-            cards[index++].Initialize("서", 2, false, this);
-            cards[index++].Initialize("북", 3, false, this);
+            cards[index++].Initialize("동", 0, false, eventQueue);
+            cards[index++].Initialize("남", 1, false, eventQueue);
+            cards[index++].Initialize("서", 2, false, eventQueue);
+            cards[index++].Initialize("북", 3, false, eventQueue);
 
-            cards[index++].Initialize("백", 0, false, this);
-            cards[index++].Initialize("발", 1, false, this);
-            cards[index++].Initialize("중", 2, false, this);
+            cards[index++].Initialize("백", 0, false, eventQueue);
+            cards[index++].Initialize("발", 1, false, eventQueue);
+            cards[index++].Initialize("중", 2, false, eventQueue);
         }
 
         //UnityEngine.Debug.Log("total index = " + index);
