@@ -66,15 +66,19 @@ public class GameManager : UdonSharpBehaviour
             {
                 //StashedCards[StashedCards.Length] = lastedStashedCard;
             }
-            
+            tables[turnNum].AddCard(GetNextCard(), lastedStashedCard);
             lastedStashedCard.SetColliderActivate(false);
             Transform stashPoint = StashTable.transform.GetChild(turnNum).GetChild(stashCount[turnNum]++);
             lastedStashedCard.SetPosition(stashPoint.position, stashPoint.rotation);
-            tables[turnNum].AddCard(GetNextCard(), lastedStashedCard);
 
             turnNum++;
             if (turnNum >= 4) turnNum = 0;
             //GetNextCards(1)[0].SetPosition;
+        }
+        
+        for (var i = 0; i < 4; i++)
+        {
+            tables[i].Pickupable(i == turnNum);
         }
     }
 
@@ -107,6 +111,7 @@ public class GameManager : UdonSharpBehaviour
 
             var table = tables[i];
             table.Initialize();
+            table.Pickupable(false);
             table.SetCards(pickedCards);
         }
     }

@@ -29,17 +29,30 @@ public class CardManager : UdonSharpBehaviour
 
     public void AddCard(CardComponent plusCard, CardComponent stashCard) //Âê¸ð Ãß°¡ÆÐ
     {
-        CardComponent tmp = cards[cardCount];
-        cards[cardCount] = plusCard;
+        /*CardComponent tmp = cards[cardCount];
         plusCard.SetPosition(tmp.transform.position, tmp.transform.rotation);
-        for (var i = 0; i<=13; i++)
+        cards[cardCount] = plusCard;
+        for (var i = 0; i<14; i++)
         {
             if(cards[i] == stashCard)
             {
+                
                 cards[i] = tmp;
                 tmp.SetPosition(CardPoints[i].transform.position, CardPoints[i].transform.rotation);
             }
+        }*/
+        var i = 0;
+        for (; i < 14; i++)
+        {
+            if (cards[i] == stashCard)
+            {
+                break;
+            }
         }
+        plusCard.SetPosition(cards[13].transform.position, cards[13].transform.rotation);
+        cards[13].SetPosition(cards[i].transform.position, cards[i].transform.rotation);
+        cards[i] = cards[13];
+        cards[13] = plusCard;
         SortCard();
     }
 
