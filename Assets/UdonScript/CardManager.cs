@@ -9,7 +9,6 @@ public class CardManager : UdonSharpBehaviour
     private int cardCount = 13;
     public CardComponent[] cards;
     public GameObject[] CardPoints;
-    public CardComponent[] StashCard;
     void Start()
     {
         // 기존엔 리턴형을 만들어놓고 안 쓰고 있슴니다
@@ -26,6 +25,22 @@ public class CardManager : UdonSharpBehaviour
     public void Initialize()
     {
         CardPoints = FindPoints();
+    }
+
+    public void AddCard(CardComponent plusCard, CardComponent stashCard) //쯔모 추가패
+    {
+        CardComponent tmp = cards[cardCount];
+        cards[cardCount] = plusCard;
+        plusCard.SetPosition(tmp.transform.position, tmp.transform.rotation);
+        for (var i = 0; i<=13; i++)
+        {
+            if(cards[i] == stashCard)
+            {
+                cards[i] = tmp;
+                tmp.SetPosition(CardPoints[i].transform.position, CardPoints[i].transform.rotation);
+            }
+        }
+        SortCard();
     }
 
     GameObject[] FindPoints()
@@ -67,7 +82,7 @@ public class CardManager : UdonSharpBehaviour
         CardComponent temp;
         Vector3 tTump;
 
-        for (i = (cards.Length - 1); i >= 0; i--)
+        for (i = (cards.Length - 2); i >= 0; i--)
         {
             for (j = 1; j <= i; j++)
             {

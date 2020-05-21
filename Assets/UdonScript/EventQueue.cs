@@ -6,36 +6,32 @@ using VRC.Udon;
 
 public class EventQueue : UdonSharpBehaviour
 {
-    public GameManager gameManager;
-    public KList events;
-    
+    public CardComponent[] components;
+    public int Count = 0;
+
 
     private void Start()
     {
+         components = new CardComponent[256];
     }
+
+    public bool IsQueueEmpty() { return Count == 0; }
 
     public void Enqueue(CardComponent component) 
     {
-        events.Add(component);
+        components[Count++] = component;
     }
 
     public CardComponent Dequeue() 
     {
-        return (CardComponent)events.RemoveAt(0);
-    }
-
-    public bool IsQueueEmpty() 
-    {
-        bool IsEmpty;
-        if(events.Count <= 0)
+        Debug.Log(Count);
+        CardComponent tmp = components[0];
+        components[0] = null;
+        for (var i = 1; i < Count; i++)
         {
-            return true;
-            IsEmpty = true;
-        } else
-        {
-            return false;
-            IsEmpty = false;
+            components[i-1] = components[i - 1];
         }
-        return IsEmpty;
+        Count--;
+        return tmp;
     }
 }
