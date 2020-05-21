@@ -18,6 +18,7 @@ public class GameManager : UdonSharpBehaviour
 
 
     public int turnNum = 0;
+    public int[] stashCount = new int[4] { 0, 0, 0, 0 };
     public string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
 
     private int currentCardIndex = 0;
@@ -65,9 +66,15 @@ public class GameManager : UdonSharpBehaviour
             {
                 //StashedCards[StashedCards.Length] = lastedStashedCard;
             }
+            
+            lastedStashedCard.SetColliderActivate(false);
+            Transform stashPoint = StashTable.transform.GetChild(turnNum).GetChild(stashCount[turnNum]++);
+            lastedStashedCard.SetPosition(stashPoint.position, stashPoint.rotation);
+            tables[turnNum].AddCard(GetNextCard(), lastedStashedCard);
 
             turnNum++;
-            if (turnNum >= 4) turnNum = 0; 
+            if (turnNum >= 4) turnNum = 0;
+            //GetNextCards(1)[0].SetPosition;
         }
     }
 
@@ -111,7 +118,7 @@ public class GameManager : UdonSharpBehaviour
     {
         var pickedCards = new CardComponent[count];
 
-        for (var i = 0; i < 14; i++)
+        for (var i = 0; i < count; i++)
         {
             pickedCards[i] = GetNextCard();
         }
