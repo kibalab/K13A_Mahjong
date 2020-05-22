@@ -9,7 +9,6 @@ public class EventQueue : UdonSharpBehaviour
     private CardComponent[] components;
     private int count = 0;
 
-
     private void Start()
     {
          components = new CardComponent[256];

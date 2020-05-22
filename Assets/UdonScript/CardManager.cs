@@ -5,23 +5,12 @@ using VRC.Udon;
 
 public class CardManager : UdonSharpBehaviour
 {
+    private const int CARD_COUNT = 13;
+
     public string positionName;
-    private int cardCount = 13;
     public CardComponent[] cards;
     public GameObject[] CardPoints;
-    void Start()
-    {
-        // 기존엔 리턴형을 만들어놓고 안 쓰고 있슴니다
-        // findPoints();
-        // 이럴땐 그냥 void로 하거나
-        // 아니면 아래처럼 정확히 리턴해서 받는 함수를 구현하도록 하죠
 
-        // CardPoints = FindPoints();
-    }
-
-    // 사실 start가 버그의 주범입니다
-    // start 간의 순서도 바꿀 수 없고, 언제 됐는지 알기도 어려워서
-    // 타이밍을 잡을 수 있으면 (보통 매니저가 있으면) 이런거 만들어서 씁니다
     public void Initialize()
     {
         CardPoints = FindPoints();
@@ -60,7 +49,7 @@ public class CardManager : UdonSharpBehaviour
     {
         //배열의 0~13 은 소유카드 14는 추가카드
         var cardPoints = new GameObject[14];
-        for (int i = 0; i <= cardCount; i++)
+        for (int i = 0; i <= CARD_COUNT; i++)
         {
             //Debug.Log(this.gameObject.transform.GetChild(i).name);
             cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
@@ -72,7 +61,7 @@ public class CardManager : UdonSharpBehaviour
     {
         cards = pickedCards;
 
-        for (int i = 0; i<= cardCount; i++)
+        for (int i = 0; i<= CARD_COUNT; i++)
         {
             var pointTransform = CardPoints[i].transform;
             cards[i].SetPosition(pointTransform.position, pointTransform.transform.rotation); 
@@ -108,7 +97,6 @@ public class CardManager : UdonSharpBehaviour
                     temp = cards[j - 1];
                     cards[j - 1] = cards[j];
                     cards[j] = temp;
-                    
                 }
             }
         }
