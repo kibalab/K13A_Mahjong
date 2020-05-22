@@ -16,6 +16,18 @@ public class CardManager : UdonSharpBehaviour
         CardPoints = FindPoints();
     }
 
+    GameObject[] FindPoints()
+    {
+        //배열의 0~13 은 소유카드 14는 추가카드
+        var cardPoints = new GameObject[14];
+        for (int i = 0; i <= CARD_COUNT; i++)
+        {
+            //Debug.Log(this.gameObject.transform.GetChild(i).name);
+            cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
+        }
+        return cardPoints;
+    }
+
     public void AddCard(CardComponent plusCard, CardComponent stashCard) //쯔모 추가패
     {
         /*CardComponent tmp = cards[cardCount];
@@ -45,16 +57,16 @@ public class CardManager : UdonSharpBehaviour
         SortCard();
     }
 
-    GameObject[] FindPoints()
+    public bool Contains(CardComponent card)
     {
-        //배열의 0~13 은 소유카드 14는 추가카드
-        var cardPoints = new GameObject[14];
-        for (int i = 0; i <= CARD_COUNT; i++)
+        foreach (var myCard in cards)
         {
-            //Debug.Log(this.gameObject.transform.GetChild(i).name);
-            cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
+            if (card == myCard)
+            {
+                return true;
+            }
         }
-        return cardPoints;
+        return false;
     }
 
     public void SetCards(CardComponent[] pickedCards)
