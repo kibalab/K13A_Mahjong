@@ -40,6 +40,7 @@ public class CardComponent : UdonSharpBehaviour
         CardNumber = cardNumber;
         IsDora = isDora;
 
+        NormalCardNumber = GetGlobalOrder();
         collider = this.GetComponent<BoxCollider>();
     }
 
@@ -59,5 +60,27 @@ public class CardComponent : UdonSharpBehaviour
     public void SetPosition(Vector3 position, Quaternion rotation)
     {
         transform.SetPositionAndRotation(position, rotation);
+    }
+
+    int GetGlobalOrder()
+    {
+        var typeOrder = 100;
+        switch (Type)
+        {
+            case "만": typeOrder *= 0; break;
+            case "삭": typeOrder *= 1; break;
+            case "통": typeOrder *= 2; break;
+            case "동": typeOrder *= 3; break;
+            case "남": typeOrder *= 4; break;
+            case "서": typeOrder *= 5; break;
+            case "북": typeOrder *= 6; break;
+            case "백": typeOrder *= 7; break;
+            case "발": typeOrder *= 8; break;
+            case "중": typeOrder *= 9; break;
+        }
+        var cardOrder = CardNumber * 10;
+        var doraOrder = IsDora ? 1 : 0;
+
+        return typeOrder + cardOrder + doraOrder;
     }
 }
