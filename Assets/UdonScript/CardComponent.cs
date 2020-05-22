@@ -1,20 +1,20 @@
 ﻿using UdonSharp;
-using UnityEngine;
+using UnityEngine; 
 using VRC.SDKBase;
 using VRC.Udon;
 
 public class CardComponent : UdonSharpBehaviour
 {
-    public string Type;
-    public int CardNumber;
-    public int NormalCardNumber;
-    public bool IsDora;
+    [UdonSynced(UdonSyncMode.None)] public string Type;
+    [UdonSynced(UdonSyncMode.None)] public int CardNumber;
+    [UdonSynced(UdonSyncMode.None)] public int NormalCardNumber;
+    [UdonSynced(UdonSyncMode.None)] public bool IsDora;
 
     public VRCPlayerApi Owner;
 
-    private EventQueue eventQueue;
+    public EventQueue eventQueue;
 
-    private BoxCollider collider;
+    public BoxCollider collider;
 
     public override void Interact()
     {

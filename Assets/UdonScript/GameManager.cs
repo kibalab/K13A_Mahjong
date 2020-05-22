@@ -1,5 +1,6 @@
 ﻿using UdonSharp;
 using UnityEngine;
+using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
@@ -16,8 +17,10 @@ public class GameManager : UdonSharpBehaviour
     public CardManager[] tables;
     public EventQueue eventQueue;
 
+    public Text DebugText;
 
-    public int turnNum = 0;
+
+    [UdonSynced(UdonSyncMode.None)] public int turnNum = 0;
     public int[] stashCount = new int[4] { 0, 0, 0, 0 };
     public string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
 
@@ -25,7 +28,8 @@ public class GameManager : UdonSharpBehaviour
 
     void Start()
     {
-        
+        DebugText.text = "";
+
         // 프리팹에서 동적생성한 애들에 값이 제대로 대입이 안 되서
         // 그냥 136개 만들어놓고 시작하는게 속편할듯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
@@ -41,19 +45,32 @@ public class GameManager : UdonSharpBehaviour
         var cardComponent = gg.GetComponentInChildren<CardComponent>();
         cardComponent.Initialize("만", 5, true);
         */
-
-        InitializeCards(cards);
-
+       if(Networking.GetOwner(this.gameObject) == null) Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+       
+        if (Networking.IsOwner(this.gameObject))
+        {
+            DebugText.text = "Owner True";
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "InitializeCards"); // VRC에 릴리즈 할때는 이걸로
+        }else
+        {
+            DebugText.text = "Owner False";
+            InitializeCards(); // 유니티에서 테스트할떈 이걸로
+        }
         foreach (var card in cards)
         {
+            DebugText.text += "[SpriteSet Start] \n";
             var spriteNumber = card.NormalCardNumber = GetCardSpriteNumber(card);
+            DebugText.text += "SpriteNumber : " + spriteNumber + "\n";
             var sprite = GetCardSprite(spriteNumber);
-
+            DebugText.text += "[GetSprite]\n";
             card.SetSprite(sprite);
         }
 
-        cards = ShuffleCards(cards);
-        SetPositionCards();
+        if (Networking.IsOwner(this.gameObject))
+        {
+            cards = ShuffleCards(cards);
+            SetPositionCards();
+        }
     }
     
     //public CardComponent[] StashedCards = new CardComponent[70]; // 이부분 U#에서 에러남
@@ -137,7 +154,7 @@ public class GameManager : UdonSharpBehaviour
         return cards[currentCardIndex++];
     }
 
-    void InitializeCards(CardComponent[] cards)
+    public void InitializeCards() //퍼블릭으로 변경한 이유: SendCustomEvent로 이벤트 호출은 public 함수밖에 안됨
     {
         var index = 0;
 
@@ -149,7 +166,8 @@ public class GameManager : UdonSharpBehaviour
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
                     cards[index++].Initialize(type, number, isDora, eventQueue);
-                }
+                    DebugText.text += "Card Initializing : " + index + "{Type:" + type + ", Number:" + number + ", isDora:" + isDora + "\n";
+                } 
             }
         }
 
