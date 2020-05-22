@@ -20,13 +20,6 @@ public class CardComponent : UdonSharpBehaviour
 
     public override void Interact()
     {
-        //누가 카드를 클릭했는지 확인하기 위함 
-        // (UdonBehaviour 컴포넌트에 "Allow Ownership Transfer on Collision" 체크해줘야함
-        // (CardComponent).Owner
-        owner = Networking.GetOwner(this.gameObject);
-
-        DebugText.text = "InterectEvent : " + this.gameObject.name + ", " + owner.displayName + "\n";
-
         EventType = "Discard";
 
         eventQueue.Enqueue(this);
