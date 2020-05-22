@@ -12,41 +12,28 @@ public class GameManager : UdonSharpBehaviour
     public GameObject CardTable;
     public GameObject StashTable;
     public GameObject EventQueueObject;
-    
-    public CardComponent[] cards;
-    public CardManager[] tables;
-    public EventQueue eventQueue;
-
     public Text DebugText;
 
-
     [UdonSynced(UdonSyncMode.None)] public int turnNum = 0;
-    public int[] stashCount = new int[4] { 0, 0, 0, 0 };
-    public string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
 
+    private CardComponent[] cards;
+    private CardManager[] tables;
+    private EventQueue eventQueue;
+    
+    private int[] stashCount = new int[4] { 0, 0, 0, 0 };
+    private string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
     private int currentCardIndex = 0;
 
     void Start()
     {
         DebugText.text = "";
 
-        // 프리팹에서 동적생성한 애들에 값이 제대로 대입이 안 되서
-        // 그냥 136개 만들어놓고 시작하는게 속편할듯
         cards = CardPool.GetComponentsInChildren<CardComponent>();
         tables = CardTable.GetComponentsInChildren<CardManager>();
         eventQueue = EventQueueObject.GetComponentInChildren<EventQueue>();
 
-        // 밑에처럼 생성 하자마자 갖다쓰면 조용하게 안됨 (Initialize가 안불림)
-        // 생성되고 "조금 있다가" 갖다쓰면 Initialize가 불림
-        // 우동비헤비어의 초기화 시간이 필요한 듯 한데 정말 짜증이 난다
-        /*
-        var prefab = cards[0].gameObject;
-        var newCard = VRCInstantiate(cards[0].gameObject);
-        var cardComponent = gg.GetComponentInChildren<CardComponent>();
-        cardComponent.Initialize("만", 5, true);
-        */
-       if(Networking.GetOwner(this.gameObject) == null) Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-       
+        if(Networking.GetOwner(this.gameObject) == null) Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+
         if (Networking.IsOwner(this.gameObject))
         {
             DebugText.text = "Owner True";
@@ -101,27 +88,6 @@ public class GameManager : UdonSharpBehaviour
 
     void SetPositionCards()
     {
-        // 아래 코드는 책임이 너무 많습니다
-        // 카드를 고르고 테이블의 각 칸에 할당하는 책임까지 갖고 있네요
-
-        //for(int i = 1; i <= tables.Length; ++i)
-        //{
-        //    tables[i - 1].cards = new CardComponent[14];
-        //    for (int j = 1; j <= 14; ++j)
-        //    {
-        //        tables[i - 1].cards[j - 1] = cards[i * j];
-        //        //Transform cardPoint = tables[i - 1].transform.GetChild(j-1).transform; // 동:0 남:1 서:2 북:3  배패 개수:14개
-        //        //Debug.Log(cardPoint.gameObject.name);
-        //        //cards[i * j].SetPosition(cardPoint.position, cardPoint.rotation);
-
-        //    }
-        //    tables[i - 1].setCards();
-        //}
-
-        // 1. 14개의 카드를 고른다
-        // 2. 카드 테이블에 넘겨준다
-        // 3. 나머지는 카드 테이블이 알아서 하게 합시다
-
         for (int i = 0; i < tables.Length; ++i)
         {
             var pickedCards = GetNextCards(14);
@@ -132,9 +98,6 @@ public class GameManager : UdonSharpBehaviour
             table.SetCards(pickedCards);
         }
     }
-
-    // 이렇게 GetNextCard를 구현한 다음
-    // 그걸 활용해서 GetNextCards를 짜는게 종종 있어요 기억해두세요
 
     CardComponent[] GetNextCards(int count)
     {
@@ -150,11 +113,11 @@ public class GameManager : UdonSharpBehaviour
 
     CardComponent GetNextCard()
     {
-        //UnityEngine.Debug.Log("Get Card at " + currentCardIndex);
         return cards[currentCardIndex++];
     }
 
-    public void InitializeCards() //퍼블릭으로 변경한 이유: SendCustomEvent로 이벤트 호출은 public 함수밖에 안됨
+    //SendCustomEvent로 이벤트 호출은 public 함수밖에 안됨
+    public void InitializeCards()
     {
         var index = 0;
 
@@ -182,13 +145,10 @@ public class GameManager : UdonSharpBehaviour
             cards[index++].Initialize("발", 1, false, eventQueue);
             cards[index++].Initialize("중", 2, false, eventQueue);
         }
-
-        //UnityEngine.Debug.Log("total index = " + index);
     }
 
     Sprite GetCardSprite(int spriteNumber)
     {
-        //UnityEngine.Debug.Log("spriteNumber = " + spriteNumber);
         var spriteGameObject = Sprites.transform.Find(spriteNumber.ToString());
         var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
 
@@ -220,11 +180,7 @@ public class GameManager : UdonSharpBehaviour
         var cardNum = cardComponent.CardNumber;
         bool isDora = cardComponent.IsDora;
 
-        //return UnityEngine.Random.Range(1, 4) * 10 + UnityEngine.Random.Range(1, 10); // 아래문제를 해결 했음으로 주석처리함
-
-        // 이거 밑에꺼 잘 작동안함.. 테스트용으로 위처럼 씀
-        // ㄴ 이거 CardNumber가 0부터 시작한다는 생각으로 지정함 (현재는 1부터이기에 값을 1씩 내렸음)
-        //    그리고 도라 Sprite때문에 한칸씩 밀리길래 도라표시를 위해 예외를 추가함
+        // 도라 Sprite때문에 한칸씩 밀리길래 도라표시를 위해 예외를 추가함
         if (type.Equals("백") || type.Equals("발") || type.Equals("중")) // 백발중, 동남서북 스프라이트 표시 정상적으로 안됨
         {
             s = 45 + cardNum;
