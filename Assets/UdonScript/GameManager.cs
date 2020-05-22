@@ -18,8 +18,9 @@ public class GameManager : UdonSharpBehaviour
 
     private CardComponent[] cards;
     private CardManager[] tables;
+    public CardComponent[] stashedCards;
     private EventQueue eventQueue;
-    
+
     private int[] stashCount = new int[4] { 0, 0, 0, 0 };
     private string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
     private int currentCardIndex = 0;
@@ -31,18 +32,24 @@ public class GameManager : UdonSharpBehaviour
         cards = CardPool.GetComponentsInChildren<CardComponent>();
         tables = CardTable.GetComponentsInChildren<CardManager>();
         eventQueue = EventQueueObject.GetComponentInChildren<EventQueue>();
+        stashedCards = new CardComponent[70];
 
-        if(Networking.GetOwner(this.gameObject) == null) Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+        if (Networking.GetOwner(this.gameObject) == null)
+        {
+            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+        }
 
         if (Networking.IsOwner(this.gameObject))
         {
             DebugText.text = "Owner True";
             SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "InitializeCards"); // VRC에 릴리즈 할때는 이걸로
-        }else
+        }
+        else
         {
             DebugText.text = "Owner False";
             InitializeCards(); // 유니티에서 테스트할떈 이걸로
         }
+
         foreach (var card in cards)
         {
             DebugText.text += "[SpriteSet Start] \n";
@@ -59,30 +66,51 @@ public class GameManager : UdonSharpBehaviour
             SetPositionCards();
         }
     }
-    
-    //public CardComponent[] StashedCards = new CardComponent[70]; // 이부분 U#에서 에러남
+
     private void Update()
     {
         if (!eventQueue.IsQueueEmpty())
         {
-            CardComponent lastedStashedCard = eventQueue.Dequeue();
-            if (lastedStashedCard != null)
-            {
-                //StashedCards[StashedCards.Length] = lastedStashedCard;
-            }
-            tables[turnNum].AddCard(GetNextCard(), lastedStashedCard);
-            lastedStashedCard.SetColliderActivate(false);
-            Transform stashPoint = StashTable.transform.GetChild(turnNum).GetChild(stashCount[turnNum]++);
-            lastedStashedCard.SetPosition(stashPoint.position, stashPoint.rotation);
+            var eventCard = eventQueue.Dequeue();
+            var eventType = eventCard.EventType;
 
-            turnNum++;
-            if (turnNum >= 4) turnNum = 0;
-            //GetNextCards(1)[0].SetPosition;
+            switch (eventType)
+            {
+                case "Discard":
+
+                    var lastedStashedCard = eventCard;
+                    if (lastedStashedCard != null)
+                    {
+                        stashedCards[stashedCards.Length] = lastedStashedCard;
+                    }
+                    tables[turnNum].AddCard(GetNextCard(), eventCard);
+                    eventCard.SetColliderActivate(false);
+                    var stashPoint = StashTable.transform.GetChild(turnNum).GetChild(stashCount[turnNum]++);
+                    eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
+
+                    //GetNextCard().SetPosition
+
+                    SetNextTurn();
+                    break;
+
+                case "Chi":
+                case "Pon":
+                case "Kang":
+                    // TODO
+                    break;
+            }
         }
-        
+    }
+
+    void SetNextTurn()
+    {
+        turnNum++;
+
+        var nextTurnPlayer = turnNum % 4;
+
         for (var i = 0; i < 4; i++)
         {
-            tables[i].Pickupable(i == turnNum);
+            tables[i].Pickupable(i == nextTurnPlayer);
         }
     }
 
