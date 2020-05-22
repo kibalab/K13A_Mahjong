@@ -5,55 +5,52 @@ using VRC.Udon;
 
 public class CardManager : UdonSharpBehaviour
 {
-    private const int CARD_COUNT = 13;
+    private const int FULL_CARD_COUNT = 14;
 
     public string positionName;
     public CardComponent[] cards;
     public GameObject[] CardPoints;
 
+    Transform plusCardPosition;
+
     public void Initialize()
     {
         CardPoints = FindPoints();
+        cards = new CardComponent[FULL_CARD_COUNT];
     }
 
     GameObject[] FindPoints()
     {
         //배열의 0~13 은 소유카드 14는 추가카드
-        var cardPoints = new GameObject[14];
-        for (int i = 0; i <= CARD_COUNT; i++)
+        var cardPoints = new GameObject[FULL_CARD_COUNT];
+        for (int i = 0; i < 14; i++)
         {
-            //Debug.Log(this.gameObject.transform.GetChild(i).name);
             cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
         }
+        plusCardPosition = cardPoints[13].transform;
         return cardPoints;
     }
 
-    public void AddCard(CardComponent plusCard, CardComponent stashCard) //쯔모 추가패
+    public void AddCard(CardComponent newPlusCard) 
     {
-        /*CardComponent tmp = cards[cardCount];
-        plusCard.SetPosition(tmp.transform.position, tmp.transform.rotation);
-        cards[cardCount] = plusCard;
-        for (var i = 0; i<14; i++)
-        {
-            if(cards[i] == stashCard)
-            {
-                
-                cards[i] = tmp;
-                tmp.SetPosition(CardPoints[i].transform.position, CardPoints[i].transform.rotation);
-            }
-        }*/
-        var i = 0;
-        for (; i < 14; i++)
+        cards[13] = newPlusCard;
+        cards[13].SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+    }
+
+    public void Discard(CardComponent stashCard)
+    {
+        for (var i = 0; i < 14; ++i)
         {
             if (cards[i] == stashCard)
             {
-                break;
+                var cardPoint = CardPoints[i];
+
+                cards[i] = cards[13];
+                cards[i].SetPosition(cardPoint.transform.position, cardPoint.transform.rotation);
+                cards[13] = null;
             }
         }
-        plusCard.SetPosition(cards[13].transform.position, cards[13].transform.rotation);
-        cards[13].SetPosition(cards[i].transform.position, cards[i].transform.rotation);
-        cards[i] = cards[13];
-        cards[13] = plusCard;
+
         SortCard();
     }
 
@@ -66,16 +63,16 @@ public class CardManager : UdonSharpBehaviour
                 return true;
             }
         }
+
         return false;
     }
 
     public void SetCards(CardComponent[] pickedCards)
     {
-        cards = pickedCards;
-
-        for (int i = 0; i<= CARD_COUNT; i++)
+        for (int i = 0; i< pickedCards.Length; ++i)
         {
             var pointTransform = CardPoints[i].transform;
+            cards[i] = pickedCards[i];
             cards[i].SetPosition(pointTransform.position, pointTransform.transform.rotation); 
         }
         SortCard();
@@ -85,7 +82,10 @@ public class CardManager : UdonSharpBehaviour
     {
         foreach (CardComponent card in cards)
         {
-            card.gameObject.GetComponent<BoxCollider>().enabled = b;
+            if (card != null)
+            {
+                card.gameObject.GetComponent<BoxCollider>().enabled = b;
+            }
         }
     }
 

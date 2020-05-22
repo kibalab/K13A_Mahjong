@@ -68,6 +68,8 @@ public class GameManager : UdonSharpBehaviour
             cards = ShuffleCards(cards);
             SetPositionCards();
         }
+
+        SetNextCard();
     }
 
     private void Update()
@@ -96,14 +98,14 @@ public class GameManager : UdonSharpBehaviour
                         stashedCards[currentStashIndex++] = lastedStashedCard;
                     }
 
-                    currentTable.AddCard(GetNextCard(), eventCard);
+                    currentTable.Discard(eventCard);
                     eventCard.SetColliderActivate(false);
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[turnNum]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
-                    //GetNextCard().SetPosition
+                    turnNum++;
 
-                    SetNextTurn();
+                    SetNextCard();
                     break;
 
                 case "Chi":
@@ -115,15 +117,15 @@ public class GameManager : UdonSharpBehaviour
         }
     }
 
-    void SetNextTurn()
+    void SetNextCard()
     {
-        turnNum++;
-
-        var nextTurnPlayer = GetCurrentTurnPlayer();
+        var currentTurnPlayer = GetCurrentTurnPlayer();
+        var currentTable = tables[currentTurnPlayer];
+        currentTable.AddCard(GetNextCard());
 
         for (var i = 0; i < 4; i++)
         {
-            tables[i].Pickupable(i == nextTurnPlayer);
+            tables[i].Pickupable(i == currentTurnPlayer);
         }
     }
 
@@ -136,7 +138,7 @@ public class GameManager : UdonSharpBehaviour
     {
         for (int i = 0; i < tables.Length; ++i)
         {
-            var pickedCards = GetNextCards(14);
+            var pickedCards = GetNextCards(13);
 
             var table = tables[i];
             table.Initialize();
