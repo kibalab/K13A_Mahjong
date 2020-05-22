@@ -81,15 +81,22 @@ public class GameManager : UdonSharpBehaviour
             {
                 case "Discard":
 
+                    var currentTurnPlayer = GetCurrentTurnPlayer();
+                    var currentTable = tables[currentTurnPlayer];
+
+                    if (!currentTable.Contains(eventCard))
+                    {
+                        // 실제 플레이에서는 현재 턴의 유저만 interact 가능하기 때문에 여기 안 옴
+                        break;
+                    }
+
                     var lastedStashedCard = eventCard;
                     if (lastedStashedCard != null)
                     {
                         stashedCards[currentStashIndex++] = lastedStashedCard;
                     }
 
-                    var currentTurnPlayer = GetCurrentTurnPlayer();
-
-                    tables[currentTurnPlayer].AddCard(GetNextCard(), eventCard);
+                    currentTable.AddCard(GetNextCard(), eventCard);
                     eventCard.SetColliderActivate(false);
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[turnNum]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
