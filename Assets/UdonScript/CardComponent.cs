@@ -83,4 +83,21 @@ public class CardComponent : UdonSharpBehaviour
 
         return typeOrder + cardOrder + doraOrder;
     }
+
+    public string GetCardSpriteName()
+    {
+        switch (Type)
+        {
+            case "동":
+            case "남":
+            case "서":
+            case "북":
+            case "백":
+            case "발":
+            case "중":
+                return Type;
+            default:
+                return Type + CardNumber + (IsDora ? "도라" : "");
+        }
+    }
 }

@@ -53,7 +53,7 @@ public class GameManager : UdonSharpBehaviour
         foreach (var card in cards)
         {
             DebugText.text += "[SpriteSet Start] \n";
-            var spriteName = GetCardSpriteName(card);
+            var spriteName = card.GetCardSpriteName();
             DebugText.text += "SpriteName : " + spriteName + "\n";
             var sprite = GetCardSprite(spriteName);
             DebugText.text += "[GetSprite]\n";
@@ -199,26 +199,5 @@ public class GameManager : UdonSharpBehaviour
             shuffledIndex++;
         }
         return shuffledCards;
-    }
-
-    private string GetCardSpriteName(CardComponent cardComponent)
-    {
-        var type = cardComponent.Type;
-        var cardNum = cardComponent.CardNumber;
-        bool isDora = cardComponent.IsDora;
-
-        switch (type)
-        {
-            case "동":
-            case "남":
-            case "서":
-            case "북":
-            case "백":
-            case "발":
-            case "중":
-                return type;
-            default:
-                return type + cardNum + (isDora ? "도라" : "");
-        }
     }
 }
