@@ -53,9 +53,9 @@ public class GameManager : UdonSharpBehaviour
         foreach (var card in cards)
         {
             DebugText.text += "[SpriteSet Start] \n";
-            var spriteNumber = card.NormalCardNumber = GetCardSpriteNumber(card);
-            DebugText.text += "SpriteNumber : " + spriteNumber + "\n";
-            var sprite = GetCardSprite(spriteNumber);
+            var spriteName = GetCardSpriteName(card);
+            DebugText.text += "SpriteName : " + spriteName + "\n";
+            var sprite = GetCardSprite(spriteName);
             DebugText.text += "[GetSprite]\n";
             card.SetSprite(sprite);
         }
@@ -175,9 +175,9 @@ public class GameManager : UdonSharpBehaviour
         }
     }
 
-    Sprite GetCardSprite(int spriteNumber)
+    Sprite GetCardSprite(string spriteName)
     {
-        var spriteGameObject = Sprites.transform.Find(spriteNumber.ToString());
+        var spriteGameObject = Sprites.transform.Find(spriteName);
         var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
 
         return spriteRenderer.sprite;
@@ -201,40 +201,24 @@ public class GameManager : UdonSharpBehaviour
         return shuffledCards;
     }
 
-    private int GetCardSpriteNumber(CardComponent cardComponent)
+    private string GetCardSpriteName(CardComponent cardComponent)
     {
-        int s = -1;
         var type = cardComponent.Type;
         var cardNum = cardComponent.CardNumber;
         bool isDora = cardComponent.IsDora;
 
-        // 도라 Sprite때문에 한칸씩 밀리길래 도라표시를 위해 예외를 추가함
-        if (type.Equals("백") || type.Equals("발") || type.Equals("중")) // 백발중, 동남서북 스프라이트 표시 정상적으로 안됨
+        switch (type)
         {
-            s = 45 + cardNum;
+            case "동":
+            case "남":
+            case "서":
+            case "북":
+            case "백":
+            case "발":
+            case "중":
+                return type;
+            default:
+                return type + cardNum + (isDora ? "도라" : "");
         }
-        else if (type.Equals("동") || type.Equals("남") || type.Equals("서") || type.Equals("북")) //마작 방위패 순서 : 동남서북
-        {
-            s = 41 + cardNum;
-        }
-        else if (type.Equals("만"))
-        {
-            s = 10 + cardNum;
-            if (cardNum >= 5) s++;
-            if(isDora) s++;
-        }
-        else if (type.Equals("삭"))
-        {
-            s = 30 + cardNum;
-            if (cardNum >= 6) s++;
-            if (isDora) s++;
-        }
-        else if (type.Equals("통"))
-        {
-            s = 20 + cardNum;
-            if (cardNum >= 7) s++;
-            if (isDora) s++;
-        }
-        return s;
     }
 }
