@@ -1,5 +1,6 @@
 ﻿using UdonSharp;
-using UnityEngine; 
+using UnityEngine;
+using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
@@ -15,12 +16,16 @@ public class CardComponent : UdonSharpBehaviour
     private EventQueue eventQueue;
     private BoxCollider collider;
 
+    public Text DebugText;
+
     public override void Interact()
     {
         //누가 카드를 클릭했는지 확인하기 위함 
         // (UdonBehaviour 컴포넌트에 "Allow Ownership Transfer on Collision" 체크해줘야함
         // (CardComponent).Owner
         owner = Networking.GetOwner(this.gameObject);
+
+        DebugText.text = "InterectEvent : " + this.gameObject.name + ", " + owner.displayName + "\n";
 
         EventType = "Discard";
 

@@ -38,7 +38,8 @@ public class GameManager : UdonSharpBehaviour
         {
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
         }
-
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "InitializeCards");
+        /*
         if (Networking.IsOwner(this.gameObject))
         {
             DebugText.text = "Owner True";
@@ -49,7 +50,7 @@ public class GameManager : UdonSharpBehaviour
             DebugText.text = "Owner False";
             InitializeCards(); // 유니티에서 테스트할떈 이걸로
         }
-
+        */
         foreach (var card in cards)
         {
             DebugText.text += "[SpriteSet Start] \n";
@@ -73,7 +74,7 @@ public class GameManager : UdonSharpBehaviour
         {
             var eventCard = eventQueue.Dequeue();
             var eventType = eventCard.EventType;
-
+            DebugText.text += "CardName : " + eventCard.Type + ", " + eventCard.CardNumber + "\n";
             switch (eventType)
             {
                 case "Discard":
