@@ -6,8 +6,8 @@ using VRC.Udon;
 
 public class EventQueue : UdonSharpBehaviour
 {
-    public CardComponent[] components;
-    public int Count = 0;
+    private CardComponent[] components;
+    private int count = 0;
 
 
     private void Start()
@@ -15,23 +15,23 @@ public class EventQueue : UdonSharpBehaviour
          components = new CardComponent[256];
     }
 
-    public bool IsQueueEmpty() { return Count == 0; }
+    public bool IsQueueEmpty() { return count == 0; }
 
     public void Enqueue(CardComponent component) 
     {
-        components[Count++] = component;
+        components[count++] = component;
     }
 
     public CardComponent Dequeue() 
     {
-        Debug.Log(Count);
+        Debug.Log(count);
         CardComponent tmp = components[0];
         components[0] = null;
-        for (var i = 1; i < Count; i++)
+        for (var i = 1; i < count; i++)
         {
-            components[i-1] = components[i - 1];
+            components[i-1] = components[i];
         }
-        Count--;
+        count--;
         return tmp;
     }
 }
