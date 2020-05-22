@@ -24,6 +24,8 @@ public class GameManager : UdonSharpBehaviour
     private int[] stashCount = new int[4] { 0, 0, 0, 0 };
     private string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
     private int currentCardIndex = 0;
+    private int currentStashIndex = 0;
+
 
     void Start()
     {
@@ -82,7 +84,7 @@ public class GameManager : UdonSharpBehaviour
                     var lastedStashedCard = eventCard;
                     if (lastedStashedCard != null)
                     {
-                        stashedCards[stashedCards.Length] = lastedStashedCard;
+                        stashedCards[currentStashIndex++] = lastedStashedCard;
                     }
 
                     var currentTurnPlayer = GetCurrentTurnPlayer();
