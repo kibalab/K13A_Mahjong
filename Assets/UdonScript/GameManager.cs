@@ -100,7 +100,7 @@ public class GameManager : UdonSharpBehaviour
 
                     currentTable.Discard(eventCard);
                     eventCard.SetColliderActivate(false);
-                    var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[turnNum]++);
+                    var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[currentTurnPlayer]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
                     turnNum++;
