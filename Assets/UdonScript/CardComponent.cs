@@ -9,6 +9,7 @@ public class CardComponent : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
     [UdonSynced(UdonSyncMode.None)] public int NormalCardNumber;
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
+    [UdonSynced(UdonSyncMode.None)] public string EventType;
 
     private VRCPlayerApi owner;
     private EventQueue eventQueue;
@@ -17,9 +18,11 @@ public class CardComponent : UdonSharpBehaviour
     public override void Interact()
     {
         //누가 카드를 클릭했는지 확인하기 위함 
-        // (UdonBehaviour 컴포넌으에 "Allow Ownership Transfer on Collision" 체크해줘야함
+        // (UdonBehaviour 컴포넌트에 "Allow Ownership Transfer on Collision" 체크해줘야함
         // (CardComponent).Owner
         owner = Networking.GetOwner(this.gameObject);
+
+        EventType = "Discard";
 
         eventQueue.Enqueue(this);
     }
