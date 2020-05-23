@@ -12,6 +12,9 @@ public class CardComponent : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
     [UdonSynced(UdonSyncMode.None)] public string EventType;
 
+    [UdonSynced(UdonSyncMode.None)] public Vector3 position;
+    [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
+
     private VRCPlayerApi owner;
     private EventQueue eventQueue;
     private BoxCollider collider;
@@ -59,7 +62,15 @@ public class CardComponent : UdonSharpBehaviour
         renderer.sprite = sprite;
     }
 
-    public void SetPosition(Vector3 position, Quaternion rotation)
+    public void SetPosition(Vector3 p, Quaternion r)
+    {
+        position = p;
+        rotation = r;
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_SetPosition");
+        //_SetPosition();
+    }
+
+    public void _SetPosition()
     {
         transform.SetPositionAndRotation(position, rotation);
     }
