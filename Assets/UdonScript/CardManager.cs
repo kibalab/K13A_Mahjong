@@ -10,13 +10,16 @@ public class CardManager : UdonSharpBehaviour
     public string positionName;
     public CardComponent[] cards;
     public GameObject[] CardPoints;
+    public Naki nakiManager;
 
     Transform plusCardPosition;
 
     public void Initialize()
     {
+        nakiManager = this.gameObject.GetComponentInChildren<Naki>();
         CardPoints = FindPoints();
         cards = new CardComponent[FULL_CARD_COUNT];
+        nakiManager.Initialized();
     }
 
     GameObject[] FindPoints()
@@ -35,6 +38,7 @@ public class CardManager : UdonSharpBehaviour
     {
         cards[13] = newPlusCard;
         cards[13].SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+        nakiManager.search(cards, newPlusCard);
     }
 
     public void Discard(CardComponent stashCard)
@@ -96,15 +100,16 @@ public class CardManager : UdonSharpBehaviour
         CardComponent temp;
         Vector3 tTump;
 
-        for (i = (cards.Length - 2); i >= 0; i--)
+        for (i = 12; i >= 0; i--)
         {
             for (j = 1; j <= i; j++)
             {
                 if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
                 {
-                    tTump = cards[j - 1].transform.position;
+                    //고장나서 카드컴포넌트 정렬후 같은 index의 CardPoint 위치에 매칭하는걸로 바꿈
+                    /*tTump = cards[j - 1].transform.position;
                     cards[j - 1].transform.position = cards[j].transform.position;
-                    cards[j].transform.position = tTump;
+                    cards[j].transform.position = tTump;*/
 
                     temp = cards[j - 1];
                     cards[j - 1] = cards[j];
@@ -112,6 +117,15 @@ public class CardManager : UdonSharpBehaviour
                 }
             }
         }
+        for (var k = 0; k < 13; k++) // 새로구현함
+        {
+            setPointPosition(cards[k], CardPoints[k]);
+        }
         return cards;
+    }
+
+    public void setPointPosition(CardComponent card, GameObject point)
+    {
+        card.SetPosition(point.transform.position, point.transform.rotation);
     }
 }
