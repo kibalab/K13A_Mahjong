@@ -31,7 +31,7 @@ public class CardComponent : UdonSharpBehaviour
         return collider;
     }
 
-    public void Initialize(string type, int cardNumber, bool isDora, EventQueue e)
+    public void Initialize(string type, int cardNumber, bool isDora, EventQueue e, CardSprites sprites)
     {
         eventQueue = e;
         Type = type;
@@ -40,6 +40,10 @@ public class CardComponent : UdonSharpBehaviour
 
         NormalCardNumber = GetGlobalOrder();
         collider = this.GetComponent<BoxCollider>();
+
+        var spriteName = GetCardSpriteName();
+        var sprite = sprites.FindSprite(spriteName);
+        SetSprite(sprite);
     }
 
     public void SetParent(GameObject gameObject)
