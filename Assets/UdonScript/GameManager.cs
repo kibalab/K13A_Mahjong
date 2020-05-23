@@ -53,15 +53,8 @@ public class GameManager : UdonSharpBehaviour
             InitializeCards(); // 유니티에서 테스트할떈 이걸로
         }
         */
-        foreach (var card in cards)
-        {
-            DebugText.text += "[SpriteSet Start] \n";
-            var spriteName = card.GetCardSpriteName();
-            DebugText.text += "SpriteName : " + spriteName + "\n";
-            var sprite = Sprites.FindSprite(spriteName);
-            DebugText.text += "[GetSprite]\n";
-            card.SetSprite(sprite);
-        }
+
+        InitializeCards();
 
         if (Networking.IsOwner(this.gameObject))
         {
@@ -176,7 +169,7 @@ public class GameManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    cards[index++].Initialize(type, number, isDora, eventQueue);
+                    cards[index++].Initialize(type, number, isDora, eventQueue, Sprites);
                     DebugText.text += "Card Initializing : " + index + "{Type:" + type + ", Number:" + number + ", isDora:" + isDora + "\n";
                 } 
             }
@@ -184,14 +177,14 @@ public class GameManager : UdonSharpBehaviour
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("동", 0, false, eventQueue);
-            cards[index++].Initialize("남", 1, false, eventQueue);
-            cards[index++].Initialize("서", 2, false, eventQueue);
-            cards[index++].Initialize("북", 3, false, eventQueue);
+            cards[index++].Initialize("동", 0, false, eventQueue, Sprites);
+            cards[index++].Initialize("남", 1, false, eventQueue, Sprites);
+            cards[index++].Initialize("서", 2, false, eventQueue, Sprites);
+            cards[index++].Initialize("북", 3, false, eventQueue, Sprites);
 
-            cards[index++].Initialize("백", 0, false, eventQueue);
-            cards[index++].Initialize("발", 1, false, eventQueue);
-            cards[index++].Initialize("중", 2, false, eventQueue);
+            cards[index++].Initialize("백", 0, false, eventQueue, Sprites);
+            cards[index++].Initialize("발", 1, false, eventQueue, Sprites);
+            cards[index++].Initialize("중", 2, false, eventQueue, Sprites);
         }
     }
 
