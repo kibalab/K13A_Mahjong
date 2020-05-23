@@ -54,7 +54,7 @@ public class GameManager : UdonSharpBehaviour
         }
         */
 
-        InitializeCards();
+        //InitializeCards();
 
         if (Networking.IsOwner(this.gameObject))
         {
