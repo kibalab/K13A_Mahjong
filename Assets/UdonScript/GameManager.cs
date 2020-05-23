@@ -8,7 +8,7 @@ public class GameManager : UdonSharpBehaviour
 {
     // 이건 씬에서 연결해놓음
     public GameObject CardPool;
-    public GameObject Sprites;
+    public CardSprites Sprites;
     public GameObject CardTable;
     public GameObject StashTable;
     public GameObject EventQueueObject;
@@ -58,7 +58,7 @@ public class GameManager : UdonSharpBehaviour
             DebugText.text += "[SpriteSet Start] \n";
             var spriteName = card.GetCardSpriteName();
             DebugText.text += "SpriteName : " + spriteName + "\n";
-            var sprite = GetCardSprite(spriteName);
+            var sprite = Sprites.FindSprite(spriteName);
             DebugText.text += "[GetSprite]\n";
             card.SetSprite(sprite);
         }
@@ -193,14 +193,6 @@ public class GameManager : UdonSharpBehaviour
             cards[index++].Initialize("발", 1, false, eventQueue);
             cards[index++].Initialize("중", 2, false, eventQueue);
         }
-    }
-
-    Sprite GetCardSprite(string spriteName)
-    {
-        var spriteGameObject = Sprites.transform.Find(spriteName);
-        var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
-
-        return spriteRenderer.sprite;
     }
 
     public CardComponent[] ShuffleCards(CardComponent[] cards)
