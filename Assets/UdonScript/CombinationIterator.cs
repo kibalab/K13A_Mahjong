@@ -1,10 +1,44 @@
 using UdonSharp;
-
+using UnityEngine;
+using VRC.SDKBase;
+using VRC.Udon;
 public class CombinationIterator : UdonSharpBehaviour
 {
     int n;
     int[] combination;
     int iterTurn = 0;
+
+    void Start()
+    {
+        Debug.Log("--- CombinationIterator TEST ---");
+        TestCombination(13, 3);
+        TestCombination(5, 3);
+        TestCombination(5, 2);
+    }
+
+    void TestCombination(int n, int k)
+    {
+        Initialize(n, k);
+        var estimatedCount = 1;
+        for (var i = 0; i < k; ++i)
+        {
+            estimatedCount *= n--;
+        }
+        for (var i = k; i > 0; --i)
+        {
+            estimatedCount /= i;
+        }
+
+        var count = 0;
+        while (GetCombination() != null)
+        {
+            MoveNext();
+            count++;
+        }
+
+        Debug.Log("estimatedCount = " + estimatedCount + " calculatedCount = " + count);
+    }
+
 
     public void Initialize(int n, int k)
     {
@@ -15,46 +49,44 @@ public class CombinationIterator : UdonSharpBehaviour
         {
             combination[i] = i;
         }
-        iterTurn = 0;
     }
 
-    public int[] NextCombination()
+    public int[] GetCombination()
     {
-        if (iterTurn > 0)
-        {
-            ++combination[combination.Length - 1];
-        }
-        ++iterTurn;
-
-        if (IsSatisfyCondition(0))
-        {
-            return combination;
-        }
-        else return null;
+        return combination;
     }
 
-    bool IsSatisfyCondition(int i)
+    public void MoveNext()
     {
-        if (i == combination.Length - 1)
-        {
-            return combination[i] < n;
-        }
+        ++combination[combination.Length - 1];
 
-        if (!IsSatisfyCondition(i + 1))
+        for (var i = combination.Length - 1; i >= 0; --i)
         {
-            SetValueRecursive(i, combination[i] + 1);
-            return IsSatisfyCondition(i + 1);
-        }
+            if (i == 0 && combination[i] >= n)
+            {
+                combination = null;
+                return;
+            }
 
-        return combination[i] < n;
-    }
-
-    void SetValueRecursive(int i, int val)
-    {
-        if (i < combination.Length)
-        {
-            combination[i] = val;
-            SetValueRecursive(i + 1, val + 1);
+            var needCheckAgain = false;
+            for (var sub = i; sub >= 0; --sub)
+            {
+                if (combination[sub] >= n)
+                {
+                    needCheckAgain = true;
+                    if (sub == 0)
+                    {
+                        combination = null;
+                        return;
+                    }
+                    ++combination[sub - 1];
+                    for (var k = sub; k < combination.Length; ++k)
+                    {
+                        combination[k] = combination[k - 1] + 1;
+                    }
+                }
+            }
+            if (needCheckAgain) { i++; }
         }
     }
 }
