@@ -6,21 +6,26 @@ using VRC.Udon;
 
 public class Naki : UdonSharpBehaviour
 {
-    //CardComponent[,] pon = new CardComponent[4,3];
-    //CardComponent[,] chi = new CardComponent[4, 3];
-    //CardComponent[,] kkan = new CardComponent[4, 4];
     public bool canChi = false, canPon = false, canKkan = false;
+    public GameObject nakiObject;
+    NakiData[] nakiData;
+    private int nakiDataCount = 0;
 
+    public void Initialized()
+    {
+        nakiData = nakiObject.GetComponentsInChildren<NakiData>();
+    }
 
     public void search(CardComponent[] cards, CardComponent newCard)
     {
         CardComponent[] addNewCard = new CardComponent[cards.Length + 1];
+        int aNCCount = 0;
         
         foreach(CardComponent card in cards)
         {
-            addNewCard[addNewCard.Length] = card;
+            addNewCard[aNCCount++] = card;
         }
-        addNewCard[addNewCard.Length] = newCard;
+        addNewCard[addNewCard.Length-1] = newCard;
 
         // 0:±ø, 1:Ä¿Âê, 2:šœÂê
         int[] originCardNakiCount = findNakiable(cards);
@@ -75,42 +80,50 @@ public class Naki : UdonSharpBehaviour
 
     private int[] findNakiable(CardComponent[] cards)
     {
-        //int kkanCount = 0, kuzzCount = 0, shunzzCount = 0;
         int[] nakiableCount = new int[3] { 0, 0, 0 }; // 0:±ø, 1:Ä¿Âê, 2:šœÂê
+        int kuzzCount = 0, shunzzCount = 0;
         CardComponent[] kuzz = new CardComponent[4];
         CardComponent[] shunzz = new CardComponent[4];
+
         foreach (CardComponent card in cards) // Ä¿Âê,±ø Ä«¿îÆ®
         {
-            if (kuzz.Length == 0 || shunzz.Length == 0)
+            if (kuzzCount == 0 || shunzzCount == 0)
             {
-                kuzz[kuzz.Length] = card;
+                kuzz[kuzzCount++] = card;
+                shunzz[shunzzCount++] = card;
             }
             else
             {
-                if (kuzz[kuzz.Length - 1].Type == card.Type)
+                if (kuzz[kuzzCount - 1].Type == card.Type)
                 {
-                    if (kuzz[kuzz.Length - 1].CardNumber == card.CardNumber)
+                    if (kuzz[kuzzCount - 1].CardNumber == card.CardNumber)
                     {
-                        kuzz[kuzz.Length] = card;
+                        kuzz[kuzzCount] = card;
                     }
-                    else if (kuzz[kuzz.Length - 1].CardNumber == card.CardNumber - 1)
+                    else if (kuzz[kuzzCount - 1].CardNumber == card.CardNumber - 1)
                     {
-                        shunzz[shunzz.Length] = card;
+                        shunzz[shunzzCount] = card;
                     }
                 }
             }
-            if (kuzz.Length == 3)
+            if (kuzzCount == 3)
             {
                 nakiableCount[1]++;
+                nakiData[nakiDataCount++].Initialize("Ä¿Âê",kuzz);
+                kuzzCount = 0;
             }
-            else if (kuzz.Length == 4)
+            else if (kuzzCount == 4)
             {
                 nakiableCount[1]--;
                 nakiableCount[0]++;
+                nakiData[--nakiDataCount].Initialize("±øÁî", kuzz);
+                kuzzCount = 0;
             }
-            if (shunzz.Length == 3)
+            if (shunzzCount == 3)
             {
                 nakiableCount[2]++;
+                nakiData[nakiDataCount++].Initialize("šœÂê", shunzz);
+                shunzzCount = 0;
             }
         }
         return nakiableCount;

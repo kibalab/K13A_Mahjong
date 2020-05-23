@@ -66,8 +66,8 @@ public class CardComponent : UdonSharpBehaviour
     {
         position = p;
         rotation = r;
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_SetPosition");
-        //_SetPosition();
+        //SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_SetPosition");
+        _SetPosition();
     }
 
     public void _SetPosition()
