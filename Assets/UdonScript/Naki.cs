@@ -24,7 +24,7 @@ public class Naki : UdonSharpBehaviour
 
         // 0:±ø, 1:Ä¿Âê, 2:šœÂê
         int[] originCardNakiCount = findNakiable(cards);
-        int[] addCardNakiCount = findNakiable(addNewCard);
+        int[] addCardNakiCount = findNakiable(SortCard(addNewCard));
 
         for (var i = 0; i < 3; i++)
         {
