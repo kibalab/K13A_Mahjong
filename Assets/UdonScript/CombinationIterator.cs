@@ -62,12 +62,6 @@ public class CombinationIterator : UdonSharpBehaviour
 
         for (var i = combination.Length - 1; i >= 0; --i)
         {
-            if (i == 0 && combination[i] >= n)
-            {
-                combination = null;
-                return;
-            }
-
             var needCheckAgain = false;
             for (var sub = i; sub >= 0; --sub)
             {
