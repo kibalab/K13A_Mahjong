@@ -6,7 +6,6 @@ public class CombinationIterator : UdonSharpBehaviour
 {
     int n;
     int[] combination;
-    int iterTurn = 0;
 
     void Start()
     {
@@ -14,11 +13,12 @@ public class CombinationIterator : UdonSharpBehaviour
         TestCombination(13, 3);
         TestCombination(5, 3);
         TestCombination(5, 2);
+        TestCombination(5, 1);
+        Debug.Log("--------------------------------");
     }
 
-    void TestCombination(int n, int k)
+    int GetEstimatedCount(int n, int k)
     {
-        Initialize(n, k);
         var estimatedCount = 1;
         for (var i = 0; i < k; ++i)
         {
@@ -28,6 +28,12 @@ public class CombinationIterator : UdonSharpBehaviour
         {
             estimatedCount /= i;
         }
+        return estimatedCount;
+    }
+
+    void TestCombination(int n, int k)
+    {
+        Initialize(n, k);
 
         var count = 0;
         while (GetCombination() != null)
@@ -36,12 +42,17 @@ public class CombinationIterator : UdonSharpBehaviour
             count++;
         }
 
-        Debug.Log("estimatedCount = " + estimatedCount + " calculatedCount = " + count);
+        Debug.Log("estimatedCount = " + GetEstimatedCount(n, k) + " calculatedCount = " + count);
     }
-
 
     public void Initialize(int n, int k)
     {
+        if (k == 0 || n < k)
+        {
+            combination = null;
+            return;
+        }
+
         this.n = n;
         combination = new int[k];
 
