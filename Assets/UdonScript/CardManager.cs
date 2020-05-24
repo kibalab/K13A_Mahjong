@@ -42,9 +42,6 @@ public class CardManager : UdonSharpBehaviour
         cards[13] = newPlusCard;
         cards[13].SetPosition(plusCardPosition.position, plusCardPosition.rotation);
         //nakiManager.search(cards, newPlusCard);
-
-        // for test
-        handCalculator.FindValidCombination(cards);
     }
 
     public void Discard(CardComponent stashCard)
