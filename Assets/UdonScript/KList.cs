@@ -3,12 +3,14 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
+
 public class KList : UdonSharpBehaviour
 {
+    private const int jump = 8;
+
     public bool IgnoreTests = false;
 
-    private object[] components = new object[8];
-    private const int jump = 8;
+    private object[] components = new object[jump];
     private int scaled = 1;
     private int index = -1;
 
@@ -21,7 +23,7 @@ public class KList : UdonSharpBehaviour
         {
             Add(new object());
             if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
             if (Count() == i) Debug.Log(i + "countError");
         }
 
@@ -31,38 +33,42 @@ public class KList : UdonSharpBehaviour
         {
             Add(new object());
             if (index != i) Debug.Log(i + "IndexError at test 2");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError at test 2");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError at test 2");
             if (Count() == i) Debug.Log(i + "countError at test 2");
         }
 
-        for (var i = 19; i >= 0; --i)
+        for (var i = 20; i >= 0; --i)
         {
             RemoveLast();
-            if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
-            if (Count() == i) Debug.Log(i + "countError");
+            if (index != i - 1) Debug.Log(i + "IndexError");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
+            if (Count() == i - 1) Debug.Log(i + "countError");
         }
 
-        for (var i = 1; i <= 20; ++i)
+        for (var i = 0; i <= 20; ++i)
         {
             Add(i);
             if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
         }
+
+        if (IndexOf(2) != 2) Debug.Log("indexOf Error 0");
+        if (IndexOf(5) != 5) Debug.Log("indexOf Error 1");
+        if (IndexOf(-99) != -1) Debug.Log("indexOf Error 2");
 
         for (var i = 19; i >= 0; --i)
         {
             var value = (int)RemoveLast();
             if (value != i + 1) Debug.Log($"ValueError {value}, {i}");
             if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
         }
 
         for (var i = 1; i <= 20; ++i)
         {
             Add(i.ToString());
             if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
         }
 
         for (var i = 19; i >= 0; --i)
@@ -70,10 +76,19 @@ public class KList : UdonSharpBehaviour
             var value = (string)RemoveLast();
             if (value != (i + 1).ToString()) Debug.Log($"ValueError {value}, {i}");
             if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
         }
 
-        Debug.Log("if nothing appeared, test success");
+        Clear();
+        Add("hello world");
+        if (IndexOf("hello world") != 0) Debug.Log("indexOf error 3");
+
+        Debug.Log("if nothing appeared above, test success");
+    }
+
+    int EstimatedLength(int i)
+    {
+        return ((i / jump) + 1) * jump;
     }
 
     public object[] Add(object newComponent)
@@ -108,7 +123,7 @@ public class KList : UdonSharpBehaviour
         }
 
         // scale down needed
-        if (!isAdd && (index - 1 < (scaled - 1) * jump))
+        if (!isAdd && (index - 1 < (scaled - 1) * jump) && scaled != 1)
         {
             --scaled;
             var temp = components;
@@ -118,6 +133,52 @@ public class KList : UdonSharpBehaviour
                 components[i] = temp[i];
             }
         }
+    }
+
+    public int IndexOf_Int(int number)
+    {
+        for (var i = 0; i <= index; ++i)
+        {
+            if (number == (int)components[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int IndexOf_String(string str)
+    {
+        for (var i = 0; i <= index; ++i)
+        {
+            if (str == (string)components[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int IndexOf(object obj)
+    {
+        // premitive type이면 별도로 생성해줘야 함
+        // 일단 자주 쓸 것 같은 두개만 만듬
+        var typeName = obj.GetType().Name;
+        switch (typeName)
+        {
+            case "Int32": return IndexOf_Int((int)obj);
+            case "String": return IndexOf_String((string)obj);
+            default: break;
+        }
+
+        for (var i = 0; i <= index; ++i)
+        {
+            if (obj == components[i])
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public object At(int i)
