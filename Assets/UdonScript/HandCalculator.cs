@@ -3,45 +3,71 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-
 public class HandCalculator : UdonSharpBehaviour
 {
+    public bool IgnoreTests = false;
+
     public CombinationIterator combinationInterator;
     public KList ManGroup;
     public KList SouGroup;
     public KList PinGroup;
 
-    public void FindValidCombination(CardComponent[] cards)
+    public CardComponent[] TestComponents;
+
+    public void Start()
     {
+        if (IgnoreTests) { return; }
+
+        Debug.Log("--- HandCalculator TEST ---");
+
+        TestComponents = GetComponentsInChildren<CardComponent>();
+        if (TestComponents.Length != 10) Debug.Log("test data error");
+
         ManGroup.Clear();
         SouGroup.Clear();
         PinGroup.Clear();
+        var testSet = new CardComponent[]
+        {
+                SetTestData(TestComponents[0], "만", 1),
+                SetTestData(TestComponents[1], "만", 2),
+                SetTestData(TestComponents[2], "만", 3),
+                SetTestData(TestComponents[3], "만", 3),
+                SetTestData(TestComponents[4], "삭", 5),
+                SetTestData(TestComponents[5], "삭", 5),
+                SetTestData(TestComponents[6], "삭", 5),
+                SetTestData(TestComponents[7], "통", 7),
+                SetTestData(TestComponents[8], "통", 8),
+                SetTestData(TestComponents[9], "통", 9)
+        };
 
-        var copiedCards = SortCardsWithHardCopy(cards);
+        GetCardsIndexByType(ManGroup, testSet, "만");
+        GetCardsIndexByType(SouGroup, testSet, "삭");
+        GetCardsIndexByType(PinGroup, testSet, "통");
 
+        if (ManGroup.Count() != 4) Debug.Log("man grouping error");
+        if (SouGroup.Count() != 3) Debug.Log("sou grouping error");
+        if (PinGroup.Count() != 3) Debug.Log("pin grouping error");
 
-        var manGroupIndex = GetCardsIndexByType(copiedCards, "만");
-        var souGroupIndex = GetCardsIndexByType(copiedCards, "삭");
-        var pinGroupIndex = GetCardsIndexByType(copiedCards, "통");
-        //GetCardsIndexByType(ManGroup, copiedCards, "만");
-        //GetCardsIndexByType(SouGroup, copiedCards, "삭");
-        //GetCardsIndexByType(PinGroup, copiedCards, "통");
+        if (!TestMeldsCount(ManGroup, 2, 0)) Debug.Log("Find chi-pon error 1"); ;
+        if (!TestMeldsCount(SouGroup, 0, 1)) Debug.Log("Find chi-pon error 2"); ;
+        if (!TestMeldsCount(PinGroup, 1, 0)) Debug.Log("Find chi-pon error 2"); ;
 
-        PrintGroupedCards(copiedCards, souGroupIndex);
-        PrintGroupedCards(copiedCards, manGroupIndex);
-        PrintGroupedCards(copiedCards, pinGroupIndex);
-        //PrintGroupedCards(ManGroup);
-        //PrintGroupedCards(SouGroup);
-        //PrintGroupedCards(PinGroup);
-
-        Test(copiedCards, ManGroup);
-        Test(copiedCards, SouGroup);
-        Test(copiedCards, PinGroup);
+        Debug.Log("if nothing appeared above, test success");
     }
 
-    void Test(CardComponent[] cards, KList group)
+    CardComponent SetTestData(CardComponent card, string type, int cardNumber)
+    {
+        card.Type = type;
+        card.CardNumber = cardNumber;
+        return card;
+    }
+
+    bool TestMeldsCount(KList group, int estimatedChiCount, int estimatedPonCount)
     {
         var k = 3;
+        var chi = 0;
+        var pon = 0;
+
         combinationInterator.Initialize(group.Count(), k);
         while (combinationInterator.GetCombination() != null)
         {
@@ -49,74 +75,27 @@ public class HandCalculator : UdonSharpBehaviour
             var pickedCards = new CardComponent[k];
             for (var i = 0; i < k; ++i)
             {
-                var gg = (int)group.At(combination[i]);
-                pickedCards[i] = cards[gg];
+                pickedCards[i] = (CardComponent)group.At(combination[i]);
             }
 
-            if (IsValidMelds(pickedCards))
-            {
-
-            }
-
-            if (IsChi(pickedCards))
-            {
-                Debug.Log("IsChi " + CompToString(pickedCards[0]) + CompToString(pickedCards[1]) + CompToString(pickedCards[2]));
-            }
-
-            if (IsPon(pickedCards))
-            {
-                Debug.Log("IsPon " + CompToString(pickedCards[0]) + CompToString(pickedCards[1]) + CompToString(pickedCards[2]));
-            }
+            if (IsChi(pickedCards)) { chi++; }
+            if (IsPon(pickedCards)) { pon++; }
 
             combinationInterator.MoveNext();
         }
+
+        return estimatedChiCount == chi && estimatedPonCount == pon;
     }
 
-    //--------------------------임시
-
-    public int[] GetCardsIndexByType(CardComponent[] allCards, string type)
+    public void FindValidCombination(CardComponent[] cards)
     {
-        var typedCardsCount = GetCardTypeCount(allCards, type);
-        var typedCardsIndex = new int[typedCardsCount];
-        var index = 0;
+        var copiedCards = SortCardsWithHardCopy(cards);
 
-        for (var i = 0; i < allCards.Length; ++i)
-        {
-            if (type == allCards[i].Type)
-            {
-                typedCardsIndex[index++] = i;
-            }
-        }
-        return typedCardsIndex;
-    }
-    int GetCardTypeCount(CardComponent[] cards, string type)
-    {
-        var count = 0;
+        GetCardsIndexByType(ManGroup, copiedCards, "만");
+        GetCardsIndexByType(SouGroup, copiedCards, "삭");
+        GetCardsIndexByType(PinGroup, copiedCards, "통");
 
-        foreach (var card in cards)
-        {
-            if (type == card.Type)
-            {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    void PrintGroupedCards(CardComponent[] cards, int[] group)
-    {
-        var str = "";
-        foreach (var i in group)
-        {
-            str += CompToString(cards[i]) + " ";
-        }
-        Debug.Log(str);
-    }
-    //-----------------------------
-
-    bool IsValidMelds(CardComponent[] pickedCards)
-    {
-        return IsChi(pickedCards) || IsPon(pickedCards);
+        // TODO
     }
 
     bool IsChi(CardComponent[] pickedCards)
@@ -133,12 +112,7 @@ public class HandCalculator : UdonSharpBehaviour
             && pickedCards[0].CardNumber == pickedCards[2].CardNumber;
     }
 
-    string CompToString(CardComponent comp)
-    {
-        return "(" + comp.Type + ", " + comp.CardNumber + ")";
-    }
-
-    public void GetCardsIndexByType2(KList groupList, CardComponent[] allCards, string type)
+    public void GetCardsIndexByType(KList groupList, CardComponent[] allCards, string type)
     {
         foreach (var card in allCards)
         {
@@ -152,7 +126,7 @@ public class HandCalculator : UdonSharpBehaviour
     CardComponent[] SortCardsWithHardCopy(CardComponent[] cards)
     {
         var copies = new CardComponent[cards.Length];
-        for(var i=0; i < cards.Length; ++i)
+        for (var i = 0; i < cards.Length; ++i)
         {
             copies[i] = cards[i];
         }
@@ -171,19 +145,7 @@ public class HandCalculator : UdonSharpBehaviour
                 }
             }
         }
-        
+
         return copies;
     }
-
-    void PrintGroupedCards2(KList groupedCards)
-    {
-        var str = "";
-        for (var i = 0; i < groupedCards.Count(); ++i)
-        {
-            var card = (CardComponent)groupedCards.At(i);
-            str += CompToString(card) + " ";
-        }
-        Debug.Log(str);
-    }
 }
-
