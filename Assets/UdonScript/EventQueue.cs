@@ -23,7 +23,6 @@ public class EventQueue : UdonSharpBehaviour
 
     public CardComponent Dequeue() 
     {
-        Debug.Log(count);
         CardComponent tmp = components[0];
         components[0] = null;
         for (var i = 1; i < count; i++)
