@@ -2,6 +2,7 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
+
 public class CombinationIterator : UdonSharpBehaviour
 {
     public bool IgnoreTests = false;
@@ -9,7 +10,7 @@ public class CombinationIterator : UdonSharpBehaviour
     int n;
     int[] combination;
 
-    void Start()
+    public void Start()
     {
         if (IgnoreTests) { return; }
 
@@ -18,7 +19,7 @@ public class CombinationIterator : UdonSharpBehaviour
         TestCombination(5, 3);
         TestCombination(5, 2);
         TestCombination(5, 1);
-        Debug.Log("if nothing appeared, test success");
+        Debug.Log("if nothing appeared above, test success");
     }
 
     int GetEstimatedCount(int n, int k)
@@ -37,24 +38,21 @@ public class CombinationIterator : UdonSharpBehaviour
 
     void TestCombination(int n, int k)
     {
-        Initialize(n, k);
-
-        var count = 0;
-        while (GetCombination() != null)
+        foreach (var obj in GetCombinationAll(n, k))
         {
-            MoveNext();
-            count++;
+            if (obj == null)
+            {
+                Debug.Log("error");
+                break;
+            }
         }
-
-        if (GetEstimatedCount(n, k) != count) Debug.Log("Estmation Error");
     }
 
-    public void Initialize(int n, int k)
+    public object[] GetCombinationAll(int n, int k)
     {
         if (k == 0 || n < k)
         {
-            combination = null;
-            return;
+            return new object[0];
         }
 
         this.n = n;
@@ -64,14 +62,24 @@ public class CombinationIterator : UdonSharpBehaviour
         {
             combination[i] = i;
         }
+
+        var objs = new object[GetEstimatedCount(n, k)];
+        var count = 0;
+        while (combination != null)
+        {
+            objs[count++] = GetHardCopy(combination);
+            MoveNext();
+        }
+
+        return objs;
     }
 
-    public int[] GetCombination()
+    int[] GetCombination()
     {
         return combination;
     }
 
-    public void MoveNext()
+    void MoveNext()
     {
         ++combination[combination.Length - 1];
 
@@ -97,5 +105,15 @@ public class CombinationIterator : UdonSharpBehaviour
             }
             if (needCheckAgain) { i++; }
         }
+    }
+
+    int[] GetHardCopy(int[] raw)
+    {
+        var copies = new int[raw.Length];
+        for (var i = 0; i < raw.Length; ++i)
+        {
+            copies[i] = raw[i];
+        }
+        return copies;
     }
 }
