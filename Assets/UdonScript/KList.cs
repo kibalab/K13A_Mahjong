@@ -195,8 +195,8 @@ public class KList : UdonSharpBehaviour
 
     public object[] Clone()
     {
-        var copied = new object[components.Length];
-        for (var i = 0; i < components.Length; ++i)
+        var copied = new object[Count()];
+        for (var i = 0; i < Count(); ++i)
         {
             copied[i] = components[i];
         }
