@@ -6,7 +6,7 @@ using VRC.Udon;
 
 public class KList : UdonSharpBehaviour
 {
-    private const int jump = 8;
+    private const int jump = 256;
 
     public bool IgnoreTests = false;
 
@@ -188,7 +188,7 @@ public class KList : UdonSharpBehaviour
 
     public void Clear()
     {
-        components = new object[8];
+        components = new object[jump];
         scaled = 1;
         index = -1;
     }
