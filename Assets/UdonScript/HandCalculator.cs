@@ -7,6 +7,7 @@ using VRC.Udon;
 public class HandCalculator : UdonSharpBehaviour
 {
     public CombinationIterator combinationInterator;
+    public KList List;
 
     public void FindValidCombination(CardComponent[] cards)
     {
@@ -39,6 +40,11 @@ public class HandCalculator : UdonSharpBehaviour
                 pickedCards[i] = cards[group[combination[i]]];
             }
 
+            if (IsValidMelds(pickedCards))
+            {
+
+            }
+
             if (IsChi(pickedCards))
             {
                 Debug.Log("IsChi " + CompToString(pickedCards[0]) + CompToString(pickedCards[1]) + CompToString(pickedCards[2]));
@@ -51,6 +57,11 @@ public class HandCalculator : UdonSharpBehaviour
 
             combinationInterator.MoveNext();
         }
+    }
+
+    bool IsValidMelds(CardComponent[] pickedCards)
+    {
+        return IsChi(pickedCards) || IsPon(pickedCards);
     }
 
     bool IsChi(CardComponent[] pickedCards)
