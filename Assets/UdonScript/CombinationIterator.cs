@@ -4,11 +4,15 @@ using VRC.SDKBase;
 using VRC.Udon;
 public class CombinationIterator : UdonSharpBehaviour
 {
+    public bool IgnoreTests = false;
+
     int n;
     int[] combination;
 
     void Start()
     {
+        if (IgnoreTests) { return; }
+
         Debug.Log("--- CombinationIterator TEST ---");
         TestCombination(13, 3);
         TestCombination(5, 3);
