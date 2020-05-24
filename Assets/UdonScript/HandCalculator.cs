@@ -68,10 +68,10 @@ public class HandCalculator : UdonSharpBehaviour
         var chi = 0;
         var pon = 0;
 
-        combinationInterator.Initialize(group.Count(), k);
-        while (combinationInterator.GetCombination() != null)
+        var combinations = combinationInterator.GetCombinationAll(group.Count(), k);
+        foreach (var obj in combinations)
         {
-            var combination = combinationInterator.GetCombination();
+            var combination = (int[])obj;
             var pickedCards = new CardComponent[k];
             for (var i = 0; i < k; ++i)
             {
@@ -80,8 +80,6 @@ public class HandCalculator : UdonSharpBehaviour
 
             if (IsChi(pickedCards)) { chi++; }
             if (IsPon(pickedCards)) { pon++; }
-
-            combinationInterator.MoveNext();
         }
 
         return estimatedChiCount == chi && estimatedPonCount == pon;
