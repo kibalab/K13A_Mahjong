@@ -12,6 +12,7 @@ public class GameManager : UdonSharpBehaviour
     public GameObject CardTable;
     public GameObject StashTable;
     public GameObject EventQueueObject;
+    public HandCalculator HandCalculator;
     public Text DebugText;
 
     [UdonSynced(UdonSyncMode.None)] public int turnNum = 0;
@@ -135,7 +136,7 @@ public class GameManager : UdonSharpBehaviour
             var pickedCards = GetNextCards(13);
 
             var table = tables[i];
-            table.Initialize();
+            table.Initialize(HandCalculator);
             table.Pickupable(false);
             table.SetCards(pickedCards);
         }

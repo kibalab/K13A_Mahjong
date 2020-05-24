@@ -6,35 +6,113 @@ using VRC.Udon;
 
 public class HandCalculator : UdonSharpBehaviour
 {
-    public CombinationIterator combitnationIterator;
+    public CombinationIterator combinationInterator;
 
     public void FindValidCombination(CardComponent[] cards)
     {
-        var manGroup = GetCardsByType(cards, "¸¸");
-        var souGroup = GetCardsByType(cards, "»è");
-        var pinGroup = GetCardsByType(cards, "Åë");
+        var copiedCards = SortCardsWithHardCopy(cards);
 
+        var manGroupIndex = GetCardsIndexByType(copiedCards, "ë§Œ");
+        var souGroupIndex = GetCardsIndexByType(copiedCards, "ì‚­");
+        var pinGroupIndex = GetCardsIndexByType(copiedCards, "í†µ");
 
+        PrintGroupedCards(copiedCards, souGroupIndex);
+        PrintGroupedCards(copiedCards, manGroupIndex);
+        PrintGroupedCards(copiedCards, pinGroupIndex);
 
+        Test(copiedCards, manGroupIndex);
+        Test(copiedCards, souGroupIndex);
+        Test(copiedCards, pinGroupIndex);
+    }
+
+    void Test(CardComponent[] cards, int[] group)
+    {
+        var k = 3;
+
+        combinationInterator.Initialize(group.Length, k);
+        while (combinationInterator.GetCombination() != null)
+        {
+            var combination = combinationInterator.GetCombination();
+            var pickedCards = new CardComponent[k];
+            for (var i = 0; i < k; ++i)
+            {
+                pickedCards[i] = cards[group[combination[i]]];
+            }
+
+            if (IsChi(pickedCards))
+            {
+                Debug.Log("IsChi " + CompToString(pickedCards[0]) + CompToString(pickedCards[1]) + CompToString(pickedCards[2]));
+            }
+
+            if (IsPon(pickedCards))
+            {
+                Debug.Log("IsPon " + CompToString(pickedCards[0]) + CompToString(pickedCards[1]) + CompToString(pickedCards[2]));
+            }
+
+            combinationInterator.MoveNext();
+        }
+    }
+
+    bool IsChi(CardComponent[] pickedCards)
+    {
+        if (pickedCards.Length != 3) { return false; }
+        return pickedCards[0].CardNumber == pickedCards[1].CardNumber - 1
+            && pickedCards[0].CardNumber == pickedCards[2].CardNumber - 2;
+    }
+
+    bool IsPon(CardComponent[] pickedCards)
+    {
+        if (pickedCards.Length != 3) { return false; }
+        return pickedCards[0].CardNumber == pickedCards[1].CardNumber
+            && pickedCards[0].CardNumber == pickedCards[2].CardNumber;
+    }
+    string CompToString(CardComponent comp)
+    {
+        return "(" + comp.Type + ", " + comp.CardNumber + ")";
+    }
+
+    public int[] GetCardsIndexByType(CardComponent[] allCards, string type)
+    {
+        // í•´ë‹¹ typeì˜ ì¹´ë“œ ê°¯ìˆ˜ë§Œí¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¤ë ¤ë©´... ì´ ë°©ë²•ë°–ì— ì—†ë‹¤...
+        var typedCardsCount = GetCardTypeCount(allCards, type);
+        var typedCardsIndex = new int[typedCardsCount];
+        var index = 0;
+
+        for (var i = 0; i<allCards.Length; ++i)
+        {
+            if (type == allCards[i].Type)
+            {
+                typedCardsIndex[index++] = i;
+            }
+        }
+        return typedCardsIndex;
     }
 
 
-    public CardComponent[] GetCardsByType(CardComponent[] allCards, string type)
+    CardComponent[] SortCardsWithHardCopy(CardComponent[] cards)
     {
-        // ÇØ´ç typeÀÇ Ä«µå °¹¼ö¸¸Å­ ¸®½ºÆ®¸¦ ¸¸µé·Á¸é... ÀÌ ¹æ¹ý¹Û¿¡ ¾ø´Ù...
-        var typedCardsCount = GetCardTypeCount(allCards, type);
-        var typedCards = new CardComponent[typedCardsCount];
-        var index = 0;
-
-        foreach (var card in allCards)
+        var copies = new CardComponent[cards.Length];
+        for(var i=0; i < cards.Length; ++i)
         {
-            if (type == card.Type)
-            {
-                typedCards[index++] = card;
-            }
+            copies[i] = cards[i];
         }
 
-        return SortCard(typedCards);
+        CardComponent temp;
+
+        for (var i = cards.Length - 1; i >= 0; i--)
+        {
+            for (var j = 1; j <= i; j++)
+            {
+                if (copies[j - 1].NormalCardNumber > copies[j].NormalCardNumber)
+                {
+                    temp = cards[j - 1];
+                    copies[j - 1] = cards[j];
+                    copies[j] = temp;
+                }
+            }
+        }
+        
+        return copies;
     }
 
     int GetCardTypeCount(CardComponent[] cards, string type)
@@ -48,27 +126,17 @@ public class HandCalculator : UdonSharpBehaviour
                 count++;
             }
         }
-
         return count;
     }
 
-    CardComponent[] SortCard(CardComponent[] cards)
+    void PrintGroupedCards(CardComponent[] cards, int[] group)
     {
-        CardComponent temp;
-
-        for (var i = cards.Length -1; i >= 0; i--)
+        var str = "";
+        foreach (var i in group)
         {
-            for (var j = 1; j <= i; j++)
-            {
-                if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
-                {
-                    temp = cards[j - 1];
-                    cards[j - 1] = cards[j];
-                    cards[j] = temp;
-                }
-            }
+            str += CompToString(cards[i]) + " ";
         }
-
-        return cards;
+        Debug.Log(str);
     }
 }
+
