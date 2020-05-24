@@ -14,7 +14,7 @@ public class CombinationIterator : UdonSharpBehaviour
         TestCombination(5, 3);
         TestCombination(5, 2);
         TestCombination(5, 1);
-        Debug.Log("--------------------------------");
+        Debug.Log("if nothing appeared, test success");
     }
 
     int GetEstimatedCount(int n, int k)
@@ -42,7 +42,7 @@ public class CombinationIterator : UdonSharpBehaviour
             count++;
         }
 
-        Debug.Log("estimatedCount = " + GetEstimatedCount(n, k) + " calculatedCount = " + count);
+        if (GetEstimatedCount(n, k) != count) Debug.Log("Estmation Error");
     }
 
     public void Initialize(int n, int k)
