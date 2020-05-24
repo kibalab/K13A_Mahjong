@@ -7,110 +7,147 @@ using VRC.Udon;
 
 public class KList : UdonSharpBehaviour
 {
-    public int Count = 0;
+    private object[] components = new object[8];
+    private const int jump = 8;
+    private int scaled = 1;
+    private int index = 0;
 
-    private object[] cards1 = new object[0];
-    private object[] cards2 = new object[0];
-
-
-    public object[] Add(object component)
+    public void Start()
     {
-        cards2 = cards1;
-        cards1 = new object[cards2.Length + 1];
-        for (var i = 0; i < cards2.Length; i++)
+        Debug.Log("--- KList TEST ---");
+        for (var i = 1; i <= 20; ++i)
         {
-            cards1[i] = cards2[i];
-        }
-        cards1[cards2.Length] = component;
-        Count++;
-        cards2 = new object[0];
-        return cards1;
-    }
-
-    public object Remove()
-    {
-        cards2 = cards1;
-        cards1 = new object[cards2.Length - 1];
-        for (var i = 0; i < cards2.Length - 1; i++)
-        {
-            cards1[i] = cards2[i];
+            Add(new object());
+            if (index != i) Debug.Log(i + "IndexError");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
         }
 
-        Count--;
-        object r = cards1[cards1.Length - 1];
-        cards1[cards1.Length - 1] = null;
-        cards2 = new object[0];
-        return r;
+        for (var i = 19; i >= 0; --i)
+        {
+            RemoveLast();
+            if (index != i) Debug.Log(i + "IndexError");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+        }
+
+        for (var i = 1; i <= 20; ++i)
+        {
+            Add(i);
+            if (index != i) Debug.Log(i + "IndexError");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+        }
+
+        for (var i = 19; i >= 0; --i)
+        {
+            var value = (int)RemoveLast();
+            if (value != i + 1) Debug.Log($"ValueError {value}, {i}");
+            if (index != i) Debug.Log(i + "IndexError");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+        }
+
+        for (var i = 1; i <= 20; ++i)
+        {
+            Add(i.ToString());
+            if (index != i) Debug.Log(i + "IndexError");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+        }
+
+        for (var i = 19; i >= 0; --i)
+        {
+            var value = (string)RemoveLast();
+            if (value != (i + 1).ToString()) Debug.Log($"ValueError {value}, {i}");
+            if (index != i) Debug.Log(i + "IndexError");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+        }
+
+        Debug.Log("if nothing appeared, test success");
     }
 
-    public object index(int i)
+    public object[] Add(object newComponent)
     {
-        return cards1[i];
+        ResizeIfNeeded(true);
+        components[++index] = newComponent;
+        return components;
     }
 
-    public bool Clear()
+    public object RemoveLast()
     {
-        cards1 = new object[0];
-        cards2 = new object[0];
-        Count = 0;
+        var comp = components[index];
+        components[index] = null;
+        ResizeIfNeeded(false);
+        index--;
+        return comp;
+    }
 
-        return true;
+
+    void ResizeIfNeeded(bool isAdd)
+    {
+        // scale up needed
+        if (isAdd && (index == components.Length - 1))
+        {
+            ++scaled;
+            var temp = components;
+
+            components = new object[scaled * jump];
+            for (var i = 0; i < temp.Length; i++)
+            {
+                components[i] = temp[i];
+            }
+        }
+
+        // scale down needed
+        if (!isAdd && (index - 1 < (scaled - 1) * jump))
+        {
+            --scaled;
+            var temp = components;
+            components = new object[scaled * jump];
+            for (var i = 0; i < components.Length; i++)
+            {
+                components[i] = temp[i];
+            }
+        }
+    }
+
+    public object At(int i)
+    {
+        return components[i];
+    }
+
+    public void Clear()
+    {
+        components = new object[0];
+        index = 0;
     }
 
     public object[] Clone()
     {
-        return cards1;
+        var copied = new object[components.Length];
+        for (var i = 0; i < components.Length; ++i)
+        {
+            copied[i] = components[i];
+        }
+        return copied;
     }
 
     public object[] GetRange(int startIndex, int endIndex)
     {
-        object[] l = new object[endIndex - startIndex + 1];
-        for(int i = startIndex, j = 0; i <= endIndex; i++, j++)
+        var l = new object[endIndex - startIndex + 1];
+        for (int i = startIndex, j = 0; i <= endIndex; i++, j++)
         {
-            l[j] = cards1[i];
+            l[j] = components[i];
         }
         return l;
     }
 
-    public object[] insert(int index, object data)
+    public object RemoveAt(int removeIndex)
     {
-        cards2 = cards1;
-        cards1 = new object[cards2.Length + 1];
-        for(int i = 0, j = 0; i < cards2.Length + 1; i++, j++)
-        {
-            if(i == index)
-            {
-                cards1[i] = data;
-                i++;
-            }
-            else
-            {
-                cards1[i] = cards2[j];
-            }
-        }
-        Count++;
-        cards2 = new object[0];
-        return cards1;
-    }
+        ResizeIfNeeded(false);
 
-    public object RemoveAt(int index)
-    {
-        object r = cards1[index];
-        cards2 = cards1;
-        cards1 = new object[cards2.Length - 1];
-        for (int i = 0, j = 0; i < cards2.Length; i++, j++)
+        var r = components[removeIndex];
+        for (var i = removeIndex; i < components.Length - 1; ++i)
         {
-            if (i == index)
-            {
-                i++;
-            }
-            else
-            {
-                cards1[j] = cards2[i];
-            }
+            components[i] = components[i + 1];
         }
-        Count--;
-        cards2 = new object[0];
+        --index;
         return r;
     }
 }
