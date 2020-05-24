@@ -10,19 +10,29 @@ public class KList : UdonSharpBehaviour
     private object[] components = new object[8];
     private const int jump = 8;
     private int scaled = 1;
-    private int index = 0;
+    private int index = -1;
 
     public void Start()
     {
         if (IgnoreTests) { return; }
 
         Debug.Log("--- KList TEST ---");
-        for (var i = 1; i <= 20; ++i)
+        for (var i = 0; i <= 2000; ++i)
         {
             Add(new object());
             if (index != i) Debug.Log(i + "IndexError");
             if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
             if (Count() == i) Debug.Log(i + "countError");
+        }
+
+        Clear();
+
+        for (var i = 0; i <= 20; ++i)
+        {
+            Add(new object());
+            if (index != i) Debug.Log(i + "IndexError at test 2");
+            if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError at test 2");
+            if (Count() == i) Debug.Log(i + "countError at test 2");
         }
 
         for (var i = 19; i >= 0; --i)
@@ -78,7 +88,7 @@ public class KList : UdonSharpBehaviour
         var comp = components[index];
         components[index] = null;
         ResizeIfNeeded(false);
-        index--;
+        --index;
         return comp;
     }
 
@@ -117,8 +127,9 @@ public class KList : UdonSharpBehaviour
 
     public void Clear()
     {
-        components = new object[0];
-        index = 0;
+        components = new object[8];
+        scaled = 1;
+        index = -1;
     }
 
     public object[] Clone()
