@@ -1,12 +1,12 @@
 
-using System;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-
 public class KList : UdonSharpBehaviour
 {
+    public bool IgnoreTests = false;
+
     private object[] components = new object[8];
     private const int jump = 8;
     private int scaled = 1;
@@ -14,12 +14,15 @@ public class KList : UdonSharpBehaviour
 
     public void Start()
     {
+        if (IgnoreTests) { return; }
+
         Debug.Log("--- KList TEST ---");
         for (var i = 1; i <= 20; ++i)
         {
             Add(new object());
             if (index != i) Debug.Log(i + "IndexError");
             if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (Count() == i) Debug.Log(i + "countError");
         }
 
         for (var i = 19; i >= 0; --i)
@@ -27,6 +30,7 @@ public class KList : UdonSharpBehaviour
             RemoveLast();
             if (index != i) Debug.Log(i + "IndexError");
             if (components.Length != ((index / 8) + 1) * 8) Debug.Log(i + "lengthError");
+            if (Count() == i) Debug.Log(i + "countError");
         }
 
         for (var i = 1; i <= 20; ++i)
@@ -77,7 +81,6 @@ public class KList : UdonSharpBehaviour
         index--;
         return comp;
     }
-
 
     void ResizeIfNeeded(bool isAdd)
     {
@@ -149,5 +152,10 @@ public class KList : UdonSharpBehaviour
         }
         --index;
         return r;
+    }
+
+    public int Count()
+    {
+        return index + 1;
     }
 }

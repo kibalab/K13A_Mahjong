@@ -7,23 +7,25 @@ using VRC.Udon;
 public class HandCalculator : UdonSharpBehaviour
 {
     public CombinationIterator combinationInterator;
-    public KList List;
+    public KList ManGroup;
+    public KList SouGroup;
+    public KList PinGroup;
 
     public void FindValidCombination(CardComponent[] cards)
     {
         var copiedCards = SortCardsWithHardCopy(cards);
 
-        var manGroupIndex = GetCardsIndexByType(copiedCards, "만");
-        var souGroupIndex = GetCardsIndexByType(copiedCards, "삭");
-        var pinGroupIndex = GetCardsIndexByType(copiedCards, "통");
+        GetCardsIndexByType(ManGroup, copiedCards, "만");
+        GetCardsIndexByType(SouGroup, copiedCards, "삭");
+        GetCardsIndexByType(PinGroup, copiedCards, "통");
 
-        PrintGroupedCards(copiedCards, souGroupIndex);
-        PrintGroupedCards(copiedCards, manGroupIndex);
-        PrintGroupedCards(copiedCards, pinGroupIndex);
+        PrintGroupedCards(ManGroup);
+        PrintGroupedCards(SouGroup);
+        PrintGroupedCards(PinGroup);
 
-        Test(copiedCards, manGroupIndex);
-        Test(copiedCards, souGroupIndex);
-        Test(copiedCards, pinGroupIndex);
+        //Test(copiedCards, manGroupIndex);
+        //Test(copiedCards, souGroupIndex);
+        //Test(copiedCards, pinGroupIndex);
     }
 
     void Test(CardComponent[] cards, int[] group)
@@ -82,23 +84,16 @@ public class HandCalculator : UdonSharpBehaviour
         return "(" + comp.Type + ", " + comp.CardNumber + ")";
     }
 
-    public int[] GetCardsIndexByType(CardComponent[] allCards, string type)
+    public void GetCardsIndexByType(KList groupList, CardComponent[] allCards, string type)
     {
-        // 해당 type의 카드 갯수만큼 리스트를 만들려면... 이 방법밖에 없다...
-        var typedCardsCount = GetCardTypeCount(allCards, type);
-        var typedCardsIndex = new int[typedCardsCount];
-        var index = 0;
-
-        for (var i = 0; i<allCards.Length; ++i)
+        foreach (var card in allCards)
         {
-            if (type == allCards[i].Type)
+            if (type == card.Type)
             {
-                typedCardsIndex[index++] = i;
+                groupList.Add(card);
             }
         }
-        return typedCardsIndex;
     }
-
 
     CardComponent[] SortCardsWithHardCopy(CardComponent[] cards)
     {
@@ -126,26 +121,13 @@ public class HandCalculator : UdonSharpBehaviour
         return copies;
     }
 
-    int GetCardTypeCount(CardComponent[] cards, string type)
-    {
-        var count = 0;
-
-        foreach (var card in cards)
-        {
-            if (type == card.Type)
-            {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    void PrintGroupedCards(CardComponent[] cards, int[] group)
+    void PrintGroupedCards(KList groupedCards)
     {
         var str = "";
-        foreach (var i in group)
+        for (var i = 0; i < groupedCards.Count(); ++i)
         {
-            str += CompToString(cards[i]) + " ";
+            var card = (CardComponent)groupedCards.At(i);
+            str += CompToString(card) + " ";
         }
         Debug.Log(str);
     }
