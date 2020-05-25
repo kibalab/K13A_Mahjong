@@ -62,7 +62,7 @@ public class GameManager : UdonSharpBehaviour
         
         foreach (Naki nakiManager in nakiManagers)
         {
-            nakiManager.Initialized();
+            nakiManager.Initialized(eventQueue);
         }
 
         if (Networking.IsOwner(this.gameObject))
@@ -123,7 +123,7 @@ public class GameManager : UdonSharpBehaviour
 
                 case "Chi":
                 case "Pon":
-                case "Kang":
+                case "Kkan":
                     // TODO
                     break;
             }

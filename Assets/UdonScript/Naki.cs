@@ -1,4 +1,4 @@
-
+ï»¿
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -6,12 +6,101 @@ using VRC.Udon;
 
 public class Naki : UdonSharpBehaviour
 {
+    public bool IgnoreTests = false;
+
     public bool canChi = false, canPon = false, canKkan = false;
     public GameObject nakiObject;
     NakiData[] nakiData;
     private int nakiDataCount = 0;
 
-    public void Initialized()
+    //test variables//
+    public CardComponent[] TestComponents;
+
+    private void Start()
+    {
+        if (IgnoreTests) { return; }
+
+        Initialized(null);
+
+        TestComponents = GetComponentsInChildren<CardComponent>();
+
+        Debug.Log("--- Naki TEST ---");
+        
+
+        Debug.Log("--- TEST Level0-0 ---");
+        var testSet = new CardComponent[]
+        {
+                TEST__SetTestData(TestComponents[0], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[1], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[2], "ë§Œ", 3, 2)
+        };
+        var testSetNew_ = TEST__SetTestData(TestComponents[2], "ë§Œ", 3, 2);
+        canPon = nakiData[0].checkCanNaki("kuzz", GetHardCopy(testSet), testSetNew_);
+        Debug.Log(canPon);
+
+
+        Debug.Log("--- TEST Level0-1 ---");
+        testSet = new CardComponent[]
+        {
+                TEST__SetTestData(TestComponents[0], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[1], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[2], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[3], "ë§Œ", 3, 2)
+        };
+        testSetNew_ = TEST__SetTestData(TestComponents[2], "ë§Œ", 3, 2);
+        canPon = nakiData[0].checkCanNaki("kuzz+", GetHardCopy(testSet), testSetNew_);
+        Debug.Log(canPon);
+
+
+        Debug.Log("--- TEST Level0-2 ---");
+        testSet = new CardComponent[]
+        {
+                TEST__SetTestData(TestComponents[0], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[1], "ë§Œ", 4, 3),
+                TEST__SetTestData(TestComponents[2], "ë§Œ", 5, 4)
+        };
+        testSetNew_ = TEST__SetTestData(TestComponents[1], "ë§Œ", 4, 3);
+        canPon = nakiData[0].checkCanNaki("shunzz", GetHardCopy(testSet), testSetNew_);
+        Debug.Log(canPon);
+
+
+        Debug.Log("--- TEST Level1 ---");
+        testSet = new CardComponent[]
+        {
+                TEST__SetTestData(TestComponents[0], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[1], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[2], "ë§Œ", 3, 2),
+                TEST__SetTestData(TestComponents[3], "ë§Œ", 4, 3),
+                TEST__SetTestData(TestComponents[4], "ë§Œ", 5, 4),
+                TEST__SetTestData(TestComponents[5], "ë§Œ", 6, 5),
+                TEST__SetTestData(TestComponents[6], "ë§Œ", 7, 6),
+                TEST__SetTestData(TestComponents[7], "ë§Œ", 8, 7),
+                TEST__SetTestData(TestComponents[8], "ë§Œ", 9, 8),
+                TEST__SetTestData(TestComponents[9], "ì‚­", 1, 9),
+                TEST__SetTestData(TestComponents[10], "ì‚­", 2, 10),
+                TEST__SetTestData(TestComponents[11], "ì‚­", 2, 10),
+                TEST__SetTestData(TestComponents[12], "ì‚­", 3, 11),
+                TEST__SetTestData(TestComponents[13], "ì‚­", 4, 12)
+        };
+        var testSetNew = TEST__SetTestData(TestComponents[1], "ë§Œ", 3, 2);
+        var testSetNew1 = TEST__SetTestData(TestComponents[5], "ë§Œ", 6, 5);
+        var testSetNew2 = TEST__SetTestData(TestComponents[10], "ì‚­", 2, 10);
+
+        findShunzz_Test(testSet, testSetNew);
+        findShunzz_Test(testSet, testSetNew1);
+        findShunzz_Test(testSet, testSetNew2);
+        
+    }
+
+    CardComponent TEST__SetTestData(CardComponent card, string type, int cardNumber, int normalCardNumber)
+    {
+        card.Type = type;
+        card.CardNumber = cardNumber;
+        card.NormalCardNumber = normalCardNumber;
+        return card;
+    }
+
+    public void Initialized(EventQueue e)
     {
         nakiData = nakiObject.GetComponentsInChildren<NakiData>();
 
@@ -36,9 +125,10 @@ public class Naki : UdonSharpBehaviour
         addNewCard = Sort(addNewCard);
 
         //object[] Shunzz = new object[20];
-        int shunzzSize = 0;
+        int nakiTop = 0;
 
         CardComponent lastShunzzCard = null;
+        CardComponent lastKuzzCard = null;
 
         foreach (CardComponent card in addNewCard)
         {
@@ -47,32 +137,72 @@ public class Naki : UdonSharpBehaviour
 
         for (var i = 0; i < 14; i++)
         {
-            CardComponent[] cardStack = new CardComponent[4];
-            int stackTop = -1;
+            CardComponent[] shunzzCardStack = new CardComponent[3];
+            CardComponent[] kuzzCardStack = new CardComponent[4];
+            int shunzzStackTop = -1, kuzzStackTop = -1;
+            Debug.Log(addNewCard.Length);
             Debug.Log("TestCardLevel : " + i + "/" + (0) + ", " + addNewCard[i].CardNumber + addNewCard[i].Type + ", " + addNewCard[i].NormalCardNumber);
-            cardStack[++stackTop] = addNewCard[i];
+            shunzzCardStack[++shunzzStackTop] = addNewCard[i];
+            kuzzCardStack[++kuzzStackTop] = addNewCard[i];
             for (var j = 0; j < 13 - i; j++)
             {
                 if (true) //lastShunzzCard == null || lastShunzzCard.NormalCardNumber != addNewCard[i + j].NormalCardNumber
                 {
-                    if (cardStack[stackTop].CardNumber + 1 == addNewCard[i + j].CardNumber && cardStack[stackTop].Type == addNewCard[i + j].Type)
+                    if (shunzzCardStack[shunzzStackTop].CardNumber + 1 == addNewCard[i + j].CardNumber && shunzzCardStack[shunzzStackTop].Type == addNewCard[i + j].Type)
                     {
-                        Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].NormalCardNumber);
-                        cardStack[++stackTop] = addNewCard[i + j];
-                        if (stackTop >= 2) break;
+                        if (shunzzStackTop <= 1)
+                        {
+                            Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].NormalCardNumber);
+                            shunzzCardStack[++shunzzStackTop] = addNewCard[i + j];
+                            //if (shunzzStackTop >= 2) break;
+                        }
+                    }
+                    if (kuzzCardStack[kuzzStackTop].CardNumber == addNewCard[i + j].CardNumber && kuzzCardStack[kuzzStackTop].Type == addNewCard[i + j].Type && kuzzCardStack[kuzzStackTop] != addNewCard[i + j])
+                    {
+                        if (kuzzStackTop <= 3)
+                        {
+                            Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].NormalCardNumber);
+                            kuzzCardStack[++kuzzStackTop] = addNewCard[i + j];
+                            //if (kuzzStackTop >= 3) break;
+                        }
                     }
                 }
             }
-            if(stackTop >= 2)
+            if(shunzzStackTop >= 2)
             {
                 //Shunzz[shunzzSize] = GetHardCopy(cardStack);
-                canChi = nakiData[shunzzSize].checkCanChi("shunzz", GetHardCopy(cardStack), newCard);
-                shunzzSize = canChi ? shunzzSize+1 : shunzzSize;
+                Debug.Log("nakiDataTop : " + nakiTop);
+                Debug.Log("nakiDataStorageSize : " + nakiData.Length);
+                canChi = nakiData[nakiTop].checkCanNaki("shunzz", GetHardCopy(shunzzCardStack), newCard);
+                nakiTop = canChi ? nakiTop+1 : nakiTop;
                 lastShunzzCard = addNewCard[i];
-                Debug.Log("TestShunzzGroupSize : " + stackTop);
-                for (var k = 0; k <= stackTop; k++)
+                Debug.Log("TestShunzzGroupSize : " + shunzzStackTop);
+                for (var k = 0; k <= shunzzStackTop; k++)
                 {
-                    Debug.Log("TestShunzzGroup : " + cardStack[k].CardNumber + cardStack[k].Type);
+                    Debug.Log("TestShunzzGroup : " + shunzzCardStack[k].CardNumber + shunzzCardStack[k].Type);
+                }
+            }
+            if (kuzzStackTop == 2)
+            {
+                Debug.Log(nakiTop);
+                canPon = nakiData[nakiTop].checkCanNaki("kuzz", GetHardCopy(kuzzCardStack), newCard);
+                nakiTop = canPon ? nakiTop + 1 : nakiTop;
+                lastKuzzCard = addNewCard[i];
+                Debug.Log("TestKuzzGroupSize : " + kuzzStackTop);
+                for (var k = 0; k <= kuzzStackTop; k++)
+                {
+                    Debug.Log("TestKuzzGroup : " + kuzzCardStack[k].CardNumber + kuzzCardStack[k].Type);
+                }
+            }
+            else if (kuzzStackTop == 3)
+            {
+                canPon = nakiData[--nakiTop].checkCanNaki("kuzz+", GetHardCopy(kuzzCardStack), newCard);
+                nakiTop = canPon ? nakiTop + 1 : nakiTop;
+                lastKuzzCard = addNewCard[i];
+                Debug.Log("TestKuzzGroupSize : " + kuzzStackTop);
+                for (var k = 0; k <= kuzzStackTop; k++)
+                {
+                    Debug.Log("TestKuzzGroup : " + kuzzCardStack[k].CardNumber + kuzzCardStack[k].Type);
                 }
             }
         }
@@ -123,7 +253,7 @@ public class Naki : UdonSharpBehaviour
         }
         addNewCard[addNewCard.Length-1] = newCard;
 
-        // 0:±ø, 1:Ä¿Âê, 2:šœÂê
+        // 0:ê¹¡, 1:ì»¤ì¯”, 2:ìŠŒì¯”
         int[] originCardNakiCount = findNakiable(cards);
         int[] addCardNakiCount = findNakiable(SortCard(addNewCard));
 
@@ -135,12 +265,15 @@ public class Naki : UdonSharpBehaviour
                 {
                     case 0:
                         canKkan = true;
+                        newCard.EventType = "Kkan";
                         break;
                     case 1:
                         canPon = true;
+                        newCard.EventType = "Pon";
                         break;
                     case 2:
                         canChi = true;
+                        newCard.EventType = "Chi";
                         break;
                 }
             }
@@ -176,12 +309,12 @@ public class Naki : UdonSharpBehaviour
 
     private int[] findNakiable(CardComponent[] cards)
     {
-        int[] nakiableCount = new int[3] { 0, 0, 0 }; // 0:±ø, 1:Ä¿Âê, 2:šœÂê
+        int[] nakiableCount = new int[3] { 0, 0, 0 }; // 0:ê¹¡, 1:ì»¤ì¯”, 2:ìŠŒì¯”
         int kuzzCount = 0, shunzzCount = 0;
         CardComponent[] kuzz = new CardComponent[4];
         CardComponent[] shunzz = new CardComponent[4];
 
-        foreach (CardComponent card in cards) // Ä¿Âê,±ø Ä«¿îÆ®
+        foreach (CardComponent card in cards) // ì»¤ì¯”,ê¹¡ ì¹´ìš´íŠ¸
         {
             if (kuzzCount == 0 || shunzzCount == 0)
             {
@@ -205,20 +338,20 @@ public class Naki : UdonSharpBehaviour
             if (kuzzCount == 3)
             {
                 nakiableCount[1]++;
-                //nakiData[nakiDataCount++].checkDifferentAndSaveData("Ä¿Âê",kuzz);
+                //nakiData[nakiDataCount++].checkDifferentAndSaveData("ì»¤ì¯”",kuzz);
                 kuzzCount = 0;
             }
             else if (kuzzCount == 4)
             {
                 nakiableCount[1]--;
                 nakiableCount[0]++;
-                //nakiData[--nakiDataCount].checkDifferentAndSaveData("±øÁî", kuzz);
+                //nakiData[--nakiDataCount].checkDifferentAndSaveData("ê¹¡ì¦ˆ", kuzz);
                 kuzzCount = 0;
             }
             if (shunzzCount == 3)
             {
                 nakiableCount[2]++;
-                //nakiData[nakiDataCount++].checkDifferentAndSaveData("šœÂê", shunzz);
+                //nakiData[nakiDataCount++].checkDifferentAndSaveData("ìŠŒì¯”", shunzz);
                 shunzzCount = 0;
             }
         }
