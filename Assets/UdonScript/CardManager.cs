@@ -11,17 +11,16 @@ public class CardManager : UdonSharpBehaviour
     public CardComponent[] cards;
     public GameObject[] CardPoints;
 
-    public Naki nakiManager;
 
     Transform plusCardPosition;
     HandCalculator handCalculator;
 
     public void Initialize(HandCalculator handCalculator)
     {
-        nakiManager = this.gameObject.GetComponentInChildren<Naki>();
+        
         CardPoints = FindPoints();
         cards = new CardComponent[FULL_CARD_COUNT];
-        nakiManager.Initialized();
+        
         this.handCalculator = handCalculator;
     }
 
@@ -57,7 +56,6 @@ public class CardManager : UdonSharpBehaviour
                 cards[13] = null;
             }
         }
-
         SortCard();
     }
 

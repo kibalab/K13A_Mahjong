@@ -21,9 +21,10 @@ public class GameManager : UdonSharpBehaviour
     private CardManager[] tables;
     public CardComponent[] stashedCards;
     private EventQueue eventQueue;
+    private Naki[] nakiManagers;
 
     private int[] stashCount = new int[4] { 0, 0, 0, 0 };
-    private string[] playerTurn = new string[4] {"東", "南", "西", "北"} ; //동>남>서>북
+    private string[] playerTurn = new string[4] {"東", "北", "西", "南" } ; //동>북>서>남
     private int currentCardIndex = 0;
     private int currentStashIndex = 0;
 
@@ -57,6 +58,12 @@ public class GameManager : UdonSharpBehaviour
         */
 
         //InitializeCards();
+        nakiManagers = this.gameObject.GetComponentsInChildren<Naki>();
+        
+        foreach (Naki nakiManager in nakiManagers)
+        {
+            nakiManager.Initialized();
+        }
 
         if (Networking.IsOwner(this.gameObject))
         {
@@ -98,7 +105,18 @@ public class GameManager : UdonSharpBehaviour
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[currentTurnPlayer]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
+                    for (var i =0; i<4; i++)
+                    {
+                        if (i != currentTurnPlayer)
+                        {
+                            Debug.Log("FindShunzzTable : " + playerTurn[i]); 
+                            Debug.Log("Stashed Card : " + eventCard.CardNumber + eventCard.Type);
+                            nakiManagers[i].findShunzz_Test(tables[i].cards, eventCard);
+                        }
+                    }
+
                     turnNum++;
+
 
                     SetNextCard();
                     break;
