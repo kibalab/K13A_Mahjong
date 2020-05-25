@@ -44,6 +44,7 @@ public class CardComponent : UdonSharpBehaviour
         NormalCardNumber = GetGlobalOrder();
         collider = this.GetComponent<BoxCollider>();
 
+
         var spriteName = GetCardSpriteName();
         var sprite = sprites.FindSprite(spriteName);
         SetSprite(sprite);
@@ -61,6 +62,7 @@ public class CardComponent : UdonSharpBehaviour
 
         renderer.sprite = sprite;
     }
+
 
     public void SetPosition(Vector3 p, Quaternion r)
     {
