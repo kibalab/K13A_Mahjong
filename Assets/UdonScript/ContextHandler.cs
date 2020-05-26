@@ -4,7 +4,6 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-
 public class ContextHandler : UdonSharpBehaviour
 {
     // 이 클래스는 static class처럼 씁니다. 별도의 멤버변수를 갖게 하지 맙시다
@@ -44,11 +43,11 @@ public class ContextHandler : UdonSharpBehaviour
         return newContext;
     }
 
-    public object[] AddContextAll(object[] ctx1, object[] ctx2, object[] ctx3)
+    public object[] AddContextAll(object[] ctx1, object[] ctx2, object[] ctx3, object[] ctx4)
     {
         var added1 = AddContext(ctx1, ctx2);
-        var added2 = AddContext(added1, ctx3);
-        return added2;
+        var added2 = AddContext(ctx3, ctx4);
+        return AddContext(added1, added2);
     }
 
     public object[] AddContext(object[] ctx1, object[] ctx2)
@@ -309,6 +308,17 @@ public class ContextHandler : UdonSharpBehaviour
                 }
             }
         }
+    }
+
+    public object[] AddNullForward(object[] ctxs)
+    {
+        var newArr = new object[ctxs.Length + 1];
+        newArr[0] = null;
+        for (var i = 0; i < ctxs.Length; ++i)
+        {
+            newArr[i + 1] = ctxs[i];
+        }
+        return newArr;
     }
 
     string IndexToType(int index)

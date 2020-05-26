@@ -211,14 +211,14 @@ public class GameManager : UdonSharpBehaviour
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("동", 0, false, eventQueue, Sprites);
-            cards[index++].Initialize("남", 1, false, eventQueue, Sprites);
-            cards[index++].Initialize("서", 2, false, eventQueue, Sprites);
-            cards[index++].Initialize("북", 3, false, eventQueue, Sprites);
+            cards[index++].Initialize("동", 1, false, eventQueue, Sprites);
+            cards[index++].Initialize("남", 2, false, eventQueue, Sprites);
+            cards[index++].Initialize("서", 3, false, eventQueue, Sprites);
+            cards[index++].Initialize("북", 4, false, eventQueue, Sprites);
 
-            cards[index++].Initialize("백", 0, false, eventQueue, Sprites);
-            cards[index++].Initialize("발", 1, false, eventQueue, Sprites);
-            cards[index++].Initialize("중", 2, false, eventQueue, Sprites);
+            cards[index++].Initialize("백", 5, false, eventQueue, Sprites);
+            cards[index++].Initialize("발", 6, false, eventQueue, Sprites);
+            cards[index++].Initialize("중", 7, false, eventQueue, Sprites);
         }
     }
 
