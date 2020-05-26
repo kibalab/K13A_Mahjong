@@ -78,8 +78,9 @@ public class GameManager : UdonSharpBehaviour
     {
         if (!eventQueue.IsQueueEmpty())
         {
-            var eventCard = eventQueue.Dequeue();
-            var eventType = eventCard.EventType;
+            var inputEvent = eventQueue.Dequeue();
+            var eventCard = inputEvent.Card;
+            var eventType = inputEvent.EventType;
             DebugText.text += "CardName : " + eventCard.Type + ", " + eventCard.CardNumber + "\n";
             switch (eventType)
             {
@@ -87,6 +88,7 @@ public class GameManager : UdonSharpBehaviour
 
                     var currentTurnPlayer = GetCurrentTurnPlayer();
                     var currentTable = tables[currentTurnPlayer];
+                    var uiManager = currentTable.uiManager;
 
                     if (!currentTable.Contains(eventCard))
                     {
@@ -112,8 +114,20 @@ public class GameManager : UdonSharpBehaviour
                             Debug.Log("FindShunzzTable : " + playerTurn[i]); 
                             Debug.Log("Stashed Card : " + eventCard.CardNumber + eventCard.Type);
                             nakiManagers[i].findShunzz_Test(tables[i].cards, eventCard);
-                            
-                            
+
+                            if (nakiManagers[i].canPon)
+                            {
+                                uiManager.ActiveUI("Pon", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                            }
+                            if (nakiManagers[i].canChi)
+                            {
+                                uiManager.ActiveUI("Chi", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                            }
+                            if (nakiManagers[i].canKkan)
+                            {
+                                uiManager.ActiveUI("Kkan", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                            }
+
                         }
                     }
 

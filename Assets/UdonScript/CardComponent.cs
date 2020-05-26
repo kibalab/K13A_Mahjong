@@ -10,13 +10,13 @@ public class CardComponent : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
     [UdonSynced(UdonSyncMode.None)] public int NormalCardNumber;
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
-    [UdonSynced(UdonSyncMode.None)] public string EventType;
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
 
     private VRCPlayerApi owner;
     private EventQueue eventQueue;
+    public InputActionEvent InputEvent;
     private BoxCollider collider;
 
     public UIManager uiManager;
@@ -25,9 +25,8 @@ public class CardComponent : UdonSharpBehaviour
 
     public override void Interact()
     {
-        EventType = "Discard";
-        
-        eventQueue.Enqueue(this);
+        InputEvent.setData(this, "Discard");
+        eventQueue.Enqueue(InputEvent);
     }
 
     public BoxCollider SetColliderActivate(bool t)
