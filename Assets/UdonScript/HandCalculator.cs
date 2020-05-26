@@ -6,347 +6,469 @@ using VRC.Udon;
 
 public class HandCalculator : UdonSharpBehaviour
 {
-    //public bool IgnoreTests = false;
+    const int MAN_START_INDEX = 0;
+    const int MAN_END_INDEX = 8;
+    const int PIN_START_INDEX = 9;
+    const int PIN_END_INDEX = 17;
+    const int SOU_START_INDEX = 18;
+    const int SOU_END_INDEX = 26;
 
-    //public CombinationIterator combinationInterator;
-    //public KList ManGroup;
-    //public KList SouGroup;
-    //public KList PinGroup;
+    public bool IgnoreTests = false;
+    public CardComponent[] TestComponents;
 
-    //public KList AvaliableMeldsGroup;
-    //public KList Stack;
+    const int TILES_COUNT = 34;
 
-    //public CardComponent[] TestComponents;
+    public KList Stack;
+    public KList Result;
+    public ContextHandler Ctx;
 
-    //public void Start()
+    public bool IsChiable(CardComponent[] cards, CardComponent discardedCard)
+    {
+        var tiles = CardComponetsToIndexes(cards);
+        var chiIndex = CardComponentToIndex(discardedCard);
+
+        if (2 <= chiIndex && chiIndex <= 34 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0) return true;
+        if (1 <= chiIndex && chiIndex <= 33 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0) return true;
+        if (0 <= chiIndex && chiIndex <= 32 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0) return true;
+
+        return false;
+    }
+
+    public bool IsPonable(CardComponent[] cards, CardComponent discardedCard)
+    {
+        var tiles = CardComponetsToIndexes(cards);
+        var ponIndex = CardComponentToIndex(discardedCard);
+
+        return tiles[ponIndex] + 1 >= 3;
+    }
+
+    public int[] IsRiichiable(CardComponent[] cards)
+    {
+        if (cards.Length != 14) Debug.Log("cards.Length != 14");
+
+        // 버려서 텐파이 되는 곳을 찾는다
+        var riichiCreationIndex = new int[TILES_COUNT];
+
+        var tiles = CardComponetsToIndexes(cards);
+        for (var i = 0; i < tiles.Length; ++i)
+        {
+            if (tiles[i] > 0)
+            {
+                --tiles[i];
+                if (IsTenpai(tiles))
+                {
+                    riichiCreationIndex[i] = 1;
+                }
+                ++tiles[i];
+            }
+        }
+
+        return riichiCreationIndex;
+    }
+
+    public bool IsTenpai(int[] tiles)
+    {
+        // 텐파이란 무엇인가? 
+
+        // check chiitoitus
+
+        // check normal
+
+        // check something speical
+
+
+
+        return true;
+    }
+
+    //public bool IsNormalYaku(CardComponent[] cards)
     //{
-    //    if (IgnoreTests) { return; }
-
-    //    Debug.Log("--- HandCalculator TEST ---");
-
-    //    TestComponents = GetComponentsInChildren<CardComponent>();
-
-    //    ManGroup.Clear();
-    //    SouGroup.Clear();
-    //    PinGroup.Clear();
-    //    var testSet = new CardComponent[]
-    //    {
-    //            TEST__SetTestData(TestComponents[0], "만", 1, 0),
-    //            TEST__SetTestData(TestComponents[1], "만", 2, 1),
-    //            TEST__SetTestData(TestComponents[2], "만", 3, 2),
-    //            TEST__SetTestData(TestComponents[3], "만", 3, 3),
-    //            TEST__SetTestData(TestComponents[4], "삭", 5, 4),
-    //            TEST__SetTestData(TestComponents[5], "삭", 5, 5),
-    //            TEST__SetTestData(TestComponents[6], "삭", 5, 6),
-    //            TEST__SetTestData(TestComponents[7], "통", 7, 7),
-    //            TEST__SetTestData(TestComponents[8], "통", 8, 8),
-    //            TEST__SetTestData(TestComponents[9], "통", 9, 9)
-    //    };
-
-    //    GetCardsIndexByType(ManGroup, testSet, "만");
-    //    GetCardsIndexByType(SouGroup, testSet, "삭");
-    //    GetCardsIndexByType(PinGroup, testSet, "통");
-
-    //    if (ManGroup.Count() != 4) Debug.Log("man grouping error");
-    //    if (SouGroup.Count() != 3) Debug.Log("sou grouping error");
-    //    if (PinGroup.Count() != 3) Debug.Log("pin grouping error");
-
-    //    if (!Test__GetMeldsCount(ManGroup, 2, 0)) Debug.Log("Find chi-pon error 1"); ;
-    //    if (!Test__GetMeldsCount(SouGroup, 0, 1)) Debug.Log("Find chi-pon error 2"); ;
-    //    if (!Test__GetMeldsCount(PinGroup, 1, 0)) Debug.Log("Find chi-pon error 2"); ;
-
-    //    ManGroup.Clear();
-    //    SouGroup.Clear();
-    //    PinGroup.Clear();
-
-    //    testSet = new CardComponent[]
-    //    {
-    //            TEST__SetTestData(TestComponents[0], "만", 1, 0),
-    //            TEST__SetTestData(TestComponents[1], "만", 1, 1),
-    //            TEST__SetTestData(TestComponents[2], "만", 2, 2),
-    //            TEST__SetTestData(TestComponents[3], "만", 2, 3),
-    //            TEST__SetTestData(TestComponents[4], "만", 3, 4),
-    //            TEST__SetTestData(TestComponents[5], "만", 3, 5)
-    //    };
-
-    //    GetCardsIndexByType(ManGroup, testSet, "만");
-
-    //    // 전체 집합에서 가능한 슌쯔 커쯔 찾기
-    //    var avaliableMeldGroups = FindAll(ManGroup);
-
-    //    // 위의 조합은 슌쯔가 2개 나올 것
-    //    if (!TEST__EstimateChiPonCount(avaliableMeldGroups, 2, 0)) Debug.Log("error");
-
-    //    Debug.Log("if nothing appeared above, test success");
+    //    var tiles = CardComponetsToIndexes(cards);
+    //    var dd = FindAll(tiles, new int[0]);
     //}
 
-    //bool TEST__EstimateChiPonCount(object[] avaliableMeldGroups, int estimatedChiCount, int estimatedPonCount)
-    //{
-    //    var maxCount = -1;
-    //    var maxIndex = -1;
-    //    for (var i = 0; i < avaliableMeldGroups.Length; ++i)
-    //    {
-    //        var list = ((object[])avaliableMeldGroups[i]);
-    //        if (list.Length > maxCount)
-    //        {
-    //            maxCount = list.Length;
-    //            maxIndex = i;
-    //        }
-    //    }
+    object[] FindAll(int[] tiles, int[] openedTiles)
+    {
+        if (tiles.Length != TILES_COUNT) Debug.Log("TILES LENGTH ERROR!");
 
-    //    var chiCount = 0;
-    //    var ponCount = 0;
+        Result.Clear();
 
-    //    foreach (CardComponent[] subGroup in (object[])avaliableMeldGroups[maxIndex])
-    //    {
-    //        if (IsChi(subGroup)) { chiCount++; }
-    //        if (IsPon(subGroup)) { ponCount++; }
-    //    }
+        var maxChiPonCount = 0;
+        foreach (var pairIndex in FindPairs(tiles))
+        {
+            var localTiles = Clone(tiles);
+            localTiles[pairIndex] -= 2;
 
-    //    return estimatedChiCount == chiCount && estimatedPonCount == ponCount;
-    //}
+            var manCtxs = Find(localTiles, MAN_START_INDEX, MAN_END_INDEX);
+            var pinCtxs = Find(localTiles, PIN_START_INDEX, PIN_END_INDEX);
+            var souCtxs = Find(localTiles, SOU_START_INDEX, SOU_END_INDEX);
 
-    //CardComponent TEST__SetTestData(CardComponent card, string type, int cardNumber, int normalCardNumber)
-    //{
-    //    card.Type = type;
-    //    card.CardNumber = cardNumber;
-    //    card.NormalCardNumber = normalCardNumber;
-    //    return card;
-    //}
+            // 111222333의 경우, 123/123/123과 111/222/333이 있을 수 있다
+            // 따라서 (만의 슌커쯔)x(삭의 슌커쯔)x(통의 슌커쯔)가 경우의 수가 된다
+            // 자패는 커쯔밖에 없으니 바뀔 일이 없음
+            var manIndex = 0;
+            do
+            {
+                object[] manCtx = manIndex < manCtxs.Length ? (object[])manCtxs[manIndex++] : null;
+                var pinIndex = 0;
+                do
+                {
+                    object[] pinCtx = pinIndex < pinCtxs.Length ? (object[])pinCtxs[pinIndex++] : null;
+                    var souIndex = 0;
+                    do
+                    {
+                        object[] souCtx = souIndex < souCtxs.Length ? (object[])souCtxs[souIndex++] : null;
+                        var ctx = Ctx.AddContextAll(manCtx, pinCtx, souCtx);
+                        if (ctx == null) { continue; }
 
-    //bool Test__GetMeldsCount(KList group, int estimatedChiCount, int estimatedPonCount)
-    //{
-    //    var k = 3;
-    //    var chi = 0;
-    //    var pon = 0;
+                        var chiPonCount = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
+                        if (maxChiPonCount <= chiPonCount)
+                        {
+                            var t = Ctx.ReadTiles(ctx);
+                            t[pairIndex] += 2;
 
-    //    var combinations = combinationInterator.GetCombinationAll(group.Count(), k);
-    //    foreach (var obj in combinations)
-    //    {
-    //        var combination = (int[])obj;
-    //        var pickedCards = new CardComponent[k];
-    //        for (var i = 0; i < k; ++i)
-    //        {
-    //            var comp = group.At(combination[i]);
-    //            pickedCards[i] = (CardComponent)comp;
-    //        }
+                            if (maxChiPonCount < chiPonCount)
+                            {
+                                maxChiPonCount = chiPonCount;
+                                Result.Clear();
+                            }
 
-    //        if (IsChi(pickedCards)) { chi++; }
-    //        if (IsPon(pickedCards)) { pon++; }
-    //    }
+                            Result.Add(ctx);
+                        }
 
-    //    return estimatedChiCount == chi && estimatedPonCount == pon;
-    //}
+                    } while (souCtxs.Length < souIndex);
+                } while (pinCtxs.Length < pinIndex);
+            } while (manCtxs.Length < manIndex);
+        }
 
-    //public void FindValidCombination(CardComponent[] cards)
-    //{
-    //    ManGroup.Clear();
-    //    SouGroup.Clear();
-    //    PinGroup.Clear();
+        return Result.Clone();
+    }
 
-    //    var copiedCards = SortCardsWithHardCopy(cards);
+    // context[0]: int[38] remainTiles
+    // context[1]: object[int[3]] chis
+    // context[2]: int chiCount
+    // context[3]: object[int[3]] pons
+    // context[4]: int ponCount
 
-    //    GetCardsIndexByType(ManGroup, copiedCards, "만");
-    //    GetCardsIndexByType(SouGroup, copiedCards, "삭");
-    //    GetCardsIndexByType(PinGroup, copiedCards, "통");
+    object[] Find(int[] originalTiles, int startIndex, int endIndex)
+    {
+        // 한개도 안 되면 리턴하지 말기
+        var maxChiPonCount = 1;
+        var first = Ctx.CreateContext(originalTiles);
 
-    //    PrintMeldGroups(FindAll(ManGroup));
-    //    PrintMeldGroups(FindAll(SouGroup));
-    //    PrintMeldGroups(FindAll(PinGroup));
-    //}
+        Stack.Clear();
+        Result.Clear();
 
-    //void PrintMeldGroups(object[] meldGroups)
-    //{
-    //    if (meldGroups.Length == 0) return;
-    //    Debug.Log("--- 가능한 슌쯔/커쯔 ---");
-    //    foreach (object[] meldGroup in meldGroups)
-    //    {
-    //        var str = "";
-    //        foreach (CardComponent[] meld in meldGroup)
-    //        {
-    //            str += CompToStr(meld[0]) + CompToStr(meld[2]) + CompToStr(meld[1]);
-    //        }
-    //        Debug.Log(str);
-    //    }
-    //}
+        Stack.Add(first);
 
-    //string CompToStr(CardComponent comp)
-    //{
-    //    return $"({comp.Type}, {comp.CardNumber})";
-    //}
+        while (Stack.Count() != 0)
+        {
+            var top = (object[])Stack.RemoveLast();
+            var tiles = Ctx.ReadTiles(top);
+            var chiCount = Ctx.ReadChiCount(top);
+            var ponCount = Ctx.ReadPonCount(top);
+            var isChanged = false;
 
-    //object[] FindAll(KList group)
-    //{
-    //    AvaliableMeldsGroup.Clear();
+            for (var i = startIndex; i <= endIndex - 2; ++i)
+            {
+                // 치는 뭐부터 먼저 하는지에 따라 순서가 갈려서 각 경우 전부 검사해야 함 
+                // 11234의 경우, (123)(14)와 (11)(234)가 가능하다
+                if (CanChi(tiles, i))
+                {
+                    var context = Ctx.CopyContext(top);
+                    Ctx.ApplyChi(context, i);
 
-    //    var k = 3;
-    //    var originGroup = ObjectsToCardComponents(group.Clone());
-    //    var maxAvliableMeldsGroupCount = originGroup.Length / 3;
+                    if (!Ctx.HasSameTiles(Stack.Clone(), context))
+                    {
+                        Stack.Add(context);
+                    }
 
-    //    Stack.Clear();
-    //    Stack.Add(originGroup);
+                    isChanged = true;
 
-    //    while (Stack.Count() != 0)
-    //    {
-    //        var top = (CardComponent[])Stack.RemoveLast();
-    //        if (top.Length > k)
-    //        {
-    //            var combinations = combinationInterator.GetCombinationAll(top.Length, k);
-    //            foreach (int[] combination in combinations)
-    //            {
-    //                var pickedCards = new CardComponent[k];
-    //                for (var i = 0; i < k; ++i)
-    //                {
-    //                    var comp = group.At(combination[i]);
-    //                    pickedCards[i] = (CardComponent)comp;
-    //                }
+                    // 123 456에서 123이 제거된 경우, 123의 남은 갯수는 000임
+                    // 456부터 세는 것과 동치이기 때문에 스킵함
 
-    //                Stack.Add(pickedCards);
+                    // 1233 456일때 234를 제거한 경우 234의 남은 갯수는 010임
+                    // 이 경우는 다른 경우를 검사해보아야 함 (실제로 최적해는 123,3,456이다)
+                    if (Ctx.IsRemainsChiCountEqual(context, i))
+                    {
+                        break;
+                    }
+                }
+            }
 
-    //                var exception = Except(top, pickedCards);
-    //                if (exception.Length >= 3)
-    //                {
-    //                    Stack.Add(exception);
-    //                }
-    //            }
-    //        }
-    //        else if (IsValidMelds(top))
-    //        {
-    //            var avaliableMelds = new object[maxAvliableMeldsGroupCount];
-    //            avaliableMelds[0] = top;
-    //            var count = 1;
-    //            while ((count + 1) * k <= originGroup.Length)
-    //            {
-    //                var next = (CardComponent[])Stack.RemoveLast();
-    //                if (IsValidMelds(next))
-    //                {
-    //                    avaliableMelds[count++] = next;
-    //                }
-    //            }
+            for (var i = startIndex; i <= endIndex; ++i)
+            {
+                if (CanPon(tiles, i))
+                {
+                    var context = Ctx.CopyContext(top);
+                    Ctx.ApplyPon(context, i);
 
-    //            AvaliableMeldsGroup.Add(FitArray(avaliableMelds, count));
-    //        }
-    //    }
+                    if (!Ctx.HasSameTiles(Stack.Clone(), context))
+                    {
+                        Stack.Add(context);
+                    }
 
-    //    // return object[object[CardComponent[]]
-    //    return AvaliableMeldsGroup.Clone();
-    //}
+                    isChanged = true;
 
-    //bool IsValidMelds(CardComponent[] pickedCards)
-    //{
-    //    return IsChi(pickedCards) || IsPon(pickedCards);
-    //}
+                    // 퐁은 순서가 바뀌어도 딱히 영향을 받지 않는다
+                    // 333 444 555에서 333을 먼저 제거해도 444 555가 깨지지 않는다
+                    break;
+                }
+            }
 
-    //bool IsChi(CardComponent[] pickedCards)
-    //{
-    //    if (pickedCards.Length != 3) { return false; }
-    //    return pickedCards[0].CardNumber == pickedCards[1].CardNumber - 1
-    //        && pickedCards[0].CardNumber == pickedCards[2].CardNumber - 2;
-    //}
+            // chi, pon 둘 다 안되는 경우
+            // Result에 넣는 검사를 하게 된다
+            if (!isChanged)
+            {
+                var chiPonCount = chiCount + ponCount;
+                if (maxChiPonCount < chiPonCount)
+                {
+                    maxChiPonCount = chiPonCount;
 
-    //bool IsPon(CardComponent[] pickedCards)
-    //{
-    //    if (pickedCards.Length != 3) { return false; }
-    //    return pickedCards[0].CardNumber == pickedCards[1].CardNumber
-    //        && pickedCards[0].CardNumber == pickedCards[2].CardNumber;
-    //}
+                    // 더 많은 슌커쯔를 가진 조합이 나오면 이전 조합을 모두 버림
+                    Result.Clear();
+                    Result.Add(top);
+                }
+                else if (maxChiPonCount == chiPonCount)
+                {
+                    // unique한 결과값만 넣도록 함
+                    if (!Ctx.HasSameChiPons(Result.Clone(), top))
+                    {
+                        Result.Add(top);
+                    }
+                }
+            }
+        }
 
-    //public void GetCardsIndexByType(KList groupList, CardComponent[] allCards, string type)
-    //{
-    //    foreach (var card in allCards)
-    //    {
-    //        if (type == card.Type)
-    //        {
-    //            groupList.Add(card);
-    //        }
-    //    }
-    //}
+        return Result.Clone();
+    }
 
-    //CardComponent[] GetHardCopy(CardComponent[] cards)
-    //{
-    //    var copies = new CardComponent[cards.Length];
-    //    for (var i = 0; i < cards.Length; ++i)
-    //    {
-    //        copies[i] = cards[i];
-    //    }
-    //    return copies;
-    //}
+    bool CanPon(int[] tiles, int startIndex)
+    {
+        return tiles[startIndex] > 2;
+    }
 
-    //CardComponent[] SortCardsWithHardCopy(CardComponent[] cards)
-    //{
-    //    var copies = GetHardCopy(cards);
+    bool CanChi(int[] tiles, int startIndex)
+    {
+        if (startIndex + 2 >= tiles.Length) { return false; }
+        return (tiles[startIndex] > 0 && tiles[startIndex + 1] > 0 && tiles[startIndex + 2] > 0);
+    }
 
-    //    CardComponent temp;
+    int[] FindPairs(int[] tiles)
+    {
+        // 머리를 찾는다. 최대 갯수는 14/2 7개
+        var arr = new int[7];
+        var index = 0;
 
-    //    for (var i = cards.Length - 1; i >= 0; i--)
-    //    {
-    //        for (var j = 1; j <= i; j++)
-    //        {
-    //            if (copies[j - 1].NormalCardNumber > copies[j].NormalCardNumber)
-    //            {
-    //                temp = cards[j - 1];
-    //                copies[j - 1] = cards[j];
-    //                copies[j] = temp;
-    //            }
-    //        }
-    //    }
+        const int HONOR_INDEX_START = 27;
+        for (var i = 0; i < tiles.Length; ++i)
+        {
+            // 커쯔인 자패는 무시한다. 머리로 빼봤자 나머지 하나가 역할을 못 함
+            if (i >= HONOR_INDEX_START && tiles[i] != 2)
+            {
+                continue;
+            }
+            if (tiles[i] >= 2)
+            {
+                arr[index++] = i;
+            }
+        }
+        return Fit(arr, index);
+    }
 
-    //    return copies;
-    //}
-    //CardComponent[] Except(CardComponent[] targets, CardComponent[] comps)
-    //{
-    //    var newObjs = new CardComponent[targets.Length];
-    //    var index = 0;
-    //    foreach (var target in targets)
-    //    {
-    //        var isContains = false;
-    //        foreach (var comp in comps)
-    //        {
-    //            if (comp == target)
-    //            {
-    //                isContains = true;
-    //                break;
-    //            }
-    //        }
+    int[] CardComponetsToIndexes(CardComponent[] cards)
+    {
+        var tiles = new int[TILES_COUNT];
+        foreach (var card in cards)
+        {
+            if (cards != null)
+            {
+                tiles[CardComponentToIndex(card)]++;
+            }
+        }
+        return tiles;
+    }
 
-    //        if (!isContains)
-    //        {
-    //            newObjs[index] = target;
-    //            ++index;
-    //        }
-    //    }
+    int CardComponentToIndex(CardComponent card)
+    {
+        // man 0-8
+        // pin 9-17
+        // sou 18-26
+        // ewsn 27, 28, 29, 30
+        // white green red 31, 32, 33
+        var cardType = card != null ? card.Type : "INVAILD";
+        switch (cardType)
+        {
+            case "만": return MAN_START_INDEX + (card.CardNumber - 1);
+            case "통": return PIN_START_INDEX + (card.CardNumber - 1);
+            case "삭": return SOU_START_INDEX + (card.CardNumber - 1);
+            case "동": return 27;
+            case "서": return 28;
+            case "남": return 29;
+            case "북": return 30;
+            case "백": return 31;
+            case "발": return 32;
+            case "중": return 33;
+        }
+        return -1;
+    }
 
-    //    return FitArray_CardComponent(newObjs, index);
-    //}
+    int[] Clone(int[] arr)
+    {
+        var clone = new int[arr.Length];
+        for (var i = 0; i < arr.Length; ++i)
+        {
+            clone[i] = arr[i];
+        }
+        return clone;
+    }
 
-    //object[] FitArray(object[] raw, int count)
-    //{
-    //    var fitObjs = new object[count];
-    //    for (var i = 0; i < count; ++i)
-    //    {
-    //        fitObjs[i] = raw[i];
-    //    }
-    //    return fitObjs;
-    //}
+    int[] Fit(int[] arr, int count)
+    {
+        var newArr = new int[count];
+        for (var i = 0; i < count; ++i)
+        {
+            newArr[i] = arr[i];
+        }
+        return newArr;
+    }
+
+    void Test1()
+    {
+        var testSet = new CardComponent[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
+                    TEST__SetTestData(TestComponents[1], "만", 1, 1),
+                    TEST__SetTestData(TestComponents[2], "만", 2, 2),
+                    TEST__SetTestData(TestComponents[3], "만", 2, 3),
+                    TEST__SetTestData(TestComponents[4], "만", 3, 4),
+                    TEST__SetTestData(TestComponents[5], "만", 3, 5)
+        };
+
+        var tiles = CardComponetsToIndexes(testSet);
+        var manCtxs = Find(tiles, MAN_START_INDEX, MAN_END_INDEX);
+
+        if (manCtxs.Length != 1) Debug.Log("error");
+
+        // (1,2,3) (1,2,3)
+        if (Ctx.TEST__GetChiCount(manCtxs, 0, 0) != 2) Debug.Log("error");
+    }
+
+    void Test2()
+    {
+        var testSet = new CardComponent[]
+          {
+                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
+                    TEST__SetTestData(TestComponents[1], "만", 1, 1),
+                    TEST__SetTestData(TestComponents[2], "만", 1, 2),
+                    TEST__SetTestData(TestComponents[3], "만", 2, 3),
+                    TEST__SetTestData(TestComponents[4], "만", 2, 4),
+                    TEST__SetTestData(TestComponents[5], "만", 2, 5),
+                    TEST__SetTestData(TestComponents[6], "만", 3, 6),
+                    TEST__SetTestData(TestComponents[7], "만", 3, 7),
+                    TEST__SetTestData(TestComponents[8], "만", 3, 8),
+                    TEST__SetTestData(TestComponents[9], "만", 9, 9)
+      };
+
+        var tiles = CardComponetsToIndexes(testSet);
+        var manCtxs = Find(tiles, MAN_START_INDEX, MAN_END_INDEX);
+
+        if (manCtxs.Length != 2) Debug.Log("error");
+
+        // (1,1,1) (2,2,2) (3,3,3)
+        if (Ctx.TEST__GetPonCount(manCtxs, 0, 0) != 1) Debug.Log("error");
+        if (Ctx.TEST__GetPonCount(manCtxs, 0, 1) != 1) Debug.Log("error");
+        if (Ctx.TEST__GetPonCount(manCtxs, 0, 2) != 1) Debug.Log("error");
+
+        // (1,2,3) (1,2,3) (1,2,3)
+        if (Ctx.TEST__GetChiCount(manCtxs, 1, 0) != 3) Debug.Log("error");
+    }
+
+    void Test3()
+    {
+        var testSet = new CardComponent[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
+                    TEST__SetTestData(TestComponents[1], "만", 1, 1),
+                    TEST__SetTestData(TestComponents[2], "만", 2, 2),
+                    TEST__SetTestData(TestComponents[3], "만", 2, 3),
+                    TEST__SetTestData(TestComponents[4], "만", 3, 4),
+                    TEST__SetTestData(TestComponents[5], "만", 3, 5),
+                    TEST__SetTestData(TestComponents[6], "만", 3, 6),
+                    TEST__SetTestData(TestComponents[7], "만", 4, 7),
+                    TEST__SetTestData(TestComponents[8], "만", 5, 8),
+                    TEST__SetTestData(TestComponents[9], "만", 6, 9),
+                    TEST__SetTestData(TestComponents[10], "만", 7, 10),
+                    TEST__SetTestData(TestComponents[11], "만", 8, 11),
+                    TEST__SetTestData(TestComponents[12], "만", 8, 12),
+                    TEST__SetTestData(TestComponents[13], "만", 8, 13),
+        };
+        var tiles = CardComponetsToIndexes(testSet);
+
+        var resultCtxs = FindAll(tiles, null);
+
+        // (1,2,3) (1,2,3) (3,4,5) (6,7,8)
+        if (resultCtxs.Length != 1) Debug.Log("error");
+
+        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 0) != 2) Debug.Log("error");
+        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 2) != 1) Debug.Log("error");
+        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 5) != 1) Debug.Log("error");
+
+        // Ctx.PrintContexts(resultCtxs);
+    }
+
+    void Test4()
+    {
+        var testSet = new CardComponent[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 2, 0),
+                    TEST__SetTestData(TestComponents[1], "만", 3, 1)
+        };
+        var chiTarget = TEST__SetTestData(TestComponents[2], "만", 1, 1);
+
+        if (!IsChiable(testSet, chiTarget)) Debug.Log("error");
+
+        chiTarget = TEST__SetTestData(TestComponents[2], "만", 4, 1);
+
+        if (!IsChiable(testSet, chiTarget)) Debug.Log("error");
+    }
+
+    void Test5()
+    {
+        var testSet = new CardComponent[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 3, 0),
+                    TEST__SetTestData(TestComponents[1], "만", 3, 1)
+        };
+        var ponTarget = TEST__SetTestData(TestComponents[2], "만", 3, 1);
+
+        if (!IsPonable(testSet, ponTarget)) Debug.Log("error");
+    }
 
 
-    //CardComponent[] FitArray_CardComponent(CardComponent[] raw, int count)
-    //{
-    //    var fitObjs = new CardComponent[count];
-    //    for (var i = 0; i < count; ++i)
-    //    {
-    //        fitObjs[i] = raw[i];
-    //    }
-    //    return fitObjs;
-    //}
+    public void Start()
+    {
+        if (IgnoreTests) { return; }
 
-    //CardComponent[] ObjectsToCardComponents(object[] objects)
-    //{
-    //    var cardComponents = new CardComponent[objects.Length];
-    //    for (var i = 0; i < objects.Length; ++i)
-    //    {
-    //        cardComponents[i] = (CardComponent)objects[i];
-    //    }
-    //    return cardComponents;
-    //}
+        Debug.Log($"--- HandCalculator TEST ---");
+
+        TestComponents = GetComponentsInChildren<CardComponent>();
+
+        Test1();
+        Test2();
+        Test3();
+        Test4();
+        Test5();
+
+        Debug.Log("if nothing appeared above, test success");
+    }
+
+    CardComponent TEST__SetTestData(CardComponent card, string type, int cardNumber, int normalCardNumber)
+    {
+        card.Type = type;
+        card.CardNumber = cardNumber;
+        card.NormalCardNumber = normalCardNumber;
+        return card;
+    }
 }
