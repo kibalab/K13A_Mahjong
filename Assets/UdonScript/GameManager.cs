@@ -112,6 +112,8 @@ public class GameManager : UdonSharpBehaviour
                             Debug.Log("FindShunzzTable : " + playerTurn[i]); 
                             Debug.Log("Stashed Card : " + eventCard.CardNumber + eventCard.Type);
                             nakiManagers[i].findShunzz_Test(tables[i].cards, eventCard);
+                            
+                            
                         }
                     }
 
@@ -119,6 +121,7 @@ public class GameManager : UdonSharpBehaviour
 
 
                     SetNextCard();
+
                     break;
 
                 case "Chi":

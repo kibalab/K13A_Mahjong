@@ -19,6 +19,8 @@ public class CardComponent : UdonSharpBehaviour
     private EventQueue eventQueue;
     private BoxCollider collider;
 
+    public UIManager uiManager;
+
     public Text DebugText;
 
     public override void Interact()
@@ -44,6 +46,7 @@ public class CardComponent : UdonSharpBehaviour
         NormalCardNumber = GetGlobalOrder();
         collider = this.GetComponent<BoxCollider>();
 
+        uiManager = this.gameObject.GetComponentInChildren<UIManager>();
 
         var spriteName = GetCardSpriteName();
         var sprite = sprites.FindSprite(spriteName);
