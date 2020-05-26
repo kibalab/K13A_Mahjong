@@ -105,31 +105,37 @@ public class CardManager : UdonSharpBehaviour
         }
     }
 
-    public void CheckChiable(CardComponent discardedCard)
+    public bool CheckChiable(CardComponent discardedCard)
     {
-        if (handCalculator.IsChiable(cards, discardedCard))
+        var chiable = handCalculator.IsChiable(cards, discardedCard);
+        if (chiable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
             uiManager.ActiveButton("Chi", null, myTableNumber);
         }
+        return chiable;
     }
 
-    public void CheckPonable(CardComponent discardedCard)
+    public bool CheckPonable(CardComponent discardedCard)
     {
-        if (handCalculator.IsPonable(cards, discardedCard))
+        var ponable = handCalculator.IsPonable(cards, discardedCard);
+        if (ponable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
             uiManager.ActiveButton("Pon", null, myTableNumber);
         }
+        return ponable;
     }
 
-    public void CheckKkanable(CardComponent discardedCard)
+    public bool CheckKkanable(CardComponent discardedCard)
     {
-        if (handCalculator.IsKkanable(cards, discardedCard))
+        var kkanable = handCalculator.IsKkanable(cards, discardedCard);
+        if (kkanable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
             uiManager.ActiveButton("Kkan", null, myTableNumber);
         }
+        return kkanable;
     }
 
     public CardComponent[] SortCard()

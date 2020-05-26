@@ -106,6 +106,7 @@ public class GameManager : UdonSharpBehaviour
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[currentTurnPlayer]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
+                    var anyoneNakiActivated = false;
                     for (var i =0; i<4; i++)
                     {
                         if (i != currentTurnPlayer)
@@ -114,19 +115,14 @@ public class GameManager : UdonSharpBehaviour
                             Debug.Log("Stashed Card : " + eventCard.CardNumber + eventCard.Type);
 
                             var table = tables[i];
-                            table.CheckChiable(eventCard);
-                            table.CheckPonable(eventCard);
-                            table.CheckKkanable(eventCard);
+                            anyoneNakiActivated |= table.CheckChiable(eventCard);
+                            anyoneNakiActivated |= table.CheckPonable(eventCard);
+                            anyoneNakiActivated |= table.CheckKkanable(eventCard);
                         }
                     }
 
-                    bool tn = true;
-                    foreach (Naki n in nakiManagers)
-                    {
-                         tn = (n.canChi || n.canPon || n.canKkan) ? true : false;
-                    }
-
-                    turnNum+= tn? 0 : 1;
+                    // 누군가 울 수 있는 경우 턴을 넘기지 않음
+                    turnNum += anyoneNakiActivated ? 0 : 1;
 
                     SetNextCard();
 
