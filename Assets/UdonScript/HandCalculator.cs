@@ -12,6 +12,8 @@ public class HandCalculator : UdonSharpBehaviour
     const int PIN_END_INDEX = 17;
     const int SOU_START_INDEX = 18;
     const int SOU_END_INDEX = 26;
+    const int WORDS_START_INDEX = 27;
+    const int WORDS_END_INDEX = 33;
 
     public bool IgnoreTests = false;
     public CardComponent[] TestComponents;
@@ -27,9 +29,14 @@ public class HandCalculator : UdonSharpBehaviour
         var tiles = CardComponetsToIndexes(cards);
         var chiIndex = CardComponentToIndex(discardedCard);
 
-        if (2 <= chiIndex && chiIndex <= 34 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0) return true;
-        if (1 <= chiIndex && chiIndex <= 33 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0) return true;
-        if (0 <= chiIndex && chiIndex <= 32 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0) return true;
+        // 자패는 치 가능하지 않음
+        if (chiIndex >= WORDS_START_INDEX) { return false; }
+        var startIndex = GetStartIndexOfType(discardedCard.Type);
+        var endIndex = GetEndIndexOfType(discardedCard.Type);
+
+        if (startIndex + 2 <= chiIndex && chiIndex <= endIndex - 0 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0) return true;
+        if (startIndex + 1 <= chiIndex && chiIndex <= endIndex - 1 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0) return true;
+        if (startIndex + 0 <= chiIndex && chiIndex <= endIndex - 2 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0) return true;
 
         return false;
     }
@@ -321,6 +328,44 @@ public class HandCalculator : UdonSharpBehaviour
         }
         return -1;
     }
+
+    int GetStartIndexOfType(string cardType)
+    {
+        switch (cardType)
+        {
+            case "만": return MAN_START_INDEX;
+            case "통": return PIN_START_INDEX;
+            case "삭": return SOU_START_INDEX;
+            case "동": return WORDS_START_INDEX;
+            case "서": return WORDS_START_INDEX;
+            case "남": return WORDS_START_INDEX;
+            case "북": return WORDS_START_INDEX;
+            case "백": return WORDS_START_INDEX;
+            case "발": return WORDS_START_INDEX;
+            case "중": return WORDS_START_INDEX;
+        }
+        return -1;
+    }
+
+    int GetEndIndexOfType(string cardType)
+    {
+        switch (cardType)
+        {
+            case "만": return MAN_END_INDEX;
+            case "통": return PIN_END_INDEX;
+            case "삭": return SOU_END_INDEX;
+            case "동": return WORDS_END_INDEX;
+            case "서": return WORDS_END_INDEX;
+            case "남": return WORDS_END_INDEX;
+            case "북": return WORDS_END_INDEX;
+            case "백": return WORDS_END_INDEX;
+            case "발": return WORDS_END_INDEX;
+            case "중": return WORDS_END_INDEX;
+        }
+        return -1;
+    }
+
+
 
     int[] Clone(int[] arr)
     {
