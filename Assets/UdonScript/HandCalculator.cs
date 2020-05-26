@@ -42,6 +42,14 @@ public class HandCalculator : UdonSharpBehaviour
         return tiles[ponIndex] + 1 >= 3;
     }
 
+    public bool IsKkanable(CardComponent[] cards, CardComponent discardedCard)
+    {
+        var tiles = CardComponetsToIndexes(cards);
+        var ponIndex = CardComponentToIndex(discardedCard);
+
+        return tiles[ponIndex] + 1 == 4;
+    }
+
     public int[] IsRiichiable(CardComponent[] cards)
     {
         if (cards.Length != 14) Debug.Log("cards.Length != 14");
