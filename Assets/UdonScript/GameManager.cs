@@ -106,29 +106,17 @@ public class GameManager : UdonSharpBehaviour
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[currentTurnPlayer]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
-
-
                     for (var i =0; i<4; i++)
                     {
                         if (i != currentTurnPlayer)
                         {
                             Debug.Log("FindShunzzTable : " + playerTurn[i]); 
                             Debug.Log("Stashed Card : " + eventCard.CardNumber + eventCard.Type);
-                            nakiManagers[i].findShunzz_Test(tables[i].cards, eventCard);
-                            var uiManager = tables[i].uiManager;
-                            if (nakiManagers[i].canPon)
-                            {
-                                uiManager.ActiveButton("Pon", null, i); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
-                            }
-                            if (nakiManagers[i].canChi)
-                            {
-                                uiManager.ActiveButton("Chi", null, i); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
-                            }
-                            if (nakiManagers[i].canKkan)
-                            {
-                                uiManager.ActiveButton("Kkan", null, i); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
-                            }
 
+                            var table = tables[i];
+                            table.CheckChiable(eventCard);
+                            table.CheckPonable(eventCard);
+                            table.CheckKkanable(eventCard);
                         }
                     }
 
@@ -184,7 +172,7 @@ public class GameManager : UdonSharpBehaviour
             var pickedCards = GetNextCards(13);
 
             var table = tables[i];
-            table.Initialize(HandCalculator);
+            table.Initialize(HandCalculator, i);
             table.Pickupable(false);
             table.SetCards(pickedCards);
         }
