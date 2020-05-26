@@ -10,7 +10,7 @@ public class Naki : UdonSharpBehaviour
 
     public bool canChi = false, canPon = false, canKkan = false;
     public GameObject nakiObject;
-    NakiData[] nakiData;
+    public NakiData[] nakiData;
     private int nakiDataCount = 0;
 
     //test variables//
@@ -175,6 +175,7 @@ public class Naki : UdonSharpBehaviour
                 Debug.Log("nakiDataStorageSize : " + nakiData.Length);
                 canChi = nakiData[nakiTop].checkCanNaki("shunzz", GetHardCopy(shunzzCardStack), newCard);
                 nakiTop = canChi ? nakiTop+1 : nakiTop;
+                nakiDataCount = nakiTop;
                 lastShunzzCard = addNewCard[i];
                 Debug.Log("TestShunzzGroupSize : " + shunzzStackTop);
                 for (var k = 0; k <= shunzzStackTop; k++)
@@ -187,6 +188,7 @@ public class Naki : UdonSharpBehaviour
                 Debug.Log(nakiTop);
                 canPon = nakiData[nakiTop].checkCanNaki("kuzz", GetHardCopy(kuzzCardStack), newCard);
                 nakiTop = canPon ? nakiTop + 1 : nakiTop;
+                nakiDataCount = nakiTop;
                 lastKuzzCard = addNewCard[i];
                 Debug.Log("TestKuzzGroupSize : " + kuzzStackTop);
                 for (var k = 0; k <= kuzzStackTop; k++)
@@ -196,8 +198,9 @@ public class Naki : UdonSharpBehaviour
             }
             else if (kuzzStackTop == 3)
             {
-                canPon = nakiData[--nakiTop].checkCanNaki("kuzz+", GetHardCopy(kuzzCardStack), newCard);
-                nakiTop = canPon ? nakiTop + 1 : nakiTop;
+                canKkan = nakiData[--nakiTop].checkCanNaki("kuzz+", GetHardCopy(kuzzCardStack), newCard);
+                nakiTop = canKkan ? nakiTop + 1 : nakiTop;
+                nakiDataCount = nakiTop;
                 lastKuzzCard = addNewCard[i];
                 Debug.Log("TestKuzzGroupSize : " + kuzzStackTop);
                 for (var k = 0; k <= kuzzStackTop; k++)
