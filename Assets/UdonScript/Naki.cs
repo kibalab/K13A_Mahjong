@@ -25,6 +25,7 @@ public class Naki : UdonSharpBehaviour
 
         TestComponents = GetComponentsInChildren<CardComponent>();
 
+
         Debug.Log("--- Naki TEST ---");
         
 
@@ -38,7 +39,6 @@ public class Naki : UdonSharpBehaviour
         var testSetNew_ = TEST__SetTestData(TestComponents[2], "만", 3, 2);
         canPon = nakiData[0].checkCanNaki("kuzz", GetHardCopy(testSet), testSetNew_);
         Debug.Log(canPon);
-
 
         Debug.Log("--- TEST Level0-1 ---");
         testSet = new CardComponent[]
