@@ -16,14 +16,15 @@ public class CardManager : UdonSharpBehaviour
 
     Transform plusCardPosition;
     HandCalculator handCalculator;
+    int myTableNumber;
 
-    public void Initialize(HandCalculator handCalculator)
+    public void Initialize(HandCalculator handCalculator, int myTableNumber)
     {
-        
         CardPoints = FindPoints();
         cards = new CardComponent[FULL_CARD_COUNT];
-        
+
         this.handCalculator = handCalculator;
+        this.myTableNumber = myTableNumber;
 
         inputEvent = this.gameObject.GetComponentInChildren<InputActionEvent>();
         uiManager = this.gameObject.GetComponentInChildren<UIManager>();
@@ -101,6 +102,33 @@ public class CardManager : UdonSharpBehaviour
             {
                 card.gameObject.GetComponent<BoxCollider>().enabled = b;
             }
+        }
+    }
+
+    public void CheckChiable(CardComponent discardedCard)
+    {
+        if (handCalculator.IsChiable(cards, discardedCard))
+        {
+            // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+            uiManager.ActiveButton("Chi", null, myTableNumber);
+        }
+    }
+
+    public void CheckPonable(CardComponent discardedCard)
+    {
+        if (handCalculator.IsPonable(cards, discardedCard))
+        {
+            // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+            uiManager.ActiveButton("Pon", null, myTableNumber);
+        }
+    }
+
+    public void CheckKkanable(CardComponent discardedCard)
+    {
+        if (handCalculator.IsKkanable(cards, discardedCard))
+        {
+            // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+            uiManager.ActiveButton("Kkan", null, myTableNumber);
         }
     }
 
