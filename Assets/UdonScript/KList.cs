@@ -159,6 +159,11 @@ public class KList : UdonSharpBehaviour
         return -1;
     }
 
+    public bool Contains(object obj)
+    {
+        return IndexOf(obj) != -1;
+    }
+
     public int IndexOf(object obj)
     {
         // premitive type이면 별도로 생성해줘야 함
