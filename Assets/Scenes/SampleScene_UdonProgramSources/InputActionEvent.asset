@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: InputActionEvent
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: d2e38bb53b38b2845b3c590a8a0c47b5,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: b1328043c501aef4b80b71aad8dba08d,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export Card\r\n    .export EventType\r\n
     \   .export playerTurn\r\n    .export Author\r\n    .sync EventType, none\r\n
