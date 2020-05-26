@@ -13,6 +13,7 @@ public class Naki : UdonSharpBehaviour
     public NakiData[] nakiData;
     private int nakiDataCount = 0;
 
+
     //test variables//
     public CardComponent[] TestComponents;
 
@@ -244,7 +245,7 @@ public class Naki : UdonSharpBehaviour
         }
         return copies;
     }
-
+    /*
     public void search(CardComponent[] cards, CardComponent newCard)
     {
         CardComponent[] addNewCard = new CardComponent[cards.Length + 1];
@@ -283,7 +284,7 @@ public class Naki : UdonSharpBehaviour
         }
 
     }
-
+    */
     public CardComponent[] SortCard(CardComponent[] cards)
     {
         int i;

@@ -11,6 +11,8 @@ public class CardManager : UdonSharpBehaviour
     public CardComponent[] cards;
     public GameObject[] CardPoints;
 
+    private InputActionEvent inputEvent;
+    public UIManager uiManager;
 
     Transform plusCardPosition;
     HandCalculator handCalculator;
@@ -22,6 +24,9 @@ public class CardManager : UdonSharpBehaviour
         cards = new CardComponent[FULL_CARD_COUNT];
         
         this.handCalculator = handCalculator;
+
+        inputEvent = this.gameObject.GetComponentInChildren<InputActionEvent>();
+        uiManager = this.gameObject.GetComponentInChildren<UIManager>();
     }
 
     GameObject[] FindPoints()
@@ -38,6 +43,7 @@ public class CardManager : UdonSharpBehaviour
 
     public void AddCard(CardComponent newPlusCard) 
     {
+        newPlusCard.InputEvent = inputEvent;
         cards[13] = newPlusCard;
         cards[13].SetPosition(plusCardPosition.position, plusCardPosition.rotation);
         //nakiManager.search(cards, newPlusCard);
@@ -53,6 +59,7 @@ public class CardManager : UdonSharpBehaviour
 
                 cards[i] = cards[13];
                 cards[i].SetPosition(cardPoint.transform.position, cardPoint.transform.rotation);
+                cards[13].InputEvent.deleteData();
                 cards[13] = null;
             }
         }
@@ -78,6 +85,7 @@ public class CardManager : UdonSharpBehaviour
         {
             var pointTransform = CardPoints[i].transform;
             cards[i] = pickedCards[i];
+            cards[i].InputEvent = inputEvent;
             cards[i].SetPosition(pointTransform.position, pointTransform.transform.rotation); 
         }
         SortCard();
