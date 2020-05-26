@@ -1,6 +1,7 @@
 
 using UdonSharp;
 using UnityEngine;
+using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
@@ -10,29 +11,31 @@ public class UIManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string UIName;
 
     public GameObject UICanvas;
+    public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
-    public void Initialize()
+    private InputActionEvent inputEvent;
+
+    public void Initialize(InputActionEvent e)
     {
-        // EventQueue가져와서 클릭했을때 이벤트를 넘길려했는데
-        // 인수와 반환이 CardComponent라서 더미 카드컴포넌트 만들기도 쫌 그래서 냅둠
+        inputEvent = e;
     }
 
-    public void ActiveUI(string _UIName, VRCPlayerApi player)
+    public void ActiveButton(string _UIName, VRCPlayerApi player)
     {
         Debug.Log("[UION] Player id : " + playerId);
         UIName = _UIName;
         if (player != null)
         {
             playerId = player.playerId;
-            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_toogleUI");
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_ActiveUI");
         } else
         {
             playerId = -1;
-            _toogleUI();
+            _ActiveButton();
         }
     }
 
-    public void _toogleUI()
+    public void _ActiveButton()
     {
         if (playerId != -1)//유니티에서 테스트를 위한 조건문
         {
@@ -53,8 +56,39 @@ public class UIManager : UdonSharpBehaviour
         }
     }
 
-    public void ClickButton()
+    public void ClickButton_Chi()
     {
+        UIName = "Chi";
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+    }
+    public void ClickButton_Pon()
+    {
+        UIName = "Pon";
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+    }
+    public void ClickButton_Kkan()
+    {
+        UIName = "Kkan";
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+    }
+    public void ClickButton_Rich()
+    {
+        UIName = "Rich";
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+    }
+    public void ClickButton_Ron()
+    {
+        UIName = "Ron";
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+    }
+    public void ClickButton_Tsumo()
+    {
+        UIName = "Tsumo";
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+    }
+    public void ClickButton_Skip()
+    {
+        UIName = "Skip";
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
     }
 
@@ -62,6 +96,7 @@ public class UIManager : UdonSharpBehaviour
     {
         findPlayer();
         //여따가 이벤트
+        inputEvent.setData(null, UIName);
     }
 
     public VRCPlayerApi findPlayer()

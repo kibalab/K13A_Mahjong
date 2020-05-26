@@ -88,7 +88,6 @@ public class GameManager : UdonSharpBehaviour
 
                     var currentTurnPlayer = GetCurrentTurnPlayer();
                     var currentTable = tables[currentTurnPlayer];
-                    var uiManager = currentTable.uiManager;
 
                     if (!currentTable.Contains(eventCard))
                     {
@@ -107,6 +106,8 @@ public class GameManager : UdonSharpBehaviour
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[currentTurnPlayer]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
+
+
                     for (var i =0; i<4; i++)
                     {
                         if (i != currentTurnPlayer)
@@ -114,25 +115,30 @@ public class GameManager : UdonSharpBehaviour
                             Debug.Log("FindShunzzTable : " + playerTurn[i]); 
                             Debug.Log("Stashed Card : " + eventCard.CardNumber + eventCard.Type);
                             nakiManagers[i].findShunzz_Test(tables[i].cards, eventCard);
-
+                            var uiManager = tables[i].uiManager;
                             if (nakiManagers[i].canPon)
                             {
-                                uiManager.ActiveUI("Pon", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                                uiManager.ActiveButton("Pon", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
                             }
                             if (nakiManagers[i].canChi)
                             {
-                                uiManager.ActiveUI("Chi", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                                uiManager.ActiveButton("Chi", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
                             }
                             if (nakiManagers[i].canKkan)
                             {
-                                uiManager.ActiveUI("Kkan", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                                uiManager.ActiveButton("Kkan", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
                             }
 
                         }
                     }
 
-                    turnNum++;
+                    bool tn = true;
+                    foreach (Naki n in nakiManagers)
+                    {
+                         tn = (n.canChi || n.canPon || n.canKkan) ? true : false;
+                    }
 
+                    turnNum+= tn? 0 : 1;
 
                     SetNextCard();
 
