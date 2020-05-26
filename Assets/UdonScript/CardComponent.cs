@@ -26,7 +26,7 @@ public class CardComponent : UdonSharpBehaviour
     public override void Interact()
     {
         EventType = "Discard";
-
+        
         eventQueue.Enqueue(this);
     }
 
@@ -46,7 +46,7 @@ public class CardComponent : UdonSharpBehaviour
         NormalCardNumber = GetGlobalOrder();
         collider = this.GetComponent<BoxCollider>();
 
-        uiManager = this.gameObject.GetComponentInChildren<UIManager>();
+        //uiManager = this.gameObject.GetComponentInChildren<UIManager>();
 
         var spriteName = GetCardSpriteName();
         var sprite = sprites.FindSprite(spriteName);
