@@ -27,6 +27,8 @@ public class CardManager : UdonSharpBehaviour
 
         inputEvent = this.gameObject.GetComponentInChildren<InputActionEvent>();
         uiManager = this.gameObject.GetComponentInChildren<UIManager>();
+
+        uiManager.Initialize(inputEvent);
     }
 
     GameObject[] FindPoints()
