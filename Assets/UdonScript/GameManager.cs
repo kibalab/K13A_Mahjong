@@ -79,16 +79,16 @@ public class GameManager : UdonSharpBehaviour
         if (!eventQueue.IsQueueEmpty())
         {
             var inputEvent = eventQueue.Dequeue();
-            var eventCard = inputEvent.Card;
             var eventType = inputEvent.EventType;
-            DebugText.text += "CardName : " + eventCard.Type + ", " + eventCard.CardNumber + "\n";
+            
             switch (eventType)
             {
                 case "Discard":
-
+                    var eventCard = inputEvent.Card;
                     var currentTurnPlayer = GetCurrentTurnPlayer();
                     var currentTable = tables[currentTurnPlayer];
 
+                    DebugText.text += "CardName : " + eventCard.Type + ", " + eventCard.CardNumber + "\n";
                     if (!currentTable.Contains(eventCard))
                     {
                         // 실제 플레이에서는 현재 턴의 유저만 interact 가능하기 때문에 여기 안 옴
@@ -118,15 +118,15 @@ public class GameManager : UdonSharpBehaviour
                             var uiManager = tables[i].uiManager;
                             if (nakiManagers[i].canPon)
                             {
-                                uiManager.ActiveButton("Pon", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                                uiManager.ActiveButton("Pon", null, i); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
                             }
                             if (nakiManagers[i].canChi)
                             {
-                                uiManager.ActiveButton("Chi", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                                uiManager.ActiveButton("Chi", null, i); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
                             }
                             if (nakiManagers[i].canKkan)
                             {
-                                uiManager.ActiveButton("Kkan", null); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
+                                uiManager.ActiveButton("Kkan", null, i); // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
                             }
 
                         }
@@ -145,8 +145,15 @@ public class GameManager : UdonSharpBehaviour
                     break;
 
                 case "Chi":
+                    turnNum = inputEvent.playerTurn;
+                    break;
+
                 case "Pon":
+                    turnNum = inputEvent.playerTurn;
+                    break;
+
                 case "Kkan":
+                    turnNum = inputEvent.playerTurn;
                     // TODO
                     break;
             }

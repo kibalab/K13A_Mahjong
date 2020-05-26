@@ -25,7 +25,7 @@ public class CardComponent : UdonSharpBehaviour
 
     public override void Interact()
     {
-        InputEvent.setData(this, "Discard");
+        InputEvent.setData(this, "Discard", -1);
         eventQueue.Enqueue(InputEvent);
     }
 

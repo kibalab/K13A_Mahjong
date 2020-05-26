@@ -9,6 +9,7 @@ public class UIManager : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public int playerId = -1;
     [UdonSynced(UdonSyncMode.None)] public string UIName;
+    [UdonSynced(UdonSyncMode.None)] public int playerTurn;
 
     public GameObject UICanvas;
     public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
@@ -20,9 +21,10 @@ public class UIManager : UdonSharpBehaviour
         inputEvent = e;
     }
 
-    public void ActiveButton(string _UIName, VRCPlayerApi player)
+    public void ActiveButton(string _UIName, VRCPlayerApi player, int turn)
     {
         Debug.Log("[UION] Player id : " + playerId);
+        playerTurn = turn;
         UIName = _UIName;
         if (player != null)
         {
@@ -96,7 +98,7 @@ public class UIManager : UdonSharpBehaviour
     {
         findPlayer();
         //여따가 이벤트
-        inputEvent.setData(null, UIName);
+        inputEvent.setData(null, UIName, playerTurn);
     }
 
     public VRCPlayerApi findPlayer()
