@@ -364,8 +364,6 @@ public class HandCalculator : UdonSharpBehaviour
         if (Ctx.TEST__GetChiCount(resultCtxs, 0, 0) != 2) Debug.Log("error");
         if (Ctx.TEST__GetChiCount(resultCtxs, 0, 2) != 1) Debug.Log("error");
         if (Ctx.TEST__GetChiCount(resultCtxs, 0, 5) != 1) Debug.Log("error");
-
-        Ctx.PrintContexts(resultCtxs);
     }
 
     void Test4()
