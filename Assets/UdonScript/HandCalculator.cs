@@ -290,7 +290,7 @@ public class HandCalculator : UdonSharpBehaviour
         var tiles = new int[TILES_COUNT];
         foreach (var card in cards)
         {
-            if (cards != null)
+            if (card != null)
             {
                 tiles[CardComponentToIndex(card)]++;
             }
