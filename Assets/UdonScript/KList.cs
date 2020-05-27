@@ -58,6 +58,60 @@ public class KList : UdonSharpBehaviour
         }
     }
 
+    public void Sort()
+    {
+        if (index == -1) { return; }
+
+        var type = (At(0)).GetType().Name;
+        switch (type)
+        {
+            case "Int32": Sort_Int(); break;
+            case "CardComponent": Sort_Cards(); break;
+            default:
+                Debug.Log($"can't sort object type {type}");
+                break;
+        }
+    }
+
+    void Sort_Int()
+    {
+        for (var i = index; i >= 0; i--)
+        {
+            for (var j = 1; j <= i; j++)
+            {
+                var val1 = (int)components[j - 1];
+                var val2 = (int)components[j];
+
+                if (val1 > val2)
+                {
+                    var temp = val1;
+                    components[j - 1] = val2;
+                    components[j] = temp;
+                }
+            }
+        }
+    }
+
+    void Sort_Cards()
+    {
+        for (var i = index; i >= 0; i--)
+        {
+            for (var j = 1; j <= i; j++)
+            {
+                var val1 = (CardComponent)components[j - 1];
+                var val2 = (CardComponent)components[j];
+
+                if (val1.GlobalIndex > val2.GlobalIndex)
+                {
+                    var temp = val1;
+                    components[j - 1] = val2;
+                    components[j] = temp;
+                }
+            }
+        }
+    }
+
+
     int IndexOf_Int(int number)
     {
         for (var i = 0; i <= index; ++i)
@@ -159,14 +213,13 @@ public class KList : UdonSharpBehaviour
         return index + 1;
     }
 
-
     void Test1()
     {
         for (var i = 0; i <= 2000; ++i)
         {
             if (Count() != i) Debug.Log("error at 1");
             if (index != i - 1) Debug.Log("error at 1");
-            if (components.Length != EstimatedLength(index)) Debug.Log("error");
+            if (components.Length != TEST__EstimatedLength(index)) Debug.Log("error");
             Add(new object());
         }
     }
@@ -182,7 +235,7 @@ public class KList : UdonSharpBehaviour
         {
             if (Count() != i + 1) Debug.Log("error");
             if (index != i) Debug.Log("error");
-            if (components.Length != EstimatedLength(index)) Debug.Log("error");
+            if (components.Length != TEST__EstimatedLength(index)) Debug.Log("error");
 
             RemoveLast();
         }
@@ -214,7 +267,18 @@ public class KList : UdonSharpBehaviour
         }
     }
 
-    int EstimatedLength(int i)
+    void Test5()
+    {
+        Add(3);
+        Add(1);
+        Add(2);
+        Sort();
+        if ((int)At(0) != 1) Debug.Log("error on test 5 1");
+        if ((int)At(1) != 2) Debug.Log("error on test 5 2");
+        if ((int)At(2) != 3) Debug.Log("error on test 5 3");
+    }
+
+    int TEST__EstimatedLength(int i)
     {
         return ((i / jump) + 1) * jump;
     }
@@ -229,6 +293,7 @@ public class KList : UdonSharpBehaviour
         Test2(); Clear();
         Test3(); Clear();
         Test4(); Clear();
+        Test5(); Clear();
 
         Add("hello world");
         if (IndexOf("hello world") != 0) Debug.Log("indexOf error 3");
