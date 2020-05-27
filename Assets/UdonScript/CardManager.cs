@@ -8,11 +8,13 @@ public class CardManager : UdonSharpBehaviour
     private const int FULL_CARD_COUNT = 14;
 
     public string positionName;
-    public CardComponent[] cards;
-    public GameObject[] CardPoints;
+    public UIManager UiManager;
+    public GameObject CardPositions;    
+    public KList Cards;
+    public KList OpenendCards;
 
     private InputActionEvent inputEvent;
-    public UIManager uiManager;
+    private GameObject[] cardPoints;
 
     Transform plusCardPosition;
     HandCalculator handCalculator;
@@ -20,16 +22,15 @@ public class CardManager : UdonSharpBehaviour
 
     public void Initialize(HandCalculator handCalculator, int myTableNumber, EventQueue eq)
     {
-        CardPoints = FindPoints();
-        cards = new CardComponent[FULL_CARD_COUNT];
+        cardPoints = FindPoints();
 
         this.handCalculator = handCalculator;
         this.myTableNumber = myTableNumber;
 
         inputEvent = this.gameObject.GetComponentInChildren<InputActionEvent>();
-        uiManager = this.gameObject.GetComponentInChildren<UIManager>();
+        UiManager = this.gameObject.GetComponentInChildren<UIManager>();
 
-        uiManager.Initialize(eq, inputEvent);
+        UiManager.Initialize(eq, inputEvent);
     }
 
     GameObject[] FindPoints()
@@ -38,7 +39,7 @@ public class CardManager : UdonSharpBehaviour
         var cardPoints = new GameObject[FULL_CARD_COUNT];
         for (int i = 0; i < 14; i++)
         {
-            cardPoints[i] = this.gameObject.transform.GetChild(i).gameObject;
+            cardPoints[i] = CardPositions.transform.GetChild(i).gameObject;
         }
         plusCardPosition = cardPoints[13].transform;
         return cardPoints;
@@ -47,127 +48,91 @@ public class CardManager : UdonSharpBehaviour
     public void AddCard(CardComponent newPlusCard) 
     {
         newPlusCard.InputEvent = inputEvent;
-        cards[13] = newPlusCard;
-        cards[13].SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+
+        Cards.Add(newPlusCard);
+        newPlusCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
         //nakiManager.search(cards, newPlusCard);
     }
-     
+
     public void Discard(CardComponent stashCard)
     {
-        for (var i = 0; i < 14; ++i)
-        {
-            if (cards[i] == stashCard)
-            {
-                var cardPoint = CardPoints[i];
+        var index = Cards.IndexOf(stashCard);
+        var removed = (CardComponent)Cards.RemoveAt(index);
+        removed.InputEvent.deleteData();
 
-                cards[i] = cards[13];
-                cards[i].SetPosition(cardPoint.transform.position, cardPoint.transform.rotation);
-                cards[13].InputEvent.deleteData();
-                cards[13] = null;
-            }
-        }
-        SortCard();
+        Cards.Sort();
+        SortPosition();
     }
 
     public bool Contains(CardComponent card)
     {
-        foreach (var myCard in cards)
-        {
-            if (card == myCard)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return Cards.Contains(card);
     }
 
     public void SetCards(CardComponent[] pickedCards)
     {
         for (int i = 0; i< pickedCards.Length; ++i)
         {
-            var pointTransform = CardPoints[i].transform;
-            cards[i] = pickedCards[i];
-            cards[i].InputEvent = inputEvent;
-            cards[i].SetPosition(pointTransform.position, pointTransform.transform.rotation);
+            var pointTransform = cardPoints[i].transform;
+            var pickedCard = pickedCards[i];
+
+            Cards.Add(pickedCards[i]);
+            pickedCard.InputEvent = inputEvent;
+            pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
         }
-        SortCard();
-        
+
+        Cards.Sort();
+        SortPosition();
     }
 
     public void Pickupable(bool b)
     {
-        foreach (CardComponent card in cards)
+        foreach (CardComponent card in Cards.Clone())
         {
-            if (card != null)
-            {
-                card.gameObject.GetComponent<BoxCollider>().enabled = b;
-            }
+            card.gameObject.GetComponent<BoxCollider>().enabled = b;
         }
     }
 
     public bool CheckChiable(CardComponent discardedCard)
     {
-        var chiable = handCalculator.IsChiable(cards, discardedCard);
+        var chiable = handCalculator.IsChiable((CardComponent[])Cards.Clone(), discardedCard);
         if (chiable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
-            uiManager.ActiveButton("Chi", null, myTableNumber);
+            UiManager.ActiveButton("Chi", null, myTableNumber);
         }
         return chiable;
     }
 
     public bool CheckPonable(CardComponent discardedCard)
     {
-        var ponable = handCalculator.IsPonable(cards, discardedCard);
+        var ponable = handCalculator.IsPonable((CardComponent[])Cards.Clone(), discardedCard);
         if (ponable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
-            uiManager.ActiveButton("Pon", null, myTableNumber);
+            UiManager.ActiveButton("Pon", null, myTableNumber);
         }
         return ponable;
     }
 
     public bool CheckKkanable(CardComponent discardedCard)
     {
-        var kkanable = handCalculator.IsKkanable(cards, discardedCard);
+        var kkanable = handCalculator.IsKkanable((CardComponent[])Cards.Clone(), discardedCard);
         if (kkanable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
-            uiManager.ActiveButton("Kkan", null, myTableNumber);
+            UiManager.ActiveButton("Kkan", null, myTableNumber);
         }
         return kkanable;
     }
 
-    public CardComponent[] SortCard()
+    void SortPosition()
     {
-        int i;
-        int j;
-        CardComponent temp;
-        Vector3 tTump;
-
-        for (i = 12; i >= 0; i--)
+        for (var k = 0; k < Cards.Count(); k++) // 새로구현함
         {
-            for (j = 1; j <= i; j++)
-            {
-                if (cards[j - 1].GlobalIndex > cards[j].GlobalIndex)
-                {
-                    //고장나서 카드컴포넌트 정렬후 같은 index의 CardPoint 위치에 매칭하는걸로 바꿈
-                    /*tTump = cards[j - 1].transform.position;
-                    cards[j - 1].transform.position = cards[j].transform.position;
-                    cards[j].transform.position = tTump;*/
-
-                    temp = cards[j - 1];
-                    cards[j - 1] = cards[j];
-                    cards[j] = temp;
-                }
-            }
+            var card = (CardComponent)Cards.At(k);
+            setPointPosition(card, cardPoints[k]);
         }
-        for (var k = 0; k < 13; k++) // 새로구현함
-        {
-            setPointPosition(cards[k], CardPoints[k]);
-        }
-        return cards;
     }
 
     public void setPointPosition(CardComponent card, GameObject point)
