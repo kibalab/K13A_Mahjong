@@ -107,6 +107,11 @@ public class KList : UdonSharpBehaviour
         return comp;
     }
 
+    public void Replace(int i, object o)
+    {
+        components[i] = o;
+    }
+
     void ResizeIfNeeded(bool isAdd)
     {
         // scale up needed
@@ -133,6 +138,11 @@ public class KList : UdonSharpBehaviour
                 components[i] = temp[i];
             }
         }
+    }
+
+    public object[] ToArray()
+    {
+        return components;
     }
 
     public int IndexOf_Int(int number)
@@ -184,6 +194,11 @@ public class KList : UdonSharpBehaviour
             }
         }
         return -1;
+    }
+
+    public void Insert(int i, object o)
+    {
+        components[i] = o;
     }
 
     public object At(int i)
