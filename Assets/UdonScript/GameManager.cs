@@ -204,7 +204,7 @@ public class GameManager : UdonSharpBehaviour
     {
         var index = 0;
 
-        foreach (var type in new string[3] { "만", "삭", "통" })
+        foreach (var type in new string[3] { "만", "통", "삭" })
         {
             foreach (var number in new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })
             {
