@@ -66,9 +66,15 @@ public class KList : UdonSharpBehaviour
         switch (type)
         {
             case "Int32": Sort_Int(); break;
-            case "CardComponent": Sort_Cards(); break;
             default:
-                Debug.Log($"can't sort object type {type}");
+                if ((CardComponent)At(0) != null)
+                {
+                    Sort_Cards();
+                }
+                else
+                {
+                    Debug.Log($"can't sort object type {type}");
+                }
                 break;
         }
     }
@@ -100,7 +106,6 @@ public class KList : UdonSharpBehaviour
             {
                 var val1 = (CardComponent)components[j - 1];
                 var val2 = (CardComponent)components[j];
-
                 if (val1.GlobalIndex > val2.GlobalIndex)
                 {
                     var temp = val1;
@@ -110,7 +115,6 @@ public class KList : UdonSharpBehaviour
             }
         }
     }
-
 
     int IndexOf_Int(int number)
     {
