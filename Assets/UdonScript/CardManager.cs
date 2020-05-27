@@ -150,7 +150,7 @@ public class CardManager : UdonSharpBehaviour
         {
             for (j = 1; j <= i; j++)
             {
-                if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
+                if (cards[j - 1].GlobalIndex > cards[j].GlobalIndex)
                 {
                     //고장나서 카드컴포넌트 정렬후 같은 index의 CardPoint 위치에 매칭하는걸로 바꿈
                     /*tTump = cards[j - 1].transform.position;

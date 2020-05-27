@@ -24,7 +24,7 @@ public class HandCalculator : UdonSharpBehaviour
     public bool IsChiable(CardComponent[] cards, CardComponent discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var chiIndex = HandUtil.CardComponentToIndex(discardedCard);
+        var chiIndex = discardedCard.GlobalIndex;
 
         // 자패의 슌쯔는 검사하지 않는다
         if (chiIndex >= HandUtil.GetWordsStartIndex()) { return false; }
@@ -43,7 +43,7 @@ public class HandCalculator : UdonSharpBehaviour
     public bool IsPonable(CardComponent[] cards, CardComponent discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var ponIndex = HandUtil.CardComponentToIndex(discardedCard);
+        var ponIndex = discardedCard.GlobalIndex;
 
         return tiles[ponIndex] + 1 >= 3;
     }
@@ -51,7 +51,7 @@ public class HandCalculator : UdonSharpBehaviour
     public bool IsKkanable(CardComponent[] cards, CardComponent discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var ponIndex = HandUtil.CardComponentToIndex(discardedCard);
+        var ponIndex = discardedCard.GlobalIndex;
 
         return tiles[ponIndex] + 1 == 4;
     }
@@ -288,71 +288,71 @@ public class HandCalculator : UdonSharpBehaviour
     {
         var testSet = new CardComponent[]
         {
-            TEST__SetTestData(TestComponents[0], "만", 1, 0),
-            TEST__SetTestData(TestComponents[1], "만", 1, 1),
-            TEST__SetTestData(TestComponents[2], "만", 2, 2),
-            TEST__SetTestData(TestComponents[3], "만", 2, 3),
-            TEST__SetTestData(TestComponents[4], "만", 3, 4),
-            TEST__SetTestData(TestComponents[5], "만", 3, 5)
+            TEST__SetTestData(TestComponents[0], "만", 1),
+            TEST__SetTestData(TestComponents[1], "만", 1),
+            TEST__SetTestData(TestComponents[2], "만", 2),
+            TEST__SetTestData(TestComponents[3], "만", 2),
+            TEST__SetTestData(TestComponents[4], "만", 3),
+            TEST__SetTestData(TestComponents[5], "만", 3),
         };
 
         var tiles = HandUtil.CardComponetsToIndexes(testSet);
         var manCtxs = Find(tiles, HandUtil.GetManStartIndex(), HandUtil.GetManEndIndex());
 
-        if (manCtxs.Length != 1) Debug.Log("error1");
+        if (manCtxs.Length != 1) Debug.Log("error1 1");
 
         // (1,2,3) (1,2,3)
-        if (Ctx.TEST__GetChiCount(manCtxs, 0, 0) != 2) Debug.Log("error2");
+        if (Ctx.TEST__GetChiCount(manCtxs, 0, 0) != 2) Debug.Log("error2 2");
     }
 
     void Test2()
     {
         var testSet = new CardComponent[]
           {
-                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
-                    TEST__SetTestData(TestComponents[1], "만", 1, 1),
-                    TEST__SetTestData(TestComponents[2], "만", 1, 2),
-                    TEST__SetTestData(TestComponents[3], "만", 2, 3),
-                    TEST__SetTestData(TestComponents[4], "만", 2, 4),
-                    TEST__SetTestData(TestComponents[5], "만", 2, 5),
-                    TEST__SetTestData(TestComponents[6], "만", 3, 6),
-                    TEST__SetTestData(TestComponents[7], "만", 3, 7),
-                    TEST__SetTestData(TestComponents[8], "만", 3, 8),
-                    TEST__SetTestData(TestComponents[9], "만", 9, 9)
+                    TEST__SetTestData(TestComponents[0], "만", 1),
+                    TEST__SetTestData(TestComponents[1], "만", 1),
+                    TEST__SetTestData(TestComponents[2], "만", 1),
+                    TEST__SetTestData(TestComponents[3], "만", 2),
+                    TEST__SetTestData(TestComponents[4], "만", 2),
+                    TEST__SetTestData(TestComponents[5], "만", 2),
+                    TEST__SetTestData(TestComponents[6], "만", 3),
+                    TEST__SetTestData(TestComponents[7], "만", 3),
+                    TEST__SetTestData(TestComponents[8], "만", 3),
+                    TEST__SetTestData(TestComponents[9], "만", 9),
       };
 
         var tiles = HandUtil.CardComponetsToIndexes(testSet);
         var manCtxs = Find(tiles, HandUtil.GetManStartIndex(), HandUtil.GetManEndIndex());
 
-        if (manCtxs.Length != 2) Debug.Log("error");
+        if (manCtxs.Length != 2) Debug.Log("error 2 1");
 
         // (1,1,1) (2,2,2) (3,3,3)
-        if (Ctx.TEST__GetPonCount(manCtxs, 0, 0) != 1) Debug.Log("error");
-        if (Ctx.TEST__GetPonCount(manCtxs, 0, 1) != 1) Debug.Log("error");
-        if (Ctx.TEST__GetPonCount(manCtxs, 0, 2) != 1) Debug.Log("error");
+        if (Ctx.TEST__GetPonCount(manCtxs, 0, 0) != 1) Debug.Log("error 2 2");
+        if (Ctx.TEST__GetPonCount(manCtxs, 0, 1) != 1) Debug.Log("error 2 3");
+        if (Ctx.TEST__GetPonCount(manCtxs, 0, 2) != 1) Debug.Log("error 2 4");
 
         // (1,2,3) (1,2,3) (1,2,3)
-        if (Ctx.TEST__GetChiCount(manCtxs, 1, 0) != 3) Debug.Log("error");
+        if (Ctx.TEST__GetChiCount(manCtxs, 1, 0) != 3) Debug.Log("error 2 5");
     }
 
     void Test3()
     {
         var testSet = new CardComponent[]
         {
-                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
-                    TEST__SetTestData(TestComponents[1], "만", 1, 1),
-                    TEST__SetTestData(TestComponents[2], "만", 2, 2),
-                    TEST__SetTestData(TestComponents[3], "만", 2, 3),
-                    TEST__SetTestData(TestComponents[4], "만", 3, 4),
-                    TEST__SetTestData(TestComponents[5], "만", 3, 5),
-                    TEST__SetTestData(TestComponents[6], "만", 3, 6),
-                    TEST__SetTestData(TestComponents[7], "만", 4, 7),
-                    TEST__SetTestData(TestComponents[8], "만", 5, 8),
-                    TEST__SetTestData(TestComponents[9], "만", 6, 9),
-                    TEST__SetTestData(TestComponents[10], "만", 7, 10),
-                    TEST__SetTestData(TestComponents[11], "만", 8, 11),
-                    TEST__SetTestData(TestComponents[12], "만", 8, 12),
-                    TEST__SetTestData(TestComponents[13], "만", 8, 13),
+                    TEST__SetTestData(TestComponents[0], "만", 1),
+                    TEST__SetTestData(TestComponents[1], "만", 1),
+                    TEST__SetTestData(TestComponents[2], "만", 2),
+                    TEST__SetTestData(TestComponents[3], "만", 2),
+                    TEST__SetTestData(TestComponents[4], "만", 3),
+                    TEST__SetTestData(TestComponents[5], "만", 3),
+                    TEST__SetTestData(TestComponents[6], "만", 3),
+                    TEST__SetTestData(TestComponents[7], "만", 4),
+                    TEST__SetTestData(TestComponents[8], "만", 5),
+                    TEST__SetTestData(TestComponents[9], "만", 6),
+                    TEST__SetTestData(TestComponents[10], "만", 7),
+                    TEST__SetTestData(TestComponents[11], "만", 8),
+                    TEST__SetTestData(TestComponents[12], "만", 8),
+                    TEST__SetTestData(TestComponents[13], "만", 8),
         };
         var tiles = HandUtil.CardComponetsToIndexes(testSet);
 
@@ -361,95 +361,95 @@ public class HandCalculator : UdonSharpBehaviour
         // (1,2,3) (1,2,3) (3,4,5) (6,7,8)
         if (resultCtxs.Length != 1) Debug.Log("error");
 
-        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 0) != 2) Debug.Log("error");
-        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 2) != 1) Debug.Log("error");
-        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 5) != 1) Debug.Log("error");
+        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 0) != 2) Debug.Log("error 3 1");
+        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 2) != 1) Debug.Log("error 3 2");
+        if (Ctx.TEST__GetChiCount(resultCtxs, 0, 5) != 1) Debug.Log("error 3 3");
     }
 
     void Test4()
     {
         var testSet = new CardComponent[]
         {
-                    TEST__SetTestData(TestComponents[0], "만", 2, 0),
-                    TEST__SetTestData(TestComponents[1], "만", 3, 1)
+                    TEST__SetTestData(TestComponents[0], "만", 2),
+                    TEST__SetTestData(TestComponents[1], "만", 3),
         };
-        var chiTarget = TEST__SetTestData(TestComponents[2], "만", 1, 1);
+        var chiTarget = TEST__SetTestData(TestComponents[2], "만", 1);
 
-        if (!IsChiable(testSet, chiTarget)) Debug.Log("error");
+        if (!IsChiable(testSet, chiTarget)) Debug.Log("error 4 1");
 
-        chiTarget = TEST__SetTestData(TestComponents[2], "만", 4, 1);
+        chiTarget = TEST__SetTestData(TestComponents[2], "만", 4);
 
-        if (!IsChiable(testSet, chiTarget)) Debug.Log("error");
+        if (!IsChiable(testSet, chiTarget)) Debug.Log("error 4 2");
     }
 
     void Test5()
     {
         var testSet = new CardComponent[]
         {
-                    TEST__SetTestData(TestComponents[0], "만", 3, 0),
-                    TEST__SetTestData(TestComponents[1], "만", 3, 1)
+                    TEST__SetTestData(TestComponents[0], "만", 3),
+                    TEST__SetTestData(TestComponents[1], "만", 3),
         };
-        var ponTarget = TEST__SetTestData(TestComponents[2], "만", 3, 1);
+        var ponTarget = TEST__SetTestData(TestComponents[2], "만", 3);
 
-        if (!IsPonable(testSet, ponTarget)) Debug.Log("error");
+        if (!IsPonable(testSet, ponTarget)) Debug.Log("error  51 ");
     }
 
     void Test6()
     {
         var testSet = new CardComponent[]
         {
-                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
-                    TEST__SetTestData(TestComponents[1], "만", 1, 1),
-                    TEST__SetTestData(TestComponents[2], "만", 2, 2),
-                    TEST__SetTestData(TestComponents[3], "만", 2, 3),
-                    TEST__SetTestData(TestComponents[4], "만", 3, 4),
-                    TEST__SetTestData(TestComponents[5], "만", 3, 5),
-                    TEST__SetTestData(TestComponents[6], "만", 4, 6),
-                    TEST__SetTestData(TestComponents[7], "만", 4, 7),
-                    TEST__SetTestData(TestComponents[8], "만", 5, 8),
-                    TEST__SetTestData(TestComponents[9], "만", 5, 9),
-                    TEST__SetTestData(TestComponents[10], "만", 6, 10),
-                    TEST__SetTestData(TestComponents[11], "만", 6, 11),
-                    TEST__SetTestData(TestComponents[12], "만", 7, 12),
-                    TEST__SetTestData(TestComponents[13], "삭", 9, 13),
+                    TEST__SetTestData(TestComponents[0], "만", 1),
+                    TEST__SetTestData(TestComponents[1], "만", 1),
+                    TEST__SetTestData(TestComponents[2], "만", 2),
+                    TEST__SetTestData(TestComponents[3], "만", 2),
+                    TEST__SetTestData(TestComponents[4], "만", 3),
+                    TEST__SetTestData(TestComponents[5], "만", 3),
+                    TEST__SetTestData(TestComponents[6], "만", 4),
+                    TEST__SetTestData(TestComponents[7], "만", 4),
+                    TEST__SetTestData(TestComponents[8], "만", 5),
+                    TEST__SetTestData(TestComponents[9], "만", 5),
+                    TEST__SetTestData(TestComponents[10], "만", 6),
+                    TEST__SetTestData(TestComponents[11], "만", 6),
+                    TEST__SetTestData(TestComponents[12], "만", 7),
+                    TEST__SetTestData(TestComponents[13], "삭", 9),
         };
         var tiles = HandUtil.CardComponetsToIndexes(testSet);
 
-        if (!Chiitoitsu.IsTenpai(tiles)) Debug.Log("error");
+        if (!Chiitoitsu.IsTenpai(tiles)) Debug.Log("error 6 1");
 
-        TEST__SetTestData(TestComponents[13], "만", 7, 13);
+        TEST__SetTestData(TestComponents[13], "만", 7);
         tiles = HandUtil.CardComponetsToIndexes(testSet);
 
-        if (!Chiitoitsu.IsWinable(tiles)) Debug.Log("error");
+        if (!Chiitoitsu.IsWinable(tiles)) Debug.Log("error 6 2");
     }
 
     void Test7()
     {
         var testSet = new CardComponent[]
         {
-                    TEST__SetTestData(TestComponents[0], "만", 1, 0),
-                    TEST__SetTestData(TestComponents[1], "만", 9, 1),
-                    TEST__SetTestData(TestComponents[2], "삭", 1, 2),
-                    TEST__SetTestData(TestComponents[3], "삭", 9, 3),
-                    TEST__SetTestData(TestComponents[4], "통", 1, 4),
-                    TEST__SetTestData(TestComponents[5], "통", 9, 5),
-                    TEST__SetTestData(TestComponents[6], "동", 1, 6),
-                    TEST__SetTestData(TestComponents[7], "남", 2, 7),
-                    TEST__SetTestData(TestComponents[8], "서", 3, 8),
-                    TEST__SetTestData(TestComponents[9], "북", 4, 9),
-                    TEST__SetTestData(TestComponents[10], "백", 5, 10),
-                    TEST__SetTestData(TestComponents[11], "발", 6, 11),
-                    TEST__SetTestData(TestComponents[12], "발", 6, 12),
-                    TEST__SetTestData(TestComponents[13], "만", 1, 12),
+                    TEST__SetTestData(TestComponents[0], "만", 1),
+                    TEST__SetTestData(TestComponents[1], "만", 9),
+                    TEST__SetTestData(TestComponents[2], "삭", 1),
+                    TEST__SetTestData(TestComponents[3], "삭", 9),
+                    TEST__SetTestData(TestComponents[4], "통", 1),
+                    TEST__SetTestData(TestComponents[5], "통", 9),
+                    TEST__SetTestData(TestComponents[6], "동", 1),
+                    TEST__SetTestData(TestComponents[7], "남", 2),
+                    TEST__SetTestData(TestComponents[8], "서", 3),
+                    TEST__SetTestData(TestComponents[9], "북", 4),
+                    TEST__SetTestData(TestComponents[10], "백", 5),
+                    TEST__SetTestData(TestComponents[11], "발", 6),
+                    TEST__SetTestData(TestComponents[12], "발", 6),
+                    TEST__SetTestData(TestComponents[13], "만", 1),
         };
         var tiles = HandUtil.CardComponetsToIndexes(testSet);
 
-        if (!Kokushimusou.IsTenpai(tiles)) Debug.Log("error");
+        if (!Kokushimusou.IsTenpai(tiles)) Debug.Log("error 7 1");
 
-        TEST__SetTestData(TestComponents[13], "중", 7, 13);
+        TEST__SetTestData(TestComponents[13], "중", 7);
         tiles = HandUtil.CardComponetsToIndexes(testSet);
 
-        if (!Kokushimusou.IsWinable(tiles)) Debug.Log("error");
+        if (!Kokushimusou.IsWinable(tiles)) Debug.Log("error 7 2");
     }
 
 
@@ -472,11 +472,11 @@ public class HandCalculator : UdonSharpBehaviour
         Debug.Log("if nothing appeared above, test success");
     }
 
-    CardComponent TEST__SetTestData(CardComponent card, string type, int cardNumber, int normalCardNumber)
+    CardComponent TEST__SetTestData(CardComponent card, string type, int cardNumber)
     {
         card.Type = type;
         card.CardNumber = cardNumber;
-        card.NormalCardNumber = normalCardNumber;
+        card.GlobalIndex = HandUtil.CardComponentToIndex(type, cardNumber);
         return card;
     }
 }

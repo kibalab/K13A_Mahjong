@@ -132,27 +132,15 @@ public class HandUtil : UdonSharpBehaviour
         {
             if (card != null)
             {
-                var index = CardComponentToIndex(card);
-                if (index == -1)
-                {
-                    Debug.Log($"잘못된 타입의 카드를 인덱스로 변환하려 했습니다. 타입: {card.Type}");
-                    break;
-                }
-                tiles[index]++;
+                tiles[card.GlobalIndex]++;
             }
         }
         return tiles;
     }
 
-    public int CardComponentToIndex(CardComponent card)
+    public int CardComponentToIndex(string cardType, int cardNumber)
     {
-        // man 0-8
-        // pin 9-17
-        // sou 18-26
-        // ewsn 27, 28, 29, 30
-        // white green red 31, 32, 33
-        var cardType = card != null ? card.Type : "INVAILD";
-        return GetStartIndexOfType(cardType) + (card.CardNumber - 1);
+        return GetStartIndexOfType(cardType) + (cardNumber - 1);
     }
 
     public int GetStartIndexOfType(string cardType)

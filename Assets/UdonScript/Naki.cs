@@ -97,7 +97,7 @@ public class Naki : UdonSharpBehaviour
     {
         card.Type = type;
         card.CardNumber = cardNumber;
-        card.NormalCardNumber = normalCardNumber;
+        card.GlobalIndex = normalCardNumber;
         return card;
     }
 
@@ -142,7 +142,7 @@ public class Naki : UdonSharpBehaviour
             CardComponent[] kuzzCardStack = new CardComponent[4];
             int shunzzStackTop = -1, kuzzStackTop = -1;
             Debug.Log(addNewCard.Length);
-            Debug.Log("TestCardLevel : " + i + "/" + (0) + ", " + addNewCard[i].CardNumber + addNewCard[i].Type + ", " + addNewCard[i].NormalCardNumber);
+            Debug.Log("TestCardLevel : " + i + "/" + (0) + ", " + addNewCard[i].CardNumber + addNewCard[i].Type + ", " + addNewCard[i].GlobalIndex);
             shunzzCardStack[++shunzzStackTop] = addNewCard[i];
             kuzzCardStack[++kuzzStackTop] = addNewCard[i];
             for (var j = 0; j < 13 - i; j++)
@@ -153,7 +153,7 @@ public class Naki : UdonSharpBehaviour
                     {
                         if (shunzzStackTop <= 1)
                         {
-                            Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].NormalCardNumber);
+                            Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].GlobalIndex);
                             shunzzCardStack[++shunzzStackTop] = addNewCard[i + j];
                             //if (shunzzStackTop >= 2) break;
                         }
@@ -162,7 +162,7 @@ public class Naki : UdonSharpBehaviour
                     {
                         if (kuzzStackTop <= 3)
                         {
-                            Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].NormalCardNumber);
+                            Debug.Log("TestCardLevel : " + i + "/" + j + ", " + addNewCard[i + j].CardNumber + addNewCard[i + j].Type + ", " + addNewCard[i + j].GlobalIndex);
                             kuzzCardStack[++kuzzStackTop] = addNewCard[i + j];
                             //if (kuzzStackTop >= 3) break;
                         }
@@ -224,7 +224,7 @@ public class Naki : UdonSharpBehaviour
         {
             for (var j = 1; j <= i; j++)
             {
-                if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
+                if (cards[j - 1].GlobalIndex > cards[j].GlobalIndex)
                 {
                     temp = cards[j - 1];
                     cards[j - 1] = cards[j];
@@ -296,7 +296,7 @@ public class Naki : UdonSharpBehaviour
         {
             for (j = 1; j <= i; j++)
             {
-                if (cards[j - 1].NormalCardNumber > cards[j].NormalCardNumber)
+                if (cards[j - 1].GlobalIndex > cards[j].GlobalIndex)
                 {
                     tTump = cards[j - 1].transform.position;
                     cards[j - 1].transform.position = cards[j].transform.position;
