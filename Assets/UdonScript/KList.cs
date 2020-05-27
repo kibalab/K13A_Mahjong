@@ -14,83 +14,6 @@ public class KList : UdonSharpBehaviour
     private int scaled = 1;
     private int index = -1;
 
-    public void Start()
-    {
-        if (IgnoreTests) { return; }
-
-        Debug.Log("--- KList TEST ---");
-        for (var i = 0; i <= 2000; ++i)
-        {
-            Add(new object());
-            if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
-            if (Count() == i) Debug.Log(i + "countError");
-        }
-
-        Clear();
-
-        for (var i = 0; i <= 20; ++i)
-        {
-            Add(new object());
-            if (index != i) Debug.Log(i + "IndexError at test 2");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError at test 2");
-            if (Count() == i) Debug.Log(i + "countError at test 2");
-        }
-
-        for (var i = 20; i >= 0; --i)
-        {
-            RemoveLast();
-            if (index != i - 1) Debug.Log(i + "IndexError");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
-            if (Count() == i - 1) Debug.Log(i + "countError");
-        }
-
-        for (var i = 0; i <= 20; ++i)
-        {
-            Add(i);
-            if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
-        }
-
-        if (IndexOf(2) != 2) Debug.Log("indexOf Error 0");
-        if (IndexOf(5) != 5) Debug.Log("indexOf Error 1");
-        if (IndexOf(-99) != -1) Debug.Log("indexOf Error 2");
-
-        for (var i = 19; i >= 0; --i)
-        {
-            var value = (int)RemoveLast();
-            if (value != i + 1) Debug.Log($"ValueError {value}, {i}");
-            if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
-        }
-
-        for (var i = 1; i <= 20; ++i)
-        {
-            Add(i.ToString());
-            if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
-        }
-
-        for (var i = 19; i >= 0; --i)
-        {
-            var value = (string)RemoveLast();
-            if (value != (i + 1).ToString()) Debug.Log($"ValueError {value}, {i}");
-            if (index != i) Debug.Log(i + "IndexError");
-            if (components.Length != EstimatedLength(index)) Debug.Log(i + "lengthError");
-        }
-
-        Clear();
-        Add("hello world");
-        if (IndexOf("hello world") != 0) Debug.Log("indexOf error 3");
-
-        Debug.Log("if nothing appeared above, test success");
-    }
-
-    int EstimatedLength(int i)
-    {
-        return ((i / jump) + 1) * jump;
-    }
-
     public object[] Add(object newComponent)
     {
         ResizeIfNeeded(true);
@@ -105,11 +28,6 @@ public class KList : UdonSharpBehaviour
         ResizeIfNeeded(false);
         --index;
         return comp;
-    }
-
-    public void Replace(int i, object o)
-    {
-        components[i] = o;
     }
 
     void ResizeIfNeeded(bool isAdd)
@@ -140,12 +58,7 @@ public class KList : UdonSharpBehaviour
         }
     }
 
-    public object[] ToArray()
-    {
-        return components;
-    }
-
-    public int IndexOf_Int(int number)
+    int IndexOf_Int(int number)
     {
         for (var i = 0; i <= index; ++i)
         {
@@ -157,7 +70,7 @@ public class KList : UdonSharpBehaviour
         return -1;
     }
 
-    public int IndexOf_String(string str)
+    int IndexOf_String(string str)
     {
         for (var i = 0; i <= index; ++i)
         {
@@ -176,7 +89,7 @@ public class KList : UdonSharpBehaviour
 
     public int IndexOf(object obj)
     {
-        // premitive type이면 별도로 생성해줘야 함
+        // primitive type이면 별도로 생성해줘야 함
         // 일단 자주 쓸 것 같은 두개만 만듬
         var typeName = obj.GetType().Name;
         switch (typeName)
@@ -194,11 +107,6 @@ public class KList : UdonSharpBehaviour
             }
         }
         return -1;
-    }
-
-    public void Insert(int i, object o)
-    {
-        components[i] = o;
     }
 
     public object At(int i)
@@ -249,5 +157,82 @@ public class KList : UdonSharpBehaviour
     public int Count()
     {
         return index + 1;
+    }
+
+
+    void Test1()
+    {
+        for (var i = 0; i <= 2000; ++i)
+        {
+            if (Count() != i) Debug.Log("error at 1");
+            if (index != i - 1) Debug.Log("error at 1");
+            if (components.Length != EstimatedLength(index)) Debug.Log("error");
+            Add(new object());
+        }
+    }
+
+    void Test2()
+    {
+        for (var i = 0; i <= 20; ++i)
+        {
+            Add(new object());
+        }
+
+        for (var i = 20; i >= 0; --i)
+        {
+            if (Count() != i + 1) Debug.Log("error");
+            if (index != i) Debug.Log("error");
+            if (components.Length != EstimatedLength(index)) Debug.Log("error");
+
+            RemoveLast();
+        }
+    }
+
+    void Test3()
+    {
+        for (var i = 0; i <= 20; ++i) { Add(i); }
+        for (var i = 0; i <= 20; ++i)
+        {
+            if (IndexOf(i) != i) Debug.Log("indexOf Error");
+        }
+
+        for (var i = 20; i >= 0; --i)
+        {
+            if (IndexOf(i) != i) Debug.Log("indexOf Error");
+            var value = (int)RemoveLast();
+            if (value != i) Debug.Log("error");
+        }
+    }
+
+    void Test4()
+    {
+        for (var i = 0; i <= 20; ++i) { Add(i.ToString()); }
+        for (var i = 20; i >= 0; --i)
+        {
+            var value = (string)RemoveLast();
+            if (value != i.ToString()) Debug.Log($"ValueError {value}, {i}");
+        }
+    }
+
+    int EstimatedLength(int i)
+    {
+        return ((i / jump) + 1) * jump;
+    }
+
+    public void Start()
+    {
+        if (IgnoreTests) { return; }
+
+        Debug.Log("--- KList TEST ---");
+
+        Test1(); Clear();
+        Test2(); Clear();
+        Test3(); Clear();
+        Test4(); Clear();
+
+        Add("hello world");
+        if (IndexOf("hello world") != 0) Debug.Log("indexOf error 3");
+
+        Debug.Log("if nothing appeared above, test success");
     }
 }
