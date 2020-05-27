@@ -963,7 +963,7 @@ MonoBehaviour:
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
     {\r\n        \r\n         # var index = 0;\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
     \       PUSH, __0_index_Int32\r\n        COPY\r\n        \r\n         # foreach
-    (var type in new string[3] { \"\uB9CC\", \"\uC0AD\", \"\uD1B5\" })\r\n        PUSH,
+    (var type in new string[3] { \"\uB9CC\", \"\uD1B5\", \"\uC0AD\" })\r\n        PUSH,
     __5_const_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemStringArray\r\n        EXTERN,
     \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\r\n        PUSH,
     __1_intnl_SystemStringArray\r\n        PUSH, __0_intnl_SystemStringArray\r\n        COPY\r\n
@@ -4072,14 +4072,14 @@ MonoBehaviour:
       endSourceChar: 6542
       line: 206
       lineChar: 50
-      spanCodeSection: "\"\uC0AD\", "
+      spanCodeSection: "\"\uD1B5\", "
     - startInstruction: 10248
       endInstruction: 10423
       startSourceChar: 6542
       endSourceChar: 6558
       line: 206
       lineChar: 55
-      spanCodeSection: "\"\uD1B5\" })\r\n        "
+      spanCodeSection: "\"\uC0AD\" })\r\n        "
     - startInstruction: 10424
       endInstruction: 10423
       startSourceChar: 6558

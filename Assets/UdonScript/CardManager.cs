@@ -51,7 +51,6 @@ public class CardManager : UdonSharpBehaviour
 
         Cards.Add(newPlusCard);
         newPlusCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
-        //nakiManager.search(cards, newPlusCard);
     }
 
     public void Discard(CardComponent stashCard)
