@@ -14,16 +14,37 @@ public class UIManager : UdonSharpBehaviour
     public GameObject UICanvas;
     public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
+    private EventQueue eventQueue;
     private InputActionEvent inputEvent;
 
-    public void Initialize(InputActionEvent e)
+    public void Initialize(EventQueue eq, InputActionEvent e)
     {
+        eventQueue = eq;
         inputEvent = e;
+
+        UIButton[] uiButton = UICanvas.GetComponentsInChildren<UIButton>(); 
+
+
+        foreach(UIButton b in uiButton)
+        {
+            b.Initialize(this);
+        }
+
+
+        if (Networking.LocalPlayer != null)
+        {
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_DisableButton");
+        }
+        else
+        {
+            _DisableButton();
+        }
+        
     }
 
     public void ActiveButton(string _UIName, VRCPlayerApi player, int turn)
     {
-        Debug.Log("[UION] Player id : " + playerId);
+        //Debug.Log("[UION] Player id : " + playerId);
         playerTurn = turn;
         UIName = _UIName;
         if (player != null)
@@ -39,7 +60,7 @@ public class UIManager : UdonSharpBehaviour
 
     public void _ActiveButton()
     {
-        if (playerId != -1)//유니티에서 테스트를 위한 조건문
+        if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
         {
             if (Networking.LocalPlayer.playerId == playerId)
             {
@@ -50,55 +71,84 @@ public class UIManager : UdonSharpBehaviour
         }
         else
         {
-            Debug.Log("[UION] Player id : " + playerId);
+            //Debug.Log("[UION] Player id : " + playerId);
             GameObject g = UICanvas.transform.Find(UIName).gameObject;
             UICanvas.SetActive(true);
             g.gameObject.SetActive(true);
-            Debug.Log("[UION] Player id : " + playerId);
+            //Debug.Log("[UION] Player id : " + playerId);
+        }
+    }
+
+    public void _DisableButton()
+    {
+        if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
+        {
+            for (var i = 0; i < UICanvas.transform.childCount; i++)
+            {
+                UICanvas.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            UICanvas.SetActive(false);
+        }
+        else
+        {
+            for (var i = 0; i < UICanvas.transform.childCount; i++)
+            {
+                UICanvas.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            UICanvas.SetActive(false);
         }
     }
 
     public void ClickButton_Chi()
     {
-        UIName = "Chi";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Chi");
     }
     public void ClickButton_Pon()
     {
-        UIName = "Pon";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Pon");
+
     }
     public void ClickButton_Kkan()
     {
-        UIName = "Kkan";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Kkan");
     }
     public void ClickButton_Rich()
     {
-        UIName = "Rich";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Rich");
     }
     public void ClickButton_Ron()
     {
-        UIName = "Ron";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Ron");
     }
     public void ClickButton_Tsumo()
     {
-        UIName = "Tsumo";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Tsumo");
     }
     public void ClickButton_Skip()
     {
-        UIName = "Skip";
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        _ButtonEventInterface("Skip");
+    }
+
+    public void _ButtonEventInterface(string uiName)
+    {
+        UIName = uiName;
+        if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
+        {
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+        } else
+        {
+            _ClickButton();
+        }
+        _DisableButton();
     }
 
     public void _ClickButton()
     {
-        findPlayer();
+        Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
+        //findPlayer();
         //여따가 이벤트
         inputEvent.setData(null, UIName, playerTurn);
+        eventQueue.Enqueue(inputEvent);
     }
 
     public VRCPlayerApi findPlayer()

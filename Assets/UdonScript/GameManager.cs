@@ -80,7 +80,8 @@ public class GameManager : UdonSharpBehaviour
         {
             var inputEvent = eventQueue.Dequeue();
             var eventType = inputEvent.EventType;
-            
+
+            Debug.Log("EventType : " + eventType);
             switch (eventType)
             {
                 case "Discard":
@@ -106,6 +107,7 @@ public class GameManager : UdonSharpBehaviour
                     var stashPoint = StashTable.transform.GetChild(currentTurnPlayer).GetChild(stashCount[currentTurnPlayer]++);
                     eventCard.SetPosition(stashPoint.position, stashPoint.rotation);
 
+
                     var anyoneNakiActivated = false;
                     for (var i =0; i<4; i++)
                     {
@@ -123,21 +125,26 @@ public class GameManager : UdonSharpBehaviour
 
                     // 누군가 울 수 있는 경우 턴을 넘기지 않음
                     turnNum += anyoneNakiActivated ? 0 : 1;
-
-                    SetNextCard();
+                    if (!anyoneNakiActivated)
+                    {
+                        SetNextCard();
+                    }
 
                     break;
 
                 case "Chi":
                     turnNum = inputEvent.playerTurn;
+                    SetNextCard();
                     break;
 
                 case "Pon":
                     turnNum = inputEvent.playerTurn;
+                    SetNextCard();
                     break;
 
                 case "Kkan":
                     turnNum = inputEvent.playerTurn;
+                    SetNextCard();
                     // TODO
                     break;
             }
@@ -168,7 +175,7 @@ public class GameManager : UdonSharpBehaviour
             var pickedCards = GetNextCards(13);
 
             var table = tables[i];
-            table.Initialize(HandCalculator, i);
+            table.Initialize(HandCalculator, i, eventQueue); 
             table.Pickupable(false);
             table.SetCards(pickedCards);
         }
