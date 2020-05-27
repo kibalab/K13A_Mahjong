@@ -1,4 +1,5 @@
 
+using System.Linq;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -23,21 +24,40 @@ public class HandCalculator : UdonSharpBehaviour
 
     public bool IsChiable(CardComponent[] cards, CardComponent discardedCard)
     {
+        return GetChiableAll(cards, discardedCard).Length != 0;
+    }
+
+    public object[] GetChiableAll(CardComponent[] cards, CardComponent discardedCard)
+    {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
         var chiIndex = discardedCard.GlobalIndex;
 
         // 자패의 슌쯔는 검사하지 않는다
-        if (chiIndex >= HandUtil.GetWordsStartIndex()) { return false; }
+        if (chiIndex >= HandUtil.GetWordsStartIndex()) { return new object[0]; }
 
         // 같은 type의 패만 슌쯔를 검사한다
         var typeStartIndex = HandUtil.GetStartIndexOfType(discardedCard.Type);
         var typeEndIndex = HandUtil.GetEndIndexOfType(discardedCard.Type);
 
-        if (typeStartIndex + 2 <= chiIndex && chiIndex <= typeEndIndex - 0 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0) return true;
-        if (typeStartIndex + 1 <= chiIndex && chiIndex <= typeEndIndex - 1 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0) return true;
-        if (typeStartIndex + 0 <= chiIndex && chiIndex <= typeEndIndex - 2 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0) return true;
+        var list = new object[3];
+        var count = 0;
 
-        return false;
+        // for문으로 바꾸려는 시도를 해봤는데, 이거보다 보기 더 어려워져서 그냥 이렇게 함
+        if (typeStartIndex + 2 <= chiIndex && chiIndex <= typeEndIndex - 0 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0)
+        {
+            list[count++] = ToCards(cards, new int[] { chiIndex - 2, chiIndex - 1, chiIndex });
+        }
+        if (typeStartIndex + 1 <= chiIndex && chiIndex <= typeEndIndex - 1 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0)
+        {
+            list[count++] = ToCards(cards, new int[] { chiIndex - 1, chiIndex, chiIndex + 1});
+        }
+        if (typeStartIndex + 0 <= chiIndex && chiIndex <= typeEndIndex - 2 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0)
+        {
+            list[count++] = ToCards(cards, new int[] { chiIndex, chiIndex + 1, chiIndex +2 });
+        }
+
+        // return object[ CardComponent[], CardComponent[], ... ]
+        return Fit(list, count);
     }
 
     public bool IsPonable(CardComponent[] cards, CardComponent discardedCard)
@@ -284,6 +304,23 @@ public class HandCalculator : UdonSharpBehaviour
         return clone;
     }
 
+    CardComponent[] ToCards(CardComponent[] cards, int[] cardIndexes)
+    {
+        var findIndex = 0;
+        var arr = new CardComponent[3];
+
+        foreach (var card in cards)
+        {
+            if (card.GlobalIndex == cardIndexes[findIndex])
+            {
+                arr[findIndex] = card;
+                findIndex++;
+            }
+        }
+
+        return arr;
+    }
+
     void Test1()
     {
         var testSet = new CardComponent[]
@@ -478,5 +515,15 @@ public class HandCalculator : UdonSharpBehaviour
         card.CardNumber = cardNumber;
         card.GlobalIndex = HandUtil.CardComponentToIndex(type, cardNumber);
         return card;
+    }
+
+    public object[] Fit(object[] arr, int count)
+    {
+        var newArr = new object[count];
+        for (var i = 0; i < count; ++i)
+        {
+            newArr[i] = arr[i];
+        }
+        return newArr;
     }
 }
