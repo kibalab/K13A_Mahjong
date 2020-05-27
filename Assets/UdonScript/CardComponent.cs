@@ -8,7 +8,7 @@ public class CardComponent : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
-    [UdonSynced(UdonSyncMode.None)] public int NormalCardNumber;
+    [UdonSynced(UdonSyncMode.None)] public int GlobalIndex;
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
@@ -35,17 +35,15 @@ public class CardComponent : UdonSharpBehaviour
         return collider;
     }
 
-    public void Initialize(string type, int cardNumber, bool isDora, EventQueue e, CardSprites sprites)
+    public void Initialize(string type, int cardNumber, bool isDora, EventQueue e, CardSprites sprites, HandUtil util)
     {
         eventQueue = e;
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
 
-        NormalCardNumber = GetGlobalOrder();
+        GlobalIndex = util.CardComponentToIndex(type, cardNumber);
         collider = this.GetComponent<BoxCollider>();
-
-        //uiManager = this.gameObject.GetComponentInChildren<UIManager>();
 
         var spriteName = GetCardSpriteName();
         var sprite = sprites.FindSprite(spriteName);
@@ -65,7 +63,6 @@ public class CardComponent : UdonSharpBehaviour
         renderer.sprite = sprite;
     }
 
-
     public void SetPosition(Vector3 p, Quaternion r)
     {
         position = p;
@@ -77,28 +74,6 @@ public class CardComponent : UdonSharpBehaviour
     public void _SetPosition()
     {
         transform.SetPositionAndRotation(position, rotation);
-    }
-
-    int GetGlobalOrder()
-    {
-        var typeOrder = 100;
-        switch (Type)
-        {
-            case "만": typeOrder *= 0; break;
-            case "삭": typeOrder *= 1; break;
-            case "통": typeOrder *= 2; break;
-            case "동": typeOrder *= 3; break;
-            case "남": typeOrder *= 4; break;
-            case "서": typeOrder *= 5; break;
-            case "북": typeOrder *= 6; break;
-            case "백": typeOrder *= 7; break;
-            case "발": typeOrder *= 8; break;
-            case "중": typeOrder *= 9; break;
-        }
-        var cardOrder = CardNumber * 10;
-        var doraOrder = IsDora ? 1 : 0;
-
-        return typeOrder + cardOrder + doraOrder;
     }
 
     public string GetCardSpriteName()

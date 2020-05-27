@@ -26,7 +26,7 @@ public class NakiData : UdonSharpBehaviour
         {
             if (card != null)
             {
-                Debug.Log("NakiCardLevel : " + card.CardNumber + card.Type + ", " + card.NormalCardNumber);
+                Debug.Log("NakiCardLevel : " + card.CardNumber + card.Type + ", " + card.GlobalIndex);
                 if (card.CardNumber == newCard.CardNumber && card.Type == newCard.Type)
                 {
                     nakiAble = true;

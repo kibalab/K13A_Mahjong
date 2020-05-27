@@ -13,6 +13,7 @@ public class GameManager : UdonSharpBehaviour
     public GameObject StashTable;
     public GameObject EventQueueObject;
     public HandCalculator HandCalculator;
+    public HandUtil HandUtil;
     public Text DebugText;
 
     [UdonSynced(UdonSyncMode.None)] public int turnNum = 0;
@@ -210,7 +211,7 @@ public class GameManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    cards[index++].Initialize(type, number, isDora, eventQueue, Sprites);
+                    cards[index++].Initialize(type, number, isDora, eventQueue, Sprites, HandUtil);
                     DebugText.text += "Card Initializing : " + index + "{Type:" + type + ", Number:" + number + ", isDora:" + isDora + "\n";
                 } 
             }
@@ -218,14 +219,14 @@ public class GameManager : UdonSharpBehaviour
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("동", 1, false, eventQueue, Sprites);
-            cards[index++].Initialize("남", 2, false, eventQueue, Sprites);
-            cards[index++].Initialize("서", 3, false, eventQueue, Sprites);
-            cards[index++].Initialize("북", 4, false, eventQueue, Sprites);
+            cards[index++].Initialize("동", 1, false, eventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("남", 2, false, eventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("서", 3, false, eventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("북", 4, false, eventQueue, Sprites, HandUtil);
 
-            cards[index++].Initialize("백", 5, false, eventQueue, Sprites);
-            cards[index++].Initialize("발", 6, false, eventQueue, Sprites);
-            cards[index++].Initialize("중", 7, false, eventQueue, Sprites);
+            cards[index++].Initialize("백", 5, false, eventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("발", 6, false, eventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("중", 7, false, eventQueue, Sprites, HandUtil);
         }
     }
 
