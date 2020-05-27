@@ -94,7 +94,7 @@ public class CardManager : UdonSharpBehaviour
 
     public bool CheckChiable(CardComponent discardedCard)
     {
-        var chiable = handCalculator.IsChiable((CardComponent[])Cards.Clone(), discardedCard);
+        var chiable = handCalculator.IsChiable(GetArray(), discardedCard);
         if (chiable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
@@ -105,7 +105,7 @@ public class CardManager : UdonSharpBehaviour
 
     public bool CheckPonable(CardComponent discardedCard)
     {
-        var ponable = handCalculator.IsPonable((CardComponent[])Cards.Clone(), discardedCard);
+        var ponable = handCalculator.IsPonable(GetArray(), discardedCard);
         if (ponable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
@@ -116,7 +116,7 @@ public class CardManager : UdonSharpBehaviour
 
     public bool CheckKkanable(CardComponent discardedCard)
     {
-        var kkanable = handCalculator.IsKkanable((CardComponent[])Cards.Clone(), discardedCard);
+        var kkanable = handCalculator.IsKkanable(GetArray(), discardedCard);
         if (kkanable)
         {
             // 아직 플레이어 VRCPlayerApi에 관련한 변수나 함수가 없음
@@ -137,5 +137,15 @@ public class CardManager : UdonSharpBehaviour
     public void setPointPosition(CardComponent card, GameObject point)
     {
         card.SetPosition(point.transform.position, point.transform.rotation);
+    }
+
+    CardComponent[] GetArray()
+    {
+        var arr = new CardComponent[Cards.Count()];
+        for(var i = 0; i<Cards.Count(); ++i)
+        {
+            arr[i] = (CardComponent)Cards.At(i);
+        }
+        return arr;
     }
 }
