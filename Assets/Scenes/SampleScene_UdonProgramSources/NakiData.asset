@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: NakiData
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 42fbfdbb6eb1b5a46bbea849d0d3fce6,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 86a2dab406656be46a01f9f60298f6e7,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export nakiAble\r\n    .export Type\r\n    .export
     chiCards\r\n    .export id\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
@@ -105,7 +105,7 @@ MonoBehaviour:
     \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000588\r\n
     \       \r\n         # {\r\n        \r\n         # Debug.Log(\"NakiCardLevel :
-    \" + card.CardNumber + card.Type + \", \" + card.NormalCardNumber);\r\n        PUSH,
+    \" + card.CardNumber + card.Type + \", \" + card.GlobalIndex);\r\n        PUSH,
     __0_card_CardComponent\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
     __2_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __2_intnl_SystemObject\r\n        PUSH, __5_intnl_SystemInt32\r\n
@@ -748,218 +748,218 @@ MonoBehaviour:
     - startInstruction: 796
       endInstruction: 923
       startSourceChar: 690
-      endSourceChar: 726
+      endSourceChar: 721
       line: 28
       lineChar: 89
-      spanCodeSection: "NormalCardNumber);\r\n                "
+      spanCodeSection: "GlobalIndex);\r\n                "
     - startInstruction: 924
       endInstruction: 923
-      startSourceChar: 726
-      endSourceChar: 730
+      startSourceChar: 721
+      endSourceChar: 725
       line: 29
       lineChar: 16
       spanCodeSection: if (
     - startInstruction: 924
       endInstruction: 923
-      startSourceChar: 730
-      endSourceChar: 730
+      startSourceChar: 725
+      endSourceChar: 725
       line: 29
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 924
       endInstruction: 923
-      startSourceChar: 730
-      endSourceChar: 730
+      startSourceChar: 725
+      endSourceChar: 725
       line: 29
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 924
       endInstruction: 923
-      startSourceChar: 730
-      endSourceChar: 730
+      startSourceChar: 725
+      endSourceChar: 725
       line: 29
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 924
       endInstruction: 923
-      startSourceChar: 730
-      endSourceChar: 735
+      startSourceChar: 725
+      endSourceChar: 730
       line: 29
       lineChar: 20
       spanCodeSection: card.
     - startInstruction: 924
       endInstruction: 979
-      startSourceChar: 735
-      endSourceChar: 749
+      startSourceChar: 730
+      endSourceChar: 744
       line: 29
       lineChar: 25
       spanCodeSection: 'CardNumber == '
     - startInstruction: 980
       endInstruction: 979
-      startSourceChar: 749
-      endSourceChar: 749
+      startSourceChar: 744
+      endSourceChar: 744
       line: 29
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 980
       endInstruction: 979
-      startSourceChar: 749
-      endSourceChar: 757
+      startSourceChar: 744
+      endSourceChar: 752
       line: 29
       lineChar: 39
       spanCodeSection: newCard.
     - startInstruction: 980
       endInstruction: 1103
-      startSourceChar: 757
-      endSourceChar: 771
+      startSourceChar: 752
+      endSourceChar: 766
       line: 29
       lineChar: 47
       spanCodeSection: 'CardNumber && '
     - startInstruction: 1104
       endInstruction: 1103
-      startSourceChar: 771
-      endSourceChar: 771
+      startSourceChar: 766
+      endSourceChar: 766
       line: 29
       lineChar: 61
       spanCodeSection: 
     - startInstruction: 1104
       endInstruction: 1103
-      startSourceChar: 771
-      endSourceChar: 771
+      startSourceChar: 766
+      endSourceChar: 766
       line: 29
       lineChar: 61
       spanCodeSection: 
     - startInstruction: 1104
       endInstruction: 1103
-      startSourceChar: 771
-      endSourceChar: 776
+      startSourceChar: 766
+      endSourceChar: 771
       line: 29
       lineChar: 61
       spanCodeSection: card.
     - startInstruction: 1104
       endInstruction: 1159
-      startSourceChar: 776
-      endSourceChar: 784
+      startSourceChar: 771
+      endSourceChar: 779
       line: 29
       lineChar: 66
       spanCodeSection: 'Type == '
     - startInstruction: 1160
       endInstruction: 1159
-      startSourceChar: 784
-      endSourceChar: 784
+      startSourceChar: 779
+      endSourceChar: 779
       line: 29
       lineChar: 74
       spanCodeSection: 
     - startInstruction: 1160
       endInstruction: 1159
-      startSourceChar: 784
-      endSourceChar: 792
+      startSourceChar: 779
+      endSourceChar: 787
       line: 29
       lineChar: 74
       spanCodeSection: newCard.
     - startInstruction: 1160
       endInstruction: 1315
-      startSourceChar: 792
-      endSourceChar: 815
+      startSourceChar: 787
+      endSourceChar: 810
       line: 29
       lineChar: 82
       spanCodeSection: "Type)\r\n                "
     - startInstruction: 1316
       endInstruction: 1315
-      startSourceChar: 815
-      endSourceChar: 838
+      startSourceChar: 810
+      endSourceChar: 833
       line: 30
       lineChar: 16
       spanCodeSection: "{\r\n                    "
     - startInstruction: 1316
       endInstruction: 1315
-      startSourceChar: 838
-      endSourceChar: 838
+      startSourceChar: 833
+      endSourceChar: 833
       line: 31
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 1316
       endInstruction: 1315
-      startSourceChar: 838
-      endSourceChar: 849
+      startSourceChar: 833
+      endSourceChar: 844
       line: 31
       lineChar: 20
       spanCodeSection: 'nakiAble = '
     - startInstruction: 1316
       endInstruction: 1335
-      startSourceChar: 849
-      endSourceChar: 876
+      startSourceChar: 844
+      endSourceChar: 871
       line: 31
       lineChar: 31
       spanCodeSection: "true;\r\n                    "
     - startInstruction: 1336
       endInstruction: 1335
-      startSourceChar: 876
-      endSourceChar: 876
+      startSourceChar: 871
+      endSourceChar: 871
       line: 32
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 1336
       endInstruction: 1335
-      startSourceChar: 876
-      endSourceChar: 883
+      startSourceChar: 871
+      endSourceChar: 878
       line: 32
       lineChar: 20
       spanCodeSection: 'Type = '
     - startInstruction: 1336
       endInstruction: 1355
-      startSourceChar: 883
-      endSourceChar: 910
+      startSourceChar: 878
+      endSourceChar: 905
       line: 32
       lineChar: 27
       spanCodeSection: "type;\r\n                    "
     - startInstruction: 1356
       endInstruction: 1355
-      startSourceChar: 910
-      endSourceChar: 910
+      startSourceChar: 905
+      endSourceChar: 905
       line: 33
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 1356
       endInstruction: 1355
-      startSourceChar: 910
-      endSourceChar: 921
+      startSourceChar: 905
+      endSourceChar: 916
       line: 33
       lineChar: 20
       spanCodeSection: 'chiCards = '
     - startInstruction: 1356
       endInstruction: 1375
-      startSourceChar: 921
-      endSourceChar: 949
+      startSourceChar: 916
+      endSourceChar: 944
       line: 33
       lineChar: 31
       spanCodeSection: "cards;\r\n                    "
     - startInstruction: 1376
       endInstruction: 1375
-      startSourceChar: 949
-      endSourceChar: 956
+      startSourceChar: 944
+      endSourceChar: 951
       line: 34
       lineChar: 20
       spanCodeSection: 'return '
     - startInstruction: 1376
       endInstruction: 1475
-      startSourceChar: 956
-      endSourceChar: 1022
+      startSourceChar: 951
+      endSourceChar: 1017
       line: 34
       lineChar: 27
       spanCodeSection: "nakiAble;\r\n                }\r\n            }\r\n        }\r\n\r\n
         \       "
     - startInstruction: 1476
       endInstruction: 1475
-      startSourceChar: 1022
-      endSourceChar: 1029
+      startSourceChar: 1017
+      endSourceChar: 1024
       line: 39
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 1476
       endInstruction: 1476
-      startSourceChar: 1029
-      endSourceChar: 1029
+      startSourceChar: 1024
+      endSourceChar: 1024
       line: 39
       lineChar: 15
       spanCodeSection: 

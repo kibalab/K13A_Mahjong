@@ -584,8 +584,8 @@ MonoBehaviour:
     \       PUSH, __18_intnl_SystemInt32\r\n        PUSH, __3_i_Int32\r\n        PUSH,
     __15_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
     \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000017DC\r\n
-    \       \r\n         # {\r\n        \r\n         # if (cards[j - 1].NormalCardNumber
-    > cards[j].NormalCardNumber)\r\n        PUSH, __0_j_Int32\r\n        PUSH, __19_intnl_SystemInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # if (cards[j - 1].GlobalIndex
+    > cards[j].GlobalIndex)\r\n        PUSH, __0_j_Int32\r\n        PUSH, __19_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __19_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __20_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, cards\r\n        PUSH, __20_intnl_SystemInt32\r\n        PUSH, __12_intnl_CardComponent\r\n
@@ -3655,56 +3655,56 @@ MonoBehaviour:
     - startInstruction: 5552
       endInstruction: 5639
       startSourceChar: 4336
-      endSourceChar: 4355
+      endSourceChar: 4350
       line: 152
       lineChar: 33
-      spanCodeSection: 'NormalCardNumber > '
+      spanCodeSection: 'GlobalIndex > '
     - startInstruction: 5640
       endInstruction: 5639
-      startSourceChar: 4355
-      endSourceChar: 4355
+      startSourceChar: 4350
+      endSourceChar: 4350
       line: 152
-      lineChar: 52
+      lineChar: 47
       spanCodeSection: 
     - startInstruction: 5640
       endInstruction: 5639
-      startSourceChar: 4355
-      endSourceChar: 4355
+      startSourceChar: 4350
+      endSourceChar: 4350
       line: 152
-      lineChar: 52
+      lineChar: 47
       spanCodeSection: 
     - startInstruction: 5640
       endInstruction: 5639
-      startSourceChar: 4355
-      endSourceChar: 4361
+      startSourceChar: 4350
+      endSourceChar: 4356
       line: 152
-      lineChar: 52
+      lineChar: 47
       spanCodeSection: cards[
     - startInstruction: 5640
       endInstruction: 5639
-      startSourceChar: 4361
-      endSourceChar: 4361
+      startSourceChar: 4356
+      endSourceChar: 4356
       line: 152
-      lineChar: 58
+      lineChar: 53
       spanCodeSection: 
     - startInstruction: 5640
       endInstruction: 5639
-      startSourceChar: 4361
-      endSourceChar: 4364
+      startSourceChar: 4356
+      endSourceChar: 4359
       line: 152
-      lineChar: 58
+      lineChar: 53
       spanCodeSection: j].
     - startInstruction: 5640
       endInstruction: 5775
-      startSourceChar: 4364
-      endSourceChar: 4399
+      startSourceChar: 4359
+      endSourceChar: 4389
       line: 152
-      lineChar: 61
-      spanCodeSection: "NormalCardNumber)\r\n                "
+      lineChar: 56
+      spanCodeSection: "GlobalIndex)\r\n                "
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4399
-      endSourceChar: 4722
+      startSourceChar: 4389
+      endSourceChar: 4712
       line: 153
       lineChar: 16
       spanCodeSection: "{\r\n                    //\uFFFD\uFFFD\uFFFD\u5CEA\uFFFD\uFFFD
@@ -3716,396 +3716,396 @@ MonoBehaviour:
         = tTump;*/\r\n\r\n                    "
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4722
-      endSourceChar: 4722
+      startSourceChar: 4712
+      endSourceChar: 4712
       line: 159
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4722
-      endSourceChar: 4729
+      startSourceChar: 4712
+      endSourceChar: 4719
       line: 159
       lineChar: 20
       spanCodeSection: 'temp = '
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4729
-      endSourceChar: 4729
+      startSourceChar: 4719
+      endSourceChar: 4719
       line: 159
       lineChar: 27
       spanCodeSection: 
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4729
-      endSourceChar: 4735
+      startSourceChar: 4719
+      endSourceChar: 4725
       line: 159
       lineChar: 27
       spanCodeSection: cards[
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4735
-      endSourceChar: 4735
+      startSourceChar: 4725
+      endSourceChar: 4725
       line: 159
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 5776
       endInstruction: 5775
-      startSourceChar: 4735
-      endSourceChar: 4735
+      startSourceChar: 4725
+      endSourceChar: 4725
       line: 159
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 5776
       endInstruction: 5795
-      startSourceChar: 4735
-      endSourceChar: 4739
+      startSourceChar: 4725
+      endSourceChar: 4729
       line: 159
       lineChar: 33
       spanCodeSection: 'j - '
     - startInstruction: 5796
       endInstruction: 5879
-      startSourceChar: 4739
-      endSourceChar: 4764
+      startSourceChar: 4729
+      endSourceChar: 4754
       line: 159
       lineChar: 37
       spanCodeSection: "1];\r\n                    "
     - startInstruction: 5880
       endInstruction: 5879
-      startSourceChar: 4764
-      endSourceChar: 4764
+      startSourceChar: 4754
+      endSourceChar: 4754
       line: 160
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 5880
       endInstruction: 5879
-      startSourceChar: 4764
-      endSourceChar: 4779
+      startSourceChar: 4754
+      endSourceChar: 4769
       line: 160
       lineChar: 20
       spanCodeSection: 'cards[j - 1] = '
     - startInstruction: 5880
       endInstruction: 5879
-      startSourceChar: 4779
-      endSourceChar: 4779
+      startSourceChar: 4769
+      endSourceChar: 4769
       line: 160
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 5880
       endInstruction: 5879
-      startSourceChar: 4779
-      endSourceChar: 4785
+      startSourceChar: 4769
+      endSourceChar: 4775
       line: 160
       lineChar: 35
       spanCodeSection: cards[
     - startInstruction: 5880
       endInstruction: 5879
-      startSourceChar: 4785
-      endSourceChar: 4785
+      startSourceChar: 4775
+      endSourceChar: 4775
       line: 160
       lineChar: 41
       spanCodeSection: 
     - startInstruction: 5880
       endInstruction: 5995
-      startSourceChar: 4785
-      endSourceChar: 4810
+      startSourceChar: 4775
+      endSourceChar: 4800
       line: 160
       lineChar: 41
       spanCodeSection: "j];\r\n                    "
     - startInstruction: 5996
       endInstruction: 5995
-      startSourceChar: 4810
-      endSourceChar: 4810
+      startSourceChar: 4800
+      endSourceChar: 4800
       line: 161
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 5996
       endInstruction: 5995
-      startSourceChar: 4810
-      endSourceChar: 4821
+      startSourceChar: 4800
+      endSourceChar: 4811
       line: 161
       lineChar: 20
       spanCodeSection: 'cards[j] = '
     - startInstruction: 5996
       endInstruction: 6187
-      startSourceChar: 4821
-      endSourceChar: 4881
+      startSourceChar: 4811
+      endSourceChar: 4871
       line: 161
       lineChar: 31
       spanCodeSection: "temp;\r\n                }\r\n            }\r\n        }\r\n
         \       "
     - startInstruction: 6188
       endInstruction: 6187
-      startSourceChar: 4881
-      endSourceChar: 4886
+      startSourceChar: 4871
+      endSourceChar: 4876
       line: 165
       lineChar: 8
       spanCodeSection: for (
     - startInstruction: 6188
       endInstruction: 6187
-      startSourceChar: 4886
-      endSourceChar: 4886
+      startSourceChar: 4876
+      endSourceChar: 4876
       line: 165
       lineChar: 13
       spanCodeSection: 
     - startInstruction: 6188
       endInstruction: 6187
-      startSourceChar: 4886
-      endSourceChar: 4892
+      startSourceChar: 4876
+      endSourceChar: 4882
       line: 165
       lineChar: 13
       spanCodeSection: 'var k '
     - startInstruction: 6188
       endInstruction: 6187
-      startSourceChar: 4892
-      endSourceChar: 4894
+      startSourceChar: 4882
+      endSourceChar: 4884
       line: 165
       lineChar: 19
       spanCodeSection: '= '
     - startInstruction: 6188
       endInstruction: 6207
-      startSourceChar: 4894
-      endSourceChar: 4897
+      startSourceChar: 4884
+      endSourceChar: 4887
       line: 165
       lineChar: 21
       spanCodeSection: '0; '
     - startInstruction: 6208
       endInstruction: 6207
-      startSourceChar: 4897
-      endSourceChar: 4897
+      startSourceChar: 4887
+      endSourceChar: 4887
       line: 165
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 6208
       endInstruction: 6227
-      startSourceChar: 4897
-      endSourceChar: 4901
+      startSourceChar: 4887
+      endSourceChar: 4891
       line: 165
       lineChar: 24
       spanCodeSection: 'k < '
     - startInstruction: 6228
       endInstruction: 6275
-      startSourceChar: 4901
-      endSourceChar: 4932
+      startSourceChar: 4891
+      endSourceChar: 4922
       line: 165
       lineChar: 28
       spanCodeSection: "13; k++) // \uFFFD\uFFFD\uFFFD\u03B1\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\r\n
         \       "
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4932
-      endSourceChar: 4947
+      startSourceChar: 4922
+      endSourceChar: 4937
       line: 166
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4947
-      endSourceChar: 4947
+      startSourceChar: 4937
+      endSourceChar: 4937
       line: 167
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4947
-      endSourceChar: 4947
+      startSourceChar: 4937
+      endSourceChar: 4937
       line: 167
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4947
-      endSourceChar: 4964
+      startSourceChar: 4937
+      endSourceChar: 4954
       line: 167
       lineChar: 12
       spanCodeSection: setPointPosition(
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4964
-      endSourceChar: 4964
+      startSourceChar: 4954
+      endSourceChar: 4954
       line: 167
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4964
-      endSourceChar: 4970
+      startSourceChar: 4954
+      endSourceChar: 4960
       line: 167
       lineChar: 29
       spanCodeSection: cards[
     - startInstruction: 6276
       endInstruction: 6275
-      startSourceChar: 4970
-      endSourceChar: 4970
+      startSourceChar: 4960
+      endSourceChar: 4960
       line: 167
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 6276
       endInstruction: 6307
-      startSourceChar: 4970
-      endSourceChar: 4974
+      startSourceChar: 4960
+      endSourceChar: 4964
       line: 167
       lineChar: 35
       spanCodeSection: 'k], '
     - startInstruction: 6308
       endInstruction: 6307
-      startSourceChar: 4974
-      endSourceChar: 4974
+      startSourceChar: 4964
+      endSourceChar: 4964
       line: 167
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 6308
       endInstruction: 6307
-      startSourceChar: 4974
-      endSourceChar: 4985
+      startSourceChar: 4964
+      endSourceChar: 4975
       line: 167
       lineChar: 39
       spanCodeSection: CardPoints[
     - startInstruction: 6308
       endInstruction: 6307
-      startSourceChar: 4985
-      endSourceChar: 4985
+      startSourceChar: 4975
+      endSourceChar: 4975
       line: 167
       lineChar: 50
       spanCodeSection: 
     - startInstruction: 6308
       endInstruction: 6475
-      startSourceChar: 4985
-      endSourceChar: 5010
+      startSourceChar: 4975
+      endSourceChar: 5000
       line: 167
       lineChar: 50
       spanCodeSection: "k]);\r\n        }\r\n        "
     - startInstruction: 6476
       endInstruction: 6475
-      startSourceChar: 5010
-      endSourceChar: 5017
+      startSourceChar: 5000
+      endSourceChar: 5007
       line: 169
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 6476
       endInstruction: 6535
-      startSourceChar: 5017
-      endSourceChar: 5038
+      startSourceChar: 5007
+      endSourceChar: 5028
       line: 169
       lineChar: 15
       spanCodeSection: "cards;\r\n    }\r\n\r\n    "
     - startInstruction: 6536
       endInstruction: 6543
-      startSourceChar: 5038
-      endSourceChar: 5110
+      startSourceChar: 5028
+      endSourceChar: 5100
       line: 172
       lineChar: 4
       spanCodeSection: "public void setPointPosition(CardComponent card, GameObject
         point)\r\n    "
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5110
-      endSourceChar: 5121
+      startSourceChar: 5100
+      endSourceChar: 5111
       line: 173
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5121
-      endSourceChar: 5121
+      startSourceChar: 5111
+      endSourceChar: 5111
       line: 174
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5121
-      endSourceChar: 5121
+      startSourceChar: 5111
+      endSourceChar: 5111
       line: 174
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5121
-      endSourceChar: 5121
+      startSourceChar: 5111
+      endSourceChar: 5111
       line: 174
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5121
-      endSourceChar: 5126
+      startSourceChar: 5111
+      endSourceChar: 5116
       line: 174
       lineChar: 8
       spanCodeSection: card.
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5126
-      endSourceChar: 5138
+      startSourceChar: 5116
+      endSourceChar: 5128
       line: 174
       lineChar: 13
       spanCodeSection: SetPosition(
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5138
-      endSourceChar: 5138
+      startSourceChar: 5128
+      endSourceChar: 5128
       line: 174
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5138
-      endSourceChar: 5138
+      startSourceChar: 5128
+      endSourceChar: 5128
       line: 174
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5138
-      endSourceChar: 5144
+      startSourceChar: 5128
+      endSourceChar: 5134
       line: 174
       lineChar: 25
       spanCodeSection: point.
     - startInstruction: 6544
       endInstruction: 6543
-      startSourceChar: 5144
-      endSourceChar: 5154
+      startSourceChar: 5134
+      endSourceChar: 5144
       line: 174
       lineChar: 31
       spanCodeSection: transform.
     - startInstruction: 6544
       endInstruction: 6591
-      startSourceChar: 5154
-      endSourceChar: 5164
+      startSourceChar: 5144
+      endSourceChar: 5154
       line: 174
       lineChar: 41
       spanCodeSection: 'position, '
     - startInstruction: 6592
       endInstruction: 6591
-      startSourceChar: 5164
-      endSourceChar: 5164
+      startSourceChar: 5154
+      endSourceChar: 5154
       line: 174
       lineChar: 51
       spanCodeSection: 
     - startInstruction: 6592
       endInstruction: 6591
-      startSourceChar: 5164
-      endSourceChar: 5164
+      startSourceChar: 5154
+      endSourceChar: 5154
       line: 174
       lineChar: 51
       spanCodeSection: 
     - startInstruction: 6592
       endInstruction: 6591
-      startSourceChar: 5164
-      endSourceChar: 5170
+      startSourceChar: 5154
+      endSourceChar: 5160
       line: 174
       lineChar: 51
       spanCodeSection: point.
     - startInstruction: 6592
       endInstruction: 6591
-      startSourceChar: 5170
-      endSourceChar: 5180
+      startSourceChar: 5160
+      endSourceChar: 5170
       line: 174
       lineChar: 57
       spanCodeSection: transform.
     - startInstruction: 6592
       endInstruction: 6592
-      startSourceChar: 5180
-      endSourceChar: 5180
+      startSourceChar: 5170
+      endSourceChar: 5170
       line: 174
       lineChar: 67
       spanCodeSection: 
