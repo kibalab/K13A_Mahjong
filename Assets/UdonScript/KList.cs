@@ -6,9 +6,8 @@ using VRC.Udon;
 
 public class KList : UdonSharpBehaviour
 {
+    public DebugHelper DebugHelper;
     private const int jump = 256;
-
-    public bool IgnoreTests = false;
 
     private object[] components = new object[jump];
     private int scaled = 1;
@@ -66,15 +65,9 @@ public class KList : UdonSharpBehaviour
         switch (type)
         {
             case "Int32": Sort_Int(); break;
+            case "CardComponent": Sort_Cards(); break;
             default:
-                if ((CardComponent)At(0) != null)
-                {
-                    Sort_Cards();
-                }
-                else
-                {
-                    Debug.Log($"can't sort object type {type}");
-                }
+                Debug.Log($"can't sort object type {type}");
                 break;
         }
     }
@@ -106,6 +99,7 @@ public class KList : UdonSharpBehaviour
             {
                 var val1 = (CardComponent)components[j - 1];
                 var val2 = (CardComponent)components[j];
+
                 if (val1.GlobalIndex > val2.GlobalIndex)
                 {
                     var temp = val1;
@@ -217,91 +211,111 @@ public class KList : UdonSharpBehaviour
         return index + 1;
     }
 
+
     void Test1()
     {
+        DebugHelper.SetTestName("Test1");
+
         for (var i = 0; i <= 2000; ++i)
         {
-            if (Count() != i) Debug.Log("error at 1");
-            if (index != i - 1) Debug.Log("error at 1");
-            if (components.Length != TEST__EstimatedLength(index)) Debug.Log("error");
+            DebugHelper.Equal(Count(), i, 1);
+            DebugHelper.Equal(index, i - 1, 2);
+            DebugHelper.Equal(components.Length, EstimatedLength(index), 3);
             Add(new object());
         }
     }
 
     void Test2()
     {
+        DebugHelper.SetTestName("Test2");
+
         for (var i = 0; i <= 20; ++i)
         {
             Add(new object());
         }
 
-        for (var i = 20; i >= 0; --i)
+        for (var i = 21; i > 0; --i)
         {
-            if (Count() != i + 1) Debug.Log("error");
-            if (index != i) Debug.Log("error");
-            if (components.Length != TEST__EstimatedLength(index)) Debug.Log("error");
-
+            DebugHelper.Equal(Count(), i, 1);
+            DebugHelper.Equal(index, i - 1, 2);
+            DebugHelper.Equal(components.Length, EstimatedLength(index), 3);
             RemoveLast();
         }
     }
 
     void Test3()
     {
-        for (var i = 0; i <= 20; ++i) { Add(i); }
+        DebugHelper.SetTestName("Test3");
+
         for (var i = 0; i <= 20; ++i)
         {
-            if (IndexOf(i) != i) Debug.Log("indexOf Error");
+            Add(i);
+            DebugHelper.Equal(IndexOf(i), i, 1);
         }
 
         for (var i = 20; i >= 0; --i)
         {
-            if (IndexOf(i) != i) Debug.Log("indexOf Error");
+            DebugHelper.Equal(IndexOf(i), i, 2);
             var value = (int)RemoveLast();
-            if (value != i) Debug.Log("error");
+            DebugHelper.Equal(value, i, 3);
         }
     }
 
     void Test4()
     {
+        DebugHelper.SetTestName("Test4");
+
         for (var i = 0; i <= 20; ++i) { Add(i.ToString()); }
         for (var i = 20; i >= 0; --i)
         {
             var value = (string)RemoveLast();
-            if (value != i.ToString()) Debug.Log($"ValueError {value}, {i}");
+            DebugHelper.IsTrue(value == i.ToString(), 1);
         }
     }
 
     void Test5()
     {
+        DebugHelper.SetTestName("Test5");
+
         Add(3);
         Add(1);
         Add(2);
         Sort();
-        if ((int)At(0) != 1) Debug.Log("error on test 5 1");
-        if ((int)At(1) != 2) Debug.Log("error on test 5 2");
-        if ((int)At(2) != 3) Debug.Log("error on test 5 3");
+
+        DebugHelper.Equal((int)At(0), 1, 1);
+        DebugHelper.Equal((int)At(1), 2, 2);
+        DebugHelper.Equal((int)At(2), 3, 3);
     }
 
-    int TEST__EstimatedLength(int i)
+    void Test6()
+    {
+        DebugHelper.SetTestName("Test6");
+
+        Add("hello world");
+        Add("nice to meet you");
+
+        var index1 = IndexOf("hello world");
+        var index2 = IndexOf("nice to meet you");
+
+        DebugHelper.Equal(index1, 0, 1);
+        DebugHelper.Equal(index2, 1, 2);
+    }
+
+    int EstimatedLength(int i)
     {
         return ((i / jump) + 1) * jump;
     }
 
     public void Start()
     {
-        if (IgnoreTests) { return; }
+        if (DebugHelper == null) { return; }
 
-        Debug.Log("--- KList TEST ---");
-
+        DebugHelper.SetClassName("KList");
         Test1(); Clear();
         Test2(); Clear();
         Test3(); Clear();
         Test4(); Clear();
         Test5(); Clear();
-
-        Add("hello world");
-        if (IndexOf("hello world") != 0) Debug.Log("indexOf error 3");
-
-        Debug.Log("if nothing appeared above, test success");
+        Test6();
     }
 }
