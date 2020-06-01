@@ -12,6 +12,8 @@ public class Player : UdonSharpBehaviour
     /*LinkedInInspector*/ public KList Cards;
     /*LinkedInInspector*/ public KList OpenendCards;
     /*LinkedInInspector*/ public InputEvent InputEvent;
+    /*LinkedInInspector*/ public UIContext UIContext;
+    /*LinkedInInspector*/ public AgariContext AgariContext;
 
     private GameObject[] cardPoints;
     private Transform stashPositions;
@@ -23,16 +25,14 @@ public class Player : UdonSharpBehaviour
     int[] stashedCards;
     int stashedCardIndex;
 
-    public void Initialize(int myTableNumber, EventQueue eq, Transform stashPositions)
+    public void Initialize(int myTableNumber, EventQueue eventQueue, Transform stashPositions)
     {
         cardPoints = FindPoints();
 
         this.myTableNumber = myTableNumber;
         this.stashPositions = stashPositions;
 
-        UiManager = this.gameObject.GetComponentInChildren<UIManager>();
-
-        UiManager.Initialize(eq);
+        UiManager.Initialize(InputEvent, eventQueue, UIContext);
 
         stashedCards = new int[34];
         stashedCardIndex = 0;
@@ -76,12 +76,16 @@ public class Player : UdonSharpBehaviour
 
     public void CheckNakiable(Card card)
     {
-        // TODO
+        UIContext.Clear();
+
+        HandCalculator.RequestNakiable(UIContext, AgariContext, card);
+
+        UIContext.IsChanged = true;
     }
 
     public bool IsUIActived()
     {
-        return true; // TODO
+        return UIContext.IsAnythingActived();
     }
 
     public bool Contains(Card card)

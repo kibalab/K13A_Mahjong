@@ -4,135 +4,85 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
+using VRC.Udon.Common.Interfaces;
 
 public class UIManager : UdonSharpBehaviour
 {
-    [UdonSynced(UdonSyncMode.None)] public int playerId = -1;
     [UdonSynced(UdonSyncMode.None)] public string UIName;
     [UdonSynced(UdonSyncMode.None)] public int playerTurn;
 
     public GameObject UICanvas;
     public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
+    private UIContext uiContext;
     private EventQueue eventQueue;
+    private InputEvent inputEvent;
 
-    public void Initialize(EventQueue eq)
+    // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
+    // 일단은 테스트를 위해서 true로 둠
+    private bool isMyTable = true; 
+
+    public void Initialize(InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
     {
-        eventQueue = eq;
+        this.uiContext = uiContext;
+        this.eventQueue = eventQueue;
+        this.inputEvent = inputEvent;
 
         UIButton[] uiButton = UICanvas.GetComponentsInChildren<UIButton>(); 
 
-
-        foreach(UIButton b in uiButton)
+        foreach(UIButton button in uiButton)
         {
-            b.Initialize(this);
+            button.Initialize(this);
         }
-
 
         if (Networking.LocalPlayer != null)
         {
-            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_DisableButton");
+            SendCustomNetworkEvent(NetworkEventTarget.All, "_DisableButton");
         }
         else
         {
             _DisableButton();
         }
-        
     }
 
-    public void ActiveButton(string _UIName, VRCPlayerApi player, int turn)
+    void Update()
     {
-        //Debug.Log("[UION] Player id : " + playerId);
-        playerTurn = turn;
-        UIName = _UIName;
-        if (player != null)
+        if (uiContext.IsChanged && isMyTable)
         {
-            playerId = player.playerId;
-            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_ActiveUI");
-        } else
-        {
-            playerId = -1;
-            _ActiveButton();
+            uiContext.IsChanged = false;
+
+            if (uiContext.IsChiable) ActiveButton("Chi");
+            if (uiContext.IsPonable) ActiveButton("Pon");
+            if (uiContext.IsKkanable) ActiveButton("Kkan");
+            if (uiContext.IsRiichable) ActiveButton("Rich");
+            if (uiContext.IsTsumoable) ActiveButton("Tsumo");
+            if (uiContext.IsRonable) ActiveButton("Ron");
+            if (uiContext.IsAnythingActived()) ActiveButton("Skip");
         }
     }
 
-    public void _ActiveButton()
+    public void ActiveButton(string uiName)
     {
-        if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
-        {
-            if (Networking.LocalPlayer.playerId == playerId)
-            {
-                GameObject g = UICanvas.transform.Find(UIName).gameObject;
-                UICanvas.SetActive(true);
-                g.gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            //Debug.Log("[UION] Player id : " + playerId);
-            GameObject g = UICanvas.transform.Find(UIName).gameObject;
-            UICanvas.SetActive(true);
-            g.gameObject.SetActive(true);
-            //Debug.Log("[UION] Player id : " + playerId);
-        }
+        GameObject g = UICanvas.transform.Find(uiName).gameObject;
+        UICanvas.SetActive(true);
+        g.gameObject.SetActive(true);
     }
 
     public void _DisableButton()
     {
-        if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
+        for (var i = 0; i < UICanvas.transform.childCount; i++)
         {
-            for (var i = 0; i < UICanvas.transform.childCount; i++)
-            {
-                UICanvas.transform.GetChild(i).gameObject.SetActive(false);
-            }
-            UICanvas.SetActive(false);
+            UICanvas.transform.GetChild(i).gameObject.SetActive(false);
         }
-        else
-        {
-            for (var i = 0; i < UICanvas.transform.childCount; i++)
-            {
-                UICanvas.transform.GetChild(i).gameObject.SetActive(false);
-            }
-            UICanvas.SetActive(false);
-        }
+        UICanvas.SetActive(false);
     }
 
-    public void ClickButton_Chi()
-    {
-        _ButtonEventInterface("Chi");
-    }
-    public void ClickButton_Pon()
-    {
-        _ButtonEventInterface("Pon");
-
-    }
-    public void ClickButton_Kkan()
-    {
-        _ButtonEventInterface("Kkan");
-    }
-    public void ClickButton_Rich()
-    {
-        _ButtonEventInterface("Rich");
-    }
-    public void ClickButton_Ron()
-    {
-        _ButtonEventInterface("Ron");
-    }
-    public void ClickButton_Tsumo()
-    {
-        _ButtonEventInterface("Tsumo");
-    }
-    public void ClickButton_Skip()
-    {
-        _ButtonEventInterface("Skip");
-    }
-
-    public void _ButtonEventInterface(string uiName)
+    public void OnClick(string uiName)
     {
         UIName = uiName;
         if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
         {
-            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "_ClickButton");
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_ClickButton");
         } else
         {
             _ClickButton();
@@ -143,14 +93,9 @@ public class UIManager : UdonSharpBehaviour
     public void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
-        //findPlayer();
-        //여따가 이벤트
-        //inputEvent.setData(null, UIName, playerTurn);
-        //eventQueue.Enqueue(inputEvent);
-    }
-
-    public VRCPlayerApi findPlayer()
-    {
-        return VRCPlayerApi.GetPlayerById(playerId);
+        // 맨 앞에 치,퐁 대상 cardIndex 넣어야 함
+        // 어떻게 넣지?
+        inputEvent.Set(-1, UIName, playerTurn);
+        eventQueue.Enqueue(inputEvent);
     }
 }
