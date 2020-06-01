@@ -62,8 +62,10 @@ public class GameManager : UdonSharpBehaviour
                         break;
                     }
 
+                    currentTable.Discard(eventCard);
+
                     TableManager.AnnounceDiscard(eventCard);
-                    
+
                     if (!TableManager.IsAnyoneUIActived())
                     {
                         TableManager.AddNextCard();
