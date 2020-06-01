@@ -9,6 +9,7 @@ using VRC.Udon.Common.Interfaces;
 public class UIManager : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public string UIName;
+    [UdonSynced(UdonSyncMode.None)] public int SelectedCard;
     [UdonSynced(UdonSyncMode.None)] public int playerTurn;
 
     public GameObject UICanvas;
@@ -82,6 +83,8 @@ public class UIManager : UdonSharpBehaviour
     public void OnClick(string uiName)
     {
         UIName = uiName;
+        SelectedCard = -1; // TODO 여기서 액션에 선택할 카드를 넣어주어야 한다.
+
         if (Networking.LocalPlayer == null)
         {
             _ClickButton();
@@ -97,9 +100,8 @@ public class UIManager : UdonSharpBehaviour
     public void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
-        // 맨 앞에 치 대상 cardIndex를 1~2개 넣어야 함
-        // 어떻게 넣지... 고민좀...
-        inputEvent.Set(-1, UIName, playerTurn);
+
+        inputEvent.Set(SelectedCard, UIName, playerTurn);
         eventQueue.Enqueue(inputEvent);
     }
 }
