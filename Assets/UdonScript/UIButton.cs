@@ -19,6 +19,6 @@ public class UIButton : UdonSharpBehaviour
 
     public override void Interact()
     {
-        uiManager._ButtonEventInterface(buttonName);
+        uiManager.OnClick(buttonName);
     }
 }
