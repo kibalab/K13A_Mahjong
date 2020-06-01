@@ -78,22 +78,29 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize()
     {
-        // VRCø° ∏±∏Æ¡Ó«“ ∂ß¥¬ ¿Ã∞…∑Œ
         // SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Initialize"); 
         _Initialize();
     }
 
     public void _Initialize()
     {
+        InitializeCards();
+        cards = ShuffleCards(cards);
+
+        InitializePlayers();
+    }
+
+    void InitializeCards()
+    {
         var index = 0;
 
-        foreach (var type in new string[3] { "∏∏", "≈Î", "ªË" })
+        foreach (var type in new string[3] { "Îßå", "ÌÜµ", "ÏÇ≠" })
         {
             foreach (var number in new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })
             {
                 for (int i = 0; i < 4; ++i)
                 {
-                    var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5∏∏, 5ªË, 5≈Î∏∏ 4∞≥¡ﬂ µµ∂Û «œ≥™∏¶ ∞°¡ˆ∞Ì¿÷¿Ω
+                    var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5Îßå, 5ÏÇ≠, 5ÌÜµÎßå 4Í∞úÏ§ë ÎèÑÎùº ÌïòÎÇòÎ•º Í∞ÄÏßÄÍ≥†ÏûàÏùå
                     cards[index++].Initialize(type, number, isDora, EventQueue, Sprites, HandUtil);
                 }
             }
@@ -101,16 +108,31 @@ public class TableManager : UdonSharpBehaviour
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("µø", 1, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("≥≤", 2, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("º≠", 3, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("∫œ", 4, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("Îèô", 1, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("ÎÇ®", 2, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("ÏÑú", 3, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("Î∂Å", 4, false, EventQueue, Sprites, HandUtil);
 
-            cards[index++].Initialize("πÈ", 5, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("πﬂ", 6, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("¡ﬂ", 7, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("Î∞±", 5, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("Î∞ú", 6, false, EventQueue, Sprites, HandUtil);
+            cards[index++].Initialize("Ï§ë", 7, false, EventQueue, Sprites, HandUtil);
         }
     }
+
+    void InitializePlayers()
+    {
+        for (int i = 0; i < players.Length; ++i)
+        {
+            var pickedCards = GetNextCards(13);
+            var stashTable = StashTables.transform.GetChild(i);
+
+            var player = players[i];
+            player.Initialize(i, EventQueue, stashTable);
+            player.SetColliderActive(false);
+            player.SetCards(pickedCards);
+        }
+    }
+
     public Card[] ShuffleCards(Card[] cards)
     {
         var shuffledCards = new Card[136];
@@ -131,16 +153,7 @@ public class TableManager : UdonSharpBehaviour
 
     public void SetPositionCards()
     {
-        for (int i = 0; i < players.Length; ++i)
-        {
-            var pickedCards = GetNextCards(13);
-            var stashTable = StashTables.transform.GetChild(i);
-
-            var table = players[i];
-            table.Initialize(i, EventQueue, stashTable);
-            table.SetColliderActive(false);
-            table.SetCards(pickedCards);
-        }
+       
     }
 
     Card[] GetNextCards(int count)

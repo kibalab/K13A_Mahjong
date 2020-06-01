@@ -65,9 +65,15 @@ public class KList : UdonSharpBehaviour
         switch (type)
         {
             case "Int32": Sort_Int(); break;
-            case "CardComponent": Sort_Cards(); break;
             default:
-                Debug.Log($"can't sort object type {type}");
+                if (((Card)At(0)) != null)
+                {
+                    Sort_Cards();
+                }
+                else
+                {
+                    Debug.Log($"can't sort object type {type}");
+                }
                 break;
         }
     }
