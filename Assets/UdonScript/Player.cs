@@ -67,9 +67,8 @@ public class Player : UdonSharpBehaviour
         Cards.RemoveAt(index);
 
         stashedCards[card.GlobalOrder]++;
-        stashedCardIndex++;
 
-        var point = stashPositions.GetChild(stashedCardIndex);
+        var point = stashPositions.GetChild(stashedCardIndex++);
         card.SetPosition(point.position, point.rotation);
         card.SetColliderActivate(false);
 
