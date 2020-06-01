@@ -22,7 +22,6 @@ public class GameManager : UdonSharpBehaviour
     private CardManager[] tables;
     public CardComponent[] stashedCards;
     private EventQueue eventQueue;
-    private Naki[] nakiManagers;
 
     private int[] stashCount = new int[4] { 0, 0, 0, 0 };
     private string[] playerTurn = new string[4] {"東", "北", "西", "南" } ; //동>북>서>남
@@ -59,13 +58,6 @@ public class GameManager : UdonSharpBehaviour
         */
 
         //InitializeCards();
-        nakiManagers = this.gameObject.GetComponentsInChildren<Naki>();
-        
-        foreach (Naki nakiManager in nakiManagers)
-        {
-            nakiManager.Initialized(eventQueue);
-        }
-
         if (Networking.IsOwner(this.gameObject))
         {
             cards = ShuffleCards(cards);
