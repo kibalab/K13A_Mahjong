@@ -47,6 +47,8 @@ public class UIManager : UdonSharpBehaviour
 
     void Update()
     {
+        if (uiContext == null) { return; }
+
         if (uiContext.IsChanged && isMyTable)
         {
             uiContext.IsChanged = false;

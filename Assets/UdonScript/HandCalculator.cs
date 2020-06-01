@@ -549,6 +549,8 @@ public class HandCalculator : UdonSharpBehaviour
 
     public void Start()
     {
+        if (DebugHelper == null) { return; }
+
         DebugHelper.SetClassName("HandCalculator");
 
         TestComponents = GetComponentsInChildren<Card>();

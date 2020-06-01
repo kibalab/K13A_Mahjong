@@ -40,7 +40,7 @@ public class Player : UdonSharpBehaviour
 
     GameObject[] FindPoints()
     {
-        //¹è¿­ÀÇ 0~13 Àº ¼ÒÀ¯Ä«µå 14´Â Ãß°¡Ä«µå
+        //ë°°ì—´ì˜ 0~13 ì€ ì†Œìœ ì¹´ë“œ 14ëŠ” ì¶”ê°€ì¹´ë“œ
         var cardPoints = new GameObject[FULL_CARD_COUNT];
         for (int i = 0; i < 14; i++)
         {
@@ -119,7 +119,7 @@ public class Player : UdonSharpBehaviour
 
     void SortPosition()
     {
-        for (var k = 0; k < Cards.Count(); k++) // »õ·Î±¸ÇöÇÔ
+        for (var k = 0; k < Cards.Count(); k++) // ìƒˆë¡œêµ¬í˜„í•¨
         {
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
