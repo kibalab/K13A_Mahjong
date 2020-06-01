@@ -78,8 +78,14 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize()
     {
-        // SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Initialize"); 
-        _Initialize();
+        if (Networking.LocalPlayer == null)
+        { 
+            Initialize();
+        }
+        else 
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Initialize");
+        }
     }
 
     public void _Initialize()
@@ -149,11 +155,6 @@ public class TableManager : UdonSharpBehaviour
             shuffledIndex++;
         }
         return shuffledCards;
-    }
-
-    public void SetPositionCards()
-    {
-       
     }
 
     Card[] GetNextCards(int count)
