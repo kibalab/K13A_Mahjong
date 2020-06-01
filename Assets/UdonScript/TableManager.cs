@@ -40,8 +40,13 @@ public class TableManager : UdonSharpBehaviour
     public void AddNextCard()
     {
         var currentTable = GetCurrentTurnPlayer();
+        var index = currentCardIndex;
+
         var nextCard = GetNextCard();
-        currentTable.AddCard(nextCard);
+        var isFirstTsumo = index == 0;
+        var isLastTsumo = index == cards.Length - 1;
+
+        currentTable.AddCard(nextCard, isFirstTsumo, isLastTsumo);
 
         for (var i = 0; i < 4; i++)
         {
