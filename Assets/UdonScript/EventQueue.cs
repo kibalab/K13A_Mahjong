@@ -6,28 +6,28 @@ using VRC.Udon;
 
 public class EventQueue : UdonSharpBehaviour
 {
-    private InputActionEvent[] events;
+    private InputEvent[] events;
     private int count = 0;
 
     private void Start()
     {
-         events = new InputActionEvent[256];
+        events = new InputEvent[256];
     }
 
     public bool IsQueueEmpty() { return count == 0; }
 
-    public void Enqueue(InputActionEvent e) 
+    public void Enqueue(InputEvent e)
     {
         events[count++] = e;
     }
 
-    public InputActionEvent Dequeue() 
+    public InputEvent Dequeue()
     {
-        InputActionEvent tmp = events[0];
+        InputEvent tmp = events[0];
         events[0] = null;
         for (var i = 1; i < count; i++)
         {
-            events[i-1] = events[i];
+            events[i - 1] = events[i];
         }
         count--;
         return tmp;

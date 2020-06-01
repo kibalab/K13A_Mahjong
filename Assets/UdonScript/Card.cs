@@ -1,8 +1,6 @@
 ﻿using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
-using VRC.SDKBase;
-using VRC.Udon;
 
 public class Card : UdonSharpBehaviour
 {
@@ -13,26 +11,24 @@ public class Card : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
+    [UdonSynced(UdonSyncMode.None)] public int Index;
 
-    private VRCPlayerApi owner;
+    /*LinkedInInspector*/ public InputEvent InputEvent;
+    /*LinkedInInspector*/ public UIManager UIManager;
+
     private EventQueue eventQueue;
-    public InputActionEvent InputEvent;
-    private BoxCollider collider;
-
-    public UIManager uiManager;
-
-    public Text DebugText;
+    private BoxCollider boxCollider;
 
     public override void Interact()
     {
-        InputEvent.setData(this, "Discard", -1);
-        eventQueue.Enqueue(InputEvent);
+        // SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Interact");
+        _Interact();
     }
 
-    public BoxCollider SetColliderActivate(bool t)
+    public void _Interact()
     {
-        collider.enabled = t;
-        return collider;
+        InputEvent.Set(Index, "Discard", -1);
+        eventQueue.Enqueue(InputEvent);
     }
 
     public void Initialize(string type, int cardNumber, bool isDora, EventQueue e, CardSprites sprites, HandUtil util)
@@ -43,16 +39,17 @@ public class Card : UdonSharpBehaviour
         IsDora = isDora;
 
         GlobalIndex = util.CardComponentToIndex(type, cardNumber);
-        collider = this.GetComponent<BoxCollider>();
+        boxCollider = this.GetComponent<BoxCollider>();
 
         var spriteName = GetCardSpriteName();
         var sprite = sprites.FindSprite(spriteName);
         SetSprite(sprite);
     }
 
-    public void SetParent(GameObject gameObject)
+    public BoxCollider SetColliderActivate(bool t)
     {
-        transform.SetParent(gameObject.transform);
+        boxCollider.enabled = t;
+        return boxCollider;
     }
 
     public void SetSprite(Sprite sprite)
@@ -67,7 +64,8 @@ public class Card : UdonSharpBehaviour
     {
         position = p;
         rotation = r;
-        //SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "_SetPosition");
+
+        //SendCustomNetworkEvent(NetworkEventTarget.All, "_SetPosition");
         _SetPosition();
     }
 
