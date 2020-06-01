@@ -63,14 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\UdonScript\Card.cs" />
     <Compile Include="Assets\UdonScript\CardComponent.cs" />
     <Compile Include="Assets\UdonScript\CardManager.cs" />
     <Compile Include="Assets\UdonScript\CardSprites.cs" />
     <Compile Include="Assets\UdonScript\CardStash.cs" />
     <Compile Include="Assets\UdonScript\CardSuffle.cs" />
     <Compile Include="Assets\UdonScript\Chiitoitsu.cs" />
-    <Compile Include="Assets\UdonScript\CombinationIterator.cs" />
     <Compile Include="Assets\UdonScript\ContextHandler.cs" />
     <Compile Include="Assets\UdonScript\DebugHelper.cs" />
     <Compile Include="Assets\UdonScript\EventQueue.cs" />
@@ -80,8 +78,6 @@
     <Compile Include="Assets\UdonScript\InputActionEvent.cs" />
     <Compile Include="Assets\UdonScript\KList.cs" />
     <Compile Include="Assets\UdonScript\Kokushimusou.cs" />
-    <Compile Include="Assets\UdonScript\Naki.cs" />
-    <Compile Include="Assets\UdonScript\NakiData.cs" />
     <Compile Include="Assets\UdonScript\UIButton.cs" />
     <Compile Include="Assets\UdonScript\UIManager.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_1.cs" />
