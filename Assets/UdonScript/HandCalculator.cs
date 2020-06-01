@@ -8,13 +8,13 @@ using VRC.Udon;
 public class HandCalculator : UdonSharpBehaviour
 {
     public DebugHelper DebugHelper;
-    public CardComponent[] TestComponents;
+    public Card[] TestComponents;
 
     const int TILES_COUNT = 34;
 
     public KList Stack;
     public KList Result;
-    public ContextHandler Ctx;
+    public CalculatingContextHandler Ctx;
 
     public HandUtil HandUtil;
     public Chiitoitsu Chiitoitsu;
@@ -22,12 +22,12 @@ public class HandCalculator : UdonSharpBehaviour
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
 
-    public bool IsChiable(CardComponent[] cards, CardComponent discardedCard)
+    public bool IsChiable(Card[] cards, Card discardedCard)
     {
         return GetChiableAll(cards, discardedCard).Length != 0;
     }
 
-    public object[] GetChiableAll(CardComponent[] cards, CardComponent discardedCard)
+    public object[] GetChiableAll(Card[] cards, Card discardedCard)
     {
         // 자패의 슌쯔는 검사하지 않는다
         var chiIndex = discardedCard.GlobalIndex;
@@ -60,7 +60,7 @@ public class HandCalculator : UdonSharpBehaviour
         return Fit(list, count);
     }
 
-    public bool IsPonable(CardComponent[] cards, CardComponent discardedCard)
+    public bool IsPonable(Card[] cards, Card discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
         var ponIndex = discardedCard.GlobalIndex;
@@ -68,7 +68,7 @@ public class HandCalculator : UdonSharpBehaviour
         return tiles[ponIndex] + 1 >= 3;
     }
 
-    public bool IsKkanable(CardComponent[] cards, CardComponent discardedCard)
+    public bool IsKkanable(Card[] cards, Card discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
         var ponIndex = discardedCard.GlobalIndex;
@@ -76,7 +76,7 @@ public class HandCalculator : UdonSharpBehaviour
         return tiles[ponIndex] + 1 == 4;
     }
 
-    public int[] IsRiichiable(CardComponent[] cards)
+    public int[] IsRiichiable(Card[] cards)
     {
         if (cards.Length != 14) Debug.Log("cards.Length != 14");
 
@@ -304,10 +304,10 @@ public class HandCalculator : UdonSharpBehaviour
         return clone;
     }
 
-    CardComponent[] ToCards(CardComponent[] cards, int[] cardIndexes)
+    Card[] ToCards(Card[] cards, int[] cardIndexes)
     {
         var findIndex = 0;
-        var arr = new CardComponent[3];
+        var arr = new Card[3];
 
         foreach (var card in cards)
         {
@@ -327,7 +327,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test1");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
             TEST__SetTestData(TestComponents[0], "만", 1),
             TEST__SetTestData(TestComponents[1], "만", 1),
@@ -350,7 +350,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test2");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
           {
                     TEST__SetTestData(TestComponents[0], "만", 1),
                     TEST__SetTestData(TestComponents[1], "만", 1),
@@ -382,7 +382,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test3");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 1),
                     TEST__SetTestData(TestComponents[1], "만", 1),
@@ -415,7 +415,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test4");
 
-        var testSet = new CardComponent[2]
+        var testSet = new Card[2]
         {
                     TEST__SetTestData(TestComponents[0], "만", 2),
                     TEST__SetTestData(TestComponents[1], "만", 3),
@@ -438,7 +438,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test5");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 3),
                     TEST__SetTestData(TestComponents[1], "만", 3),
@@ -451,7 +451,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test6");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 1),
                     TEST__SetTestData(TestComponents[1], "만", 1),
@@ -482,7 +482,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test7");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 1),
                     TEST__SetTestData(TestComponents[1], "만", 9),
@@ -513,7 +513,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test8");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "동", 1),
                     TEST__SetTestData(TestComponents[1], "서", 2),
@@ -528,7 +528,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetTestName("Test9");
 
-        var testSet = new CardComponent[]
+        var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 1),
                     TEST__SetTestData(TestComponents[1], "만", 2),
@@ -546,7 +546,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         DebugHelper.SetClassName("HandCalculator");
 
-        TestComponents = GetComponentsInChildren<CardComponent>();
+        TestComponents = GetComponentsInChildren<Card>();
 
         Test1();
         Test2();
@@ -559,7 +559,7 @@ public class HandCalculator : UdonSharpBehaviour
         Test9();
     }
 
-    CardComponent TEST__SetTestData(CardComponent card, string type, int cardNumber)
+    Card TEST__SetTestData(Card card, string type, int cardNumber)
     {
         card.Type = type;
         card.CardNumber = cardNumber;

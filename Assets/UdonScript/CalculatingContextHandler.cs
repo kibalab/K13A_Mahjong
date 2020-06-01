@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public class ContextHandler : UdonSharpBehaviour
+public class CalculatingContextHandler : UdonSharpBehaviour
 {
     // 이 클래스는 static class처럼 씁니다. 별도의 멤버변수를 갖게 하지 맙시다
 

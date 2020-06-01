@@ -97,8 +97,8 @@ public class KList : UdonSharpBehaviour
         {
             for (var j = 1; j <= i; j++)
             {
-                var val1 = (CardComponent)components[j - 1];
-                var val2 = (CardComponent)components[j];
+                var val1 = (Card)components[j - 1];
+                var val2 = (Card)components[j];
 
                 if (val1.GlobalIndex > val2.GlobalIndex)
                 {

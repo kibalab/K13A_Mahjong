@@ -18,9 +18,9 @@ public class GameManager : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public int turnNum = 0;
 
-    private CardComponent[] cards;
+    private Card[] cards;
     private CardManager[] tables;
-    public CardComponent[] stashedCards;
+    public Card[] stashedCards;
     private EventQueue eventQueue;
 
     private int[] stashCount = new int[4] { 0, 0, 0, 0 };
@@ -33,10 +33,10 @@ public class GameManager : UdonSharpBehaviour
     {
         DebugText.text = "";
 
-        cards = CardPool.GetComponentsInChildren<CardComponent>();
+        cards = CardPool.GetComponentsInChildren<Card>();
         tables = CardTable.GetComponentsInChildren<CardManager>();
         eventQueue = EventQueueObject.GetComponentInChildren<EventQueue>();
-        stashedCards = new CardComponent[70];
+        stashedCards = new Card[70];
 
         if (Networking.GetOwner(this.gameObject) == null)
         {
@@ -174,9 +174,9 @@ public class GameManager : UdonSharpBehaviour
         }
     }
 
-    CardComponent[] GetNextCards(int count)
+    Card[] GetNextCards(int count)
     {
-        var pickedCards = new CardComponent[count];
+        var pickedCards = new Card[count];
 
         for (var i = 0; i < count; i++)
         {
@@ -186,7 +186,7 @@ public class GameManager : UdonSharpBehaviour
         return pickedCards;
     }
 
-    CardComponent GetNextCard()
+    Card GetNextCard()
     {
         return cards[currentCardIndex++];
     }
@@ -222,9 +222,9 @@ public class GameManager : UdonSharpBehaviour
         }
     }
 
-    public CardComponent[] ShuffleCards(CardComponent[] cards)
+    public Card[] ShuffleCards(Card[] cards)
     {
-        var shuffledCards = new CardComponent[136];
+        var shuffledCards = new Card[136];
         var yetShuffledCount = 136 - 1;
         var shuffledIndex = 0;
 

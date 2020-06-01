@@ -6,7 +6,7 @@ using VRC.Udon;
 
 public class InputActionEvent : UdonSharpBehaviour
 {
-    public CardComponent Card;
+    public Card Card;
     [UdonSynced(UdonSyncMode.None)] public string EventType;
     [UdonSynced(UdonSyncMode.None)] public int playerTurn;
     public VRCPlayerApi Author;
@@ -14,7 +14,7 @@ public class InputActionEvent : UdonSharpBehaviour
 
     public void Initialize() {  }
 
-    public void setData(CardComponent card, string eventType, int turn)
+    public void setData(Card card, string eventType, int turn)
     {
         Card = card;
         EventType = eventType;
