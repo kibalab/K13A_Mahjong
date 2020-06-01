@@ -82,21 +82,23 @@ public class UIManager : UdonSharpBehaviour
     public void OnClick(string uiName)
     {
         UIName = uiName;
-        if (Networking.LocalPlayer != null)//유니티에서 테스트를 위한 조건문
-        {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_ClickButton");
-        } else
+        if (Networking.LocalPlayer == null)
         {
             _ClickButton();
         }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_ClickButton");
+        }
+
         _DisableButton();
     }
 
     public void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
-        // 맨 앞에 치,퐁 대상 cardIndex 넣어야 함
-        // 어떻게 넣지?
+        // 맨 앞에 치 대상 cardIndex를 1~2개 넣어야 함
+        // 어떻게 넣지... 고민좀...
         inputEvent.Set(-1, UIName, playerTurn);
         eventQueue.Enqueue(inputEvent);
     }

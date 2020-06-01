@@ -1,6 +1,8 @@
 ﻿using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using VRC.SDKBase;
+using VRC.Udon.Common.Interfaces;
 
 public class Card : UdonSharpBehaviour
 {
@@ -21,8 +23,14 @@ public class Card : UdonSharpBehaviour
 
     public override void Interact()
     {
-        // SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Interact");
-        _Interact();
+        if(Networking.LocalPlayer == null)
+        {
+            _Interact();
+        }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Interact");
+        }
     }
 
     public void _Interact()
@@ -65,8 +73,14 @@ public class Card : UdonSharpBehaviour
         position = p;
         rotation = r;
 
-        //SendCustomNetworkEvent(NetworkEventTarget.All, "_SetPosition");
-        _SetPosition();
+        if (Networking.LocalPlayer == null)
+        {
+            _SetPosition();
+        }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.All, "_SetPosition");
+        }
     }
 
     public void _SetPosition()
