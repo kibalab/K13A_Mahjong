@@ -15,12 +15,10 @@ public class UIManager : UdonSharpBehaviour
     public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
     private EventQueue eventQueue;
-    private InputActionEvent inputEvent;
 
-    public void Initialize(EventQueue eq, InputActionEvent e)
+    public void Initialize(EventQueue eq)
     {
         eventQueue = eq;
-        inputEvent = e;
 
         UIButton[] uiButton = UICanvas.GetComponentsInChildren<UIButton>(); 
 
@@ -147,8 +145,8 @@ public class UIManager : UdonSharpBehaviour
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
         //findPlayer();
         //여따가 이벤트
-        inputEvent.setData(null, UIName, playerTurn);
-        eventQueue.Enqueue(inputEvent);
+        //inputEvent.setData(null, UIName, playerTurn);
+        //eventQueue.Enqueue(inputEvent);
     }
 
     public VRCPlayerApi findPlayer()

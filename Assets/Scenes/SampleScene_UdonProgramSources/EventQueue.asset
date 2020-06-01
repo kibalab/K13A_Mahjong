@@ -17,64 +17,61 @@ MonoBehaviour:
   udonAssembly: ".data_start\r\n\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
     null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    events:
     %UnityEngineComponentArray, null\r\n    count: %SystemInt32, null\r\n    __0_i_Int32:
-    %SystemInt32, null\r\n    __0_e_InputActionEvent: %VRCUdonUdonBehaviour, null\r\n
-    \   __0_tmp_InputActionEvent: %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __2_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null\r\n    __0_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_InputActionEventArray: %UnityEngineComponentArray, null\r\n    __0_intnl_UnityEngineComponentArray:
-    %UnityEngineComponentArray, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __1_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_InputActionEvent:
-    %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnValSymbol_InputActionEvent:
-    %VRCUdonUdonBehaviour, null\r\n    __1_intnl_InputActionEvent: %VRCUdonUdonBehaviour,
-    null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
-    \       \r\n         # public class EventQueue : UdonSharpBehaviour\r\n.code_start\r\n
-    \       \r\n         # private InputActionEvent[] events;\r\n        \r\n         #
-    private int count = 0;\r\n        \r\n         # private void Start()\r\n    .export
-    _start\r\n        \r\n    _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # events = new InputActionEvent[256];\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_UnityEngineComponentArray\r\n
-    \       EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __0_intnl_InputActionEventArray\r\n
-    \       COPY\r\n        PUSH, __0_intnl_InputActionEventArray\r\n        PUSH,
-    events\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public bool IsQueueEmpty() { return count ==
-    0; }\r\n    .export IsQueueEmpty\r\n        \r\n    IsQueueEmpty:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        PUSH, count\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    %SystemInt32, null\r\n    __0_e_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __0_tmp_InputEvent:
+    %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __2_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n
+    \   __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __0_intnl_returnValSymbol_Boolean:
+    %SystemBoolean, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __1_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_InputEventArray:
+    %UnityEngineComponentArray, null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray,
+    null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_InputEvent: %VRCUdonUdonBehaviour, null\r\n
+    \   __0_intnl_returnValSymbol_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __1_intnl_InputEvent:
+    %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
+    \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
+    EventQueue : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # private
+    InputEvent[] events;\r\n        \r\n         # private int count = 0;\r\n        \r\n
+    \        # private void Start()\r\n    .export _start\r\n        \r\n    _start:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # events = new InputEvent[256];\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __0_intnl_InputEventArray\r\n
+    \       COPY\r\n        PUSH, __0_intnl_InputEventArray\r\n        PUSH, events\r\n
+    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
+    \       \r\n         # public bool IsQueueEmpty() { return count == 0; }\r\n    .export
+    IsQueueEmpty\r\n        \r\n    IsQueueEmpty:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       PUSH, count\r\n        PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
     \       PUSH, __0_intnl_SystemBoolean\r\n        PUSH, __0_intnl_returnValSymbol_Boolean\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public void
-    Enqueue(InputActionEvent e)\r\n    .export Enqueue\r\n        \r\n    Enqueue:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # events[count++] = e;\r\n        PUSH, count\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        COPY\r\n        PUSH, count\r\n        PUSH,
-    __2_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n        PUSH,
-    __2_intnl_SystemInt32\r\n        PUSH, count\r\n        COPY\r\n        PUSH,
-    events\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH, __0_e_InputActionEvent\r\n
+    Enqueue(InputEvent e)\r\n    .export Enqueue\r\n        \r\n    Enqueue:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # events[count++] = e;\r\n        PUSH, count\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, count\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, count\r\n        COPY\r\n
+    \       PUSH, events\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH, __0_e_InputEvent\r\n
     \       EXTERN, \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public InputActionEvent Dequeue()\r\n    .export Dequeue\r\n        \r\n
+    \        # public InputEvent Dequeue()\r\n    .export Dequeue\r\n        \r\n
     \   Dequeue:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # InputActionEvent tmp = events[0];\r\n        PUSH,
-    events\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_InputActionEvent\r\n
+    \        # {\r\n        \r\n         # InputEvent tmp = events[0];\r\n        PUSH,
+    events\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_InputEvent\r\n
     \       EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_InputActionEvent\r\n        PUSH, __0_tmp_InputActionEvent\r\n
-    \       COPY\r\n        \r\n         # events[0] = null;\r\n        PUSH, events\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemObject\r\n
+    \       PUSH, __0_intnl_InputEvent\r\n        PUSH, __0_tmp_InputEvent\r\n        COPY\r\n
+    \       \r\n         # events[0] = null;\r\n        PUSH, events\r\n        PUSH,
+    __1_const_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemObject\r\n
     \       EXTERN, \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
     \       \r\n         # for (var i = 1; i < count; i++)\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
     \       PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH,
@@ -82,13 +79,13 @@ MonoBehaviour:
     \       PUSH, count\r\n        PUSH, __1_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n        PUSH,
     __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002D0\r\n        \r\n         #
-    {\r\n        \r\n         # events[i-1] = events[i];\r\n        PUSH, events\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_InputActionEvent\r\n        EXTERN,
+    {\r\n        \r\n         # events[i - 1] = events[i];\r\n        PUSH, events\r\n
+    \       PUSH, __0_i_Int32\r\n        PUSH, __1_intnl_InputEvent\r\n        EXTERN,
     \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n        PUSH,
     __0_i_Int32\r\n        PUSH, __4_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
     __4_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
     __5_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, events\r\n        PUSH, __5_intnl_SystemInt32\r\n        PUSH, __1_intnl_InputActionEvent\r\n
+    \       PUSH, events\r\n        PUSH, __5_intnl_SystemInt32\r\n        PUSH, __1_intnl_InputEvent\r\n
     \       EXTERN, \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __4_intnl_SystemInt32\r\n        COPY\r\n
     \       PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
@@ -99,12 +96,11 @@ MonoBehaviour:
     \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, count\r\n        COPY\r\n
-    \       \r\n         # return tmp;\r\n        PUSH, __0_tmp_InputActionEvent\r\n
-    \       PUSH, __0_intnl_returnValSymbol_InputActionEvent\r\n        COPY\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+    \       \r\n         # return tmp;\r\n        PUSH, __0_tmp_InputEvent\r\n        PUSH,
+    __0_intnl_returnValSymbol_InputEvent\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 4971171d7443a3f4bbcc13fa171a5760, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
@@ -261,406 +257,406 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 140
-      endSourceChar: 172
+      endSourceChar: 166
       line: 8
       lineChar: 12
-      spanCodeSection: "InputActionEvent[] events;\r\n    "
+      spanCodeSection: "InputEvent[] events;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 172
-      endSourceChar: 180
+      startSourceChar: 166
+      endSourceChar: 174
       line: 9
       lineChar: 4
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 180
-      endSourceChar: 180
+      startSourceChar: 174
+      endSourceChar: 174
       line: 9
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 180
-      endSourceChar: 202
+      startSourceChar: 174
+      endSourceChar: 196
       line: 9
       lineChar: 12
       spanCodeSection: "int count = 0;\r\n\r\n    "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 202
-      endSourceChar: 228
+      startSourceChar: 196
+      endSourceChar: 222
       line: 11
       lineChar: 4
       spanCodeSection: "private void Start()\r\n    "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 228
-      endSourceChar: 240
+      startSourceChar: 222
+      endSourceChar: 233
       line: 12
       lineChar: 4
-      spanCodeSection: "{\r\n         "
+      spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 240
-      endSourceChar: 240
+      startSourceChar: 233
+      endSourceChar: 233
       line: 13
-      lineChar: 9
+      lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 240
-      endSourceChar: 249
+      startSourceChar: 233
+      endSourceChar: 242
       line: 13
-      lineChar: 9
+      lineChar: 8
       spanCodeSection: 'events = '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 249
-      endSourceChar: 253
+      startSourceChar: 242
+      endSourceChar: 246
       line: 13
-      lineChar: 18
+      lineChar: 17
       spanCodeSection: 'new '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 253
-      endSourceChar: 253
+      startSourceChar: 246
+      endSourceChar: 246
       line: 13
-      lineChar: 22
+      lineChar: 21
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 253
-      endSourceChar: 269
+      startSourceChar: 246
+      endSourceChar: 256
       line: 13
-      lineChar: 22
-      spanCodeSection: InputActionEvent
+      lineChar: 21
+      spanCodeSection: InputEvent
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 269
-      endSourceChar: 270
+      startSourceChar: 256
+      endSourceChar: 257
       line: 13
-      lineChar: 38
+      lineChar: 31
       spanCodeSection: '['
     - startInstruction: 8
       endInstruction: 91
-      startSourceChar: 270
-      endSourceChar: 290
+      startSourceChar: 257
+      endSourceChar: 277
       line: 13
-      lineChar: 39
+      lineChar: 32
       spanCodeSection: "256];\r\n    }\r\n\r\n    "
     - startInstruction: 92
       endInstruction: 99
-      startSourceChar: 290
-      endSourceChar: 317
+      startSourceChar: 277
+      endSourceChar: 304
       line: 16
       lineChar: 4
       spanCodeSection: 'public bool IsQueueEmpty() '
     - startInstruction: 100
       endInstruction: 99
-      startSourceChar: 317
-      endSourceChar: 319
+      startSourceChar: 304
+      endSourceChar: 306
       line: 16
       lineChar: 31
       spanCodeSection: '{ '
     - startInstruction: 100
       endInstruction: 99
-      startSourceChar: 319
-      endSourceChar: 326
+      startSourceChar: 306
+      endSourceChar: 313
       line: 16
       lineChar: 33
       spanCodeSection: 'return '
     - startInstruction: 100
       endInstruction: 99
-      startSourceChar: 326
-      endSourceChar: 326
+      startSourceChar: 313
+      endSourceChar: 313
       line: 16
       lineChar: 40
       spanCodeSection: 
     - startInstruction: 100
       endInstruction: 119
-      startSourceChar: 326
-      endSourceChar: 335
+      startSourceChar: 313
+      endSourceChar: 322
       line: 16
       lineChar: 40
       spanCodeSection: 'count == '
     - startInstruction: 120
       endInstruction: 211
-      startSourceChar: 335
-      endSourceChar: 347
+      startSourceChar: 322
+      endSourceChar: 334
       line: 16
       lineChar: 49
       spanCodeSection: "0; }\r\n\r\n    "
     - startInstruction: 212
       endInstruction: 219
-      startSourceChar: 347
-      endSourceChar: 393
+      startSourceChar: 334
+      endSourceChar: 373
       line: 18
       lineChar: 4
-      spanCodeSection: "public void Enqueue(InputActionEvent e) \r\n    "
+      spanCodeSection: "public void Enqueue(InputEvent e)\r\n    "
     - startInstruction: 220
       endInstruction: 219
-      startSourceChar: 393
-      endSourceChar: 404
+      startSourceChar: 373
+      endSourceChar: 384
       line: 19
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 220
       endInstruction: 219
-      startSourceChar: 404
-      endSourceChar: 404
+      startSourceChar: 384
+      endSourceChar: 384
       line: 20
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 220
       endInstruction: 219
-      startSourceChar: 404
-      endSourceChar: 422
+      startSourceChar: 384
+      endSourceChar: 402
       line: 20
       lineChar: 8
       spanCodeSection: 'events[count++] = '
     - startInstruction: 220
       endInstruction: 343
-      startSourceChar: 422
-      endSourceChar: 439
+      startSourceChar: 402
+      endSourceChar: 419
       line: 20
       lineChar: 26
       spanCodeSection: "e;\r\n    }\r\n\r\n    "
     - startInstruction: 344
       endInstruction: 351
-      startSourceChar: 439
-      endSourceChar: 479
+      startSourceChar: 419
+      endSourceChar: 452
       line: 23
       lineChar: 4
-      spanCodeSection: "public InputActionEvent Dequeue() \r\n    "
+      spanCodeSection: "public InputEvent Dequeue()\r\n    "
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 479
-      endSourceChar: 490
+      startSourceChar: 452
+      endSourceChar: 463
       line: 24
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 490
-      endSourceChar: 490
+      startSourceChar: 463
+      endSourceChar: 463
       line: 25
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 490
-      endSourceChar: 490
+      startSourceChar: 463
+      endSourceChar: 463
       line: 25
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 490
-      endSourceChar: 490
+      startSourceChar: 463
+      endSourceChar: 463
       line: 25
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 490
-      endSourceChar: 511
+      startSourceChar: 463
+      endSourceChar: 478
       line: 25
       lineChar: 8
-      spanCodeSection: 'InputActionEvent tmp '
+      spanCodeSection: 'InputEvent tmp '
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 511
-      endSourceChar: 513
+      startSourceChar: 478
+      endSourceChar: 480
       line: 25
-      lineChar: 29
+      lineChar: 23
       spanCodeSection: '= '
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 513
-      endSourceChar: 513
+      startSourceChar: 480
+      endSourceChar: 480
       line: 25
-      lineChar: 31
+      lineChar: 25
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 513
-      endSourceChar: 520
+      startSourceChar: 480
+      endSourceChar: 487
       line: 25
-      lineChar: 31
+      lineChar: 25
       spanCodeSection: events[
     - startInstruction: 352
       endInstruction: 351
-      startSourceChar: 520
-      endSourceChar: 520
+      startSourceChar: 487
+      endSourceChar: 487
       line: 25
-      lineChar: 38
+      lineChar: 32
       spanCodeSection: 
     - startInstruction: 352
       endInstruction: 403
-      startSourceChar: 520
-      endSourceChar: 533
+      startSourceChar: 487
+      endSourceChar: 500
       line: 25
-      lineChar: 38
+      lineChar: 32
       spanCodeSection: "0];\r\n        "
     - startInstruction: 404
       endInstruction: 403
-      startSourceChar: 533
-      endSourceChar: 533
+      startSourceChar: 500
+      endSourceChar: 500
       line: 26
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 404
       endInstruction: 403
-      startSourceChar: 533
-      endSourceChar: 545
+      startSourceChar: 500
+      endSourceChar: 512
       line: 26
       lineChar: 8
       spanCodeSection: 'events[0] = '
     - startInstruction: 404
       endInstruction: 435
-      startSourceChar: 545
-      endSourceChar: 560
+      startSourceChar: 512
+      endSourceChar: 527
       line: 26
       lineChar: 20
       spanCodeSection: "null;\r\n        "
     - startInstruction: 436
       endInstruction: 435
-      startSourceChar: 560
-      endSourceChar: 565
+      startSourceChar: 527
+      endSourceChar: 532
       line: 27
       lineChar: 8
       spanCodeSection: for (
     - startInstruction: 436
       endInstruction: 435
-      startSourceChar: 565
-      endSourceChar: 565
+      startSourceChar: 532
+      endSourceChar: 532
       line: 27
       lineChar: 13
       spanCodeSection: 
     - startInstruction: 436
       endInstruction: 435
-      startSourceChar: 565
-      endSourceChar: 571
+      startSourceChar: 532
+      endSourceChar: 538
       line: 27
       lineChar: 13
       spanCodeSection: 'var i '
     - startInstruction: 436
       endInstruction: 435
-      startSourceChar: 571
-      endSourceChar: 573
+      startSourceChar: 538
+      endSourceChar: 540
       line: 27
       lineChar: 19
       spanCodeSection: '= '
     - startInstruction: 436
       endInstruction: 455
-      startSourceChar: 573
-      endSourceChar: 576
+      startSourceChar: 540
+      endSourceChar: 543
       line: 27
       lineChar: 21
       spanCodeSection: '1; '
     - startInstruction: 456
       endInstruction: 455
-      startSourceChar: 576
-      endSourceChar: 576
+      startSourceChar: 543
+      endSourceChar: 543
       line: 27
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 456
       endInstruction: 475
-      startSourceChar: 576
-      endSourceChar: 580
+      startSourceChar: 543
+      endSourceChar: 547
       line: 27
       lineChar: 24
       spanCodeSection: 'i < '
     - startInstruction: 476
       endInstruction: 523
-      startSourceChar: 580
-      endSourceChar: 601
+      startSourceChar: 547
+      endSourceChar: 568
       line: 27
       lineChar: 28
       spanCodeSection: "count; i++)\r\n        "
     - startInstruction: 524
       endInstruction: 523
-      startSourceChar: 601
-      endSourceChar: 616
+      startSourceChar: 568
+      endSourceChar: 583
       line: 28
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 524
       endInstruction: 523
-      startSourceChar: 616
-      endSourceChar: 616
+      startSourceChar: 583
+      endSourceChar: 583
       line: 29
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 524
       endInstruction: 523
-      startSourceChar: 616
-      endSourceChar: 630
+      startSourceChar: 583
+      endSourceChar: 599
       line: 29
       lineChar: 12
-      spanCodeSection: 'events[i-1] = '
+      spanCodeSection: 'events[i - 1] = '
     - startInstruction: 524
       endInstruction: 523
-      startSourceChar: 630
-      endSourceChar: 630
+      startSourceChar: 599
+      endSourceChar: 599
       line: 29
-      lineChar: 26
+      lineChar: 28
       spanCodeSection: 
     - startInstruction: 524
       endInstruction: 523
-      startSourceChar: 630
-      endSourceChar: 637
+      startSourceChar: 599
+      endSourceChar: 606
       line: 29
-      lineChar: 26
+      lineChar: 28
       spanCodeSection: events[
     - startInstruction: 524
       endInstruction: 523
-      startSourceChar: 637
-      endSourceChar: 637
+      startSourceChar: 606
+      endSourceChar: 606
       line: 29
-      lineChar: 33
+      lineChar: 35
       spanCodeSection: 
     - startInstruction: 524
       endInstruction: 719
-      startSourceChar: 637
-      endSourceChar: 661
+      startSourceChar: 606
+      endSourceChar: 630
       line: 29
-      lineChar: 33
+      lineChar: 35
       spanCodeSection: "i];\r\n        }\r\n        "
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 661
-      endSourceChar: 661
+      startSourceChar: 630
+      endSourceChar: 630
       line: 31
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 720
       endInstruction: 719
-      startSourceChar: 661
-      endSourceChar: 661
+      startSourceChar: 630
+      endSourceChar: 630
       line: 31
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 720
       endInstruction: 791
-      startSourceChar: 661
-      endSourceChar: 679
+      startSourceChar: 630
+      endSourceChar: 648
       line: 31
       lineChar: 8
       spanCodeSection: "count--;\r\n        "
     - startInstruction: 792
       endInstruction: 791
-      startSourceChar: 679
-      endSourceChar: 686
+      startSourceChar: 648
+      endSourceChar: 655
       line: 32
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 792
       endInstruction: 792
-      startSourceChar: 686
-      endSourceChar: 686
+      startSourceChar: 655
+      endSourceChar: 655
       line: 32
       lineChar: 15
       spanCodeSection: 
@@ -669,7 +665,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11500000, guid: 4afd8a0a4ea336d4993f5aee179a5d94, type: 3}
+    - {fileID: 11500000, guid: ea849a7665c30314b917c1f0ade136f3, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -706,7 +702,7 @@ MonoBehaviour:
       Data: 4|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: InputActionEvent[], Assembly-CSharp
+      Data: InputEvent[], Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
