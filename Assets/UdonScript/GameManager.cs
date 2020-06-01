@@ -19,8 +19,8 @@ public class GameManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int turnNum = 0;
 
     private Card[] cards;
-    private CardManager[] tables;
-    public Card[] stashedCards;
+    private CardTable[] tables;
+    private Card[] stashedCards;
     private EventQueue eventQueue;
 
     private int[] stashCount = new int[4] { 0, 0, 0, 0 };
@@ -34,7 +34,7 @@ public class GameManager : UdonSharpBehaviour
         DebugText.text = "";
 
         cards = CardPool.GetComponentsInChildren<Card>();
-        tables = CardTable.GetComponentsInChildren<CardManager>();
+        tables = CardTable.GetComponentsInChildren<CardTable>();
         eventQueue = EventQueueObject.GetComponentInChildren<EventQueue>();
         stashedCards = new Card[70];
 
