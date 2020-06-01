@@ -63,9 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\UdonScript\AgariContext.cs" />
     <Compile Include="Assets\UdonScript\CalculatingContextHandler.cs" />
     <Compile Include="Assets\UdonScript\Card.cs" />
-    <Compile Include="Assets\UdonScript\CardManager.cs" />
     <Compile Include="Assets\UdonScript\CardSprites.cs" />
     <Compile Include="Assets\UdonScript\CardStash.cs" />
     <Compile Include="Assets\UdonScript\CardSuffle.cs" />
@@ -75,10 +75,13 @@
     <Compile Include="Assets\UdonScript\GameManager.cs" />
     <Compile Include="Assets\UdonScript\HandCalculator.cs" />
     <Compile Include="Assets\UdonScript\HandUtil.cs" />
-    <Compile Include="Assets\UdonScript\InputActionEvent.cs" />
+    <Compile Include="Assets\UdonScript\InputEvent.cs" />
     <Compile Include="Assets\UdonScript\KList.cs" />
     <Compile Include="Assets\UdonScript\Kokushimusou.cs" />
+    <Compile Include="Assets\UdonScript\Player.cs" />
+    <Compile Include="Assets\UdonScript\TableManager.cs" />
     <Compile Include="Assets\UdonScript\UIButton.cs" />
+    <Compile Include="Assets\UdonScript\UIContext.cs" />
     <Compile Include="Assets\UdonScript\UIManager.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_1.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_2.cs" />
