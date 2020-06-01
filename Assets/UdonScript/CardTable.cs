@@ -3,7 +3,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public class CardManager : UdonSharpBehaviour
+public class CardTable : UdonSharpBehaviour
 {
     private const int FULL_CARD_COUNT = 14;
 
