@@ -50,12 +50,15 @@ public class Player : UdonSharpBehaviour
         return cardPoints;
     }
 
-    public void AddCard(Card newPlusCard) 
+    public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo) 
     {
-        newPlusCard.InputEvent = InputEvent;
+        // 천화, 해저로월 용도
+        // AgariContext.IsTsumoable(newCard, isFristTsumo, isLastTsumo);
 
-        Cards.Add(newPlusCard);
-        newPlusCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+        newCard.InputEvent = InputEvent;
+
+        Cards.Add(newCard);
+        newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
     }
 
     public void Discard(Card stashCard)
