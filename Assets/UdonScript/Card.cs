@@ -8,7 +8,7 @@ public class Card : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
-    [UdonSynced(UdonSyncMode.None)] public int GlobalIndex;
+    [UdonSynced(UdonSyncMode.None)] public int GlobalOrder;
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
@@ -46,7 +46,7 @@ public class Card : UdonSharpBehaviour
         CardNumber = cardNumber;
         IsDora = isDora;
 
-        GlobalIndex = util.CardComponentToIndex(type, cardNumber);
+        GlobalOrder = util.CardComponentToIndex(type, cardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
 
         var spriteName = GetCardSpriteName();

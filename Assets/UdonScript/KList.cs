@@ -106,7 +106,7 @@ public class KList : UdonSharpBehaviour
                 var val1 = (Card)components[j - 1];
                 var val2 = (Card)components[j];
 
-                if (val1.GlobalIndex > val2.GlobalIndex)
+                if (val1.GlobalOrder > val2.GlobalOrder)
                 {
                     var temp = val1;
                     components[j - 1] = val2;

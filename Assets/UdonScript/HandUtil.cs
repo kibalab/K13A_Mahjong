@@ -132,7 +132,7 @@ public class HandUtil : UdonSharpBehaviour
         {
             if (card != null)
             {
-                tiles[card.GlobalIndex]++;
+                tiles[card.GlobalOrder]++;
             }
         }
         return tiles;

@@ -35,7 +35,7 @@ public class HandCalculator : UdonSharpBehaviour
     public object[] GetChiableAll(Card[] cards, Card discardedCard)
     {
         // 자패의 슌쯔는 검사하지 않는다
-        var chiIndex = discardedCard.GlobalIndex;
+        var chiIndex = discardedCard.GlobalOrder;
         if (chiIndex >= HandUtil.GetWordsStartIndex()) { return new object[0]; }
 
         var tiles = HandUtil.CardComponetsToIndexes(cards);
@@ -68,7 +68,7 @@ public class HandCalculator : UdonSharpBehaviour
     public bool IsPonable(Card[] cards, Card discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var ponIndex = discardedCard.GlobalIndex;
+        var ponIndex = discardedCard.GlobalOrder;
 
         return tiles[ponIndex] + 1 >= 3;
     }
@@ -76,7 +76,7 @@ public class HandCalculator : UdonSharpBehaviour
     public bool IsKkanable(Card[] cards, Card discardedCard)
     {
         var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var ponIndex = discardedCard.GlobalIndex;
+        var ponIndex = discardedCard.GlobalOrder;
 
         return tiles[ponIndex] + 1 == 4;
     }
@@ -316,7 +316,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         foreach (var card in cards)
         {
-            if (card.GlobalIndex == cardIndexes[findIndex])
+            if (card.GlobalOrder == cardIndexes[findIndex])
             {
                 arr[findIndex] = card;
                 findIndex++;
@@ -570,7 +570,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         card.Type = type;
         card.CardNumber = cardNumber;
-        card.GlobalIndex = HandUtil.CardComponentToIndex(type, cardNumber);
+        card.GlobalOrder = HandUtil.CardComponentToIndex(type, cardNumber);
         return card;
     }
 
