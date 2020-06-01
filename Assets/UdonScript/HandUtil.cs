@@ -125,7 +125,7 @@ public class HandUtil : UdonSharpBehaviour
              + GetWordsCardTypeCount(tiles);
     }
 
-    public int[] CardComponetsToIndexes(CardComponent[] cards)
+    public int[] CardComponetsToIndexes(Card[] cards)
     {
         var tiles = new int[TILES_COUNT];
         foreach (var card in cards)

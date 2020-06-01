@@ -45,7 +45,7 @@ public class CardManager : UdonSharpBehaviour
         return cardPoints;
     }
 
-    public void AddCard(CardComponent newPlusCard) 
+    public void AddCard(Card newPlusCard) 
     {
         newPlusCard.InputEvent = inputEvent;
 
@@ -53,22 +53,22 @@ public class CardManager : UdonSharpBehaviour
         newPlusCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
     }
 
-    public void Discard(CardComponent stashCard)
+    public void Discard(Card stashCard)
     {
         var index = Cards.IndexOf(stashCard);
-        var removed = (CardComponent)Cards.RemoveAt(index);
+        var removed = (Card)Cards.RemoveAt(index);
         removed.InputEvent.deleteData();
 
         Cards.Sort();
         SortPosition();
     }
 
-    public bool Contains(CardComponent card)
+    public bool Contains(Card card)
     {
         return Cards.Contains(card);
     }
 
-    public void SetCards(CardComponent[] pickedCards)
+    public void SetCards(Card[] pickedCards)
     {
         for (int i = 0; i< pickedCards.Length; ++i)
         {
@@ -86,13 +86,13 @@ public class CardManager : UdonSharpBehaviour
 
     public void Pickupable(bool b)
     {
-        foreach (CardComponent card in Cards.Clone())
+        foreach (Card card in Cards.Clone())
         {
             card.gameObject.GetComponent<BoxCollider>().enabled = b;
         }
     }
 
-    public bool CheckChiable(CardComponent discardedCard)
+    public bool CheckChiable(Card discardedCard)
     {
         var chiable = handCalculator.IsChiable(GetArray(), discardedCard);
         if (chiable)
@@ -103,7 +103,7 @@ public class CardManager : UdonSharpBehaviour
         return chiable;
     }
 
-    public bool CheckPonable(CardComponent discardedCard)
+    public bool CheckPonable(Card discardedCard)
     {
         var ponable = handCalculator.IsPonable(GetArray(), discardedCard);
         if (ponable)
@@ -114,7 +114,7 @@ public class CardManager : UdonSharpBehaviour
         return ponable;
     }
 
-    public bool CheckKkanable(CardComponent discardedCard)
+    public bool CheckKkanable(Card discardedCard)
     {
         var kkanable = handCalculator.IsKkanable(GetArray(), discardedCard);
         if (kkanable)
@@ -129,22 +129,22 @@ public class CardManager : UdonSharpBehaviour
     {
         for (var k = 0; k < Cards.Count(); k++) // 새로구현함
         {
-            var card = (CardComponent)Cards.At(k);
+            var card = (Card)Cards.At(k);
             setPointPosition(card, cardPoints[k]);
         }
     }
 
-    public void setPointPosition(CardComponent card, GameObject point)
+    public void setPointPosition(Card card, GameObject point)
     {
         card.SetPosition(point.transform.position, point.transform.rotation);
     }
 
-    CardComponent[] GetArray()
+    Card[] GetArray()
     {
-        var arr = new CardComponent[Cards.Count()];
+        var arr = new Card[Cards.Count()];
         for(var i = 0; i<Cards.Count(); ++i)
         {
-            arr[i] = (CardComponent)Cards.At(i);
+            arr[i] = (Card)Cards.At(i);
         }
         return arr;
     }

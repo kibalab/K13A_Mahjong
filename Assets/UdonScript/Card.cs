@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public class CardComponent : UdonSharpBehaviour
+public class Card : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
