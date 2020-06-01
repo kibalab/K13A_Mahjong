@@ -61,17 +61,17 @@ public class Player : UdonSharpBehaviour
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
     }
 
-    public void Discard(Card stashCard)
+    public void Discard(Card card)
     {
-        var index = Cards.IndexOf(stashCard);
+        var index = Cards.IndexOf(card);
         Cards.RemoveAt(index);
 
-        stashedCards[stashCard.GlobalOrder]++;
+        stashedCards[card.GlobalOrder]++;
         stashedCardIndex++;
 
         var point = stashPositions.GetChild(stashedCardIndex);
-        stashCard.SetPosition(point.position, point.rotation);
-        stashCard.SetColliderActivate(false);
+        card.SetPosition(point.position, point.rotation);
+        card.SetColliderActivate(false);
 
         Cards.Sort();
         SortPosition();
