@@ -85,7 +85,7 @@ public class TableManager : UdonSharpBehaviour
     {
         if (Networking.LocalPlayer == null)
         { 
-            Initialize();
+            _Initialize();
         }
         else 
         {

@@ -21,6 +21,8 @@ public class UIContext : UdonSharpBehaviour
 
     public bool IsChanged;
 
+    public object[] chiableCards;
+
     public bool IsAnythingActived()
     {
         return IsChiable || IsPonable || IsKkanable || IsRiichable || IsRonable || IsTsumoable;
