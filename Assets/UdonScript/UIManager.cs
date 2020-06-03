@@ -54,7 +54,28 @@ public class UIManager : UdonSharpBehaviour
         {
             uiContext.IsChanged = false;
 
-            if (uiContext.IsChiable) ActiveButton("Chi");
+            if (uiContext.IsChiable)
+            { //Chi 만 이렇게 여러가지 로직 들어가야되는게 너무 싫다...
+                switch (uiContext.chiableCards.Length) {
+                    case 0 :
+                        break;
+                    case 1 :
+                        ActiveButton("Chi");
+                        break;
+                    case 2 :
+                        ActiveButton("Chi");
+                        ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
+                        setChiSelectButton(2);
+                        break;
+                    case 3:
+                        ActiveButton("Chi");
+                        ActiveButton("ChiSelect");
+                        setChiSelectButton(3);
+                        break;
+                }
+                
+                
+            }
             if (uiContext.IsPonable) ActiveButton("Pon");
             if (uiContext.IsKkanable) ActiveButton("Kkan");
             if (uiContext.IsRiichable) ActiveButton("Rich");
@@ -63,6 +84,19 @@ public class UIManager : UdonSharpBehaviour
             if (uiContext.IsAnythingActived()) ActiveButton("Skip");
         }
     }
+
+    public void setChiSelectButton(int size)
+    {
+        for(var i = 0; i<size; i++)
+        {
+            GameObject g = UICanvas.transform.Find("ChiSelect").GetChild(size).gameObject;
+            for(var j = 0; j<3; j++)
+            {
+                g.transform.GetChild(j).GetComponent<Image>().sprite = ((Card[])uiContext.chiableCards[i])[j].transform.Find("Display").GetComponent<SpriteRenderer>().sprite;
+            }
+        }
+    }
+
 
     public void ActiveButton(string uiName)
     {
@@ -100,7 +134,10 @@ public class UIManager : UdonSharpBehaviour
     public void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
-
+        if (UIName.Contains("chiSelect_"))
+        {
+            ((NakiInput)((object)inputEvent)).chiCards = uiContext.chiableCards[int.Parse(UIName.Replace("chiSelect_", ""))];
+        }
         inputEvent.Set(SelectedCard, UIName, playerTurn);
         eventQueue.Enqueue(inputEvent);
     }
