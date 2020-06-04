@@ -14,7 +14,6 @@ public class UIManager : UdonSharpBehaviour
 
     /*LinkedInInspector*/ public GameObject UICanvas;
     /*LinkedInInspector*/ public CardSprites CardSprites;
-    /*LinkedInInspector*/ public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
     private UIContext uiContext;
     private EventQueue eventQueue;
