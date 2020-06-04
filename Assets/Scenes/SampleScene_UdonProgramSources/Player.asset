@@ -26,7 +26,9 @@ MonoBehaviour:
     null\r\n    stashedCardIndex: %SystemInt32, null\r\n    stashedCards: %SystemInt32Array,
     null\r\n    plusCardPosition: %UnityEngineTransform, null\r\n    stashPositions:
     %UnityEngineTransform, null\r\n    HandCalculator: %VRCUdonUdonBehaviour, null\r\n
-    \   __0_active_Boolean: %SystemBoolean, null\r\n    __0_pickedCards_CardArray:
+    \   __0_this_intnl_Player: %VRCUdonUdonBehaviour, this\r\n    __0_active_Boolean:
+    %SystemBoolean, null\r\n    __0_isFristTsumo_Boolean: %SystemBoolean, null\r\n
+    \   __0_isLastTsumo_Boolean: %SystemBoolean, null\r\n    __0_pickedCards_CardArray:
     %UnityEngineComponentArray, null\r\n    __0_cardPoint_GameObject: %UnityEngineGameObject,
     null\r\n    __0_cardPoints_GameObjectArray: %UnityEngineGameObjectArray, null\r\n
     \   __0_i_Int32: %SystemInt32, null\r\n    __0_index_Int32: %SystemInt32, null\r\n
@@ -34,60 +36,60 @@ MonoBehaviour:
     null\r\n    __1_i_Int32: %SystemInt32, null\r\n    __0_point_Transform: %UnityEngineTransform,
     null\r\n    __0_pointTransform_Transform: %UnityEngineTransform, null\r\n    __0_stashPositions_Transform:
     %UnityEngineTransform, null\r\n    __0_card_Card: %VRCUdonUdonBehaviour, null\r\n
-    \   __0_eventQueue_EventQueue: %VRCUdonUdonBehaviour, null\r\n    __0_newPlusCard_Card:
+    \   __0_eventQueue_EventQueue: %VRCUdonUdonBehaviour, null\r\n    __0_newCard_Card:
     %VRCUdonUdonBehaviour, null\r\n    __0_pickedCard_Card: %VRCUdonUdonBehaviour,
-    null\r\n    __0_stashCard_Card: %VRCUdonUdonBehaviour, null\r\n    __1_card_Card:
-    %VRCUdonUdonBehaviour, null\r\n    __2_card_Card: %VRCUdonUdonBehaviour, null\r\n
-    \   __3_card_Card: %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_const_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __2_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __3_const_intnl_SystemInt32: %SystemInt32, null\r\n    __4_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
-    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __10_const_intnl_SystemString:
-    %SystemString, null\r\n    __11_const_intnl_SystemString: %SystemString, null\r\n
-    \   __12_const_intnl_SystemString: %SystemString, null\r\n    __13_const_intnl_SystemString:
-    %SystemString, null\r\n    __14_const_intnl_SystemString: %SystemString, null\r\n
-    \   __15_const_intnl_SystemString: %SystemString, null\r\n    __16_const_intnl_SystemString:
-    %SystemString, null\r\n    __17_const_intnl_SystemString: %SystemString, null\r\n
-    \   __18_const_intnl_SystemString: %SystemString, null\r\n    __19_const_intnl_SystemString:
-    %SystemString, null\r\n    __2_const_intnl_SystemString: %SystemString, null\r\n
-    \   __20_const_intnl_SystemString: %SystemString, null\r\n    __21_const_intnl_SystemString:
-    %SystemString, null\r\n    __22_const_intnl_SystemString: %SystemString, null\r\n
-    \   __23_const_intnl_SystemString: %SystemString, null\r\n    __24_const_intnl_SystemString:
-    %SystemString, null\r\n    __25_const_intnl_SystemString: %SystemString, null\r\n
-    \   __26_const_intnl_SystemString: %SystemString, null\r\n    __27_const_intnl_SystemString:
-    %SystemString, null\r\n    __28_const_intnl_SystemString: %SystemString, null\r\n
-    \   __29_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
-    %SystemString, null\r\n    __30_const_intnl_SystemString: %SystemString, null\r\n
-    \   __31_const_intnl_SystemString: %SystemString, null\r\n    __32_const_intnl_SystemString:
-    %SystemString, null\r\n    __33_const_intnl_SystemString: %SystemString, null\r\n
-    \   __34_const_intnl_SystemString: %SystemString, null\r\n    __35_const_intnl_SystemString:
-    %SystemString, null\r\n    __36_const_intnl_SystemString: %SystemString, null\r\n
-    \   __37_const_intnl_SystemString: %SystemString, null\r\n    __4_const_intnl_SystemString:
-    %SystemString, null\r\n    __5_const_intnl_SystemString: %SystemString, null\r\n
-    \   __6_const_intnl_SystemString: %SystemString, null\r\n    __7_const_intnl_SystemString:
-    %SystemString, null\r\n    __8_const_intnl_SystemString: %SystemString, null\r\n
-    \   __9_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemType:
-    %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n
-    \   __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null\r\n    __0_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_intnl_returnValSymbol_Boolean: %SystemBoolean,
-    null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n    __2_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __3_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __4_intnl_SystemBoolean: %SystemBoolean, null\r\n    __5_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_intnl_UnityEngineBoxCollider: %UnityEngineBoxCollider,
-    null\r\n    __1_intnl_UnityEngineBoxCollider: %UnityEngineBoxCollider, null\r\n
-    \   __0_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n    __1_intnl_UnityEngineGameObject:
-    %UnityEngineGameObject, null\r\n    __2_intnl_UnityEngineGameObject: %UnityEngineGameObject,
-    null\r\n    __3_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n
-    \   __0_intnl_returnValSymbol_GameObjectArray: %UnityEngineGameObjectArray, null\r\n
-    \   __0_intnl_UnityEngineGameObjectArray: %UnityEngineGameObjectArray, null\r\n
-    \   __1_intnl_UnityEngineGameObjectArray: %UnityEngineGameObjectArray, null\r\n
-    \   __2_intnl_UnityEngineGameObjectArray: %UnityEngineGameObjectArray, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __10_intnl_SystemInt32: %SystemInt32, null\r\n    __11_intnl_SystemInt32:
+    null\r\n    __1_card_Card: %VRCUdonUdonBehaviour, null\r\n    __2_card_Card: %VRCUdonUdonBehaviour,
+    null\r\n    __3_card_Card: %VRCUdonUdonBehaviour, null\r\n    __4_card_Card: %VRCUdonUdonBehaviour,
+    null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_const_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __2_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __3_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __4_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
+    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
+    \   __10_const_intnl_SystemString: %SystemString, null\r\n    __11_const_intnl_SystemString:
+    %SystemString, null\r\n    __12_const_intnl_SystemString: %SystemString, null\r\n
+    \   __13_const_intnl_SystemString: %SystemString, null\r\n    __14_const_intnl_SystemString:
+    %SystemString, null\r\n    __15_const_intnl_SystemString: %SystemString, null\r\n
+    \   __16_const_intnl_SystemString: %SystemString, null\r\n    __17_const_intnl_SystemString:
+    %SystemString, null\r\n    __18_const_intnl_SystemString: %SystemString, null\r\n
+    \   __19_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
+    %SystemString, null\r\n    __20_const_intnl_SystemString: %SystemString, null\r\n
+    \   __21_const_intnl_SystemString: %SystemString, null\r\n    __22_const_intnl_SystemString:
+    %SystemString, null\r\n    __23_const_intnl_SystemString: %SystemString, null\r\n
+    \   __24_const_intnl_SystemString: %SystemString, null\r\n    __25_const_intnl_SystemString:
+    %SystemString, null\r\n    __26_const_intnl_SystemString: %SystemString, null\r\n
+    \   __27_const_intnl_SystemString: %SystemString, null\r\n    __28_const_intnl_SystemString:
+    %SystemString, null\r\n    __29_const_intnl_SystemString: %SystemString, null\r\n
+    \   __3_const_intnl_SystemString: %SystemString, null\r\n    __30_const_intnl_SystemString:
+    %SystemString, null\r\n    __31_const_intnl_SystemString: %SystemString, null\r\n
+    \   __32_const_intnl_SystemString: %SystemString, null\r\n    __33_const_intnl_SystemString:
+    %SystemString, null\r\n    __34_const_intnl_SystemString: %SystemString, null\r\n
+    \   __35_const_intnl_SystemString: %SystemString, null\r\n    __36_const_intnl_SystemString:
+    %SystemString, null\r\n    __37_const_intnl_SystemString: %SystemString, null\r\n
+    \   __38_const_intnl_SystemString: %SystemString, null\r\n    __39_const_intnl_SystemString:
+    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
+    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
+    %SystemString, null\r\n    __7_const_intnl_SystemString: %SystemString, null\r\n
+    \   __8_const_intnl_SystemString: %SystemString, null\r\n    __9_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
+    \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean,
+    null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_returnValSymbol_Boolean:
+    %SystemBoolean, null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_UnityEngineBoxCollider:
+    %UnityEngineBoxCollider, null\r\n    __1_intnl_UnityEngineBoxCollider: %UnityEngineBoxCollider,
+    null\r\n    __0_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n
+    \   __1_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n    __2_intnl_UnityEngineGameObject:
+    %UnityEngineGameObject, null\r\n    __3_intnl_UnityEngineGameObject: %UnityEngineGameObject,
+    null\r\n    __0_intnl_returnValSymbol_GameObjectArray: %UnityEngineGameObjectArray,
+    null\r\n    __0_intnl_UnityEngineGameObjectArray: %UnityEngineGameObjectArray,
+    null\r\n    __1_intnl_UnityEngineGameObjectArray: %UnityEngineGameObjectArray,
+    null\r\n    __2_intnl_UnityEngineGameObjectArray: %UnityEngineGameObjectArray,
+    null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __10_intnl_SystemInt32: %SystemInt32, null\r\n    __11_intnl_SystemInt32:
     %SystemInt32, null\r\n    __12_intnl_SystemInt32: %SystemInt32, null\r\n    __13_intnl_SystemInt32:
     %SystemInt32, null\r\n    __14_intnl_SystemInt32: %SystemInt32, null\r\n    __15_intnl_SystemInt32:
     %SystemInt32, null\r\n    __16_intnl_SystemInt32: %SystemInt32, null\r\n    __17_intnl_SystemInt32:
@@ -199,37 +201,38 @@ MonoBehaviour:
     __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void AddCard(Card newPlusCard)\r\n    .export
-    AddCard\r\n        \r\n    AddCard:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # newPlusCard.InputEvent = InputEvent;\r\n
-    \       PUSH, __0_newPlusCard_Card\r\n        PUSH, __4_const_intnl_SystemString\r\n
-    \       PUSH, InputEvent\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       \r\n         # Cards.Add(newPlusCard);\r\n        PUSH, Cards\r\n        PUSH,
-    __5_const_intnl_SystemString\r\n        PUSH, __0_newPlusCard_Card\r\n        EXTERN,
+    \       \r\n        \r\n         # public void AddCard(Card newCard, bool isFristTsumo,
+    bool isLastTsumo)\r\n    .export AddCard\r\n        \r\n    AddCard:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # newCard.InputEvent = InputEvent;\r\n        PUSH, __0_newCard_Card\r\n
+    \       PUSH, __4_const_intnl_SystemString\r\n        PUSH, InputEvent\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # Cards.Add(newCard);\r\n        PUSH, Cards\r\n        PUSH,
+    __5_const_intnl_SystemString\r\n        PUSH, __0_newCard_Card\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, Cards\r\n        PUSH, __6_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, Cards\r\n        PUSH, __7_const_intnl_SystemString\r\n        PUSH,
     __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_intnl_SystemObjectArray\r\n
-    \       COPY\r\n        \r\n         # newPlusCard.SetPosition(plusCardPosition.position,
+    \       COPY\r\n        \r\n         # newCard.SetPosition(plusCardPosition.position,
     plusCardPosition.rotation);\r\n        PUSH, plusCardPosition\r\n        PUSH,
     __0_intnl_UnityEngineVector3\r\n        EXTERN, \"UnityEngineTransform.__get_position__UnityEngineVector3\"\r\n
     \       PUSH, plusCardPosition\r\n        PUSH, __0_intnl_UnityEngineQuaternion\r\n
     \       EXTERN, \"UnityEngineTransform.__get_rotation__UnityEngineQuaternion\"\r\n
-    \       PUSH, __0_newPlusCard_Card\r\n        PUSH, __8_const_intnl_SystemString\r\n
+    \       PUSH, __0_newCard_Card\r\n        PUSH, __8_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_UnityEngineVector3\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_newPlusCard_Card\r\n        PUSH, __9_const_intnl_SystemString\r\n
+    \       PUSH, __0_newCard_Card\r\n        PUSH, __9_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_UnityEngineQuaternion\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_newPlusCard_Card\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __0_newCard_Card\r\n        PUSH, __10_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void Discard(Card stashCard)\r\n    .export Discard\r\n        \r\n
+    \        # public void Discard(Card card)\r\n    .export Discard\r\n        \r\n
     \   Discard:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # var index = Cards.IndexOf(stashCard);\r\n
-    \       PUSH, Cards\r\n        PUSH, __11_const_intnl_SystemString\r\n        PUSH,
-    __0_stashCard_Card\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \        # {\r\n        \r\n         # var index = Cards.IndexOf(card);\r\n        PUSH,
+    Cards\r\n        PUSH, __11_const_intnl_SystemString\r\n        PUSH, __0_card_Card\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, Cards\r\n        PUSH, __12_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, Cards\r\n        PUSH, __13_const_intnl_SystemString\r\n        PUSH,
@@ -243,9 +246,9 @@ MonoBehaviour:
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, Cards\r\n        PUSH, __16_const_intnl_SystemString\r\n        PUSH,
     __2_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       \r\n         # stashedCards[stashCard.GlobalIndex]++;\r\n        PUSH,
-    __0_stashCard_Card\r\n        PUSH, __17_const_intnl_SystemString\r\n        PUSH,
-    __3_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
+    \       \r\n         # stashedCards[card.GlobalOrder]++;\r\n        PUSH, __0_card_Card\r\n
+    \       PUSH, __17_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemObject\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __3_intnl_SystemObject\r\n        PUSH, __5_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
     stashedCards\r\n        PUSH, __5_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemInt32\r\n
@@ -257,63 +260,66 @@ MonoBehaviour:
     \       PUSH, __9_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, stashedCards\r\n        PUSH, __5_intnl_SystemInt32\r\n        PUSH,
     __9_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
-    \       \r\n         # stashedCardIndex++;\r\n        PUSH, stashedCardIndex\r\n
-    \       PUSH, __10_intnl_SystemInt32\r\n        COPY\r\n        PUSH, stashedCardIndex\r\n
-    \       PUSH, __3_const_intnl_SystemInt32\r\n        PUSH, __11_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       \r\n         # var point = stashPositions.GetChild(stashedCardIndex++);\r\n
+    \       PUSH, stashedCardIndex\r\n        PUSH, __10_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, stashedCardIndex\r\n        PUSH, __3_const_intnl_SystemInt32\r\n
+    \       PUSH, __11_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __11_intnl_SystemInt32\r\n        PUSH, stashedCardIndex\r\n        COPY\r\n
-    \       \r\n         # var point = stashPositions.GetChild(stashedCardIndex);\r\n
-    \       PUSH, stashPositions\r\n        PUSH, stashedCardIndex\r\n        PUSH,
+    \       PUSH, stashPositions\r\n        PUSH, __10_intnl_SystemInt32\r\n        PUSH,
     __2_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
     \       PUSH, __2_intnl_UnityEngineTransform\r\n        PUSH, __0_point_Transform\r\n
-    \       COPY\r\n        \r\n         # stashCard.SetPosition(point.position, point.rotation);\r\n
+    \       COPY\r\n        \r\n         # card.SetPosition(point.position, point.rotation);\r\n
     \       PUSH, __0_point_Transform\r\n        PUSH, __1_intnl_UnityEngineVector3\r\n
     \       EXTERN, \"UnityEngineTransform.__get_position__UnityEngineVector3\"\r\n
     \       PUSH, __0_point_Transform\r\n        PUSH, __1_intnl_UnityEngineQuaternion\r\n
     \       EXTERN, \"UnityEngineTransform.__get_rotation__UnityEngineQuaternion\"\r\n
-    \       PUSH, __0_stashCard_Card\r\n        PUSH, __8_const_intnl_SystemString\r\n
+    \       PUSH, __0_card_Card\r\n        PUSH, __8_const_intnl_SystemString\r\n
     \       PUSH, __1_intnl_UnityEngineVector3\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_stashCard_Card\r\n        PUSH, __9_const_intnl_SystemString\r\n
+    \       PUSH, __0_card_Card\r\n        PUSH, __9_const_intnl_SystemString\r\n
     \       PUSH, __1_intnl_UnityEngineQuaternion\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_stashCard_Card\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __0_card_Card\r\n        PUSH, __10_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # stashCard.SetColliderActivate(false);\r\n        PUSH,
-    __0_stashCard_Card\r\n        PUSH, __18_const_intnl_SystemString\r\n        PUSH,
-    __0_const_intnl_SystemBoolean\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_stashCard_Card\r\n        PUSH, __19_const_intnl_SystemString\r\n
+    \       \r\n         # card.SetColliderActivate(false);\r\n        PUSH, __0_card_Card\r\n
+    \       PUSH, __18_const_intnl_SystemString\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_card_Card\r\n        PUSH, __19_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_stashCard_Card\r\n        PUSH, __20_const_intnl_SystemString\r\n
+    \       PUSH, __0_card_Card\r\n        PUSH, __20_const_intnl_SystemString\r\n
     \       PUSH, __4_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __4_intnl_SystemObject\r\n        PUSH, __0_intnl_UnityEngineBoxCollider\r\n
     \       COPY\r\n        \r\n         # Cards.Sort();\r\n        PUSH, Cards\r\n
     \       PUSH, __21_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # SortPosition();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000E30\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000E70\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void CheckNakiable(Card card)\r\n    .export
     CheckNakiable\r\n        \r\n    CheckNakiable:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # UIContext.Clear();\r\n        PUSH,
     UIContext\r\n        PUSH, __22_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # HandCalculator.RequestNakiable(UIContext, AgariContext,
-    card);\r\n        PUSH, HandCalculator\r\n        PUSH, __2_const_intnl_SystemString\r\n
+    \       \r\n         # HandCalculator.RequestNakiable(this, UIContext, AgariContext,
+    card, InputEvent);\r\n        PUSH, HandCalculator\r\n        PUSH, __23_const_intnl_SystemString\r\n
+    \       PUSH, __0_this_intnl_Player\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, HandCalculator\r\n        PUSH, __2_const_intnl_SystemString\r\n
     \       PUSH, UIContext\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, HandCalculator\r\n        PUSH, __23_const_intnl_SystemString\r\n
-    \       PUSH, AgariContext\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, HandCalculator\r\n        PUSH, __24_const_intnl_SystemString\r\n
-    \       PUSH, __0_card_Card\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, AgariContext\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, HandCalculator\r\n        PUSH, __25_const_intnl_SystemString\r\n
+    \       PUSH, __1_card_Card\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, HandCalculator\r\n        PUSH, __26_const_intnl_SystemString\r\n
+    \       PUSH, InputEvent\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, HandCalculator\r\n        PUSH, __27_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # UIContext.IsChanged = true;\r\n        PUSH, UIContext\r\n
-    \       PUSH, __26_const_intnl_SystemString\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
+    \       PUSH, __28_const_intnl_SystemString\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public bool IsUIActived()\r\n    .export IsUIActived\r\n        \r\n
     \   IsUIActived:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # return UIContext.IsAnythingActived();\r\n
-    \       PUSH, UIContext\r\n        PUSH, __27_const_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, UIContext\r\n        PUSH, __29_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, UIContext\r\n        PUSH, __28_const_intnl_SystemString\r\n        PUSH,
+    \       PUSH, UIContext\r\n        PUSH, __30_const_intnl_SystemString\r\n        PUSH,
     __5_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __5_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\r\n
@@ -325,11 +331,11 @@ MonoBehaviour:
     Contains(Card card)\r\n    .export Contains\r\n        \r\n    Contains:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
     \        # return Cards.Contains(card);\r\n        PUSH, Cards\r\n        PUSH,
-    __29_const_intnl_SystemString\r\n        PUSH, __1_card_Card\r\n        EXTERN,
+    __31_const_intnl_SystemString\r\n        PUSH, __2_card_Card\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, Cards\r\n        PUSH, __30_const_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, Cards\r\n        PUSH, __32_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, Cards\r\n        PUSH, __28_const_intnl_SystemString\r\n        PUSH,
+    \       PUSH, Cards\r\n        PUSH, __30_const_intnl_SystemString\r\n        PUSH,
     __6_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __6_intnl_SystemObject\r\n        PUSH, __2_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\r\n
@@ -347,7 +353,7 @@ MonoBehaviour:
     \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH, __12_intnl_SystemInt32\r\n
     \       PUSH, __13_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C50\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C90\r\n
     \       \r\n         # {\r\n        \r\n         # var pointTransform = cardPoints[i].transform;\r\n
     \       PUSH, cardPoints\r\n        PUSH, __1_i_Int32\r\n        PUSH, __1_intnl_UnityEngineGameObject\r\n
     \       EXTERN, \"UnityEngineGameObjectArray.__Get__SystemInt32__UnityEngineGameObject\"\r\n
@@ -386,17 +392,17 @@ MonoBehaviour:
     \       PUSH, __1_i_Int32\r\n        PUSH, __3_const_intnl_SystemInt32\r\n        PUSH,
     __14_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __14_intnl_SystemInt32\r\n        PUSH, __1_i_Int32\r\n        COPY\r\n
-    \       JUMP, 0x000009EC\r\n        \r\n         # Cards.Sort();\r\n        PUSH,
+    \       JUMP, 0x00000A2C\r\n        \r\n         # Cards.Sort();\r\n        PUSH,
     Cards\r\n        PUSH, __21_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # SortPosition();\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000E30\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000E70\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void SetColliderActive(bool active)\r\n
     \   .export SetColliderActive\r\n        \r\n    SetColliderActive:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
     \        # foreach (Card card in Cards.Clone())\r\n        PUSH, Cards\r\n        PUSH,
-    __31_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, Cards\r\n        PUSH, __32_const_intnl_SystemString\r\n        PUSH,
+    __33_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, Cards\r\n        PUSH, __34_const_intnl_SystemString\r\n        PUSH,
     __8_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __8_intnl_SystemObject\r\n        PUSH, __2_intnl_SystemObjectArray\r\n
     \       COPY\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __15_intnl_SystemInt32\r\n
@@ -404,12 +410,12 @@ MonoBehaviour:
     \       EXTERN, \"SystemObjectArray.__get_Length__SystemInt32\"\r\n        PUSH,
     __15_intnl_SystemInt32\r\n        PUSH, __16_intnl_SystemInt32\r\n        PUSH,
     __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E14\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E54\r\n
     \       PUSH, __2_intnl_SystemObjectArray\r\n        PUSH, __15_intnl_SystemInt32\r\n
     \       PUSH, __9_intnl_SystemObject\r\n        EXTERN, \"SystemObjectArray.__Get__SystemInt32__SystemObject\"\r\n
-    \       PUSH, __9_intnl_SystemObject\r\n        PUSH, __2_card_Card\r\n        COPY\r\n
+    \       PUSH, __9_intnl_SystemObject\r\n        PUSH, __3_card_Card\r\n        COPY\r\n
     \       \r\n         # {\r\n        \r\n         # card.gameObject.GetComponent<BoxCollider>().enabled
-    = active;\r\n        PUSH, __2_card_Card\r\n        PUSH, __2_intnl_UnityEngineGameObject\r\n
+    = active;\r\n        PUSH, __3_card_Card\r\n        PUSH, __2_intnl_UnityEngineGameObject\r\n
     \       EXTERN, \"UnityEngineComponent.__get_gameObject__UnityEngineGameObject\"\r\n
     \       PUSH, __2_intnl_UnityEngineGameObject\r\n        PUSH, __5_intnl_UnityEngineTransform\r\n
     \       EXTERN, \"UnityEngineGameObject.__get_transform__UnityEngineTransform\"\r\n
@@ -420,31 +426,31 @@ MonoBehaviour:
     \       PUSH, __15_intnl_SystemInt32\r\n        PUSH, __3_const_intnl_SystemInt32\r\n
     \       PUSH, __17_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __17_intnl_SystemInt32\r\n        PUSH, __15_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000D0C\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    \       COPY\r\n        JUMP, 0x00000D4C\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # void SortPosition()\r\n    SortPosition:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
     {\r\n        \r\n         # for (var k = 0; k < Cards.Count(); k++) // \uC0C8\uB85C\uAD6C\uD604\uD568\r\n
     \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __0_k_Int32\r\n        COPY\r\n
     \       PUSH, __0_k_Int32\r\n        PUSH, __18_intnl_SystemInt32\r\n        COPY\r\n
-    \       PUSH, Cards\r\n        PUSH, __33_const_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, Cards\r\n        PUSH, __35_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, Cards\r\n        PUSH, __34_const_intnl_SystemString\r\n        PUSH,
+    \       PUSH, Cards\r\n        PUSH, __36_const_intnl_SystemString\r\n        PUSH,
     __10_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __10_intnl_SystemObject\r\n        PUSH, __19_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
     __18_intnl_SystemInt32\r\n        PUSH, __19_intnl_SystemInt32\r\n        PUSH,
     __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001094\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000010D4\r\n
     \       \r\n         # {\r\n        \r\n         # var card = (Card)Cards.At(k);\r\n
-    \       PUSH, Cards\r\n        PUSH, __35_const_intnl_SystemString\r\n        PUSH,
-    __0_k_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, Cards\r\n        PUSH, __36_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, Cards\r\n        PUSH, __37_const_intnl_SystemString\r\n        PUSH,
+    __0_k_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, Cards\r\n        PUSH, __38_const_intnl_SystemString\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, Cards\r\n        PUSH, __39_const_intnl_SystemString\r\n        PUSH,
     __11_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __11_intnl_SystemObject\r\n        PUSH, __2_intnl_Card\r\n        COPY\r\n
-    \       PUSH, __2_intnl_Card\r\n        PUSH, __3_card_Card\r\n        COPY\r\n
+    \       PUSH, __2_intnl_Card\r\n        PUSH, __4_card_Card\r\n        COPY\r\n
     \       \r\n         # var cardPoint = cardPoints[k];\r\n        PUSH, cardPoints\r\n
     \       PUSH, __0_k_Int32\r\n        PUSH, __3_intnl_UnityEngineGameObject\r\n
     \       EXTERN, \"UnityEngineGameObjectArray.__Get__SystemInt32__UnityEngineGameObject\"\r\n
@@ -458,17 +464,17 @@ MonoBehaviour:
     \       EXTERN, \"UnityEngineGameObject.__get_transform__UnityEngineTransform\"\r\n
     \       PUSH, __7_intnl_UnityEngineTransform\r\n        PUSH, __3_intnl_UnityEngineQuaternion\r\n
     \       EXTERN, \"UnityEngineTransform.__get_rotation__UnityEngineQuaternion\"\r\n
-    \       PUSH, __3_card_Card\r\n        PUSH, __8_const_intnl_SystemString\r\n
+    \       PUSH, __4_card_Card\r\n        PUSH, __8_const_intnl_SystemString\r\n
     \       PUSH, __3_intnl_UnityEngineVector3\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __3_card_Card\r\n        PUSH, __9_const_intnl_SystemString\r\n
+    \       PUSH, __4_card_Card\r\n        PUSH, __9_const_intnl_SystemString\r\n
     \       PUSH, __3_intnl_UnityEngineQuaternion\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __3_card_Card\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __4_card_Card\r\n        PUSH, __10_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_k_Int32\r\n        PUSH, __20_intnl_SystemInt32\r\n        COPY\r\n
     \       PUSH, __0_k_Int32\r\n        PUSH, __3_const_intnl_SystemInt32\r\n        PUSH,
     __21_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __21_intnl_SystemInt32\r\n        PUSH, __0_k_Int32\r\n        COPY\r\n
-    \       JUMP, 0x00000E44\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00000E84\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -1441,1688 +1447,1691 @@ MonoBehaviour:
     - startInstruction: 816
       endInstruction: 823
       startSourceChar: 1549
-      endSourceChar: 1593
+      endSourceChar: 1626
       line: 52
       lineChar: 4
-      spanCodeSection: "public void AddCard(Card newPlusCard) \r\n    "
+      spanCodeSection: "public void AddCard(Card newCard, bool isFristTsumo, bool
+        isLastTsumo) \r\n    "
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1593
-      endSourceChar: 1604
+      startSourceChar: 1626
+      endSourceChar: 1737
       line: 53
       lineChar: 4
-      spanCodeSection: "{\r\n        "
+      spanCodeSection: "{\r\n        // \uCC9C\uD654, \uD574\uC800\uB85C\uC6D4 \uC6A9\uB3C4\r\n
+        \       // AgariContext.IsTsumoable(newCard, isFristTsumo, isLastTsumo);\r\n\r\n
+        \       "
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1604
-      endSourceChar: 1604
-      line: 54
+      startSourceChar: 1737
+      endSourceChar: 1737
+      line: 57
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1604
-      endSourceChar: 1629
-      line: 54
+      startSourceChar: 1737
+      endSourceChar: 1758
+      line: 57
       lineChar: 8
-      spanCodeSection: 'newPlusCard.InputEvent = '
+      spanCodeSection: 'newCard.InputEvent = '
     - startInstruction: 824
       endInstruction: 855
-      startSourceChar: 1629
-      endSourceChar: 1652
-      line: 54
-      lineChar: 33
+      startSourceChar: 1758
+      endSourceChar: 1781
+      line: 57
+      lineChar: 29
       spanCodeSection: "InputEvent;\r\n\r\n        "
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 1652
-      endSourceChar: 1652
-      line: 56
+      startSourceChar: 1781
+      endSourceChar: 1781
+      line: 59
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 1652
-      endSourceChar: 1652
-      line: 56
+      startSourceChar: 1781
+      endSourceChar: 1781
+      line: 59
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 1652
-      endSourceChar: 1652
-      line: 56
+      startSourceChar: 1781
+      endSourceChar: 1781
+      line: 59
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 1652
-      endSourceChar: 1658
-      line: 56
+      startSourceChar: 1781
+      endSourceChar: 1787
+      line: 59
       lineChar: 8
       spanCodeSection: Cards.
     - startInstruction: 856
       endInstruction: 855
-      startSourceChar: 1658
-      endSourceChar: 1662
-      line: 56
+      startSourceChar: 1787
+      endSourceChar: 1791
+      line: 59
       lineChar: 14
       spanCodeSection: Add(
     - startInstruction: 856
       endInstruction: 963
-      startSourceChar: 1662
-      endSourceChar: 1685
-      line: 56
+      startSourceChar: 1791
+      endSourceChar: 1810
+      line: 59
       lineChar: 18
-      spanCodeSection: "newPlusCard);\r\n        "
+      spanCodeSection: "newCard);\r\n        "
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1685
-      endSourceChar: 1685
-      line: 57
+      startSourceChar: 1810
+      endSourceChar: 1810
+      line: 60
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1685
-      endSourceChar: 1685
-      line: 57
+      startSourceChar: 1810
+      endSourceChar: 1810
+      line: 60
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1685
-      endSourceChar: 1685
-      line: 57
+      startSourceChar: 1810
+      endSourceChar: 1810
+      line: 60
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1685
-      endSourceChar: 1697
-      line: 57
+      startSourceChar: 1810
+      endSourceChar: 1818
+      line: 60
       lineChar: 8
-      spanCodeSection: newPlusCard.
+      spanCodeSection: newCard.
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1697
-      endSourceChar: 1709
-      line: 57
-      lineChar: 20
+      startSourceChar: 1818
+      endSourceChar: 1830
+      line: 60
+      lineChar: 16
       spanCodeSection: SetPosition(
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1709
-      endSourceChar: 1709
-      line: 57
-      lineChar: 32
+      startSourceChar: 1830
+      endSourceChar: 1830
+      line: 60
+      lineChar: 28
       spanCodeSection: 
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1709
-      endSourceChar: 1726
-      line: 57
-      lineChar: 32
+      startSourceChar: 1830
+      endSourceChar: 1847
+      line: 60
+      lineChar: 28
       spanCodeSection: plusCardPosition.
     - startInstruction: 964
       endInstruction: 987
-      startSourceChar: 1726
-      endSourceChar: 1736
-      line: 57
-      lineChar: 49
+      startSourceChar: 1847
+      endSourceChar: 1857
+      line: 60
+      lineChar: 45
       spanCodeSection: 'position, '
     - startInstruction: 988
       endInstruction: 987
-      startSourceChar: 1736
-      endSourceChar: 1736
-      line: 57
-      lineChar: 59
+      startSourceChar: 1857
+      endSourceChar: 1857
+      line: 60
+      lineChar: 55
       spanCodeSection: 
     - startInstruction: 988
       endInstruction: 987
-      startSourceChar: 1736
-      endSourceChar: 1753
-      line: 57
-      lineChar: 59
+      startSourceChar: 1857
+      endSourceChar: 1874
+      line: 60
+      lineChar: 55
       spanCodeSection: plusCardPosition.
     - startInstruction: 988
       endInstruction: 1119
-      startSourceChar: 1753
-      endSourceChar: 1778
-      line: 57
-      lineChar: 76
+      startSourceChar: 1874
+      endSourceChar: 1899
+      line: 60
+      lineChar: 72
       spanCodeSection: "rotation);\r\n    }\r\n\r\n    "
     - startInstruction: 1120
       endInstruction: 1127
-      startSourceChar: 1778
-      endSourceChar: 1819
-      line: 60
+      startSourceChar: 1899
+      endSourceChar: 1935
+      line: 63
       lineChar: 4
-      spanCodeSection: "public void Discard(Card stashCard)\r\n    "
+      spanCodeSection: "public void Discard(Card card)\r\n    "
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1819
-      endSourceChar: 1830
-      line: 61
+      startSourceChar: 1935
+      endSourceChar: 1946
+      line: 64
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1830
-      endSourceChar: 1830
-      line: 62
+      startSourceChar: 1946
+      endSourceChar: 1946
+      line: 65
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1830
-      endSourceChar: 1830
-      line: 62
+      startSourceChar: 1946
+      endSourceChar: 1946
+      line: 65
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1830
-      endSourceChar: 1840
-      line: 62
+      startSourceChar: 1946
+      endSourceChar: 1956
+      line: 65
       lineChar: 8
       spanCodeSection: 'var index '
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1840
-      endSourceChar: 1842
-      line: 62
+      startSourceChar: 1956
+      endSourceChar: 1958
+      line: 65
       lineChar: 18
       spanCodeSection: '= '
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1842
-      endSourceChar: 1842
-      line: 62
+      startSourceChar: 1958
+      endSourceChar: 1958
+      line: 65
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1842
-      endSourceChar: 1842
-      line: 62
+      startSourceChar: 1958
+      endSourceChar: 1958
+      line: 65
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1842
-      endSourceChar: 1848
-      line: 62
+      startSourceChar: 1958
+      endSourceChar: 1964
+      line: 65
       lineChar: 20
       spanCodeSection: Cards.
     - startInstruction: 1128
       endInstruction: 1127
-      startSourceChar: 1848
-      endSourceChar: 1856
-      line: 62
+      startSourceChar: 1964
+      endSourceChar: 1972
+      line: 65
       lineChar: 26
       spanCodeSection: IndexOf(
     - startInstruction: 1128
       endInstruction: 1259
-      startSourceChar: 1856
-      endSourceChar: 1877
-      line: 62
+      startSourceChar: 1972
+      endSourceChar: 1988
+      line: 65
       lineChar: 34
-      spanCodeSection: "stashCard);\r\n        "
+      spanCodeSection: "card);\r\n        "
     - startInstruction: 1260
       endInstruction: 1259
-      startSourceChar: 1877
-      endSourceChar: 1877
-      line: 63
+      startSourceChar: 1988
+      endSourceChar: 1988
+      line: 66
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1260
       endInstruction: 1259
-      startSourceChar: 1877
-      endSourceChar: 1877
-      line: 63
+      startSourceChar: 1988
+      endSourceChar: 1988
+      line: 66
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1260
       endInstruction: 1259
-      startSourceChar: 1877
-      endSourceChar: 1877
-      line: 63
+      startSourceChar: 1988
+      endSourceChar: 1988
+      line: 66
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1260
       endInstruction: 1259
-      startSourceChar: 1877
-      endSourceChar: 1883
-      line: 63
+      startSourceChar: 1988
+      endSourceChar: 1994
+      line: 66
       lineChar: 8
       spanCodeSection: Cards.
     - startInstruction: 1260
       endInstruction: 1259
-      startSourceChar: 1883
-      endSourceChar: 1892
-      line: 63
+      startSourceChar: 1994
+      endSourceChar: 2003
+      line: 66
       lineChar: 14
       spanCodeSection: RemoveAt(
     - startInstruction: 1260
       endInstruction: 1347
-      startSourceChar: 1892
-      endSourceChar: 1911
-      line: 63
+      startSourceChar: 2003
+      endSourceChar: 2022
+      line: 66
       lineChar: 23
       spanCodeSection: "index);\r\n\r\n        "
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1911
-      endSourceChar: 1911
-      line: 65
+      startSourceChar: 2022
+      endSourceChar: 2022
+      line: 68
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1911
-      endSourceChar: 1911
-      line: 65
+      startSourceChar: 2022
+      endSourceChar: 2022
+      line: 68
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1911
-      endSourceChar: 1911
-      line: 65
+      startSourceChar: 2022
+      endSourceChar: 2022
+      line: 68
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1911
-      endSourceChar: 1924
-      line: 65
+      startSourceChar: 2022
+      endSourceChar: 2035
+      line: 68
       lineChar: 8
       spanCodeSection: stashedCards[
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1924
-      endSourceChar: 1924
-      line: 65
+      startSourceChar: 2035
+      endSourceChar: 2035
+      line: 68
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1924
-      endSourceChar: 1924
-      line: 65
+      startSourceChar: 2035
+      endSourceChar: 2035
+      line: 68
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1924
-      endSourceChar: 1934
-      line: 65
+      startSourceChar: 2035
+      endSourceChar: 2040
+      line: 68
       lineChar: 21
-      spanCodeSection: stashCard.
+      spanCodeSection: card.
     - startInstruction: 1348
       endInstruction: 1551
-      startSourceChar: 1934
-      endSourceChar: 1959
-      line: 65
-      lineChar: 31
-      spanCodeSection: "GlobalIndex]++;\r\n        "
+      startSourceChar: 2040
+      endSourceChar: 2067
+      line: 68
+      lineChar: 26
+      spanCodeSection: "GlobalOrder]++;\r\n\r\n        "
     - startInstruction: 1552
       endInstruction: 1551
-      startSourceChar: 1959
-      endSourceChar: 1959
-      line: 66
+      startSourceChar: 2067
+      endSourceChar: 2067
+      line: 70
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1552
       endInstruction: 1551
-      startSourceChar: 1959
-      endSourceChar: 1959
-      line: 66
+      startSourceChar: 2067
+      endSourceChar: 2067
+      line: 70
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1552
-      endInstruction: 1623
-      startSourceChar: 1959
-      endSourceChar: 1990
-      line: 66
-      lineChar: 8
-      spanCodeSection: "stashedCardIndex++;\r\n\r\n        "
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 1990
-      endSourceChar: 1990
-      line: 68
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 1990
-      endSourceChar: 1990
-      line: 68
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 1990
-      endSourceChar: 2000
-      line: 68
+      endInstruction: 1551
+      startSourceChar: 2067
+      endSourceChar: 2077
+      line: 70
       lineChar: 8
       spanCodeSection: 'var point '
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 2000
-      endSourceChar: 2002
-      line: 68
+    - startInstruction: 1552
+      endInstruction: 1551
+      startSourceChar: 2077
+      endSourceChar: 2079
+      line: 70
       lineChar: 18
       spanCodeSection: '= '
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 2002
-      endSourceChar: 2002
-      line: 68
+    - startInstruction: 1552
+      endInstruction: 1551
+      startSourceChar: 2079
+      endSourceChar: 2079
+      line: 70
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 2002
-      endSourceChar: 2002
-      line: 68
+    - startInstruction: 1552
+      endInstruction: 1551
+      startSourceChar: 2079
+      endSourceChar: 2079
+      line: 70
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 2002
-      endSourceChar: 2017
-      line: 68
+    - startInstruction: 1552
+      endInstruction: 1551
+      startSourceChar: 2079
+      endSourceChar: 2094
+      line: 70
       lineChar: 20
       spanCodeSection: stashPositions.
-    - startInstruction: 1624
-      endInstruction: 1623
-      startSourceChar: 2017
-      endSourceChar: 2026
-      line: 68
+    - startInstruction: 1552
+      endInstruction: 1551
+      startSourceChar: 2094
+      endSourceChar: 2103
+      line: 70
       lineChar: 35
       spanCodeSection: GetChild(
-    - startInstruction: 1624
-      endInstruction: 1675
-      startSourceChar: 2026
-      endSourceChar: 2054
-      line: 68
+    - startInstruction: 1552
+      endInstruction: 1551
+      startSourceChar: 2103
+      endSourceChar: 2103
+      line: 70
       lineChar: 44
-      spanCodeSection: "stashedCardIndex);\r\n        "
+      spanCodeSection: 
+    - startInstruction: 1552
+      endInstruction: 1675
+      startSourceChar: 2103
+      endSourceChar: 2133
+      line: 70
+      lineChar: 44
+      spanCodeSection: "stashedCardIndex++);\r\n        "
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2054
-      endSourceChar: 2054
-      line: 69
+      startSourceChar: 2133
+      endSourceChar: 2133
+      line: 71
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2054
-      endSourceChar: 2054
-      line: 69
+      startSourceChar: 2133
+      endSourceChar: 2133
+      line: 71
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2054
-      endSourceChar: 2054
-      line: 69
+      startSourceChar: 2133
+      endSourceChar: 2133
+      line: 71
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2054
-      endSourceChar: 2064
-      line: 69
+      startSourceChar: 2133
+      endSourceChar: 2138
+      line: 71
       lineChar: 8
-      spanCodeSection: stashCard.
+      spanCodeSection: card.
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2064
-      endSourceChar: 2076
-      line: 69
-      lineChar: 18
+      startSourceChar: 2138
+      endSourceChar: 2150
+      line: 71
+      lineChar: 13
       spanCodeSection: SetPosition(
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2076
-      endSourceChar: 2076
-      line: 69
-      lineChar: 30
+      startSourceChar: 2150
+      endSourceChar: 2150
+      line: 71
+      lineChar: 25
       spanCodeSection: 
     - startInstruction: 1676
       endInstruction: 1675
-      startSourceChar: 2076
-      endSourceChar: 2082
-      line: 69
-      lineChar: 30
+      startSourceChar: 2150
+      endSourceChar: 2156
+      line: 71
+      lineChar: 25
       spanCodeSection: point.
     - startInstruction: 1676
       endInstruction: 1699
-      startSourceChar: 2082
-      endSourceChar: 2092
-      line: 69
-      lineChar: 36
+      startSourceChar: 2156
+      endSourceChar: 2166
+      line: 71
+      lineChar: 31
       spanCodeSection: 'position, '
     - startInstruction: 1700
       endInstruction: 1699
-      startSourceChar: 2092
-      endSourceChar: 2092
-      line: 69
-      lineChar: 46
+      startSourceChar: 2166
+      endSourceChar: 2166
+      line: 71
+      lineChar: 41
       spanCodeSection: 
     - startInstruction: 1700
       endInstruction: 1699
-      startSourceChar: 2092
-      endSourceChar: 2098
-      line: 69
-      lineChar: 46
+      startSourceChar: 2166
+      endSourceChar: 2172
+      line: 71
+      lineChar: 41
       spanCodeSection: point.
     - startInstruction: 1700
       endInstruction: 1811
-      startSourceChar: 2098
-      endSourceChar: 2118
-      line: 69
-      lineChar: 52
+      startSourceChar: 2172
+      endSourceChar: 2192
+      line: 71
+      lineChar: 47
       spanCodeSection: "rotation);\r\n        "
     - startInstruction: 1812
       endInstruction: 1811
-      startSourceChar: 2118
-      endSourceChar: 2118
-      line: 70
+      startSourceChar: 2192
+      endSourceChar: 2192
+      line: 72
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1812
       endInstruction: 1811
-      startSourceChar: 2118
-      endSourceChar: 2118
-      line: 70
+      startSourceChar: 2192
+      endSourceChar: 2192
+      line: 72
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1812
       endInstruction: 1811
-      startSourceChar: 2118
-      endSourceChar: 2118
-      line: 70
+      startSourceChar: 2192
+      endSourceChar: 2192
+      line: 72
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1812
       endInstruction: 1811
-      startSourceChar: 2118
-      endSourceChar: 2128
-      line: 70
+      startSourceChar: 2192
+      endSourceChar: 2197
+      line: 72
       lineChar: 8
-      spanCodeSection: stashCard.
+      spanCodeSection: card.
     - startInstruction: 1812
       endInstruction: 1811
-      startSourceChar: 2128
-      endSourceChar: 2148
-      line: 70
-      lineChar: 18
+      startSourceChar: 2197
+      endSourceChar: 2217
+      line: 72
+      lineChar: 13
       spanCodeSection: SetColliderActivate(
     - startInstruction: 1812
       endInstruction: 1919
-      startSourceChar: 2148
-      endSourceChar: 2167
-      line: 70
-      lineChar: 38
+      startSourceChar: 2217
+      endSourceChar: 2236
+      line: 72
+      lineChar: 33
       spanCodeSection: "false);\r\n\r\n        "
     - startInstruction: 1920
       endInstruction: 1919
-      startSourceChar: 2167
-      endSourceChar: 2167
-      line: 72
+      startSourceChar: 2236
+      endSourceChar: 2236
+      line: 74
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1920
       endInstruction: 1919
-      startSourceChar: 2167
-      endSourceChar: 2167
-      line: 72
+      startSourceChar: 2236
+      endSourceChar: 2236
+      line: 74
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1920
       endInstruction: 1919
-      startSourceChar: 2167
-      endSourceChar: 2167
-      line: 72
+      startSourceChar: 2236
+      endSourceChar: 2236
+      line: 74
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1920
       endInstruction: 1919
-      startSourceChar: 2167
-      endSourceChar: 2173
-      line: 72
+      startSourceChar: 2236
+      endSourceChar: 2242
+      line: 74
       lineChar: 8
       spanCodeSection: Cards.
     - startInstruction: 1920
       endInstruction: 1943
-      startSourceChar: 2173
-      endSourceChar: 2190
-      line: 72
+      startSourceChar: 2242
+      endSourceChar: 2259
+      line: 74
       lineChar: 14
       spanCodeSection: "Sort();\r\n        "
     - startInstruction: 1944
       endInstruction: 1943
-      startSourceChar: 2190
-      endSourceChar: 2190
-      line: 73
+      startSourceChar: 2259
+      endSourceChar: 2259
+      line: 75
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1944
       endInstruction: 1943
-      startSourceChar: 2190
-      endSourceChar: 2190
-      line: 73
+      startSourceChar: 2259
+      endSourceChar: 2259
+      line: 75
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1944
       endInstruction: 1979
-      startSourceChar: 2190
-      endSourceChar: 2220
-      line: 73
+      startSourceChar: 2259
+      endSourceChar: 2289
+      line: 75
       lineChar: 8
       spanCodeSection: "SortPosition();\r\n    }\r\n\r\n    "
     - startInstruction: 1980
       endInstruction: 1987
-      startSourceChar: 2220
-      endSourceChar: 2262
-      line: 76
+      startSourceChar: 2289
+      endSourceChar: 2331
+      line: 78
       lineChar: 4
       spanCodeSection: "public void CheckNakiable(Card card)\r\n    "
     - startInstruction: 1988
       endInstruction: 1987
-      startSourceChar: 2262
-      endSourceChar: 2273
-      line: 77
+      startSourceChar: 2331
+      endSourceChar: 2342
+      line: 79
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1988
       endInstruction: 1987
-      startSourceChar: 2273
-      endSourceChar: 2273
-      line: 78
+      startSourceChar: 2342
+      endSourceChar: 2342
+      line: 80
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1988
       endInstruction: 1987
-      startSourceChar: 2273
-      endSourceChar: 2273
-      line: 78
+      startSourceChar: 2342
+      endSourceChar: 2342
+      line: 80
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1988
       endInstruction: 1987
-      startSourceChar: 2273
-      endSourceChar: 2273
-      line: 78
+      startSourceChar: 2342
+      endSourceChar: 2342
+      line: 80
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1988
       endInstruction: 1987
-      startSourceChar: 2273
-      endSourceChar: 2283
-      line: 78
+      startSourceChar: 2342
+      endSourceChar: 2352
+      line: 80
       lineChar: 8
       spanCodeSection: UIContext.
     - startInstruction: 1988
       endInstruction: 2011
-      startSourceChar: 2283
-      endSourceChar: 2303
-      line: 78
+      startSourceChar: 2352
+      endSourceChar: 2372
+      line: 80
       lineChar: 18
       spanCodeSection: "Clear();\r\n\r\n        "
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2303
-      endSourceChar: 2303
-      line: 80
+      startSourceChar: 2372
+      endSourceChar: 2372
+      line: 82
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2303
-      endSourceChar: 2303
-      line: 80
+      startSourceChar: 2372
+      endSourceChar: 2372
+      line: 82
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2303
-      endSourceChar: 2303
-      line: 80
+      startSourceChar: 2372
+      endSourceChar: 2372
+      line: 82
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2303
-      endSourceChar: 2318
-      line: 80
+      startSourceChar: 2372
+      endSourceChar: 2387
+      line: 82
       lineChar: 8
       spanCodeSection: HandCalculator.
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2318
-      endSourceChar: 2334
-      line: 80
+      startSourceChar: 2387
+      endSourceChar: 2403
+      line: 82
       lineChar: 23
       spanCodeSection: RequestNakiable(
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2334
-      endSourceChar: 2345
-      line: 80
+      startSourceChar: 2403
+      endSourceChar: 2409
+      line: 82
       lineChar: 39
+      spanCodeSection: 'this, '
+    - startInstruction: 2012
+      endInstruction: 2011
+      startSourceChar: 2409
+      endSourceChar: 2420
+      line: 82
+      lineChar: 45
       spanCodeSection: 'UIContext, '
     - startInstruction: 2012
       endInstruction: 2011
-      startSourceChar: 2345
-      endSourceChar: 2359
-      line: 80
-      lineChar: 50
+      startSourceChar: 2420
+      endSourceChar: 2434
+      line: 82
+      lineChar: 56
       spanCodeSection: 'AgariContext, '
     - startInstruction: 2012
-      endInstruction: 2131
-      startSourceChar: 2359
-      endSourceChar: 2377
-      line: 80
-      lineChar: 64
-      spanCodeSection: "card);\r\n\r\n        "
-    - startInstruction: 2132
-      endInstruction: 2131
-      startSourceChar: 2377
-      endSourceChar: 2377
+      endInstruction: 2011
+      startSourceChar: 2434
+      endSourceChar: 2440
       line: 82
+      lineChar: 70
+      spanCodeSection: 'card, '
+    - startInstruction: 2012
+      endInstruction: 2195
+      startSourceChar: 2440
+      endSourceChar: 2464
+      line: 82
+      lineChar: 76
+      spanCodeSection: "InputEvent);\r\n\r\n        "
+    - startInstruction: 2196
+      endInstruction: 2195
+      startSourceChar: 2464
+      endSourceChar: 2464
+      line: 84
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2132
-      endInstruction: 2131
-      startSourceChar: 2377
-      endSourceChar: 2399
-      line: 82
+    - startInstruction: 2196
+      endInstruction: 2195
+      startSourceChar: 2464
+      endSourceChar: 2486
+      line: 84
       lineChar: 8
       spanCodeSection: 'UIContext.IsChanged = '
-    - startInstruction: 2132
-      endInstruction: 2183
-      startSourceChar: 2399
-      endSourceChar: 2419
-      line: 82
+    - startInstruction: 2196
+      endInstruction: 2247
+      startSourceChar: 2486
+      endSourceChar: 2506
+      line: 84
       lineChar: 30
       spanCodeSection: "true;\r\n    }\r\n\r\n    "
-    - startInstruction: 2184
-      endInstruction: 2191
-      startSourceChar: 2419
-      endSourceChar: 2450
-      line: 85
+    - startInstruction: 2248
+      endInstruction: 2255
+      startSourceChar: 2506
+      endSourceChar: 2537
+      line: 87
       lineChar: 4
       spanCodeSection: "public bool IsUIActived()\r\n    "
-    - startInstruction: 2192
-      endInstruction: 2191
-      startSourceChar: 2450
-      endSourceChar: 2461
-      line: 86
+    - startInstruction: 2256
+      endInstruction: 2255
+      startSourceChar: 2537
+      endSourceChar: 2548
+      line: 88
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2192
-      endInstruction: 2191
-      startSourceChar: 2461
-      endSourceChar: 2468
-      line: 87
+    - startInstruction: 2256
+      endInstruction: 2255
+      startSourceChar: 2548
+      endSourceChar: 2555
+      line: 89
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 2192
-      endInstruction: 2191
-      startSourceChar: 2468
-      endSourceChar: 2468
-      line: 87
+    - startInstruction: 2256
+      endInstruction: 2255
+      startSourceChar: 2555
+      endSourceChar: 2555
+      line: 89
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 2192
-      endInstruction: 2191
-      startSourceChar: 2468
-      endSourceChar: 2468
-      line: 87
+    - startInstruction: 2256
+      endInstruction: 2255
+      startSourceChar: 2555
+      endSourceChar: 2555
+      line: 89
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 2192
-      endInstruction: 2191
-      startSourceChar: 2468
-      endSourceChar: 2478
-      line: 87
+    - startInstruction: 2256
+      endInstruction: 2255
+      startSourceChar: 2555
+      endSourceChar: 2565
+      line: 89
       lineChar: 15
       spanCodeSection: UIContext.
-    - startInstruction: 2192
-      endInstruction: 2331
-      startSourceChar: 2478
-      endSourceChar: 2513
-      line: 87
+    - startInstruction: 2256
+      endInstruction: 2395
+      startSourceChar: 2565
+      endSourceChar: 2600
+      line: 89
       lineChar: 25
       spanCodeSection: "IsAnythingActived();\r\n    }\r\n\r\n    "
-    - startInstruction: 2332
-      endInstruction: 2339
-      startSourceChar: 2513
-      endSourceChar: 2550
-      line: 90
+    - startInstruction: 2396
+      endInstruction: 2403
+      startSourceChar: 2600
+      endSourceChar: 2637
+      line: 92
       lineChar: 4
       spanCodeSection: "public bool Contains(Card card)\r\n    "
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2550
-      endSourceChar: 2561
-      line: 91
+    - startInstruction: 2404
+      endInstruction: 2403
+      startSourceChar: 2637
+      endSourceChar: 2648
+      line: 93
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2561
-      endSourceChar: 2568
-      line: 92
+    - startInstruction: 2404
+      endInstruction: 2403
+      startSourceChar: 2648
+      endSourceChar: 2655
+      line: 94
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2568
-      endSourceChar: 2568
-      line: 92
+    - startInstruction: 2404
+      endInstruction: 2403
+      startSourceChar: 2655
+      endSourceChar: 2655
+      line: 94
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2568
-      endSourceChar: 2568
-      line: 92
+    - startInstruction: 2404
+      endInstruction: 2403
+      startSourceChar: 2655
+      endSourceChar: 2655
+      line: 94
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2568
-      endSourceChar: 2574
-      line: 92
+    - startInstruction: 2404
+      endInstruction: 2403
+      startSourceChar: 2655
+      endSourceChar: 2661
+      line: 94
       lineChar: 15
       spanCodeSection: Cards.
-    - startInstruction: 2340
-      endInstruction: 2339
-      startSourceChar: 2574
-      endSourceChar: 2583
-      line: 92
+    - startInstruction: 2404
+      endInstruction: 2403
+      startSourceChar: 2661
+      endSourceChar: 2670
+      line: 94
       lineChar: 21
       spanCodeSection: Contains(
-    - startInstruction: 2340
-      endInstruction: 2511
-      startSourceChar: 2583
-      endSourceChar: 2604
-      line: 92
+    - startInstruction: 2404
+      endInstruction: 2575
+      startSourceChar: 2670
+      endSourceChar: 2691
+      line: 94
       lineChar: 30
       spanCodeSection: "card);\r\n    }\r\n\r\n    "
-    - startInstruction: 2512
-      endInstruction: 2519
-      startSourceChar: 2604
-      endSourceChar: 2650
-      line: 95
+    - startInstruction: 2576
+      endInstruction: 2583
+      startSourceChar: 2691
+      endSourceChar: 2737
+      line: 97
       lineChar: 4
       spanCodeSection: "public void SetCards(Card[] pickedCards)\r\n    "
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 2650
-      endSourceChar: 2661
-      line: 96
+    - startInstruction: 2584
+      endInstruction: 2583
+      startSourceChar: 2737
+      endSourceChar: 2748
+      line: 98
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 2661
-      endSourceChar: 2666
-      line: 97
+    - startInstruction: 2584
+      endInstruction: 2583
+      startSourceChar: 2748
+      endSourceChar: 2753
+      line: 99
       lineChar: 8
       spanCodeSection: for (
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 2666
-      endSourceChar: 2666
-      line: 97
+    - startInstruction: 2584
+      endInstruction: 2583
+      startSourceChar: 2753
+      endSourceChar: 2753
+      line: 99
       lineChar: 13
       spanCodeSection: 
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 2666
-      endSourceChar: 2666
-      line: 97
+    - startInstruction: 2584
+      endInstruction: 2583
+      startSourceChar: 2753
+      endSourceChar: 2753
+      line: 99
       lineChar: 13
       spanCodeSection: 
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 2666
-      endSourceChar: 2672
-      line: 97
+    - startInstruction: 2584
+      endInstruction: 2583
+      startSourceChar: 2753
+      endSourceChar: 2759
+      line: 99
       lineChar: 13
       spanCodeSection: 'int i '
-    - startInstruction: 2520
-      endInstruction: 2519
-      startSourceChar: 2672
-      endSourceChar: 2674
-      line: 97
+    - startInstruction: 2584
+      endInstruction: 2583
+      startSourceChar: 2759
+      endSourceChar: 2761
+      line: 99
       lineChar: 19
       spanCodeSection: '= '
-    - startInstruction: 2520
-      endInstruction: 2539
-      startSourceChar: 2674
-      endSourceChar: 2677
-      line: 97
-      lineChar: 21
-      spanCodeSection: '0; '
-    - startInstruction: 2540
-      endInstruction: 2539
-      startSourceChar: 2677
-      endSourceChar: 2677
-      line: 97
-      lineChar: 24
-      spanCodeSection: 
-    - startInstruction: 2540
-      endInstruction: 2559
-      startSourceChar: 2677
-      endSourceChar: 2680
-      line: 97
-      lineChar: 24
-      spanCodeSection: 'i< '
-    - startInstruction: 2560
-      endInstruction: 2559
-      startSourceChar: 2680
-      endSourceChar: 2680
-      line: 97
-      lineChar: 27
-      spanCodeSection: 
-    - startInstruction: 2560
-      endInstruction: 2559
-      startSourceChar: 2680
-      endSourceChar: 2692
-      line: 97
-      lineChar: 27
-      spanCodeSection: pickedCards.
-    - startInstruction: 2560
-      endInstruction: 2631
-      startSourceChar: 2692
-      endSourceChar: 2714
-      line: 97
-      lineChar: 39
-      spanCodeSection: "Length; ++i)\r\n        "
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2714
-      endSourceChar: 2729
-      line: 98
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2729
-      endSourceChar: 2729
-      line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2729
-      endSourceChar: 2729
-      line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2729
-      endSourceChar: 2748
-      line: 99
-      lineChar: 12
-      spanCodeSection: 'var pointTransform '
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2748
-      endSourceChar: 2750
-      line: 99
-      lineChar: 31
-      spanCodeSection: '= '
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2750
-      endSourceChar: 2750
-      line: 99
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2750
-      endSourceChar: 2750
-      line: 99
-      lineChar: 33
-      spanCodeSection: 
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2750
-      endSourceChar: 2761
-      line: 99
-      lineChar: 33
-      spanCodeSection: cardPoints[
-    - startInstruction: 2632
-      endInstruction: 2631
-      startSourceChar: 2761
-      endSourceChar: 2761
-      line: 99
-      lineChar: 44
-      spanCodeSection: 
-    - startInstruction: 2632
-      endInstruction: 2631
+    - startInstruction: 2584
+      endInstruction: 2603
       startSourceChar: 2761
       endSourceChar: 2764
       line: 99
-      lineChar: 44
-      spanCodeSection: i].
-    - startInstruction: 2632
-      endInstruction: 2707
-      startSourceChar: 2764
-      endSourceChar: 2788
-      line: 99
-      lineChar: 47
-      spanCodeSection: "transform;\r\n            "
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2788
-      endSourceChar: 2788
-      line: 100
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2788
-      endSourceChar: 2788
-      line: 100
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2788
-      endSourceChar: 2803
-      line: 100
-      lineChar: 12
-      spanCodeSection: 'var pickedCard '
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2803
-      endSourceChar: 2805
-      line: 100
-      lineChar: 27
-      spanCodeSection: '= '
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2805
-      endSourceChar: 2805
-      line: 100
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2805
-      endSourceChar: 2817
-      line: 100
-      lineChar: 29
-      spanCodeSection: pickedCards[
-    - startInstruction: 2708
-      endInstruction: 2707
-      startSourceChar: 2817
-      endSourceChar: 2817
-      line: 100
-      lineChar: 41
-      spanCodeSection: 
-    - startInstruction: 2708
-      endInstruction: 2759
-      startSourceChar: 2817
-      endSourceChar: 2836
-      line: 100
-      lineChar: 41
-      spanCodeSection: "i];\r\n\r\n            "
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2836
-      endSourceChar: 2836
-      line: 102
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2836
-      endSourceChar: 2836
-      line: 102
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2836
-      endSourceChar: 2836
-      line: 102
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2836
-      endSourceChar: 2842
-      line: 102
-      lineChar: 12
-      spanCodeSection: Cards.
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2842
-      endSourceChar: 2846
-      line: 102
-      lineChar: 18
-      spanCodeSection: Add(
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2846
-      endSourceChar: 2846
-      line: 102
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2846
-      endSourceChar: 2858
-      line: 102
-      lineChar: 22
-      spanCodeSection: pickedCards[
-    - startInstruction: 2760
-      endInstruction: 2759
-      startSourceChar: 2858
-      endSourceChar: 2858
-      line: 102
-      lineChar: 34
-      spanCodeSection: 
-    - startInstruction: 2760
-      endInstruction: 2899
-      startSourceChar: 2858
-      endSourceChar: 2876
-      line: 102
-      lineChar: 34
-      spanCodeSection: "i]);\r\n            "
-    - startInstruction: 2900
-      endInstruction: 2899
-      startSourceChar: 2876
-      endSourceChar: 2876
-      line: 103
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2900
-      endInstruction: 2899
-      startSourceChar: 2876
-      endSourceChar: 2900
-      line: 103
-      lineChar: 12
-      spanCodeSection: 'pickedCard.InputEvent = '
-    - startInstruction: 2900
-      endInstruction: 2931
-      startSourceChar: 2900
-      endSourceChar: 2925
-      line: 103
-      lineChar: 36
-      spanCodeSection: "InputEvent;\r\n            "
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2925
-      endSourceChar: 2925
-      line: 104
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2925
-      endSourceChar: 2925
-      line: 104
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2925
-      endSourceChar: 2925
-      line: 104
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2925
-      endSourceChar: 2936
-      line: 104
-      lineChar: 12
-      spanCodeSection: pickedCard.
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2936
-      endSourceChar: 2948
-      line: 104
-      lineChar: 23
-      spanCodeSection: SetPosition(
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2948
-      endSourceChar: 2948
-      line: 104
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 2932
-      endInstruction: 2931
-      startSourceChar: 2948
-      endSourceChar: 2963
-      line: 104
-      lineChar: 35
-      spanCodeSection: pointTransform.
-    - startInstruction: 2932
-      endInstruction: 2955
-      startSourceChar: 2963
-      endSourceChar: 2973
-      line: 104
-      lineChar: 50
-      spanCodeSection: 'position, '
-    - startInstruction: 2956
-      endInstruction: 2955
-      startSourceChar: 2973
-      endSourceChar: 2973
-      line: 104
-      lineChar: 60
-      spanCodeSection: 
-    - startInstruction: 2956
-      endInstruction: 2955
-      startSourceChar: 2973
-      endSourceChar: 2973
-      line: 104
-      lineChar: 60
-      spanCodeSection: 
-    - startInstruction: 2956
-      endInstruction: 2955
-      startSourceChar: 2973
-      endSourceChar: 2988
-      line: 104
-      lineChar: 60
-      spanCodeSection: pointTransform.
-    - startInstruction: 2956
-      endInstruction: 2955
-      startSourceChar: 2988
-      endSourceChar: 2998
-      line: 104
-      lineChar: 75
-      spanCodeSection: transform.
-    - startInstruction: 2956
-      endInstruction: 3151
-      startSourceChar: 2998
-      endSourceChar: 3031
-      line: 104
-      lineChar: 85
-      spanCodeSection: "rotation);\r\n        }\r\n\r\n        "
-    - startInstruction: 3152
-      endInstruction: 3151
-      startSourceChar: 3031
-      endSourceChar: 3031
-      line: 107
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 3152
-      endInstruction: 3151
-      startSourceChar: 3031
-      endSourceChar: 3031
-      line: 107
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 3152
-      endInstruction: 3151
-      startSourceChar: 3031
-      endSourceChar: 3031
-      line: 107
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 3152
-      endInstruction: 3151
-      startSourceChar: 3031
-      endSourceChar: 3037
-      line: 107
-      lineChar: 8
-      spanCodeSection: Cards.
-    - startInstruction: 3152
-      endInstruction: 3175
-      startSourceChar: 3037
-      endSourceChar: 3054
-      line: 107
-      lineChar: 14
-      spanCodeSection: "Sort();\r\n        "
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 3054
-      endSourceChar: 3054
-      line: 108
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 3176
-      endInstruction: 3175
-      startSourceChar: 3054
-      endSourceChar: 3054
-      line: 108
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 3176
-      endInstruction: 3211
-      startSourceChar: 3054
-      endSourceChar: 3084
-      line: 108
-      lineChar: 8
-      spanCodeSection: "SortPosition();\r\n    }\r\n\r\n    "
-    - startInstruction: 3212
-      endInstruction: 3219
-      startSourceChar: 3084
-      endSourceChar: 3132
-      line: 111
-      lineChar: 4
-      spanCodeSection: "public void SetColliderActive(bool active)\r\n    "
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 3132
-      endSourceChar: 3143
-      line: 112
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 3143
-      endSourceChar: 3152
-      line: 113
-      lineChar: 8
-      spanCodeSection: foreach (
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 3152
-      endSourceChar: 3165
-      line: 113
-      lineChar: 17
-      spanCodeSection: 'Card card in '
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 3165
-      endSourceChar: 3165
-      line: 113
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 3165
-      endSourceChar: 3165
-      line: 113
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 3165
-      endSourceChar: 3171
-      line: 113
-      lineChar: 30
-      spanCodeSection: Cards.
-    - startInstruction: 3220
-      endInstruction: 3439
-      startSourceChar: 3171
-      endSourceChar: 3189
-      line: 113
-      lineChar: 36
-      spanCodeSection: "Clone())\r\n        "
-    - startInstruction: 3440
-      endInstruction: 3439
-      startSourceChar: 3189
-      endSourceChar: 3204
-      line: 114
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 3440
-      endInstruction: 3439
-      startSourceChar: 3204
-      endSourceChar: 3204
-      line: 115
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 3440
-      endInstruction: 3439
-      startSourceChar: 3204
-      endSourceChar: 3258
-      line: 115
-      lineChar: 12
-      spanCodeSection: 'card.gameObject.GetComponent<BoxCollider>().enabled = '
-    - startInstruction: 3440
-      endInstruction: 3623
-      startSourceChar: 3258
-      endSourceChar: 3291
-      line: 115
-      lineChar: 66
-      spanCodeSection: "active;\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 3624
-      endInstruction: 3631
-      startSourceChar: 3291
-      endSourceChar: 3316
-      line: 119
-      lineChar: 4
-      spanCodeSection: "void SortPosition()\r\n    "
-    - startInstruction: 3632
-      endInstruction: 3631
-      startSourceChar: 3316
-      endSourceChar: 3327
-      line: 120
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 3632
-      endInstruction: 3631
-      startSourceChar: 3327
-      endSourceChar: 3332
-      line: 121
-      lineChar: 8
-      spanCodeSection: for (
-    - startInstruction: 3632
-      endInstruction: 3631
-      startSourceChar: 3332
-      endSourceChar: 3332
-      line: 121
-      lineChar: 13
-      spanCodeSection: 
-    - startInstruction: 3632
-      endInstruction: 3631
-      startSourceChar: 3332
-      endSourceChar: 3338
-      line: 121
-      lineChar: 13
-      spanCodeSection: 'var k '
-    - startInstruction: 3632
-      endInstruction: 3631
-      startSourceChar: 3338
-      endSourceChar: 3340
-      line: 121
-      lineChar: 19
-      spanCodeSection: '= '
-    - startInstruction: 3632
-      endInstruction: 3651
-      startSourceChar: 3340
-      endSourceChar: 3343
-      line: 121
       lineChar: 21
       spanCodeSection: '0; '
-    - startInstruction: 3652
-      endInstruction: 3651
-      startSourceChar: 3343
-      endSourceChar: 3343
-      line: 121
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 2764
+      endSourceChar: 2764
+      line: 99
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 3652
-      endInstruction: 3671
-      startSourceChar: 3343
-      endSourceChar: 3347
-      line: 121
+    - startInstruction: 2604
+      endInstruction: 2623
+      startSourceChar: 2764
+      endSourceChar: 2767
+      line: 99
       lineChar: 24
-      spanCodeSection: 'k < '
-    - startInstruction: 3672
-      endInstruction: 3671
-      startSourceChar: 3347
-      endSourceChar: 3347
-      line: 121
-      lineChar: 28
+      spanCodeSection: 'i< '
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2767
+      endSourceChar: 2767
+      line: 99
+      lineChar: 27
       spanCodeSection: 
-    - startInstruction: 3672
-      endInstruction: 3671
-      startSourceChar: 3347
-      endSourceChar: 3347
-      line: 121
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 3672
-      endInstruction: 3671
-      startSourceChar: 3347
-      endSourceChar: 3353
-      line: 121
-      lineChar: 28
-      spanCodeSection: Cards.
-    - startInstruction: 3672
-      endInstruction: 3799
-      startSourceChar: 3353
-      endSourceChar: 3385
-      line: 121
-      lineChar: 34
-      spanCodeSection: "Count(); k++) // \uC0C8\uB85C\uAD6C\uD604\uD568\r\n        "
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3385
-      endSourceChar: 3400
-      line: 122
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2767
+      endSourceChar: 2779
+      line: 99
+      lineChar: 27
+      spanCodeSection: pickedCards.
+    - startInstruction: 2624
+      endInstruction: 2695
+      startSourceChar: 2779
+      endSourceChar: 2801
+      line: 99
+      lineChar: 39
+      spanCodeSection: "Length; ++i)\r\n        "
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2801
+      endSourceChar: 2816
+      line: 100
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3400
-      endSourceChar: 3400
-      line: 123
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2816
+      endSourceChar: 2816
+      line: 101
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3400
-      endSourceChar: 3400
-      line: 123
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2816
+      endSourceChar: 2816
+      line: 101
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3400
-      endSourceChar: 3409
-      line: 123
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2816
+      endSourceChar: 2835
+      line: 101
       lineChar: 12
-      spanCodeSection: 'var card '
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3409
-      endSourceChar: 3411
+      spanCodeSection: 'var pointTransform '
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2835
+      endSourceChar: 2837
+      line: 101
+      lineChar: 31
+      spanCodeSection: '= '
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2837
+      endSourceChar: 2837
+      line: 101
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2837
+      endSourceChar: 2837
+      line: 101
+      lineChar: 33
+      spanCodeSection: 
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2837
+      endSourceChar: 2848
+      line: 101
+      lineChar: 33
+      spanCodeSection: cardPoints[
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2848
+      endSourceChar: 2848
+      line: 101
+      lineChar: 44
+      spanCodeSection: 
+    - startInstruction: 2696
+      endInstruction: 2695
+      startSourceChar: 2848
+      endSourceChar: 2851
+      line: 101
+      lineChar: 44
+      spanCodeSection: i].
+    - startInstruction: 2696
+      endInstruction: 2771
+      startSourceChar: 2851
+      endSourceChar: 2875
+      line: 101
+      lineChar: 47
+      spanCodeSection: "transform;\r\n            "
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2875
+      endSourceChar: 2875
+      line: 102
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2875
+      endSourceChar: 2875
+      line: 102
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2875
+      endSourceChar: 2890
+      line: 102
+      lineChar: 12
+      spanCodeSection: 'var pickedCard '
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2890
+      endSourceChar: 2892
+      line: 102
+      lineChar: 27
+      spanCodeSection: '= '
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2892
+      endSourceChar: 2892
+      line: 102
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2892
+      endSourceChar: 2904
+      line: 102
+      lineChar: 29
+      spanCodeSection: pickedCards[
+    - startInstruction: 2772
+      endInstruction: 2771
+      startSourceChar: 2904
+      endSourceChar: 2904
+      line: 102
+      lineChar: 41
+      spanCodeSection: 
+    - startInstruction: 2772
+      endInstruction: 2823
+      startSourceChar: 2904
+      endSourceChar: 2923
+      line: 102
+      lineChar: 41
+      spanCodeSection: "i];\r\n\r\n            "
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2923
+      endSourceChar: 2923
+      line: 104
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2923
+      endSourceChar: 2923
+      line: 104
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2923
+      endSourceChar: 2923
+      line: 104
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2923
+      endSourceChar: 2929
+      line: 104
+      lineChar: 12
+      spanCodeSection: Cards.
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2929
+      endSourceChar: 2933
+      line: 104
+      lineChar: 18
+      spanCodeSection: Add(
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2933
+      endSourceChar: 2933
+      line: 104
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2933
+      endSourceChar: 2945
+      line: 104
+      lineChar: 22
+      spanCodeSection: pickedCards[
+    - startInstruction: 2824
+      endInstruction: 2823
+      startSourceChar: 2945
+      endSourceChar: 2945
+      line: 104
+      lineChar: 34
+      spanCodeSection: 
+    - startInstruction: 2824
+      endInstruction: 2963
+      startSourceChar: 2945
+      endSourceChar: 2963
+      line: 104
+      lineChar: 34
+      spanCodeSection: "i]);\r\n            "
+    - startInstruction: 2964
+      endInstruction: 2963
+      startSourceChar: 2963
+      endSourceChar: 2963
+      line: 105
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2964
+      endInstruction: 2963
+      startSourceChar: 2963
+      endSourceChar: 2987
+      line: 105
+      lineChar: 12
+      spanCodeSection: 'pickedCard.InputEvent = '
+    - startInstruction: 2964
+      endInstruction: 2995
+      startSourceChar: 2987
+      endSourceChar: 3012
+      line: 105
+      lineChar: 36
+      spanCodeSection: "InputEvent;\r\n            "
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3012
+      endSourceChar: 3012
+      line: 106
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3012
+      endSourceChar: 3012
+      line: 106
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3012
+      endSourceChar: 3012
+      line: 106
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3012
+      endSourceChar: 3023
+      line: 106
+      lineChar: 12
+      spanCodeSection: pickedCard.
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3023
+      endSourceChar: 3035
+      line: 106
+      lineChar: 23
+      spanCodeSection: SetPosition(
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3035
+      endSourceChar: 3035
+      line: 106
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 3035
+      endSourceChar: 3050
+      line: 106
+      lineChar: 35
+      spanCodeSection: pointTransform.
+    - startInstruction: 2996
+      endInstruction: 3019
+      startSourceChar: 3050
+      endSourceChar: 3060
+      line: 106
+      lineChar: 50
+      spanCodeSection: 'position, '
+    - startInstruction: 3020
+      endInstruction: 3019
+      startSourceChar: 3060
+      endSourceChar: 3060
+      line: 106
+      lineChar: 60
+      spanCodeSection: 
+    - startInstruction: 3020
+      endInstruction: 3019
+      startSourceChar: 3060
+      endSourceChar: 3060
+      line: 106
+      lineChar: 60
+      spanCodeSection: 
+    - startInstruction: 3020
+      endInstruction: 3019
+      startSourceChar: 3060
+      endSourceChar: 3075
+      line: 106
+      lineChar: 60
+      spanCodeSection: pointTransform.
+    - startInstruction: 3020
+      endInstruction: 3019
+      startSourceChar: 3075
+      endSourceChar: 3085
+      line: 106
+      lineChar: 75
+      spanCodeSection: transform.
+    - startInstruction: 3020
+      endInstruction: 3215
+      startSourceChar: 3085
+      endSourceChar: 3118
+      line: 106
+      lineChar: 85
+      spanCodeSection: "rotation);\r\n        }\r\n\r\n        "
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 3118
+      endSourceChar: 3118
+      line: 109
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 3118
+      endSourceChar: 3118
+      line: 109
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 3118
+      endSourceChar: 3118
+      line: 109
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 3118
+      endSourceChar: 3124
+      line: 109
+      lineChar: 8
+      spanCodeSection: Cards.
+    - startInstruction: 3216
+      endInstruction: 3239
+      startSourceChar: 3124
+      endSourceChar: 3141
+      line: 109
+      lineChar: 14
+      spanCodeSection: "Sort();\r\n        "
+    - startInstruction: 3240
+      endInstruction: 3239
+      startSourceChar: 3141
+      endSourceChar: 3141
+      line: 110
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 3240
+      endInstruction: 3239
+      startSourceChar: 3141
+      endSourceChar: 3141
+      line: 110
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 3240
+      endInstruction: 3275
+      startSourceChar: 3141
+      endSourceChar: 3171
+      line: 110
+      lineChar: 8
+      spanCodeSection: "SortPosition();\r\n    }\r\n\r\n    "
+    - startInstruction: 3276
+      endInstruction: 3283
+      startSourceChar: 3171
+      endSourceChar: 3219
+      line: 113
+      lineChar: 4
+      spanCodeSection: "public void SetColliderActive(bool active)\r\n    "
+    - startInstruction: 3284
+      endInstruction: 3283
+      startSourceChar: 3219
+      endSourceChar: 3230
+      line: 114
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 3284
+      endInstruction: 3283
+      startSourceChar: 3230
+      endSourceChar: 3239
+      line: 115
+      lineChar: 8
+      spanCodeSection: foreach (
+    - startInstruction: 3284
+      endInstruction: 3283
+      startSourceChar: 3239
+      endSourceChar: 3252
+      line: 115
+      lineChar: 17
+      spanCodeSection: 'Card card in '
+    - startInstruction: 3284
+      endInstruction: 3283
+      startSourceChar: 3252
+      endSourceChar: 3252
+      line: 115
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 3284
+      endInstruction: 3283
+      startSourceChar: 3252
+      endSourceChar: 3252
+      line: 115
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 3284
+      endInstruction: 3283
+      startSourceChar: 3252
+      endSourceChar: 3258
+      line: 115
+      lineChar: 30
+      spanCodeSection: Cards.
+    - startInstruction: 3284
+      endInstruction: 3503
+      startSourceChar: 3258
+      endSourceChar: 3276
+      line: 115
+      lineChar: 36
+      spanCodeSection: "Clone())\r\n        "
+    - startInstruction: 3504
+      endInstruction: 3503
+      startSourceChar: 3276
+      endSourceChar: 3291
+      line: 116
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 3504
+      endInstruction: 3503
+      startSourceChar: 3291
+      endSourceChar: 3291
+      line: 117
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3504
+      endInstruction: 3503
+      startSourceChar: 3291
+      endSourceChar: 3345
+      line: 117
+      lineChar: 12
+      spanCodeSection: 'card.gameObject.GetComponent<BoxCollider>().enabled = '
+    - startInstruction: 3504
+      endInstruction: 3687
+      startSourceChar: 3345
+      endSourceChar: 3378
+      line: 117
+      lineChar: 66
+      spanCodeSection: "active;\r\n        }\r\n    }\r\n\r\n    "
+    - startInstruction: 3688
+      endInstruction: 3695
+      startSourceChar: 3378
+      endSourceChar: 3403
+      line: 121
+      lineChar: 4
+      spanCodeSection: "void SortPosition()\r\n    "
+    - startInstruction: 3696
+      endInstruction: 3695
+      startSourceChar: 3403
+      endSourceChar: 3414
+      line: 122
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 3696
+      endInstruction: 3695
+      startSourceChar: 3414
+      endSourceChar: 3419
+      line: 123
+      lineChar: 8
+      spanCodeSection: for (
+    - startInstruction: 3696
+      endInstruction: 3695
+      startSourceChar: 3419
+      endSourceChar: 3419
+      line: 123
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 3696
+      endInstruction: 3695
+      startSourceChar: 3419
+      endSourceChar: 3425
+      line: 123
+      lineChar: 13
+      spanCodeSection: 'var k '
+    - startInstruction: 3696
+      endInstruction: 3695
+      startSourceChar: 3425
+      endSourceChar: 3427
+      line: 123
+      lineChar: 19
+      spanCodeSection: '= '
+    - startInstruction: 3696
+      endInstruction: 3715
+      startSourceChar: 3427
+      endSourceChar: 3430
       line: 123
       lineChar: 21
-      spanCodeSection: '= '
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3411
-      endSourceChar: 3417
+      spanCodeSection: '0; '
+    - startInstruction: 3716
+      endInstruction: 3715
+      startSourceChar: 3430
+      endSourceChar: 3430
       line: 123
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 3716
+      endInstruction: 3735
+      startSourceChar: 3430
+      endSourceChar: 3434
+      line: 123
+      lineChar: 24
+      spanCodeSection: 'k < '
+    - startInstruction: 3736
+      endInstruction: 3735
+      startSourceChar: 3434
+      endSourceChar: 3434
+      line: 123
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 3736
+      endInstruction: 3735
+      startSourceChar: 3434
+      endSourceChar: 3434
+      line: 123
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 3736
+      endInstruction: 3735
+      startSourceChar: 3434
+      endSourceChar: 3440
+      line: 123
+      lineChar: 28
+      spanCodeSection: Cards.
+    - startInstruction: 3736
+      endInstruction: 3863
+      startSourceChar: 3440
+      endSourceChar: 3472
+      line: 123
+      lineChar: 34
+      spanCodeSection: "Count(); k++) // \uC0C8\uB85C\uAD6C\uD604\uD568\r\n        "
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3472
+      endSourceChar: 3487
+      line: 124
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3487
+      endSourceChar: 3487
+      line: 125
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3487
+      endSourceChar: 3487
+      line: 125
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3487
+      endSourceChar: 3496
+      line: 125
+      lineChar: 12
+      spanCodeSection: 'var card '
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3496
+      endSourceChar: 3498
+      line: 125
+      lineChar: 21
+      spanCodeSection: '= '
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3498
+      endSourceChar: 3504
+      line: 125
       lineChar: 23
       spanCodeSection: (Card)
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3417
-      endSourceChar: 3417
-      line: 123
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3504
+      endSourceChar: 3504
+      line: 125
       lineChar: 29
       spanCodeSection: 
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3417
-      endSourceChar: 3417
-      line: 123
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3504
+      endSourceChar: 3504
+      line: 125
       lineChar: 29
       spanCodeSection: 
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3417
-      endSourceChar: 3423
-      line: 123
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3504
+      endSourceChar: 3510
+      line: 125
       lineChar: 29
       spanCodeSection: Cards.
-    - startInstruction: 3800
-      endInstruction: 3799
-      startSourceChar: 3423
-      endSourceChar: 3426
-      line: 123
+    - startInstruction: 3864
+      endInstruction: 3863
+      startSourceChar: 3510
+      endSourceChar: 3513
+      line: 125
       lineChar: 35
       spanCodeSection: At(
-    - startInstruction: 3800
-      endInstruction: 3927
-      startSourceChar: 3426
-      endSourceChar: 3443
-      line: 123
+    - startInstruction: 3864
+      endInstruction: 3991
+      startSourceChar: 3513
+      endSourceChar: 3530
+      line: 125
       lineChar: 38
       spanCodeSection: "k);\r\n            "
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3443
-      endSourceChar: 3443
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3530
+      endSourceChar: 3530
+      line: 126
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3443
-      endSourceChar: 3443
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3530
+      endSourceChar: 3530
+      line: 126
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3443
-      endSourceChar: 3457
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3530
+      endSourceChar: 3544
+      line: 126
       lineChar: 12
       spanCodeSection: 'var cardPoint '
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3457
-      endSourceChar: 3459
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3544
+      endSourceChar: 3546
+      line: 126
       lineChar: 26
       spanCodeSection: '= '
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3459
-      endSourceChar: 3459
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3546
+      endSourceChar: 3546
+      line: 126
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3459
-      endSourceChar: 3470
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3546
+      endSourceChar: 3557
+      line: 126
       lineChar: 28
       spanCodeSection: cardPoints[
-    - startInstruction: 3928
-      endInstruction: 3927
-      startSourceChar: 3470
-      endSourceChar: 3470
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 3991
+      startSourceChar: 3557
+      endSourceChar: 3557
+      line: 126
       lineChar: 39
       spanCodeSection: 
-    - startInstruction: 3928
-      endInstruction: 3979
-      startSourceChar: 3470
-      endSourceChar: 3487
-      line: 124
+    - startInstruction: 3992
+      endInstruction: 4043
+      startSourceChar: 3557
+      endSourceChar: 3574
+      line: 126
       lineChar: 39
       spanCodeSection: "k];\r\n            "
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3487
-      endSourceChar: 3487
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3574
+      endSourceChar: 3574
+      line: 127
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3487
-      endSourceChar: 3487
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3574
+      endSourceChar: 3574
+      line: 127
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3487
-      endSourceChar: 3487
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3574
+      endSourceChar: 3574
+      line: 127
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3487
-      endSourceChar: 3492
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3574
+      endSourceChar: 3579
+      line: 127
       lineChar: 12
       spanCodeSection: card.
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3492
-      endSourceChar: 3504
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3579
+      endSourceChar: 3591
+      line: 127
       lineChar: 17
       spanCodeSection: SetPosition(
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3504
-      endSourceChar: 3504
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3591
+      endSourceChar: 3591
+      line: 127
       lineChar: 29
       spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3504
-      endSourceChar: 3504
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3591
+      endSourceChar: 3591
+      line: 127
       lineChar: 29
       spanCodeSection: 
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3504
-      endSourceChar: 3514
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3591
+      endSourceChar: 3601
+      line: 127
       lineChar: 29
       spanCodeSection: cardPoint.
-    - startInstruction: 3980
-      endInstruction: 3979
-      startSourceChar: 3514
-      endSourceChar: 3524
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4043
+      startSourceChar: 3601
+      endSourceChar: 3611
+      line: 127
       lineChar: 39
       spanCodeSection: transform.
-    - startInstruction: 3980
-      endInstruction: 4027
-      startSourceChar: 3524
-      endSourceChar: 3534
-      line: 125
+    - startInstruction: 4044
+      endInstruction: 4091
+      startSourceChar: 3611
+      endSourceChar: 3621
+      line: 127
       lineChar: 49
       spanCodeSection: 'position, '
-    - startInstruction: 4028
-      endInstruction: 4027
-      startSourceChar: 3534
-      endSourceChar: 3534
-      line: 125
+    - startInstruction: 4092
+      endInstruction: 4091
+      startSourceChar: 3621
+      endSourceChar: 3621
+      line: 127
       lineChar: 59
       spanCodeSection: 
-    - startInstruction: 4028
-      endInstruction: 4027
-      startSourceChar: 3534
-      endSourceChar: 3534
-      line: 125
+    - startInstruction: 4092
+      endInstruction: 4091
+      startSourceChar: 3621
+      endSourceChar: 3621
+      line: 127
       lineChar: 59
       spanCodeSection: 
-    - startInstruction: 4028
-      endInstruction: 4027
-      startSourceChar: 3534
-      endSourceChar: 3544
-      line: 125
+    - startInstruction: 4092
+      endInstruction: 4091
+      startSourceChar: 3621
+      endSourceChar: 3631
+      line: 127
       lineChar: 59
       spanCodeSection: cardPoint.
-    - startInstruction: 4028
-      endInstruction: 4027
-      startSourceChar: 3544
-      endSourceChar: 3554
-      line: 125
+    - startInstruction: 4092
+      endInstruction: 4091
+      startSourceChar: 3631
+      endSourceChar: 3641
+      line: 127
       lineChar: 69
       spanCodeSection: transform.
-    - startInstruction: 4028
-      endInstruction: 4028
-      startSourceChar: 3554
-      endSourceChar: 3554
-      line: 125
+    - startInstruction: 4092
+      endInstruction: 4092
+      startSourceChar: 3641
+      endSourceChar: 3641
+      line: 127
       lineChar: 79
       spanCodeSection: 
   hasInteractEvent: 0

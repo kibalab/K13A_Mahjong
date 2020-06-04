@@ -28,8 +28,41 @@ public class HandCalculator : UdonSharpBehaviour
         uiContext.IsChiable = IsChiable(cards, discardedCard);
         uiContext.IsPonable = IsPonable(cards, discardedCard);
         uiContext.IsKkanable = IsKkanable(cards, discardedCard);
-        uiContext.chiableCards = GetChiableAll(cards, discardedCard);
+
+        setChiableonUiContext(uiContext, GetChiableAll(cards, discardedCard), discardedCard);
         // TODO;
+    }
+
+    void setChiableonUiContext(UIContext uiContext, object[] chiable, Card discardedCard)
+    {
+        var vc = 0;
+        foreach (var o in chiable)
+        {
+            var cc = 0;
+            int[] cl = new int[2];
+            foreach (Card c in ((Card[])o))
+            {
+                if (c.GlobalOrder != discardedCard.GlobalOrder)
+                {
+                    cl[cc] = c.GlobalOrder;
+                    cc++;
+                }
+            }
+            switch (vc)
+            {
+                case 0:
+                    uiContext.ChiableIndex1 = new Vector2(cl[0], cl[1]);
+                    break;
+                case 1:
+                    uiContext.ChiableIndex2 = new Vector2(cl[0], cl[1]);
+                    break;
+                case 2:
+                    uiContext.ChiableIndex3 = new Vector2(cl[0], cl[1]);
+                    break;
+            }
+            vc++;
+        }
+        uiContext.ChiableCount = vc;
     }
 
     public bool IsChiable(Card[] cards, Card discardedCard)

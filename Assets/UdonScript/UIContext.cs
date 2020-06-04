@@ -7,8 +7,10 @@ using VRC.Udon;
 public class UIContext : UdonSharpBehaviour
 {
     // 최대 두 개까지 Chiable 할텐데 UdonSync로 보낼려면 이 방법밖에 없음
-    [UdonSynced(UdonSyncMode.None)] public int ChiableIndex1;
-    [UdonSynced(UdonSyncMode.None)] public int ChiableIndex2;
+    [UdonSynced(UdonSyncMode.None)] public int ChiableCount;
+    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex1;
+    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex2;
+    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex3;
     [UdonSynced(UdonSyncMode.None)] public int PonableIndex;
     [UdonSynced(UdonSyncMode.None)] public int KkanableIndex;
 
@@ -20,8 +22,6 @@ public class UIContext : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public bool IsKkanable;
 
     public bool IsChanged;
-
-    public object[] chiableCards;
 
     public bool IsAnythingActived()
     {

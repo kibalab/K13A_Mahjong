@@ -489,8 +489,8 @@ MonoBehaviour:
     \       PUSH, __1_j_Int32\r\n        PUSH, __7_intnl_SystemObject\r\n        EXTERN,
     \"SystemObjectArray.__Get__SystemInt32__SystemObject\"\r\n        PUSH, __7_intnl_SystemObject\r\n
     \       PUSH, __3_intnl_Card\r\n        COPY\r\n        PUSH, __3_intnl_Card\r\n
-    \       PUSH, __0_val2_Card\r\n        COPY\r\n        \r\n         # if (val1.GlobalIndex
-    > val2.GlobalIndex)\r\n        PUSH, __0_val1_Card\r\n        PUSH, __2_const_intnl_SystemString\r\n
+    \       PUSH, __0_val2_Card\r\n        COPY\r\n        \r\n         # if (val1.GlobalOrder
+    > val2.GlobalOrder)\r\n        PUSH, __0_val1_Card\r\n        PUSH, __2_const_intnl_SystemString\r\n
     \       PUSH, __8_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __8_intnl_SystemObject\r\n        PUSH, __38_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
@@ -3458,7 +3458,7 @@ MonoBehaviour:
       endSourceChar: 2696
       line: 108
       lineChar: 25
-      spanCodeSection: 'GlobalIndex > '
+      spanCodeSection: 'GlobalOrder > '
     - startInstruction: 3896
       endInstruction: 3895
       startSourceChar: 2696
@@ -3479,7 +3479,7 @@ MonoBehaviour:
       endSourceChar: 2731
       line: 108
       lineChar: 44
-      spanCodeSection: "GlobalIndex)\r\n                "
+      spanCodeSection: "GlobalOrder)\r\n                "
     - startInstruction: 4000
       endInstruction: 3999
       startSourceChar: 2731

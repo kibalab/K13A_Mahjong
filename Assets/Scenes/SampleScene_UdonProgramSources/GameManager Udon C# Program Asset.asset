@@ -149,7 +149,7 @@ MonoBehaviour:
     \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\r\n
     \       PUSH, __9_intnl_SystemBoolean\r\n        PUSH, __10_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000007F8\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000830\r\n
     \       \r\n         # {\r\n        \r\n         # var inputEvent = EventQueue.Dequeue();\r\n
     \       PUSH, EventQueue\r\n        PUSH, __12_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
@@ -186,15 +186,15 @@ MonoBehaviour:
     __0_eventType_String\r\n        PUSH, __21_const_intnl_SystemString\r\n        PUSH,
     __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
     \       PUSH, __12_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000538\r\n
-    \       JUMP, 0x00000798\r\n        \r\n         # case \"Pon\":\r\n        PUSH,
+    \       JUMP, 0x000007D0\r\n        \r\n         # case \"Pon\":\r\n        PUSH,
     __0_eventType_String\r\n        PUSH, __22_const_intnl_SystemString\r\n        PUSH,
     __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
     \       PUSH, __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000570\r\n
-    \       JUMP, 0x000007B8\r\n        \r\n         # case \"Kkan\":\r\n        PUSH,
+    \       JUMP, 0x000007F0\r\n        \r\n         # case \"Kkan\":\r\n        PUSH,
     __0_eventType_String\r\n        PUSH, __23_const_intnl_SystemString\r\n        PUSH,
     __14_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
     \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005A8\r\n
-    \       JUMP, 0x000007D8\r\n        JUMP, 0x000007F8\r\n        PUSH, TableManager\r\n
+    \       JUMP, 0x00000810\r\n        JUMP, 0x00000830\r\n        PUSH, TableManager\r\n
     \       PUSH, __24_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, TableManager\r\n        PUSH, __25_const_intnl_SystemString\r\n
     \       PUSH, __5_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
@@ -211,7 +211,12 @@ MonoBehaviour:
     \       PUSH, __15_intnl_SystemBoolean\r\n        PUSH, __16_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
     \       PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006B0\r\n
-    \       JUMP, 0x000007F8\r\n        PUSH, TableManager\r\n        PUSH, __29_const_intnl_SystemString\r\n
+    \       JUMP, 0x00000830\r\n        PUSH, __0_currentTable_Player\r\n        PUSH,
+    __29_const_intnl_SystemString\r\n        PUSH, __0_eventCard_Card\r\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_currentTable_Player\r\n        PUSH, __20_const_intnl_SystemString\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, TableManager\r\n        PUSH, __29_const_intnl_SystemString\r\n
     \       PUSH, __0_eventCard_Card\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, TableManager\r\n        PUSH, __30_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
@@ -223,19 +228,19 @@ MonoBehaviour:
     \       EXTERN, \"SystemConvert.__ToBoolean__SystemObject__SystemBoolean\"\r\n
     \       PUSH, __17_intnl_SystemBoolean\r\n        PUSH, __18_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000790\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000007C8\r\n
     \       PUSH, TableManager\r\n        PUSH, __1_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, TableManager\r\n        PUSH, __32_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x000007F8\r\n        PUSH, TableManager\r\n        PUSH, __1_const_intnl_SystemString\r\n
+    \       JUMP, 0x00000830\r\n        PUSH, TableManager\r\n        PUSH, __1_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x000007F8\r\n        PUSH, TableManager\r\n        PUSH, __1_const_intnl_SystemString\r\n
+    \       JUMP, 0x00000830\r\n        PUSH, TableManager\r\n        PUSH, __1_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x000007F8\r\n        \r\n         # TableManager.AddNextCard();\r\n
+    \       JUMP, 0x00000830\r\n        \r\n         # TableManager.AddNextCard();\r\n
     \       PUSH, TableManager\r\n        PUSH, __1_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # break;\r\n        JUMP, 0x000007F8\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    \       \r\n         # break;\r\n        JUMP, 0x00000830\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
@@ -1242,7 +1247,7 @@ MonoBehaviour:
     - startInstruction: 1224
       endInstruction: 1279
       startSourceChar: 1516
-      endSourceChar: 2168
+      endSourceChar: 2204
       line: 55
       lineChar: 21
       spanCodeSection: "\"Discard\":\r\n                    var currentTable = TableManager.GetCurrentTurnPlayer();\r\n\r\n
@@ -1250,95 +1255,95 @@ MonoBehaviour:
         \                       // \uC2E4\uC81C \uD50C\uB808\uC774\uC5D0\uC11C\uB294
         \uD604\uC7AC \uD134\uC758 \uC720\uC800\uB9CC interact \uAC00\uB2A5\uD558\uAE30
         \uB54C\uBB38\uC5D0 \uC5EC\uAE30 \uC548 \uC634\r\n                        break;\r\n
-        \                   }\r\n\r\n                    TableManager.AnnounceDiscard(eventCard);\r\n
-        \                   \r\n                    if (!TableManager.IsAnyoneUIActived())\r\n
-        \                   {\r\n                        TableManager.AddNextCard();\r\n
+        \                   }\r\n\r\n                    currentTable.Discard(eventCard);\r\n\r\n
+        \                   TableManager.AnnounceDiscard(eventCard);\r\n\r\n                    if
+        (!TableManager.IsAnyoneUIActived())\r\n                    {\r\n                        TableManager.AddNextCard();\r\n
         \                       TableManager.MoveToNextTable();\r\n                    }\r\n\r\n
         \                   break;\r\n\r\n                "
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 2168
-      endSourceChar: 2173
-      line: 74
+      startSourceChar: 2204
+      endSourceChar: 2209
+      line: 76
       lineChar: 16
       spanCodeSection: 'case '
     - startInstruction: 1280
       endInstruction: 1335
-      startSourceChar: 2173
-      endSourceChar: 2276
-      line: 74
+      startSourceChar: 2209
+      endSourceChar: 2312
+      line: 76
       lineChar: 21
       spanCodeSection: "\"Chi\":\r\n                    TableManager.AddNextCard();\r\n
         \                   break;\r\n\r\n                "
     - startInstruction: 1336
       endInstruction: 1335
-      startSourceChar: 2276
-      endSourceChar: 2281
-      line: 78
+      startSourceChar: 2312
+      endSourceChar: 2317
+      line: 80
       lineChar: 16
       spanCodeSection: 'case '
     - startInstruction: 1336
       endInstruction: 1391
-      startSourceChar: 2281
-      endSourceChar: 2384
-      line: 78
+      startSourceChar: 2317
+      endSourceChar: 2420
+      line: 80
       lineChar: 21
       spanCodeSection: "\"Pon\":\r\n                    TableManager.AddNextCard();\r\n
         \                   break;\r\n\r\n                "
     - startInstruction: 1392
       endInstruction: 1391
-      startSourceChar: 2384
-      endSourceChar: 2389
-      line: 82
+      startSourceChar: 2420
+      endSourceChar: 2425
+      line: 84
       lineChar: 16
       spanCodeSection: 'case '
     - startInstruction: 1392
-      endInstruction: 2007
-      startSourceChar: 2389
-      endSourceChar: 2418
-      line: 82
+      endInstruction: 2063
+      startSourceChar: 2425
+      endSourceChar: 2454
+      line: 84
       lineChar: 21
       spanCodeSection: "\"Kkan\":\r\n                    "
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 2418
-      endSourceChar: 2418
-      line: 83
+    - startInstruction: 2064
+      endInstruction: 2063
+      startSourceChar: 2454
+      endSourceChar: 2454
+      line: 85
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 2418
-      endSourceChar: 2418
-      line: 83
+    - startInstruction: 2064
+      endInstruction: 2063
+      startSourceChar: 2454
+      endSourceChar: 2454
+      line: 85
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 2418
-      endSourceChar: 2418
-      line: 83
+    - startInstruction: 2064
+      endInstruction: 2063
+      startSourceChar: 2454
+      endSourceChar: 2454
+      line: 85
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 2008
-      endInstruction: 2007
-      startSourceChar: 2418
-      endSourceChar: 2431
-      line: 83
+    - startInstruction: 2064
+      endInstruction: 2063
+      startSourceChar: 2454
+      endSourceChar: 2467
+      line: 85
       lineChar: 20
       spanCodeSection: TableManager.
-    - startInstruction: 2008
-      endInstruction: 2031
-      startSourceChar: 2431
-      endSourceChar: 2496
-      line: 83
+    - startInstruction: 2064
+      endInstruction: 2087
+      startSourceChar: 2467
+      endSourceChar: 2532
+      line: 85
       lineChar: 33
       spanCodeSection: "AddNextCard();\r\n                    // TODO\r\n                    "
-    - startInstruction: 2032
-      endInstruction: 2032
-      startSourceChar: 2496
-      endSourceChar: 2496
-      line: 85
+    - startInstruction: 2088
+      endInstruction: 2088
+      startSourceChar: 2532
+      endSourceChar: 2532
+      line: 87
       lineChar: 20
       spanCodeSection: 
   hasInteractEvent: 0
