@@ -41,45 +41,37 @@ public class HandCalculator : UdonSharpBehaviour
         for (var i = 0; i< chiableCount; ++i)
         {
             var chiableCards = (Card[])chiableList[i];
-            foreach (var card in chiableCards)
+            var globalOrders = new int[2];
+            var cardSpriteNames = new string[2];
+
+            for (var cardIndex = 0; cardIndex < chiableCards.Length; ++cardIndex) 
             {
-                var uiContextIndex = 0;
+                var card = chiableCards[cardIndex];
+                globalOrders[cardIndex] = card.GlobalOrder;
+                cardSpriteNames[cardIndex] = card.GetCardSpriteName();
+            }
 
-                var globalOrders = new int[2];
-                var cardSpriteNames = new string[2];
+            switch (i)
+            {
+                case 0:
+                    uiContext.ChiableIndex1 = new Vector2(globalOrders[0], globalOrders[1]);
+                    uiContext.ChiableSprite11 = cardSpriteNames[0];
+                    uiContext.ChiableSprite12 = cardSpriteNames[1];
+                    break;
 
+                case 1:
+                    uiContext.ChiableIndex2 = new Vector2(globalOrders[0], globalOrders[1]);
+                    uiContext.ChiableSprite21 = cardSpriteNames[0];
+                    uiContext.ChiableSprite22 = cardSpriteNames[1];
+                    break;
 
-                if (card.GlobalOrder != discardedCard.GlobalOrder)
-                {
-                    globalOrders[uiContextIndex] = card.GlobalOrder;
-                    cardSpriteNames[uiContextIndex] = card.GetCardSpriteName();
-
-                    ++uiContextIndex;
-                }
-
-                switch (i)
-                {
-                    case 0:
-                        uiContext.ChiableIndex1 = new Vector2(globalOrders[0], globalOrders[1]);
-                        uiContext.ChiableSprite11 = cardSpriteNames[0];
-                        uiContext.ChiableSprite12 = cardSpriteNames[1];
-                        break;
-
-                    case 1:
-                        uiContext.ChiableIndex2 = new Vector2(globalOrders[0], globalOrders[1]);
-                        uiContext.ChiableSprite21 = cardSpriteNames[0];
-                        uiContext.ChiableSprite22 = cardSpriteNames[1];
-                        break;
-
-                    case 2:
-                        uiContext.ChiableIndex3 = new Vector2(globalOrders[0], globalOrders[1]);
-                        uiContext.ChiableSprite31 = cardSpriteNames[0];
-                        uiContext.ChiableSprite32 = cardSpriteNames[1];
-                        break;
-                }
+                case 2:
+                    uiContext.ChiableIndex3 = new Vector2(globalOrders[0], globalOrders[1]);
+                    uiContext.ChiableSprite31 = cardSpriteNames[0];
+                    uiContext.ChiableSprite32 = cardSpriteNames[1];
+                    break;
             }
         }
-
     }
 
     public bool IsChiable(Card[] cards, Card discardedCard)
@@ -106,15 +98,15 @@ public class HandCalculator : UdonSharpBehaviour
         // for문으로 바꾸려는 시도를 해봤는데, 이거보다 보기 더 어려워져서 그냥 이렇게 함
         if (typeStartIndex + 2 <= chiIndex && chiIndex <= typeEndIndex - 0 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0)
         {
-            list[count++] = ToCards(cards, new int[] { chiIndex - 2, chiIndex - 1, chiIndex });
+            list[count++] = ToCards(cards, new int[] { chiIndex - 2, chiIndex - 1 });
         }
         if (typeStartIndex + 1 <= chiIndex && chiIndex <= typeEndIndex - 1 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0)
         {
-            list[count++] = ToCards(cards, new int[] { chiIndex - 1, chiIndex, chiIndex + 1});
+            list[count++] = ToCards(cards, new int[] { chiIndex - 1, chiIndex + 1});
         }
         if (typeStartIndex + 0 <= chiIndex && chiIndex <= typeEndIndex - 2 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0)
         {
-            list[count++] = ToCards(cards, new int[] { chiIndex, chiIndex + 1, chiIndex +2 });
+            list[count++] = ToCards(cards, new int[] { chiIndex + 1, chiIndex +2 });
         }
 
         // return object[ CardComponent[], CardComponent[], ... ]
@@ -368,7 +360,7 @@ public class HandCalculator : UdonSharpBehaviour
     Card[] ToCards(Card[] cards, int[] cardIndexes)
     {
         var findIndex = 0;
-        var arr = new Card[3];
+        var arr = new Card[cardIndexes.Length];
 
         foreach (var card in cards)
         {
