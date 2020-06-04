@@ -11,6 +11,9 @@ public class InputEvent : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
     [UdonSynced(UdonSyncMode.None)] public int CardIndex;
 
+    // 여러개의 Chi중 선택한 치를 담는변수
+    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiIndex;
+
     public void Set(int cardIndex, string eventType, int playerIndex)
     {
         CardIndex = cardIndex;

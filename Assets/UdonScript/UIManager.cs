@@ -56,18 +56,18 @@ public class UIManager : UdonSharpBehaviour
 
             if (uiContext.IsChiable)
             { //Chi 만 이렇게 여러가지 로직 들어가야되는게 너무 싫다...
-                switch (uiContext.chiableCards.Length) {
+                switch (uiContext.ChiableCount) {
                     case 0 :
+                        ActiveButton("Chi");
+                        ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
+                        setChiSelectButton(1);
                         break;
                     case 1 :
                         ActiveButton("Chi");
-                        break;
-                    case 2 :
-                        ActiveButton("Chi");
-                        ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
+                        ActiveButton("ChiSelect");
                         setChiSelectButton(2);
                         break;
-                    case 3:
+                    case 2:
                         ActiveButton("Chi");
                         ActiveButton("ChiSelect");
                         setChiSelectButton(3);
@@ -92,7 +92,8 @@ public class UIManager : UdonSharpBehaviour
             GameObject g = UICanvas.transform.Find("ChiSelect").GetChild(size).gameObject;
             for(var j = 0; j<3; j++)
             {
-                g.transform.GetChild(j).GetComponent<Image>().sprite = ((Card[])uiContext.chiableCards[i])[j].transform.Find("Display").GetComponent<SpriteRenderer>().sprite;
+                //g.transform.GetChild(j).GetComponent<Image>().sprite = ((Card[])uiContext.chiableCards[i])[j].transform.Find("Display").GetComponent<SpriteRenderer>().sprite;
+                
             }
         }
     }
