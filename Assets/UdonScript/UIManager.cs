@@ -13,6 +13,7 @@ public class UIManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int playerTurn;
 
     public GameObject UICanvas;
+    public CardSprites CardSprites;
     public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
     private UIContext uiContext;
@@ -48,33 +49,30 @@ public class UIManager : UdonSharpBehaviour
 
     void Update()
     {
-        if (uiContext == null) { return; }
-
         if (uiContext.IsChanged && isMyTable)
         {
             uiContext.IsChanged = false;
 
             if (uiContext.IsChiable)
             { //Chi 만 이렇게 여러가지 로직 들어가야되는게 너무 싫다...
-                switch (uiContext.ChiableCount) {
+                switch (uiContext.ChiableCount)
+                {
                     case 0 :
                         ActiveButton("Chi");
                         ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
-                        setChiSelectButton(1);
+                        SetChiSelectButton(1);
                         break;
                     case 1 :
                         ActiveButton("Chi");
                         ActiveButton("ChiSelect");
-                        setChiSelectButton(2);
+                        SetChiSelectButton(2);
                         break;
                     case 2:
                         ActiveButton("Chi");
                         ActiveButton("ChiSelect");
-                        setChiSelectButton(3);
+                        SetChiSelectButton(3);
                         break;
                 }
-                
-                
             }
             if (uiContext.IsPonable) ActiveButton("Pon");
             if (uiContext.IsKkanable) ActiveButton("Kkan");
@@ -85,28 +83,31 @@ public class UIManager : UdonSharpBehaviour
         }
     }
 
-    public void setChiSelectButton(int size)
+    void SetChiSelectButton(int size)
     {
-        for(var i = 0; i<size; i++)
+        for (var i = 0; i < size; i++)
         {
-            GameObject g = UICanvas.transform.Find("ChiSelect").GetChild(size).gameObject;
-            for(var j = 0; j<3; j++)
+            var tr = UICanvas.transform.Find("ChiSelect").GetChild(i);
+            var spriteNames = uiContext.GetCardSpriteNames(i);
+            for (var j = 0; j < 2; j++)
             {
-                //g.transform.GetChild(j).GetComponent<Image>().sprite = ((Card[])uiContext.chiableCards[i])[j].transform.Find("Display").GetComponent<SpriteRenderer>().sprite;
-                
+                var spriteName = spriteNames[j];
+                var sprite = CardSprites.FindSprite(spriteName);
+
+                var image = tr.GetChild(j).GetComponent<Image>();
+                image.sprite = sprite;
             }
         }
     }
 
-
-    public void ActiveButton(string uiName)
+    void ActiveButton(string uiName)
     {
         GameObject g = UICanvas.transform.Find(uiName).gameObject;
         UICanvas.SetActive(true);
         g.gameObject.SetActive(true);
     }
 
-    public void _DisableButton()
+    void _DisableButton()
     {
         for (var i = 0; i < UICanvas.transform.childCount; i++)
         {
@@ -132,12 +133,12 @@ public class UIManager : UdonSharpBehaviour
         _DisableButton();
     }
 
-    public void _ClickButton()
+    void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
         if (UIName.Contains("chiSelect_"))
         {
-            ((NakiInput)((object)inputEvent)).chiCards = uiContext.chiableCards[int.Parse(UIName.Replace("chiSelect_", ""))];
+            //((NakiInput)((object)inputEvent)).chiCards = uiContext.chiableCards[int.Parse(UIName.Replace("chiSelect_", ""))];
         }
         inputEvent.Set(SelectedCard, UIName, playerTurn);
         eventQueue.Enqueue(inputEvent);
