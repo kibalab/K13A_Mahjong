@@ -135,10 +135,20 @@ public class UIManager : UdonSharpBehaviour
     void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
-        if (UIName.Contains("chiSelect_"))
+
+        switch (UIName)
         {
-            //((NakiInput)((object)inputEvent)).chiCards = uiContext.chiableCards[int.Parse(UIName.Replace("chiSelect_", ""))];
+            case "chiSelect_1":
+                inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex1.x, uiContext.ChiableIndex1.y);
+                break;
+            case "chiSelect_2":
+                inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);
+                break;
+            case "chiSelect_3":
+                inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
+                break;
         }
+
         inputEvent.Set(SelectedCard, UIName, playerTurn);
         eventQueue.Enqueue(inputEvent);
     }

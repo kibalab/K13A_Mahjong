@@ -62,12 +62,12 @@ public class GameManager : UdonSharpBehaviour
                         break;
                     }
 
-                    currentTable.Discard(eventCard);
-
                     TableManager.AnnounceDiscard(eventCard);
+                    
 
                     if (!TableManager.IsAnyoneUIActived())
                     {
+                        currentTable.Discard(eventCard);
                         TableManager.AddNextCard();
                         TableManager.MoveToNextTable();
                     }
@@ -75,17 +75,39 @@ public class GameManager : UdonSharpBehaviour
                     break;
 
                 case "Chi":
+                    TableManager.currentTurnPlayer = inputEvent.PlayerIndex;
+
+
+
+                    Debug.Log("[GameManager] Chi");
+                    
+                    Player player = TableManager.GetCurrentTurnPlayer();
+
+
+                    player.OpenendCards.Add(null);
                     TableManager.AddNextCard();
                     break;
 
                 case "Pon":
+                    TableManager.currentTurnPlayer = inputEvent.PlayerIndex;
+
                     TableManager.AddNextCard();
                     break;
 
                 case "Kkan":
+                    TableManager.currentTurnPlayer = inputEvent.PlayerIndex;
+
                     TableManager.AddNextCard();
                     // TODO
                     break;
+
+                case "skip":
+                    var currenttable = TableManager.GetCurrentTurnPlayer();
+                    currenttable.Discard(eventCard);
+                    TableManager.AddNextCard();
+                    TableManager.MoveToNextTable();
+                    break;
+
             }
         }
     }
