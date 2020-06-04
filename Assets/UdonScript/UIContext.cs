@@ -6,11 +6,18 @@ using VRC.Udon;
 
 public class UIContext : UdonSharpBehaviour
 {
-    // 최대 두 개까지 Chiable 할텐데 UdonSync로 보낼려면 이 방법밖에 없음
     [UdonSynced(UdonSyncMode.None)] public int ChiableCount;
     [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex1;
     [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex2;
     [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex3;
+
+    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite11;
+    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite12;
+    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite21;
+    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite22;
+    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite31;
+    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite32;
+
     [UdonSynced(UdonSyncMode.None)] public int PonableIndex;
     [UdonSynced(UdonSyncMode.None)] public int KkanableIndex;
 
@@ -36,5 +43,16 @@ public class UIContext : UdonSharpBehaviour
         IsChiable = false;
         IsPonable = false;
         IsKkanable = false;
+    }
+
+    public string[] GetCardSpriteNames(int slot)
+    {
+        switch(slot)
+        {
+            case 0: return new string[] { ChiableSprite11, ChiableSprite12 };
+            case 1: return new string[] { ChiableSprite21, ChiableSprite22 };
+            case 2: return new string[] { ChiableSprite31, ChiableSprite32 };
+        }
+        return new string[] { };
     }
 }
