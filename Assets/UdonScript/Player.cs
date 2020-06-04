@@ -80,7 +80,7 @@ public class Player : UdonSharpBehaviour
     {
         UIContext.Clear();
 
-        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card, InputEvent);
+        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card);
 
         UIContext.IsChanged = true;
     }

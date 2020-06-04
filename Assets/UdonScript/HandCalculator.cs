@@ -22,17 +22,17 @@ public class HandCalculator : UdonSharpBehaviour
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
 
-    public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, object inputEvent)
+    public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard)
     {
         uiContext.IsChiable = IsChiable(cards, discardedCard);
         uiContext.IsPonable = IsPonable(cards, discardedCard);
         uiContext.IsKkanable = IsKkanable(cards, discardedCard);
 
-        SetChiableonUiContext(uiContext, GetChiableAll(cards, discardedCard), discardedCard);
+        SetChiableonUiContext(uiContext, GetChiableAll(cards, discardedCard));
         // TODO;
     }
 
-    void SetChiableonUiContext(UIContext uiContext, object[] chiableList, Card discardedCard)
+    void SetChiableonUiContext(UIContext uiContext, object[] chiableList)
     {
         var chiableCount = chiableList.Length;
 
