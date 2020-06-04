@@ -80,7 +80,7 @@ public class Player : UdonSharpBehaviour
     {
         UIContext.Clear();
 
-        HandCalculator.RequestNakiable(this, UIContext, AgariContext, card, InputEvent);
+        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card, InputEvent);
 
         UIContext.IsChanged = true;
     }
@@ -127,5 +127,19 @@ public class Player : UdonSharpBehaviour
             var cardPoint = cardPoints[k];
             card.SetPosition(cardPoint.transform.position, cardPoint.transform.rotation);
         }
+    }
+
+    Card[] GetArray()
+    {
+        var objs = Cards.Clone();
+        var cards = new Card[objs.Length];
+
+        for (var i = 0; i < objs.Length; ++i)
+        {
+            // 이렇게 하나하나 바꿔주지 않으면 애러남
+            // 그래서 Card 전용 KList를 만들까 생각중
+            cards[i] = (Card)objs[i];
+        }
+        return cards;
     }
 }

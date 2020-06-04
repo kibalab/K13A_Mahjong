@@ -22,47 +22,64 @@ public class HandCalculator : UdonSharpBehaviour
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
 
-    public void RequestNakiable(Player player, UIContext uiContext, AgariContext agariContext, Card discardedCard, object inputEvent)
+    public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, object inputEvent)
     {
-        Card[] cards = (Card[]) player.Cards.Clone();
         uiContext.IsChiable = IsChiable(cards, discardedCard);
         uiContext.IsPonable = IsPonable(cards, discardedCard);
         uiContext.IsKkanable = IsKkanable(cards, discardedCard);
 
-        setChiableonUiContext(uiContext, GetChiableAll(cards, discardedCard), discardedCard);
+        SetChiableonUiContext(uiContext, GetChiableAll(cards, discardedCard), discardedCard);
         // TODO;
     }
 
-    void setChiableonUiContext(UIContext uiContext, object[] chiable, Card discardedCard)
+    void SetChiableonUiContext(UIContext uiContext, object[] chiableList, Card discardedCard)
     {
-        var vc = 0;
-        foreach (var o in chiable)
+        var chiableCount = chiableList.Length;
+
+        uiContext.ChiableCount = chiableCount;
+
+        for (var i = 0; i< chiableCount; ++i)
         {
-            var cc = 0;
-            int[] cl = new int[2];
-            foreach (Card c in ((Card[])o))
+            var chiableCards = (Card[])chiableList[i];
+            foreach (var card in chiableCards)
             {
-                if (c.GlobalOrder != discardedCard.GlobalOrder)
+                var uiContextIndex = 0;
+
+                var globalOrders = new int[2];
+                var cardSpriteNames = new string[2];
+
+
+                if (card.GlobalOrder != discardedCard.GlobalOrder)
                 {
-                    cl[cc] = c.GlobalOrder;
-                    cc++;
+                    globalOrders[uiContextIndex] = card.GlobalOrder;
+                    cardSpriteNames[uiContextIndex] = card.GetCardSpriteName();
+
+                    ++uiContextIndex;
+                }
+
+                switch (i)
+                {
+                    case 0:
+                        uiContext.ChiableIndex1 = new Vector2(globalOrders[0], globalOrders[1]);
+                        uiContext.ChiableSprite11 = cardSpriteNames[0];
+                        uiContext.ChiableSprite12 = cardSpriteNames[1];
+                        break;
+
+                    case 1:
+                        uiContext.ChiableIndex2 = new Vector2(globalOrders[0], globalOrders[1]);
+                        uiContext.ChiableSprite21 = cardSpriteNames[0];
+                        uiContext.ChiableSprite22 = cardSpriteNames[1];
+                        break;
+
+                    case 2:
+                        uiContext.ChiableIndex3 = new Vector2(globalOrders[0], globalOrders[1]);
+                        uiContext.ChiableSprite31 = cardSpriteNames[0];
+                        uiContext.ChiableSprite32 = cardSpriteNames[1];
+                        break;
                 }
             }
-            switch (vc)
-            {
-                case 0:
-                    uiContext.ChiableIndex1 = new Vector2(cl[0], cl[1]);
-                    break;
-                case 1:
-                    uiContext.ChiableIndex2 = new Vector2(cl[0], cl[1]);
-                    break;
-                case 2:
-                    uiContext.ChiableIndex3 = new Vector2(cl[0], cl[1]);
-                    break;
-            }
-            vc++;
         }
-        uiContext.ChiableCount = vc;
+
     }
 
     public bool IsChiable(Card[] cards, Card discardedCard)
