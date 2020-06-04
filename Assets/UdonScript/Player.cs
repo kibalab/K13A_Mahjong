@@ -80,9 +80,9 @@ public class Player : UdonSharpBehaviour
     {
         UIContext.Clear();
 
-        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card);
-
         UIContext.IsChanged = true;
+
+        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card);
     }
 
     public bool IsUIActived()
@@ -141,5 +141,19 @@ public class Player : UdonSharpBehaviour
             cards[i] = (Card)objs[i];
         }
         return cards;
+    }
+
+    public void NakiedCard(int[] globalOrders)
+    {
+        foreach(int globalOrder in globalOrders)
+        {
+            foreach(Card card in Cards.Clone())
+            {
+                if (card.GlobalOrder == globalOrder)
+                {
+                    OpenendCards.Add(card);
+                }
+            }
+        }
     }
 }
