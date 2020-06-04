@@ -12,9 +12,9 @@ public class UIManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int SelectedCard;
     [UdonSynced(UdonSyncMode.None)] public int playerTurn;
 
-    public GameObject UICanvas;
-    public CardSprites CardSprites;
-    public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
+    /*LinkedInInspector*/ public GameObject UICanvas;
+    /*LinkedInInspector*/ public CardSprites CardSprites;
+    /*LinkedInInspector*/ public Button Pon, Chi, Kkan, Rich, Ron, Tsumo, Skip;
 
     private UIContext uiContext;
     private EventQueue eventQueue;
@@ -22,7 +22,7 @@ public class UIManager : UdonSharpBehaviour
 
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
-    private bool isMyTable = true; 
+    private bool isMyTable = true;
 
     public void Initialize(InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
     {
@@ -30,9 +30,9 @@ public class UIManager : UdonSharpBehaviour
         this.eventQueue = eventQueue;
         this.inputEvent = inputEvent;
 
-        UIButton[] uiButton = UICanvas.GetComponentsInChildren<UIButton>(); 
+        UIButton[] uiButton = UICanvas.GetComponentsInChildren<UIButton>();
 
-        foreach(UIButton button in uiButton)
+        foreach (UIButton button in uiButton)
         {
             button.Initialize(this);
         }
@@ -57,12 +57,12 @@ public class UIManager : UdonSharpBehaviour
             { //Chi 만 이렇게 여러가지 로직 들어가야되는게 너무 싫다...
                 switch (uiContext.ChiableCount)
                 {
-                    case 0 :
+                    case 0:
                         ActiveButton("Chi");
                         ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
                         SetChiSelectButton(1);
                         break;
-                    case 1 :
+                    case 1:
                         ActiveButton("Chi");
                         ActiveButton("ChiSelect");
                         SetChiSelectButton(2);
