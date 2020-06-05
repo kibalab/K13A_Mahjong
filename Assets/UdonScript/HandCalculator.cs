@@ -598,6 +598,15 @@ public class HandCalculator : UdonSharpBehaviour
         // (1,2,3) (2,3,4)가 가능함)
         var chiables = GetChiableAll(testSet, chiTarget);
         DebugHelper.Equal(chiables.Length, 2, 1);
+
+        var chiable1 = (Card[])chiables[0];
+        var chiable2 = (Card[])chiables[1];
+
+        DebugHelper.IsTrue(chiable1[0].CardNumber == 1, 1);
+        DebugHelper.IsTrue(chiable1[1].CardNumber == 3, 2);
+
+        DebugHelper.IsTrue(chiable2[0].CardNumber == 3, 3);
+        DebugHelper.IsTrue(chiable2[1].CardNumber == 4, 4);
     }
 
     public void Start()
