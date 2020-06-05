@@ -10,7 +10,7 @@ public class UIManager : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public string UIName;
     [UdonSynced(UdonSyncMode.None)] public int SelectedCard;
-    [UdonSynced(UdonSyncMode.None)] public int playerTurn;
+    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
     /*LinkedInInspector*/ public GameObject UICanvas;
     /*LinkedInInspector*/ public CardSprites CardSprites;
@@ -24,8 +24,9 @@ public class UIManager : UdonSharpBehaviour
     private bool isMyTable = true;
     private bool isInitialized = false;
 
-    public void Initialize(InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
+    public void Initialize(int playerIndex, InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
     {
+        this.PlayerIndex = playerIndex;
         this.uiContext = uiContext;
         this.eventQueue = eventQueue;
         this.inputEvent = inputEvent;
@@ -145,7 +146,7 @@ public class UIManager : UdonSharpBehaviour
 
     void _ClickButton()
     {
-        Debug.Log("[UION] ClickEvent PlayerTurn : " + playerTurn + ", UIName : " + UIName);
+        Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
 
         switch (UIName)
         {
@@ -160,7 +161,7 @@ public class UIManager : UdonSharpBehaviour
                 break;
         }
 
-        inputEvent.Set(SelectedCard, UIName, playerTurn);
+        inputEvent.Set(SelectedCard, UIName, PlayerIndex);
         eventQueue.Enqueue(inputEvent);
     }
 }
