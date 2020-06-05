@@ -83,30 +83,55 @@ public class HandCalculator : UdonSharpBehaviour
         var cardOrder = discardedCard.GlobalOrder;
         if (cardOrder >= HandUtil.GetWordsStartGlobalOrder()) { return new object[0]; }
 
-        var globalOrders = HandUtil.GetGlobalOrders(cards);
+        var targetCardType = discardedCard.Type;
+        var targetGlobalOrder = discardedCard.GlobalOrder;
+        var chiCandidates = new Card[4] { null, null, null, null };
+        var chiDiff = new int[4] { -2, -1, +1, +2 };
 
-        // 같은 type의 패만 슌쯔를 검사한다
-        var startOrder = HandUtil.GetStartGlobalOrderOf(discardedCard.Type);
-        var endOrder = HandUtil.GetEndGlobalOrderOf(discardedCard.Type);
+        foreach (var card in cards)
+        {
+            // 버려진 카드와 같은 Type의 패만 슌쯔를 검사한다
+            if (card.Type != targetCardType)
+            {
+                continue;
+            }
+
+            for (var i = 0; i < chiDiff.Length; ++i)
+            {
+                // 이미 후보가 있다면 검사할 필요가 없다
+                if (chiCandidates[i] != null) { continue; }
+
+                if (card.GlobalOrder == targetGlobalOrder + chiDiff[i])
+                {
+                    chiCandidates[i] = card;
+                    break;
+                }
+            }
+        }
+
+        // 만1,2,3,4가 있는데 만3이 버려졌다면 아래와 같은 결과가 됨
+        // chiCandidates[0] = 만1;
+        // chiCandidates[1] = 만2;
+        // chiCandidates[2] = 만4;
+        // chiCandidates[3] = null;
 
         var list = new object[3];
         var count = 0;
 
-        // for문으로 바꾸려는 시도를 해봤는데, 이거보다 보기 더 어려워져서 그냥 이렇게 함
-        if (startOrder + 2 <= cardOrder && cardOrder <= endOrder - 0 && globalOrders[cardOrder - 2] > 0 && globalOrders[cardOrder - 1] > 0)
+        for (var i = 0; i < chiCandidates.Length - 1; ++i)
         {
-            list[count++] = ToCards(cards, new int[] { cardOrder - 2, cardOrder - 1 });
-        }
-        if (startOrder + 1 <= cardOrder && cardOrder <= endOrder - 1 && globalOrders[cardOrder - 1] > 0 && globalOrders[cardOrder + 1] > 0)
-        {
-            list[count++] = ToCards(cards, new int[] { cardOrder - 1, cardOrder + 1});
-        }
-        if (startOrder + 0 <= cardOrder && cardOrder <= endOrder - 2 && globalOrders[cardOrder + 1] > 0 && globalOrders[cardOrder + 2] > 0)
-        {
-            list[count++] = ToCards(cards, new int[] { cardOrder + 1, cardOrder +2 });
-        }
+            // 연속된 후보가 있다면 치가 가능한 것.
+            // 위의 경우, (만1, 만2)와 (만2, 만4)가 가능
+            var cand1 = chiCandidates[i];
+            var cand2 = chiCandidates[i + 1];
 
-        // return object[ Card[], Card[], ... ]
+            if (cand1 != null && cand2 != null)
+            {
+                list[count++] = new Card[] { cand1, cand2 };
+            }
+        }
+    
+
         return Fit(list, count);
     }
 
@@ -354,26 +379,6 @@ public class HandCalculator : UdonSharpBehaviour
             clone[i] = arr[i];
         }
         return clone;
-    }
-
-    Card[] ToCards(Card[] cards, int[] cardGlobalOrders)
-    {
-        var findCount = cardGlobalOrders.Length;
-        var findIndex = 0;
-        var arr = new Card[findCount];
-
-        foreach (var card in cards)
-        {
-            if (card.GlobalOrder == cardGlobalOrders[findIndex])
-            {
-                arr[findIndex] = card;
-                findIndex++;
-
-                if (findIndex == findCount) { return arr; }
-            }
-        }
-
-        return arr;
     }
 
     void Test1()
