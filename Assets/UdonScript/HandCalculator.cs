@@ -77,14 +77,8 @@ public class HandCalculator : UdonSharpBehaviour
         }
     }
 
-    public bool IsChiable(Card[] cards, Card discardedCard)
-    {
-        return GetChiableAll(cards, discardedCard).Length != 0;
-    }
-
     public object[] GetChiableAll(Card[] cards, Card discardedCard)
     {
-
         // 자패의 슌쯔는 검사하지 않는다
         var chiIndex = discardedCard.GlobalOrder;
         if (chiIndex >= HandUtil.GetWordsStartIndex()) { return new object[0]; }
@@ -480,15 +474,15 @@ public class HandCalculator : UdonSharpBehaviour
 
         var chiTarget = TEST__SetTestData(TestComponents[2], "삭", 1);
 
-        DebugHelper.IsFalse(IsChiable(testSet, chiTarget), 1);
+        DebugHelper.IsFalse(TEST__IsChiable(testSet, chiTarget), 1);
 
         chiTarget = TEST__SetTestData(TestComponents[2], "만", 1);
 
-        DebugHelper.IsTrue(IsChiable(testSet, chiTarget), 2);
+        DebugHelper.IsTrue(TEST__IsChiable(testSet, chiTarget), 2);
 
         chiTarget = TEST__SetTestData(TestComponents[2], "만", 4);
 
-        DebugHelper.IsTrue(IsChiable(testSet, chiTarget), 3);
+        DebugHelper.IsTrue(TEST__IsChiable(testSet, chiTarget), 3);
     }
 
     void Test5()
@@ -578,7 +572,7 @@ public class HandCalculator : UdonSharpBehaviour
         var chiTarget = TEST__SetTestData(TestComponents[2], "남", 3);
 
         // 동서남은 순서상 123이긴 한데 chi 가능하지 않음
-        DebugHelper.IsFalse(IsChiable(testSet, chiTarget), 1);
+        DebugHelper.IsFalse(TEST__IsChiable(testSet, chiTarget), 1);
     }
 
     void Test9()
@@ -616,6 +610,11 @@ public class HandCalculator : UdonSharpBehaviour
         Test7();
         Test8();
         Test9();
+    }
+
+    public bool TEST__IsChiable(Card[] cards, Card discardedCard)
+    {
+        return GetChiableAll(cards, discardedCard).Length != 0;
     }
 
     Card TEST__SetTestData(Card card, string type, int cardNumber)
