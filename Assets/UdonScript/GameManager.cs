@@ -16,8 +16,8 @@ public class GameManager : UdonSharpBehaviour
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
     const string State_WaitForNaki = "WaitForNaki";
-    const string State_StartNextRound = "StartNextRound";
-    const string State_GameEnd = "GameEnd";
+    const string State_EndOfRound = "EndOfRound";
+    const string State_EndOfGame = "EndOfGame";
 
     private Card WaitingNakiCard;
 
@@ -64,12 +64,14 @@ public class GameManager : UdonSharpBehaviour
                     WaitForNaki(inputEvent);
                     break;
 
-                case State_StartNextRound:
-                    // 만들어야 한다...
+                case State_EndOfRound:
+                    // 역에 대한 결과를 보여주는 단계
+                    // 만들어야 함 (UI 디자인부터 해야...)
                     break;
 
-                case State_GameEnd:
-                    // 만들어야 한다...
+                case State_EndOfGame:
+                    // 전체 스코어를 보여주는 단계
+                    // 만들어야 함 (UI 디자인부터 해야...)
                     break;
 
                 default:
