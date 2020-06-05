@@ -37,14 +37,18 @@ public class TableManager : UdonSharpBehaviour
         return players[currentTurnPlayer];
     }
 
-    public void MoveTurnTo(int playerIndex)
+    public void StartTurnOfNext()
     {
-        currentTurnPlayer = playerIndex;
+        var nextPlayerIndex = (currentTurnPlayer + 1) % 4;
+
+        StartTurnOf(nextPlayerIndex);
     }
 
-    public void MoveToNextTable()
+    public void StartTurnOf(int playerIndex)
     {
-        currentTurnPlayer = (currentTurnPlayer + 1) % 4;
+        currentTurnPlayer = playerIndex;
+
+        AddNextCard();
     }
 
     public void AddNextCard()
