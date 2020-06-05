@@ -144,14 +144,13 @@ public class GameManager : UdonSharpBehaviour
 
         if (WaitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
 
-        if (eventType == "Skip")
+        if (eventType == "Skip" && UIActivedCount > 0)
         {
             ProcessSkip();
         }
         else if (IsNakiInput(inputEvent))
         {
             ProcessNaki(inputEvent);
-
         }
     }
 
