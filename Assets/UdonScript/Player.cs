@@ -86,14 +86,19 @@ public class Player : UdonSharpBehaviour
 
     public void OpenCards(Card[] cards)
     {
-        foreach(var card in cards)
+        foreach (var card in cards)
         {
             if (Contains(card))
             {
                 Cards.RemoveAt(Cards.IndexOf(card));
                 OpenendCards.Add(card);
             }
+
+            // TODO 일단 안 보이는 곳으로 보내버리는데, 나중에 수정해야함
+            card.SetPosition(new Vector3(999, 999), Quaternion.identity);
         }
+
+        SortPosition();
     }
 
     public Card[] FindCardByGlobalOrder(int globalOrder, int count)
@@ -109,7 +114,7 @@ public class Player : UdonSharpBehaviour
             }
         }
 
-        if (index != count) { Debug.Log("이러면 안되는뎅;;;"); }
+        if (index != count) { Debug.Log("error on FindCardByGlobalOrder"); }
         return arr;
     }
 
