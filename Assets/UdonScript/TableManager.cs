@@ -27,6 +27,11 @@ public class TableManager : UdonSharpBehaviour
         players = Players.GetComponentsInChildren<Player>();
     }
 
+    public bool IsCurrentTurn(int playerIndex)
+    {
+        return currentTurnPlayer == playerIndex;
+    }
+
     public Player GetCurrentTurnPlayer()
     {
         return players[currentTurnPlayer];
