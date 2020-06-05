@@ -6,54 +6,54 @@ using VRC.Udon;
 
 public class HandUtil : UdonSharpBehaviour
 {
-    private const int MAN_START_INDEX = 0;
-    private const int MAN_END_INDEX = 8;
-    private const int PIN_START_INDEX = 9;
-    private const int PIN_END_INDEX = 17;
-    private const int SOU_START_INDEX = 18;
-    private const int SOU_END_INDEX = 26;
-    private const int WORDS_START_INDEX = 27;
-    private const int WORDS_END_INDEX = 33;
+    private const int MAN_START_GLOBAL_ORDER = 0;
+    private const int MAN_END_GLOBAL_ORDER = 8;
+    private const int PIN_START_GLOBAL_ORDER = 9;
+    private const int PIN_END_GLOBAL_ORDER = 17;
+    private const int SOU_START_GLOBAL_ORDER = 18;
+    private const int SOU_END_GLOBAL_ORDER = 26;
+    private const int WORDS_START_GLOBAL_ORDER = 27;
+    private const int WORDS_END_GLOBAL_ORDER = 33;
     private const int TILES_COUNT = 34;
 
-    public int GetManStartIndex()
+    public int GetManStartGlobalOrder()
     {
-        return MAN_START_INDEX;
+        return MAN_START_GLOBAL_ORDER;
     }
 
-    public int GetManEndIndex()
+    public int GetManEndGlobalOrder()
     {
-        return MAN_END_INDEX;
+        return MAN_END_GLOBAL_ORDER;
     }
 
-    public int GetPinStartIndex()
+    public int GetPinStartGlobalOrder()
     {
-        return PIN_START_INDEX;
+        return PIN_START_GLOBAL_ORDER;
     }
 
-    public int GetPinEndIndex()
+    public int GetPinEndGlobalOrder()
     {
-        return PIN_END_INDEX;
+        return PIN_END_GLOBAL_ORDER;
     }
 
-    public int GetSouStartIndex()
+    public int GetSouStartGlobalOrder()
     {
-        return SOU_START_INDEX;
+        return SOU_START_GLOBAL_ORDER;
     }
 
-    public int GetSouEndIndex()
+    public int GetSouEndGlobalOrder()
     {
-        return SOU_END_INDEX;
+        return SOU_END_GLOBAL_ORDER;
     }
 
-    public int GetWordsStartIndex()
+    public int GetWordsStartGlobalOrder()
     {
-        return WORDS_START_INDEX;
+        return WORDS_START_GLOBAL_ORDER;
     }
 
-    public int GetWordsEndIndex()
+    public int GetWordsEndGlobalOrder()
     {
-        return WORDS_END_INDEX;
+        return WORDS_END_GLOBAL_ORDER;
     }
 
     public int GetEastCardNumber()
@@ -91,22 +91,22 @@ public class HandUtil : UdonSharpBehaviour
         return 7;
     }
 
-    public int GetCardsCount(int[] tiles)
+    public int GetCardsCount(int[] globalOrders)
     {
         var count = 0;
-        for (var i = 0; i < tiles.Length; ++i)
+        for (var i = 0; i < globalOrders.Length; ++i)
         {
-            count += tiles[i];
+            count += globalOrders[i];
         }
         return count;
     }
 
-    public int GetWordsCardTypeCount(int[] tiles)
+    public int GetWordsCardTypeCount(int[] globalOrders)
     {
         var count = 0;
-        for (var i = WORDS_START_INDEX; i <= WORDS_END_INDEX; ++i)
+        for (var i = WORDS_START_GLOBAL_ORDER; i <= WORDS_END_GLOBAL_ORDER; ++i)
         {
-            if (tiles[i] > 0)
+            if (globalOrders[i] > 0)
             {
                 count++;
             }
@@ -116,83 +116,83 @@ public class HandUtil : UdonSharpBehaviour
 
     public int GetYaojuhaiTypeCount(int[] tiles)
     {
-        return (tiles[MAN_START_INDEX] > 0 ? 1 : 0)
-             + (tiles[MAN_END_INDEX] > 0 ? 1 : 0)
-             + (tiles[SOU_START_INDEX] > 0 ? 1 : 0)
-             + (tiles[SOU_END_INDEX] > 0 ? 1 : 0)
-             + (tiles[PIN_START_INDEX] > 0 ? 1 : 0)
-             + (tiles[PIN_END_INDEX] > 0 ? 1 : 0)
+        return (tiles[MAN_START_GLOBAL_ORDER] > 0 ? 1 : 0)
+             + (tiles[MAN_END_GLOBAL_ORDER] > 0 ? 1 : 0)
+             + (tiles[SOU_START_GLOBAL_ORDER] > 0 ? 1 : 0)
+             + (tiles[SOU_END_GLOBAL_ORDER] > 0 ? 1 : 0)
+             + (tiles[PIN_START_GLOBAL_ORDER] > 0 ? 1 : 0)
+             + (tiles[PIN_END_GLOBAL_ORDER] > 0 ? 1 : 0)
              + GetWordsCardTypeCount(tiles);
     }
 
-    public int[] CardComponetsToIndexes(Card[] cards)
+    public int[] GetGlobalOrders(Card[] cards)
     {
-        var tiles = new int[TILES_COUNT];
+        var globalOrders = new int[TILES_COUNT];
         foreach (var card in cards)
         {
             if (card != null)
             {
-                tiles[card.GlobalOrder]++;
+                globalOrders[card.GlobalOrder]++;
             }
         }
-        return tiles;
+        return globalOrders;
     }
 
-    public int CardComponentToIndex(string cardType, int cardNumber)
+    public int GetGlobalOrder(string cardType, int cardNumber)
     {
-        return GetStartIndexOfType(cardType) + (cardNumber - 1);
+        return GetStartGlobalOrderOf(cardType) + (cardNumber - 1);
     }
 
-    public int GetStartIndexOfType(string cardType)
+    public int GetStartGlobalOrderOf(string cardType)
     {
         switch (cardType)
         {
-            case "만": return MAN_START_INDEX;
-            case "통": return PIN_START_INDEX;
-            case "삭": return SOU_START_INDEX;
-            case "동": return WORDS_START_INDEX;
-            case "서": return WORDS_START_INDEX;
-            case "남": return WORDS_START_INDEX;
-            case "북": return WORDS_START_INDEX;
-            case "백": return WORDS_START_INDEX;
-            case "발": return WORDS_START_INDEX;
-            case "중": return WORDS_START_INDEX;
+            case "만": return MAN_START_GLOBAL_ORDER;
+            case "통": return PIN_START_GLOBAL_ORDER;
+            case "삭": return SOU_START_GLOBAL_ORDER;
+            case "동": return WORDS_START_GLOBAL_ORDER;
+            case "서": return WORDS_START_GLOBAL_ORDER;
+            case "남": return WORDS_START_GLOBAL_ORDER;
+            case "북": return WORDS_START_GLOBAL_ORDER;
+            case "백": return WORDS_START_GLOBAL_ORDER;
+            case "발": return WORDS_START_GLOBAL_ORDER;
+            case "중": return WORDS_START_GLOBAL_ORDER;
         }
         return -1;
     }
 
-    public int GetEndIndexOfType(string cardType)
+    public int GetEndGlobalOrderOf(string cardType)
     {
         switch (cardType)
         {
-            case "만": return MAN_END_INDEX;
-            case "통": return PIN_END_INDEX;
-            case "삭": return SOU_END_INDEX;
-            case "동": return WORDS_END_INDEX;
-            case "서": return WORDS_END_INDEX;
-            case "남": return WORDS_END_INDEX;
-            case "북": return WORDS_END_INDEX;
-            case "백": return WORDS_END_INDEX;
-            case "발": return WORDS_END_INDEX;
-            case "중": return WORDS_END_INDEX;
+            case "만": return MAN_END_GLOBAL_ORDER;
+            case "통": return PIN_END_GLOBAL_ORDER;
+            case "삭": return SOU_END_GLOBAL_ORDER;
+            case "동": return WORDS_END_GLOBAL_ORDER;
+            case "서": return WORDS_END_GLOBAL_ORDER;
+            case "남": return WORDS_END_GLOBAL_ORDER;
+            case "북": return WORDS_END_GLOBAL_ORDER;
+            case "백": return WORDS_END_GLOBAL_ORDER;
+            case "발": return WORDS_END_GLOBAL_ORDER;
+            case "중": return WORDS_END_GLOBAL_ORDER;
         }
         return -1;
     }
 
-    public int[] FindPairs(int[] tiles)
+    public int[] FindPairs(int[] globalOrders)
     {
         // 머리를 찾는다. 최대 갯수는 14/2 7개
         var arr = new int[7];
         var index = 0;
 
-        for (var i = 0; i < tiles.Length; ++i)
+        for (var i = 0; i < globalOrders.Length; ++i)
         {
             // 커쯔인 자패는 무시한다. 머리로 빼봤자 나머지 하나가 역할을 못 함
-            if (i >= WORDS_START_INDEX && tiles[i] != 2)
+            if (i >= WORDS_START_GLOBAL_ORDER && globalOrders[i] != 2)
             {
                 continue;
             }
-            if (tiles[i] >= 2)
+            if (globalOrders[i] >= 2)
             {
                 arr[index++] = i;
             }
