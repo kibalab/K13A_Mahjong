@@ -19,6 +19,8 @@ public class GameManager : UdonSharpBehaviour
     const string State_StartNextRound = "StartNextRound";
     const string State_GameEnd = "GameEnd";
 
+    private Card WaitingNakiCard;
+
     void Start()
     {
         if (Networking.GetOwner(this.gameObject) == null)
@@ -27,7 +29,7 @@ public class GameManager : UdonSharpBehaviour
         }
 
         TableManager.Initialize();
-        GameState = State_WaitForStart;
+        ChangeGameState(State_WaitForStart);
 
         if (Networking.LocalPlayer == null)
         {
@@ -38,14 +40,15 @@ public class GameManager : UdonSharpBehaviour
     void SettingForUnityTests()
     {
         TableManager.AddNextCard();
-        GameState = State_WaitForDiscard;
+        ChangeGameState(State_WaitForDiscard);
     }
-    
+
     void Update()
     {
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
+            Debug.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex}, {inputEvent.CardIndex})");
 
             switch (GameState)
             {
@@ -90,7 +93,7 @@ public class GameManager : UdonSharpBehaviour
             // 4명 중 아무나 첫 턴으로 설정해준다
             TableManager.StartTurnOf(Random.Range(0, 4));
 
-            GameState = State_WaitForDiscard;
+            ChangeGameState(State_WaitForDiscard);
         }
     }
 
@@ -116,13 +119,15 @@ public class GameManager : UdonSharpBehaviour
             {
                 TableManager.StartTurnOfNext();
 
-                GameState = State_WaitForDiscard;
+                ChangeGameState(State_WaitForDiscard);
             }
             else
             {
+                WaitingNakiCard = eventCard;
                 UIActivedCount = uiActived;
+                Debug.Log($"UIActived. Count:{UIActivedCount}");
 
-                GameState = State_WaitForNaki;
+                ChangeGameState(State_WaitForNaki);
             }
         }
     }
@@ -130,15 +135,12 @@ public class GameManager : UdonSharpBehaviour
     void WaitForNaki(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
-        var eventCard = TableManager.GetCardByIndex(inputEvent.CardIndex);
 
-        if (eventType != "Chi" || eventType != "Pon" || eventType != "Kkan" || eventType != "Ron")
-        {
-            return;
-        }
+        if (!IsNakiInput(inputEvent)) { return; }
+        if (WaitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
 
         var formerPlayer = TableManager.GetCurrentTurnPlayer();
-        formerPlayer.RemoveStashedCard(eventCard);
+        formerPlayer.RemoveStashedCard(WaitingNakiCard);
 
         TableManager.StartTurnOf(inputEvent.PlayerIndex);
 
@@ -150,7 +152,7 @@ public class GameManager : UdonSharpBehaviour
             {
                 var chiCards = new Card[]
                 {
-                    eventCard,
+                    WaitingNakiCard,
                     TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
                     TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
                 };
@@ -163,10 +165,10 @@ public class GameManager : UdonSharpBehaviour
 
             case "Pon":
             {
-                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 2);
+                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 2);
                 var ponCards = new Card[]
                 {
-                    eventCard,
+                    WaitingNakiCard,
                     sameOrderCards[0],
                     sameOrderCards[1]
                 };
@@ -179,10 +181,10 @@ public class GameManager : UdonSharpBehaviour
 
             case "Kkan":
             {
-                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 3);
+                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
                 var kkanCards = new Card[]
                 {
-                    eventCard,
+                    WaitingNakiCard,
                     sameOrderCards[0],
                     sameOrderCards[1],
                     sameOrderCards[2]
@@ -207,10 +209,28 @@ public class GameManager : UdonSharpBehaviour
             }
         }
 
+        Debug.Log($"UIActivedCount {UIActivedCount}");
         if (UIActivedCount == 0)
         {
-            TableManager.StartTurnOfNext();
-            GameState = State_WaitForDiscard;
+            TableManager.DisableUIAll();
+            ChangeGameState(State_WaitForDiscard);
         }
+    }
+
+    void ChangeGameState(string state)
+    {
+        Debug.Log($"GameState = {state}");
+
+        GameState = state;
+    }
+
+    bool IsNakiInput(InputEvent inputEvent)
+    {
+        var eventType = inputEvent.EventType;
+        return eventType == "Chi"
+            || eventType == "Pon"
+            || eventType == "Kkan"
+            || eventType == "Ron"
+            || eventType == "Skip";
     }
 }
