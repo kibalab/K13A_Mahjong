@@ -359,8 +359,9 @@ public class HandCalculator : UdonSharpBehaviour
 
     Card[] ToCards(Card[] cards, int[] cardIndexes)
     {
+        var findCount = cardIndexes.Length;
         var findIndex = 0;
-        var arr = new Card[cardIndexes.Length];
+        var arr = new Card[findCount];
 
         foreach (var card in cards)
         {
@@ -369,7 +370,7 @@ public class HandCalculator : UdonSharpBehaviour
                 arr[findIndex] = card;
                 findIndex++;
 
-                if (findIndex == 3) { return arr; }
+                if (findIndex == findCount) { return arr; }
             }
         }
 
