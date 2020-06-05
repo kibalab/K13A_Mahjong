@@ -54,60 +54,86 @@ public class GameManager : UdonSharpBehaviour
             switch (eventType)
             {
                 case "Discard":
-                    var currentTable = TableManager.GetCurrentTurnPlayer();
-
-                    if (!currentTable.Contains(eventCard))
                     {
-                        // 실제 플레이에서는 현재 턴의 유저만 interact 가능하기 때문에 여기 안 옴
+                        var currentTable = TableManager.GetCurrentTurnPlayer();
+                        currentTable.Discard(eventCard);
+
+                        TableManager.AnnounceDiscard(eventCard);
+
+                        if (!TableManager.IsAnyoneUIActived())
+                        {
+                            TableManager.AddNextCard();
+                            TableManager.MoveToNextTable();
+                        }
+                        break;
+                    }
+                    
+
+                case "Chi":
+                    {
+                        var formerPlayer = TableManager.GetCurrentTurnPlayer();
+                        formerPlayer.RemoveStashedCard(eventCard);
+
+                        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
+
+                        var nextPlayer = TableManager.GetCurrentTurnPlayer();
+                        var chiCards = new Card[]
+                        {
+                            eventCard,
+                            TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
+                            TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
+                        };
+
+                        nextPlayer.OpenCards(chiCards);
                         break;
                     }
 
-                    TableManager.AnnounceDiscard(eventCard);
-                    
-
-                    if (!TableManager.IsAnyoneUIActived())
-                    {
-                        currentTable.Discard(eventCard);
-                        TableManager.AddNextCard();
-                        TableManager.MoveToNextTable();
-                    }
-
-                    break;
-
-                case "Chi":
-                    TableManager.currentTurnPlayer = inputEvent.PlayerIndex;
-
-
-
-                    Debug.Log("[GameManager] Chi");
-                    
-                    Player player = TableManager.GetCurrentTurnPlayer();
-
-
-                    player.OpenendCards.Add(null);
-                    TableManager.AddNextCard();
-                    break;
 
                 case "Pon":
-                    TableManager.currentTurnPlayer = inputEvent.PlayerIndex;
+                    {
+                        var formerPlayer = TableManager.GetCurrentTurnPlayer();
+                        formerPlayer.RemoveStashedCard(eventCard);
 
-                    TableManager.AddNextCard();
-                    break;
+                        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
+
+                        var nextPlayer = TableManager.GetCurrentTurnPlayer();
+                        var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 2);
+                        var ponCards = new Card[]
+                        {
+                            eventCard,
+                            sameOrderCards[0],
+                            sameOrderCards[1]
+                        };
+
+                        nextPlayer.OpenCards(ponCards);
+                        break;
+                    }
 
                 case "Kkan":
-                    TableManager.currentTurnPlayer = inputEvent.PlayerIndex;
+                    {
+                        var formerPlayer = TableManager.GetCurrentTurnPlayer();
+                        formerPlayer.RemoveStashedCard(eventCard);
 
-                    TableManager.AddNextCard();
-                    // TODO
-                    break;
+                        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
 
-                case "skip":
-                    var currenttable = TableManager.GetCurrentTurnPlayer();
-                    currenttable.Discard(eventCard);
+                        var nextPlayer = TableManager.GetCurrentTurnPlayer();
+                        var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 3);
+                        var ponCards = new Card[]
+                        {
+                            eventCard,
+                            sameOrderCards[0],
+                            sameOrderCards[1],
+                            sameOrderCards[2]
+                        };
+
+                        nextPlayer.OpenCards(ponCards);
+                        break;
+                    }
+
+                case "Skip":
                     TableManager.AddNextCard();
                     TableManager.MoveToNextTable();
                     break;
-
             }
         }
     }
