@@ -20,16 +20,16 @@ public class Player : UdonSharpBehaviour
     private Transform plusCardPosition;
     private HandCalculator HandCalculator;
 
-    int myTableNumber;
+    int playerIndex;
 
     int[] stashedCards;
     int stashedCardIndex;
 
-    public void Initialize(int myTableNumber, EventQueue eventQueue, Transform stashPositions)
+    public void Initialize(int playerIndex, EventQueue eventQueue, Transform stashPositions)
     {
         cardPoints = FindPoints();
 
-        this.myTableNumber = myTableNumber;
+        this.playerIndex = playerIndex;
         this.stashPositions = stashPositions;
 
         UiManager.Initialize(InputEvent, eventQueue, UIContext);
@@ -56,6 +56,7 @@ public class Player : UdonSharpBehaviour
         // AgariContext.IsTsumoable(newCard, isFristTsumo, isLastTsumo);
 
         newCard.InputEvent = InputEvent;
+        newCard.PlayerIndex = playerIndex;
 
         Cards.Add(newCard);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);

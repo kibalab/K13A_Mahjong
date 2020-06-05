@@ -14,6 +14,7 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
     [UdonSynced(UdonSyncMode.None)] public int Index;
+    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
     /*LinkedInInspector*/ public InputEvent InputEvent;
     /*LinkedInInspector*/ public UIManager UIManager;
@@ -23,7 +24,7 @@ public class Card : UdonSharpBehaviour
 
     public override void Interact()
     {
-        if(Networking.LocalPlayer == null)
+        if (Networking.LocalPlayer == null)
         {
             _Interact();
         }
@@ -35,7 +36,7 @@ public class Card : UdonSharpBehaviour
 
     public void _Interact()
     {
-        InputEvent.Set(Index, "Discard", -1);
+        InputEvent.Set(Index, "Discard", PlayerIndex);
         eventQueue.Enqueue(InputEvent);
     }
 
