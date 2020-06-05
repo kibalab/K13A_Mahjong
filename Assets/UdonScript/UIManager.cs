@@ -155,12 +155,15 @@ public class UIManager : UdonSharpBehaviour
         {
             case "chiSelect_1":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex1.x, uiContext.ChiableIndex1.y);
+                UIName = "Chi";
                 break;
             case "chiSelect_2":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);
+                UIName = "Chi";
                 break;
             case "chiSelect_3":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
+                UIName = "Chi";
                 break;
         }
 
