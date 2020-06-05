@@ -22,6 +22,7 @@ public class UIManager : UdonSharpBehaviour
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
     private bool isMyTable = true;
+    private bool isInitialized = false;
 
     public void Initialize(InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
     {
@@ -44,10 +45,14 @@ public class UIManager : UdonSharpBehaviour
         {
             _DisableButton();
         }
+
+        isInitialized = true;
     }
 
     void Update()
     {
+        if (!isInitialized) { return; }
+
         if (uiContext.IsChanged && isMyTable)
         {
             uiContext.IsChanged = false;
