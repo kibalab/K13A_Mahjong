@@ -44,32 +44,32 @@ public class HandCalculator : UdonSharpBehaviour
         for (var i = 0; i< chiableCount; ++i)
         {
             var chiableCards = (Card[])chiableList[i];
-            var globalOrders = new int[2];
+            var indexes = new int[2];
             var cardSpriteNames = new string[2];
 
             for (var cardIndex = 0; cardIndex < chiableCards.Length; ++cardIndex) 
             {
                 var card = chiableCards[cardIndex];
-                globalOrders[cardIndex] = card.GlobalOrder;
+                indexes[cardIndex] = card.Index;
                 cardSpriteNames[cardIndex] = card.GetCardSpriteName();
             }
 
             switch (i)
             {
                 case 0:
-                    uiContext.ChiableIndex1 = new Vector2(globalOrders[0], globalOrders[1]);
+                    uiContext.ChiableIndex1 = new Vector2(indexes[0], indexes[1]);
                     uiContext.ChiableSprite11 = cardSpriteNames[0];
                     uiContext.ChiableSprite12 = cardSpriteNames[1];
                     break;
 
                 case 1:
-                    uiContext.ChiableIndex2 = new Vector2(globalOrders[0], globalOrders[1]);
+                    uiContext.ChiableIndex2 = new Vector2(indexes[0], indexes[1]);
                     uiContext.ChiableSprite21 = cardSpriteNames[0];
                     uiContext.ChiableSprite22 = cardSpriteNames[1];
                     break;
 
                 case 2:
-                    uiContext.ChiableIndex3 = new Vector2(globalOrders[0], globalOrders[1]);
+                    uiContext.ChiableIndex3 = new Vector2(indexes[0], indexes[1]);
                     uiContext.ChiableSprite31 = cardSpriteNames[0];
                     uiContext.ChiableSprite32 = cardSpriteNames[1];
                     break;
