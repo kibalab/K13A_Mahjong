@@ -80,30 +80,30 @@ public class HandCalculator : UdonSharpBehaviour
     public object[] GetChiableAll(Card[] cards, Card discardedCard)
     {
         // 자패의 슌쯔는 검사하지 않는다
-        var chiIndex = discardedCard.GlobalOrder;
-        if (chiIndex >= HandUtil.GetWordsStartIndex()) { return new object[0]; }
+        var cardOrder = discardedCard.GlobalOrder;
+        if (cardOrder >= HandUtil.GetWordsStartGlobalOrder()) { return new object[0]; }
 
-        var tiles = HandUtil.CardComponetsToIndexes(cards);
+        var globalOrders = HandUtil.GetGlobalOrders(cards);
 
         // 같은 type의 패만 슌쯔를 검사한다
-        var typeStartIndex = HandUtil.GetStartIndexOfType(discardedCard.Type);
-        var typeEndIndex = HandUtil.GetEndIndexOfType(discardedCard.Type);
+        var startOrder = HandUtil.GetStartGlobalOrderOf(discardedCard.Type);
+        var endOrder = HandUtil.GetEndGlobalOrderOf(discardedCard.Type);
 
         var list = new object[3];
         var count = 0;
 
         // for문으로 바꾸려는 시도를 해봤는데, 이거보다 보기 더 어려워져서 그냥 이렇게 함
-        if (typeStartIndex + 2 <= chiIndex && chiIndex <= typeEndIndex - 0 && tiles[chiIndex - 2] > 0 && tiles[chiIndex - 1] > 0)
+        if (startOrder + 2 <= cardOrder && cardOrder <= endOrder - 0 && globalOrders[cardOrder - 2] > 0 && globalOrders[cardOrder - 1] > 0)
         {
-            list[count++] = ToCards(cards, new int[] { chiIndex - 2, chiIndex - 1 });
+            list[count++] = ToCards(cards, new int[] { cardOrder - 2, cardOrder - 1 });
         }
-        if (typeStartIndex + 1 <= chiIndex && chiIndex <= typeEndIndex - 1 && tiles[chiIndex - 1] > 0 && tiles[chiIndex + 1] > 0)
+        if (startOrder + 1 <= cardOrder && cardOrder <= endOrder - 1 && globalOrders[cardOrder - 1] > 0 && globalOrders[cardOrder + 1] > 0)
         {
-            list[count++] = ToCards(cards, new int[] { chiIndex - 1, chiIndex + 1});
+            list[count++] = ToCards(cards, new int[] { cardOrder - 1, cardOrder + 1});
         }
-        if (typeStartIndex + 0 <= chiIndex && chiIndex <= typeEndIndex - 2 && tiles[chiIndex + 1] > 0 && tiles[chiIndex + 2] > 0)
+        if (startOrder + 0 <= cardOrder && cardOrder <= endOrder - 2 && globalOrders[cardOrder + 1] > 0 && globalOrders[cardOrder + 2] > 0)
         {
-            list[count++] = ToCards(cards, new int[] { chiIndex + 1, chiIndex +2 });
+            list[count++] = ToCards(cards, new int[] { cardOrder + 1, cardOrder +2 });
         }
 
         // return object[ Card[], Card[], ... ]
@@ -112,18 +112,18 @@ public class HandCalculator : UdonSharpBehaviour
 
     public bool IsPonable(Card[] cards, Card discardedCard)
     {
-        var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var ponIndex = discardedCard.GlobalOrder;
+        var globalOrders = HandUtil.GetGlobalOrders(cards);
+        var cardOrder = discardedCard.GlobalOrder;
 
-        return tiles[ponIndex] + 1 >= 3;
+        return globalOrders[cardOrder] + 1 >= 3;
     }
 
     public bool IsKkanable(Card[] cards, Card discardedCard)
     {
-        var tiles = HandUtil.CardComponetsToIndexes(cards);
-        var ponIndex = discardedCard.GlobalOrder;
+        var globalOrders = HandUtil.GetGlobalOrders(cards);
+        var cardOrder = discardedCard.GlobalOrder;
 
-        return tiles[ponIndex] + 1 == 4;
+        return globalOrders[cardOrder] + 1 == 4;
     }
 
     public int[] IsRiichiable(Card[] cards)
@@ -131,35 +131,35 @@ public class HandCalculator : UdonSharpBehaviour
         if (cards.Length != 14) Debug.Log("cards.Length != 14");
 
         // 버려서 텐파이 되는 곳을 찾는다
-        var riichiCreationIndex = new int[TILES_COUNT];
+        var riichiCreationOrders = new int[TILES_COUNT];
 
-        var tiles = HandUtil.CardComponetsToIndexes(cards);
-        for (var i = 0; i < tiles.Length; ++i)
+        var globalOrders = HandUtil.GetGlobalOrders(cards);
+        for (var i = 0; i < globalOrders.Length; ++i)
         {
-            if (tiles[i] > 0)
+            if (globalOrders[i] > 0)
             {
-                --tiles[i];
-                if (IsTenpai(tiles))
+                --globalOrders[i];
+                if (IsTenpai(globalOrders))
                 {
-                    riichiCreationIndex[i] = 1;
+                    riichiCreationOrders[i] = 1;
                 }
-                ++tiles[i];
+                ++globalOrders[i];
             }
         }
 
-        return riichiCreationIndex;
+        return riichiCreationOrders;
     }
 
-    public bool IsTenpai(int[] tiles)
+    public bool IsTenpai(int[] globalOrders)
     {
         // 머리가 6개인가?
-        if (Chiitoitsu.IsTenpai(tiles))
+        if (Chiitoitsu.IsTenpai(globalOrders))
         {
             return true;
         }
 
         // 요구패가 13개인가?
-        if (Kokushimusou.IsTenpai(tiles))
+        if (Kokushimusou.IsTenpai(globalOrders))
         {
             return true;
         }
@@ -168,22 +168,22 @@ public class HandCalculator : UdonSharpBehaviour
         return true;
     }
 
-    object[] FindAll(int[] tiles, int[] openedTiles)
+    object[] FindAll(int[] globalOrders, int[] openedGlobalOrders)
     {
-        if (tiles.Length != TILES_COUNT) Debug.Log("TILES LENGTH ERROR!");
+        if (globalOrders.Length != TILES_COUNT) Debug.Log("TILES LENGTH ERROR!");
 
         Result.Clear();
 
         var maxChiPonCount = 0;
-        foreach (var pairIndex in HandUtil.FindPairs(tiles))
+        foreach (var pair in HandUtil.FindPairs(globalOrders))
         {
-            var localTiles = Clone(tiles);
-            localTiles[pairIndex] -= 2;
+            var localGlobalOrders = Clone(globalOrders);
+            localGlobalOrders[pair] -= 2;
 
-            var manCtxs = Find(localTiles, HandUtil.GetManStartIndex(), HandUtil.GetManEndIndex());
-            var pinCtxs = Find(localTiles, HandUtil.GetPinStartIndex(), HandUtil.GetPinEndIndex());
-            var souCtxs = Find(localTiles, HandUtil.GetSouStartIndex(), HandUtil.GetSouEndIndex());
-            var wordCtxs = Find(localTiles, HandUtil.GetWordsStartIndex(), HandUtil.GetWordsEndIndex());
+            var manCtxs = Find(localGlobalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder());
+            var pinCtxs = Find(localGlobalOrders, HandUtil.GetPinStartGlobalOrder(), HandUtil.GetPinEndGlobalOrder());
+            var souCtxs = Find(localGlobalOrders, HandUtil.GetSouStartGlobalOrder(), HandUtil.GetSouEndGlobalOrder());
+            var wordCtxs = Find(localGlobalOrders, HandUtil.GetWordsStartGlobalOrder(), HandUtil.GetWordsEndGlobalOrder());
 
             // 하나도 없으면 foreach문 자체에 안 들어가서
             // 공집합을 표현해주기 위해 null 하나 넣음
@@ -209,8 +209,8 @@ public class HandCalculator : UdonSharpBehaviour
                             var chiPonCount = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
                             if (maxChiPonCount <= chiPonCount)
                             {
-                                var t = Ctx.ReadTiles(ctx);
-                                t[pairIndex] += 2;
+                                var t = Ctx.ReadGlobalOrders(ctx);
+                                t[pair] += 2;
 
                                 if (maxChiPonCount < chiPonCount)
                                 {
@@ -235,11 +235,11 @@ public class HandCalculator : UdonSharpBehaviour
     // context[3]: object[int[3]] pons
     // context[4]: int ponCount
 
-    object[] Find(int[] originalTiles, int startIndex, int endIndex)
+    object[] Find(int[] originalGlobalOrders, int startOrder, int endOrder)
     {
         // 한개도 안 되면 리턴하지 말기
         var maxChiPonCount = 1;
-        var first = Ctx.CreateContext(originalTiles);
+        var first = Ctx.CreateContext(originalGlobalOrders);
 
         Stack.Clear();
         Result.Clear();
@@ -249,24 +249,24 @@ public class HandCalculator : UdonSharpBehaviour
         while (Stack.Count() != 0)
         {
             var top = (object[])Stack.RemoveLast();
-            var tiles = Ctx.ReadTiles(top);
+            var globalOrders = Ctx.ReadGlobalOrders(top);
             var chiCount = Ctx.ReadChiCount(top);
             var ponCount = Ctx.ReadPonCount(top);
             var isChanged = false;
 
             // 자패의 슌쯔는 검사하지 않는다
-            if (startIndex < HandUtil.GetWordsStartIndex())
+            if (startOrder < HandUtil.GetWordsStartGlobalOrder())
             {
-                for (var i = startIndex; i <= endIndex - 2; ++i)
+                for (var i = startOrder; i <= endOrder - 2; ++i)
                 {
                     // 치는 뭐부터 먼저 하는지에 따라 순서가 갈려서 각 경우 전부 검사해야 함 
                     // 11234의 경우, (123)(14)와 (11)(234)가 가능하다
-                    if (CanChi(tiles, i))
+                    if (CanChi(globalOrders, i))
                     {
                         var context = Ctx.CopyContext(top);
                         Ctx.ApplyChi(context, i);
 
-                        if (!Ctx.HasSameTiles(Stack.Clone(), context))
+                        if (!Ctx.HasSameGlobalOrders(Stack.Clone(), context))
                         {
                             Stack.Add(context);
                         }
@@ -286,14 +286,14 @@ public class HandCalculator : UdonSharpBehaviour
                 }
             }
 
-            for (var i = startIndex; i <= endIndex; ++i)
+            for (var order = startOrder; order <= endOrder; ++order)
             {
-                if (CanPon(tiles, i))
+                if (CanPon(globalOrders, order))
                 {
                     var context = Ctx.CopyContext(top);
-                    Ctx.ApplyPon(context, i);
+                    Ctx.ApplyPon(context, order);
 
-                    if (!Ctx.HasSameTiles(Stack.Clone(), context))
+                    if (!Ctx.HasSameGlobalOrders(Stack.Clone(), context))
                     {
                         Stack.Add(context);
                     }
@@ -333,15 +333,17 @@ public class HandCalculator : UdonSharpBehaviour
         return Result.Clone();
     }
 
-    bool CanPon(int[] tiles, int startIndex)
+    bool CanPon(int[] globalOrders, int cardGlobalOrder)
     {
-        return tiles[startIndex] > 2;
+        return globalOrders[cardGlobalOrder] > 2;
     }
 
-    bool CanChi(int[] tiles, int startIndex)
+    bool CanChi(int[] globalOrders, int cardGlobalOrder)
     {
-        if (startIndex + 2 >= tiles.Length) { return false; }
-        return (tiles[startIndex] > 0 && tiles[startIndex + 1] > 0 && tiles[startIndex + 2] > 0);
+        if (cardGlobalOrder + 2 >= globalOrders.Length) { return false; }
+        return globalOrders[cardGlobalOrder] > 0
+            && globalOrders[cardGlobalOrder + 1] > 0
+            && globalOrders[cardGlobalOrder + 2] > 0;
     }
 
     int[] Clone(int[] arr)
@@ -354,15 +356,15 @@ public class HandCalculator : UdonSharpBehaviour
         return clone;
     }
 
-    Card[] ToCards(Card[] cards, int[] cardIndexes)
+    Card[] ToCards(Card[] cards, int[] cardGlobalOrders)
     {
-        var findCount = cardIndexes.Length;
+        var findCount = cardGlobalOrders.Length;
         var findIndex = 0;
         var arr = new Card[findCount];
 
         foreach (var card in cards)
         {
-            if (card.GlobalOrder == cardIndexes[findIndex])
+            if (card.GlobalOrder == cardGlobalOrders[findIndex])
             {
                 arr[findIndex] = card;
                 findIndex++;
@@ -388,8 +390,8 @@ public class HandCalculator : UdonSharpBehaviour
             TEST__SetTestData(TestComponents[5], "만", 3),
         };
 
-        var tiles = HandUtil.CardComponetsToIndexes(testSet);
-        var manCtxs = Find(tiles, HandUtil.GetManStartIndex(), HandUtil.GetManEndIndex());
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+        var manCtxs = Find(globalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder());
 
         DebugHelper.Equal(manCtxs.Length, 1, 1);
 
@@ -415,8 +417,8 @@ public class HandCalculator : UdonSharpBehaviour
                     TEST__SetTestData(TestComponents[9], "만", 9),
       };
 
-        var tiles = HandUtil.CardComponetsToIndexes(testSet);
-        var manCtxs = Find(tiles, HandUtil.GetManStartIndex(), HandUtil.GetManEndIndex());
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+        var manCtxs = Find(globalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder());
 
         DebugHelper.Equal(manCtxs.Length, 2, 1);
 
@@ -450,9 +452,9 @@ public class HandCalculator : UdonSharpBehaviour
                     TEST__SetTestData(TestComponents[12], "만", 8),
                     TEST__SetTestData(TestComponents[13], "만", 8),
         };
-        var tiles = HandUtil.CardComponetsToIndexes(testSet);
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        var resultCtxs = FindAll(tiles, null);
+        var resultCtxs = FindAll(globalOrders, null);
 
         // (1,2,3) (1,2,3) (3,4,5) (6,7,8)
         DebugHelper.Equal(resultCtxs.Length, 1, 1);
@@ -519,14 +521,14 @@ public class HandCalculator : UdonSharpBehaviour
                     TEST__SetTestData(TestComponents[12], "만", 7),
                     TEST__SetTestData(TestComponents[13], "삭", 9),
         };
-        var tiles = HandUtil.CardComponetsToIndexes(testSet);
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Chiitoitsu.IsTenpai(tiles), 1);
+        DebugHelper.IsTrue(Chiitoitsu.IsTenpai(globalOrders), 1);
 
         TEST__SetTestData(TestComponents[13], "만", 7);
-        tiles = HandUtil.CardComponetsToIndexes(testSet);
+        globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Chiitoitsu.IsWinable(tiles), 2);
+        DebugHelper.IsTrue(Chiitoitsu.IsWinable(globalOrders), 2);
     }
 
     void Test7()
@@ -550,14 +552,14 @@ public class HandCalculator : UdonSharpBehaviour
                     TEST__SetTestData(TestComponents[12], "발", 6),
                     TEST__SetTestData(TestComponents[13], "만", 1),
         };
-        var tiles = HandUtil.CardComponetsToIndexes(testSet);
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Kokushimusou.IsTenpai(tiles), 1);
+        DebugHelper.IsTrue(Kokushimusou.IsTenpai(globalOrders), 1);
 
         TEST__SetTestData(TestComponents[13], "중", 7);
-        tiles = HandUtil.CardComponetsToIndexes(testSet);
+        globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Kokushimusou.IsWinable(tiles), 2);
+        DebugHelper.IsTrue(Kokushimusou.IsWinable(globalOrders), 2);
     }
 
     void Test8()
@@ -621,7 +623,7 @@ public class HandCalculator : UdonSharpBehaviour
     {
         card.Type = type;
         card.CardNumber = cardNumber;
-        card.GlobalOrder = HandUtil.CardComponentToIndex(type, cardNumber);
+        card.GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
         return card;
     }
 

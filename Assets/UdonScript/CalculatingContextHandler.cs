@@ -15,16 +15,16 @@ public class CalculatingContextHandler : UdonSharpBehaviour
     const int SOU_START_INDEX = 18;
     const int SOU_END_INDEX = 26;
 
-    const int TILES = 0;
+    const int GLOBALORDERS = 0;
     const int CHILIST = 1;
     const int CHICOUNT = 2;
     const int PONLIST = 3;
     const int PONCOUNT = 4;
 
-    public object[] CreateContext(int[] typedTiles)
+    public object[] CreateContext(int[] typedGlobalOrders)
     {
         var context = new object[5];
-        context[TILES] = Clone(typedTiles);
+        context[GLOBALORDERS] = Clone(typedGlobalOrders);
         context[CHILIST] = new int[10] { 999, 999, 999, 999, 999, 999, 999, 999, 999, 999 };
         context[CHICOUNT] = 0;
         context[PONLIST] = new int[10] { 999, 999, 999, 999, 999, 999, 999, 999, 999, 999 };
@@ -35,7 +35,7 @@ public class CalculatingContextHandler : UdonSharpBehaviour
     public object[] CopyContext(object[] context)
     {
         var newContext = new object[5];
-        newContext[TILES] = Clone(ReadTiles(context));
+        newContext[GLOBALORDERS] = Clone(ReadGlobalOrders(context));
         newContext[CHILIST] = Clone(ReadChiList(context));
         newContext[CHICOUNT] = ReadChiCount(context);
         newContext[PONLIST] = Clone(ReadPonList(context));
@@ -57,13 +57,13 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         if (ctx1 == null && ctx2 == null) { return null; }
 
         var context = CreateContext(new int[34]);
-        var newTiles = ReadTiles(context);
-        var ctx1Tiles = ReadTiles(ctx1);
-        var ctx2Tiles = ReadTiles(ctx2);
+        var newGlobalOrders = ReadGlobalOrders(context);
+        var ctx1GlobalOrders = ReadGlobalOrders(ctx1);
+        var ctx2GlobalOrders = ReadGlobalOrders(ctx2);
 
         for (var i = 0; i < 34; ++i)
         {
-            newTiles[i] = ctx1Tiles[i] + ctx2Tiles[i];
+            newGlobalOrders[i] = ctx1GlobalOrders[i] + ctx2GlobalOrders[i];
         }
         var ctx1Chis = ReadChiList(ctx1);
         for (var i = 0; i < ReadChiCount(ctx1); ++i)
@@ -89,9 +89,9 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         return context;
     }
 
-    public int[] ReadTiles(object[] context)
+    public int[] ReadGlobalOrders(object[] context)
     {
-        return (int[])context[TILES];
+        return (int[])context[GLOBALORDERS];
     }
 
     public int[] ReadChiList(object[] context)
@@ -114,49 +114,49 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         return (int)context[PONCOUNT];
     }
 
-    public void ApplyPon(object[] context, int startIndex)
+    public void ApplyPon(object[] context, int startGlobalOrder)
     {
-        var tiles = ReadTiles(context);
-        tiles[startIndex] -= 3;
+        var globalOrders = ReadGlobalOrders(context);
+        globalOrders[startGlobalOrder] -= 3;
 
-        AppendPonList(context, startIndex);
+        AppendPonList(context, startGlobalOrder);
     }
 
-    public void ApplyChi(object[] context, int startIndex)
+    public void ApplyChi(object[] context, int startGlobalOrder)
     {
-        var tiles = ReadTiles(context);
-        tiles[startIndex]--;
-        tiles[startIndex + 1]--;
-        tiles[startIndex + 2]--;
+        var globalOrders = ReadGlobalOrders(context);
+        globalOrders[startGlobalOrder]--;
+        globalOrders[startGlobalOrder + 1]--;
+        globalOrders[startGlobalOrder + 2]--;
 
-        AppendChiList(context, startIndex);
+        AppendChiList(context, startGlobalOrder);
     }
 
-    public void AppendPonList(object[] context, int ponIndex)
+    public void AppendPonList(object[] context, int ponGlobalOrder)
     {
         var ponList = ReadPonList(context);
         var ponCount = ReadPonCount(context);
 
-        ponList[ponCount++] = ponIndex;
+        ponList[ponCount++] = ponGlobalOrder;
         context[PONCOUNT] = ponCount;
         Sort(ponList, ponCount);
     }
 
-    public void AppendChiList(object[] context, int chiStartIndex)
+    public void AppendChiList(object[] context, int chiGlobalOrder)
     {
         var chiList = ReadChiList(context);
         var chiCount = ReadChiCount(context);
 
-        chiList[chiCount++] = chiStartIndex;
+        chiList[chiCount++] = chiGlobalOrder;
         context[CHICOUNT] = chiCount;
         Sort(chiList, chiCount);
     }
 
-    public bool IsRemainsChiCountEqual(object[] context, int startIndex)
+    public bool IsRemainsChiCountEqual(object[] context, int startGlobalOrder)
     {
-        var tiles = ReadTiles(context);
-        return tiles[startIndex] == tiles[startIndex + 1]
-            && tiles[startIndex + 1] == tiles[startIndex + 2];
+        var globalOrders = ReadGlobalOrders(context);
+        return globalOrders[startGlobalOrder] == globalOrders[startGlobalOrder + 1]
+            && globalOrders[startGlobalOrder + 1] == globalOrders[startGlobalOrder + 2];
     }
 
     public object[] CloneObject(object[] arr)
@@ -189,7 +189,7 @@ public class CalculatingContextHandler : UdonSharpBehaviour
 
     public void PrintContext(object[] context)
     {
-        var tiles = ReadTiles(context);
+        var globalOrders = ReadGlobalOrders(context);
         var chi = ReadChiList(context);
         var chiCount = ReadChiCount(context);
         var pon = ReadPonList(context);
@@ -198,26 +198,26 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         var str = "";
         for (var i = 0; i < chiCount; ++i)
         {
-            var index = chi[i];
-            var cardNumber = index % 9 + 1;
-            var type = IndexToType(index);
+            var globalOrder = chi[i];
+            var cardNumber = globalOrder % 9 + 1;
+            var type = GobalOrderToType(globalOrder);
             str += $"({type + (cardNumber)}, {type + (cardNumber + 1)}, {type + (cardNumber + 2)})";
         }
         for (var i = 0; i < ponCount; ++i)
         {
             var index = pon[i];
             var cardNumber = index % 9 + 1;
-            var type = IndexToType(index);
+            var type = GobalOrderToType(index);
             str += $"({type + (cardNumber)}, {type + (cardNumber)}, {type + (cardNumber)})";
         }
         str += " ";
-        for (var i = 0; i < tiles.Length; ++i)
+        for (var i = 0; i < globalOrders.Length; ++i)
         {
-            for (var k = 0; k < tiles[i]; ++k)
+            for (var k = 0; k < globalOrders[i]; ++k)
             {
                 var index = i;
                 var cardNumber = index % 9 + 1;
-                var type = IndexToType(index);
+                var type = GobalOrderToType(index);
                 str += $"({type + (cardNumber)})";
             }
         }
@@ -248,14 +248,14 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         return newArr;
     }
 
-    public bool HasSameTiles(object[] ctxs, object[] ctx2)
+    public bool HasSameGlobalOrders(object[] ctxs, object[] ctx2)
     {
-        var tiles2 = ReadTiles(ctx2);
+        var globalOrders2 = ReadGlobalOrders(ctx2);
 
         foreach (object[] ctx1 in ctxs)
         {
-            var tiles1 = ReadTiles(ctx1);
-            if (HasSameValue(tiles1, tiles1.Length, tiles2, tiles2.Length))
+            var globalOrders1 = ReadGlobalOrders(ctx1);
+            if (HasSameValue(globalOrders1, globalOrders1.Length, globalOrders2, globalOrders2.Length))
             {
                 return true;
             }
@@ -321,18 +321,18 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         return newArr;
     }
 
-    string IndexToType(int index)
+    string GobalOrderToType(int globalORder)
     {
-        if (MAN_START_INDEX <= index && index <= MAN_END_INDEX) return "만";
-        if (PIN_START_INDEX <= index && index <= PIN_END_INDEX) return "통";
-        if (SOU_START_INDEX <= index && index <= SOU_END_INDEX) return "삭";
-        if (index == 27) return "동";
-        if (index == 28) return "서";
-        if (index == 29) return "남";
-        if (index == 30) return "북";
-        if (index == 31) return "백";
-        if (index == 32) return "발";
-        if (index == 33) return "중";
+        if (MAN_START_INDEX <= globalORder && globalORder <= MAN_END_INDEX) return "만";
+        if (PIN_START_INDEX <= globalORder && globalORder <= PIN_END_INDEX) return "통";
+        if (SOU_START_INDEX <= globalORder && globalORder <= SOU_END_INDEX) return "삭";
+        if (globalORder == 27) return "동";
+        if (globalORder == 28) return "서";
+        if (globalORder == 29) return "남";
+        if (globalORder == 30) return "북";
+        if (globalORder == 31) return "백";
+        if (globalORder == 32) return "발";
+        if (globalORder == 33) return "중";
         return "";
     }
 
@@ -351,14 +351,14 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         return count;
     }
 
-    public int TEST__GetPonCount(object[] contexts, int ctxIndex, int ponIndex)
+    public int TEST__GetPonCount(object[] contexts, int ctxIndex, int ponGlobalOrder)
     {
         var count = 0;
         var context = (object[])contexts[ctxIndex];
         var pon = ReadPonList(context);
         for (var i = 0; i < ReadPonCount(context); ++i)
         {
-            if (pon[i] == ponIndex)
+            if (pon[i] == ponGlobalOrder)
             {
                 count++;
             }

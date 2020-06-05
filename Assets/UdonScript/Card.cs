@@ -47,7 +47,7 @@ public class Card : UdonSharpBehaviour
         CardNumber = cardNumber;
         IsDora = isDora;
 
-        GlobalOrder = util.CardComponentToIndex(type, cardNumber);
+        GlobalOrder = util.GetGlobalOrder(type, cardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
 
         var spriteName = GetCardSpriteName();
