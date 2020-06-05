@@ -27,13 +27,12 @@ public class GameManager : UdonSharpBehaviour
         }
 
         TableManager.Initialize();
+        GameState = State_WaitForStart;
 
         if (Networking.LocalPlayer == null)
         {
             SettingForUnityTests();
         }
-
-        GameState = State_WaitForStart;
     }
 
     void SettingForUnityTests()
