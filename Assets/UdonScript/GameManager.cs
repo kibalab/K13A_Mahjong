@@ -10,7 +10,14 @@ public class GameManager : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public int Turn = 0;
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
-    [UdonSynced(UdonSyncMode.None)] public int UIInputAwaiting = 0;
+    [UdonSynced(UdonSyncMode.None)] public int UIActivedCount = 0;
+    [UdonSynced(UdonSyncMode.None)] public int RegisteredPlayerCount = 0;
+
+    const string State_WaitForStart = "WaitForStart";
+    const string State_WaitForDiscard = "WaitForDiscard";
+    const string State_WaitForNaki = "WaitForNaki";
+    const string State_StartNextRound = "StartNextRound";
+    const string State_GameEnd = "GameEnd";
 
     void Start()
     {
@@ -20,139 +27,195 @@ public class GameManager : UdonSharpBehaviour
         }
 
         TableManager.Initialize();
-        TableManager.AddNextCard();
-    }
 
-    private void Update()
-    {
-        switch (GameState)
+        if (Networking.LocalPlayer == null)
         {
-            case "WaitForStart":
-            case "InitializeGame":
-            case "AfterTsumo":
-            case "WaitForDiscard":
-            case "WaitForNaki":
-            case "Calculating":
-            case "MoveToNextRound":
-            case "EndOfGame":
-            default:
-                // 일단은 STATE 구분 안 하고 몰아넣음
-                DefaultActionForTests();
-                break;
+            SettingForUnityTests();
         }
+
+        GameState = State_WaitForStart;
     }
 
-    void DefaultActionForTests()
+    void SettingForUnityTests()
+    {
+        TableManager.AddNextCard();
+        GameState = State_WaitForDiscard;
+    }
+    
+    void Update()
     {
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
-            var eventType = inputEvent.EventType;
-            var eventCard = TableManager.GetCardByIndex(inputEvent.CardIndex);
 
-            inputEvent.Clear();
-
-            switch (eventType)
+            switch (GameState)
             {
-                case "Discard":
-                    {
-                        var currentTable = TableManager.GetCurrentTurnPlayer();
-                        currentTable.Discard(eventCard);
+                case State_WaitForStart:
+                    WaitForStart(inputEvent);
+                    break;
 
-                        TableManager.AnnounceDiscard(eventCard);
+                case State_WaitForDiscard:
+                    WaitForDiscard(inputEvent);
+                    break;
 
-                        var uiActived = TableManager.GetUIActivedUserCount();
-                        if (uiActived == 0)
-                        {
-                            TableManager.AddNextCard();
-                            TableManager.MoveToNextTable();
-                        }
-                        else
-                        {
-                            UIInputAwaiting = uiActived;
-                        }
+                case State_WaitForNaki:
+                    WaitForNaki(inputEvent);
+                    break;
 
-                        break;
-                    }
+                case State_StartNextRound:
+                    // 만들어야 한다...
+                    break;
 
-                case "Chi":
-                    {
-                        var formerPlayer = TableManager.GetCurrentTurnPlayer();
-                        formerPlayer.RemoveStashedCard(eventCard);
+                case State_GameEnd:
+                    // 만들어야 한다...
+                    break;
 
-                        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
-
-                        var nextPlayer = TableManager.GetCurrentTurnPlayer();
-                        var chiCards = new Card[]
-                        {
-                            eventCard,
-                            TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
-                            TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
-                        };
-
-                        nextPlayer.OpenCards(chiCards);
-
-                        UIInputAwaiting = 0;
-                        break;
-                    }
-
-
-                case "Pon":
-                    {
-                        var formerPlayer = TableManager.GetCurrentTurnPlayer();
-                        formerPlayer.RemoveStashedCard(eventCard);
-
-                        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
-
-                        var nextPlayer = TableManager.GetCurrentTurnPlayer();
-                        var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 2);
-                        var ponCards = new Card[]
-                        {
-                            eventCard,
-                            sameOrderCards[0],
-                            sameOrderCards[1]
-                        };
-
-                        nextPlayer.OpenCards(ponCards);
-
-                        UIInputAwaiting = 0;
-                        break;
-                    }
-
-                case "Kkan":
-                    {
-                        var formerPlayer = TableManager.GetCurrentTurnPlayer();
-                        formerPlayer.RemoveStashedCard(eventCard);
-
-                        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
-
-                        var nextPlayer = TableManager.GetCurrentTurnPlayer();
-                        var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 3);
-                        var ponCards = new Card[]
-                        {
-                            eventCard,
-                            sameOrderCards[0],
-                            sameOrderCards[1],
-                            sameOrderCards[2]
-                        };
-
-                        nextPlayer.OpenCards(ponCards);
-
-                        UIInputAwaiting = 0;
-                        break;
-                    }
-
-                case "Skip":
-                    --UIInputAwaiting;
-
-                    if (UIInputAwaiting == 0)
-                    {
-                        TableManager.AddNextCard();
-                        TableManager.MoveToNextTable();
-                    }
-
+                default:
                     break;
             }
+
+            inputEvent.Clear();
+        }
+    }
+
+    void WaitForStart(InputEvent inputEvent)
+    {
+        var eventType = inputEvent.EventType;
+        if (eventType == "Register")
+        {
+            ++RegisteredPlayerCount;
+        }
+
+        if (RegisteredPlayerCount == 4)
+        {
+            // 4명 중 아무나 첫 턴으로 설정해준다
+            TableManager.MoveTurnTo(Random.Range(0, 4));
+            TableManager.AddNextCard();
+
+            GameState = State_WaitForDiscard;
+        }
+    }
+
+    void WaitForDiscard(InputEvent inputEvent)
+    {
+        var eventType = inputEvent.EventType;
+        var eventCard = TableManager.GetCardByIndex(inputEvent.CardIndex);
+
+        if (!TableManager.IsCurrentTurn(inputEvent.PlayerIndex))
+        {
+            return;
+        }
+
+        if (eventType == "Discard")
+        {
+            var currentTable = TableManager.GetCurrentTurnPlayer();
+            currentTable.Discard(eventCard);
+
+            TableManager.AnnounceDiscard(eventCard);
+
+            var uiActived = TableManager.GetUIActivedUserCount();
+            if (uiActived == 0)
+            {
+                TableManager.AddNextCard();
+                TableManager.MoveToNextTable();
+
+                GameState = State_WaitForDiscard;
+            }
+            else
+            {
+                UIActivedCount = uiActived;
+
+                GameState = State_WaitForNaki;
+            }
+        }
+    }
+
+    void WaitForNaki(InputEvent inputEvent)
+    {
+        var eventType = inputEvent.EventType;
+        var eventCard = TableManager.GetCardByIndex(inputEvent.CardIndex);
+
+        if (eventType != "Chi" || eventType != "Pon" || eventType != "Kkan" || eventType != "Ron")
+        {
+            return;
+        }
+
+        var formerPlayer = TableManager.GetCurrentTurnPlayer();
+        formerPlayer.RemoveStashedCard(eventCard);
+
+        TableManager.MoveTurnTo(inputEvent.PlayerIndex);
+
+        var nextPlayer = TableManager.GetCurrentTurnPlayer();
+
+        switch (eventType)
+        {
+            case "Chi":
+            {
+                var chiCards = new Card[]
+                {
+                    eventCard,
+                    TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
+                    TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
+                };
+
+                nextPlayer.OpenCards(chiCards);
+
+                UIActivedCount = 0;
+                break;
+            }
+                
+
+            case "Pon":
+            {
+                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 2);
+                var ponCards = new Card[]
+                {
+                    eventCard,
+                    sameOrderCards[0],
+                    sameOrderCards[1]
+                };
+
+                nextPlayer.OpenCards(ponCards);
+
+                UIActivedCount = 0;
+                break;
+            }
+
+            case "Kkan":
+            {
+                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(eventCard.GlobalOrder, 3);
+                var kkanCards = new Card[]
+                {
+                    eventCard,
+                    sameOrderCards[0],
+                    sameOrderCards[1],
+                    sameOrderCards[2]
+                };
+
+                nextPlayer.OpenCards(kkanCards);
+
+                UIActivedCount = 0;
+                break;
+            }
+
+            case "Ron":
+            {
+                // 해야한다..
+                break;
+            }
+
+            case "Skip":
+            {
+                --UIActivedCount;
+                break;
+            }
+        }
+
+        if (UIActivedCount == 0)
+        {
+            TableManager.MoveToNextTable();
+            TableManager.AddNextCard();
+            GameState = State_WaitForDiscard;
         }
     }
 }
