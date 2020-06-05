@@ -49,6 +49,11 @@ public class TableManager : UdonSharpBehaviour
         currentTurnPlayer = playerIndex;
     }
 
+    public Player GetPlayer(int playerIndex)
+    {
+        return players[playerIndex];
+    }
+
     public void AddNextCard()
     {
         var player = GetCurrentTurnPlayer();
