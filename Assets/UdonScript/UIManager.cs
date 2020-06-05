@@ -59,7 +59,7 @@ public class UIManager : UdonSharpBehaviour
             uiContext.IsChanged = false;
 
             // 테스트 해야되서 임시로 비활성화함
-            //if (uiContext.IsChiable) { OpenChiSelect(); }
+            if (uiContext.IsChiable) { OpenChiSelect(); }
             if (uiContext.IsPonable) ActiveButton("Pon");
             if (uiContext.IsKkanable) ActiveButton("Kkan");
             if (uiContext.IsRiichable) ActiveButton("Rich");
@@ -76,14 +76,19 @@ public class UIManager : UdonSharpBehaviour
             case 0:
                 ActiveButton("Chi");
                 ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
-                SetChiSelectButton(1);
+                //SetChiSelectButton(1);
                 break;
             case 1:
                 ActiveButton("Chi");
                 ActiveButton("ChiSelect");
-                SetChiSelectButton(2);
+                SetChiSelectButton(1);
                 break;
             case 2:
+                ActiveButton("Chi");
+                ActiveButton("ChiSelect");
+                SetChiSelectButton(2);
+                break;
+            case 3:
                 ActiveButton("Chi");
                 ActiveButton("ChiSelect");
                 SetChiSelectButton(3);
