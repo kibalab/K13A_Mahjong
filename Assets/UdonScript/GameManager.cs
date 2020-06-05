@@ -141,81 +141,90 @@ public class GameManager : UdonSharpBehaviour
         if (!IsNakiInput(inputEvent)) { return; }
         if (WaitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
 
-        var formerPlayer = TableManager.GetCurrentTurnPlayer();
-        formerPlayer.RemoveStashedCard(WaitingNakiCard);
-
-        TableManager.SetTurnOf(inputEvent.PlayerIndex);
-
-        var nextPlayer = TableManager.GetCurrentTurnPlayer();
-
-        switch (eventType)
+        if (eventType == "Skip")
         {
-            case "Chi":
-            {
-                var chiCards = new Card[]
-                {
-                    WaitingNakiCard,
-                    TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
-                    TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
-                };
-
-                nextPlayer.OpenCards(chiCards);
-
-                UIActivedCount = 0;
-                break;
-            }
-
-            case "Pon":
-            {
-                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 2);
-                var ponCards = new Card[]
-                {
-                    WaitingNakiCard,
-                    sameOrderCards[0],
-                    sameOrderCards[1]
-                };
-
-                nextPlayer.OpenCards(ponCards);
-
-                UIActivedCount = 0;
-                break;
-            }
-
-            case "Kkan":
-            {
-                var sameOrderCards = nextPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
-                var kkanCards = new Card[]
-                {
-                    WaitingNakiCard,
-                    sameOrderCards[0],
-                    sameOrderCards[1],
-                    sameOrderCards[2]
-                };
-
-                nextPlayer.OpenCards(kkanCards);
-
-                UIActivedCount = 0;
-                break;
-            }
-
-            case "Ron":
-            {
-                // 해야한다..
-                break;
-            }
-
-            case "Skip":
-            {
-                --UIActivedCount;
-                break;
-            }
+            ProcessSkip();
         }
+        else
+        {
+            ProcessNaki(inputEvent);
 
+        }
+    }
+
+    void ProcessSkip()
+    {
+        --UIActivedCount;
         if (UIActivedCount == 0)
         {
             TableManager.DisableUIAll();
+            TableManager.SetNextTurn();
+            TableManager.AddNextCard();
             ChangeGameState(State_WaitForDiscard);
         }
+    }
+
+    void ProcessNaki(InputEvent inputEvent)
+    {
+        var formerPlayer = TableManager.GetCurrentTurnPlayer();
+        formerPlayer.RemoveStashedCard(WaitingNakiCard);
+        var nakiPlayer = TableManager.GetPlayer(inputEvent.PlayerIndex);
+
+        switch (inputEvent.EventType)
+        {
+            case "Chi":
+                {
+                    var chiCards = new Card[]
+                    {
+                WaitingNakiCard,
+                TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
+                TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
+                    };
+
+                    nakiPlayer.OpenCards(chiCards);
+                    break;
+                }
+
+            case "Pon":
+                {
+                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 2);
+                    var ponCards = new Card[]
+                    {
+                WaitingNakiCard,
+                sameOrderCards[0],
+                sameOrderCards[1]
+                    };
+
+                    nakiPlayer.OpenCards(ponCards);
+                    break;
+                }
+
+            case "Kkan":
+                {
+                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
+                    var kkanCards = new Card[]
+                    {
+                WaitingNakiCard,
+                sameOrderCards[0],
+                sameOrderCards[1],
+                sameOrderCards[2]
+                    };
+
+                    nakiPlayer.OpenCards(kkanCards);
+                    break;
+                }
+
+            case "Ron":
+                {
+                    // 해야한다..
+                    break;
+                }
+        }
+
+        UIActivedCount = 0;
+        WaitingNakiCard = null;
+        TableManager.DisableUIAll();
+        ChangeGameState(State_WaitForDiscard);
     }
 
     void ChangeGameState(string state)
