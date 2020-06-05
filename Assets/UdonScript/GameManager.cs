@@ -39,6 +39,8 @@ public class GameManager : UdonSharpBehaviour
 
     void SettingForUnityTests()
     {
+        // 원래 4명 다 모여야 카드를 배분하지만
+        // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
         TableManager.AddNextCard();
         ChangeGameState(State_WaitForDiscard);
     }
@@ -140,14 +142,13 @@ public class GameManager : UdonSharpBehaviour
     {
         var eventType = inputEvent.EventType;
 
-        if (!IsNakiInput(inputEvent)) { return; }
         if (WaitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
 
         if (eventType == "Skip")
         {
             ProcessSkip();
         }
-        else
+        else if (IsNakiInput(inputEvent))
         {
             ProcessNaki(inputEvent);
 
@@ -231,6 +232,7 @@ public class GameManager : UdonSharpBehaviour
 
     void ChangeGameState(string state)
     {
+        // state 바뀔 때 로그 띄워주려고 단순 대입이지만 함수로 뺌
         Debug.Log($"GameState = {state}");
 
         GameState = state;
@@ -242,7 +244,6 @@ public class GameManager : UdonSharpBehaviour
         return eventType == "Chi"
             || eventType == "Pon"
             || eventType == "Kkan"
-            || eventType == "Ron"
-            || eventType == "Skip";
+            || eventType == "Ron";
     }
 }
