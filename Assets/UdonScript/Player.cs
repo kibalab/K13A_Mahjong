@@ -31,7 +31,7 @@ public class Player : UdonSharpBehaviour
         this.playerIndex = playerIndex;
         this.stashPositions = stashPositions;
 
-        UiManager.Initialize(InputEvent, eventQueue, UIContext);
+        UiManager.Initialize(playerIndex, InputEvent, eventQueue, UIContext);
 
         stashedCards = new int[34];
         stashedCardIndex = 0;
@@ -103,6 +103,8 @@ public class Player : UdonSharpBehaviour
 
     public Card[] FindCardByGlobalOrder(int globalOrder, int count)
     {
+        Debugging(globalOrder);
+
         var index = 0;
         var arr = new Card[count];
 
@@ -116,6 +118,18 @@ public class Player : UdonSharpBehaviour
 
         if (index != count) { Debug.Log("error on FindCardByGlobalOrder"); }
         return arr;
+    }
+
+    void Debugging(int globalOrder)
+    {
+        var str = "";
+        foreach (var card in GetArray())
+        {
+            str += $"({card.GlobalOrder}) ";
+        }
+
+        str = $"Target:{globalOrder}   " + str;
+        Debug.Log(str);
     }
 
     public void CheckNakiable(Card card)
