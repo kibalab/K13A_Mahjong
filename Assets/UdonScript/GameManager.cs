@@ -10,6 +10,7 @@ public class GameManager : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public int Turn = 0;
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
+    [UdonSynced(UdonSyncMode.None)] public int UIInputAwaiting = 0;
 
     void Start()
     {
@@ -60,14 +61,19 @@ public class GameManager : UdonSharpBehaviour
 
                         TableManager.AnnounceDiscard(eventCard);
 
-                        if (!TableManager.IsAnyoneUIActived())
+                        var uiActived = TableManager.GetUIActivedUserCount();
+                        if (uiActived == 0)
                         {
                             TableManager.AddNextCard();
                             TableManager.MoveToNextTable();
                         }
+                        else
+                        {
+                            UIInputAwaiting = uiActived;
+                        }
+
                         break;
                     }
-                    
 
                 case "Chi":
                     {
@@ -85,6 +91,8 @@ public class GameManager : UdonSharpBehaviour
                         };
 
                         nextPlayer.OpenCards(chiCards);
+
+                        UIInputAwaiting = 0;
                         break;
                     }
 
@@ -106,6 +114,8 @@ public class GameManager : UdonSharpBehaviour
                         };
 
                         nextPlayer.OpenCards(ponCards);
+
+                        UIInputAwaiting = 0;
                         break;
                     }
 
@@ -127,12 +137,20 @@ public class GameManager : UdonSharpBehaviour
                         };
 
                         nextPlayer.OpenCards(ponCards);
+
+                        UIInputAwaiting = 0;
                         break;
                     }
 
                 case "Skip":
-                    TableManager.AddNextCard();
-                    TableManager.MoveToNextTable();
+                    --UIInputAwaiting;
+
+                    if (UIInputAwaiting == 0)
+                    {
+                        TableManager.AddNextCard();
+                        TableManager.MoveToNextTable();
+                    }
+
                     break;
             }
         }
