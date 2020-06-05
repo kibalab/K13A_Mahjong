@@ -14,14 +14,13 @@ public class Player : UdonSharpBehaviour
     /*LinkedInInspector*/ public InputEvent InputEvent;
     /*LinkedInInspector*/ public UIContext UIContext;
     /*LinkedInInspector*/ public AgariContext AgariContext;
+    /*LinkedInInspector*/ public HandCalculator HandCalculator;
 
     private GameObject[] cardPoints;
     private Transform stashPositions;
     private Transform plusCardPosition;
-    private HandCalculator HandCalculator;
 
     int playerIndex;
-
     int[] stashedCards;
     int stashedCardIndex;
 
