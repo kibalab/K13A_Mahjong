@@ -148,6 +148,8 @@ public class Player : UdonSharpBehaviour
 
     public void DisableUI()
     {
+        UIContext.Clear();
+
         UiManager.DisableButtonAll();
     }
 

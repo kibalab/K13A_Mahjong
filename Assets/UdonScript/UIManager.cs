@@ -118,8 +118,6 @@ public class UIManager : UdonSharpBehaviour
 
     public void DisableButtonAll()
     {
-        uiContext.Clear();
-
         for (var i = 0; i < UICanvas.transform.childCount; i++)
         {
             UICanvas.transform.GetChild(i).gameObject.SetActive(false);
