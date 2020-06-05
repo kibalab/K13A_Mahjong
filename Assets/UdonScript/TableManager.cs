@@ -76,14 +76,16 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    public bool IsAnyoneUIActived()
+    public int GetUIActivedUserCount()
     {
+        var count = 0;
+
         foreach (var player in players)
         {
-            if (player.IsUIActived()) { return true; }
+            if (player.IsUIActived()) { ++count; }
         }
 
-        return false;
+        return count;
     }
 
     public void Initialize()
