@@ -37,30 +37,28 @@ public class TableManager : UdonSharpBehaviour
         return players[currentTurnPlayer];
     }
 
-    public void StartTurnOfNext()
+    public void SetNextTurn()
     {
         var nextPlayerIndex = (currentTurnPlayer + 1) % 4;
 
-        StartTurnOf(nextPlayerIndex);
+        SetTurnOf(nextPlayerIndex);
     }
 
-    public void StartTurnOf(int playerIndex)
+    public void SetTurnOf(int playerIndex)
     {
         currentTurnPlayer = playerIndex;
-
-        AddNextCard();
     }
 
     public void AddNextCard()
     {
-        var currentTable = GetCurrentTurnPlayer();
+        var player = GetCurrentTurnPlayer();
         var index = currentCardIndex;
 
         var nextCard = GetNextCard();
         var isFirstTsumo = index == 0;
         var isLastTsumo = index == cards.Length - 1;
 
-        currentTable.AddCard(nextCard, isFirstTsumo, isLastTsumo);
+        player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
 
         for (var i = 0; i < 4; i++)
         {
