@@ -66,7 +66,7 @@ public class TableManager : UdonSharpBehaviour
         {
             if (i != currentTurnPlayer)
             {
-                players[i].CheckNakiable(card) || nakiable;
+                players[i].CheckNakiable(card);
             }
         }
     }
