@@ -20,6 +20,7 @@ public class GameManager : UdonSharpBehaviour
     const string State_EndOfGame = "EndOfGame";
 
     private Card WaitingNakiCard;
+    private float WaitingTime = 0.0f;
 
     void Start()
     {
@@ -67,6 +68,7 @@ public class GameManager : UdonSharpBehaviour
                     break;
 
                 case State_EndOfRound:
+                    EndOfGame();
                     // 역에 대한 결과를 보여주는 단계
                     // 만들어야 함 (UI 디자인부터 해야...)
                     break;
@@ -229,12 +231,31 @@ public class GameManager : UdonSharpBehaviour
         ChangeGameState(State_WaitForDiscard);
     }
 
+    void EndOfGame()
+    {
+        WaitingTime -= Time.deltaTime;
+        if (WaitingTime < 0)
+        {
+            // 다음 라운드를 시작하는 처리
+        }
+    }
+
+
     void ChangeGameState(string state)
     {
         // state 바뀔 때 로그 띄워주려고 단순 대입이지만 함수로 뺌
         Debug.Log($"GameState = {state}");
 
         GameState = state;
+
+        // State가 바뀔 때 초기 동작을 여기에 정의
+        switch (GameState)
+        {
+            case State_EndOfRound:
+                // 5초동안 결과화면을 보여주고 넘어간다고 하자 (시간은 바뀔 수 있음)
+                WaitingTime = 5f;
+                break;
+        }
     }
 
     bool IsNakiInput(InputEvent inputEvent)
