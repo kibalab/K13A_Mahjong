@@ -43,7 +43,7 @@ public class UIManager : UdonSharpBehaviour
         }
         else
         {
-            _DisableButton();
+            DisableButtonAll();
         }
 
         isInitialized = true;
@@ -57,33 +57,36 @@ public class UIManager : UdonSharpBehaviour
         {
             uiContext.IsChanged = false;
 
-            if (uiContext.IsChiable)
-            { //Chi 만 이렇게 여러가지 로직 들어가야되는게 너무 싫다...
-                switch (uiContext.ChiableCount)
-                {
-                    case 0:
-                        ActiveButton("Chi");
-                        ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
-                        SetChiSelectButton(1);
-                        break;
-                    case 1:
-                        ActiveButton("Chi");
-                        ActiveButton("ChiSelect");
-                        SetChiSelectButton(2);
-                        break;
-                    case 2:
-                        ActiveButton("Chi");
-                        ActiveButton("ChiSelect");
-                        SetChiSelectButton(3);
-                        break;
-                }
-            }
+            // 테스트 해야되서 임시로 비활성화함
+            //if (uiContext.IsChiable) { OpenChiSelect(); }
             if (uiContext.IsPonable) ActiveButton("Pon");
             if (uiContext.IsKkanable) ActiveButton("Kkan");
             if (uiContext.IsRiichable) ActiveButton("Rich");
             if (uiContext.IsTsumoable) ActiveButton("Tsumo");
             if (uiContext.IsRonable) ActiveButton("Ron");
             if (uiContext.IsAnythingActived()) ActiveButton("Skip");
+        }
+    }
+
+    void OpenChiSelect()
+    {
+        switch (uiContext.ChiableCount)
+        {
+            case 0:
+                ActiveButton("Chi");
+                ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
+                SetChiSelectButton(1);
+                break;
+            case 1:
+                ActiveButton("Chi");
+                ActiveButton("ChiSelect");
+                SetChiSelectButton(2);
+                break;
+            case 2:
+                ActiveButton("Chi");
+                ActiveButton("ChiSelect");
+                SetChiSelectButton(3);
+                break;
         }
     }
 
@@ -106,13 +109,16 @@ public class UIManager : UdonSharpBehaviour
 
     void ActiveButton(string uiName)
     {
-        GameObject g = UICanvas.transform.Find(uiName).gameObject;
+        var tr = UICanvas.transform.Find(uiName);
+        if (tr == null) { Debug.Log($"{uiName} not exists."); }
         UICanvas.SetActive(true);
-        g.gameObject.SetActive(true);
+        tr.gameObject.SetActive(true);
     }
 
-    void _DisableButton()
+    public void DisableButtonAll()
     {
+        uiContext.Clear();
+
         for (var i = 0; i < UICanvas.transform.childCount; i++)
         {
             UICanvas.transform.GetChild(i).gameObject.SetActive(false);
@@ -134,7 +140,7 @@ public class UIManager : UdonSharpBehaviour
             SendCustomNetworkEvent(NetworkEventTarget.Owner, "_ClickButton");
         }
 
-        _DisableButton();
+        DisableButtonAll();
     }
 
     void _ClickButton()
