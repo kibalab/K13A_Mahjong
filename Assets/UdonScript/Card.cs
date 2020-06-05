@@ -16,8 +16,8 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int Index;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    /*LinkedInInspector*/ public InputEvent InputEvent;
-    /*LinkedInInspector*/ public UIManager UIManager;
+    public InputEvent InputEvent;
+    public UIManager UIManager;
 
     private EventQueue eventQueue;
     private BoxCollider boxCollider;
