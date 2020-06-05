@@ -127,6 +127,11 @@ public class Player : UdonSharpBehaviour
         return UIContext.IsAnythingActived();
     }
 
+    public void DisableUI()
+    {
+        UiManager.DisableButtonAll();
+    }
+
     public bool Contains(Card card)
     {
         return Cards.Contains(card);
