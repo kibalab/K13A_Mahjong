@@ -91,7 +91,8 @@ public class GameManager : UdonSharpBehaviour
         if (RegisteredPlayerCount == 4)
         {
             // 4명 중 아무나 첫 턴으로 설정해준다
-            TableManager.StartTurnOf(Random.Range(0, 4));
+            TableManager.SetTurnOf(Random.Range(0, 4));
+            TableManager.AddNextCard();
 
             ChangeGameState(State_WaitForDiscard);
         }
@@ -117,7 +118,8 @@ public class GameManager : UdonSharpBehaviour
             var uiActived = TableManager.GetUIActivedUserCount();
             if (uiActived == 0)
             {
-                TableManager.StartTurnOfNext();
+                TableManager.SetNextTurn();
+                TableManager.AddNextCard();
 
                 ChangeGameState(State_WaitForDiscard);
             }
@@ -142,7 +144,7 @@ public class GameManager : UdonSharpBehaviour
         var formerPlayer = TableManager.GetCurrentTurnPlayer();
         formerPlayer.RemoveStashedCard(WaitingNakiCard);
 
-        TableManager.StartTurnOf(inputEvent.PlayerIndex);
+        TableManager.SetTurnOf(inputEvent.PlayerIndex);
 
         var nextPlayer = TableManager.GetCurrentTurnPlayer();
 
@@ -209,7 +211,6 @@ public class GameManager : UdonSharpBehaviour
             }
         }
 
-        Debug.Log($"UIActivedCount {UIActivedCount}");
         if (UIActivedCount == 0)
         {
             TableManager.DisableUIAll();
