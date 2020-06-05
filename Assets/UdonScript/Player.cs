@@ -76,6 +76,43 @@ public class Player : UdonSharpBehaviour
         SortPosition();
     }
 
+    public void RemoveStashedCard(Card card)
+    {
+        if (stashedCards[card.GlobalOrder] == 0) { Debug.Log("이러면... 안되는데?"); }
+
+        --stashedCards[card.GlobalOrder];
+        --stashedCardIndex;
+    }
+
+    public void OpenCards(Card[] cards)
+    {
+        foreach(var card in cards)
+        {
+            if (Contains(card))
+            {
+                Cards.RemoveAt(Cards.IndexOf(card));
+                OpenendCards.Add(card);
+            }
+        }
+    }
+
+    public Card[] FindCardByGlobalOrder(int globalOrder, int count)
+    {
+        var index = 0;
+        var arr = new Card[count];
+
+        foreach(var card in GetArray())
+        {
+            if (card.GlobalOrder == globalOrder)
+            {
+                arr[index++] = card;
+            }
+        }
+
+        if (index != count) { Debug.Log("이러면 안되는뎅;;;"); }
+        return arr;
+    }
+
     public void CheckNakiable(Card card)
     {
         UIContext.Clear();
