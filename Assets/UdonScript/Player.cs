@@ -141,6 +141,7 @@ public class Player : UdonSharpBehaviour
 
             Cards.Add(pickedCards[i]);
             pickedCard.InputEvent = InputEvent;
+            pickedCard.PlayerIndex = playerIndex;
             pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
         }
 
