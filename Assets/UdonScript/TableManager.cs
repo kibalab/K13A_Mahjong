@@ -97,6 +97,14 @@ public class TableManager : UdonSharpBehaviour
         return count;
     }
 
+    public void DisableUIAll()
+    {
+        foreach (var player in players)
+        {
+            player.DisableUI();
+        }
+    }
+
     public void Initialize()
     {
         if (Networking.LocalPlayer == null)
