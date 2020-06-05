@@ -24,15 +24,18 @@ public class HandCalculator : UdonSharpBehaviour
 
     public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard)
     {
-        uiContext.IsChiable = IsChiable(cards, discardedCard);
+        var chiableList = GetChiableAll(cards, discardedCard);
+        var isChiable = chiableList.Length > 0;
+
+        uiContext.IsChiable = isChiable;
         uiContext.IsPonable = IsPonable(cards, discardedCard);
         uiContext.IsKkanable = IsKkanable(cards, discardedCard);
 
-        SetChiableonUiContext(uiContext, GetChiableAll(cards, discardedCard));
+        SetChiableOnUiContext(uiContext, chiableList);
         // TODO;
     }
 
-    void SetChiableonUiContext(UIContext uiContext, object[] chiableList)
+    void SetChiableOnUiContext(UIContext uiContext, object[] chiableList)
     {
         var chiableCount = chiableList.Length;
 
@@ -109,7 +112,7 @@ public class HandCalculator : UdonSharpBehaviour
             list[count++] = ToCards(cards, new int[] { chiIndex + 1, chiIndex +2 });
         }
 
-        // return object[ CardComponent[], CardComponent[], ... ]
+        // return object[ Card[], Card[], ... ]
         return Fit(list, count);
     }
 
