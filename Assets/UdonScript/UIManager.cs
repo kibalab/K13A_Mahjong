@@ -75,22 +75,22 @@ public class UIManager : UdonSharpBehaviour
         {
             case 0:
                 ActiveButton("Chi");
-                ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
+                //ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
                 //SetChiSelectButton(1);
                 break;
             case 1:
                 ActiveButton("Chi");
-                ActiveButton("ChiSelect");
+                //ActiveButton("ChiSelect");
                 SetChiSelectButton(1);
                 break;
             case 2:
                 ActiveButton("Chi");
-                ActiveButton("ChiSelect");
+                //ActiveButton("ChiSelect");
                 SetChiSelectButton(2);
                 break;
             case 3:
                 ActiveButton("Chi");
-                ActiveButton("ChiSelect");
+                //ActiveButton("ChiSelect");
                 SetChiSelectButton(3);
                 break;
         }
@@ -143,31 +143,52 @@ public class UIManager : UdonSharpBehaviour
         {
             SendCustomNetworkEvent(NetworkEventTarget.Owner, "_ClickButton");
         }
-
-        DisableButtonAll();
     }
 
     void _ClickButton()
     {
         Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
 
+
         switch (UIName)
         {
             case "chiSelect_1":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex1.x, uiContext.ChiableIndex1.y);
                 UIName = "Chi";
+                DisableButtonAll();
+                inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                eventQueue.Enqueue(inputEvent);
                 break;
             case "chiSelect_2":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);
                 UIName = "Chi";
+                DisableButtonAll();
+                inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                eventQueue.Enqueue(inputEvent);
                 break;
             case "chiSelect_3":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
                 UIName = "Chi";
+                DisableButtonAll();
+                inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                eventQueue.Enqueue(inputEvent);
+                break;
+            case "Chi":
+                if (uiContext.ChiableCount > 1)
+                {
+                    ActiveButton("ChiSelect");
+                }
+                else
+                {
+                    inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
+                    inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                    eventQueue.Enqueue(inputEvent);
+                }
                 break;
         }
 
-        inputEvent.Set(SelectedCard, UIName, PlayerIndex);
-        eventQueue.Enqueue(inputEvent);
+        
+
+        
     }
 }

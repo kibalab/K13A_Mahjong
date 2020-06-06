@@ -186,6 +186,7 @@ public class GameManager : UdonSharpBehaviour
                     };
 
                     nakiPlayer.OpenCards(chiCards);
+                    TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;
                 }
 
@@ -200,6 +201,7 @@ public class GameManager : UdonSharpBehaviour
                     };
 
                     nakiPlayer.OpenCards(ponCards);
+                    TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;
                 }
 
@@ -215,6 +217,7 @@ public class GameManager : UdonSharpBehaviour
                     };
 
                     nakiPlayer.OpenCards(kkanCards);
+                    TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;
                 }
 

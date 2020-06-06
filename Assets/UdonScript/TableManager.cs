@@ -17,13 +17,13 @@ public class TableManager : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
-    private Card[] cards;
+    private Card[] yama;
     private Player[] players;
     private int currentCardIndex = 0;
 
     void Start()
     {
-        cards = CardPool.GetComponentsInChildren<Card>();
+        yama = CardPool.GetComponentsInChildren<Card>();
         players = Players.GetComponentsInChildren<Player>();
     }
 
@@ -61,7 +61,7 @@ public class TableManager : UdonSharpBehaviour
 
         var nextCard = GetNextCard();
         var isFirstTsumo = index == 0;
-        var isLastTsumo = index == cards.Length - 1;
+        var isLastTsumo = index == yama.Length - 1;
 
         player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
 
@@ -74,7 +74,7 @@ public class TableManager : UdonSharpBehaviour
 
     public Card GetCardByIndex(int cardIndex)
     {
-        return cards[cardIndex];
+        return yama[cardIndex];
     }
 
     public void AnnounceDiscard(Card card)
@@ -123,7 +123,7 @@ public class TableManager : UdonSharpBehaviour
     public void _Initialize()
     {
         InitializeCards();
-        cards = ShuffleCards(cards);
+        yama = ShuffleCards(yama);
 
         InitializePlayers();
     }
@@ -139,21 +139,21 @@ public class TableManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    cards[index++].Initialize(type, number, isDora, EventQueue, Sprites, HandUtil);
+                    yama[index++].Initialize(type, number, isDora, EventQueue, Sprites, HandUtil);
                 }
             }
         }
 
         for (int i = 0; i < 4; ++i)
         {
-            cards[index++].Initialize("동", 1, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("남", 2, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("서", 3, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("북", 4, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("동", 1, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("남", 2, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("서", 3, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("북", 4, false, EventQueue, Sprites, HandUtil);
 
-            cards[index++].Initialize("백", 5, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("발", 6, false, EventQueue, Sprites, HandUtil);
-            cards[index++].Initialize("중", 7, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("백", 5, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("발", 6, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize("중", 7, false, EventQueue, Sprites, HandUtil);
         }
     }
 
@@ -203,8 +203,8 @@ public class TableManager : UdonSharpBehaviour
 
     Card GetNextCard()
     {
-        var nextCard = cards[currentCardIndex];
-        nextCard.Index = currentCardIndex;
+        var nextCard = yama[currentCardIndex];
+        nextCard.yamaIndex = currentCardIndex;
 
         ++currentCardIndex;
 

@@ -584,11 +584,11 @@ MonoBehaviour:
     UIName\r\n        PUSH, __33_const_intnl_SystemString\r\n        PUSH, __35_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
     \       PUSH, __35_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000015BC\r\n
-    \       JUMP, 0x000016DC\r\n        \r\n         # case \"chiSelect_3\":\r\n        PUSH,
+    \       JUMP, 0x000016F0\r\n        \r\n         # case \"chiSelect_3\":\r\n        PUSH,
     UIName\r\n        PUSH, __34_const_intnl_SystemString\r\n        PUSH, __36_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
     \       PUSH, __36_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000015F4\r\n
-    \       JUMP, 0x000017BC\r\n        JUMP, 0x0000189C\r\n        PUSH, uiContext\r\n
+    \       JUMP, 0x000017E4\r\n        JUMP, 0x000018D8\r\n        PUSH, uiContext\r\n
     \       PUSH, __35_const_intnl_SystemString\r\n        PUSH, __13_intnl_SystemObject\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __13_intnl_SystemObject\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n
@@ -603,7 +603,8 @@ MonoBehaviour:
     __4_intnl_UnityEngineVector2\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
     \       PUSH, inputEvent\r\n        PUSH, __36_const_intnl_SystemString\r\n        PUSH,
     __4_intnl_UnityEngineVector2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       JUMP, 0x0000189C\r\n        PUSH, uiContext\r\n        PUSH, __37_const_intnl_SystemString\r\n
+    \       PUSH, __20_const_intnl_SystemString\r\n        PUSH, UIName\r\n        COPY\r\n
+    \       JUMP, 0x000018D8\r\n        PUSH, uiContext\r\n        PUSH, __37_const_intnl_SystemString\r\n
     \       PUSH, __13_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __13_intnl_SystemObject\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n
     \       COPY\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n        PUSH, __0_intnl_SystemSingle\r\n
@@ -617,7 +618,8 @@ MonoBehaviour:
     __4_intnl_UnityEngineVector2\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
     \       PUSH, inputEvent\r\n        PUSH, __36_const_intnl_SystemString\r\n        PUSH,
     __4_intnl_UnityEngineVector2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       JUMP, 0x0000189C\r\n        \r\n         # inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x,
+    \       PUSH, __20_const_intnl_SystemString\r\n        PUSH, UIName\r\n        COPY\r\n
+    \       JUMP, 0x000018D8\r\n        \r\n         # inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x,
     uiContext.ChiableIndex3.y);\r\n        PUSH, uiContext\r\n        PUSH, __38_const_intnl_SystemString\r\n
     \       PUSH, __13_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __13_intnl_SystemObject\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n
@@ -632,10 +634,11 @@ MonoBehaviour:
     __4_intnl_UnityEngineVector2\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
     \       PUSH, inputEvent\r\n        PUSH, __36_const_intnl_SystemString\r\n        PUSH,
     __4_intnl_UnityEngineVector2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       \r\n         # break;\r\n        JUMP, 0x0000189C\r\n        \r\n         #
-    inputEvent.Set(SelectedCard, UIName, PlayerIndex);\r\n        PUSH, inputEvent\r\n
-    \       PUSH, __39_const_intnl_SystemString\r\n        PUSH, SelectedCard\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # UIName = \"Chi\";\r\n        PUSH, __20_const_intnl_SystemString\r\n
+    \       PUSH, UIName\r\n        COPY\r\n        \r\n         # break;\r\n        JUMP,
+    0x000018D8\r\n        \r\n         # inputEvent.Set(SelectedCard, UIName, PlayerIndex);\r\n
+    \       PUSH, inputEvent\r\n        PUSH, __39_const_intnl_SystemString\r\n        PUSH,
+    SelectedCard\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, inputEvent\r\n        PUSH, __40_const_intnl_SystemString\r\n        PUSH,
     UIName\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, inputEvent\r\n        PUSH, __41_const_intnl_SystemString\r\n        PUSH,
@@ -3724,257 +3727,278 @@ MonoBehaviour:
     - startInstruction: 5452
       endInstruction: 5507
       startSourceChar: 4568
-      endSourceChar: 4726
+      endSourceChar: 4759
       line: 155
       lineChar: 17
       spanCodeSection: "\"chiSelect_1\":\r\n                inputEvent.ChiIndex =
-        new Vector2(uiContext.ChiableIndex1.x, uiContext.ChiableIndex1.y);\r\n                break;\r\n
-        \           "
+        new Vector2(uiContext.ChiableIndex1.x, uiContext.ChiableIndex1.y);\r\n                UIName
+        = \"Chi\";\r\n                break;\r\n            "
     - startInstruction: 5508
       endInstruction: 5507
-      startSourceChar: 4726
-      endSourceChar: 4731
-      line: 158
+      startSourceChar: 4759
+      endSourceChar: 4764
+      line: 159
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 5508
       endInstruction: 5563
-      startSourceChar: 4731
-      endSourceChar: 4889
-      line: 158
+      startSourceChar: 4764
+      endSourceChar: 4955
+      line: 159
       lineChar: 17
       spanCodeSection: "\"chiSelect_2\":\r\n                inputEvent.ChiIndex =
-        new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);\r\n                break;\r\n
-        \           "
+        new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);\r\n                UIName
+        = \"Chi\";\r\n                break;\r\n            "
     - startInstruction: 5564
       endInstruction: 5563
-      startSourceChar: 4889
-      endSourceChar: 4894
-      line: 161
+      startSourceChar: 4955
+      endSourceChar: 4960
+      line: 163
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 5564
-      endInstruction: 6075
-      startSourceChar: 4894
-      endSourceChar: 4926
-      line: 161
+      endInstruction: 6115
+      startSourceChar: 4960
+      endSourceChar: 4992
+      line: 163
       lineChar: 17
       spanCodeSection: "\"chiSelect_3\":\r\n                "
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4926
-      endSourceChar: 4926
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 4992
+      endSourceChar: 4992
+      line: 164
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4926
-      endSourceChar: 4948
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 4992
+      endSourceChar: 5014
+      line: 164
       lineChar: 16
       spanCodeSection: 'inputEvent.ChiIndex = '
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4948
-      endSourceChar: 4952
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5014
+      endSourceChar: 5018
+      line: 164
       lineChar: 38
       spanCodeSection: 'new '
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4952
-      endSourceChar: 4960
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5018
+      endSourceChar: 5026
+      line: 164
       lineChar: 42
       spanCodeSection: Vector2(
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4960
-      endSourceChar: 4960
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5026
+      endSourceChar: 5026
+      line: 164
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4960
-      endSourceChar: 4960
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5026
+      endSourceChar: 5026
+      line: 164
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4960
-      endSourceChar: 4960
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5026
+      endSourceChar: 5026
+      line: 164
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4960
-      endSourceChar: 4970
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5026
+      endSourceChar: 5036
+      line: 164
       lineChar: 50
       spanCodeSection: uiContext.
-    - startInstruction: 6076
-      endInstruction: 6075
-      startSourceChar: 4970
-      endSourceChar: 4984
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6115
+      startSourceChar: 5036
+      endSourceChar: 5050
+      line: 164
       lineChar: 60
       spanCodeSection: ChiableIndex3.
-    - startInstruction: 6076
-      endInstruction: 6151
-      startSourceChar: 4984
-      endSourceChar: 4987
-      line: 162
+    - startInstruction: 6116
+      endInstruction: 6191
+      startSourceChar: 5050
+      endSourceChar: 5053
+      line: 164
       lineChar: 74
       spanCodeSection: 'x, '
-    - startInstruction: 6152
-      endInstruction: 6151
-      startSourceChar: 4987
-      endSourceChar: 4987
-      line: 162
+    - startInstruction: 6192
+      endInstruction: 6191
+      startSourceChar: 5053
+      endSourceChar: 5053
+      line: 164
       lineChar: 77
       spanCodeSection: 
-    - startInstruction: 6152
-      endInstruction: 6151
-      startSourceChar: 4987
-      endSourceChar: 4987
-      line: 162
+    - startInstruction: 6192
+      endInstruction: 6191
+      startSourceChar: 5053
+      endSourceChar: 5053
+      line: 164
       lineChar: 77
       spanCodeSection: 
-    - startInstruction: 6152
-      endInstruction: 6151
-      startSourceChar: 4987
-      endSourceChar: 4987
-      line: 162
+    - startInstruction: 6192
+      endInstruction: 6191
+      startSourceChar: 5053
+      endSourceChar: 5053
+      line: 164
       lineChar: 77
       spanCodeSection: 
-    - startInstruction: 6152
-      endInstruction: 6151
-      startSourceChar: 4987
-      endSourceChar: 4997
-      line: 162
+    - startInstruction: 6192
+      endInstruction: 6191
+      startSourceChar: 5053
+      endSourceChar: 5063
+      line: 164
       lineChar: 77
       spanCodeSection: uiContext.
-    - startInstruction: 6152
-      endInstruction: 6151
-      startSourceChar: 4997
-      endSourceChar: 5011
-      line: 162
+    - startInstruction: 6192
+      endInstruction: 6191
+      startSourceChar: 5063
+      endSourceChar: 5077
+      line: 164
       lineChar: 87
       spanCodeSection: ChiableIndex3.
-    - startInstruction: 6152
-      endInstruction: 6291
-      startSourceChar: 5011
-      endSourceChar: 5032
-      line: 162
+    - startInstruction: 6192
+      endInstruction: 6331
+      startSourceChar: 5077
+      endSourceChar: 5098
+      line: 164
       lineChar: 101
       spanCodeSection: "y);\r\n                "
-    - startInstruction: 6292
-      endInstruction: 6299
-      startSourceChar: 5032
-      endSourceChar: 5061
-      line: 163
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5098
+      endSourceChar: 5098
+      line: 165
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5098
+      endSourceChar: 5107
+      line: 165
+      lineChar: 16
+      spanCodeSection: 'UIName = '
+    - startInstruction: 6332
+      endInstruction: 6351
+      startSourceChar: 5107
+      endSourceChar: 5131
+      line: 165
+      lineChar: 25
+      spanCodeSection: "\"Chi\";\r\n                "
+    - startInstruction: 6352
+      endInstruction: 6359
+      startSourceChar: 5131
+      endSourceChar: 5160
+      line: 166
       lineChar: 16
       spanCodeSection: "break;\r\n        }\r\n\r\n        "
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5061
-      endSourceChar: 5061
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5160
+      endSourceChar: 5160
+      line: 169
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5061
-      endSourceChar: 5061
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5160
+      endSourceChar: 5160
+      line: 169
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5061
-      endSourceChar: 5061
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5160
+      endSourceChar: 5160
+      line: 169
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5061
-      endSourceChar: 5072
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5160
+      endSourceChar: 5171
+      line: 169
       lineChar: 8
       spanCodeSection: inputEvent.
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5072
-      endSourceChar: 5076
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5171
+      endSourceChar: 5175
+      line: 169
       lineChar: 19
       spanCodeSection: Set(
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5076
-      endSourceChar: 5090
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5175
+      endSourceChar: 5189
+      line: 169
       lineChar: 23
       spanCodeSection: 'SelectedCard, '
-    - startInstruction: 6300
-      endInstruction: 6299
-      startSourceChar: 5090
-      endSourceChar: 5098
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6359
+      startSourceChar: 5189
+      endSourceChar: 5197
+      line: 169
       lineChar: 37
       spanCodeSection: 'UIName, '
-    - startInstruction: 6300
-      endInstruction: 6419
-      startSourceChar: 5098
-      endSourceChar: 5121
-      line: 166
+    - startInstruction: 6360
+      endInstruction: 6479
+      startSourceChar: 5197
+      endSourceChar: 5220
+      line: 169
       lineChar: 45
       spanCodeSection: "PlayerIndex);\r\n        "
-    - startInstruction: 6420
-      endInstruction: 6419
-      startSourceChar: 5121
-      endSourceChar: 5121
-      line: 167
+    - startInstruction: 6480
+      endInstruction: 6479
+      startSourceChar: 5220
+      endSourceChar: 5220
+      line: 170
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 6420
-      endInstruction: 6419
-      startSourceChar: 5121
-      endSourceChar: 5121
-      line: 167
+    - startInstruction: 6480
+      endInstruction: 6479
+      startSourceChar: 5220
+      endSourceChar: 5220
+      line: 170
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 6420
-      endInstruction: 6419
-      startSourceChar: 5121
-      endSourceChar: 5121
-      line: 167
+    - startInstruction: 6480
+      endInstruction: 6479
+      startSourceChar: 5220
+      endSourceChar: 5220
+      line: 170
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 6420
-      endInstruction: 6419
-      startSourceChar: 5121
-      endSourceChar: 5132
-      line: 167
+    - startInstruction: 6480
+      endInstruction: 6479
+      startSourceChar: 5220
+      endSourceChar: 5231
+      line: 170
       lineChar: 8
       spanCodeSection: eventQueue.
-    - startInstruction: 6420
-      endInstruction: 6419
-      startSourceChar: 5132
-      endSourceChar: 5140
-      line: 167
+    - startInstruction: 6480
+      endInstruction: 6479
+      startSourceChar: 5231
+      endSourceChar: 5239
+      line: 170
       lineChar: 19
       spanCodeSection: Enqueue(
-    - startInstruction: 6420
-      endInstruction: 6420
-      startSourceChar: 5140
-      endSourceChar: 5140
-      line: 167
+    - startInstruction: 6480
+      endInstruction: 6480
+      startSourceChar: 5239
+      endSourceChar: 5239
+      line: 170
       lineChar: 27
       spanCodeSection: 
   hasInteractEvent: 0

@@ -13,7 +13,7 @@ public class Card : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
-    [UdonSynced(UdonSyncMode.None)] public int Index;
+    [UdonSynced(UdonSyncMode.None)] public int yamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
     public InputEvent InputEvent;
@@ -36,7 +36,7 @@ public class Card : UdonSharpBehaviour
 
     public void _Interact()
     {
-        InputEvent.Set(Index, "Discard", PlayerIndex);
+        InputEvent.Set(yamaIndex, "Discard", PlayerIndex);
         eventQueue.Enqueue(InputEvent);
     }
 
