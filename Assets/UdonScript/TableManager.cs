@@ -108,27 +108,33 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    public void Initialize()
+    public void Initialize_Master()
     {
-        if (Networking.LocalPlayer == null)
-        { 
-            _Initialize();
-        }
-        else 
+        // 한 번만 하는 초기화
+        // 1. 월드 마스터만 알면 되는 yama의 순서
+        // 2. 다른 사람들을 위한 Card의 UdonSync 변수 설정
+        InitializeYama_Master();
+
+        // Player의 변수는 전부 Master만 알고 있으면 됨
+        InitializePlayers_Master();
+    }
+
+    public void Initialize_All()
+    {
+        foreach (var card in yama)
         {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Initialize");
+            card.Initialize_All(EventQueue, HandUtil, Sprites);
+        }
+
+        for (int i = 0; i < players.Length; ++i)
+        {
+            var player = players[i];
+            var stashTable = StashTables.transform.GetChild(i);
+            player.Initialize_All(EventQueue, stashTable);
         }
     }
 
-    public void _Initialize()
-    {
-        InitializeCards();
-        yama = ShuffleCards(yama);
-
-        InitializePlayers();
-    }
-
-    void InitializeCards()
+    void InitializeYama_Master()
     {
         var index = 0;
 
@@ -139,34 +145,34 @@ public class TableManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    yama[index++].Initialize(type, number, isDora, EventQueue, Sprites, HandUtil);
+                    yama[index++].Initialize_Master(type, number, isDora);
                 }
             }
         }
 
         for (int i = 0; i < 4; ++i)
         {
-            yama[index++].Initialize("동", 1, false, EventQueue, Sprites, HandUtil);
-            yama[index++].Initialize("남", 2, false, EventQueue, Sprites, HandUtil);
-            yama[index++].Initialize("서", 3, false, EventQueue, Sprites, HandUtil);
-            yama[index++].Initialize("북", 4, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize_Master("동", 1, false);
+            yama[index++].Initialize_Master("남", 2, false);
+            yama[index++].Initialize_Master("서", 3, false);
+            yama[index++].Initialize_Master("북", 4, false);
 
-            yama[index++].Initialize("백", 5, false, EventQueue, Sprites, HandUtil);
-            yama[index++].Initialize("발", 6, false, EventQueue, Sprites, HandUtil);
-            yama[index++].Initialize("중", 7, false, EventQueue, Sprites, HandUtil);
+            yama[index++].Initialize_Master("백", 5, false);
+            yama[index++].Initialize_Master("발", 6, false);
+            yama[index++].Initialize_Master("중", 7, false);
         }
+
+        yama = ShuffleCards(yama);
     }
 
-    void InitializePlayers()
+    void InitializePlayers_Master()
     {
         for (int i = 0; i < players.Length; ++i)
         {
             var pickedCards = GetNextCards(13);
-            var stashTable = StashTables.transform.GetChild(i);
-
             var player = players[i];
-            player.Initialize(i, EventQueue, stashTable);
-            player.SetColliderActive(false);
+
+            player.Initialize_Master(i);
             player.SetCards(pickedCards);
         }
     }
@@ -204,7 +210,7 @@ public class TableManager : UdonSharpBehaviour
     Card GetNextCard()
     {
         var nextCard = yama[currentCardIndex];
-        nextCard.yamaIndex = currentCardIndex;
+        nextCard.YamaIndex = currentCardIndex;
 
         ++currentCardIndex;
 

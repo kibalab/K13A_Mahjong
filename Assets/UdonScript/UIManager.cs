@@ -24,28 +24,29 @@ public class UIManager : UdonSharpBehaviour
     private bool isMyTable = true;
     private bool isInitialized = false;
 
-    public void Initialize(int playerIndex, InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
+    // 월드 마스터의 local에서만 true인 항목
+    private bool isRunOnMasterScript = false;
+
+    public void Initialize_Master(int playerIndex)
     {
-        this.PlayerIndex = playerIndex;
+        PlayerIndex = playerIndex;
+        isRunOnMasterScript = true;
+    }
+
+    public void Initialize_All(InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
+    {
         this.uiContext = uiContext;
         this.eventQueue = eventQueue;
         this.inputEvent = inputEvent;
 
-        UIButton[] uiButton = UICanvas.GetComponentsInChildren<UIButton>();
+        var uiButton = UICanvas.GetComponentsInChildren<UIButton>();
 
         foreach (UIButton button in uiButton)
         {
             button.Initialize(this);
         }
 
-        if (Networking.LocalPlayer != null)
-        {
-            SendCustomNetworkEvent(NetworkEventTarget.All, "_DisableButton");
-        }
-        else
-        {
-            DisableButtonAll();
-        }
+        DisableButtonAll();
 
         isInitialized = true;
     }
@@ -141,14 +142,18 @@ public class UIManager : UdonSharpBehaviour
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_ClickButton");
+            SendCustomNetworkEvent(NetworkEventTarget.All, "_ClickButton");
         }
     }
 
-    void _ClickButton()
+    public void _ClickButton()
     {
-        Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
+        if (!isRunOnMasterScript)
+        {
+            return;
+        }
 
+        Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
 
         switch (UIName)
         {
@@ -159,6 +164,7 @@ public class UIManager : UdonSharpBehaviour
                 inputEvent.Set(SelectedCard, UIName, PlayerIndex);
                 eventQueue.Enqueue(inputEvent);
                 break;
+
             case "chiSelect_2":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);
                 UIName = "Chi";
@@ -166,6 +172,7 @@ public class UIManager : UdonSharpBehaviour
                 inputEvent.Set(SelectedCard, UIName, PlayerIndex);
                 eventQueue.Enqueue(inputEvent);
                 break;
+
             case "chiSelect_3":
                 inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
                 UIName = "Chi";
@@ -173,6 +180,7 @@ public class UIManager : UdonSharpBehaviour
                 inputEvent.Set(SelectedCard, UIName, PlayerIndex);
                 eventQueue.Enqueue(inputEvent);
                 break;
+
             case "Chi":
                 if (uiContext.ChiableCount > 1)
                 {
@@ -186,9 +194,5 @@ public class UIManager : UdonSharpBehaviour
                 }
                 break;
         }
-
-        
-
-        
     }
 }

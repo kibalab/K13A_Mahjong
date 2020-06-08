@@ -22,28 +22,30 @@ public class GameManager : UdonSharpBehaviour
     private Card WaitingNakiCard;
     private float WaitingTime = 0.0f;
 
+    // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
+    // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
     void Start()
     {
-        if (Networking.GetOwner(this.gameObject) == null)
+        // 월드가 처음 만들어졌을 때 마스터 초기화
+        var isWorldInitializing = (Networking.GetOwner(this.gameObject) == null);
+        if (isWorldInitializing)
         {
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+            ChangeGameState(State_WaitForStart);
+            
+            TableManager.Initialize_Master();
         }
 
-        TableManager.Initialize();
-        ChangeGameState(State_WaitForStart);
+        // 카드 스프라이트, 플레이어 로컬값 초기화
+        TableManager.Initialize_All();
 
-        if (Networking.LocalPlayer == null)
-        {
-            SettingForUnityTests();
-        }
-    }
-
-    void SettingForUnityTests()
-    {
         // 원래 4명 다 모여야 카드를 배분하지만
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
-        TableManager.AddNextCard();
-        ChangeGameState(State_WaitForDiscard);
+        if (Networking.LocalPlayer == null)
+        {
+            TableManager.AddNextCard();
+            ChangeGameState(State_WaitForDiscard);
+        }
     }
 
     void Update()
@@ -180,9 +182,9 @@ public class GameManager : UdonSharpBehaviour
                 {
                     var chiCards = new Card[]
                     {
-                WaitingNakiCard,
-                TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
-                TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
+                        WaitingNakiCard,
+                        TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
+                        TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
                     };
 
                     nakiPlayer.OpenCards(chiCards);
@@ -195,9 +197,9 @@ public class GameManager : UdonSharpBehaviour
                     var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 2);
                     var ponCards = new Card[]
                     {
-                WaitingNakiCard,
-                sameOrderCards[0],
-                sameOrderCards[1]
+                        WaitingNakiCard,
+                        sameOrderCards[0],
+                        sameOrderCards[1]
                     };
 
                     nakiPlayer.OpenCards(ponCards);
@@ -210,10 +212,10 @@ public class GameManager : UdonSharpBehaviour
                     var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
                     var kkanCards = new Card[]
                     {
-                WaitingNakiCard,
-                sameOrderCards[0],
-                sameOrderCards[1],
-                sameOrderCards[2]
+                        WaitingNakiCard,
+                        sameOrderCards[0],
+                        sameOrderCards[1],
+                        sameOrderCards[2]
                     };
 
                     nakiPlayer.OpenCards(kkanCards);
