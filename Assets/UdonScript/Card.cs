@@ -9,6 +9,7 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
     [UdonSynced(UdonSyncMode.None)] public int GlobalOrder;
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
+    [UdonSynced(UdonSyncMode.None)] public bool IsRinShan;
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
@@ -45,11 +46,12 @@ public class Card : UdonSharpBehaviour
         }
     }
 
-    public void Initialize_Master(string type, int cardNumber, bool isDora)
+    public void Initialize_Master(string type, int cardNumber, bool isDora, bool isRinShan)
     {
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
+        IsRinShan = isRinShan;
 
         // 마스터만 해당 bool값이 true이다
         isRunOnMasterScript = true;

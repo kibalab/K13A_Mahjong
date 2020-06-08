@@ -146,13 +146,13 @@ public class Player : UdonSharpBehaviour
         Debug.Log(str);
     }
 
-    public void CheckNakiable(Card card)
+    public void CheckNakiable(Card card, int currentTurnPlayer)
     {
         UIContext.Clear();
 
         UIContext.IsChanged = true;
 
-        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card);
+        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card, PlayerIndex, currentTurnPlayer);
     }
 
     public bool IsUIActived()
