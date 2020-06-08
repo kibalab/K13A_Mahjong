@@ -18,8 +18,11 @@ public class TableManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
     private Card[] yama;
+    private Card[] doras;
+    private Card[] rinShan;
     private Player[] players;
     private int currentCardIndex = 0;
+    private int currentRinShanCardIndex = 0;
 
     void Start()
     {
@@ -72,7 +75,25 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    public Card GetCardByIndex(int cardIndex)
+    public void AddNextRinShanCard()
+    {
+        var player = GetCurrentTurnPlayer();
+        var index = currentCardIndex;
+
+        var nextCard = GetNextRinShanCard();
+        var isFirstTsumo = index == 0;
+        var isLastTsumo = index == yama.Length - 1;
+
+        player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
+
+        for (var i = 0; i < 4; i++)
+        {
+            var active = i == currentTurnPlayer;
+            players[i].SetColliderActive(active);
+        }
+    }
+
+        public Card GetCardByIndex(int cardIndex)
     {
         return yama[cardIndex];
     }
@@ -83,7 +104,7 @@ public class TableManager : UdonSharpBehaviour
         {
             if (i != currentTurnPlayer)
             {
-                players[i].CheckNakiable(card);
+                players[i].CheckNakiable(card, currentTurnPlayer);
             }
         }
     }
@@ -145,24 +166,27 @@ public class TableManager : UdonSharpBehaviour
                 for (int i = 0; i < 4; ++i)
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
-                    yama[index++].Initialize_Master(type, number, isDora);
+                    yama[index++].Initialize_Master(type, number, isDora, false);
                 }
             }
         }
 
         for (int i = 0; i < 4; ++i)
         {
-            yama[index++].Initialize_Master("동", 1, false);
-            yama[index++].Initialize_Master("남", 2, false);
-            yama[index++].Initialize_Master("서", 3, false);
-            yama[index++].Initialize_Master("북", 4, false);
+            yama[index++].Initialize_Master("동", 1, false, false);
+            yama[index++].Initialize_Master("남", 2, false, false);
+            yama[index++].Initialize_Master("서", 3, false, false);
+            yama[index++].Initialize_Master("북", 4, false, false);
 
-            yama[index++].Initialize_Master("백", 5, false);
-            yama[index++].Initialize_Master("발", 6, false);
-            yama[index++].Initialize_Master("중", 7, false);
+            yama[index++].Initialize_Master("백", 5, false, false);
+            yama[index++].Initialize_Master("발", 6, false, false);
+            yama[index++].Initialize_Master("중", 7, false, false);
         }
 
         yama = ShuffleCards(yama);
+
+        doras = GetNextCards(10);// 도라표시패 5패, 우라도라표시패 5패, 총 10패
+        rinShan = GetNextCards(4);// 영상패(왕패) 4패
     }
 
     void InitializePlayers_Master()
@@ -213,6 +237,17 @@ public class TableManager : UdonSharpBehaviour
         nextCard.YamaIndex = currentCardIndex;
 
         ++currentCardIndex;
+
+        return nextCard;
+    }
+
+    Card GetNextRinShanCard()
+    {
+        var nextCard = rinShan[currentRinShanCardIndex];
+        nextCard.YamaIndex = currentRinShanCardIndex;
+        nextCard.IsRinShan = true;
+
+        ++currentRinShanCardIndex;
 
         return nextCard;
     }

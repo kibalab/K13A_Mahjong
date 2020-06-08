@@ -225,6 +225,7 @@ public class GameManager : UdonSharpBehaviour
 
                     nakiPlayer.OpenCards(kkanCards);
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
+                    TableManager.AddNextRinShanCard();
                     break;
                 }
 
