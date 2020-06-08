@@ -192,7 +192,6 @@ public class GameManager : UdonSharpBehaviour
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
                     };
-
                     nakiPlayer.OpenCards(chiCards);
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;

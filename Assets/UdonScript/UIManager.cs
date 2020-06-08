@@ -103,6 +103,8 @@ public class UIManager : UdonSharpBehaviour
         {
             var tr = UICanvas.transform.Find("ChiSelect").GetChild(i);
             var spriteNames = uiContext.GetCardSpriteNames(i);
+
+            tr.gameObject.SetActive(true);
             for (var j = 0; j < 2; j++)
             {
                 var spriteName = spriteNames[j];
@@ -111,6 +113,10 @@ public class UIManager : UdonSharpBehaviour
                 var image = tr.GetChild(j).GetComponent<Image>();
                 image.sprite = sprite;
             }
+        }
+        for (var i = 2; i >= size; i--)
+        {
+            UICanvas.transform.Find("ChiSelect").GetChild(i).gameObject.SetActive(false);
         }
     }
 
