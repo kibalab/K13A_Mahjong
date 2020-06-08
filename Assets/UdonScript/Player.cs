@@ -63,8 +63,7 @@ public class Player : UdonSharpBehaviour
         // 천화, 해저로월 용도
         // AgariContext.IsTsumoable(newCard, isFristTsumo, isLastTsumo);
 
-        newCard.InputEvent = InputEvent;
-        newCard.PlayerIndex = PlayerIndex;
+        newCard.SetOwnership(PlayerIndex, InputEvent);
 
         Cards.Add(newCard);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
@@ -174,8 +173,7 @@ public class Player : UdonSharpBehaviour
             var pickedCard = pickedCards[i];
 
             Cards.Add(pickedCards[i]);
-            pickedCard.InputEvent = InputEvent;
-            pickedCard.PlayerIndex = PlayerIndex;
+            pickedCard.SetOwnership(PlayerIndex, InputEvent);
             pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
         }
     }

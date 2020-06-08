@@ -15,9 +15,9 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    public InputEvent InputEvent;
     public UIManager UIManager;
 
+    private InputEvent inputEvent;
     private EventQueue eventQueue;
     private BoxCollider boxCollider;
 
@@ -40,8 +40,8 @@ public class Card : UdonSharpBehaviour
     {
         if (isRunOnMasterScript)
         {
-            InputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
-            eventQueue.Enqueue(InputEvent);
+            inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
+            eventQueue.Enqueue(inputEvent);
         }
     }
 
@@ -65,6 +65,12 @@ public class Card : UdonSharpBehaviour
         var sprite = sprites.FindSprite(spriteName);
 
         SetSprite(sprite);
+    }
+
+    public void SetOwnership(int playerIndex, InputEvent inputEvent)
+    {
+        this.inputEvent = inputEvent;
+        this.PlayerIndex = playerIndex;
     }
 
     public void SetSprite(Sprite sprite)
