@@ -40,7 +40,7 @@ public class Card : UdonSharpBehaviour
     {
         if (isRunOnMasterScript)
         {
-            InputEvent.Set(YamaIndex, "Discard", PlayerIndex);
+            InputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
             eventQueue.Enqueue(InputEvent);
         }
     }
@@ -74,6 +74,7 @@ public class Card : UdonSharpBehaviour
 
         renderer.sprite = sprite;
     }
+
     public BoxCollider SetColliderActivate(bool t)
     {
         boxCollider.enabled = t;
