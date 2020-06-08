@@ -123,6 +123,11 @@ public class Player : UdonSharpBehaviour
             {
                 arr[index++] = card;
             }
+
+            if (index == count)
+            {
+                break;
+            }
         }
 
         if (index != count) { Debug.Log("error on FindCardByGlobalOrder"); }
