@@ -18,10 +18,10 @@ public class Player : UdonSharpBehaviour
     /*LinkedInInspector*/ public AgariContext AgariContext;
     /*LinkedInInspector*/ public HandCalculator HandCalculator;
 
-    private GameObject[] cardPoints;
+    private Transform[] cardPoints;
     private Transform stashPositions;
     private Transform plusCardPosition;
-    
+
     int[] stashedCards;
     int stashedCardIndex;
 
@@ -46,15 +46,17 @@ public class Player : UdonSharpBehaviour
         SortPosition();
     }
 
-    GameObject[] FindPoints()
+    Transform[] FindPoints()
     {
         //배열의 0~13 은 소유카드 14는 추가카드
-        var cardPoints = new GameObject[FULL_CARD_COUNT];
+        var cardPoints = new Transform[FULL_CARD_COUNT];
         for (int i = 0; i < 14; i++)
         {
-            cardPoints[i] = CardPositions.transform.GetChild(i).gameObject;
+            var tr = CardPositions.transform.GetChild(i);
+
+            cardPoints[i] = tr;
         }
-        plusCardPosition = cardPoints[13].transform;
+        plusCardPosition = cardPoints[13];
         return cardPoints;
     }
 
@@ -169,7 +171,7 @@ public class Player : UdonSharpBehaviour
     {
         for (int i = 0; i< pickedCards.Length; ++i)
         {
-            var pointTransform = cardPoints[i].transform;
+            var pointTransform = cardPoints[i];
             var pickedCard = pickedCards[i];
 
             Cards.Add(pickedCards[i]);
@@ -192,10 +194,9 @@ public class Player : UdonSharpBehaviour
 
         for (var k = 0; k < Cards.Count(); ++k) // 새로구현함
         {
-
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
-            card.SetPosition(cardPoint.transform.position, cardPoint.transform.rotation);
+            card.SetPosition(cardPoint.position, cardPoint.rotation);
         }
     }
 
