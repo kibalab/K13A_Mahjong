@@ -21,6 +21,7 @@ public class GameManager : UdonSharpBehaviour
 
     private Card WaitingNakiCard;
     private float WaitingTime = 0.0f;
+    private bool isRunOnMasterScript = false;
 
     // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
     // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
@@ -32,8 +33,8 @@ public class GameManager : UdonSharpBehaviour
         {
             Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             ChangeGameState(State_WaitForStart);
-            
             TableManager.Initialize_Master();
+            isRunOnMasterScript = true;
         }
 
         // 카드 스프라이트, 플레이어 로컬값 초기화
@@ -50,10 +51,15 @@ public class GameManager : UdonSharpBehaviour
 
     void Update()
     {
+        if (!isRunOnMasterScript)
+        {
+            return;
+        }
+
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
-            Debug.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex}, {inputEvent.CardIndex})");
+            Debug.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex}");
 
             switch (GameState)
             {
@@ -109,7 +115,7 @@ public class GameManager : UdonSharpBehaviour
     void WaitForDiscard(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
-        var eventCard = TableManager.GetCardByIndex(inputEvent.CardIndex);
+        var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
 
         if (!TableManager.IsCurrentTurn(inputEvent.PlayerIndex))
         {
