@@ -50,7 +50,7 @@ public class HandCalculator : UdonSharpBehaviour
             for (var cardIndex = 0; cardIndex < chiableCards.Length; ++cardIndex) 
             {
                 var card = chiableCards[cardIndex];
-                indexes[cardIndex] = card.yamaIndex;
+                indexes[cardIndex] = card.YamaIndex;
                 cardSpriteNames[cardIndex] = card.GetCardSpriteName();
             }
 

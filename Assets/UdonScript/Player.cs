@@ -7,6 +7,8 @@ public class Player : UdonSharpBehaviour
 {
     private const int FULL_CARD_COUNT = 14;
 
+    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
+
     /*LinkedInInspector*/ public UIManager UiManager;
     /*LinkedInInspector*/ public GameObject CardPositions;
     /*LinkedInInspector*/ public KList Cards;
@@ -19,22 +21,29 @@ public class Player : UdonSharpBehaviour
     private GameObject[] cardPoints;
     private Transform stashPositions;
     private Transform plusCardPosition;
-
-    int playerIndex;
+    
     int[] stashedCards;
     int stashedCardIndex;
 
-    public void Initialize(int playerIndex, EventQueue eventQueue, Transform stashPositions)
+    public void Initialize_Master(int playerIndex)
     {
+        this.PlayerIndex = playerIndex;
+
         cardPoints = FindPoints();
-
-        this.playerIndex = playerIndex;
-        this.stashPositions = stashPositions;
-
-        UiManager.Initialize(playerIndex, InputEvent, eventQueue, UIContext);
-
         stashedCards = new int[34];
         stashedCardIndex = 0;
+
+        UiManager.Initialize_Master(playerIndex); ;
+    }
+
+    public void Initialize_All(EventQueue eventQueue, Transform stashPositions)
+    {
+        this.stashPositions = stashPositions;
+
+        UiManager.Initialize_All(InputEvent, eventQueue, UIContext);
+        SetColliderActive(false);
+
+        SortPosition();
     }
 
     GameObject[] FindPoints()
@@ -55,7 +64,7 @@ public class Player : UdonSharpBehaviour
         // AgariContext.IsTsumoable(newCard, isFristTsumo, isLastTsumo);
 
         newCard.InputEvent = InputEvent;
-        newCard.PlayerIndex = playerIndex;
+        newCard.PlayerIndex = PlayerIndex;
 
         Cards.Add(newCard);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
@@ -72,7 +81,6 @@ public class Player : UdonSharpBehaviour
         card.SetPosition(point.position, point.rotation);
         card.SetColliderActivate(false);
 
-        Cards.Sort();
         SortPosition();
     }
 
@@ -167,12 +175,9 @@ public class Player : UdonSharpBehaviour
 
             Cards.Add(pickedCards[i]);
             pickedCard.InputEvent = InputEvent;
-            pickedCard.PlayerIndex = playerIndex;
+            pickedCard.PlayerIndex = PlayerIndex;
             pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
         }
-
-        Cards.Sort();
-        SortPosition();
     }
 
     public void SetColliderActive(bool active)
@@ -185,8 +190,11 @@ public class Player : UdonSharpBehaviour
 
     void SortPosition()
     {
-        for (var k = 0; k < Cards.Count(); k++) // 새로구현함
+        Cards.Sort();
+
+        for (var k = 0; k < Cards.Count(); ++k) // 새로구현함
         {
+
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
             card.SetPosition(cardPoint.transform.position, cardPoint.transform.rotation);

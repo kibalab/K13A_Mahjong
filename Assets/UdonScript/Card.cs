@@ -1,8 +1,7 @@
-﻿using UdonSharp;
-using UnityEngine;
-using UnityEngine.UI;
-using VRC.SDKBase;
+﻿using UnityEngine;
 using VRC.Udon.Common.Interfaces;
+using UdonSharp;
+using VRC.SDKBase;
 
 public class Card : UdonSharpBehaviour
 {
@@ -13,7 +12,7 @@ public class Card : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
-    [UdonSynced(UdonSyncMode.None)] public int yamaIndex;
+    [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
     public InputEvent InputEvent;
@@ -21,6 +20,9 @@ public class Card : UdonSharpBehaviour
 
     private EventQueue eventQueue;
     private BoxCollider boxCollider;
+
+    // 월드 마스터의 local에서만 true인 항목
+    private bool isRunOnMasterScript = false;
 
     public override void Interact()
     {
@@ -30,35 +32,39 @@ public class Card : UdonSharpBehaviour
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Interact");
+            SendCustomNetworkEvent(NetworkEventTarget.All, "_Interact");
         }
     }
 
     public void _Interact()
     {
-        InputEvent.Set(yamaIndex, "Discard", PlayerIndex);
-        eventQueue.Enqueue(InputEvent);
+        if (isRunOnMasterScript)
+        {
+            InputEvent.Set(YamaIndex, "Discard", PlayerIndex);
+            eventQueue.Enqueue(InputEvent);
+        }
     }
 
-    public void Initialize(string type, int cardNumber, bool isDora, EventQueue e, CardSprites sprites, HandUtil util)
+    public void Initialize_Master(string type, int cardNumber, bool isDora)
     {
-        eventQueue = e;
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
 
-        GlobalOrder = util.GetGlobalOrder(type, cardNumber);
+        // 마스터만 해당 bool값이 true이다
+        isRunOnMasterScript = true;
+    }
+
+    public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites)
+    {
+        this.eventQueue = eventQueue;
+        GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
 
         var spriteName = GetCardSpriteName();
         var sprite = sprites.FindSprite(spriteName);
-        SetSprite(sprite);
-    }
 
-    public BoxCollider SetColliderActivate(bool t)
-    {
-        boxCollider.enabled = t;
-        return boxCollider;
+        SetSprite(sprite);
     }
 
     public void SetSprite(Sprite sprite)
@@ -67,6 +73,11 @@ public class Card : UdonSharpBehaviour
         var renderer = display.GetComponent<SpriteRenderer>();
 
         renderer.sprite = sprite;
+    }
+    public BoxCollider SetColliderActivate(bool t)
+    {
+        boxCollider.enabled = t;
+        return boxCollider;
     }
 
     public void SetPosition(Vector3 p, Quaternion r)
