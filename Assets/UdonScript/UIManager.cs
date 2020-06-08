@@ -147,47 +147,35 @@ public class UIManager : UdonSharpBehaviour
 
     public void _ClickButton()
     {
-        if (!isRunOnMasterScript)
+        if (isRunOnMasterScript)
         {
-            return;
+            Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
+
+            DisableButtonAll();
+
+            if (UIName == "Chi" && uiContext.ChiableCount > 1)
+            {
+                ActiveButton("ChiSelect");
+            }
+            else
+            {
+                var chiYamaIndexes = GetChiIndexByUIName();
+                inputEvent.SetChiEvent(chiYamaIndexes, UIName, PlayerIndex);
+                eventQueue.Enqueue(inputEvent);
+            }
         }
+    }
 
-        Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
-
+    Vector2 GetChiIndexByUIName()
+    {
         switch (UIName)
         {
-            case "chiSelect_1":
-                UIName = "Chi";
-                DisableButtonAll();
-                inputEvent.SetChiEvent(uiContext.ChiableIndex1, UIName, PlayerIndex);
-                eventQueue.Enqueue(inputEvent);
-                break;
-
-            case "chiSelect_2":
-                UIName = "Chi";
-                DisableButtonAll();
-                inputEvent.SetChiEvent(uiContext.ChiableIndex2, UIName, PlayerIndex);
-                eventQueue.Enqueue(inputEvent);
-                break;
-
-            case "chiSelect_3":
-                UIName = "Chi";
-                DisableButtonAll();
-                inputEvent.SetChiEvent(uiContext.ChiableIndex3, UIName, PlayerIndex);
-                eventQueue.Enqueue(inputEvent);
-                break;
-
-            case "Chi":
-                if (uiContext.ChiableCount > 1)
-                {
-                    ActiveButton("ChiSelect");
-                }
-                else
-                {
-                    inputEvent.SetChiEvent(uiContext.ChiableIndex3, UIName, PlayerIndex);
-                    eventQueue.Enqueue(inputEvent);
-                }
-                break;
+            case "Chi":         return uiContext.ChiableIndex1;
+            case "chiSelect_1": return uiContext.ChiableIndex1;
+            case "chiSelect_2": return uiContext.ChiableIndex2;
+            case "chiSelect_3": return uiContext.ChiableIndex3;
         }
+
+        return Vector2.zero;
     }
 }
