@@ -16,7 +16,7 @@ public class UIManager : UdonSharpBehaviour
     /*LinkedInInspector*/ public CardSprites CardSprites;
 
     private UIContext uiContext;
-    private EventQueue eventQueue;
+    public  EventQueue eventQueue;
     private InputEvent inputEvent;
 
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
@@ -134,7 +134,6 @@ public class UIManager : UdonSharpBehaviour
     public void OnClick(string uiName)
     {
         UIName = uiName;
-        SelectedCard = -1; // TODO 여기서 액션에 선택할 카드를 넣어주어야 한다.
 
         if (Networking.LocalPlayer == null)
         {
@@ -158,26 +157,23 @@ public class UIManager : UdonSharpBehaviour
         switch (UIName)
         {
             case "chiSelect_1":
-                inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex1.x, uiContext.ChiableIndex1.y);
                 UIName = "Chi";
                 DisableButtonAll();
-                inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                inputEvent.SetChiEvent(uiContext.ChiableIndex1, UIName, PlayerIndex);
                 eventQueue.Enqueue(inputEvent);
                 break;
 
             case "chiSelect_2":
-                inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex2.x, uiContext.ChiableIndex2.y);
                 UIName = "Chi";
                 DisableButtonAll();
-                inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                inputEvent.SetChiEvent(uiContext.ChiableIndex2, UIName, PlayerIndex);
                 eventQueue.Enqueue(inputEvent);
                 break;
 
             case "chiSelect_3":
-                inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
                 UIName = "Chi";
                 DisableButtonAll();
-                inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                inputEvent.SetChiEvent(uiContext.ChiableIndex3, UIName, PlayerIndex);
                 eventQueue.Enqueue(inputEvent);
                 break;
 
@@ -188,8 +184,7 @@ public class UIManager : UdonSharpBehaviour
                 }
                 else
                 {
-                    inputEvent.ChiIndex = new Vector2(uiContext.ChiableIndex3.x, uiContext.ChiableIndex3.y);
-                    inputEvent.Set(SelectedCard, UIName, PlayerIndex);
+                    inputEvent.SetChiEvent(uiContext.ChiableIndex3, UIName, PlayerIndex);
                     eventQueue.Enqueue(inputEvent);
                 }
                 break;
