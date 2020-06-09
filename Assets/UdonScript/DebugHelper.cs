@@ -45,6 +45,6 @@ public class DebugHelper : UdonSharpBehaviour
 
     void Print(string errorMsg, int lineNumber)
     {
-        Debug.Log($"{className} {testName} {errorMsg} {lineNumber}");
+        Debug.Log($"{className} {testName} line:{lineNumber} {errorMsg}");
     }
 }
