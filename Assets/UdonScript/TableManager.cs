@@ -14,6 +14,8 @@ public class TableManager : UdonSharpBehaviour
     /*LinkedInInspector*/ public HandUtil HandUtil;
     /*LinkedInInspector*/ public EventQueue EventQueue;
     /*LinkedInInspector*/ public GameObject StashTables;
+    /*LinkedInInspector*/ public Material normalMaterial;
+    /*LinkedInInspector*/ public Material doraMaterial;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -143,9 +145,11 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize_All()
     {
+        Material material;
         foreach (var card in yama)
         {
-            card.Initialize_All(EventQueue, HandUtil, Sprites);
+            material = card.IsDora ? doraMaterial : normalMaterial;
+            card.Initialize_All(EventQueue, HandUtil, Sprites, material);
         }
 
         for (int i = 0; i < players.Length; ++i)
