@@ -310,17 +310,6 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         }
     }
 
-    public object[] AddNullForward(object[] ctxs)
-    {
-        var newArr = new object[ctxs.Length + 1];
-        newArr[0] = null;
-        for (var i = 0; i < ctxs.Length; ++i)
-        {
-            newArr[i + 1] = ctxs[i];
-        }
-        return newArr;
-    }
-
     string GobalOrderToType(int globalORder)
     {
         if (MAN_START_INDEX <= globalORder && globalORder <= MAN_END_INDEX) return "만";
