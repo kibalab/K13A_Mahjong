@@ -26,38 +26,35 @@ MonoBehaviour:
     %SystemString, null\r\n    __0_chiIndex_Vector2: %UnityEngineVector2, null\r\n
     \   __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
     %SystemString, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __0_intnl_SystemSingle: %SystemSingle, null\r\n    __1_intnl_SystemSingle:
-    %SystemSingle, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n
-    \   __0_intnl_UnityEngineVector2: %UnityEngineVector2, null\r\n    __1_intnl_UnityEngineVector2:
-    %UnityEngineVector2, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using
-    UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n        \r\n         #
-    using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n        \r\n         #
-    public class InputEvent : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
-    [UdonSynced(UdonSyncMode.None)] public string EventType;\r\n        \r\n         #
-    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;\r\n        \r\n         #
-    [UdonSynced(UdonSyncMode.None)] public int DiscardedCardYamaIndex;\r\n        \r\n
-    \        # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiIndex;\r\n        \r\n
-    \        # public void SetDiscardEvent(int yamaIndex, string eventType, int playerIndex)\r\n
-    \   .export SetDiscardEvent\r\n        \r\n    SetDiscardEvent:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # DiscardedCardYamaIndex = yamaIndex;\r\n        PUSH, __0_yamaIndex_Int32\r\n
-    \       PUSH, DiscardedCardYamaIndex\r\n        COPY\r\n        \r\n         #
-    EventType = eventType;\r\n        PUSH, __0_eventType_String\r\n        PUSH,
-    EventType\r\n        COPY\r\n        \r\n         # PlayerIndex = playerIndex;\r\n
-    \       PUSH, __0_playerIndex_Int32\r\n        PUSH, PlayerIndex\r\n        COPY\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void SetChiEvent(Vector2 chiIndex, string eventType, int playerIndex)\r\n
-    \   .export SetChiEvent\r\n        \r\n    SetChiEvent:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    ChiIndex = new Vector2(chiIndex.x, chiIndex.y);\r\n        PUSH, __0_chiIndex_Vector2\r\n
-    \       PUSH, __0_intnl_SystemSingle\r\n        EXTERN, \"UnityEngineVector2.__get_x__SystemSingle\"\r\n
-    \       PUSH, __0_chiIndex_Vector2\r\n        PUSH, __1_intnl_SystemSingle\r\n
-    \       EXTERN, \"UnityEngineVector2.__get_y__SystemSingle\"\r\n        PUSH,
-    __0_intnl_SystemSingle\r\n        PUSH, __1_intnl_SystemSingle\r\n        PUSH,
-    __0_intnl_UnityEngineVector2\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
-    \       PUSH, __0_intnl_UnityEngineVector2\r\n        PUSH, ChiIndex\r\n        COPY\r\n
+    \   __0_intnl_SystemSingle: %SystemSingle, null\r\n    __1_intnl_SystemSingle:
+    %SystemSingle, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
+    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
+    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
+    \       \r\n         # public class InputEvent : UdonSharpBehaviour\r\n.code_start\r\n
+    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string EventType;\r\n
+    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;\r\n
+    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public int DiscardedCardYamaIndex;\r\n
+    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiIndex;\r\n
+    \       \r\n         # public void SetDiscardEvent(int yamaIndex, string eventType,
+    int playerIndex)\r\n    .export SetDiscardEvent\r\n        \r\n    SetDiscardEvent:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # DiscardedCardYamaIndex = yamaIndex;\r\n        PUSH,
+    __0_yamaIndex_Int32\r\n        PUSH, DiscardedCardYamaIndex\r\n        COPY\r\n
+    \       \r\n         # EventType = eventType;\r\n        PUSH, __0_eventType_String\r\n
+    \       PUSH, EventType\r\n        COPY\r\n        \r\n         # PlayerIndex
+    = playerIndex;\r\n        PUSH, __0_playerIndex_Int32\r\n        PUSH, PlayerIndex\r\n
+    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
+    \       \r\n         # public void SetChiEvent(Vector2 chiIndex, string eventType,
+    int playerIndex)\r\n    .export SetChiEvent\r\n        \r\n    SetChiEvent:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # ChiIndex = new Vector2(chiIndex.x, chiIndex.y);\r\n
+    \       PUSH, __0_chiIndex_Vector2\r\n        PUSH, __0_intnl_SystemSingle\r\n
+    \       EXTERN, \"UnityEngineVector2.__get_x__SystemSingle\"\r\n        PUSH,
+    __0_chiIndex_Vector2\r\n        PUSH, __1_intnl_SystemSingle\r\n        EXTERN,
+    \"UnityEngineVector2.__get_y__SystemSingle\"\r\n        PUSH, __0_intnl_SystemSingle\r\n
+    \       PUSH, __1_intnl_SystemSingle\r\n        PUSH, ChiIndex\r\n        EXTERN,
+    \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
     \       \r\n         # EventType = eventType;\r\n        PUSH, __1_eventType_String\r\n
     \       PUSH, EventType\r\n        COPY\r\n        \r\n         # PlayerIndex
     = playerIndex;\r\n        PUSH, __1_playerIndex_Int32\r\n        PUSH, PlayerIndex\r\n
@@ -66,19 +63,15 @@ MonoBehaviour:
     \       \r\n         # public void Clear()\r\n    .export Clear\r\n        \r\n
     \   Clear:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
     \        # {\r\n        \r\n         # DiscardedCardYamaIndex = -1;\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32\"\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       PUSH, DiscardedCardYamaIndex\r\n        COPY\r\n        \r\n         #
+    __0_const_intnl_SystemInt32\r\n        PUSH, DiscardedCardYamaIndex\r\n        EXTERN,
+    \"SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32\"\r\n        \r\n         #
     EventType = \"\";\r\n        PUSH, __0_const_intnl_SystemString\r\n        PUSH,
     EventType\r\n        COPY\r\n        \r\n         # PlayerIndex = -1;\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, PlayerIndex\r\n        COPY\r\n        \r\n         # ChiIndex =
-    Vector2.zero;\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n        EXTERN,
-    \"UnityEngineVector2.__get_zero__UnityEngineVector2\"\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n
-    \       PUSH, ChiIndex\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+    __0_const_intnl_SystemInt32\r\n        PUSH, PlayerIndex\r\n        EXTERN, \"SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32\"\r\n
+    \       \r\n         # ChiIndex = Vector2.zero;\r\n        PUSH, ChiIndex\r\n
+    \       EXTERN, \"UnityEngineVector2.__get_zero__UnityEngineVector2\"\r\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: ea849a7665c30314b917c1f0ade136f3, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
@@ -440,13 +433,33 @@ MonoBehaviour:
       lineChar: 43
       spanCodeSection: "Vector2 ChiIndex;\r\n\r\n    "
     - startInstruction: 0
-      endInstruction: 7
+      endInstruction: -1
       startSourceChar: 495
-      endSourceChar: 578
+      endSourceChar: 523
       line: 16
       lineChar: 4
-      spanCodeSection: "public void SetDiscardEvent(int yamaIndex, string eventType,
-        int playerIndex)\r\n    "
+      spanCodeSection: public void SetDiscardEvent(
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 523
+      endSourceChar: 538
+      line: 16
+      lineChar: 32
+      spanCodeSection: 'int yamaIndex, '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 538
+      endSourceChar: 556
+      line: 16
+      lineChar: 47
+      spanCodeSection: 'string eventType, '
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 556
+      endSourceChar: 578
+      line: 16
+      lineChar: 65
+      spanCodeSection: "int playerIndex)\r\n    "
     - startInstruction: 8
       endInstruction: 7
       startSourceChar: 578
@@ -454,6 +467,13 @@ MonoBehaviour:
       line: 17
       lineChar: 4
       spanCodeSection: "{\r\n        "
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 589
+      endSourceChar: 589
+      line: 18
+      lineChar: 8
+      spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
       startSourceChar: 589
@@ -485,6 +505,13 @@ MonoBehaviour:
     - startInstruction: 28
       endInstruction: 27
       startSourceChar: 634
+      endSourceChar: 634
+      line: 19
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 634
       endSourceChar: 646
       line: 19
       lineChar: 8
@@ -496,6 +523,13 @@ MonoBehaviour:
       line: 19
       lineChar: 20
       spanCodeSection: "eventType;\r\n        "
+    - startInstruction: 48
+      endInstruction: 47
+      startSourceChar: 666
+      endSourceChar: 666
+      line: 20
+      lineChar: 8
+      spanCodeSection: 
     - startInstruction: 48
       endInstruction: 47
       startSourceChar: 666
@@ -518,13 +552,33 @@ MonoBehaviour:
       lineChar: 22
       spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
     - startInstruction: 88
-      endInstruction: 95
+      endInstruction: 87
       startSourceChar: 707
-      endSourceChar: 789
+      endSourceChar: 731
       line: 23
       lineChar: 4
-      spanCodeSection: "public void SetChiEvent(Vector2 chiIndex, string eventType,
-        int playerIndex)\r\n    "
+      spanCodeSection: public void SetChiEvent(
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 731
+      endSourceChar: 749
+      line: 23
+      lineChar: 28
+      spanCodeSection: 'Vector2 chiIndex, '
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 749
+      endSourceChar: 767
+      line: 23
+      lineChar: 46
+      spanCodeSection: 'string eventType, '
+    - startInstruction: 88
+      endInstruction: 95
+      startSourceChar: 767
+      endSourceChar: 789
+      line: 23
+      lineChar: 64
+      spanCodeSection: "int playerIndex)\r\n    "
     - startInstruction: 96
       endInstruction: 95
       startSourceChar: 789
@@ -532,6 +586,13 @@ MonoBehaviour:
       line: 24
       lineChar: 4
       spanCodeSection: "{\r\n        "
+    - startInstruction: 96
+      endInstruction: 95
+      startSourceChar: 800
+      endSourceChar: 800
+      line: 25
+      lineChar: 8
+      spanCodeSection: 
     - startInstruction: 96
       endInstruction: 95
       startSourceChar: 800
@@ -610,175 +671,217 @@ MonoBehaviour:
       lineChar: 43
       spanCodeSection: chiIndex.
     - startInstruction: 120
-      endInstruction: 195
+      endInstruction: 175
       startSourceChar: 844
       endSourceChar: 857
       line: 25
       lineChar: 52
       spanCodeSection: "y);\r\n        "
-    - startInstruction: 196
-      endInstruction: 195
+    - startInstruction: 176
+      endInstruction: 175
       startSourceChar: 857
       endSourceChar: 857
       line: 26
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 196
-      endInstruction: 195
+    - startInstruction: 176
+      endInstruction: 175
+      startSourceChar: 857
+      endSourceChar: 857
+      line: 26
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 176
+      endInstruction: 175
       startSourceChar: 857
       endSourceChar: 869
       line: 26
       lineChar: 8
       spanCodeSection: 'EventType = '
-    - startInstruction: 196
-      endInstruction: 215
+    - startInstruction: 176
+      endInstruction: 195
       startSourceChar: 869
       endSourceChar: 889
       line: 26
       lineChar: 20
       spanCodeSection: "eventType;\r\n        "
-    - startInstruction: 216
-      endInstruction: 215
+    - startInstruction: 196
+      endInstruction: 195
       startSourceChar: 889
       endSourceChar: 889
       line: 27
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 216
-      endInstruction: 215
+    - startInstruction: 196
+      endInstruction: 195
+      startSourceChar: 889
+      endSourceChar: 889
+      line: 27
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 196
+      endInstruction: 195
       startSourceChar: 889
       endSourceChar: 903
       line: 27
       lineChar: 8
       spanCodeSection: 'PlayerIndex = '
-    - startInstruction: 216
-      endInstruction: 255
+    - startInstruction: 196
+      endInstruction: 235
       startSourceChar: 903
       endSourceChar: 930
       line: 27
       lineChar: 22
       spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
-    - startInstruction: 256
-      endInstruction: 263
+    - startInstruction: 236
+      endInstruction: 243
       startSourceChar: 930
       endSourceChar: 955
       line: 30
       lineChar: 4
       spanCodeSection: "public void Clear()\r\n    "
-    - startInstruction: 264
-      endInstruction: 263
+    - startInstruction: 244
+      endInstruction: 243
       startSourceChar: 955
       endSourceChar: 966
       line: 31
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 264
-      endInstruction: 263
+    - startInstruction: 244
+      endInstruction: 243
       startSourceChar: 966
       endSourceChar: 966
       line: 32
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 264
-      endInstruction: 263
+    - startInstruction: 244
+      endInstruction: 243
+      startSourceChar: 966
+      endSourceChar: 966
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 244
+      endInstruction: 243
       startSourceChar: 966
       endSourceChar: 991
       line: 32
       lineChar: 8
       spanCodeSection: 'DiscardedCardYamaIndex = '
-    - startInstruction: 264
-      endInstruction: 263
+    - startInstruction: 244
+      endInstruction: 243
       startSourceChar: 991
       endSourceChar: 992
       line: 32
       lineChar: 33
       spanCodeSection: '-'
-    - startInstruction: 264
-      endInstruction: 307
+    - startInstruction: 244
+      endInstruction: 267
       startSourceChar: 992
       endSourceChar: 1004
       line: 32
       lineChar: 34
       spanCodeSection: "1;\r\n        "
-    - startInstruction: 308
-      endInstruction: 307
+    - startInstruction: 268
+      endInstruction: 267
       startSourceChar: 1004
       endSourceChar: 1004
       line: 33
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 308
-      endInstruction: 307
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 1004
+      endSourceChar: 1004
+      line: 33
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 268
+      endInstruction: 267
       startSourceChar: 1004
       endSourceChar: 1016
       line: 33
       lineChar: 8
       spanCodeSection: 'EventType = '
-    - startInstruction: 308
-      endInstruction: 327
+    - startInstruction: 268
+      endInstruction: 287
       startSourceChar: 1016
       endSourceChar: 1029
       line: 33
       lineChar: 20
       spanCodeSection: "\"\";\r\n        "
-    - startInstruction: 328
-      endInstruction: 327
+    - startInstruction: 288
+      endInstruction: 287
       startSourceChar: 1029
       endSourceChar: 1029
       line: 34
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 328
-      endInstruction: 327
+    - startInstruction: 288
+      endInstruction: 287
+      startSourceChar: 1029
+      endSourceChar: 1029
+      line: 34
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 288
+      endInstruction: 287
       startSourceChar: 1029
       endSourceChar: 1043
       line: 34
       lineChar: 8
       spanCodeSection: 'PlayerIndex = '
-    - startInstruction: 328
-      endInstruction: 327
+    - startInstruction: 288
+      endInstruction: 287
       startSourceChar: 1043
       endSourceChar: 1044
       line: 34
       lineChar: 22
       spanCodeSection: '-'
-    - startInstruction: 328
-      endInstruction: 371
+    - startInstruction: 288
+      endInstruction: 311
       startSourceChar: 1044
       endSourceChar: 1056
       line: 34
       lineChar: 23
       spanCodeSection: "1;\r\n        "
-    - startInstruction: 372
-      endInstruction: 371
+    - startInstruction: 312
+      endInstruction: 311
       startSourceChar: 1056
       endSourceChar: 1056
       line: 35
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 372
-      endInstruction: 371
+    - startInstruction: 312
+      endInstruction: 311
+      startSourceChar: 1056
+      endSourceChar: 1056
+      line: 35
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 312
+      endInstruction: 311
       startSourceChar: 1056
       endSourceChar: 1067
       line: 35
       lineChar: 8
       spanCodeSection: 'ChiIndex = '
-    - startInstruction: 372
-      endInstruction: 371
+    - startInstruction: 312
+      endInstruction: 311
       startSourceChar: 1067
       endSourceChar: 1067
       line: 35
       lineChar: 19
       spanCodeSection: 
-    - startInstruction: 372
-      endInstruction: 371
+    - startInstruction: 312
+      endInstruction: 311
       startSourceChar: 1067
       endSourceChar: 1075
       line: 35
       lineChar: 19
       spanCodeSection: Vector2.
-    - startInstruction: 372
-      endInstruction: 372
+    - startInstruction: 312
+      endInstruction: 312
       startSourceChar: 1075
       endSourceChar: 1075
       line: 35

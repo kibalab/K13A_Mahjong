@@ -22,9 +22,8 @@ MonoBehaviour:
     %SystemString, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
     \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_UnityEngineGameObject: %UnityEngineGameObject, null\r\n    __0_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
+    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
     \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDK3.Components;\r\n
     \       \r\n         # namespace UdonSharp.Examples.Utilities\r\n        \r\n
     \        # [AddComponentMenu(\"Udon Sharp/Utilities/Interact Toggle\")]\r\n        \r\n
@@ -39,11 +38,10 @@ MonoBehaviour:
     \       EXTERN, \"UnityEngineGameObjectArray.__get_Length__SystemInt32\"\r\n        PUSH,
     __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000011C\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000F4\r\n
     \       PUSH, toggleObjects\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_UnityEngineGameObject\r\n        EXTERN, \"UnityEngineGameObjectArray.__Get__SystemInt32__UnityEngineGameObject\"\r\n
-    \       PUSH, __0_intnl_UnityEngineGameObject\r\n        PUSH, __0_toggleObject_GameObject\r\n
-    \       COPY\r\n        \r\n         # {\r\n        \r\n         # toggleObject.SetActive(!toggleObject.activeSelf);\r\n
+    __0_toggleObject_GameObject\r\n        EXTERN, \"UnityEngineGameObjectArray.__Get__SystemInt32__UnityEngineGameObject\"\r\n
+    \       \r\n         # {\r\n        \r\n         # toggleObject.SetActive(!toggleObject.activeSelf);\r\n
     \       PUSH, __0_toggleObject_GameObject\r\n        PUSH, __1_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineGameObject.__get_activeSelf__SystemBoolean\"\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
@@ -51,10 +49,9 @@ MonoBehaviour:
     \       PUSH, __0_toggleObject_GameObject\r\n        PUSH, __2_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __2_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000034\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       JUMP, 0x00000034\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n.code_end\r\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c145dd4792c31da4b83d542b11ca2b66, type: 3}
@@ -256,77 +253,77 @@ MonoBehaviour:
       lineChar: 21
       spanCodeSection: 'GameObject toggleObject in '
     - startInstruction: 8
-      endInstruction: 151
+      endInstruction: 131
       startSourceChar: 642
       endSourceChar: 670
       line: 18
       lineChar: 48
       spanCodeSection: "toggleObjects)\r\n            "
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 670
       endSourceChar: 689
       line: 19
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 689
       endSourceChar: 689
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 689
       endSourceChar: 689
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 689
       endSourceChar: 689
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 689
       endSourceChar: 702
       line: 20
       lineChar: 16
       spanCodeSection: toggleObject.
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 702
       endSourceChar: 712
       line: 20
       lineChar: 29
       spanCodeSection: SetActive(
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 712
       endSourceChar: 713
       line: 20
       lineChar: 39
       spanCodeSection: '!'
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 713
       endSourceChar: 713
       line: 20
       lineChar: 40
       spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
+    - startInstruction: 132
+      endInstruction: 131
       startSourceChar: 713
       endSourceChar: 726
       line: 20
       lineChar: 40
       spanCodeSection: toggleObject.
-    - startInstruction: 152
-      endInstruction: 152
+    - startInstruction: 132
+      endInstruction: 132
       startSourceChar: 726
       endSourceChar: 726
       line: 20

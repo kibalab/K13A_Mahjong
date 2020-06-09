@@ -32,8 +32,7 @@ MonoBehaviour:
     \        # this.uiManager = uiManager;\r\n        PUSH, __0_uiManager_UIManager\r\n
     \       PUSH, uiManager\r\n        COPY\r\n        \r\n         # buttonName =
     this.gameObject.name;\r\n        PUSH, __0_this_intnl_UnityEngineGameObject\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        EXTERN, \"UnityEngineGameObject.__get_name__SystemString\"\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, buttonName\r\n        COPY\r\n
+    \       PUSH, buttonName\r\n        EXTERN, \"UnityEngineGameObject.__get_name__SystemString\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public override void Interact()\r\n    .export _interact\r\n        \r\n
@@ -41,8 +40,9 @@ MonoBehaviour:
     \        # {\r\n        \r\n         # uiManager.OnClick(buttonName);\r\n        PUSH,
     uiManager\r\n        PUSH, __0_const_intnl_SystemString\r\n        PUSH, buttonName\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, uiManager\r\n        PUSH, __1_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, buttonName\r\n        PUSH, __0_intnl_SystemString\r\n        COPY
+    # Copy-on-write symbol value dirtied\r\n        PUSH, uiManager\r\n        PUSH,
+    __1_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
@@ -220,12 +220,19 @@ MonoBehaviour:
       lineChar: 11
       spanCodeSection: "UIManager uiManager;\r\n\r\n    "
     - startInstruction: 0
-      endInstruction: 7
+      endInstruction: -1
       startSourceChar: 198
-      endSourceChar: 247
+      endSourceChar: 221
       line: 12
       lineChar: 4
-      spanCodeSection: "public void Initialize(UIManager uiManager)\r\n    "
+      spanCodeSection: public void Initialize(
+    - startInstruction: 0
+      endInstruction: 7
+      startSourceChar: 221
+      endSourceChar: 247
+      line: 12
+      lineChar: 27
+      spanCodeSection: "UIManager uiManager)\r\n    "
     - startInstruction: 8
       endInstruction: 7
       startSourceChar: 247
@@ -243,10 +250,31 @@ MonoBehaviour:
     - startInstruction: 8
       endInstruction: 7
       startSourceChar: 258
-      endSourceChar: 275
+      endSourceChar: 258
       line: 14
       lineChar: 8
-      spanCodeSection: 'this.uiManager = '
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 258
+      endSourceChar: 258
+      line: 14
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 258
+      endSourceChar: 263
+      line: 14
+      lineChar: 8
+      spanCodeSection: this.
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 263
+      endSourceChar: 275
+      line: 14
+      lineChar: 13
+      spanCodeSection: 'uiManager = '
     - startInstruction: 8
       endInstruction: 27
       startSourceChar: 275
@@ -254,6 +282,13 @@ MonoBehaviour:
       line: 14
       lineChar: 25
       spanCodeSection: "uiManager;\r\n\r\n        "
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 297
+      endSourceChar: 297
+      line: 16
+      lineChar: 8
+      spanCodeSection: 
     - startInstruction: 28
       endInstruction: 27
       startSourceChar: 297
@@ -297,63 +332,63 @@ MonoBehaviour:
       lineChar: 26
       spanCodeSection: gameObject.
     - startInstruction: 28
-      endInstruction: 91
+      endInstruction: 71
       startSourceChar: 326
       endSourceChar: 346
       line: 16
       lineChar: 37
       spanCodeSection: "name;\r\n    }\r\n\r\n    "
-    - startInstruction: 92
-      endInstruction: 99
+    - startInstruction: 72
+      endInstruction: 79
       startSourceChar: 346
       endSourceChar: 383
       line: 19
       lineChar: 4
       spanCodeSection: "public override void Interact()\r\n    "
-    - startInstruction: 100
-      endInstruction: 99
+    - startInstruction: 80
+      endInstruction: 79
       startSourceChar: 383
       endSourceChar: 394
       line: 20
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 100
-      endInstruction: 99
+    - startInstruction: 80
+      endInstruction: 79
       startSourceChar: 394
       endSourceChar: 394
       line: 21
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 100
-      endInstruction: 99
+    - startInstruction: 80
+      endInstruction: 79
       startSourceChar: 394
       endSourceChar: 394
       line: 21
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 100
-      endInstruction: 99
+    - startInstruction: 80
+      endInstruction: 79
       startSourceChar: 394
       endSourceChar: 394
       line: 21
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 100
-      endInstruction: 99
+    - startInstruction: 80
+      endInstruction: 79
       startSourceChar: 394
       endSourceChar: 404
       line: 21
       lineChar: 8
       spanCodeSection: uiManager.
-    - startInstruction: 100
-      endInstruction: 99
+    - startInstruction: 80
+      endInstruction: 79
       startSourceChar: 404
       endSourceChar: 412
       line: 21
       lineChar: 18
       spanCodeSection: OnClick(
-    - startInstruction: 100
-      endInstruction: 100
+    - startInstruction: 80
+      endInstruction: 80
       startSourceChar: 412
       endSourceChar: 412
       line: 21
