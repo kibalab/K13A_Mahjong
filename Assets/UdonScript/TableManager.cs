@@ -100,11 +100,12 @@ public class TableManager : UdonSharpBehaviour
 
     public void AnnounceDiscard(Card card)
     {
-        for (var i = 0; i < 4; i++)
+        for (var playerIndex = 0; playerIndex < 4; playerIndex++)
         {
-            if (i != currentTurnPlayer)
+            if (playerIndex != currentTurnPlayer)
             {
-                players[i].CheckNakiable(card, currentTurnPlayer);
+                var isDiscardedByLeftPlayer = playerIndex == (currentTurnPlayer + 1) % 4;
+                players[playerIndex].CheckNakiable(card, isDiscardedByLeftPlayer);
             }
         }
     }
