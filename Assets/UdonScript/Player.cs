@@ -60,15 +60,20 @@ public class Player : UdonSharpBehaviour
         return cardPoints;
     }
 
-    public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo) 
+    public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo)
     {
-        // 천화, 해저로월 용도
-        // AgariContext.IsTsumoable(newCard, isFristTsumo, isLastTsumo);
+        Cards.Add(newCard);
 
         newCard.SetOwnership(PlayerIndex, InputEvent);
-
-        Cards.Add(newCard);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+
+        if (OpenendCards.Count() == 0)
+        {
+            // 실제로 리치 가능한 건 쯔모일 때만인데..
+            // 여기 들어오는 과정이 깡에서도 들어와서 좀 애매하게 됐네
+            // 코드 좀 다시 깎아야함
+            HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext);
+        }
     }
 
     public void Discard(Card card)
@@ -117,7 +122,7 @@ public class Player : UdonSharpBehaviour
         var index = 0;
         var arr = new Card[count];
 
-        foreach(var card in GetArray())
+        foreach(var card in GetArray(Cards))
         {
             if (card.GlobalOrder == globalOrder)
             {
@@ -137,7 +142,7 @@ public class Player : UdonSharpBehaviour
     void Debugging(int globalOrder)
     {
         var str = "";
-        foreach (var card in GetArray())
+        foreach (var card in GetArray(Cards))
         {
             str += $"({card.GlobalOrder}) ";
         }
@@ -152,7 +157,7 @@ public class Player : UdonSharpBehaviour
 
         UIContext.IsChanged = true;
 
-        HandCalculator.RequestNakiable(GetArray(), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
+        HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
 
     public bool IsUIActived()
@@ -205,9 +210,9 @@ public class Player : UdonSharpBehaviour
         }
     }
 
-    Card[] GetArray()
+    Card[] GetArray(KList list)
     {
-        var objs = Cards.Clone();
+        var objs = list.Clone();
         var cards = new Card[objs.Length];
 
         for (var i = 0; i < objs.Length; ++i)
