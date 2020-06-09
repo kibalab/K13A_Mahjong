@@ -182,7 +182,8 @@ public class HandUtil : UdonSharpBehaviour
     public int[] FindPairs(int[] globalOrders)
     {
         // 머리를 찾는다. 최대 갯수는 14/2 7개
-        var arr = new int[7];
+        // 인데 버그나서 임시로 늘려봄;;;
+        var arr = new int[14];
         var index = 0;
 
         for (var i = 0; i < globalOrders.Length; ++i)
