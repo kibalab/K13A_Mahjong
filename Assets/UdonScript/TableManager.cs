@@ -93,7 +93,7 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-        public Card GetCardByIndex(int cardIndex)
+    public Card GetCardByIndex(int cardIndex)
     {
         return yama[cardIndex];
     }
