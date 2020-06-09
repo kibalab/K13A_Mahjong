@@ -162,6 +162,7 @@ public class UIManager : UdonSharpBehaviour
             if (UIName == "Chi" && uiContext.ChiableCount > 1)
             {
                 ActiveButton("ChiSelect");
+                ActiveButton("Skip");
             }
             else
             {
