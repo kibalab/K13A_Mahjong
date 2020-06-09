@@ -12,6 +12,7 @@ public class GameManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
     [UdonSynced(UdonSyncMode.None)] public int UIActivedCount = 0;
     [UdonSynced(UdonSyncMode.None)] public int RegisteredPlayerCount = 0;
+    private bool GameManagerInitialized = false;
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -27,6 +28,15 @@ public class GameManager : UdonSharpBehaviour
 
     // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
     // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
+
+    public override void OnPlayerJoined(VRCPlayerApi player)
+    {
+        if(!GameManagerInitialized)
+        {
+            _Start();
+            GameManagerInitialized = true;
+        }
+    }
 
     void _Start()
     {

@@ -51,7 +51,9 @@ public class TableManager : UdonSharpBehaviour
 
     public void SetTurnOf(int playerIndex)
     {
+        players[currentTurnPlayer].SetColliderActive(false);
         currentTurnPlayer = playerIndex;
+        players[playerIndex].SetColliderActive(true);
     }
 
     public Player GetPlayer(int playerIndex)
