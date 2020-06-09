@@ -57,7 +57,7 @@ public class Card : UdonSharpBehaviour
         isRunOnMasterScript = true;
     }
 
-    public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites)
+    public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites, Material material)
     {
         this.eventQueue = eventQueue;
         GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
@@ -67,6 +67,7 @@ public class Card : UdonSharpBehaviour
         var sprite = sprites.FindSprite(spriteName);
 
         SetSprite(sprite);
+        setMaterial(material);
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -81,6 +82,20 @@ public class Card : UdonSharpBehaviour
         var renderer = display.GetComponent<SpriteRenderer>();
 
         renderer.sprite = sprite;
+    }
+
+    public void setMaterial(Material material)
+    {
+        var display = transform.Find("Display");
+        var renderer = display.GetComponent<SpriteRenderer>();
+        if (IsDora)
+        {
+            renderer.material = material;
+        }
+        else
+        {
+            renderer.material = material;
+        }
     }
 
     public BoxCollider SetColliderActivate(bool t)

@@ -132,7 +132,9 @@
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\ValidationUtils.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\WorldValidation.cs" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Skybox.shader" />
+    <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient_Transpaent.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Add.shader" />
+    <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient_Cutout.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Video-RealtimeEmissiveGamma.shader" />
     <None Include="Assets\UdonSharp\version.txt" />
     <None Include="Assets\VRCSDK\Dependencies\VRChat\Resources\awsconfig.xml" />
@@ -149,8 +151,12 @@
     <None Include="Assets\VRCSDK\Sample Assets\PanoViewer\Panosphere.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Alpha.shader" />
     <None Include="Assets\UdonSharp\Examples\Tutorials\ExampleTutorialTemplate.txt" />
+    <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat_Cutout.shader" />
+    <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Multiply.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedDiffuse.shader" />
+    <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat_Transpaent.shader" />
+    <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-StandardLite.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedSpecular.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">

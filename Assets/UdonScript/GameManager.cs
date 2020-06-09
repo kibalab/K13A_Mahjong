@@ -23,6 +23,8 @@ public class GameManager : UdonSharpBehaviour
     private float WaitingTime = 0.0f;
     private bool isRunOnMasterScript = false;
 
+    public bool testMode;
+
     // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
     // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
     void Start()
@@ -42,8 +44,9 @@ public class GameManager : UdonSharpBehaviour
 
         // 원래 4명 다 모여야 카드를 배분하지만
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
-        if (Networking.LocalPlayer == null)
+        if (testMode)
         {
+            Debug.Log("====TestMode====");
             TableManager.AddNextCard();
             ChangeGameState(State_WaitForDiscard);
         }
@@ -102,7 +105,7 @@ public class GameManager : UdonSharpBehaviour
             ++RegisteredPlayerCount;
         }
 
-        if (RegisteredPlayerCount == 4)
+        if (RegisteredPlayerCount == 4 || testMode)
         {
             // 4명 중 아무나 첫 턴으로 설정해준다
             TableManager.SetTurnOf(Random.Range(0, 4));
