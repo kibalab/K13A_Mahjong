@@ -20,6 +20,19 @@ public class KList : UdonSharpBehaviour
         return components;
     }
 
+    public object[] Insert(int insertIndex, object component)
+    {
+        ResizeIfNeeded(true);
+        index++;
+        for (var i = index; i > insertIndex; --i)
+        {
+            components[i] = components[i - 1];
+        }
+        components[insertIndex] = component;
+
+        return components;
+    }
+
     public object RemoveLast()
     {
         var comp = components[index];
