@@ -27,7 +27,8 @@ public class GameManager : UdonSharpBehaviour
 
     // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
     // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
-    void Start()
+
+    void _Start()
     {
         // 월드가 처음 만들어졌을 때 마스터 초기화
         var isWorldInitializing = (Networking.GetOwner(this.gameObject) == null);

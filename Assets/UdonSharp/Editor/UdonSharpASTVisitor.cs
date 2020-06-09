@@ -59,13 +59,6 @@ namespace UdonSharp
             }
         }
 
-        public void PopTable()
-        {
-            if (symbolTableStack.Count == 1)
-                throw new System.Exception("Cannot pop root table, mismatched scope entry and exit!");
-
-            symbolTableStack.Pop();
-        }
 
         public void PushTable(SymbolTable newTable)
         {
@@ -73,6 +66,16 @@ namespace UdonSharp
                 throw new System.ArgumentException("Parent symbol table is not valid for given context.");
 
             symbolTableStack.Push(newTable);
+            newTable.OpenSymbolTable();
+        }
+
+        public void PopTable()
+        {
+            if (symbolTableStack.Count == 1)
+                throw new System.Exception("Cannot pop root table, mismatched scope entry and exit!");
+
+            SymbolTable table = symbolTableStack.Pop();
+            table.CloseSymbolTable();
         }
 
         public void PushCaptureScope(ExpressionCaptureScope captureScope)
@@ -86,6 +89,16 @@ namespace UdonSharp
                 return null;
 
             return expressionCaptureStack.Pop();
+        }
+
+        public SymbolDefinition requestedDestination
+        {
+            get
+            {
+                if (expressionCaptureStack.Count == 0)
+                    return null;
+                return topCaptureScope.requestedDestination;
+            }
         }
     }
 
@@ -114,6 +127,11 @@ namespace UdonSharp
         {
             // Right now just check that the capture scopes are empty and no one failed to close a scope.
             Debug.Assert(visitorContext.topCaptureScope == null, "AST visitor capture scope state invalid!");
+            
+            foreach (SymbolDefinition d in visitorContext.topTable.GetAllSymbols(true))
+            {
+                d.AssertCOWClosed();
+            }
         }
 
         public string GetCompiledUasm()
@@ -153,7 +171,10 @@ namespace UdonSharp
         {
             UpdateSyntaxNode(node);
 
-            Visit(node.Expression);
+            using (ExpressionCaptureScope scope = new ExpressionCaptureScope(visitorContext, null))
+            {
+                Visit(node.Expression);
+            }
         }
 
         public override void VisitParenthesizedExpression(ParenthesizedExpressionSyntax node)
@@ -412,6 +433,8 @@ namespace UdonSharp
             
             bool hasInitializer = node.Initializer != null;
 
+            SymbolDefinition arraySymbol = visitorContext.requestedDestination;
+
             using (ExpressionCaptureScope arrayTypeScope = new ExpressionCaptureScope(visitorContext, null))
             {
                 Visit(node.Type);
@@ -420,7 +443,11 @@ namespace UdonSharp
 
             using (ExpressionCaptureScope varCaptureScope = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope))
             {
-                SymbolDefinition arraySymbol = visitorContext.topTable.CreateUnnamedSymbol(arrayType, SymbolDeclTypeFlags.Internal);
+                if (arraySymbol == null)
+                {
+                    arraySymbol = visitorContext.topTable.CreateUnnamedSymbol(arrayType, SymbolDeclTypeFlags.Internal);
+                }
+
                 varCaptureScope.SetToLocalSymbol(arraySymbol);
 
                 foreach (ArrayRankSpecifierSyntax rankSpecifierSyntax in node.Type.RankSpecifiers)
@@ -456,7 +483,7 @@ namespace UdonSharp
                     throw new System.ArgumentException("A constant value is expected");
                 }
 
-                using (ExpressionCaptureScope constructorCaptureScope = new ExpressionCaptureScope(visitorContext, null))
+                using (ExpressionCaptureScope constructorCaptureScope = new ExpressionCaptureScope(visitorContext, null, arraySymbol))
                 {
                     constructorCaptureScope.SetToMethods(arraySymbol.symbolCsType.GetConstructors(BindingFlags.Public | BindingFlags.Instance));
 
@@ -474,7 +501,10 @@ namespace UdonSharp
                         using (ExpressionCaptureScope arraySetIdxScope = new ExpressionCaptureScope(visitorContext, null))
                         {
                             arraySetIdxScope.SetToLocalSymbol(arraySymbol);
-                            arraySetIdxScope.HandleArrayIndexerAccess(visitorContext.topTable.CreateConstSymbol(typeof(int), i));
+                            using (SymbolDefinition.COWValue arrayIndex = visitorContext.topTable.CreateConstSymbol(typeof(int), i).GetCOWValue(visitorContext))
+                            {
+                                arraySetIdxScope.HandleArrayIndexerAccess(arrayIndex);
+                            }
 
                             using (ExpressionCaptureScope initializerExpressionCapture = new ExpressionCaptureScope(visitorContext, null))
                             {
@@ -568,7 +598,10 @@ namespace UdonSharp
                 using (ExpressionCaptureScope arrayIdxSetScope = new ExpressionCaptureScope(visitorContext, null))
                 {
                     arrayIdxSetScope.SetToLocalSymbol(arraySymbol);
-                    arrayIdxSetScope.HandleArrayIndexerAccess(visitorContext.topTable.CreateConstSymbol(typeof(int), i));
+                    using (SymbolDefinition.COWValue arrayIndex = visitorContext.topTable.CreateConstSymbol(typeof(int), i).GetCOWValue(visitorContext))
+                    {
+                        arrayIdxSetScope.HandleArrayIndexerAccess(arrayIndex);
+                    }
                     arrayIdxSetScope.ExecuteSet(initializerSymbols[i]);
                 }
             }
@@ -578,6 +611,8 @@ namespace UdonSharp
         {
             UpdateSyntaxNode(node);
 
+            SymbolDefinition requestedDestination = visitorContext.requestedDestination;
+
             using (ExpressionCaptureScope elementAccessExpression = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope))
             {
                 Visit(node.Expression);
@@ -585,15 +620,11 @@ namespace UdonSharp
                 if (node.ArgumentList.Arguments.Count != 1)
                     throw new System.NotSupportedException("UdonSharp does not support multidimensional accesses yet");
 
-                SymbolDefinition indexerSymbol = null;
-
                 using (ExpressionCaptureScope indexerCaptureScope = new ExpressionCaptureScope(visitorContext, null))
                 {
                     Visit(node.ArgumentList.Arguments[0]);
-                    indexerSymbol = indexerCaptureScope.ExecuteGet();
+                    elementAccessExpression.HandleArrayIndexerAccess(indexerCaptureScope.ExecuteGetCOW(), requestedDestination);
                 }
-
-                elementAccessExpression.HandleArrayIndexerAccess(indexerSymbol);
             }
         }
 
@@ -766,9 +797,12 @@ namespace UdonSharp
 
             List<System.Attribute> fieldAttributes = GetFieldAttributes(node);
 
-            bool isPublic = (node.Modifiers.HasModifier("public") || fieldAttributes.Find(e => e is SerializeField) != null) && fieldAttributes.Find(e => e is System.NonSerializedAttribute) == null;
+            bool isPublic = (node.Modifiers.Any(SyntaxKind.PublicKeyword) || fieldAttributes.Find(e => e is SerializeField) != null) && fieldAttributes.Find(e => e is System.NonSerializedAttribute) == null;
+            bool isConst = (node.Modifiers.Any(SyntaxKind.ConstKeyword) || node.Modifiers.Any(SyntaxKind.ReadOnlyKeyword));
+            SymbolDeclTypeFlags flags = (isPublic ? SymbolDeclTypeFlags.Public : SymbolDeclTypeFlags.Private) | 
+                                        (isConst ? SymbolDeclTypeFlags.Readonly : 0);
 
-            List<SymbolDefinition> fieldSymbols = HandleVariableDeclaration(node.Declaration, isPublic ? SymbolDeclTypeFlags.Public : SymbolDeclTypeFlags.Private, fieldSyncMode);
+            List<SymbolDefinition> fieldSymbols = HandleVariableDeclaration(node.Declaration, flags, fieldSyncMode);
             foreach (SymbolDefinition fieldSymbol in fieldSymbols)
             {
                 FieldDefinition fieldDefinition = new FieldDefinition(fieldSymbol);
@@ -822,63 +856,47 @@ namespace UdonSharp
                 }
             }
 
-            SymbolDefinition newSymbol = null;
             List<SymbolDefinition> newSymbols = new List<SymbolDefinition>();
 
             foreach (VariableDeclaratorSyntax variableDeclarator in node.Variables)
             {
-                newSymbol = null;
+                SymbolDefinition newSymbol = null;
 
                 string variableName = variableDeclarator.Identifier.ValueText;
-                bool createdSymbol = false;
 
                 using (ExpressionCaptureScope symbolCreationScope = new ExpressionCaptureScope(visitorContext, null))
                 {
+                    if (!isVar)
+                    {
+                        newSymbol = visitorContext.topTable.CreateNamedSymbol(variableDeclarator.Identifier.ValueText, variableType, symbolType);
+                    }
+
                     // Run the initializer if it exists
                     // Todo: Run the set on the new symbol scope from within the initializer scope for direct setting
-                    if (variableDeclarator.Initializer != null && symbolType == SymbolDeclTypeFlags.Local)
+                    if (variableDeclarator.Initializer != null && symbolType.HasFlag(SymbolDeclTypeFlags.Local))
                     {
-                        using (ExpressionCaptureScope initializerCapture = new ExpressionCaptureScope(visitorContext, null))
+                        using (ExpressionCaptureScope initializerCapture = new ExpressionCaptureScope(visitorContext, null, newSymbol))
                         {
                             Visit(variableDeclarator.Initializer);
 
                             if (newSymbol == null)
                             {
-                                if (isVar)
-                                    variableType = initializerCapture.GetReturnType(true);
-
-                                newSymbol = visitorContext.topTable.CreateNamedSymbol(variableName, variableType, symbolType);
-
-                                symbolCreationScope.SetToLocalSymbol(newSymbol);
-                                createdSymbol = true;
+                                // TODO: Find a way to determine the return type before generating initializer code, to avoid a copy on 'var' local initializers
+                                variableType = initializerCapture.GetReturnType(true);
+                                newSymbol = visitorContext.topTable.CreateNamedSymbol(variableDeclarator.Identifier.ValueText, variableType, symbolType);
                             }
 
+                            symbolCreationScope.SetToLocalSymbol(newSymbol);
                             symbolCreationScope.ExecuteSet(initializerCapture.ExecuteGet());
                         }
                     }
 
-                    if (newSymbol != null)
-                    {
-                        newSymbol.syncMode = syncMode;
-                    }
+                    
+                    newSymbol.syncMode = syncMode;
                 }
 
-                if (!createdSymbol)
-                {
-                    using (ExpressionCaptureScope symbolCreationScope = new ExpressionCaptureScope(visitorContext, null))
-                    {
-                        newSymbol = visitorContext.topTable.CreateNamedSymbol(variableDeclarator.Identifier.ValueText, variableType, symbolType);
-                        newSymbol.syncMode = syncMode;
-
-                        symbolCreationScope.SetToLocalSymbol(newSymbol);
-                    }
-                }
-
-                if (newSymbol != null)
-                {
-                    VerifySyncValidForType(newSymbol.symbolCsType, syncMode);
-                    newSymbols.Add(newSymbol);
-                }
+                VerifySyncValidForType(newSymbol.symbolCsType, syncMode);
+                newSymbols.Add(newSymbol);
             }
 
             string udonTypeName = visitorContext.resolverContext.GetUdonTypeName(variableType);
@@ -969,7 +987,7 @@ namespace UdonSharp
         {
             UpdateSyntaxNode(node);
 
-            using (ExpressionCaptureScope captureScope = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope))
+            using (ExpressionCaptureScope captureScope = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope, visitorContext.requestedDestination))
             {
                 Visit(node.Value);
             }
@@ -986,28 +1004,27 @@ namespace UdonSharp
         {
             UpdateSyntaxNode(node);
 
-            //visitorContext.PushTable(new SymbolTable(visitorContext.resolverContext, visitorContext.topTable));
+            bool isSimpleAssignment = node.OperatorToken.Kind() == SyntaxKind.SimpleAssignmentExpression || node.OperatorToken.Kind() == SyntaxKind.EqualsToken;
+            ExpressionCaptureScope topScope = visitorContext.topCaptureScope;
 
             SymbolDefinition rhsValue = null;
 
-            using (ExpressionCaptureScope rhsCapture = new ExpressionCaptureScope(visitorContext, null))
-            {
-                //visitorContext.PushTable(new SymbolTable(visitorContext.resolverContext, visitorContext.topTable));
-                Visit(node.Right);
-                //visitorContext.PopTable();
-
-                rhsValue = rhsCapture.ExecuteGet();
-            }
-
             // Set parent to allow capture propagation for stuff like x = y = z;
-            using (ExpressionCaptureScope lhsCapture = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope))
+            using (ExpressionCaptureScope lhsCapture = new ExpressionCaptureScope(visitorContext, isSimpleAssignment ? topScope : null))
             {
                 Visit(node.Left);
 
                 // Done before anything modifies the state of the lhsCapture which will make this turn false
                 bool needsCopy = lhsCapture.NeedsArrayCopySet();
 
-                if (node.OperatorToken.Kind() == SyntaxKind.SimpleAssignmentExpression || node.OperatorToken.Kind() == SyntaxKind.EqualsToken)
+                using (ExpressionCaptureScope rhsCapture = new ExpressionCaptureScope(visitorContext, null, isSimpleAssignment ? lhsCapture.destinationSymbolForSet : null))
+                {
+                    Visit(node.Right);
+
+                    rhsValue = rhsCapture.ExecuteGet();
+                }
+
+                if (isSimpleAssignment)
                 {
                     lhsCapture.ExecuteSet(rhsValue);
                 }
@@ -1063,30 +1080,33 @@ namespace UdonSharp
                     using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null))
                     {
                         operatorMethodCapture.SetToMethods(operatorMethods.ToArray());
-                        
+
                         SymbolDefinition resultSymbol = operatorMethodCapture.Invoke(new SymbolDefinition[] { lhsCapture.ExecuteGet(), rhsValue });
 
-                        if (needsCopy)
+                        using (ExpressionCaptureScope resultPropagationScope = new ExpressionCaptureScope(visitorContext, topScope))
                         {
-                            // Create a new set scope to maintain array setter handling for structs
-                            using (ExpressionCaptureScope lhsSetScope = new ExpressionCaptureScope(visitorContext, null))
-                            {
-                                Visit(node.Left);
+                            resultPropagationScope.SetToLocalSymbol(resultSymbol);
 
-                                // In place arithmetic operators for lower precision types will return int, but C# will normally cast the result back to the target type, so do a force cast here
-                                lhsSetScope.ExecuteSet(resultSymbol, true);
+                            if (needsCopy)
+                            {
+                                // Create a new set scope to maintain array setter handling for structs
+                                using (ExpressionCaptureScope lhsSetScope = new ExpressionCaptureScope(visitorContext, null))
+                                {
+                                    Visit(node.Left);
+
+                                    // In place arithmetic operators for lower precision types will return int, but C# will normally cast the result back to the target type, so do a force cast here
+                                    lhsSetScope.ExecuteSet(resultSymbol, true);
+                                }
                             }
-                        }
-                        else
-                        {
-                            // In place arithmetic operators for lower precision types will return int, but C# will normally cast the result back to the target type, so do a force cast here
-                            lhsCapture.ExecuteSet(resultSymbol, true);
+                            else
+                            {
+                                // In place arithmetic operators for lower precision types will return int, but C# will normally cast the result back to the target type, so do a force cast here
+                                lhsCapture.ExecuteSet(resultSymbol, true);
+                            }
                         }
                     }
                 }
             }
-
-            //visitorContext.PopTable();
         }
 
         public override void VisitPrefixUnaryExpression(PrefixUnaryExpressionSyntax node)
@@ -1094,6 +1114,7 @@ namespace UdonSharp
             UpdateSyntaxNode(node);
 
             ExpressionCaptureScope topScope = visitorContext.topCaptureScope;
+            SymbolDefinition requestedDestination = visitorContext.requestedDestination;
 
             using (ExpressionCaptureScope operandCapture = new ExpressionCaptureScope(visitorContext, null))
             {
@@ -1116,6 +1137,8 @@ namespace UdonSharp
                     case SyntaxKind.PreIncrementExpression:
                     case SyntaxKind.MinusMinusToken:
                     case SyntaxKind.PreDecrementExpression:
+                        // Write back the result of the change directly to the original symbol.
+                        requestedDestination = operandCapture.destinationSymbolForSet;
                         operatorMethods.AddRange(GetOperators(operandCapture.GetReturnType(), node.OperatorToken.Kind()));
                         break;
                     case SyntaxKind.LogicalNotExpression:
@@ -1136,7 +1159,7 @@ namespace UdonSharp
                         throw new System.NotImplementedException($"Handling for prefix token {node.OperatorToken.Kind()} is not implemented");
                 }
                 
-                using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null))
+                using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null, requestedDestination))
                 {
                     operatorMethodCapture.SetToMethods(operatorMethods.ToArray());
 
@@ -1194,6 +1217,7 @@ namespace UdonSharp
             UpdateSyntaxNode(node);
 
             ExpressionCaptureScope topScope = visitorContext.topCaptureScope;
+            SymbolDefinition preIncrementStore = visitorContext.requestedDestination;
 
             using (ExpressionCaptureScope operandCapture = new ExpressionCaptureScope(visitorContext, null))
             {
@@ -1217,13 +1241,15 @@ namespace UdonSharp
 
                 try
                 {
-                    using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null))
+                    using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null, operandCapture.destinationSymbolForSet))
                     {
                         operatorMethodCapture.SetToMethods(operatorMethods.ToArray());
 
                         using (ExpressionCaptureScope preIncrementValueReturn = new ExpressionCaptureScope(visitorContext, topScope))
                         {
-                            SymbolDefinition preIncrementStore = visitorContext.topTable.CreateUnnamedSymbol(operandCapture.GetReturnType(), SymbolDeclTypeFlags.Internal | SymbolDeclTypeFlags.Local);
+                            if (preIncrementStore == null) {
+                                preIncrementStore = visitorContext.topTable.CreateUnnamedSymbol(operandCapture.GetReturnType(), SymbolDeclTypeFlags.Internal | SymbolDeclTypeFlags.Local);
+                            }
                             preIncrementValueReturn.SetToLocalSymbol(preIncrementStore);
 
                             preIncrementValueReturn.ExecuteSet(operandCapture.ExecuteGet());
@@ -1304,6 +1330,18 @@ namespace UdonSharp
 
             if (node.Modifiers.HasModifier("static"))
                 throw new System.NotSupportedException("UdonSharp does not currently support static method declarations");
+
+            foreach (ParameterSyntax param in node.ParameterList.Parameters)
+            {
+                UpdateSyntaxNode(param);
+
+                if (param.Modifiers.Any(SyntaxKind.OutKeyword))
+                    throw new System.NotSupportedException("UdonSharp does not yet support 'out' parameters on user-defined methods.");
+                if (param.Modifiers.Any(SyntaxKind.InKeyword))
+                    throw new System.NotSupportedException("UdonSharp does not yet support 'in' parameters on user-defined methods.");
+                if (param.Modifiers.Any(SyntaxKind.RefKeyword))
+                    throw new System.NotSupportedException("UdonSharp does not yet support 'ref' parameters on user-defined methods.");
+            }
 
             // Export the method if it's public or builtin
             if (isBuiltinEvent || node.Modifiers.HasModifier("public"))
@@ -1645,6 +1683,8 @@ namespace UdonSharp
 
         public override void VisitBinaryExpression(BinaryExpressionSyntax node)
         {
+            SymbolDefinition requestedDestination = visitorContext.topCaptureScope.requestedDestination;
+
             UpdateSyntaxNode(node);
 
             if (node.Kind() == SyntaxKind.IsExpression)
@@ -1666,7 +1706,7 @@ namespace UdonSharp
             }
 
             SymbolDefinition rhsValue = null;
-            SymbolDefinition lhsValue = null;
+            SymbolDefinition.COWValue lhsValueCOW = null;
 
             ExpressionCaptureScope outerScope = visitorContext.topCaptureScope;
 
@@ -1674,23 +1714,7 @@ namespace UdonSharp
             {
                 Visit(node.Left);
 
-                if (lhsCapture.DoesReturnIntermediateSymbol() || lhsCapture.IsConstExpression())
-                {
-                    lhsValue = lhsCapture.ExecuteGet();
-                }
-                else
-                {
-                    // This needs to be copied because someone can do an in place assignment operator on the rhs that changes the lhs value
-                    SymbolDefinition lhsCopy = visitorContext.topTable.CreateUnnamedSymbol(lhsCapture.GetReturnType(true), SymbolDeclTypeFlags.Internal);
-                    using (ExpressionCaptureScope lhsCopySetter = new ExpressionCaptureScope(visitorContext, null))
-                    {
-                        lhsCopySetter.SetToLocalSymbol(lhsCopy);
-                        lhsCopySetter.ExecuteSetDirect(lhsCapture);
-                    }
-
-                    lhsValue = lhsCopy;
-                }
-                
+                lhsValueCOW = lhsCapture.ExecuteGetCOW();
 
                 using (ExpressionCaptureScope rhsCapture = new ExpressionCaptureScope(visitorContext, null))
                 {
@@ -1701,6 +1725,7 @@ namespace UdonSharp
                     rhsValue = rhsCapture.ExecuteGet();
                 }
 
+                SymbolDefinition lhsValue = lhsValueCOW.symbol;
 
                 System.Type lhsType = lhsValue.symbolCsType;
                 System.Type rhsType = rhsValue.symbolCsType;
@@ -1741,8 +1766,8 @@ namespace UdonSharp
 
                 if (operatorMethods.Count == 0)
                     throw new System.ArgumentException($"Operator '{node.OperatorToken.Text}' cannot be applied to operands of type '{UdonSharpUtils.PrettifyTypeName(lhsType)}' and '{UdonSharpUtils.PrettifyTypeName(rhsType)}'");
-                
-                using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null))
+
+                using (ExpressionCaptureScope operatorMethodCapture = new ExpressionCaptureScope(visitorContext, null, requestedDestination))
                 {
                     operatorMethodCapture.SetToMethods(operatorMethods.ToArray());
 
@@ -1836,7 +1861,10 @@ namespace UdonSharp
             System.Type targetType = null;
             SymbolDefinition expressionSymbol = null;
 
-            using (ExpressionCaptureScope castExpressionCapture = new ExpressionCaptureScope(visitorContext, null))
+            //SymbolDefinition castOutSymbol = visitorContext.requestedDestination;
+            SymbolDefinition castOutSymbol = null;
+
+            using (ExpressionCaptureScope castExpressionCapture = new ExpressionCaptureScope(visitorContext, null, castOutSymbol))
             {
                 Visit(node.Expression);
 
@@ -1855,7 +1883,10 @@ namespace UdonSharp
 
             using (ExpressionCaptureScope castOutCapture = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope))
             {
-                SymbolDefinition castOutSymbol = visitorContext.topTable.CreateUnnamedSymbol(targetType, SymbolDeclTypeFlags.Internal);
+                if (castOutSymbol == null)
+                {
+                    castOutSymbol = visitorContext.topTable.CreateUnnamedSymbol(targetType, SymbolDeclTypeFlags.Internal);
+                }
 
                 castOutCapture.SetToLocalSymbol(castOutSymbol);
 
@@ -1876,7 +1907,7 @@ namespace UdonSharp
 
             if (visitorContext.returnSymbol != null)
             {
-                using (ExpressionCaptureScope returnCaptureScope = new ExpressionCaptureScope(visitorContext, null))
+                using (ExpressionCaptureScope returnCaptureScope = new ExpressionCaptureScope(visitorContext, null, visitorContext.returnSymbol))
                 {
                     Visit(node.Expression);
 
@@ -2040,7 +2071,12 @@ namespace UdonSharp
             Visit(node.Declaration);
 
             foreach (ExpressionSyntax initializer in node.Initializers)
-                Visit(initializer);
+            {
+                using (ExpressionCaptureScope voidReturnScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    Visit(initializer);
+                }
+            }
 
             JumpLabel forLoopStart = visitorContext.labelTable.GetNewJumpLabel("forLoopStart");
             visitorContext.uasmBuilder.AddJumpLabel(forLoopStart);
@@ -2073,7 +2109,12 @@ namespace UdonSharp
             visitorContext.uasmBuilder.AddJumpLabel(forLoopContinue);
 
             foreach (ExpressionSyntax incrementor in node.Incrementors)
-                Visit(incrementor);
+            {
+                using (ExpressionCaptureScope voidReturnScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    Visit(incrementor);
+                }
+            }
 
             visitorContext.uasmBuilder.AddJump(forLoopStart);
 
@@ -2160,9 +2201,12 @@ namespace UdonSharp
             using (ExpressionCaptureScope indexAccessExecuteScope = new ExpressionCaptureScope(visitorContext, null))
             {
                 indexAccessExecuteScope.SetToLocalSymbol(arraySymbol);
-                indexAccessExecuteScope.HandleArrayIndexerAccess(indexSymbol);
+                using (SymbolDefinition.COWValue arrayIndex = indexSymbol.GetCOWValue(visitorContext))
+                {
+                    indexAccessExecuteScope.HandleArrayIndexerAccess(arrayIndex, valueSymbol);
+                }
 
-                // This should be a direct set instead of a copy, but that hasn't been implemented yet
+                // Copy elision should make this a no-op unless conversion is required
                 using (ExpressionCaptureScope valueSetScope = new ExpressionCaptureScope(visitorContext, null))
                 {
                     valueSetScope.SetToLocalSymbol(valueSymbol);
@@ -2180,14 +2224,18 @@ namespace UdonSharp
 
             visitorContext.uasmBuilder.AddJumpLabel(loopContinueLabel);
 
-            using (ExpressionCaptureScope incrementExecuteScope = new ExpressionCaptureScope(visitorContext, null))
+            using (ExpressionCaptureScope incrementExecuteScope = new ExpressionCaptureScope(visitorContext, null, indexSymbol))
             {
                 incrementExecuteScope.SetToMethods(GetOperators(typeof(int), BuiltinOperatorType.Addition));
                 SymbolDefinition constIntIncrement = visitorContext.topTable.CreateConstSymbol(typeof(int), 1);
-
-                // This should be a direct set, but I haven't implemented that yet so we do a wasteful copy here
+                
                 SymbolDefinition incrementResultSymbol = incrementExecuteScope.Invoke(new SymbolDefinition[] { indexSymbol, constIntIncrement });
-                visitorContext.uasmBuilder.AddCopy(indexSymbol, incrementResultSymbol);
+
+                using (ExpressionCaptureScope indexSetScope = new ExpressionCaptureScope(visitorContext, null))
+                {
+                    indexSetScope.SetToLocalSymbol(indexSymbol);
+                    indexSetScope.ExecuteSet(incrementResultSymbol);
+                }
             }
 
             visitorContext.uasmBuilder.AddJump(loopStartLabel);
@@ -2200,6 +2248,7 @@ namespace UdonSharp
         {
             UpdateSyntaxNode(node);
 
+            SymbolDefinition requestedResultSymbol = visitorContext.topCaptureScope.requestedDestination;
             SymbolDefinition conditionSymbol = null;
 
             using (ExpressionCaptureScope conditionCapture = new ExpressionCaptureScope(visitorContext, null))
@@ -2212,39 +2261,35 @@ namespace UdonSharp
 
             JumpLabel falseConditionStart = visitorContext.labelTable.GetNewJumpLabel("conditionFailStart");
 
-            using (ExpressionCaptureScope outputScope = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope))
+            using (ExpressionCaptureScope outputScope = new ExpressionCaptureScope(visitorContext, visitorContext.topCaptureScope, requestedResultSymbol))
             {
                 visitorContext.uasmBuilder.AddPush(conditionSymbol);
                 visitorContext.uasmBuilder.AddJumpIfFalse(falseConditionStart);
 
-                SymbolDefinition resultSymbol = null;
+                SymbolDefinition resultSymbol = requestedResultSymbol;
 
-                using (ExpressionCaptureScope lhsScope = new ExpressionCaptureScope(visitorContext, null))
+                using (ExpressionCaptureScope lhsScope = new ExpressionCaptureScope(visitorContext, null, resultSymbol))
                 {
                     Visit(node.WhenTrue);
-                    resultSymbol = visitorContext.topTable.CreateUnnamedSymbol(lhsScope.GetReturnType(), SymbolDeclTypeFlags.Internal);
 
-                    using (ExpressionCaptureScope resultSetScope = new ExpressionCaptureScope(visitorContext, null))
+                    if (resultSymbol == null)
                     {
-                        resultSetScope.SetToLocalSymbol(resultSymbol);
-                        resultSetScope.ExecuteSet(lhsScope.ExecuteGet());
+                        // We didn't have a requested output symbol, so allocate one now.
+                        resultSymbol = outputScope.AllocateOutputSymbol(lhsScope.GetReturnType());
                     }
+                    
+                    outputScope.SetToLocalSymbol(resultSymbol);
+                    outputScope.ExecuteSet(lhsScope.ExecuteGet());
                 }
-
-                outputScope.SetToLocalSymbol(resultSymbol);
 
                 visitorContext.uasmBuilder.AddJump(conditionExpressionEnd);
                 visitorContext.uasmBuilder.AddJumpLabel(falseConditionStart);
 
-                using (ExpressionCaptureScope rhsScope = new ExpressionCaptureScope(visitorContext, null))
+                using (ExpressionCaptureScope rhsScope = new ExpressionCaptureScope(visitorContext, null, resultSymbol))
                 {
                     Visit(node.WhenFalse);
 
-                    using (ExpressionCaptureScope resultSetScope = new ExpressionCaptureScope(visitorContext, null))
-                    {
-                        resultSetScope.SetToLocalSymbol(resultSymbol);
-                        resultSetScope.ExecuteSet(rhsScope.ExecuteGet());
-                    }
+                    outputScope.ExecuteSet(rhsScope.ExecuteGet());
                 }
 
                 visitorContext.uasmBuilder.AddJumpLabel(conditionExpressionEnd);
@@ -2365,6 +2410,36 @@ namespace UdonSharp
             visitorContext.breakLabelStack.Pop();
         }
 
+        private void HandleNameOfExpression(InvocationExpressionSyntax node)
+        {
+            SyntaxNode currentNode = node.ArgumentList.Arguments[0].Expression;
+            string currentName = "";
+
+            while (currentNode != null)
+            {
+                switch (currentNode.Kind())
+                {
+                    case SyntaxKind.SimpleMemberAccessExpression:
+                        MemberAccessExpressionSyntax memberNode = (MemberAccessExpressionSyntax)currentNode;
+                        currentName = memberNode.Name.ToString();
+                        currentNode = memberNode.Name;
+                        break;
+                    default:
+                        currentNode = null;
+                        break;
+                }
+
+                if (currentNode != null)
+                    UpdateSyntaxNode(currentNode);
+            }
+
+            if (currentName == "")
+                throw new System.ArgumentException("Expression does not have a name");
+
+            if (visitorContext.topCaptureScope != null)
+                visitorContext.topCaptureScope.SetToLocalSymbol(visitorContext.topTable.CreateConstSymbol(typeof(string), currentName));
+        }
+
         public override void VisitCaseSwitchLabel(CaseSwitchLabelSyntax node)
         {
             UpdateSyntaxNode(node);
@@ -2422,42 +2497,57 @@ namespace UdonSharp
         public override void VisitInvocationExpression(InvocationExpressionSyntax node)
         {
             UpdateSyntaxNode(node);
-            
+
+            if (node.Expression != null && node.Expression.ToString() == "nameof") // nameof is not a dedicated node and the Kind of the node isn't the nameof kind for whatever reason...
+            {
+                HandleNameOfExpression(node);
+                return;
+            }
+
+            SymbolDefinition requestedDestination = visitorContext.requestedDestination;
+
             // Grab the external scope so that the method call can propagate its output upwards
             ExpressionCaptureScope externalScope = visitorContext.PopCaptureScope();
 
             if (externalScope != null)
                 visitorContext.PushCaptureScope(externalScope);
 
-            using (ExpressionCaptureScope methodCaptureScope = new ExpressionCaptureScope(visitorContext, null))
+            using (ExpressionCaptureScope methodCaptureScope = new ExpressionCaptureScope(visitorContext, null, requestedDestination))
             {
                 Visit(node.Expression);
                 
                 if (!methodCaptureScope.IsMethod())
                     throw new System.Exception("Invocation requires method expression!");
                 
-                List<SymbolDefinition> invocationArgs = new List<SymbolDefinition>();
+                List<SymbolDefinition.COWValue> invocationArgs = new List<SymbolDefinition.COWValue>();
 
                 //visitorContext.PushTable(new SymbolTable(visitorContext.resolverContext, visitorContext.topTable));
 
-                foreach (ArgumentSyntax argument in node.ArgumentList.Arguments)
+                SymbolDefinition[] argDestinations = methodCaptureScope.GetLocalMethodArgumentSymbols();
+
+                for (int i = 0; i < node.ArgumentList.Arguments.Count; i++)
                 {
-                    using (ExpressionCaptureScope captureScope = new ExpressionCaptureScope(visitorContext, null))
+                    ArgumentSyntax argument = node.ArgumentList.Arguments[i];
+                    SymbolDefinition argDestination = argDestinations != null ? argDestinations[i] : null;
+
+                    using (ExpressionCaptureScope captureScope = new ExpressionCaptureScope(visitorContext, null, argDestination))
                     {
                         Visit(argument.Expression);
 
-                        invocationArgs.Add(captureScope.ExecuteGet());
+                        invocationArgs.Add(captureScope.ExecuteGetCOW().AddRef());
                     }
                 }
 
-                //visitorContext.PopTable();
-
-                SymbolDefinition functionReturnValue = methodCaptureScope.Invoke(invocationArgs.ToArray());
+                SymbolDefinition functionReturnValue = methodCaptureScope.Invoke(
+                    invocationArgs.Select((arg) => arg.symbol).ToArray()
+                );
 
                 using (ExpressionCaptureScope returnValPropagationScope = new ExpressionCaptureScope(visitorContext, externalScope))
                 {
                     returnValPropagationScope.SetToLocalSymbol(functionReturnValue);
                 }
+
+                invocationArgs.ForEach((arg) => arg.Dispose());
             }
         }
 
@@ -2472,6 +2562,8 @@ namespace UdonSharp
         public override void VisitObjectCreationExpression(ObjectCreationExpressionSyntax node)
         {
             UpdateSyntaxNode(node);
+
+            SymbolDefinition requestedDestination = visitorContext.requestedDestination;
 
             System.Type newType = null;
 
@@ -2488,24 +2580,25 @@ namespace UdonSharp
             {
                 // Use the default constructor by just making a constant of the correct type in Udon
                 
-                SymbolDefinition[] argSymbols = new SymbolDefinition[node.ArgumentList.Arguments.Count];
+                SymbolDefinition.COWValue[] argValues = new SymbolDefinition.COWValue[node.ArgumentList.Arguments.Count];
 
-                for (int i = 0; i < argSymbols.Length; ++i)
+                for (int i = 0; i < argValues.Length; ++i)
                 {
                     using (ExpressionCaptureScope argCaptureScope = new ExpressionCaptureScope(visitorContext, null))
                     {
                         Visit(node.ArgumentList.Arguments[i]);
-                        argSymbols[i] = argCaptureScope.ExecuteGet();
+                        argValues[i] = argCaptureScope.ExecuteGetCOW().AddRef();
                     }
                 }
 
-                using (ExpressionCaptureScope constructorMethodScope = new ExpressionCaptureScope(visitorContext, null))
+                using (ExpressionCaptureScope constructorMethodScope = new ExpressionCaptureScope(visitorContext, null, requestedDestination))
                 {
                     MethodBase[] constructors = newType.GetConstructors(BindingFlags.Public | BindingFlags.Instance);
 
                     try
                     {
                         constructorMethodScope.SetToMethods(constructors);
+                        SymbolDefinition[] argSymbols = argValues.Select((v) => v.symbol).ToArray();
                         creationCaptureScope.SetToLocalSymbol(constructorMethodScope.Invoke(argSymbols));
                     }
                     catch (System.Exception e)
@@ -2513,11 +2606,16 @@ namespace UdonSharp
                         // Udon will default initialize structs and such so it doesn't expose default constructors for stuff like Vector3
                         // This is a weird case, we could technically check if the type exists in Udon here, 
                         //   but it's totally valid to store a type that's undefined by Udon on the heap since they are all object.
-                        if (argSymbols.Length > 0 || !newType.IsValueType)
+                        if (argValues.Length > 0 || !newType.IsValueType)
                             throw e;
 
                         creationCaptureScope.SetToLocalSymbol(visitorContext.topTable.CreateConstSymbol(newType, null));
                     }
+                }
+
+                foreach (SymbolDefinition.COWValue val in argValues)
+                {
+                    val.Dispose();
                 }
             }
         }

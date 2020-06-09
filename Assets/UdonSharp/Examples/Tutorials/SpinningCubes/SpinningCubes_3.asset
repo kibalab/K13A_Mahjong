@@ -21,22 +21,20 @@ MonoBehaviour:
     null\r\n    __0_const_intnl_SystemSingle: %SystemSingle, null\r\n    __0_const_intnl_UnityEngineTransform:
     %UnityEngineTransform, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32,
     null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemSingle:
-    %SystemSingle, null\r\n    __1_intnl_SystemSingle: %SystemSingle, null\r\n    __0_intnl_UnityEngineTransform:
-    %UnityEngineTransform, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
-    null\r\n    __0_intnl_UnityEngineVector3: %UnityEngineVector3, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDK3.Components;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
-    \       \r\n         # namespace UdonSharp.Examples.Tutorials\r\n        \r\n
-    \        # [AddComponentMenu(\"Udon Sharp/Tutorials/Spinning Cubes 3\")]\r\n        \r\n
-    \        # public class SpinningCubes_3 : UdonSharpBehaviour\r\n.code_start\r\n
+    %SystemSingle, null\r\n    __1_intnl_SystemSingle: %SystemSingle, null\r\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\r\n    __0_intnl_UnityEngineVector3: %UnityEngineVector3,
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UnityEngine;\r\n        \r\n
+    \        # using VRC.SDK3.Components;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    \       \r\n         # using VRC.Udon;\r\n        \r\n         # namespace UdonSharp.Examples.Tutorials\r\n
+    \       \r\n         # [AddComponentMenu(\"Udon Sharp/Tutorials/Spinning Cubes
+    3\")]\r\n        \r\n         # public class SpinningCubes_3 : UdonSharpBehaviour\r\n.code_start\r\n
     \       \r\n         # public Transform cubeToRotate;\r\n        \r\n         #
     private void Start()\r\n    .export _start\r\n        \r\n    _start:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
     \        # if (cubeToRotate == null)\r\n        PUSH, cubeToRotate\r\n        PUSH,
-    __0_intnl_UnityEngineTransform\r\n        COPY\r\n        PUSH, __0_intnl_UnityEngineTransform\r\n
-    \       PUSH, __0_const_intnl_UnityEngineTransform\r\n        PUSH, __0_intnl_SystemBoolean\r\n
+    __0_const_intnl_UnityEngineTransform\r\n        PUSH, __0_intnl_SystemBoolean\r\n
     \       EXTERN, \"UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000060\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000004C\r\n
     \       \r\n         # cubeToRotate = transform;\r\n        PUSH, __0_this_intnl_UnityEngineTransform\r\n
     \       PUSH, cubeToRotate\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
@@ -274,140 +272,147 @@ MonoBehaviour:
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 8
-      endInstruction: 27
+      endInstruction: 7
       startSourceChar: 675
       endSourceChar: 691
       line: 19
       lineChar: 16
       spanCodeSection: 'cubeToRotate == '
-    - startInstruction: 28
-      endInstruction: 75
+    - startInstruction: 8
+      endInstruction: 55
       startSourceChar: 691
       endSourceChar: 714
       line: 19
       lineChar: 32
       spanCodeSection: "null)\r\n                "
-    - startInstruction: 76
-      endInstruction: 75
+    - startInstruction: 56
+      endInstruction: 55
       startSourceChar: 714
       endSourceChar: 714
       line: 20
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 76
-      endInstruction: 75
+    - startInstruction: 56
+      endInstruction: 55
+      startSourceChar: 714
+      endSourceChar: 714
+      line: 20
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 56
+      endInstruction: 55
       startSourceChar: 714
       endSourceChar: 729
       line: 20
       lineChar: 16
       spanCodeSection: 'cubeToRotate = '
-    - startInstruction: 76
-      endInstruction: 115
+    - startInstruction: 56
+      endInstruction: 95
       startSourceChar: 729
       endSourceChar: 762
       line: 20
       lineChar: 31
       spanCodeSection: "transform;\r\n        }\r\n\r\n        "
-    - startInstruction: 116
-      endInstruction: 123
+    - startInstruction: 96
+      endInstruction: 103
       startSourceChar: 762
       endSourceChar: 793
       line: 23
       lineChar: 8
       spanCodeSection: "private void Update()\r\n        "
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 793
       endSourceChar: 808
       line: 24
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 808
       endSourceChar: 808
       line: 25
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 808
       endSourceChar: 808
       line: 25
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 808
       endSourceChar: 808
       line: 25
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 808
       endSourceChar: 821
       line: 25
       lineChar: 12
       spanCodeSection: cubeToRotate.
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 821
       endSourceChar: 828
       line: 25
       lineChar: 25
       spanCodeSection: Rotate(
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 828
       endSourceChar: 828
       line: 25
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 124
-      endInstruction: 123
+    - startInstruction: 104
+      endInstruction: 103
       startSourceChar: 828
       endSourceChar: 836
       line: 25
       lineChar: 32
       spanCodeSection: Vector3.
-    - startInstruction: 124
-      endInstruction: 139
+    - startInstruction: 104
+      endInstruction: 119
       startSourceChar: 836
       endSourceChar: 840
       line: 25
       lineChar: 40
       spanCodeSection: 'up, '
-    - startInstruction: 140
-      endInstruction: 139
+    - startInstruction: 120
+      endInstruction: 119
       startSourceChar: 840
       endSourceChar: 840
       line: 25
       lineChar: 44
       spanCodeSection: 
-    - startInstruction: 140
-      endInstruction: 139
+    - startInstruction: 120
+      endInstruction: 119
       startSourceChar: 840
       endSourceChar: 846
       line: 25
       lineChar: 44
       spanCodeSection: '60f * '
-    - startInstruction: 140
-      endInstruction: 139
+    - startInstruction: 120
+      endInstruction: 119
       startSourceChar: 846
       endSourceChar: 846
       line: 25
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 140
-      endInstruction: 139
+    - startInstruction: 120
+      endInstruction: 119
       startSourceChar: 846
       endSourceChar: 851
       line: 25
       lineChar: 50
       spanCodeSection: Time.
-    - startInstruction: 140
-      endInstruction: 140
+    - startInstruction: 120
+      endInstruction: 120
       startSourceChar: 851
       endSourceChar: 851
       line: 25

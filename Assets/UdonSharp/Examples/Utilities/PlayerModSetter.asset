@@ -25,10 +25,9 @@ MonoBehaviour:
     %SystemUInt32, null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
     null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_returnTarget_UInt32:
     %SystemUInt32, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # namespace
-    UdonSharp.Examples.Utilities\r\n        \r\n         # [AddComponentMenu(\"Udon
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UnityEngine;\r\n        \r\n
+    \        # using UdonSharp;\r\n        \r\n         # using VRC.SDKBase;\r\n        \r\n
+    \        # namespace UdonSharp.Examples.Utilities\r\n        \r\n         # [AddComponentMenu(\"Udon
     Sharp/Utilities/Player Mod Setter\")]\r\n        \r\n         # public class PlayerModSetter
     : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # public float jumpHeight
     = 3f;\r\n        \r\n         # public float runSpeed = 4f;\r\n        \r\n         #
@@ -40,11 +39,9 @@ MonoBehaviour:
     \       EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_playerApi_VRCPlayerApi\r\n
     \       COPY\r\n        \r\n         # if (playerApi != null)\r\n        PUSH,
-    __0_playerApi_VRCPlayerApi\r\n        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n
-    \       COPY\r\n        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH,
-    __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000F0\r\n
+    __0_playerApi_VRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000DC\r\n
     \       \r\n         # {\r\n        \r\n         # playerApi.SetJumpImpulse(jumpHeight);\r\n
     \       PUSH, __0_playerApi_VRCPlayerApi\r\n        PUSH, jumpHeight\r\n        EXTERN,
     \"VRCSDKBaseVRCPlayerApi.__SetJumpImpulse__SystemSingle__SystemVoid\"\r\n        \r\n
@@ -55,7 +52,7 @@ MonoBehaviour:
     \       \r\n         # playerApi.SetGravityStrength(gravity);\r\n        PUSH,
     __0_playerApi_VRCPlayerApi\r\n        PUSH, gravity\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__SetGravityStrength__SystemSingle__SystemVoid\"\r\n
     \       \r\n         # if (useLegacyLocomotion)\r\n        PUSH, useLegacyLocomotion\r\n
-    \       JUMP_IF_FALSE, 0x000000F0\r\n        \r\n         # playerApi.UseLegacyLocomotion();\r\n
+    \       JUMP_IF_FALSE, 0x000000DC\r\n        \r\n         # playerApi.UseLegacyLocomotion();\r\n
     \       PUSH, __0_playerApi_VRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__UseLegacyLocomotion__SystemVoid\"\r\n
     \       \r\n         # Destroy(this);\r\n        PUSH, __0_this_intnl_UdonSharpExamplesUtilitiesPlayerModSetter\r\n
     \       EXTERN, \"UnityEngineObject.__Destroy__UnityEngineObject__SystemVoid\"\r\n
@@ -357,266 +354,266 @@ MonoBehaviour:
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 44
-      endInstruction: 63
+      endInstruction: 43
       startSourceChar: 602
       endSourceChar: 615
       line: 22
       lineChar: 16
       spanCodeSection: 'playerApi != '
-    - startInstruction: 64
-      endInstruction: 111
+    - startInstruction: 44
+      endInstruction: 91
       startSourceChar: 615
       endSourceChar: 634
       line: 22
       lineChar: 29
       spanCodeSection: "null)\r\n            "
-    - startInstruction: 112
-      endInstruction: 111
+    - startInstruction: 92
+      endInstruction: 91
       startSourceChar: 634
       endSourceChar: 653
       line: 23
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 112
-      endInstruction: 111
+    - startInstruction: 92
+      endInstruction: 91
       startSourceChar: 653
       endSourceChar: 653
       line: 24
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 112
-      endInstruction: 111
+    - startInstruction: 92
+      endInstruction: 91
       startSourceChar: 653
       endSourceChar: 653
       line: 24
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 112
-      endInstruction: 111
+    - startInstruction: 92
+      endInstruction: 91
       startSourceChar: 653
       endSourceChar: 653
       line: 24
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 112
-      endInstruction: 111
+    - startInstruction: 92
+      endInstruction: 91
       startSourceChar: 653
       endSourceChar: 663
       line: 24
       lineChar: 16
       spanCodeSection: playerApi.
-    - startInstruction: 112
-      endInstruction: 111
+    - startInstruction: 92
+      endInstruction: 91
       startSourceChar: 663
       endSourceChar: 678
       line: 24
       lineChar: 26
       spanCodeSection: SetJumpImpulse(
-    - startInstruction: 112
-      endInstruction: 135
+    - startInstruction: 92
+      endInstruction: 115
       startSourceChar: 678
       endSourceChar: 708
       line: 24
       lineChar: 41
       spanCodeSection: "jumpHeight);\r\n                "
-    - startInstruction: 136
-      endInstruction: 135
+    - startInstruction: 116
+      endInstruction: 115
       startSourceChar: 708
       endSourceChar: 708
       line: 25
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 136
-      endInstruction: 135
+    - startInstruction: 116
+      endInstruction: 115
       startSourceChar: 708
       endSourceChar: 708
       line: 25
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 136
-      endInstruction: 135
+    - startInstruction: 116
+      endInstruction: 115
       startSourceChar: 708
       endSourceChar: 708
       line: 25
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 136
-      endInstruction: 135
+    - startInstruction: 116
+      endInstruction: 115
       startSourceChar: 708
       endSourceChar: 718
       line: 25
       lineChar: 16
       spanCodeSection: playerApi.
-    - startInstruction: 136
-      endInstruction: 135
+    - startInstruction: 116
+      endInstruction: 115
       startSourceChar: 718
       endSourceChar: 730
       line: 25
       lineChar: 26
       spanCodeSection: SetRunSpeed(
-    - startInstruction: 136
-      endInstruction: 159
+    - startInstruction: 116
+      endInstruction: 139
       startSourceChar: 730
       endSourceChar: 758
       line: 25
       lineChar: 38
       spanCodeSection: "runSpeed);\r\n                "
-    - startInstruction: 160
-      endInstruction: 159
+    - startInstruction: 140
+      endInstruction: 139
       startSourceChar: 758
       endSourceChar: 758
       line: 26
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 160
-      endInstruction: 159
+    - startInstruction: 140
+      endInstruction: 139
       startSourceChar: 758
       endSourceChar: 758
       line: 26
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 160
-      endInstruction: 159
+    - startInstruction: 140
+      endInstruction: 139
       startSourceChar: 758
       endSourceChar: 758
       line: 26
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 160
-      endInstruction: 159
+    - startInstruction: 140
+      endInstruction: 139
       startSourceChar: 758
       endSourceChar: 768
       line: 26
       lineChar: 16
       spanCodeSection: playerApi.
-    - startInstruction: 160
-      endInstruction: 159
+    - startInstruction: 140
+      endInstruction: 139
       startSourceChar: 768
       endSourceChar: 781
       line: 26
       lineChar: 26
       spanCodeSection: SetWalkSpeed(
-    - startInstruction: 160
-      endInstruction: 183
+    - startInstruction: 140
+      endInstruction: 163
       startSourceChar: 781
       endSourceChar: 810
       line: 26
       lineChar: 39
       spanCodeSection: "walkSpeed);\r\n                "
-    - startInstruction: 184
-      endInstruction: 183
+    - startInstruction: 164
+      endInstruction: 163
       startSourceChar: 810
       endSourceChar: 810
       line: 27
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 184
-      endInstruction: 183
+    - startInstruction: 164
+      endInstruction: 163
       startSourceChar: 810
       endSourceChar: 810
       line: 27
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 184
-      endInstruction: 183
+    - startInstruction: 164
+      endInstruction: 163
       startSourceChar: 810
       endSourceChar: 810
       line: 27
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 184
-      endInstruction: 183
+    - startInstruction: 164
+      endInstruction: 163
       startSourceChar: 810
       endSourceChar: 820
       line: 27
       lineChar: 16
       spanCodeSection: playerApi.
-    - startInstruction: 184
-      endInstruction: 183
+    - startInstruction: 164
+      endInstruction: 163
       startSourceChar: 820
       endSourceChar: 839
       line: 27
       lineChar: 26
       spanCodeSection: SetGravityStrength(
-    - startInstruction: 184
-      endInstruction: 207
+    - startInstruction: 164
+      endInstruction: 187
       startSourceChar: 839
       endSourceChar: 868
       line: 27
       lineChar: 45
       spanCodeSection: "gravity);\r\n\r\n                "
-    - startInstruction: 208
-      endInstruction: 207
+    - startInstruction: 188
+      endInstruction: 187
       startSourceChar: 868
       endSourceChar: 872
       line: 29
       lineChar: 16
       spanCodeSection: if (
-    - startInstruction: 208
-      endInstruction: 223
+    - startInstruction: 188
+      endInstruction: 203
       startSourceChar: 872
       endSourceChar: 914
       line: 29
       lineChar: 20
       spanCodeSection: "useLegacyLocomotion)\r\n                    "
-    - startInstruction: 224
-      endInstruction: 223
+    - startInstruction: 204
+      endInstruction: 203
       startSourceChar: 914
       endSourceChar: 914
       line: 30
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 224
-      endInstruction: 223
+    - startInstruction: 204
+      endInstruction: 203
       startSourceChar: 914
       endSourceChar: 914
       line: 30
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 224
-      endInstruction: 223
+    - startInstruction: 204
+      endInstruction: 203
       startSourceChar: 914
       endSourceChar: 914
       line: 30
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 224
-      endInstruction: 223
+    - startInstruction: 204
+      endInstruction: 203
       startSourceChar: 914
       endSourceChar: 924
       line: 30
       lineChar: 20
       spanCodeSection: playerApi.
-    - startInstruction: 224
-      endInstruction: 239
+    - startInstruction: 204
+      endInstruction: 219
       startSourceChar: 924
       endSourceChar: 977
       line: 30
       lineChar: 30
       spanCodeSection: "UseLegacyLocomotion();\r\n            }\r\n\r\n            "
-    - startInstruction: 240
-      endInstruction: 239
+    - startInstruction: 220
+      endInstruction: 219
       startSourceChar: 977
       endSourceChar: 977
       line: 33
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 240
-      endInstruction: 239
+    - startInstruction: 220
+      endInstruction: 219
       startSourceChar: 977
       endSourceChar: 977
       line: 33
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 240
-      endInstruction: 239
+    - startInstruction: 220
+      endInstruction: 219
       startSourceChar: 977
       endSourceChar: 985
       line: 33
       lineChar: 12
       spanCodeSection: Destroy(
-    - startInstruction: 240
-      endInstruction: 240
+    - startInstruction: 220
+      endInstruction: 220
       startSourceChar: 985
       endSourceChar: 985
       line: 33
