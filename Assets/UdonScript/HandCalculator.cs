@@ -614,21 +614,22 @@ public class HandCalculator : UdonSharpBehaviour
 
     public void Start()
     {
-        if (DebugHelper == null) { return; }
+        if (DebugHelper != null && Networking.LocalPlayer == null)
+        {
+            DebugHelper.SetClassName("HandCalculator");
 
-        DebugHelper.SetClassName("HandCalculator");
+            TestComponents = GetComponentsInChildren<Card>();
 
-        TestComponents = GetComponentsInChildren<Card>();
-
-        Test1();
-        Test2();
-        Test3();
-        Test4();
-        Test5();
-        Test6();
-        Test7();
-        Test8();
-        Test9();
+            Test1();
+            Test2();
+            Test3();
+            Test4();
+            Test5();
+            Test6();
+            Test7();
+            Test8();
+            Test9();
+        }
     }
 
     public bool TEST__IsChiable(Card[] cards, Card discardedCard)
