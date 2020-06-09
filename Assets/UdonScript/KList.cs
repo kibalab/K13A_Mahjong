@@ -314,14 +314,15 @@ public class KList : UdonSharpBehaviour
 
     public void Start()
     {
-        if (DebugHelper == null) { return; }
-
-        DebugHelper.SetClassName("KList");
-        Test1(); Clear();
-        Test2(); Clear();
-        Test3(); Clear();
-        Test4(); Clear();
-        Test5(); Clear();
-        Test6();
+        if (DebugHelper != null && Networking.LocalPlayer == null) 
+        {
+            DebugHelper.SetClassName("KList");
+            Test1(); Clear();
+            Test2(); Clear();
+            Test3(); Clear();
+            Test4(); Clear();
+            Test5(); Clear();
+            Test6();
+        }
     }
 }
