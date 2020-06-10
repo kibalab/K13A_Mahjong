@@ -13,7 +13,6 @@ public class GameManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
     [UdonSynced(UdonSyncMode.None)] public int UIActivedCount = 0;
     [UdonSynced(UdonSyncMode.None)] public int RegisteredPlayerCount = 0;
-    private bool GameManagerInitialized = false;
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -24,29 +23,37 @@ public class GameManager : UdonSharpBehaviour
     private Card WaitingNakiCard;
     private float WaitingTime = 0.0f;
     private bool isRunOnMasterScript = false;
-    private float waitTime = 5.0f;
+    
+    private float waitTime = 0.0f;
+    private bool waitForSync = false;
 
     public bool testMode;
     public LogViewer LogViewer;
 
-    // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
-    // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
-
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
-        if (player == Networking.LocalPlayer)
+        // Master가 처음 들어왔을 때
+        if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
         {
-            if (player.IsOwner(this.gameObject))
-            {
-                waitTime = 0;
-                Initialize_Master();
-            }
-            waitTime = 5.0f;
-            TableManager.cardDataSync();
+            Initialize_Master();
             Initialize_All();
         }
-    }
+        // Master가 다른 사람이 들어온 것을 감지했을 때
+        else if (Networking.IsMaster && player.playerId != Networking.LocalPlayer.playerId)
+        {
+            waitTime = 1.0f;
+            waitForSync = true;
+            // 1초 후 TableManager.CardDataSync
 
+        }
+        // Player가 처음 들어왔을 때
+        else if (player.playerId == Networking.LocalPlayer.playerId)
+        {
+            waitTime = 5.0f;
+            waitForSync = true;
+            // 5초 후 TableManager.Initialize_All
+        }
+    }
 
     public void Initialize_Master() 
     {
@@ -54,7 +61,6 @@ public class GameManager : UdonSharpBehaviour
         TableManager.Initialize_Master();
         isRunOnMasterScript = true;
         LogViewer.Log("Master Initalized", 0);
-        GameManagerInitialized = true;
     }
 
     public void Initialize_All()
@@ -76,18 +82,16 @@ public class GameManager : UdonSharpBehaviour
     
     void Update()
     {
-        if (waitTime >= 0)
+        if (isRunOnMasterScript)
         {
-            waitTime -= UnityEngine.Time.deltaTime;
-            return;
-        }
-        
-
-        if (!isRunOnMasterScript)
-        {
-            return;
+            UpdateForMaster();
         }
 
+        UpdateForAll();
+    }
+
+    void UpdateForMaster()
+    {
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
@@ -123,6 +127,27 @@ public class GameManager : UdonSharpBehaviour
             }
 
             inputEvent.Clear();
+        }
+    }
+
+    void UpdateForAll()
+    {
+        if (waitForSync)
+        {
+            waitTime -= Time.deltaTime;
+            if (waitTime < 0)
+            {
+                if (Networking.IsMaster)
+                {
+                    TableManager.CardDataSync();
+                }
+                else
+                {
+                    Initialize_All();
+                }
+
+                waitForSync = false;
+            }
         }
     }
 

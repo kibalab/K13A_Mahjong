@@ -170,7 +170,7 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    public void cardDataSync()
+    public void CardDataSync()
     {
         foreach (Card card in yama)
         {
