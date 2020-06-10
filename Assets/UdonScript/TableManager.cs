@@ -154,9 +154,6 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize_All()
     {
-
-        SendCustomNetworkEvent(NetworkEventTarget.Owner, "_cardDataSync");
-
         Material material;
         foreach (var card in yama)
         {
@@ -173,7 +170,7 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    void _cardDataSync()
+    public void cardDataSync()
     {
         foreach (Card card in yama)
         {
