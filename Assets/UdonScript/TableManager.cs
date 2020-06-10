@@ -154,10 +154,9 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize_All()
     {
-        Material material;
         foreach (var card in yama)
         {
-            material = card.IsDora ? doraMaterial : normalMaterial;
+            var material = card.IsDora ? doraMaterial : normalMaterial;
             card.Initialize_All(EventQueue, HandUtil, Sprites, material);
         }
 
