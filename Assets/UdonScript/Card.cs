@@ -22,6 +22,8 @@ public class Card : UdonSharpBehaviour
     private EventQueue eventQueue;
     private BoxCollider boxCollider;
 
+    public LogViewer LogViewer;
+
     // 월드 마스터의 local에서만 true인 항목
     private bool isRunOnMasterScript = false;
 
@@ -48,6 +50,8 @@ public class Card : UdonSharpBehaviour
 
     public void Initialize_Master(string type, int cardNumber, bool isDora, bool isRinShan)
     {
+        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+        LogViewer.Log("SetOwner", 0);
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
@@ -59,12 +63,15 @@ public class Card : UdonSharpBehaviour
 
     public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites, Material material)
     {
+        LogViewer.Log($"LocalPlayer Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})", 1);
         this.eventQueue = eventQueue;
         GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
 
         var spriteName = GetCardSpriteName();
+        LogViewer.Log($"Card Sprite Name : {spriteName}", 1);
         var sprite = sprites.FindSprite(spriteName);
+        LogViewer.Log($"Get Card Sprite", 1);
 
         SetSprite(sprite);
         setMaterial(material);
