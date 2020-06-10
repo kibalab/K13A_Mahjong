@@ -23,14 +23,14 @@ public class GameManager : UdonSharpBehaviour
     private Card WaitingNakiCard;
     private float WaitingTime = 0.0f;
     private bool isRunOnMasterScript = false;
-    
+
     private float waitTime = 0.0f;
     private bool waitForSync = false;
 
     public bool testMode;
     public LogViewer LogViewer;
 
-    public override void OnPlayerJoined(VRCPlayerApi player)
+    void Start()
     {
         // 로컬 테스트 환경일 때 
         if (Networking.LocalPlayer == null)
@@ -38,8 +38,12 @@ public class GameManager : UdonSharpBehaviour
             Initialize_Master();
             Initialize_All();
         }
+    }
+
+    public override void OnPlayerJoined(VRCPlayerApi player)
+    {
         // Master가 처음 들어왔을 때
-        else if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
+        if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
         {
             Initialize_Master();
             Initialize_All();
