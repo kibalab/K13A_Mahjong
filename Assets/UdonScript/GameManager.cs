@@ -1,5 +1,6 @@
 ﻿using UdonSharp;
 using UnityEngine;
+using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
@@ -25,41 +26,47 @@ public class GameManager : UdonSharpBehaviour
     private bool isRunOnMasterScript = false;
 
     public bool testMode;
+    public LogViewer LogViewer;
 
     // 이 함수는 모든 월드에 들어온 유저에게서 실행된다
     // 따라서 월드 마스터에서 실행되는 것과 아닌 것을 구분해야 한다
 
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
-        if(!GameManagerInitialized)
+        if (player == Networking.LocalPlayer)
         {
-            _Start();
-            GameManagerInitialized = true;
+            if (player.IsOwner(this.gameObject))
+            {
+                Initialize_Master();
+            }
+            Initialize_All();
         }
     }
 
-    void _Start()
-    {
-        // 월드가 처음 만들어졌을 때 마스터 초기화
-        var isWorldInitializing = (Networking.GetOwner(this.gameObject) == null);
-        if (isWorldInitializing)
-        {
-            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-            ChangeGameState(State_WaitForStart);
-            TableManager.Initialize_Master();
-            isRunOnMasterScript = true;
-        }
 
+    public void Initialize_Master() 
+    {
+        ChangeGameState(State_WaitForStart);
+        TableManager.Initialize_Master();
+        isRunOnMasterScript = true;
+        LogViewer.Log("Master Initalized", 0);
+        GameManagerInitialized = true;
+    }
+
+    public void Initialize_All()
+    {
         // 카드 스프라이트, 플레이어 로컬값 초기화
         TableManager.Initialize_All();
+        LogViewer.Log("Players Initalized", 1);
 
         // 원래 4명 다 모여야 카드를 배분하지만
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
         if (testMode)
         {
-            Debug.Log("====TestMode====");
+            LogViewer.Log("TestMode ON", 0);
             TableManager.AddNextCard();
             ChangeGameState(State_WaitForDiscard);
+            LogViewer.Log("TestMode GameStart", 0);
         }
     }
 
@@ -73,7 +80,7 @@ public class GameManager : UdonSharpBehaviour
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
-            Debug.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex}");
+            LogViewer.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex}", 0);
 
             switch (GameState)
             {
@@ -155,7 +162,8 @@ public class GameManager : UdonSharpBehaviour
             {
                 WaitingNakiCard = eventCard;
                 UIActivedCount = uiActived;
-                Debug.Log($"UIActived. Count:{UIActivedCount}");
+
+                LogViewer.Log($"UIActived. Count:{UIActivedCount}", 0);
 
                 ChangeGameState(State_WaitForNaki);
             }

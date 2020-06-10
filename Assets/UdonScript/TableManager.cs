@@ -26,6 +26,8 @@ public class TableManager : UdonSharpBehaviour
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
 
+    public LogViewer LogViewer;
+
     void Start()
     {
         yama = CardPool.GetComponentsInChildren<Card>();
@@ -136,17 +138,25 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize_Master()
     {
+        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+        //LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
         // 한 번만 하는 초기화
         // 1. 월드 마스터만 알면 되는 yama의 순서
         // 2. 다른 사람들을 위한 Card의 UdonSync 변수 설정
         InitializeYama_Master();
+        LogViewer.Log("Yama Initalized", 0);
+
 
         // Player의 변수는 전부 Master만 알고 있으면 됨
         InitializePlayers_Master();
+        LogViewer.Log("PlayersInfo Initalized", 0);
     }
 
     public void Initialize_All()
     {
+
+        SendCustomNetworkEvent(NetworkEventTarget.Owner, "_cardDataSync");
+
         Material material;
         foreach (var card in yama)
         {
@@ -159,6 +169,16 @@ public class TableManager : UdonSharpBehaviour
             var player = players[i];
             var stashTable = StashTables.transform.GetChild(i);
             player.Initialize_All(EventQueue, stashTable);
+            LogViewer.Log($"LocalPlayer PlayerInfo Initalized (IndexID: {player.PlayerIndex})", 1);
+        }
+    }
+
+    void _cardDataSync()
+    {
+        foreach (Card card in yama)
+        {
+            card.Initialize_Master(card.Type, card.CardNumber, card.IsDora, card.IsRinShan);
+            card.SetPosition(card.transform.position, card.transform.rotation);
         }
     }
 
@@ -174,6 +194,7 @@ public class TableManager : UdonSharpBehaviour
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
                     yama[index++].Initialize_Master(type, number, isDora, false);
+                    LogViewer.Log($"Master Card Initalized (Name: {yama[index-1].Type}{yama[index-1].CardNumber}, GlobalOrder: {yama[index-1].GlobalOrder})", 0);
                 }
             }
         }
