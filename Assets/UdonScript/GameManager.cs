@@ -24,6 +24,7 @@ public class GameManager : UdonSharpBehaviour
     private Card WaitingNakiCard;
     private float WaitingTime = 0.0f;
     private bool isRunOnMasterScript = false;
+    private float waitTime = 5.0f;
 
     public bool testMode;
     public LogViewer LogViewer;
@@ -37,8 +38,11 @@ public class GameManager : UdonSharpBehaviour
         {
             if (player.IsOwner(this.gameObject))
             {
+                waitTime = 0;
                 Initialize_Master();
             }
+            waitTime = 5.0f;
+            TableManager.cardDataSync();
             Initialize_All();
         }
     }
@@ -69,9 +73,16 @@ public class GameManager : UdonSharpBehaviour
             LogViewer.Log("TestMode GameStart", 0);
         }
     }
-
+    
     void Update()
     {
+        if (waitTime >= 0)
+        {
+            waitTime -= UnityEngine.Time.deltaTime;
+            return;
+        }
+        
+
         if (!isRunOnMasterScript)
         {
             return;
