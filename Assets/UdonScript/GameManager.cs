@@ -32,8 +32,14 @@ public class GameManager : UdonSharpBehaviour
 
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
+        // 로컬 테스트 환경일 때 
+        if (Networking.LocalPlayer == null)
+        {
+            Initialize_Master();
+            Initialize_All();
+        }
         // Master가 처음 들어왔을 때
-        if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
+        else if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
         {
             Initialize_Master();
             Initialize_All();
@@ -41,17 +47,17 @@ public class GameManager : UdonSharpBehaviour
         // Master가 다른 사람이 들어온 것을 감지했을 때
         else if (Networking.IsMaster && player.playerId != Networking.LocalPlayer.playerId)
         {
-            waitTime = 1.0f;
+            waitTime = 3.0f;
             waitForSync = true;
-            // 1초 후 TableManager.CardDataSync
+            // 3초 후 TableManager.CardDataSync
 
         }
         // Player가 처음 들어왔을 때
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
-            waitTime = 5.0f;
+            waitTime = 6.0f;
             waitForSync = true;
-            // 5초 후 TableManager.Initialize_All
+            // 6초 후 TableManager.Initialize_All
         }
     }
 
