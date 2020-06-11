@@ -56,7 +56,7 @@ public class GameManager : UdonSharpBehaviour
 
             // 위에처럼 하면 여러명 들어올 때 waitTime이 꼬일거라... Queue로 관리해야 함
             // 일단 접속 동시에 싱크하게 해보고 안되면... SyncScheduler를 따로 만듬
-            TableManager.CardDataSync();
+            TableManager.CardsDataSync();
         }
         // Player가 처음 들어왔을 때
         else if (player.playerId == Networking.LocalPlayer.playerId)

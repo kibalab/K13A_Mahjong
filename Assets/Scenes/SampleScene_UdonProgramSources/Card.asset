@@ -68,43 +68,47 @@ MonoBehaviour:
     %SystemString, null\r\n    __31_const_intnl_SystemString: %SystemString, null\r\n
     \   __32_const_intnl_SystemString: %SystemString, null\r\n    __33_const_intnl_SystemString:
     %SystemString, null\r\n    __34_const_intnl_SystemString: %SystemString, null\r\n
-    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
-    %SystemString, null\r\n    __6_const_intnl_SystemString: %SystemString, null\r\n
-    \   __7_const_intnl_SystemString: %SystemString, null\r\n    __8_const_intnl_SystemString:
-    %SystemString, null\r\n    __9_const_intnl_SystemString: %SystemString, null\r\n
-    \   __0_const_intnl_SystemType: %SystemType, null\r\n    __1_const_intnl_SystemType:
-    %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n
-    \   __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __4_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __8_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_returnValSymbol_BoxCollider: %UnityEngineBoxCollider, null\r\n    __0_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemObject:
-    %SystemObject, null\r\n    __1_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_UnityEngineSprite:
-    %UnityEngineSprite, null\r\n    __0_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer,
-    null\r\n    __1_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer, null\r\n
+    \   __35_const_intnl_SystemString: %SystemString, null\r\n    __4_const_intnl_SystemString:
+    %SystemString, null\r\n    __5_const_intnl_SystemString: %SystemString, null\r\n
+    \   __6_const_intnl_SystemString: %SystemString, null\r\n    __7_const_intnl_SystemString:
+    %SystemString, null\r\n    __8_const_intnl_SystemString: %SystemString, null\r\n
+    \   __9_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemType:
+    %SystemType, null\r\n    __1_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
+    \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi:
+    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean,
+    null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n    __2_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __3_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __4_intnl_SystemBoolean: %SystemBoolean, null\r\n    __5_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __6_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __7_intnl_SystemBoolean: %SystemBoolean, null\r\n    __8_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_intnl_returnValSymbol_BoxCollider: %UnityEngineBoxCollider,
+    null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __1_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_intnl_UnityEngineSprite: %UnityEngineSprite, null\r\n
+    \   __0_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer, null\r\n
+    \   __1_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer, null\r\n
     \   __0_intnl_interpolatedStr_String: %SystemString, null\r\n    __0_intnl_returnValSymbol_String:
     %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __10_intnl_SystemString:
     %SystemString, null\r\n    __11_intnl_SystemString: %SystemString, null\r\n    __12_intnl_SystemString:
     %SystemString, null\r\n    __13_intnl_SystemString: %SystemString, null\r\n    __14_intnl_SystemString:
+    %SystemString, null\r\n    __15_intnl_SystemString: %SystemString, null\r\n    __16_intnl_SystemString:
+    %SystemString, null\r\n    __17_intnl_SystemString: %SystemString, null\r\n    __18_intnl_SystemString:
     %SystemString, null\r\n    __2_intnl_interpolatedStr_String: %SystemString, null\r\n
-    \   __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
-    %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __5_intnl_SystemString:
-    %SystemString, null\r\n    __6_intnl_SystemString: %SystemString, null\r\n    __7_intnl_SystemString:
-    %SystemString, null\r\n    __8_intnl_SystemString: %SystemString, null\r\n    __9_intnl_SystemString:
-    %SystemString, null\r\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform,
-    null\r\n    __1_intnl_UnityEngineTransform: %UnityEngineTransform, null\r\n    __0_intnl_InputEvent:
-    %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
-    null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
-    \   __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __2_intnl_VRCSDKBaseVRCPlayerApi:
+    \   __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_interpolatedStr_String:
+    %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_SystemString:
+    %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __6_intnl_SystemString:
+    %SystemString, null\r\n    __7_intnl_SystemString: %SystemString, null\r\n    __8_intnl_SystemString:
+    %SystemString, null\r\n    __9_intnl_SystemString: %SystemString, null\r\n    __0_intnl_UnityEngineTransform:
+    %UnityEngineTransform, null\r\n    __1_intnl_UnityEngineTransform: %UnityEngineTransform,
+    null\r\n    __0_intnl_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n    __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
+    \   __2_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n    __3_intnl_VRCSDKBaseVRCPlayerApi:
     %VRCSDKBaseVRCPlayerApi, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using
     UnityEngine;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n
     \        # using UdonSharp;\r\n        \r\n         # using VRC.SDKBase;\r\n        \r\n
@@ -169,13 +173,26 @@ MonoBehaviour:
     \       PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
     \       PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_this_intnl_UnityEngineGameObject\r\n
     \       EXTERN, \"VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid\"\r\n
-    \       \r\n         # LogViewer.Log(\"SetOwner\", 0);\r\n        PUSH, LogViewer\r\n
-    \       PUSH, __9_const_intnl_SystemString\r\n        PUSH, __8_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # LogViewer.Log($\"Set Owner (TableManager, {Networking.LocalPlayer.displayName})\",
+    0);\r\n        PUSH, __8_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN,
+    \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n        PUSH,
+    __2_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN,
+    \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __9_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
     \       PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n        PUSH,
+    __0_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, LogViewer\r\n        PUSH, __11_const_intnl_SystemString\r\n        PUSH,
     __0_const_intnl_SystemInt32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, LogViewer\r\n        PUSH, __11_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __3_intnl_SystemString\r\n
+    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, LogViewer\r\n
+    \       PUSH, __12_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # Type = type;\r\n        PUSH, __0_type_String\r\n        PUSH,
     Type\r\n        COPY\r\n        \r\n         # CardNumber = cardNumber;\r\n        PUSH,
     __0_cardNumber_Int32\r\n        PUSH, CardNumber\r\n        COPY\r\n        \r\n
@@ -185,52 +202,66 @@ MonoBehaviour:
     \        # isRunOnMasterScript = true;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
     \       PUSH, isRunOnMasterScript\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public void syncData()\r\n    .export syncData\r\n
+    \       \r\n    syncData:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # SendCustomNetworkEvent(NetworkEventTarget.All,
+    \"_syncData\");\r\n        PUSH, __0_this_intnl_Card\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
+    \       PUSH, __13_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
+    \        # public void _syncData()\r\n    .export _syncData\r\n        \r\n    _syncData:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # Type = Type;\r\n        \r\n         # CardNumber
+    = CardNumber;\r\n        \r\n         # IsDora = IsDora;\r\n        \r\n         #
+    IsRinShan = IsRinShan;\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void Initialize_All(EventQueue eventQueue,
     HandUtil util, CardSprites sprites, Material material)\r\n    .export Initialize_All\r\n
     \       \r\n    Initialize_All:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # LogViewer.Log($\"LocalPlayer
     Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})\", 1);\r\n
-    \       PUSH, __12_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    Type\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, CardNumber\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n
+    \       PUSH, __14_const_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
+    Type\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, CardNumber\r\n        PUSH, __5_intnl_SystemString\r\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       PUSH, __5_intnl_SystemString\r\n        PUSH, __6_intnl_SystemString\r\n
     \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __13_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, __6_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
+    __15_const_intnl_SystemString\r\n        PUSH, __7_intnl_SystemString\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __3_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, GlobalOrder\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
-    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __5_intnl_SystemString\r\n
+    __7_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n
+    \       PUSH, GlobalOrder\r\n        PUSH, __8_intnl_SystemString\r\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       PUSH, __8_intnl_SystemString\r\n        PUSH, __9_intnl_SystemString\r\n
     \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __5_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __14_const_intnl_SystemString\r\n        PUSH, __6_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, __9_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
+    __9_const_intnl_SystemString\r\n        PUSH, __10_intnl_SystemString\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __6_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, LogViewer\r\n        PUSH, __9_const_intnl_SystemString\r\n        PUSH,
-    __0_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n        PUSH,
+    __10_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __1_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, LogViewer\r\n        PUSH, __11_const_intnl_SystemString\r\n        PUSH,
     __1_const_intnl_SystemInt32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __7_intnl_SystemString\r\n
+    \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, __11_intnl_SystemString\r\n
     \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, LogViewer\r\n
-    \       PUSH, __11_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __12_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # this.eventQueue = eventQueue;\r\n        PUSH, __0_eventQueue_EventQueue\r\n
     \       PUSH, eventQueue\r\n        COPY\r\n        \r\n         # GlobalOrder
     = util.GetGlobalOrder(Type, CardNumber);\r\n        PUSH, __0_util_HandUtil\r\n
-    \       PUSH, __15_const_intnl_SystemString\r\n        PUSH, Type\r\n        EXTERN,
+    \       PUSH, __16_const_intnl_SystemString\r\n        PUSH, Type\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_util_HandUtil\r\n        PUSH, __16_const_intnl_SystemString\r\n
+    \       PUSH, __0_util_HandUtil\r\n        PUSH, __17_const_intnl_SystemString\r\n
     \       PUSH, CardNumber\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, Type\r\n        PUSH, __8_intnl_SystemString\r\n        COPY # Copy-on-write
-    symbol value dirtied\r\n        PUSH, CardNumber\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __0_util_HandUtil\r\n
-    \       PUSH, __17_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, Type\r\n        PUSH, __12_intnl_SystemString\r\n        COPY #
+    Copy-on-write symbol value dirtied\r\n        PUSH, CardNumber\r\n        PUSH,
+    __2_intnl_SystemInt32\r\n        COPY # Copy-on-write symbol value dirtied\r\n
     \       PUSH, __0_util_HandUtil\r\n        PUSH, __18_const_intnl_SystemString\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_util_HandUtil\r\n        PUSH, __19_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __3_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
@@ -239,44 +270,44 @@ MonoBehaviour:
     \       PUSH, __0_const_intnl_SystemType\r\n        PUSH, boxCollider\r\n        EXTERN,
     \"UnityEngineBoxCollider.__GetComponent__T\"\r\n        \r\n         # var spriteName
     = GetCardSpriteName();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000AA4\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
+    \       JUMP, 0x00000BB4\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
     \       PUSH, __0_spriteName_String\r\n        COPY\r\n        \r\n         #
-    LogViewer.Log($\"Card Sprite Name : {spriteName}\", 1);\r\n        PUSH, __19_const_intnl_SystemString\r\n
-    \       PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    __1_intnl_interpolatedStr_String\r\n        PUSH, __0_spriteName_String\r\n        PUSH,
-    __9_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __9_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, LogViewer\r\n        PUSH, __9_const_intnl_SystemString\r\n
-    \       PUSH, __1_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n        PUSH,
+    LogViewer.Log($\"Card Sprite Name : {spriteName}\", 1);\r\n        PUSH, __20_const_intnl_SystemString\r\n
+    \       PUSH, __2_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
+    __2_intnl_interpolatedStr_String\r\n        PUSH, __0_spriteName_String\r\n        PUSH,
+    __13_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __13_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __2_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, LogViewer\r\n        PUSH, __11_const_intnl_SystemString\r\n        PUSH,
     __1_const_intnl_SystemInt32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, __10_intnl_SystemString\r\n
+    \       PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH, __14_intnl_SystemString\r\n
     \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, LogViewer\r\n
-    \       PUSH, __11_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __12_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # var sprite = sprites.FindSprite(spriteName);\r\n        PUSH,
-    __0_sprites_CardSprites\r\n        PUSH, __20_const_intnl_SystemString\r\n        PUSH,
+    __0_sprites_CardSprites\r\n        PUSH, __21_const_intnl_SystemString\r\n        PUSH,
     __0_spriteName_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_sprites_CardSprites\r\n        PUSH, __21_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_sprites_CardSprites\r\n        PUSH, __22_const_intnl_SystemString\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_sprites_CardSprites\r\n        PUSH, __23_const_intnl_SystemString\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n
     \       COPY\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n        PUSH, __1_sprite_Sprite\r\n
     \       COPY\r\n        \r\n         # LogViewer.Log($\"Get Card Sprite\", 1);\r\n
-    \       PUSH, __23_const_intnl_SystemString\r\n        PUSH, __2_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, LogViewer\r\n        PUSH, __9_const_intnl_SystemString\r\n
-    \       PUSH, __2_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n        PUSH,
+    \       PUSH, __24_const_intnl_SystemString\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, LogViewer\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __3_intnl_interpolatedStr_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, LogViewer\r\n        PUSH, __11_const_intnl_SystemString\r\n        PUSH,
     __1_const_intnl_SystemInt32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __2_intnl_interpolatedStr_String\r\n        PUSH, __11_intnl_SystemString\r\n
+    \       PUSH, __3_intnl_interpolatedStr_String\r\n        PUSH, __15_intnl_SystemString\r\n
     \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, LogViewer\r\n
-    \       PUSH, __11_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __12_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       \r\n         # SetSprite(sprite);\r\n        PUSH, __1_sprite_Sprite\r\n
     \       PUSH, __0_sprite_Sprite\r\n        COPY\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x000007E8\r\n        \r\n         # setMaterial(material);\r\n
+    \       JUMP, 0x000008F8\r\n        \r\n         # setMaterial(material);\r\n
     \       PUSH, __0_material_Material\r\n        PUSH, __1_material_Material\r\n
     \       COPY\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000884\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    0x00000994\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \       \r\n         # public void SetOwnership(int playerIndex, InputEvent inputEvent)\r\n
     \   .export SetOwnership\r\n        \r\n    SetOwnership:\r\n        \r\n        PUSH,
@@ -289,7 +320,7 @@ MonoBehaviour:
     \        # public void SetSprite(Sprite sprite)\r\n    .export SetSprite\r\n        \r\n
     \   SetSprite:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
     \        # {\r\n        \r\n         # var display = transform.Find(\"Display\");\r\n
-    \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        PUSH, __24_const_intnl_SystemString\r\n
+    \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        PUSH, __25_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__Find__SystemString__UnityEngineTransform\"\r\n
     \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, __0_display_Transform\r\n
     \       COPY\r\n        \r\n         # var renderer = display.GetComponent<SpriteRenderer>();\r\n
@@ -304,7 +335,7 @@ MonoBehaviour:
     \        # public void setMaterial(Material material)\r\n    .export setMaterial\r\n
     \       \r\n    setMaterial:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # var display = transform.Find(\"Display\");\r\n
-    \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        PUSH, __24_const_intnl_SystemString\r\n
+    \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        PUSH, __25_const_intnl_SystemString\r\n
     \       PUSH, __1_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__Find__SystemString__UnityEngineTransform\"\r\n
     \       PUSH, __1_intnl_UnityEngineTransform\r\n        PUSH, __1_display_Transform\r\n
     \       COPY\r\n        \r\n         # var renderer = display.GetComponent<SpriteRenderer>();\r\n
@@ -312,10 +343,10 @@ MonoBehaviour:
     \       PUSH, __1_intnl_UnityEngineSpriteRenderer\r\n        EXTERN, \"UnityEngineSpriteRenderer.__GetComponent__T\"\r\n
     \       PUSH, __1_intnl_UnityEngineSpriteRenderer\r\n        PUSH, __1_renderer_SpriteRenderer\r\n
     \       COPY\r\n        \r\n         # if (IsDora)\r\n        PUSH, IsDora\r\n
-    \       JUMP_IF_FALSE, 0x0000091C\r\n        \r\n         # {\r\n        \r\n
+    \       JUMP_IF_FALSE, 0x00000A2C\r\n        \r\n         # {\r\n        \r\n
     \        # renderer.material = material;\r\n        PUSH, __1_renderer_SpriteRenderer\r\n
     \       PUSH, __1_material_Material\r\n        EXTERN, \"UnityEngineSpriteRenderer.__set_material__UnityEngineMaterial__SystemVoid\"\r\n
-    \       JUMP, 0x00000934\r\n        \r\n         # else\r\n        \r\n         #
+    \       JUMP, 0x00000A44\r\n        \r\n         # else\r\n        \r\n         #
     {\r\n        \r\n         # renderer.material = material;\r\n        PUSH, __1_renderer_SpriteRenderer\r\n
     \       PUSH, __1_material_Material\r\n        EXTERN, \"UnityEngineSpriteRenderer.__set_material__UnityEngineMaterial__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
@@ -335,16 +366,16 @@ MonoBehaviour:
     __0_p_Vector3\r\n        PUSH, position\r\n        COPY\r\n        \r\n         #
     rotation = r;\r\n        PUSH, __0_r_Quaternion\r\n        PUSH, rotation\r\n
     \       COPY\r\n        \r\n         # if (Networking.LocalPlayer == null)\r\n
-    \       PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       PUSH, __3_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, __3_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A2C\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B3C\r\n
     \       \r\n         # {\r\n        \r\n         # _SetPosition();\r\n        PUSH,
-    __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000A68\r\n        JUMP,
-    0x00000A4C\r\n        \r\n         # else\r\n        \r\n         # {\r\n        \r\n
+    __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000B78\r\n        JUMP,
+    0x00000B5C\r\n        \r\n         # else\r\n        \r\n         # {\r\n        \r\n
     \        # SendCustomNetworkEvent(NetworkEventTarget.All, \"_SetPosition\");\r\n
     \       PUSH, __0_this_intnl_Card\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, __25_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
+    \       PUSH, __26_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public void _SetPosition()\r\n    .export _SetPosition\r\n        \r\n
@@ -357,45 +388,45 @@ MonoBehaviour:
     \        # public string GetCardSpriteName()\r\n    .export GetCardSpriteName\r\n
     \       \r\n    GetCardSpriteName:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # switch (Type)\r\n        \r\n
-    \        # case \"\uB3D9\":\r\n        PUSH, Type\r\n        PUSH, __26_const_intnl_SystemString\r\n
+    \        # case \"\uB3D9\":\r\n        PUSH, Type\r\n        PUSH, __27_const_intnl_SystemString\r\n
     \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000ADC\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # case \"\uB0A8\":\r\n        PUSH,
-    Type\r\n        PUSH, __27_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemBoolean\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000BEC\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # case \"\uB0A8\":\r\n        PUSH,
+    Type\r\n        PUSH, __28_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B14\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # case \"\uC11C\":\r\n        PUSH,
-    Type\r\n        PUSH, __28_const_intnl_SystemString\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C24\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # case \"\uC11C\":\r\n        PUSH,
+    Type\r\n        PUSH, __29_const_intnl_SystemString\r\n        PUSH, __4_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B4C\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # case \"\uBD81\":\r\n        PUSH,
-    Type\r\n        PUSH, __29_const_intnl_SystemString\r\n        PUSH, __5_intnl_SystemBoolean\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C5C\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # case \"\uBD81\":\r\n        PUSH,
+    Type\r\n        PUSH, __30_const_intnl_SystemString\r\n        PUSH, __5_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B84\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # case \"\uBC31\":\r\n        PUSH,
-    Type\r\n        PUSH, __30_const_intnl_SystemString\r\n        PUSH, __6_intnl_SystemBoolean\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C94\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # case \"\uBC31\":\r\n        PUSH,
+    Type\r\n        PUSH, __31_const_intnl_SystemString\r\n        PUSH, __6_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000BBC\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # case \"\uBC1C\":\r\n        PUSH,
-    Type\r\n        PUSH, __31_const_intnl_SystemString\r\n        PUSH, __7_intnl_SystemBoolean\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000CCC\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # case \"\uBC1C\":\r\n        PUSH,
+    Type\r\n        PUSH, __32_const_intnl_SystemString\r\n        PUSH, __7_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000BF4\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # case \"\uC911\":\r\n        PUSH,
-    Type\r\n        PUSH, __32_const_intnl_SystemString\r\n        PUSH, __8_intnl_SystemBoolean\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D04\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # case \"\uC911\":\r\n        PUSH,
+    Type\r\n        PUSH, __33_const_intnl_SystemString\r\n        PUSH, __8_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C2C\r\n
-    \       JUMP, 0x00000C34\r\n        \r\n         # default:\r\n        JUMP, 0x00000C5C\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D3C\r\n
+    \       JUMP, 0x00000D44\r\n        \r\n         # default:\r\n        JUMP, 0x00000D6C\r\n
     \       PUSH, Type\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n        COPY\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
     return Type + CardNumber + (IsDora ? \"\uB3C4\uB77C\" : \"\");\r\n        PUSH,
-    CardNumber\r\n        PUSH, __12_intnl_SystemString\r\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n
-    \       PUSH, Type\r\n        PUSH, __12_intnl_SystemString\r\n        PUSH, __13_intnl_SystemString\r\n
+    CardNumber\r\n        PUSH, __16_intnl_SystemString\r\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n
+    \       PUSH, Type\r\n        PUSH, __16_intnl_SystemString\r\n        PUSH, __17_intnl_SystemString\r\n
     \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, IsDora\r\n        JUMP_IF_FALSE, 0x00000CC0\r\n        PUSH, __33_const_intnl_SystemString\r\n
-    \       PUSH, __14_intnl_SystemString\r\n        COPY\r\n        JUMP, 0x00000CD4\r\n
-    \       PUSH, __34_const_intnl_SystemString\r\n        PUSH, __14_intnl_SystemString\r\n
-    \       COPY\r\n        PUSH, __13_intnl_SystemString\r\n        PUSH, __14_intnl_SystemString\r\n
+    \       PUSH, IsDora\r\n        JUMP_IF_FALSE, 0x00000DD0\r\n        PUSH, __34_const_intnl_SystemString\r\n
+    \       PUSH, __18_intnl_SystemString\r\n        COPY\r\n        JUMP, 0x00000DE4\r\n
+    \       PUSH, __35_const_intnl_SystemString\r\n        PUSH, __18_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, __17_intnl_SystemString\r\n        PUSH, __18_intnl_SystemString\r\n
     \       PUSH, __0_intnl_returnValSymbol_String\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32
@@ -1629,1906 +1660,2151 @@ MonoBehaviour:
     - startInstruction: 476
       endInstruction: 475
       startSourceChar: 1620
-      endSourceChar: 1632
+      endSourceChar: 1622
       line: 53
       lineChar: 22
-      spanCodeSection: '"SetOwner", '
+      spanCodeSection: $"
     - startInstruction: 476
-      endInstruction: 563
-      startSourceChar: 1632
-      endSourceChar: 1645
+      endInstruction: 495
+      startSourceChar: 1622
+      endSourceChar: 1647
       line: 53
-      lineChar: 34
-      spanCodeSection: "0);\r\n        "
-    - startInstruction: 564
-      endInstruction: 563
-      startSourceChar: 1645
-      endSourceChar: 1645
-      line: 54
+      lineChar: 24
+      spanCodeSection: 'Set Owner (TableManager, '
+    - startInstruction: 496
+      endInstruction: 495
+      startSourceChar: 1647
+      endSourceChar: 1648
+      line: 53
+      lineChar: 49
+      spanCodeSection: '{'
+    - startInstruction: 496
+      endInstruction: 495
+      startSourceChar: 1648
+      endSourceChar: 1648
+      line: 53
+      lineChar: 50
+      spanCodeSection: 
+    - startInstruction: 496
+      endInstruction: 495
+      startSourceChar: 1648
+      endSourceChar: 1648
+      line: 53
+      lineChar: 50
+      spanCodeSection: 
+    - startInstruction: 496
+      endInstruction: 495
+      startSourceChar: 1648
+      endSourceChar: 1659
+      line: 53
+      lineChar: 50
+      spanCodeSection: Networking.
+    - startInstruction: 496
+      endInstruction: 495
+      startSourceChar: 1659
+      endSourceChar: 1671
+      line: 53
+      lineChar: 61
+      spanCodeSection: LocalPlayer.
+    - startInstruction: 496
+      endInstruction: 587
+      startSourceChar: 1671
+      endSourceChar: 1683
+      line: 53
+      lineChar: 73
+      spanCodeSection: displayName}
+    - startInstruction: 588
+      endInstruction: 639
+      startSourceChar: 1683
+      endSourceChar: 1687
+      line: 53
+      lineChar: 85
+      spanCodeSection: ')", '
+    - startInstruction: 640
+      endInstruction: 747
+      startSourceChar: 1687
+      endSourceChar: 1702
+      line: 53
+      lineChar: 89
+      spanCodeSection: "0);\r\n\r\n        "
+    - startInstruction: 748
+      endInstruction: 747
+      startSourceChar: 1702
+      endSourceChar: 1702
+      line: 55
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 564
-      endInstruction: 563
-      startSourceChar: 1645
-      endSourceChar: 1645
-      line: 54
+    - startInstruction: 748
+      endInstruction: 747
+      startSourceChar: 1702
+      endSourceChar: 1702
+      line: 55
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 564
-      endInstruction: 563
-      startSourceChar: 1645
-      endSourceChar: 1652
-      line: 54
+    - startInstruction: 748
+      endInstruction: 747
+      startSourceChar: 1702
+      endSourceChar: 1709
+      line: 55
       lineChar: 8
       spanCodeSection: 'Type = '
-    - startInstruction: 564
-      endInstruction: 583
-      startSourceChar: 1652
-      endSourceChar: 1667
-      line: 54
+    - startInstruction: 748
+      endInstruction: 767
+      startSourceChar: 1709
+      endSourceChar: 1724
+      line: 55
       lineChar: 15
       spanCodeSection: "type;\r\n        "
-    - startInstruction: 584
-      endInstruction: 583
-      startSourceChar: 1667
-      endSourceChar: 1667
-      line: 55
+    - startInstruction: 768
+      endInstruction: 767
+      startSourceChar: 1724
+      endSourceChar: 1724
+      line: 56
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 584
-      endInstruction: 583
-      startSourceChar: 1667
-      endSourceChar: 1667
-      line: 55
+    - startInstruction: 768
+      endInstruction: 767
+      startSourceChar: 1724
+      endSourceChar: 1724
+      line: 56
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 584
-      endInstruction: 583
-      startSourceChar: 1667
-      endSourceChar: 1680
-      line: 55
+    - startInstruction: 768
+      endInstruction: 767
+      startSourceChar: 1724
+      endSourceChar: 1737
+      line: 56
       lineChar: 8
       spanCodeSection: 'CardNumber = '
-    - startInstruction: 584
-      endInstruction: 603
-      startSourceChar: 1680
-      endSourceChar: 1701
-      line: 55
+    - startInstruction: 768
+      endInstruction: 787
+      startSourceChar: 1737
+      endSourceChar: 1758
+      line: 56
       lineChar: 21
       spanCodeSection: "cardNumber;\r\n        "
-    - startInstruction: 604
-      endInstruction: 603
-      startSourceChar: 1701
-      endSourceChar: 1701
-      line: 56
+    - startInstruction: 788
+      endInstruction: 787
+      startSourceChar: 1758
+      endSourceChar: 1758
+      line: 57
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 604
-      endInstruction: 603
-      startSourceChar: 1701
-      endSourceChar: 1701
-      line: 56
+    - startInstruction: 788
+      endInstruction: 787
+      startSourceChar: 1758
+      endSourceChar: 1758
+      line: 57
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 604
-      endInstruction: 603
-      startSourceChar: 1701
-      endSourceChar: 1710
-      line: 56
+    - startInstruction: 788
+      endInstruction: 787
+      startSourceChar: 1758
+      endSourceChar: 1767
+      line: 57
       lineChar: 8
       spanCodeSection: 'IsDora = '
-    - startInstruction: 604
-      endInstruction: 623
-      startSourceChar: 1710
-      endSourceChar: 1727
-      line: 56
+    - startInstruction: 788
+      endInstruction: 807
+      startSourceChar: 1767
+      endSourceChar: 1784
+      line: 57
       lineChar: 17
       spanCodeSection: "isDora;\r\n        "
-    - startInstruction: 624
-      endInstruction: 623
-      startSourceChar: 1727
-      endSourceChar: 1727
-      line: 57
+    - startInstruction: 808
+      endInstruction: 807
+      startSourceChar: 1784
+      endSourceChar: 1784
+      line: 58
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 624
-      endInstruction: 623
-      startSourceChar: 1727
-      endSourceChar: 1727
-      line: 57
+    - startInstruction: 808
+      endInstruction: 807
+      startSourceChar: 1784
+      endSourceChar: 1784
+      line: 58
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 624
-      endInstruction: 623
-      startSourceChar: 1727
-      endSourceChar: 1739
-      line: 57
+    - startInstruction: 808
+      endInstruction: 807
+      startSourceChar: 1784
+      endSourceChar: 1796
+      line: 58
       lineChar: 8
       spanCodeSection: 'IsRinShan = '
-    - startInstruction: 624
-      endInstruction: 643
-      startSourceChar: 1739
-      endSourceChar: 1795
-      line: 57
+    - startInstruction: 808
+      endInstruction: 827
+      startSourceChar: 1796
+      endSourceChar: 1852
+      line: 58
       lineChar: 20
       spanCodeSection: "isRinShan;\r\n\r\n        // \uB9C8\uC2A4\uD130\uB9CC \uD574\uB2F9
         bool\uAC12\uC774 true\uC774\uB2E4\r\n        "
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1795
-      endSourceChar: 1795
-      line: 60
+    - startInstruction: 828
+      endInstruction: 827
+      startSourceChar: 1852
+      endSourceChar: 1852
+      line: 61
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1795
-      endSourceChar: 1795
-      line: 60
+    - startInstruction: 828
+      endInstruction: 827
+      startSourceChar: 1852
+      endSourceChar: 1852
+      line: 61
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1795
-      endSourceChar: 1817
-      line: 60
+    - startInstruction: 828
+      endInstruction: 827
+      startSourceChar: 1852
+      endSourceChar: 1874
+      line: 61
       lineChar: 8
       spanCodeSection: 'isRunOnMasterScript = '
-    - startInstruction: 644
-      endInstruction: 683
-      startSourceChar: 1817
-      endSourceChar: 1837
-      line: 60
+    - startInstruction: 828
+      endInstruction: 867
+      startSourceChar: 1874
+      endSourceChar: 1894
+      line: 61
       lineChar: 30
       spanCodeSection: "true;\r\n    }\r\n\r\n    "
-    - startInstruction: 684
-      endInstruction: 683
-      startSourceChar: 1837
-      endSourceChar: 1864
-      line: 63
-      lineChar: 4
-      spanCodeSection: public void Initialize_All(
-    - startInstruction: 684
-      endInstruction: 683
-      startSourceChar: 1864
-      endSourceChar: 1887
-      line: 63
-      lineChar: 31
-      spanCodeSection: 'EventQueue eventQueue, '
-    - startInstruction: 684
-      endInstruction: 683
-      startSourceChar: 1887
-      endSourceChar: 1902
-      line: 63
-      lineChar: 54
-      spanCodeSection: 'HandUtil util, '
-    - startInstruction: 684
-      endInstruction: 683
-      startSourceChar: 1902
-      endSourceChar: 1923
-      line: 63
-      lineChar: 69
-      spanCodeSection: 'CardSprites sprites, '
-    - startInstruction: 684
-      endInstruction: 691
-      startSourceChar: 1923
-      endSourceChar: 1947
-      line: 63
-      lineChar: 90
-      spanCodeSection: "Material material)\r\n    "
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1947
-      endSourceChar: 1958
+    - startInstruction: 868
+      endInstruction: 875
+      startSourceChar: 1894
+      endSourceChar: 1922
       line: 64
       lineChar: 4
+      spanCodeSection: "public void syncData()\r\n    "
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1922
+      endSourceChar: 1933
+      line: 65
+      lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1958
-      endSourceChar: 1958
-      line: 65
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1933
+      endSourceChar: 1933
+      line: 66
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1958
-      endSourceChar: 1958
-      line: 65
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1933
+      endSourceChar: 1933
+      line: 66
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1958
-      endSourceChar: 1958
-      line: 65
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1933
+      endSourceChar: 1956
+      line: 66
+      lineChar: 8
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1956
+      endSourceChar: 1956
+      line: 66
+      lineChar: 31
+      spanCodeSection: 
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1956
+      endSourceChar: 1975
+      line: 66
+      lineChar: 31
+      spanCodeSection: NetworkEventTarget.
+    - startInstruction: 876
+      endInstruction: 875
+      startSourceChar: 1975
+      endSourceChar: 1980
+      line: 66
+      lineChar: 50
+      spanCodeSection: 'All, '
+    - startInstruction: 876
+      endInstruction: 927
+      startSourceChar: 1980
+      endSourceChar: 2008
+      line: 66
+      lineChar: 55
+      spanCodeSection: "\"_syncData\");\r\n    }\r\n\r\n    "
+    - startInstruction: 928
+      endInstruction: 935
+      startSourceChar: 2008
+      endSourceChar: 2037
+      line: 69
+      lineChar: 4
+      spanCodeSection: "public void _syncData()\r\n    "
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2037
+      endSourceChar: 2048
+      line: 70
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2048
+      endSourceChar: 2048
+      line: 71
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1958
-      endSourceChar: 1968
-      line: 65
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2048
+      endSourceChar: 2048
+      line: 71
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2048
+      endSourceChar: 2055
+      line: 71
+      lineChar: 8
+      spanCodeSection: 'Type = '
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2055
+      endSourceChar: 2070
+      line: 71
+      lineChar: 15
+      spanCodeSection: "Type;\r\n        "
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2070
+      endSourceChar: 2070
+      line: 72
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2070
+      endSourceChar: 2070
+      line: 72
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2070
+      endSourceChar: 2083
+      line: 72
+      lineChar: 8
+      spanCodeSection: 'CardNumber = '
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2083
+      endSourceChar: 2104
+      line: 72
+      lineChar: 21
+      spanCodeSection: "CardNumber;\r\n        "
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2104
+      endSourceChar: 2104
+      line: 73
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2104
+      endSourceChar: 2104
+      line: 73
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2104
+      endSourceChar: 2113
+      line: 73
+      lineChar: 8
+      spanCodeSection: 'IsDora = '
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2113
+      endSourceChar: 2130
+      line: 73
+      lineChar: 17
+      spanCodeSection: "IsDora;\r\n        "
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 74
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 74
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 936
+      endInstruction: 935
+      startSourceChar: 2130
+      endSourceChar: 2142
+      line: 74
+      lineChar: 8
+      spanCodeSection: 'IsRinShan = '
+    - startInstruction: 936
+      endInstruction: 955
+      startSourceChar: 2142
+      endSourceChar: 2167
+      line: 74
+      lineChar: 20
+      spanCodeSection: "IsRinShan;\r\n    }\r\n\r\n    "
+    - startInstruction: 956
+      endInstruction: 955
+      startSourceChar: 2167
+      endSourceChar: 2194
+      line: 77
+      lineChar: 4
+      spanCodeSection: public void Initialize_All(
+    - startInstruction: 956
+      endInstruction: 955
+      startSourceChar: 2194
+      endSourceChar: 2217
+      line: 77
+      lineChar: 31
+      spanCodeSection: 'EventQueue eventQueue, '
+    - startInstruction: 956
+      endInstruction: 955
+      startSourceChar: 2217
+      endSourceChar: 2232
+      line: 77
+      lineChar: 54
+      spanCodeSection: 'HandUtil util, '
+    - startInstruction: 956
+      endInstruction: 955
+      startSourceChar: 2232
+      endSourceChar: 2253
+      line: 77
+      lineChar: 69
+      spanCodeSection: 'CardSprites sprites, '
+    - startInstruction: 956
+      endInstruction: 963
+      startSourceChar: 2253
+      endSourceChar: 2277
+      line: 77
+      lineChar: 90
+      spanCodeSection: "Material material)\r\n    "
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2277
+      endSourceChar: 2288
+      line: 78
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2288
+      endSourceChar: 2288
+      line: 79
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2288
+      endSourceChar: 2288
+      line: 79
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2288
+      endSourceChar: 2288
+      line: 79
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2288
+      endSourceChar: 2298
+      line: 79
       lineChar: 8
       spanCodeSection: LogViewer.
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1968
-      endSourceChar: 1972
-      line: 65
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2298
+      endSourceChar: 2302
+      line: 79
       lineChar: 18
       spanCodeSection: Log(
-    - startInstruction: 692
-      endInstruction: 691
-      startSourceChar: 1972
-      endSourceChar: 1974
-      line: 65
+    - startInstruction: 964
+      endInstruction: 963
+      startSourceChar: 2302
+      endSourceChar: 2304
+      line: 79
       lineChar: 22
       spanCodeSection: $"
-    - startInstruction: 692
-      endInstruction: 711
-      startSourceChar: 1974
-      endSourceChar: 2010
-      line: 65
+    - startInstruction: 964
+      endInstruction: 983
+      startSourceChar: 2304
+      endSourceChar: 2340
+      line: 79
       lineChar: 24
       spanCodeSection: 'LocalPlayer Card Initalizing (Name: '
-    - startInstruction: 712
-      endInstruction: 711
-      startSourceChar: 2010
-      endSourceChar: 2011
-      line: 65
+    - startInstruction: 984
+      endInstruction: 983
+      startSourceChar: 2340
+      endSourceChar: 2341
+      line: 79
       lineChar: 60
       spanCodeSection: '{'
-    - startInstruction: 712
-      endInstruction: 763
-      startSourceChar: 2011
-      endSourceChar: 2016
-      line: 65
+    - startInstruction: 984
+      endInstruction: 1035
+      startSourceChar: 2341
+      endSourceChar: 2346
+      line: 79
       lineChar: 61
       spanCodeSection: Type}
-    - startInstruction: 764
-      endInstruction: 763
-      startSourceChar: 2016
-      endSourceChar: 2017
-      line: 65
+    - startInstruction: 1036
+      endInstruction: 1035
+      startSourceChar: 2346
+      endSourceChar: 2347
+      line: 79
       lineChar: 66
       spanCodeSection: '{'
-    - startInstruction: 764
-      endInstruction: 839
-      startSourceChar: 2017
-      endSourceChar: 2028
-      line: 65
+    - startInstruction: 1036
+      endInstruction: 1111
+      startSourceChar: 2347
+      endSourceChar: 2358
+      line: 79
       lineChar: 67
       spanCodeSection: CardNumber}
-    - startInstruction: 840
-      endInstruction: 891
-      startSourceChar: 2028
-      endSourceChar: 2043
-      line: 65
+    - startInstruction: 1112
+      endInstruction: 1163
+      startSourceChar: 2358
+      endSourceChar: 2373
+      line: 79
       lineChar: 78
       spanCodeSection: ', GlobalOrder: '
-    - startInstruction: 892
-      endInstruction: 891
-      startSourceChar: 2043
-      endSourceChar: 2044
-      line: 65
+    - startInstruction: 1164
+      endInstruction: 1163
+      startSourceChar: 2373
+      endSourceChar: 2374
+      line: 79
       lineChar: 93
       spanCodeSection: '{'
-    - startInstruction: 892
-      endInstruction: 967
-      startSourceChar: 2044
-      endSourceChar: 2056
-      line: 65
+    - startInstruction: 1164
+      endInstruction: 1239
+      startSourceChar: 2374
+      endSourceChar: 2386
+      line: 79
       lineChar: 94
       spanCodeSection: GlobalOrder}
-    - startInstruction: 968
-      endInstruction: 1019
-      startSourceChar: 2056
-      endSourceChar: 2060
-      line: 65
+    - startInstruction: 1240
+      endInstruction: 1291
+      startSourceChar: 2386
+      endSourceChar: 2390
+      line: 79
       lineChar: 106
       spanCodeSection: ')", '
-    - startInstruction: 1020
-      endInstruction: 1127
-      startSourceChar: 2060
-      endSourceChar: 2073
-      line: 65
+    - startInstruction: 1292
+      endInstruction: 1399
+      startSourceChar: 2390
+      endSourceChar: 2403
+      line: 79
       lineChar: 110
       spanCodeSection: "1);\r\n        "
-    - startInstruction: 1128
-      endInstruction: 1127
-      startSourceChar: 2073
-      endSourceChar: 2073
-      line: 66
+    - startInstruction: 1400
+      endInstruction: 1399
+      startSourceChar: 2403
+      endSourceChar: 2403
+      line: 80
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1128
-      endInstruction: 1127
-      startSourceChar: 2073
-      endSourceChar: 2073
-      line: 66
+    - startInstruction: 1400
+      endInstruction: 1399
+      startSourceChar: 2403
+      endSourceChar: 2403
+      line: 80
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1128
-      endInstruction: 1127
-      startSourceChar: 2073
-      endSourceChar: 2073
-      line: 66
+    - startInstruction: 1400
+      endInstruction: 1399
+      startSourceChar: 2403
+      endSourceChar: 2403
+      line: 80
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1128
-      endInstruction: 1127
-      startSourceChar: 2073
-      endSourceChar: 2078
-      line: 66
+    - startInstruction: 1400
+      endInstruction: 1399
+      startSourceChar: 2403
+      endSourceChar: 2408
+      line: 80
       lineChar: 8
       spanCodeSection: this.
-    - startInstruction: 1128
-      endInstruction: 1127
-      startSourceChar: 2078
-      endSourceChar: 2091
-      line: 66
+    - startInstruction: 1400
+      endInstruction: 1399
+      startSourceChar: 2408
+      endSourceChar: 2421
+      line: 80
       lineChar: 13
       spanCodeSection: 'eventQueue = '
-    - startInstruction: 1128
-      endInstruction: 1147
-      startSourceChar: 2091
-      endSourceChar: 2112
-      line: 66
+    - startInstruction: 1400
+      endInstruction: 1419
+      startSourceChar: 2421
+      endSourceChar: 2442
+      line: 80
       lineChar: 26
       spanCodeSection: "eventQueue;\r\n        "
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2112
-      endSourceChar: 2112
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2442
+      endSourceChar: 2442
+      line: 81
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2112
-      endSourceChar: 2112
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2442
+      endSourceChar: 2442
+      line: 81
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2112
-      endSourceChar: 2126
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2442
+      endSourceChar: 2456
+      line: 81
       lineChar: 8
       spanCodeSection: 'GlobalOrder = '
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2126
-      endSourceChar: 2126
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2456
+      endSourceChar: 2456
+      line: 81
       lineChar: 22
       spanCodeSection: 
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2126
-      endSourceChar: 2126
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2456
+      endSourceChar: 2456
+      line: 81
       lineChar: 22
       spanCodeSection: 
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2126
-      endSourceChar: 2131
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2456
+      endSourceChar: 2461
+      line: 81
       lineChar: 22
       spanCodeSection: util.
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2131
-      endSourceChar: 2146
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2461
+      endSourceChar: 2476
+      line: 81
       lineChar: 27
       spanCodeSection: GetGlobalOrder(
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 2146
-      endSourceChar: 2152
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1419
+      startSourceChar: 2476
+      endSourceChar: 2482
+      line: 81
       lineChar: 42
       spanCodeSection: 'Type, '
-    - startInstruction: 1148
-      endInstruction: 1351
-      startSourceChar: 2152
-      endSourceChar: 2174
-      line: 67
+    - startInstruction: 1420
+      endInstruction: 1623
+      startSourceChar: 2482
+      endSourceChar: 2504
+      line: 81
       lineChar: 48
       spanCodeSection: "CardNumber);\r\n        "
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2174
-      endSourceChar: 2174
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2504
+      endSourceChar: 2504
+      line: 82
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2174
-      endSourceChar: 2174
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2504
+      endSourceChar: 2504
+      line: 82
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2174
-      endSourceChar: 2188
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2504
+      endSourceChar: 2518
+      line: 82
       lineChar: 8
       spanCodeSection: 'boxCollider = '
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2188
-      endSourceChar: 2188
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2518
+      endSourceChar: 2518
+      line: 82
       lineChar: 22
       spanCodeSection: 
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2188
-      endSourceChar: 2188
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2518
+      endSourceChar: 2518
+      line: 82
       lineChar: 22
       spanCodeSection: 
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2188
-      endSourceChar: 2193
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2518
+      endSourceChar: 2523
+      line: 82
       lineChar: 22
       spanCodeSection: this.
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2193
-      endSourceChar: 2205
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2523
+      endSourceChar: 2535
+      line: 82
       lineChar: 27
       spanCodeSection: GetComponent
-    - startInstruction: 1352
-      endInstruction: 1351
-      startSourceChar: 2205
-      endSourceChar: 2206
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1623
+      startSourceChar: 2535
+      endSourceChar: 2536
+      line: 82
       lineChar: 39
       spanCodeSection: <
-    - startInstruction: 1352
-      endInstruction: 1383
-      startSourceChar: 2206
-      endSourceChar: 2233
-      line: 68
+    - startInstruction: 1624
+      endInstruction: 1655
+      startSourceChar: 2536
+      endSourceChar: 2563
+      line: 82
       lineChar: 40
       spanCodeSection: "BoxCollider>();\r\n\r\n        "
-    - startInstruction: 1384
-      endInstruction: 1383
-      startSourceChar: 2233
-      endSourceChar: 2233
-      line: 70
+    - startInstruction: 1656
+      endInstruction: 1655
+      startSourceChar: 2563
+      endSourceChar: 2563
+      line: 84
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1384
-      endInstruction: 1383
-      startSourceChar: 2233
-      endSourceChar: 2233
-      line: 70
+    - startInstruction: 1656
+      endInstruction: 1655
+      startSourceChar: 2563
+      endSourceChar: 2563
+      line: 84
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1384
-      endInstruction: 1383
-      startSourceChar: 2233
-      endSourceChar: 2248
-      line: 70
+    - startInstruction: 1656
+      endInstruction: 1655
+      startSourceChar: 2563
+      endSourceChar: 2578
+      line: 84
       lineChar: 8
       spanCodeSection: 'var spriteName '
-    - startInstruction: 1384
-      endInstruction: 1383
-      startSourceChar: 2248
-      endSourceChar: 2250
-      line: 70
+    - startInstruction: 1656
+      endInstruction: 1655
+      startSourceChar: 2578
+      endSourceChar: 2580
+      line: 84
       lineChar: 23
       spanCodeSection: '= '
-    - startInstruction: 1384
-      endInstruction: 1383
-      startSourceChar: 2250
-      endSourceChar: 2250
-      line: 70
+    - startInstruction: 1656
+      endInstruction: 1655
+      startSourceChar: 2580
+      endSourceChar: 2580
+      line: 84
       lineChar: 25
       spanCodeSection: 
-    - startInstruction: 1384
-      endInstruction: 1419
-      startSourceChar: 2250
-      endSourceChar: 2280
-      line: 70
+    - startInstruction: 1656
+      endInstruction: 1691
+      startSourceChar: 2580
+      endSourceChar: 2610
+      line: 84
       lineChar: 25
       spanCodeSection: "GetCardSpriteName();\r\n        "
-    - startInstruction: 1420
-      endInstruction: 1419
-      startSourceChar: 2280
-      endSourceChar: 2280
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1691
+      startSourceChar: 2610
+      endSourceChar: 2610
+      line: 85
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1420
-      endInstruction: 1419
-      startSourceChar: 2280
-      endSourceChar: 2280
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1691
+      startSourceChar: 2610
+      endSourceChar: 2610
+      line: 85
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1420
-      endInstruction: 1419
-      startSourceChar: 2280
-      endSourceChar: 2280
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1691
+      startSourceChar: 2610
+      endSourceChar: 2610
+      line: 85
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1420
-      endInstruction: 1419
-      startSourceChar: 2280
-      endSourceChar: 2290
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1691
+      startSourceChar: 2610
+      endSourceChar: 2620
+      line: 85
       lineChar: 8
       spanCodeSection: LogViewer.
-    - startInstruction: 1420
-      endInstruction: 1419
-      startSourceChar: 2290
-      endSourceChar: 2294
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1691
+      startSourceChar: 2620
+      endSourceChar: 2624
+      line: 85
       lineChar: 18
       spanCodeSection: Log(
-    - startInstruction: 1420
-      endInstruction: 1419
-      startSourceChar: 2294
-      endSourceChar: 2296
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1691
+      startSourceChar: 2624
+      endSourceChar: 2626
+      line: 85
       lineChar: 22
       spanCodeSection: $"
-    - startInstruction: 1420
-      endInstruction: 1439
-      startSourceChar: 2296
-      endSourceChar: 2315
-      line: 71
+    - startInstruction: 1692
+      endInstruction: 1711
+      startSourceChar: 2626
+      endSourceChar: 2645
+      line: 85
       lineChar: 24
       spanCodeSection: 'Card Sprite Name : '
-    - startInstruction: 1440
-      endInstruction: 1439
-      startSourceChar: 2315
-      endSourceChar: 2316
-      line: 71
+    - startInstruction: 1712
+      endInstruction: 1711
+      startSourceChar: 2645
+      endSourceChar: 2646
+      line: 85
       lineChar: 43
       spanCodeSection: '{'
-    - startInstruction: 1440
-      endInstruction: 1491
-      startSourceChar: 2316
-      endSourceChar: 2330
-      line: 71
+    - startInstruction: 1712
+      endInstruction: 1763
+      startSourceChar: 2646
+      endSourceChar: 2660
+      line: 85
       lineChar: 44
       spanCodeSection: 'spriteName}", '
-    - startInstruction: 1492
-      endInstruction: 1599
-      startSourceChar: 2330
-      endSourceChar: 2343
-      line: 71
+    - startInstruction: 1764
+      endInstruction: 1871
+      startSourceChar: 2660
+      endSourceChar: 2673
+      line: 85
       lineChar: 58
       spanCodeSection: "1);\r\n        "
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2343
-      endSourceChar: 2343
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2673
+      endSourceChar: 2673
+      line: 86
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2343
-      endSourceChar: 2343
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2673
+      endSourceChar: 2673
+      line: 86
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2343
-      endSourceChar: 2354
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2673
+      endSourceChar: 2684
+      line: 86
       lineChar: 8
       spanCodeSection: 'var sprite '
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2354
-      endSourceChar: 2356
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2684
+      endSourceChar: 2686
+      line: 86
       lineChar: 19
       spanCodeSection: '= '
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2356
-      endSourceChar: 2356
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2686
+      endSourceChar: 2686
+      line: 86
       lineChar: 21
       spanCodeSection: 
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2356
-      endSourceChar: 2356
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2686
+      endSourceChar: 2686
+      line: 86
       lineChar: 21
       spanCodeSection: 
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2356
-      endSourceChar: 2364
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2686
+      endSourceChar: 2694
+      line: 86
       lineChar: 21
       spanCodeSection: sprites.
-    - startInstruction: 1600
-      endInstruction: 1599
-      startSourceChar: 2364
-      endSourceChar: 2375
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2694
+      endSourceChar: 2705
+      line: 86
       lineChar: 29
       spanCodeSection: FindSprite(
-    - startInstruction: 1600
-      endInstruction: 1727
-      startSourceChar: 2375
-      endSourceChar: 2397
-      line: 72
+    - startInstruction: 1872
+      endInstruction: 1999
+      startSourceChar: 2705
+      endSourceChar: 2727
+      line: 86
       lineChar: 40
       spanCodeSection: "spriteName);\r\n        "
-    - startInstruction: 1728
-      endInstruction: 1727
-      startSourceChar: 2397
-      endSourceChar: 2397
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 1999
+      startSourceChar: 2727
+      endSourceChar: 2727
+      line: 87
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1728
-      endInstruction: 1727
-      startSourceChar: 2397
-      endSourceChar: 2397
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 1999
+      startSourceChar: 2727
+      endSourceChar: 2727
+      line: 87
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1728
-      endInstruction: 1727
-      startSourceChar: 2397
-      endSourceChar: 2397
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 1999
+      startSourceChar: 2727
+      endSourceChar: 2727
+      line: 87
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1728
-      endInstruction: 1727
-      startSourceChar: 2397
-      endSourceChar: 2407
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 1999
+      startSourceChar: 2727
+      endSourceChar: 2737
+      line: 87
       lineChar: 8
       spanCodeSection: LogViewer.
-    - startInstruction: 1728
-      endInstruction: 1727
-      startSourceChar: 2407
-      endSourceChar: 2411
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 1999
+      startSourceChar: 2737
+      endSourceChar: 2741
+      line: 87
       lineChar: 18
       spanCodeSection: Log(
-    - startInstruction: 1728
-      endInstruction: 1727
-      startSourceChar: 2411
-      endSourceChar: 2413
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 1999
+      startSourceChar: 2741
+      endSourceChar: 2743
+      line: 87
       lineChar: 22
       spanCodeSection: $"
-    - startInstruction: 1728
-      endInstruction: 1747
-      startSourceChar: 2413
-      endSourceChar: 2431
-      line: 73
+    - startInstruction: 2000
+      endInstruction: 2019
+      startSourceChar: 2743
+      endSourceChar: 2761
+      line: 87
       lineChar: 24
       spanCodeSection: 'Get Card Sprite", '
-    - startInstruction: 1748
-      endInstruction: 1855
-      startSourceChar: 2431
-      endSourceChar: 2446
-      line: 73
+    - startInstruction: 2020
+      endInstruction: 2127
+      startSourceChar: 2761
+      endSourceChar: 2776
+      line: 87
       lineChar: 42
       spanCodeSection: "1);\r\n\r\n        "
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 2446
-      endSourceChar: 2446
-      line: 75
+    - startInstruction: 2128
+      endInstruction: 2127
+      startSourceChar: 2776
+      endSourceChar: 2776
+      line: 89
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 2446
-      endSourceChar: 2446
-      line: 75
+    - startInstruction: 2128
+      endInstruction: 2127
+      startSourceChar: 2776
+      endSourceChar: 2776
+      line: 89
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 2446
-      endSourceChar: 2456
-      line: 75
+    - startInstruction: 2128
+      endInstruction: 2127
+      startSourceChar: 2776
+      endSourceChar: 2786
+      line: 89
       lineChar: 8
       spanCodeSection: SetSprite(
-    - startInstruction: 1856
-      endInstruction: 1891
-      startSourceChar: 2456
-      endSourceChar: 2474
-      line: 75
+    - startInstruction: 2128
+      endInstruction: 2163
+      startSourceChar: 2786
+      endSourceChar: 2804
+      line: 89
       lineChar: 18
       spanCodeSection: "sprite);\r\n        "
-    - startInstruction: 1892
-      endInstruction: 1891
-      startSourceChar: 2474
-      endSourceChar: 2474
-      line: 76
+    - startInstruction: 2164
+      endInstruction: 2163
+      startSourceChar: 2804
+      endSourceChar: 2804
+      line: 90
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1892
-      endInstruction: 1891
-      startSourceChar: 2474
-      endSourceChar: 2474
-      line: 76
+    - startInstruction: 2164
+      endInstruction: 2163
+      startSourceChar: 2804
+      endSourceChar: 2804
+      line: 90
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1892
-      endInstruction: 1891
-      startSourceChar: 2474
-      endSourceChar: 2486
-      line: 76
+    - startInstruction: 2164
+      endInstruction: 2163
+      startSourceChar: 2804
+      endSourceChar: 2816
+      line: 90
       lineChar: 8
       spanCodeSection: setMaterial(
-    - startInstruction: 1892
-      endInstruction: 1947
-      startSourceChar: 2486
-      endSourceChar: 2511
-      line: 76
+    - startInstruction: 2164
+      endInstruction: 2219
+      startSourceChar: 2816
+      endSourceChar: 2841
+      line: 90
       lineChar: 20
       spanCodeSection: "material);\r\n    }\r\n\r\n    "
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 2511
-      endSourceChar: 2536
-      line: 79
+    - startInstruction: 2220
+      endInstruction: 2219
+      startSourceChar: 2841
+      endSourceChar: 2866
+      line: 93
       lineChar: 4
       spanCodeSection: public void SetOwnership(
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 2536
-      endSourceChar: 2553
-      line: 79
+    - startInstruction: 2220
+      endInstruction: 2219
+      startSourceChar: 2866
+      endSourceChar: 2883
+      line: 93
       lineChar: 29
       spanCodeSection: 'int playerIndex, '
-    - startInstruction: 1948
-      endInstruction: 1955
-      startSourceChar: 2553
-      endSourceChar: 2581
-      line: 79
+    - startInstruction: 2220
+      endInstruction: 2227
+      startSourceChar: 2883
+      endSourceChar: 2911
+      line: 93
       lineChar: 46
       spanCodeSection: "InputEvent inputEvent)\r\n    "
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 2581
-      endSourceChar: 2592
-      line: 80
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 2592
-      endSourceChar: 2592
-      line: 81
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 2592
-      endSourceChar: 2592
-      line: 81
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 2592
-      endSourceChar: 2592
-      line: 81
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 2592
-      endSourceChar: 2597
-      line: 81
-      lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 1956
-      endInstruction: 1955
-      startSourceChar: 2597
-      endSourceChar: 2610
-      line: 81
-      lineChar: 13
-      spanCodeSection: 'inputEvent = '
-    - startInstruction: 1956
-      endInstruction: 1975
-      startSourceChar: 2610
-      endSourceChar: 2631
-      line: 81
-      lineChar: 26
-      spanCodeSection: "inputEvent;\r\n        "
-    - startInstruction: 1976
-      endInstruction: 1975
-      startSourceChar: 2631
-      endSourceChar: 2631
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1976
-      endInstruction: 1975
-      startSourceChar: 2631
-      endSourceChar: 2631
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1976
-      endInstruction: 1975
-      startSourceChar: 2631
-      endSourceChar: 2631
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1976
-      endInstruction: 1975
-      startSourceChar: 2631
-      endSourceChar: 2636
-      line: 82
-      lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 1976
-      endInstruction: 1975
-      startSourceChar: 2636
-      endSourceChar: 2650
-      line: 82
-      lineChar: 13
-      spanCodeSection: 'PlayerIndex = '
-    - startInstruction: 1976
-      endInstruction: 2015
-      startSourceChar: 2650
-      endSourceChar: 2677
-      line: 82
-      lineChar: 27
-      spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
-    - startInstruction: 2016
-      endInstruction: 2015
-      startSourceChar: 2677
-      endSourceChar: 2699
-      line: 85
-      lineChar: 4
-      spanCodeSection: public void SetSprite(
-    - startInstruction: 2016
-      endInstruction: 2023
-      startSourceChar: 2699
-      endSourceChar: 2719
-      line: 85
-      lineChar: 26
-      spanCodeSection: "Sprite sprite)\r\n    "
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2719
-      endSourceChar: 2730
-      line: 86
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2730
-      endSourceChar: 2730
-      line: 87
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2730
-      endSourceChar: 2730
-      line: 87
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2730
-      endSourceChar: 2742
-      line: 87
-      lineChar: 8
-      spanCodeSection: 'var display '
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2742
-      endSourceChar: 2744
-      line: 87
-      lineChar: 20
-      spanCodeSection: '= '
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2744
-      endSourceChar: 2744
-      line: 87
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2744
-      endSourceChar: 2744
-      line: 87
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2744
-      endSourceChar: 2754
-      line: 87
-      lineChar: 22
-      spanCodeSection: transform.
-    - startInstruction: 2024
-      endInstruction: 2023
-      startSourceChar: 2754
-      endSourceChar: 2759
-      line: 87
-      lineChar: 32
-      spanCodeSection: Find(
-    - startInstruction: 2024
-      endInstruction: 2075
-      startSourceChar: 2759
-      endSourceChar: 2780
-      line: 87
-      lineChar: 37
-      spanCodeSection: "\"Display\");\r\n        "
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2780
-      endSourceChar: 2780
-      line: 88
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2780
-      endSourceChar: 2780
-      line: 88
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2780
-      endSourceChar: 2793
-      line: 88
-      lineChar: 8
-      spanCodeSection: 'var renderer '
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2793
-      endSourceChar: 2795
-      line: 88
-      lineChar: 21
-      spanCodeSection: '= '
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2795
-      endSourceChar: 2795
-      line: 88
-      lineChar: 23
-      spanCodeSection: 
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2795
-      endSourceChar: 2795
-      line: 88
-      lineChar: 23
-      spanCodeSection: 
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2795
-      endSourceChar: 2803
-      line: 88
-      lineChar: 23
-      spanCodeSection: display.
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2803
-      endSourceChar: 2815
-      line: 88
-      lineChar: 31
-      spanCodeSection: GetComponent
-    - startInstruction: 2076
-      endInstruction: 2075
-      startSourceChar: 2815
-      endSourceChar: 2816
-      line: 88
-      lineChar: 43
-      spanCodeSection: <
-    - startInstruction: 2076
-      endInstruction: 2127
-      startSourceChar: 2816
-      endSourceChar: 2846
-      line: 88
-      lineChar: 44
-      spanCodeSection: "SpriteRenderer>();\r\n\r\n        "
-    - startInstruction: 2128
-      endInstruction: 2127
-      startSourceChar: 2846
-      endSourceChar: 2846
-      line: 90
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2128
-      endInstruction: 2127
-      startSourceChar: 2846
-      endSourceChar: 2846
-      line: 90
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2128
-      endInstruction: 2127
-      startSourceChar: 2846
-      endSourceChar: 2846
-      line: 90
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2128
-      endInstruction: 2127
-      startSourceChar: 2846
-      endSourceChar: 2855
-      line: 90
-      lineChar: 8
-      spanCodeSection: renderer.
-    - startInstruction: 2128
-      endInstruction: 2127
-      startSourceChar: 2855
-      endSourceChar: 2864
-      line: 90
-      lineChar: 17
-      spanCodeSection: 'sprite = '
-    - startInstruction: 2128
-      endInstruction: 2171
-      startSourceChar: 2864
-      endSourceChar: 2886
-      line: 90
-      lineChar: 26
-      spanCodeSection: "sprite;\r\n    }\r\n\r\n    "
-    - startInstruction: 2172
-      endInstruction: 2171
-      startSourceChar: 2886
-      endSourceChar: 2910
-      line: 93
-      lineChar: 4
-      spanCodeSection: public void setMaterial(
-    - startInstruction: 2172
-      endInstruction: 2179
-      startSourceChar: 2910
-      endSourceChar: 2934
-      line: 93
-      lineChar: 28
-      spanCodeSection: "Material material)\r\n    "
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2934
-      endSourceChar: 2945
+    - startInstruction: 2228
+      endInstruction: 2227
+      startSourceChar: 2911
+      endSourceChar: 2922
       line: 94
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2945
-      endSourceChar: 2945
+    - startInstruction: 2228
+      endInstruction: 2227
+      startSourceChar: 2922
+      endSourceChar: 2922
       line: 95
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2945
-      endSourceChar: 2945
+    - startInstruction: 2228
+      endInstruction: 2227
+      startSourceChar: 2922
+      endSourceChar: 2922
       line: 95
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2945
-      endSourceChar: 2957
+    - startInstruction: 2228
+      endInstruction: 2227
+      startSourceChar: 2922
+      endSourceChar: 2922
       line: 95
       lineChar: 8
-      spanCodeSection: 'var display '
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2957
-      endSourceChar: 2959
-      line: 95
-      lineChar: 20
-      spanCodeSection: '= '
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2959
-      endSourceChar: 2959
-      line: 95
-      lineChar: 22
       spanCodeSection: 
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2959
-      endSourceChar: 2959
+    - startInstruction: 2228
+      endInstruction: 2227
+      startSourceChar: 2922
+      endSourceChar: 2927
       line: 95
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2959
-      endSourceChar: 2969
+      lineChar: 8
+      spanCodeSection: this.
+    - startInstruction: 2228
+      endInstruction: 2227
+      startSourceChar: 2927
+      endSourceChar: 2940
       line: 95
-      lineChar: 22
-      spanCodeSection: transform.
-    - startInstruction: 2180
-      endInstruction: 2179
-      startSourceChar: 2969
-      endSourceChar: 2974
+      lineChar: 13
+      spanCodeSection: 'inputEvent = '
+    - startInstruction: 2228
+      endInstruction: 2247
+      startSourceChar: 2940
+      endSourceChar: 2961
       line: 95
-      lineChar: 32
-      spanCodeSection: Find(
-    - startInstruction: 2180
-      endInstruction: 2231
-      startSourceChar: 2974
-      endSourceChar: 2995
-      line: 95
-      lineChar: 37
-      spanCodeSection: "\"Display\");\r\n        "
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 2995
-      endSourceChar: 2995
+      lineChar: 26
+      spanCodeSection: "inputEvent;\r\n        "
+    - startInstruction: 2248
+      endInstruction: 2247
+      startSourceChar: 2961
+      endSourceChar: 2961
       line: 96
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 2995
-      endSourceChar: 2995
+    - startInstruction: 2248
+      endInstruction: 2247
+      startSourceChar: 2961
+      endSourceChar: 2961
       line: 96
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 2995
-      endSourceChar: 3008
+    - startInstruction: 2248
+      endInstruction: 2247
+      startSourceChar: 2961
+      endSourceChar: 2961
       line: 96
       lineChar: 8
-      spanCodeSection: 'var renderer '
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 3008
-      endSourceChar: 3010
-      line: 96
-      lineChar: 21
-      spanCodeSection: '= '
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 3010
-      endSourceChar: 3010
-      line: 96
-      lineChar: 23
       spanCodeSection: 
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 3010
-      endSourceChar: 3010
+    - startInstruction: 2248
+      endInstruction: 2247
+      startSourceChar: 2961
+      endSourceChar: 2966
       line: 96
-      lineChar: 23
-      spanCodeSection: 
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 3010
-      endSourceChar: 3018
-      line: 96
-      lineChar: 23
-      spanCodeSection: display.
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 3018
-      endSourceChar: 3030
-      line: 96
-      lineChar: 31
-      spanCodeSection: GetComponent
-    - startInstruction: 2232
-      endInstruction: 2231
-      startSourceChar: 3030
-      endSourceChar: 3031
-      line: 96
-      lineChar: 43
-      spanCodeSection: <
-    - startInstruction: 2232
-      endInstruction: 2283
-      startSourceChar: 3031
-      endSourceChar: 3059
-      line: 96
-      lineChar: 44
-      spanCodeSection: "SpriteRenderer>();\r\n        "
-    - startInstruction: 2284
-      endInstruction: 2283
-      startSourceChar: 3059
-      endSourceChar: 3063
-      line: 97
       lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 2284
-      endInstruction: 2299
-      startSourceChar: 3063
-      endSourceChar: 3080
-      line: 97
-      lineChar: 12
-      spanCodeSection: "IsDora)\r\n        "
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 3080
-      endSourceChar: 3095
-      line: 98
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 3095
-      endSourceChar: 3095
+      spanCodeSection: this.
+    - startInstruction: 2248
+      endInstruction: 2247
+      startSourceChar: 2966
+      endSourceChar: 2980
+      line: 96
+      lineChar: 13
+      spanCodeSection: 'PlayerIndex = '
+    - startInstruction: 2248
+      endInstruction: 2287
+      startSourceChar: 2980
+      endSourceChar: 3007
+      line: 96
+      lineChar: 27
+      spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
+    - startInstruction: 2288
+      endInstruction: 2287
+      startSourceChar: 3007
+      endSourceChar: 3029
       line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 3095
-      endSourceChar: 3095
+      lineChar: 4
+      spanCodeSection: public void SetSprite(
+    - startInstruction: 2288
+      endInstruction: 2295
+      startSourceChar: 3029
+      endSourceChar: 3049
       line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 3095
-      endSourceChar: 3095
-      line: 99
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 3095
-      endSourceChar: 3104
-      line: 99
-      lineChar: 12
-      spanCodeSection: renderer.
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 3104
-      endSourceChar: 3115
-      line: 99
-      lineChar: 21
-      spanCodeSection: 'material = '
-    - startInstruction: 2300
-      endInstruction: 2331
-      startSourceChar: 3115
-      endSourceChar: 3145
-      line: 99
-      lineChar: 32
-      spanCodeSection: "material;\r\n        }\r\n        "
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3145
-      endSourceChar: 3159
+      lineChar: 26
+      spanCodeSection: "Sprite sprite)\r\n    "
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3049
+      endSourceChar: 3060
+      line: 100
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3060
+      endSourceChar: 3060
       line: 101
       lineChar: 8
-      spanCodeSection: "else\r\n        "
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3159
-      endSourceChar: 3174
+      spanCodeSection: 
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3060
+      endSourceChar: 3060
+      line: 101
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3060
+      endSourceChar: 3072
+      line: 101
+      lineChar: 8
+      spanCodeSection: 'var display '
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3072
+      endSourceChar: 3074
+      line: 101
+      lineChar: 20
+      spanCodeSection: '= '
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3074
+      endSourceChar: 3074
+      line: 101
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3074
+      endSourceChar: 3074
+      line: 101
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3074
+      endSourceChar: 3084
+      line: 101
+      lineChar: 22
+      spanCodeSection: transform.
+    - startInstruction: 2296
+      endInstruction: 2295
+      startSourceChar: 3084
+      endSourceChar: 3089
+      line: 101
+      lineChar: 32
+      spanCodeSection: Find(
+    - startInstruction: 2296
+      endInstruction: 2347
+      startSourceChar: 3089
+      endSourceChar: 3110
+      line: 101
+      lineChar: 37
+      spanCodeSection: "\"Display\");\r\n        "
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3110
+      endSourceChar: 3110
       line: 102
       lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3174
-      endSourceChar: 3174
-      line: 103
-      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3174
-      endSourceChar: 3174
-      line: 103
-      lineChar: 12
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3110
+      endSourceChar: 3110
+      line: 102
+      lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3174
-      endSourceChar: 3174
-      line: 103
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3174
-      endSourceChar: 3183
-      line: 103
-      lineChar: 12
-      spanCodeSection: renderer.
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 3183
-      endSourceChar: 3194
-      line: 103
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3110
+      endSourceChar: 3123
+      line: 102
+      lineChar: 8
+      spanCodeSection: 'var renderer '
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3123
+      endSourceChar: 3125
+      line: 102
       lineChar: 21
-      spanCodeSection: 'material = '
-    - startInstruction: 2332
-      endInstruction: 2375
+      spanCodeSection: '= '
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3125
+      endSourceChar: 3125
+      line: 102
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3125
+      endSourceChar: 3125
+      line: 102
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3125
+      endSourceChar: 3133
+      line: 102
+      lineChar: 23
+      spanCodeSection: display.
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3133
+      endSourceChar: 3145
+      line: 102
+      lineChar: 31
+      spanCodeSection: GetComponent
+    - startInstruction: 2348
+      endInstruction: 2347
+      startSourceChar: 3145
+      endSourceChar: 3146
+      line: 102
+      lineChar: 43
+      spanCodeSection: <
+    - startInstruction: 2348
+      endInstruction: 2399
+      startSourceChar: 3146
+      endSourceChar: 3176
+      line: 102
+      lineChar: 44
+      spanCodeSection: "SpriteRenderer>();\r\n\r\n        "
+    - startInstruction: 2400
+      endInstruction: 2399
+      startSourceChar: 3176
+      endSourceChar: 3176
+      line: 104
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2400
+      endInstruction: 2399
+      startSourceChar: 3176
+      endSourceChar: 3176
+      line: 104
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2400
+      endInstruction: 2399
+      startSourceChar: 3176
+      endSourceChar: 3176
+      line: 104
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2400
+      endInstruction: 2399
+      startSourceChar: 3176
+      endSourceChar: 3185
+      line: 104
+      lineChar: 8
+      spanCodeSection: renderer.
+    - startInstruction: 2400
+      endInstruction: 2399
+      startSourceChar: 3185
+      endSourceChar: 3194
+      line: 104
+      lineChar: 17
+      spanCodeSection: 'sprite = '
+    - startInstruction: 2400
+      endInstruction: 2443
       startSourceChar: 3194
-      endSourceChar: 3229
-      line: 103
-      lineChar: 32
-      spanCodeSection: "material;\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 2376
-      endInstruction: 2375
-      startSourceChar: 3229
-      endSourceChar: 3268
+      endSourceChar: 3216
+      line: 104
+      lineChar: 26
+      spanCodeSection: "sprite;\r\n    }\r\n\r\n    "
+    - startInstruction: 2444
+      endInstruction: 2443
+      startSourceChar: 3216
+      endSourceChar: 3240
       line: 107
       lineChar: 4
-      spanCodeSection: public BoxCollider SetColliderActivate(
-    - startInstruction: 2376
-      endInstruction: 2383
-      startSourceChar: 3268
-      endSourceChar: 3281
+      spanCodeSection: public void setMaterial(
+    - startInstruction: 2444
+      endInstruction: 2451
+      startSourceChar: 3240
+      endSourceChar: 3264
       line: 107
-      lineChar: 43
-      spanCodeSection: "bool t)\r\n    "
-    - startInstruction: 2384
-      endInstruction: 2383
-      startSourceChar: 3281
-      endSourceChar: 3292
+      lineChar: 28
+      spanCodeSection: "Material material)\r\n    "
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3264
+      endSourceChar: 3275
       line: 108
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2384
-      endInstruction: 2383
-      startSourceChar: 3292
-      endSourceChar: 3292
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3275
+      endSourceChar: 3275
       line: 109
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2384
-      endInstruction: 2383
-      startSourceChar: 3292
-      endSourceChar: 3292
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3275
+      endSourceChar: 3275
       line: 109
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2384
-      endInstruction: 2383
-      startSourceChar: 3292
-      endSourceChar: 3292
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3275
+      endSourceChar: 3287
       line: 109
       lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2384
-      endInstruction: 2383
-      startSourceChar: 3292
-      endSourceChar: 3304
-      line: 109
-      lineChar: 8
-      spanCodeSection: boxCollider.
-    - startInstruction: 2384
-      endInstruction: 2383
-      startSourceChar: 3304
-      endSourceChar: 3314
+      spanCodeSection: 'var display '
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3287
+      endSourceChar: 3289
       line: 109
       lineChar: 20
-      spanCodeSection: 'enabled = '
-    - startInstruction: 2384
-      endInstruction: 2407
-      startSourceChar: 3314
-      endSourceChar: 3326
+      spanCodeSection: '= '
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3289
+      endSourceChar: 3289
       line: 109
-      lineChar: 30
-      spanCodeSection: "t;\r\n        "
-    - startInstruction: 2408
-      endInstruction: 2407
-      startSourceChar: 3326
-      endSourceChar: 3333
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3289
+      endSourceChar: 3289
+      line: 109
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3289
+      endSourceChar: 3299
+      line: 109
+      lineChar: 22
+      spanCodeSection: transform.
+    - startInstruction: 2452
+      endInstruction: 2451
+      startSourceChar: 3299
+      endSourceChar: 3304
+      line: 109
+      lineChar: 32
+      spanCodeSection: Find(
+    - startInstruction: 2452
+      endInstruction: 2503
+      startSourceChar: 3304
+      endSourceChar: 3325
+      line: 109
+      lineChar: 37
+      spanCodeSection: "\"Display\");\r\n        "
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3325
+      endSourceChar: 3325
       line: 110
       lineChar: 8
-      spanCodeSection: 'return '
-    - startInstruction: 2408
-      endInstruction: 2467
-      startSourceChar: 3333
+      spanCodeSection: 
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3325
+      endSourceChar: 3325
+      line: 110
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3325
+      endSourceChar: 3338
+      line: 110
+      lineChar: 8
+      spanCodeSection: 'var renderer '
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3338
+      endSourceChar: 3340
+      line: 110
+      lineChar: 21
+      spanCodeSection: '= '
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3340
+      endSourceChar: 3340
+      line: 110
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3340
+      endSourceChar: 3340
+      line: 110
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3340
+      endSourceChar: 3348
+      line: 110
+      lineChar: 23
+      spanCodeSection: display.
+    - startInstruction: 2504
+      endInstruction: 2503
+      startSourceChar: 3348
       endSourceChar: 3360
       line: 110
-      lineChar: 15
-      spanCodeSection: "boxCollider;\r\n    }\r\n\r\n    "
-    - startInstruction: 2468
-      endInstruction: 2467
+      lineChar: 31
+      spanCodeSection: GetComponent
+    - startInstruction: 2504
+      endInstruction: 2503
       startSourceChar: 3360
-      endSourceChar: 3384
-      line: 113
-      lineChar: 4
-      spanCodeSection: public void SetPosition(
-    - startInstruction: 2468
-      endInstruction: 2467
-      startSourceChar: 3384
-      endSourceChar: 3395
-      line: 113
-      lineChar: 28
-      spanCodeSection: 'Vector3 p, '
-    - startInstruction: 2468
-      endInstruction: 2475
-      startSourceChar: 3395
-      endSourceChar: 3414
-      line: 113
-      lineChar: 39
-      spanCodeSection: "Quaternion r)\r\n    "
-    - startInstruction: 2476
-      endInstruction: 2475
-      startSourceChar: 3414
-      endSourceChar: 3425
-      line: 114
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 2476
-      endInstruction: 2475
-      startSourceChar: 3425
-      endSourceChar: 3425
-      line: 115
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2476
-      endInstruction: 2475
-      startSourceChar: 3425
-      endSourceChar: 3425
-      line: 115
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2476
-      endInstruction: 2475
-      startSourceChar: 3425
-      endSourceChar: 3436
-      line: 115
-      lineChar: 8
-      spanCodeSection: 'position = '
-    - startInstruction: 2476
-      endInstruction: 2495
-      startSourceChar: 3436
-      endSourceChar: 3448
-      line: 115
-      lineChar: 19
-      spanCodeSection: "p;\r\n        "
-    - startInstruction: 2496
-      endInstruction: 2495
-      startSourceChar: 3448
-      endSourceChar: 3448
-      line: 116
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2496
-      endInstruction: 2495
-      startSourceChar: 3448
-      endSourceChar: 3448
-      line: 116
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2496
-      endInstruction: 2495
-      startSourceChar: 3448
-      endSourceChar: 3459
-      line: 116
-      lineChar: 8
-      spanCodeSection: 'rotation = '
-    - startInstruction: 2496
-      endInstruction: 2515
-      startSourceChar: 3459
-      endSourceChar: 3473
-      line: 116
-      lineChar: 19
-      spanCodeSection: "r;\r\n\r\n        "
-    - startInstruction: 2516
-      endInstruction: 2515
-      startSourceChar: 3473
-      endSourceChar: 3477
-      line: 118
+      endSourceChar: 3361
+      line: 110
+      lineChar: 43
+      spanCodeSection: <
+    - startInstruction: 2504
+      endInstruction: 2555
+      startSourceChar: 3361
+      endSourceChar: 3389
+      line: 110
+      lineChar: 44
+      spanCodeSection: "SpriteRenderer>();\r\n        "
+    - startInstruction: 2556
+      endInstruction: 2555
+      startSourceChar: 3389
+      endSourceChar: 3393
+      line: 111
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 2516
-      endInstruction: 2515
-      startSourceChar: 3477
-      endSourceChar: 3477
-      line: 118
+    - startInstruction: 2556
+      endInstruction: 2571
+      startSourceChar: 3393
+      endSourceChar: 3410
+      line: 111
       lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2516
-      endInstruction: 2515
-      startSourceChar: 3477
-      endSourceChar: 3477
-      line: 118
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2516
-      endInstruction: 2515
-      startSourceChar: 3477
-      endSourceChar: 3488
-      line: 118
-      lineChar: 12
-      spanCodeSection: Networking.
-    - startInstruction: 2516
-      endInstruction: 2531
-      startSourceChar: 3488
-      endSourceChar: 3503
-      line: 118
-      lineChar: 23
-      spanCodeSection: 'LocalPlayer == '
-    - startInstruction: 2532
-      endInstruction: 2579
-      startSourceChar: 3503
-      endSourceChar: 3518
-      line: 118
-      lineChar: 38
-      spanCodeSection: "null)\r\n        "
-    - startInstruction: 2580
-      endInstruction: 2579
-      startSourceChar: 3518
-      endSourceChar: 3533
-      line: 119
+      spanCodeSection: "IsDora)\r\n        "
+    - startInstruction: 2572
+      endInstruction: 2571
+      startSourceChar: 3410
+      endSourceChar: 3425
+      line: 112
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 2580
-      endInstruction: 2579
-      startSourceChar: 3533
-      endSourceChar: 3533
-      line: 120
+    - startInstruction: 2572
+      endInstruction: 2571
+      startSourceChar: 3425
+      endSourceChar: 3425
+      line: 113
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2580
-      endInstruction: 2579
-      startSourceChar: 3533
-      endSourceChar: 3533
-      line: 120
+    - startInstruction: 2572
+      endInstruction: 2571
+      startSourceChar: 3425
+      endSourceChar: 3425
+      line: 113
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2580
+    - startInstruction: 2572
+      endInstruction: 2571
+      startSourceChar: 3425
+      endSourceChar: 3425
+      line: 113
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2572
+      endInstruction: 2571
+      startSourceChar: 3425
+      endSourceChar: 3434
+      line: 113
+      lineChar: 12
+      spanCodeSection: renderer.
+    - startInstruction: 2572
+      endInstruction: 2571
+      startSourceChar: 3434
+      endSourceChar: 3445
+      line: 113
+      lineChar: 21
+      spanCodeSection: 'material = '
+    - startInstruction: 2572
       endInstruction: 2603
-      startSourceChar: 3533
-      endSourceChar: 3569
-      line: 120
-      lineChar: 12
-      spanCodeSection: "_SetPosition();\r\n        }\r\n        "
+      startSourceChar: 3445
+      endSourceChar: 3475
+      line: 113
+      lineChar: 32
+      spanCodeSection: "material;\r\n        }\r\n        "
     - startInstruction: 2604
       endInstruction: 2603
-      startSourceChar: 3569
-      endSourceChar: 3583
-      line: 122
+      startSourceChar: 3475
+      endSourceChar: 3489
+      line: 115
       lineChar: 8
       spanCodeSection: "else\r\n        "
     - startInstruction: 2604
       endInstruction: 2603
-      startSourceChar: 3583
-      endSourceChar: 3598
-      line: 123
+      startSourceChar: 3489
+      endSourceChar: 3504
+      line: 116
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 2604
       endInstruction: 2603
-      startSourceChar: 3598
+      startSourceChar: 3504
+      endSourceChar: 3504
+      line: 117
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 3504
+      endSourceChar: 3504
+      line: 117
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 3504
+      endSourceChar: 3504
+      line: 117
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 3504
+      endSourceChar: 3513
+      line: 117
+      lineChar: 12
+      spanCodeSection: renderer.
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 3513
+      endSourceChar: 3524
+      line: 117
+      lineChar: 21
+      spanCodeSection: 'material = '
+    - startInstruction: 2604
+      endInstruction: 2647
+      startSourceChar: 3524
+      endSourceChar: 3559
+      line: 117
+      lineChar: 32
+      spanCodeSection: "material;\r\n        }\r\n    }\r\n\r\n    "
+    - startInstruction: 2648
+      endInstruction: 2647
+      startSourceChar: 3559
       endSourceChar: 3598
-      line: 124
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 3598
-      endSourceChar: 3598
-      line: 124
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 3598
-      endSourceChar: 3621
-      line: 124
-      lineChar: 12
-      spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 3621
-      endSourceChar: 3621
-      line: 124
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 3621
-      endSourceChar: 3640
-      line: 124
-      lineChar: 35
-      spanCodeSection: NetworkEventTarget.
-    - startInstruction: 2604
-      endInstruction: 2603
-      startSourceChar: 3640
-      endSourceChar: 3645
-      line: 124
-      lineChar: 54
-      spanCodeSection: 'All, '
-    - startInstruction: 2604
+      line: 121
+      lineChar: 4
+      spanCodeSection: public BoxCollider SetColliderActivate(
+    - startInstruction: 2648
       endInstruction: 2655
-      startSourceChar: 3645
-      endSourceChar: 3687
-      line: 124
-      lineChar: 59
-      spanCodeSection: "\"_SetPosition\");\r\n        }\r\n    }\r\n\r\n    "
+      startSourceChar: 3598
+      endSourceChar: 3611
+      line: 121
+      lineChar: 43
+      spanCodeSection: "bool t)\r\n    "
     - startInstruction: 2656
-      endInstruction: 2663
-      startSourceChar: 3687
-      endSourceChar: 3719
+      endInstruction: 2655
+      startSourceChar: 3611
+      endSourceChar: 3622
+      line: 122
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 2656
+      endInstruction: 2655
+      startSourceChar: 3622
+      endSourceChar: 3622
+      line: 123
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2656
+      endInstruction: 2655
+      startSourceChar: 3622
+      endSourceChar: 3622
+      line: 123
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2656
+      endInstruction: 2655
+      startSourceChar: 3622
+      endSourceChar: 3622
+      line: 123
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2656
+      endInstruction: 2655
+      startSourceChar: 3622
+      endSourceChar: 3634
+      line: 123
+      lineChar: 8
+      spanCodeSection: boxCollider.
+    - startInstruction: 2656
+      endInstruction: 2655
+      startSourceChar: 3634
+      endSourceChar: 3644
+      line: 123
+      lineChar: 20
+      spanCodeSection: 'enabled = '
+    - startInstruction: 2656
+      endInstruction: 2679
+      startSourceChar: 3644
+      endSourceChar: 3656
+      line: 123
+      lineChar: 30
+      spanCodeSection: "t;\r\n        "
+    - startInstruction: 2680
+      endInstruction: 2679
+      startSourceChar: 3656
+      endSourceChar: 3663
+      line: 124
+      lineChar: 8
+      spanCodeSection: 'return '
+    - startInstruction: 2680
+      endInstruction: 2739
+      startSourceChar: 3663
+      endSourceChar: 3690
+      line: 124
+      lineChar: 15
+      spanCodeSection: "boxCollider;\r\n    }\r\n\r\n    "
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 3690
+      endSourceChar: 3714
+      line: 127
+      lineChar: 4
+      spanCodeSection: public void SetPosition(
+    - startInstruction: 2740
+      endInstruction: 2739
+      startSourceChar: 3714
+      endSourceChar: 3725
+      line: 127
+      lineChar: 28
+      spanCodeSection: 'Vector3 p, '
+    - startInstruction: 2740
+      endInstruction: 2747
+      startSourceChar: 3725
+      endSourceChar: 3744
+      line: 127
+      lineChar: 39
+      spanCodeSection: "Quaternion r)\r\n    "
+    - startInstruction: 2748
+      endInstruction: 2747
+      startSourceChar: 3744
+      endSourceChar: 3755
       line: 128
       lineChar: 4
-      spanCodeSection: "public void _SetPosition()\r\n    "
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3719
-      endSourceChar: 3730
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 2748
+      endInstruction: 2747
+      startSourceChar: 3755
+      endSourceChar: 3755
       line: 129
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2748
+      endInstruction: 2747
+      startSourceChar: 3755
+      endSourceChar: 3755
+      line: 129
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2748
+      endInstruction: 2747
+      startSourceChar: 3755
+      endSourceChar: 3766
+      line: 129
+      lineChar: 8
+      spanCodeSection: 'position = '
+    - startInstruction: 2748
+      endInstruction: 2767
+      startSourceChar: 3766
+      endSourceChar: 3778
+      line: 129
+      lineChar: 19
+      spanCodeSection: "p;\r\n        "
+    - startInstruction: 2768
+      endInstruction: 2767
+      startSourceChar: 3778
+      endSourceChar: 3778
+      line: 130
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2768
+      endInstruction: 2767
+      startSourceChar: 3778
+      endSourceChar: 3778
+      line: 130
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2768
+      endInstruction: 2767
+      startSourceChar: 3778
+      endSourceChar: 3789
+      line: 130
+      lineChar: 8
+      spanCodeSection: 'rotation = '
+    - startInstruction: 2768
+      endInstruction: 2787
+      startSourceChar: 3789
+      endSourceChar: 3803
+      line: 130
+      lineChar: 19
+      spanCodeSection: "r;\r\n\r\n        "
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 3803
+      endSourceChar: 3807
+      line: 132
+      lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 3807
+      endSourceChar: 3807
+      line: 132
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 3807
+      endSourceChar: 3807
+      line: 132
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2788
+      endInstruction: 2787
+      startSourceChar: 3807
+      endSourceChar: 3818
+      line: 132
+      lineChar: 12
+      spanCodeSection: Networking.
+    - startInstruction: 2788
+      endInstruction: 2803
+      startSourceChar: 3818
+      endSourceChar: 3833
+      line: 132
+      lineChar: 23
+      spanCodeSection: 'LocalPlayer == '
+    - startInstruction: 2804
+      endInstruction: 2851
+      startSourceChar: 3833
+      endSourceChar: 3848
+      line: 132
+      lineChar: 38
+      spanCodeSection: "null)\r\n        "
+    - startInstruction: 2852
+      endInstruction: 2851
+      startSourceChar: 3848
+      endSourceChar: 3863
+      line: 133
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 2852
+      endInstruction: 2851
+      startSourceChar: 3863
+      endSourceChar: 3863
+      line: 134
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2852
+      endInstruction: 2851
+      startSourceChar: 3863
+      endSourceChar: 3863
+      line: 134
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2852
+      endInstruction: 2875
+      startSourceChar: 3863
+      endSourceChar: 3899
+      line: 134
+      lineChar: 12
+      spanCodeSection: "_SetPosition();\r\n        }\r\n        "
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3899
+      endSourceChar: 3913
+      line: 136
+      lineChar: 8
+      spanCodeSection: "else\r\n        "
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3913
+      endSourceChar: 3928
+      line: 137
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3928
+      endSourceChar: 3928
+      line: 138
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3928
+      endSourceChar: 3928
+      line: 138
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3928
+      endSourceChar: 3951
+      line: 138
+      lineChar: 12
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3951
+      endSourceChar: 3951
+      line: 138
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3951
+      endSourceChar: 3970
+      line: 138
+      lineChar: 35
+      spanCodeSection: NetworkEventTarget.
+    - startInstruction: 2876
+      endInstruction: 2875
+      startSourceChar: 3970
+      endSourceChar: 3975
+      line: 138
+      lineChar: 54
+      spanCodeSection: 'All, '
+    - startInstruction: 2876
+      endInstruction: 2927
+      startSourceChar: 3975
+      endSourceChar: 4017
+      line: 138
+      lineChar: 59
+      spanCodeSection: "\"_SetPosition\");\r\n        }\r\n    }\r\n\r\n    "
+    - startInstruction: 2928
+      endInstruction: 2935
+      startSourceChar: 4017
+      endSourceChar: 4049
+      line: 142
+      lineChar: 4
+      spanCodeSection: "public void _SetPosition()\r\n    "
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4049
+      endSourceChar: 4060
+      line: 143
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3730
-      endSourceChar: 3730
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4060
+      endSourceChar: 4060
+      line: 144
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3730
-      endSourceChar: 3730
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4060
+      endSourceChar: 4060
+      line: 144
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3730
-      endSourceChar: 3730
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4060
+      endSourceChar: 4060
+      line: 144
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3730
-      endSourceChar: 3740
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4060
+      endSourceChar: 4070
+      line: 144
       lineChar: 8
       spanCodeSection: transform.
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3740
-      endSourceChar: 3763
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4070
+      endSourceChar: 4093
+      line: 144
       lineChar: 18
       spanCodeSection: SetPositionAndRotation(
-    - startInstruction: 2664
-      endInstruction: 2663
-      startSourceChar: 3763
-      endSourceChar: 3773
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2935
+      startSourceChar: 4093
+      endSourceChar: 4103
+      line: 144
       lineChar: 41
       spanCodeSection: 'position, '
-    - startInstruction: 2664
-      endInstruction: 2715
-      startSourceChar: 3773
-      endSourceChar: 3798
-      line: 130
+    - startInstruction: 2936
+      endInstruction: 2987
+      startSourceChar: 4103
+      endSourceChar: 4128
+      line: 144
       lineChar: 51
       spanCodeSection: "rotation);\r\n    }\r\n\r\n    "
-    - startInstruction: 2716
-      endInstruction: 2723
-      startSourceChar: 3798
-      endSourceChar: 3837
-      line: 133
+    - startInstruction: 2988
+      endInstruction: 2995
+      startSourceChar: 4128
+      endSourceChar: 4167
+      line: 147
       lineChar: 4
       spanCodeSection: "public string GetCardSpriteName()\r\n    "
-    - startInstruction: 2724
-      endInstruction: 2723
-      startSourceChar: 3837
-      endSourceChar: 3848
-      line: 134
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 4167
+      endSourceChar: 4178
+      line: 148
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2724
-      endInstruction: 2723
-      startSourceChar: 3848
-      endSourceChar: 3856
-      line: 135
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 4178
+      endSourceChar: 4186
+      line: 149
       lineChar: 8
       spanCodeSection: switch (
-    - startInstruction: 2724
-      endInstruction: 2723
-      startSourceChar: 3856
-      endSourceChar: 3886
-      line: 135
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 4186
+      endSourceChar: 4216
+      line: 149
       lineChar: 16
       spanCodeSection: "Type)\r\n        {\r\n            "
-    - startInstruction: 2724
-      endInstruction: 2723
-      startSourceChar: 3886
-      endSourceChar: 3891
-      line: 137
+    - startInstruction: 2996
+      endInstruction: 2995
+      startSourceChar: 4216
+      endSourceChar: 4221
+      line: 151
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 2724
-      endInstruction: 2779
-      startSourceChar: 3891
-      endSourceChar: 3909
-      line: 137
+    - startInstruction: 2996
+      endInstruction: 3051
+      startSourceChar: 4221
+      endSourceChar: 4239
+      line: 151
       lineChar: 17
       spanCodeSection: "\"\uB3D9\":\r\n            "
-    - startInstruction: 2780
-      endInstruction: 2779
-      startSourceChar: 3909
-      endSourceChar: 3914
-      line: 138
+    - startInstruction: 3052
+      endInstruction: 3051
+      startSourceChar: 4239
+      endSourceChar: 4244
+      line: 152
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 2780
-      endInstruction: 2835
-      startSourceChar: 3914
-      endSourceChar: 3932
-      line: 138
+    - startInstruction: 3052
+      endInstruction: 3107
+      startSourceChar: 4244
+      endSourceChar: 4262
+      line: 152
       lineChar: 17
       spanCodeSection: "\"\uB0A8\":\r\n            "
-    - startInstruction: 2836
-      endInstruction: 2835
-      startSourceChar: 3932
-      endSourceChar: 3937
-      line: 139
+    - startInstruction: 3108
+      endInstruction: 3107
+      startSourceChar: 4262
+      endSourceChar: 4267
+      line: 153
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 2836
-      endInstruction: 2891
-      startSourceChar: 3937
-      endSourceChar: 3955
-      line: 139
+    - startInstruction: 3108
+      endInstruction: 3163
+      startSourceChar: 4267
+      endSourceChar: 4285
+      line: 153
       lineChar: 17
       spanCodeSection: "\"\uC11C\":\r\n            "
-    - startInstruction: 2892
-      endInstruction: 2891
-      startSourceChar: 3955
-      endSourceChar: 3960
-      line: 140
+    - startInstruction: 3164
+      endInstruction: 3163
+      startSourceChar: 4285
+      endSourceChar: 4290
+      line: 154
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 2892
-      endInstruction: 2947
-      startSourceChar: 3960
-      endSourceChar: 3978
-      line: 140
+    - startInstruction: 3164
+      endInstruction: 3219
+      startSourceChar: 4290
+      endSourceChar: 4308
+      line: 154
       lineChar: 17
       spanCodeSection: "\"\uBD81\":\r\n            "
-    - startInstruction: 2948
-      endInstruction: 2947
-      startSourceChar: 3978
-      endSourceChar: 3983
-      line: 141
+    - startInstruction: 3220
+      endInstruction: 3219
+      startSourceChar: 4308
+      endSourceChar: 4313
+      line: 155
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 2948
-      endInstruction: 3003
-      startSourceChar: 3983
-      endSourceChar: 4001
-      line: 141
+    - startInstruction: 3220
+      endInstruction: 3275
+      startSourceChar: 4313
+      endSourceChar: 4331
+      line: 155
       lineChar: 17
       spanCodeSection: "\"\uBC31\":\r\n            "
-    - startInstruction: 3004
-      endInstruction: 3003
-      startSourceChar: 4001
-      endSourceChar: 4006
-      line: 142
+    - startInstruction: 3276
+      endInstruction: 3275
+      startSourceChar: 4331
+      endSourceChar: 4336
+      line: 156
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3004
-      endInstruction: 3059
-      startSourceChar: 4006
-      endSourceChar: 4024
-      line: 142
+    - startInstruction: 3276
+      endInstruction: 3331
+      startSourceChar: 4336
+      endSourceChar: 4354
+      line: 156
       lineChar: 17
       spanCodeSection: "\"\uBC1C\":\r\n            "
-    - startInstruction: 3060
-      endInstruction: 3059
-      startSourceChar: 4024
-      endSourceChar: 4029
-      line: 143
+    - startInstruction: 3332
+      endInstruction: 3331
+      startSourceChar: 4354
+      endSourceChar: 4359
+      line: 157
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3060
-      endInstruction: 3115
-      startSourceChar: 4029
-      endSourceChar: 4077
-      line: 143
+    - startInstruction: 3332
+      endInstruction: 3387
+      startSourceChar: 4359
+      endSourceChar: 4407
+      line: 157
       lineChar: 17
       spanCodeSection: "\"\uC911\":\r\n                return Type;\r\n            "
-    - startInstruction: 3116
-      endInstruction: 3163
-      startSourceChar: 4077
-      endSourceChar: 4103
-      line: 145
+    - startInstruction: 3388
+      endInstruction: 3435
+      startSourceChar: 4407
+      endSourceChar: 4433
+      line: 159
       lineChar: 12
       spanCodeSection: "default:\r\n                "
-    - startInstruction: 3164
-      endInstruction: 3163
-      startSourceChar: 4103
-      endSourceChar: 4110
-      line: 146
+    - startInstruction: 3436
+      endInstruction: 3435
+      startSourceChar: 4433
+      endSourceChar: 4440
+      line: 160
       lineChar: 16
       spanCodeSection: 'return '
-    - startInstruction: 3164
-      endInstruction: 3163
-      startSourceChar: 4110
-      endSourceChar: 4110
-      line: 146
+    - startInstruction: 3436
+      endInstruction: 3435
+      startSourceChar: 4440
+      endSourceChar: 4440
+      line: 160
       lineChar: 23
       spanCodeSection: 
-    - startInstruction: 3164
-      endInstruction: 3163
-      startSourceChar: 4110
-      endSourceChar: 4110
-      line: 146
+    - startInstruction: 3436
+      endInstruction: 3435
+      startSourceChar: 4440
+      endSourceChar: 4440
+      line: 160
       lineChar: 23
       spanCodeSection: 
-    - startInstruction: 3164
-      endInstruction: 3163
-      startSourceChar: 4110
-      endSourceChar: 4117
-      line: 146
+    - startInstruction: 3436
+      endInstruction: 3435
+      startSourceChar: 4440
+      endSourceChar: 4447
+      line: 160
       lineChar: 23
       spanCodeSection: 'Type + '
-    - startInstruction: 3164
-      endInstruction: 3219
-      startSourceChar: 4117
-      endSourceChar: 4130
-      line: 146
+    - startInstruction: 3436
+      endInstruction: 3491
+      startSourceChar: 4447
+      endSourceChar: 4460
+      line: 160
       lineChar: 30
       spanCodeSection: 'CardNumber + '
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 4130
-      endSourceChar: 4131
-      line: 146
+    - startInstruction: 3492
+      endInstruction: 3491
+      startSourceChar: 4460
+      endSourceChar: 4461
+      line: 160
       lineChar: 43
       spanCodeSection: (
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 4131
-      endSourceChar: 4131
-      line: 146
+    - startInstruction: 3492
+      endInstruction: 3491
+      startSourceChar: 4461
+      endSourceChar: 4461
+      line: 160
       lineChar: 44
       spanCodeSection: 
-    - startInstruction: 3220
-      endInstruction: 3235
-      startSourceChar: 4131
-      endSourceChar: 4140
-      line: 146
+    - startInstruction: 3492
+      endInstruction: 3507
+      startSourceChar: 4461
+      endSourceChar: 4470
+      line: 160
       lineChar: 44
       spanCodeSection: 'IsDora ? '
-    - startInstruction: 3236
-      endInstruction: 3263
-      startSourceChar: 4140
-      endSourceChar: 4147
-      line: 146
+    - startInstruction: 3508
+      endInstruction: 3535
+      startSourceChar: 4470
+      endSourceChar: 4477
+      line: 160
       lineChar: 53
       spanCodeSection: "\"\uB3C4\uB77C\" : "
-    - startInstruction: 3264
-      endInstruction: 3264
-      startSourceChar: 4147
-      endSourceChar: 4147
-      line: 146
+    - startInstruction: 3536
+      endInstruction: 3536
+      startSourceChar: 4477
+      endSourceChar: 4477
+      line: 160
       lineChar: 60
       spanCodeSection: 
   hasInteractEvent: 1

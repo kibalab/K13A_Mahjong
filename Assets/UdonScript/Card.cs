@@ -51,7 +51,8 @@ public class Card : UdonSharpBehaviour
     public void Initialize_Master(string type, int cardNumber, bool isDora, bool isRinShan)
     {
         Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-        LogViewer.Log("SetOwner", 0);
+        LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
+
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
@@ -61,9 +62,30 @@ public class Card : UdonSharpBehaviour
         isRunOnMasterScript = true;
     }
 
+    public void syncData()
+    {
+        SendCustomNetworkEvent(NetworkEventTarget.All, "_syncData");
+    }
+
+    public void _syncData()
+    {
+        Type = Type;
+        CardNumber = CardNumber;
+        IsDora = IsDora;
+        IsRinShan = IsRinShan;
+    }
+
     public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites, Material material)
     {
-        LogViewer.Log($"LocalPlayer Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})", 1);
+        if (GlobalOrder != 0)
+        {
+            LogViewer.Log($"LocalPlayer Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})", 1);
+        }
+        else
+        {
+            LogViewer.ErrorLog($"LocalPlayer Card Initalizing Failed", 1);
+        }
+        
         this.eventQueue = eventQueue;
         GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
