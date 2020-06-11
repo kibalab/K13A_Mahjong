@@ -60,11 +60,12 @@ public class Card : UdonSharpBehaviour
 
         // 마스터만 해당 bool값이 true이다
         isRunOnMasterScript = true;
+        
     }
 
     public void syncData()
     {
-        SendCustomNetworkEvent(NetworkEventTarget.All, "_syncData");
+        SendCustomNetworkEvent(NetworkEventTarget.Owner, "_syncData");
     }
 
     public void _syncData()
@@ -73,27 +74,30 @@ public class Card : UdonSharpBehaviour
         CardNumber = CardNumber;
         IsDora = IsDora;
         IsRinShan = IsRinShan;
+        SetPosition(transform.position, transform.rotation);
+        
     }
 
     public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites, Material material)
     {
-        if (GlobalOrder != 0)
-        {
-            LogViewer.Log($"LocalPlayer Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})", 1);
-        }
-        else
-        {
-            LogViewer.ErrorLog($"LocalPlayer Card Initalizing Failed", 1);
-        }
+        
         
         this.eventQueue = eventQueue;
         GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
 
         var spriteName = GetCardSpriteName();
-        LogViewer.Log($"Card Sprite Name : {spriteName}", 1);
         var sprite = sprites.FindSprite(spriteName);
-        LogViewer.Log($"Get Card Sprite", 1);
+        if (GlobalOrder != 0)
+        {
+            LogViewer.Log($"LocalPlayer Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})", 1);
+            LogViewer.Log($"Card Sprite Name : {spriteName}", 1);
+            LogViewer.Log($"Get Card Sprite", 1);
+        }
+        else
+        {
+            LogViewer.ErrorLog($"LocalPlayer Card Initalizing Failed", 1);
+        }
 
         SetSprite(sprite);
         setMaterial(material);
@@ -135,6 +139,10 @@ public class Card : UdonSharpBehaviour
 
     public void SetPosition(Vector3 p, Quaternion r)
     {
+        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+        LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
+        SetProgramVariable("position", p);
+        SetProgramVariable("rotation", r);
         position = p;
         rotation = r;
 

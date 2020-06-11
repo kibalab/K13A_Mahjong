@@ -22,11 +22,15 @@ public class Player : UdonSharpBehaviour
     private Transform stashPositions;
     private Transform plusCardPosition;
 
+    public Transform point;
+
     int[] stashedCards;
     int stashedCardIndex;
 
     public void Initialize_Master(int playerIndex)
     {
+        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+
         this.PlayerIndex = playerIndex;
 
         cardPoints = FindPoints();
@@ -62,6 +66,8 @@ public class Player : UdonSharpBehaviour
 
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo)
     {
+        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+        
         Cards.Add(newCard);
 
         newCard.SetOwnership(PlayerIndex, InputEvent);
@@ -78,12 +84,14 @@ public class Player : UdonSharpBehaviour
 
     public void Discard(Card card)
     {
+        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+
         var index = Cards.IndexOf(card);
         Cards.RemoveAt(index);
 
         stashedCards[card.GlobalOrder]++;
 
-        var point = stashPositions.GetChild(stashedCardIndex++);
+        SetProgramVariable("point", stashPositions.GetChild(stashedCardIndex++));
         card.SetPosition(point.position, point.rotation);
         card.SetColliderActivate(false);
 
@@ -201,7 +209,6 @@ public class Player : UdonSharpBehaviour
     void SortPosition()
     {
         Cards.Sort();
-
         for (var k = 0; k < Cards.Count(); ++k) // 새로구현함
         {
             var card = (Card)Cards.At(k);
