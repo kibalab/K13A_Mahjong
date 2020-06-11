@@ -139,7 +139,7 @@ public class TableManager : UdonSharpBehaviour
     public void Initialize_Master()
     {
         Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-        //LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
+        LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
         // 한 번만 하는 초기화
         // 1. 월드 마스터만 알면 되는 yama의 순서
         // 2. 다른 사람들을 위한 Card의 UdonSync 변수 설정
@@ -156,6 +156,7 @@ public class TableManager : UdonSharpBehaviour
     {
         foreach (var card in yama)
         {
+            card.syncData();
             var material = card.IsDora ? doraMaterial : normalMaterial;
             card.Initialize_All(EventQueue, HandUtil, Sprites, material);
         }
@@ -169,13 +170,14 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    public void CardDataSync()
+    public void CardsDataSync()
     {
+        /*
         foreach (Card card in yama)
         {
-            card.Initialize_Master(card.Type, card.CardNumber, card.IsDora, card.IsRinShan);
+            card._syncData();
             card.SetPosition(card.transform.position, card.transform.rotation);
-        }
+        }*/
     }
 
     void InitializeYama_Master()
