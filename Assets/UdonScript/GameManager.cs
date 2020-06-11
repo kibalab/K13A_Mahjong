@@ -51,10 +51,12 @@ public class GameManager : UdonSharpBehaviour
         // Master가 다른 사람이 들어온 것을 감지했을 때
         else if (Networking.IsMaster && player.playerId != Networking.LocalPlayer.playerId)
         {
-            waitTime = 3.0f;
-            waitForSync = true;
-            // 3초 후 TableManager.CardDataSync
+            //waitTime = 3.0f;
+            //waitForSync = true;
 
+            // 위에처럼 하면 여러명 들어올 때 waitTime이 꼬일거라... Queue로 관리해야 함
+            // 일단 접속 동시에 싱크하게 해보고 안되면... SyncScheduler를 따로 만듬
+            TableManager.CardDataSync();
         }
         // Player가 처음 들어왔을 때
         else if (player.playerId == Networking.LocalPlayer.playerId)
@@ -147,14 +149,7 @@ public class GameManager : UdonSharpBehaviour
             waitTime -= Time.deltaTime;
             if (waitTime < 0)
             {
-                if (Networking.IsMaster)
-                {
-                    TableManager.CardDataSync();
-                }
-                else
-                {
-                    Initialize_All();
-                }
+                Initialize_All();
 
                 waitForSync = false;
             }
