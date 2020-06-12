@@ -50,7 +50,6 @@ public class Card : UdonSharpBehaviour
 
     public void Initialize_Master(string type, int cardNumber, bool isDora, bool isRinShan)
     {
-        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
         LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
 
         Type = type;
@@ -60,7 +59,6 @@ public class Card : UdonSharpBehaviour
 
         // 마스터만 해당 bool값이 true이다
         isRunOnMasterScript = true;
-        
     }
 
     public void syncData()
@@ -75,13 +73,10 @@ public class Card : UdonSharpBehaviour
         IsDora = IsDora;
         IsRinShan = IsRinShan;
         SetPosition(transform.position, transform.rotation);
-        
     }
 
     public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites, Material material)
     {
-        
-        
         this.eventQueue = eventQueue;
         GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
         boxCollider = this.GetComponent<BoxCollider>();
@@ -139,10 +134,8 @@ public class Card : UdonSharpBehaviour
 
     public void SetPosition(Vector3 p, Quaternion r)
     {
-        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
         LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
-        SetProgramVariable("position", p);
-        SetProgramVariable("rotation", r);
+
         position = p;
         rotation = r;
 
