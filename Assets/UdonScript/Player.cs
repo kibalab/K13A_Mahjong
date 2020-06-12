@@ -9,14 +9,14 @@ public class Player : UdonSharpBehaviour
 
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    /*LinkedInInspector*/ public UIManager UiManager;
-    /*LinkedInInspector*/ public GameObject CardPositions;
-    /*LinkedInInspector*/ public KList Cards;
-    /*LinkedInInspector*/ public KList OpenendCards;
-    /*LinkedInInspector*/ public InputEvent InputEvent;
-    /*LinkedInInspector*/ public UIContext UIContext;
-    /*LinkedInInspector*/ public AgariContext AgariContext;
-    /*LinkedInInspector*/ public HandCalculator HandCalculator;
+    [SerializeField] public UIManager UiManager;
+    [SerializeField] public GameObject CardPositions;
+    [SerializeField] public KList Cards;
+    [SerializeField] public KList OpenendCards;
+    [SerializeField] public InputEvent InputEvent;
+    [SerializeField] public UIContext UIContext;
+    [SerializeField] public AgariContext AgariContext;
+    [SerializeField] public HandCalculator HandCalculator;
 
     private Transform[] cardPoints;
     private Transform stashPositions;

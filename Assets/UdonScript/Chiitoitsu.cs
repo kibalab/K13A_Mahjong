@@ -6,7 +6,7 @@ using VRC.Udon;
 
 public class Chiitoitsu : UdonSharpBehaviour
 {
-    public HandUtil HandUtil;
+    [SerializeField] public HandUtil HandUtil;
 
     public bool IsTenpai(int[] tiles)
     {

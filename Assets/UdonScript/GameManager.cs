@@ -6,8 +6,8 @@ using VRC.Udon;
 
 public class GameManager : UdonSharpBehaviour
 {
-    /*LinkedInInspector*/ public EventQueue EventQueue;
-    /*LinkedInInspector*/ public TableManager TableManager;
+    [SerializeField] public EventQueue EventQueue;
+    [SerializeField] public TableManager TableManager;
 
     [UdonSynced(UdonSyncMode.None)] public int Turn = 0;
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
