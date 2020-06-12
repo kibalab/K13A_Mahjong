@@ -138,11 +138,6 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize_Master()
     {
-        if (Networking.LocalPlayer != null)
-        {
-            LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
-        }
-
         // 한 번만 하는 초기화
         // 1. 월드 마스터만 알면 되는 yama의 순서
         // 2. 다른 사람들을 위한 Card의 UdonSync 변수 설정
