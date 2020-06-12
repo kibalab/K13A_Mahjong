@@ -12,8 +12,8 @@ public class UIManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int SelectedCard;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    /*LinkedInInspector*/ public GameObject UICanvas;
-    /*LinkedInInspector*/ public CardSprites CardSprites;
+    [SerializeField] public GameObject UICanvas;
+    [SerializeField] public CardSprites CardSprites;
 
     private UIContext uiContext;
     public  EventQueue eventQueue;

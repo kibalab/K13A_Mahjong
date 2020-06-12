@@ -7,15 +7,15 @@ using VRC.Udon.Common.Interfaces;
 
 public class TableManager : UdonSharpBehaviour
 {
-    /*LinkedInInspector*/ public GameObject CardPool;
-    /*LinkedInInspector*/ public GameObject Players;
-    /*LinkedInInspector*/ public CardSprites Sprites;
-    /*LinkedInInspector*/ public HandCalculator HandCalculator;
-    /*LinkedInInspector*/ public HandUtil HandUtil;
-    /*LinkedInInspector*/ public EventQueue EventQueue;
-    /*LinkedInInspector*/ public GameObject StashTables;
-    /*LinkedInInspector*/ public Material normalMaterial;
-    /*LinkedInInspector*/ public Material doraMaterial;
+    [SerializeField] public GameObject CardPool;
+    [SerializeField] public GameObject Players;
+    [SerializeField] public CardSprites Sprites;
+    [SerializeField] public HandCalculator HandCalculator;
+    [SerializeField] public HandUtil HandUtil;
+    [SerializeField] public EventQueue EventQueue;
+    [SerializeField] public GameObject StashTables;
+    [SerializeField] public Material normalMaterial;
+    [SerializeField] public Material doraMaterial;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -138,7 +138,10 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize_Master()
     {
-        LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
+        if (Networking.LocalPlayer != null)
+        {
+            LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
+        }
 
         // 한 번만 하는 초기화
         // 1. 월드 마스터만 알면 되는 yama의 순서
