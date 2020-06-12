@@ -50,8 +50,6 @@ public class Card : UdonSharpBehaviour
 
     public void Initialize_Master(string type, int cardNumber, bool isDora, bool isRinShan)
     {
-        LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
-
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
@@ -134,8 +132,6 @@ public class Card : UdonSharpBehaviour
 
     public void SetPosition(Vector3 p, Quaternion r)
     {
-        LogViewer.Log($"Set Owner (TableManager, {Networking.LocalPlayer.displayName})", 0);
-
         position = p;
         rotation = r;
 
