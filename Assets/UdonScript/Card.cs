@@ -40,6 +40,11 @@ public class Card : UdonSharpBehaviour
         }
     }
 
+    public override void OnOwnershipTransferred()
+    {
+        LogViewer.Log("Owner Changed. " + Networking.GetOwner(gameObject).displayName , 1);
+    }
+
     public void _Interact()
     {
         inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
@@ -90,6 +95,8 @@ public class Card : UdonSharpBehaviour
     {
         if (IsChanged)
         {
+            LogViewer.Log($"Card Changed. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+
             IsChanged = false;
 
             transform.SetPositionAndRotation(position, rotation);
@@ -100,6 +107,8 @@ public class Card : UdonSharpBehaviour
 
         if (IsPositionChanged)
         {
+            LogViewer.Log($"CardPosition Changed. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+
             IsPositionChanged = false;
 
             transform.SetPositionAndRotation(position, rotation);

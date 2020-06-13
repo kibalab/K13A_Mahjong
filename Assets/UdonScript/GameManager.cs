@@ -14,6 +14,7 @@ public class GameManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
     [UdonSynced(UdonSyncMode.None)] public int UIActivedCount = 0;
     [UdonSynced(UdonSyncMode.None)] public int RegisteredPlayerCount = 0;
+    [UdonSynced(UdonSyncMode.None)] public string Test_SyncRequestUser = "";
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -27,6 +28,10 @@ public class GameManager : UdonSharpBehaviour
 
     public bool testMode;
     public LogViewer LogViewer;
+
+    float waitTime;
+    bool isWaiting = false;
+    bool isNetworkReady = false;
 
     void Start()
     {
@@ -56,18 +61,25 @@ public class GameManager : UdonSharpBehaviour
         // Master가 다른 사람이 들어온 것을 감지했을 때
         else if (Networking.IsMaster && player.playerId != Networking.LocalPlayer.playerId)
         {
-
+            LogViewer.Log($"Player Joined. {player.displayName}", 0);
         }
         // Player가 처음 들어왔을 때
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncRequested");
+            LogViewer.Log($"Player Joined. {player.displayName}", 1);
+
+            waitTime = 3.0f;
+            isWaiting = true;
+            Test_SyncRequestUser = player.displayName;
+            // SendCustomNetworkEvent(NetworkEventTarget.Owner, "_SyncRequested");
         }
     }
 
     public void _SyncRequested()
     {
-        if (isRunOnMasterScript) { TableManager.SyncCards(); }
+        // 밑엣줄이 안 보이면 문제가 심각한 것
+        LogViewer.Log($"SyncRequested By {Test_SyncRequestUser}", 0);
+        TableManager.SyncCards();
     }
 
     public void Initialize_Master() 
@@ -94,6 +106,19 @@ public class GameManager : UdonSharpBehaviour
 
     void Update()
     {
+        if (!IsReady()) { return; }
+
+        if (isWaiting)
+        {
+            waitTime -= Time.deltaTime;
+            if (waitTime < 0)
+            {
+                isWaiting = false;
+                LogViewer.Log($"SendSyncRequest. Owner: {Networking.GetOwner(gameObject).displayName}", 1);
+                SendCustomNetworkEvent(NetworkEventTarget.Owner, "_SyncRequested");
+            }
+        }
+
         if (!isRunOnMasterScript) { return; }
 
         if (!EventQueue.IsQueueEmpty())
@@ -317,5 +342,12 @@ public class GameManager : UdonSharpBehaviour
             || eventType == "Pon"
             || eventType == "Kkan"
             || eventType == "Ron";
+    }
+
+    bool IsReady()
+    {
+        if (isNetworkReady) { return true; }
+        isNetworkReady = Networking.IsObjectReady(gameObject) && TableManager.IsReady();
+        return isNetworkReady;
     }
 }
