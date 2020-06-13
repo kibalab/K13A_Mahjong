@@ -64,6 +64,8 @@ public class Card : UdonSharpBehaviour
         IsRinShan = IsRinShan;
         position = position;
         rotation = rotation;
+
+        IsChanged = true;
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
