@@ -24,9 +24,6 @@ public class GameManager : UdonSharpBehaviour
     private float WaitingTime = 0.0f;
     private bool isRunOnMasterScript = false;
 
-    private float waitTime = 0.0f;
-    private bool waitForSync = false;
-
     public bool testMode;
     public LogViewer LogViewer;
 
@@ -36,7 +33,11 @@ public class GameManager : UdonSharpBehaviour
         if (Networking.LocalPlayer == null)
         {
             Initialize_Master();
-            Initialize_All();
+
+            if (testMode)
+            {
+                ActiveTestMode();
+            }
         }
     }
 
@@ -46,36 +47,34 @@ public class GameManager : UdonSharpBehaviour
         if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
         {
             Initialize_Master();
-            Initialize_All();
+            if (testMode)
+            {
+                ActiveTestMode();
+            }
         }
         // Master가 다른 사람이 들어온 것을 감지했을 때
         else if (Networking.IsMaster && player.playerId != Networking.LocalPlayer.playerId)
         {
-
+            TableManager.SyncCards();
         }
         // Player가 처음 들어왔을 때
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
-            waitTime = 6.0f;
-            waitForSync = true;
-            // 6초 후 TableManager.Initialize_All
+ 
         }
     }
 
     public void Initialize_Master() 
     {
         ChangeGameState(State_WaitForStart);
-        TableManager.Initialize_Master();
+        TableManager.Initialize();
+
         isRunOnMasterScript = true;
         LogViewer.Log("Master Initalized", 0);
     }
 
-    public void Initialize_All()
+    void ActiveTestMode()
     {
-        // 카드 스프라이트, 플레이어 로컬값 초기화
-        TableManager.Initialize_All();
-        LogViewer.Log("Players Initalized", 1);
-
         // 원래 4명 다 모여야 카드를 배분하지만
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
         if (testMode)
@@ -89,16 +88,8 @@ public class GameManager : UdonSharpBehaviour
 
     void Update()
     {
-        if (isRunOnMasterScript)
-        {
-            UpdateForMaster();
-        }
+        if (!isRunOnMasterScript) { return; }
 
-        UpdateForAll();
-    }
-
-    void UpdateForMaster()
-    {
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
@@ -134,20 +125,6 @@ public class GameManager : UdonSharpBehaviour
             }
 
             inputEvent.Clear();
-        }
-    }
-
-    void UpdateForAll()
-    {
-        if (waitForSync)
-        {
-            waitTime -= Time.deltaTime;
-            if (waitTime < 0)
-            {
-                Initialize_All();
-
-                waitForSync = false;
-            }
         }
     }
 

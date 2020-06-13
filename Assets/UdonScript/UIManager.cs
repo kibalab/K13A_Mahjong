@@ -12,67 +12,51 @@ public class UIManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int SelectedCard;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
+    [SerializeField] public InputEvent InputEvent;
+    [SerializeField] public EventQueue EventQueue;
+    [SerializeField] public UIContext UIContext;
     [SerializeField] public GameObject UICanvas;
     [SerializeField] public CardSprites CardSprites;
-
-    private UIContext uiContext;
-    public  EventQueue eventQueue;
-    private InputEvent inputEvent;
 
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
     private bool isMyTable = true;
-    private bool isInitialized = false;
 
     // 월드 마스터의 local에서만 true인 항목
     private bool isRunOnMasterScript = false;
 
-    public void Initialize_Master(int playerIndex)
+    public void Initialize(int playerIndex)
     {
         PlayerIndex = playerIndex;
         isRunOnMasterScript = true;
     }
 
-    public void Initialize_All(InputEvent inputEvent, EventQueue eventQueue, UIContext uiContext)
+    void Start()
     {
-        this.uiContext = uiContext;
-        this.eventQueue = eventQueue;
-        this.inputEvent = inputEvent;
-
-        var uiButton = UICanvas.GetComponentsInChildren<UIButton>();
-
-        foreach (UIButton button in uiButton)
-        {
-            button.Initialize(this);
-        }
-
         DisableButtonAll();
-
-        isInitialized = true;
+        UIContext.Clear();
     }
 
     void Update()
     {
-        if (!isInitialized) { return; }
-
-        if (uiContext.IsChanged && isMyTable)
+        if (UIContext.IsChanged && isMyTable)
         {
-            uiContext.IsChanged = false;
+            UIContext.IsChanged = false;
 
             // 테스트 해야되서 임시로 비활성화함
-            if (uiContext.IsChiable) { OpenChiSelect(); }
-            if (uiContext.IsPonable) ActiveButton("Pon");
-            if (uiContext.IsKkanable) ActiveButton("Kkan");
-            if (uiContext.IsRiichable) ActiveButton("Rich");
-            if (uiContext.IsTsumoable) ActiveButton("Tsumo");
-            if (uiContext.IsRonable) ActiveButton("Ron");
-            if (uiContext.IsAnythingActived()) ActiveButton("Skip");
+            if (UIContext.IsChiable) { OpenChiSelect(); }
+            if (UIContext.IsPonable) ActiveButton("Pon");
+            if (UIContext.IsKkanable) ActiveButton("Kkan");
+            if (UIContext.IsRiichable) ActiveButton("Rich");
+            if (UIContext.IsTsumoable) ActiveButton("Tsumo");
+            if (UIContext.IsRonable) ActiveButton("Ron");
+            if (UIContext.IsAnythingActived()) ActiveButton("Skip");
         }
     }
 
     void OpenChiSelect()
     {
-        switch (uiContext.ChiableCount)
+        switch (UIContext.ChiableCount)
         {
             case 0:
                 ActiveButton("Chi");
@@ -102,7 +86,7 @@ public class UIManager : UdonSharpBehaviour
         for (var i = 0; i < size; i++)
         {
             var tr = UICanvas.transform.Find("ChiSelect").GetChild(i);
-            var spriteNames = uiContext.GetCardSpriteNames(i);
+            var spriteNames = UIContext.GetCardSpriteNames(i);
 
             tr.gameObject.SetActive(true);
             for (var j = 0; j < 2; j++)
@@ -159,7 +143,7 @@ public class UIManager : UdonSharpBehaviour
 
             DisableButtonAll();
 
-            if (UIName == "Chi" && uiContext.ChiableCount > 1)
+            if (UIName == "Chi" && UIContext.ChiableCount > 1)
             {
                 ActiveButton("ChiSelect");
                 ActiveButton("Skip");
@@ -167,8 +151,8 @@ public class UIManager : UdonSharpBehaviour
             else
             {
                 var chiYamaIndexes = GetChiIndexByUIName();
-                inputEvent.SetChiEvent(chiYamaIndexes, UIName, PlayerIndex);
-                eventQueue.Enqueue(inputEvent);
+                InputEvent.SetChiEvent(chiYamaIndexes, UIName, PlayerIndex);
+                EventQueue.Enqueue(InputEvent);
             }
         }
     }
@@ -177,10 +161,10 @@ public class UIManager : UdonSharpBehaviour
     {
         switch (UIName)
         {
-            case "Chi":         return uiContext.ChiableIndex1;
-            case "chiSelect_1": return uiContext.ChiableIndex1;
-            case "chiSelect_2": return uiContext.ChiableIndex2;
-            case "chiSelect_3": return uiContext.ChiableIndex3;
+            case "Chi":         return UIContext.ChiableIndex1;
+            case "chiSelect_1": return UIContext.ChiableIndex1;
+            case "chiSelect_2": return UIContext.ChiableIndex2;
+            case "chiSelect_3": return UIContext.ChiableIndex3;
         }
 
         return Vector2.zero;
