@@ -53,6 +53,8 @@ public class TableManager : UdonSharpBehaviour
 
     public void SetTurnOf(int playerIndex)
     {
+        LogViewer.Log($"Turn Changed {currentTurnPlayer} -> {playerIndex}", 1);
+
         players[currentTurnPlayer].SetColliderActive(false);
         currentTurnPlayer = playerIndex;
         players[playerIndex].SetColliderActive(true);
@@ -65,6 +67,8 @@ public class TableManager : UdonSharpBehaviour
 
     public void AddNextCard()
     {
+        LogViewer.Log($"AddNextCard Player:{currentTurnPlayer} YamaIndex:{currentCardIndex}", 1);
+
         var player = GetCurrentTurnPlayer();
         var index = currentCardIndex;
 
