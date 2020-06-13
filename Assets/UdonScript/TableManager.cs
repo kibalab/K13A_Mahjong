@@ -16,6 +16,7 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject StashTables;
     [SerializeField] public Material normalMaterial;
     [SerializeField] public Material doraMaterial;
+    public LogViewer LogViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -25,8 +26,7 @@ public class TableManager : UdonSharpBehaviour
     private Player[] players;
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
-
-    public LogViewer LogViewer;
+    private int syncIndex = 9999;
 
     void Start()
     {
@@ -154,10 +154,7 @@ public class TableManager : UdonSharpBehaviour
 
     public void SyncCards()
     {
-        foreach (var card in yama)
-        {
-            card.SyncData();
-        }
+        syncIndex = 0;
     }
 
     public void InitializeYama()
@@ -244,5 +241,36 @@ public class TableManager : UdonSharpBehaviour
         ++currentRinShanCardIndex;
 
         return nextCard;
+    }
+
+    public bool IsReady()
+    {
+        if (!Networking.IsObjectReady(gameObject)) { return false; }
+
+        foreach (var card in yama)
+        {
+            if (!Networking.IsObjectReady(card.gameObject))
+            {
+                return false;
+            }
+        }
+
+        foreach (var player in players)
+        {
+            if (!Networking.IsObjectReady(player.gameObject))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void Update()
+    {
+        if (syncIndex < yama.Length)
+        {
+            yama[syncIndex++].SyncData();
+        }
     }
 }
