@@ -16,16 +16,17 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    public UIManager UIManager;
+    [UdonSynced(UdonSyncMode.None)] public bool IsChanged;
+    [UdonSynced(UdonSyncMode.None)] public bool IsPositionChanged;
+
+    [SerializeField] public HandUtil HandUtil;
+    [SerializeField] public CardSprites CardSprites;
+    [SerializeField] public SpriteRenderer SpriteRenderer;
+    [SerializeField] public BoxCollider BoxColider;
+    [SerializeField] public LogViewer LogViewer;
+    [SerializeField] public EventQueue EventQueue;
 
     private InputEvent inputEvent;
-    private EventQueue eventQueue;
-    private BoxCollider boxCollider;
-
-    public LogViewer LogViewer;
-
-    // 월드 마스터의 local에서만 true인 항목
-    private bool isRunOnMasterScript = false;
 
     public override void Interact()
     {
@@ -35,65 +36,34 @@ public class Card : UdonSharpBehaviour
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, "_Interact");
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Interact");
         }
     }
 
     public void _Interact()
     {
-        if (isRunOnMasterScript)
-        {
-            inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
-            eventQueue.Enqueue(inputEvent);
-        }
+        inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
+        EventQueue.Enqueue(inputEvent);
     }
 
-    public void Initialize_Master(string type, int cardNumber, bool isDora, bool isRinShan)
+    public void Initialize_Master(string type, int cardNumber, bool isDora)
     {
         Type = type;
         CardNumber = cardNumber;
         IsDora = isDora;
-        IsRinShan = isRinShan;
+        GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
 
-        // 마스터만 해당 bool값이 true이다
-        isRunOnMasterScript = true;
+        IsChanged = true;
     }
 
-    public void syncData()
-    {
-        SendCustomNetworkEvent(NetworkEventTarget.Owner, "_syncData");
-    }
-
-    public void _syncData()
+    public void SyncData()
     {
         Type = Type;
         CardNumber = CardNumber;
         IsDora = IsDora;
         IsRinShan = IsRinShan;
-        SetPosition(transform.position, transform.rotation);
-    }
-
-    public void Initialize_All(EventQueue eventQueue, HandUtil util, CardSprites sprites, Material material)
-    {
-        this.eventQueue = eventQueue;
-        GlobalOrder = util.GetGlobalOrder(Type, CardNumber);
-        boxCollider = this.GetComponent<BoxCollider>();
-
-        var spriteName = GetCardSpriteName();
-        var sprite = sprites.FindSprite(spriteName);
-        if (GlobalOrder != 0)
-        {
-            LogViewer.Log($"LocalPlayer Card Initalizing (Name: {Type}{CardNumber}, GlobalOrder: {GlobalOrder})", 1);
-            LogViewer.Log($"Card Sprite Name : {spriteName}", 1);
-            LogViewer.Log($"Get Card Sprite", 1);
-        }
-        else
-        {
-            LogViewer.ErrorLog($"LocalPlayer Card Initalizing Failed", 1);
-        }
-
-        SetSprite(sprite);
-        setMaterial(material);
+        position = position;
+        rotation = rotation;
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -102,52 +72,36 @@ public class Card : UdonSharpBehaviour
         this.PlayerIndex = playerIndex;
     }
 
-    public void SetSprite(Sprite sprite)
+    public void SetColliderActivate(bool t)
     {
-        var display = transform.Find("Display");
-        var renderer = display.GetComponent<SpriteRenderer>();
-
-        renderer.sprite = sprite;
-    }
-
-    public void setMaterial(Material material)
-    {
-        var display = transform.Find("Display");
-        var renderer = display.GetComponent<SpriteRenderer>();
-        if (IsDora)
-        {
-            renderer.material = material;
-        }
-        else
-        {
-            renderer.material = material;
-        }
-    }
-
-    public BoxCollider SetColliderActivate(bool t)
-    {
-        boxCollider.enabled = t;
-        return boxCollider;
+        BoxColider.enabled = t;
     }
 
     public void SetPosition(Vector3 p, Quaternion r)
     {
         position = p;
         rotation = r;
-
-        if (Networking.LocalPlayer == null)
-        {
-            _SetPosition();
-        }
-        else
-        {
-            SendCustomNetworkEvent(NetworkEventTarget.All, "_SetPosition");
-        }
+        IsPositionChanged = true;
     }
 
-    public void _SetPosition()
+    void Update()
     {
-        transform.SetPositionAndRotation(position, rotation);
+        if (IsChanged)
+        {
+            IsChanged = false;
+
+            transform.SetPositionAndRotation(position, rotation);
+            var spriteName = GetCardSpriteName();
+            var sprite = CardSprites.FindSprite(spriteName);
+            SpriteRenderer.sprite = sprite;
+        }
+
+        if (IsPositionChanged)
+        {
+            IsPositionChanged = false;
+
+            transform.SetPositionAndRotation(position, rotation);
+        }
     }
 
     public string GetCardSpriteName()

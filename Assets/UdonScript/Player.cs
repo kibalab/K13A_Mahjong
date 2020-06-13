@@ -17,37 +17,24 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public UIContext UIContext;
     [SerializeField] public AgariContext AgariContext;
     [SerializeField] public HandCalculator HandCalculator;
+    [SerializeField] public Transform StashPositions;
+    [SerializeField] public EventQueue EventQueue1;
 
     private Transform[] cardPoints;
-    private Transform stashPositions;
     private Transform plusCardPosition;
-
-    public Transform point;
 
     int[] stashedCards;
     int stashedCardIndex;
 
-    public void Initialize_Master(int playerIndex)
+    public void Initialize(int playerIndex)
     {
-        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-
         this.PlayerIndex = playerIndex;
 
         cardPoints = FindPoints();
         stashedCards = new int[34];
         stashedCardIndex = 0;
 
-        UiManager.Initialize_Master(playerIndex); ;
-    }
-
-    public void Initialize_All(EventQueue eventQueue, Transform stashPositions)
-    {
-        this.stashPositions = stashPositions;
-
-        UiManager.Initialize_All(InputEvent, eventQueue, UIContext);
-        SetColliderActive(false);
-
-        SortPosition();
+        UiManager.Initialize(playerIndex);
     }
 
     Transform[] FindPoints()
@@ -78,6 +65,8 @@ public class Player : UdonSharpBehaviour
             // 실제로 리치 가능한 건 쯔모일 때만인데..
             // 여기 들어오는 과정이 깡에서도 들어와서 좀 애매하게 됐네
             // 코드 좀 다시 깎아야함
+            AgariContext.Clear();
+
             HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext);
         }
     }
@@ -91,7 +80,7 @@ public class Player : UdonSharpBehaviour
 
         stashedCards[card.GlobalOrder]++;
 
-        SetProgramVariable("point", stashPositions.GetChild(stashedCardIndex++));
+        var point = StashPositions.GetChild(stashedCardIndex++);
         card.SetPosition(point.position, point.rotation);
         card.SetColliderActivate(false);
 
@@ -196,6 +185,8 @@ public class Player : UdonSharpBehaviour
             pickedCard.SetOwnership(PlayerIndex, InputEvent);
             pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
         }
+
+        SortPosition();
     }
 
     public void SetColliderActive(bool active)
@@ -209,7 +200,7 @@ public class Player : UdonSharpBehaviour
     void SortPosition()
     {
         Cards.Sort();
-        for (var k = 0; k < Cards.Count(); ++k) // 새로구현함
+        for (var k = 0; k < Cards.Count(); ++k)
         {
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
