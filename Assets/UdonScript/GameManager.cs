@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
+using VRC.Udon.Common.Interfaces;
 
 public class GameManager : UdonSharpBehaviour
 {
@@ -55,13 +56,18 @@ public class GameManager : UdonSharpBehaviour
         // Master가 다른 사람이 들어온 것을 감지했을 때
         else if (Networking.IsMaster && player.playerId != Networking.LocalPlayer.playerId)
         {
-            TableManager.SyncCards();
+
         }
         // Player가 처음 들어왔을 때
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
- 
+            SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncRequested");
         }
+    }
+
+    public void _SyncRequested()
+    {
+        if (isRunOnMasterScript) { TableManager.SyncCards(); }
     }
 
     public void Initialize_Master() 
