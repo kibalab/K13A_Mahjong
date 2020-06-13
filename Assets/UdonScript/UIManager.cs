@@ -2,7 +2,6 @@
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.WSA.WebCam;
 using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
