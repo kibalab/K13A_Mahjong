@@ -6,19 +6,10 @@ using VRC.Udon;
 
 public class UIButton : UdonSharpBehaviour
 {
-    public string buttonName;
-
-    public UIManager uiManager;
-
-    public void Initialize(UIManager uiManager)
-    {
-        this.uiManager = uiManager;
-
-        buttonName = this.gameObject.name;
-    }
+    [SerializeField] public UIManager UIManager;
 
     public override void Interact()
     {
-        uiManager.OnClick(buttonName);
+        UIManager.OnClick(gameObject.name);
     }
 }
