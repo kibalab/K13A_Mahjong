@@ -9,9 +9,8 @@ using VRC.Udon.Common.Interfaces;
 public class UIManager : UdonSharpBehaviour
 {
     [UdonSynced(UdonSyncMode.None)] public string UIName;
-    [UdonSynced(UdonSyncMode.None)] public int SelectedCard;
-    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
+    [SerializeField] public int PlayerIndex;
     [SerializeField] public InputEvent InputEvent;
     [SerializeField] public EventQueue EventQueue;
     [SerializeField] public UIContext UIContext;
@@ -25,9 +24,8 @@ public class UIManager : UdonSharpBehaviour
     // 월드 마스터의 local에서만 true인 항목
     private bool isRunOnMasterScript = false;
 
-    public void Initialize(int playerIndex)
+    public void Initialize()
     {
-        PlayerIndex = playerIndex;
         isRunOnMasterScript = true;
     }
 
