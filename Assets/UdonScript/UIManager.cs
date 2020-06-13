@@ -147,10 +147,20 @@ public class UIManager : UdonSharpBehaviour
                 ActiveButton("ChiSelect");
                 ActiveButton("Skip");
             }
-            else
+            else if (UIName == "Chi" && UIContext.ChiableCount == 1)
+            {
+                InputEvent.SetChiEvent(UIContext.ChiableIndex1, UIName, PlayerIndex);
+                EventQueue.Enqueue(InputEvent);
+            }
+            else if (UIName.StartsWith("chiSelect"))
             {
                 var chiYamaIndexes = GetChiIndexByUIName();
                 InputEvent.SetChiEvent(chiYamaIndexes, "Chi", PlayerIndex);
+                EventQueue.Enqueue(InputEvent);
+            }
+            else
+            {
+                InputEvent.SetUIEvent(UIName, PlayerIndex);
                 EventQueue.Enqueue(InputEvent);
             }
         }
@@ -160,7 +170,6 @@ public class UIManager : UdonSharpBehaviour
     {
         switch (UIName)
         {
-            case "Chi":         return UIContext.ChiableIndex1;
             case "chiSelect_1": return UIContext.ChiableIndex1;
             case "chiSelect_2": return UIContext.ChiableIndex2;
             case "chiSelect_3": return UIContext.ChiableIndex3;
