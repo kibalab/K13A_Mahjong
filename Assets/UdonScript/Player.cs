@@ -7,8 +7,7 @@ public class Player : UdonSharpBehaviour
 {
     private const int FULL_CARD_COUNT = 14;
 
-    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
-
+    [SerializeField] public int PlayerIndex;
     [SerializeField] public UIManager UiManager;
     [SerializeField] public GameObject CardPositions;
     [SerializeField] public KList Cards;
@@ -26,15 +25,13 @@ public class Player : UdonSharpBehaviour
     int[] stashedCards;
     int stashedCardIndex;
 
-    public void Initialize(int playerIndex)
+    public void Initialize()
     {
-        this.PlayerIndex = playerIndex;
-
         cardPoints = FindPoints();
         stashedCards = new int[34];
         stashedCardIndex = 0;
 
-        UiManager.Initialize(playerIndex);
+        UiManager.Initialize();
     }
 
     Transform[] FindPoints()
@@ -53,8 +50,6 @@ public class Player : UdonSharpBehaviour
 
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo)
     {
-        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-        
         Cards.Add(newCard);
 
         newCard.SetOwnership(PlayerIndex, InputEvent);
@@ -73,8 +68,6 @@ public class Player : UdonSharpBehaviour
 
     public void Discard(Card card)
     {
-        Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-
         var index = Cards.IndexOf(card);
         Cards.RemoveAt(index);
 
