@@ -2,6 +2,7 @@
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.WSA.WebCam;
 using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
@@ -121,6 +122,7 @@ public class UIManager : UdonSharpBehaviour
 
     public void OnClick(string uiName)
     {
+
         UIName = uiName;
 
         if (Networking.LocalPlayer == null)
@@ -149,7 +151,7 @@ public class UIManager : UdonSharpBehaviour
             else
             {
                 var chiYamaIndexes = GetChiIndexByUIName();
-                InputEvent.SetChiEvent(chiYamaIndexes, UIName, PlayerIndex);
+                InputEvent.SetChiEvent(chiYamaIndexes, "Chi", PlayerIndex);
                 EventQueue.Enqueue(InputEvent);
             }
         }
