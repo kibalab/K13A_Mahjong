@@ -197,7 +197,23 @@ public class Player : UdonSharpBehaviour
         {
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
-            card.SetPosition(cardPoint.position, cardPoint.rotation);
+
+            var currPosition = card.transform.position;
+            var currRotation = card.transform.rotation;
+            var nextPosition = cardPoint.position;
+            var nextRotation = cardPoint.rotation;
+
+            var isSameTransform = Mathf.Approximately(currPosition.x, nextPosition.x)
+                              && Mathf.Approximately(currPosition.y, nextPosition.y)
+                              && Mathf.Approximately(currPosition.z, nextPosition.z)
+                              && Mathf.Approximately(currRotation.x, nextRotation.x)
+                              && Mathf.Approximately(currRotation.y, nextRotation.y)
+                              && Mathf.Approximately(currRotation.z, nextRotation.z);
+
+            if (!isSameTransform)
+            {
+                card.SetPosition(cardPoint.position, cardPoint.rotation);
+            }
         }
     }
 
