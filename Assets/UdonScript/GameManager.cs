@@ -124,7 +124,7 @@ public class GameManager : UdonSharpBehaviour
         if (!EventQueue.IsQueueEmpty())
         {
             var inputEvent = EventQueue.Dequeue();
-            LogViewer.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex}", 0);
+            LogViewer.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex})", 0);
 
             switch (GameState)
             {
