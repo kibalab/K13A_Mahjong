@@ -16,7 +16,7 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    [UdonSynced(UdonSyncMode.None)] public bool IsChanged;
+    [UdonSynced(UdonSyncMode.None)] public bool IsInitialized;
     [UdonSynced(UdonSyncMode.None)] public bool IsPositionChanged;
 
     [SerializeField] public HandUtil HandUtil;
@@ -58,7 +58,7 @@ public class Card : UdonSharpBehaviour
         IsDora = isDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
 
-        IsChanged = true;
+        IsInitialized = true;
     }
 
     public void SyncData()
@@ -66,11 +66,11 @@ public class Card : UdonSharpBehaviour
         Type = Type;
         CardNumber = CardNumber;
         IsDora = IsDora;
-        IsRinShan = IsRinShan;
         position = position;
         rotation = rotation;
 
-        IsChanged = true;
+        IsInitialized = true;
+        IsPositionChanged = true;
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -93,22 +93,19 @@ public class Card : UdonSharpBehaviour
 
     void Update()
     {
-        if (IsChanged)
+        if (IsInitialized)
         {
-            LogViewer.Log($"Card Changed. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+            IsInitialized = false;
 
-            IsChanged = false;
-
-            transform.SetPositionAndRotation(position, rotation);
             var spriteName = GetCardSpriteName();
             var sprite = CardSprites.FindSprite(spriteName);
             SpriteRenderer.sprite = sprite;
+
+            LogViewer.Log($"Card Changed. ({Type}, {CardNumber}, {GlobalOrder})", 1);
         }
 
         if (IsPositionChanged)
         {
-            LogViewer.Log($"CardPosition Changed. ({Type}, {CardNumber}, {GlobalOrder})", 1);
-
             IsPositionChanged = false;
 
             transform.SetPositionAndRotation(position, rotation);
