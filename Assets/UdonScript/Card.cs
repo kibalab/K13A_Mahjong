@@ -16,9 +16,6 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    [UdonSynced(UdonSyncMode.None)] public bool IsInitialized;
-    [UdonSynced(UdonSyncMode.None)] public bool IsPositionChanged;
-
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public CardSprites CardSprites;
     [SerializeField] public SpriteRenderer SpriteRenderer;
@@ -58,7 +55,8 @@ public class Card : UdonSharpBehaviour
         IsDora = isDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
 
-        IsInitialized = true;
+        if (Networking.LocalPlayer == null) { _SyncSprite(); }
+        else { SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncSprite"); }
     }
 
     public void SyncData()
@@ -69,8 +67,8 @@ public class Card : UdonSharpBehaviour
         position = position;
         rotation = rotation;
 
-        IsInitialized = true;
-        IsPositionChanged = true;
+        SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncSprite");
+        SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncPosition");
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -88,28 +86,25 @@ public class Card : UdonSharpBehaviour
     {
         position = p;
         rotation = r;
-        IsPositionChanged = true;
+
+        if (Networking.LocalPlayer == null) { _SyncPosition(); }
+        else { SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncPosition"); }
     }
 
-    void Update()
+    public void _SyncSprite()
     {
-        if (IsInitialized)
-        {
-            IsInitialized = false;
+        var spriteName = GetCardSpriteName();
+        var sprite = CardSprites.FindSprite(spriteName);
+        SpriteRenderer.sprite = sprite;
 
-            var spriteName = GetCardSpriteName();
-            var sprite = CardSprites.FindSprite(spriteName);
-            SpriteRenderer.sprite = sprite;
+        LogViewer.Log($"Sprite Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+    }
 
-            LogViewer.Log($"Card Changed. ({Type}, {CardNumber}, {GlobalOrder})", 1);
-        }
+    public void _SyncPosition()
+    {
+        transform.SetPositionAndRotation(position, rotation);
 
-        if (IsPositionChanged)
-        {
-            IsPositionChanged = false;
-
-            transform.SetPositionAndRotation(position, rotation);
-        }
+        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
     }
 
     public string GetCardSpriteName()
