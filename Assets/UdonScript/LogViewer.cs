@@ -1,4 +1,5 @@
 
+using System;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class LogViewer : UdonSharpBehaviour
     public Text debugText2;
     public void Log(string str, int logViewer)
     {
+        str = AddTimestamp(str);
+
         switch (logViewer)
         {
             case 0:
@@ -25,6 +28,8 @@ public class LogViewer : UdonSharpBehaviour
     }
     public void ErrorLog(string str, int logViewer)
     {
+        str = AddTimestamp(str);
+
         switch (logViewer)
         {
             case 0:
@@ -36,5 +41,11 @@ public class LogViewer : UdonSharpBehaviour
                 Debug.Log("[LogViewer2 Error] " + str);
                 break;
         }
+    }
+
+    string AddTimestamp(string str)
+    {
+        var dateTime = DateTime.Now.ToString("HH:mm:ss");
+        return $"[{dateTime}]: {str}";
     }
 }
