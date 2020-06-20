@@ -5,6 +5,7 @@ using VRC.Udon;
 
 public class Player : UdonSharpBehaviour
 {
+    private const float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;
     private const int FULL_CARD_COUNT = 14;
 
     [SerializeField] public int PlayerIndex;
@@ -143,9 +144,10 @@ public class Player : UdonSharpBehaviour
 
     public void CheckNakiable(Card card, bool isDiscardedByLeftPlayer)
     {
-        UIContext.Clear();
+        var now = Time.time;
 
-        UIContext.IsChanged = true;
+        UIContext.Clear();
+        UIContext.SyncEndTime = now + ESTIMATED_MAX_NETWORK_DELAY;
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
