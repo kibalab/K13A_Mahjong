@@ -14,7 +14,6 @@ public class GameManager : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string GameState = "";
     [UdonSynced(UdonSyncMode.None)] public int UIActivedCount = 0;
     [UdonSynced(UdonSyncMode.None)] public int RegisteredPlayerCount = 0;
-    [UdonSynced(UdonSyncMode.None)] public string Test_SyncRequestUser = "";
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -70,15 +69,13 @@ public class GameManager : UdonSharpBehaviour
 
             waitTime = 3.0f;
             isWaiting = true;
-            Test_SyncRequestUser = player.displayName;
-            // SendCustomNetworkEvent(NetworkEventTarget.Owner, "_SyncRequested");
         }
     }
 
     public void _SyncRequested()
     {
         // 밑엣줄이 안 보이면 문제가 심각한 것
-        LogViewer.Log($"SyncRequested By {Test_SyncRequestUser}", 0);
+        LogViewer.Log($"SyncRequested!", 0);
         TableManager.SyncCards();
     }
 
