@@ -5,6 +5,8 @@ using VRC.SDKBase;
 
 public class Card : UdonSharpBehaviour
 {
+    private const float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;
+
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
     [UdonSynced(UdonSyncMode.None)] public int GlobalOrder;
@@ -16,6 +18,9 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
+    [UdonSynced(UdonSyncMode.None)] public float SyncSpriteEndTime = 0f;
+    [UdonSynced(UdonSyncMode.None)] public float SyncPositionEndTime = 0f;
+
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public CardSprites CardSprites;
     [SerializeField] public SpriteRenderer SpriteRenderer;
@@ -24,6 +29,9 @@ public class Card : UdonSharpBehaviour
     [SerializeField] public EventQueue EventQueue;
 
     private InputEvent inputEvent;
+    private bool isPrevFrameSpriteSynced;
+    private bool isPrevFramePositionSynced;
+
 
     public override void Interact()
     {
@@ -55,8 +63,8 @@ public class Card : UdonSharpBehaviour
         IsDora = isDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
 
-        if (Networking.LocalPlayer == null) { _SyncSprite(); }
-        else { SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncSprite"); }
+        SyncSpriteEndTime = Time.time + 5.0f;
+        SyncPositionEndTime = Time.time + 5.0f;
     }
 
     public void SyncData()
@@ -66,9 +74,10 @@ public class Card : UdonSharpBehaviour
         IsDora = IsDora;
         position = position;
         rotation = rotation;
+        GlobalOrder = GlobalOrder;
 
-        SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncSprite");
-        SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncPosition");
+        SyncSpriteEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -87,24 +96,7 @@ public class Card : UdonSharpBehaviour
         position = p;
         rotation = r;
 
-        if (Networking.LocalPlayer == null) { _SyncPosition(); }
-        else { SendCustomNetworkEvent(NetworkEventTarget.All, "_SyncPosition"); }
-    }
-
-    public void _SyncSprite()
-    {
-        var spriteName = GetCardSpriteName();
-        var sprite = CardSprites.FindSprite(spriteName);
-        SpriteRenderer.sprite = sprite;
-
-        LogViewer.Log($"Sprite Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
-    }
-
-    public void _SyncPosition()
-    {
-        transform.SetPositionAndRotation(position, rotation);
-
-        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public string GetCardSpriteName()
@@ -123,4 +115,41 @@ public class Card : UdonSharpBehaviour
                 return Type + CardNumber + (IsDora ? "도라" : "");
         }
     }
+
+    private void Update()
+    {
+        var now = Time.time;
+
+        CheckSpriteSync(now);
+        CheckPositionSync(now);
+    }
+
+    void CheckSpriteSync(float now)
+    {
+        var isSyncSprite = now < SyncSpriteEndTime;
+        if (isSyncSprite && !isPrevFrameSpriteSynced)
+        {
+            var spriteName = GetCardSpriteName();
+            var sprite = CardSprites.FindSprite(spriteName);
+            SpriteRenderer.sprite = sprite;
+
+            LogViewer.Log($"Sprite Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+        }
+
+        isPrevFrameSpriteSynced = isSyncSprite;
+    }
+
+    void CheckPositionSync(float now)
+    {
+        var isSyncPosition = now < SyncPositionEndTime;
+        if (isSyncPosition && !isPrevFramePositionSynced)
+        {
+            transform.SetPositionAndRotation(position, rotation);
+
+            LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+        }
+
+        isPrevFramePositionSynced = isSyncPosition;
+    }
+
 }

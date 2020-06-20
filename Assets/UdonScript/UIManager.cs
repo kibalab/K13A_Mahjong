@@ -24,6 +24,8 @@ public class UIManager : UdonSharpBehaviour
     // 월드 마스터의 local에서만 true인 항목
     private bool isRunOnMasterScript = false;
 
+    private bool isPrevFrameUISynced;
+
     public void Initialize()
     {
         isRunOnMasterScript = true;
@@ -37,11 +39,12 @@ public class UIManager : UdonSharpBehaviour
 
     void Update()
     {
-        if (UIContext.IsChanged && isMyTable)
-        {
-            UIContext.IsChanged = false;
+        var now = Time.time;
 
-            // 테스트 해야되서 임시로 비활성화함
+        var isSyncTime = now < UIContext.SyncEndTime;
+
+        if (isSyncTime && isMyTable)
+        {
             if (UIContext.IsChiable) { OpenChiSelect(); }
             if (UIContext.IsPonable) ActiveButton("Pon");
             if (UIContext.IsKkanable) ActiveButton("Kkan");
@@ -50,6 +53,8 @@ public class UIManager : UdonSharpBehaviour
             if (UIContext.IsRonable) ActiveButton("Ron");
             if (UIContext.IsAnythingActived()) ActiveButton("Skip");
         }
+
+        isPrevFrameUISynced = isSyncTime;
     }
 
     void OpenChiSelect()
