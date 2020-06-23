@@ -25,7 +25,10 @@ public class LogViewer : UdonSharpBehaviour
                 Debug.Log("[LogViewer2] " + str);
                 break;
         }
+
+        DeleteOldLog();
     }
+
     public void ErrorLog(string str, int logViewer)
     {
         str = AddTimestamp(str);
@@ -41,11 +44,25 @@ public class LogViewer : UdonSharpBehaviour
                 Debug.Log("[LogViewer2 Error] " + str);
                 break;
         }
+        DeleteOldLog();
     }
 
     string AddTimestamp(string str)
     {
         var dateTime = DateTime.Now.ToString("HH:mm:ss");
         return $"[{dateTime}]: {str}";
+    }
+
+    void DeleteOldLog()
+    {
+        if (debugText1.text.Length > 30000)
+        {
+            debugText1.text = debugText1.text.Substring(15000);
+        }
+
+        if (debugText2.text.Length > 30000)
+        {
+            debugText2.text = debugText2.text.Substring(15000);
+        }
     }
 }

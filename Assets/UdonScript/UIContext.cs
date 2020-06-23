@@ -27,8 +27,7 @@ public class UIContext : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public bool IsChiable;
     [UdonSynced(UdonSyncMode.None)] public bool IsPonable;
     [UdonSynced(UdonSyncMode.None)] public bool IsKkanable;
-
-    [UdonSynced(UdonSyncMode.None)] public float SyncEndTime;
+    [UdonSynced(UdonSyncMode.None)] public float SyncStartTime = float.MaxValue;
 
     public bool IsAnythingActived()
     {
