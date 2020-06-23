@@ -18,8 +18,8 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    [UdonSynced(UdonSyncMode.None)] public float SyncSpriteEndTime = 0f;
-    [UdonSynced(UdonSyncMode.None)] public float SyncPositionEndTime = 0f;
+    [UdonSynced(UdonSyncMode.None)] public float SyncSpriteStartTime = float.MaxValue;
+    [UdonSynced(UdonSyncMode.None)] public float SyncPositionStartTime = float.MaxValue;
 
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public CardSprites CardSprites;
@@ -63,8 +63,8 @@ public class Card : UdonSharpBehaviour
         IsDora = isDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
 
-        SyncSpriteEndTime = Time.time + 5.0f;
-        SyncPositionEndTime = Time.time + 5.0f;
+        SyncSpriteStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public void SyncData()
@@ -75,9 +75,10 @@ public class Card : UdonSharpBehaviour
         position = position;
         rotation = rotation;
         GlobalOrder = GlobalOrder;
+        YamaIndex = YamaIndex;
 
-        SyncSpriteEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
-        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncSpriteStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -96,7 +97,7 @@ public class Card : UdonSharpBehaviour
         position = p;
         rotation = r;
 
-        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public string GetCardSpriteName()
@@ -120,36 +121,34 @@ public class Card : UdonSharpBehaviour
     {
         var now = Time.time;
 
-        CheckSpriteSync(now);
-        CheckPositionSync(now);
-    }
-
-    void CheckSpriteSync(float now)
-    {
-        var isSyncSprite = now < SyncSpriteEndTime;
+        var isSyncSprite = SyncSpriteStartTime < now;
         if (isSyncSprite && !isPrevFrameSpriteSynced)
         {
-            var spriteName = GetCardSpriteName();
-            var sprite = CardSprites.FindSprite(spriteName);
-            SpriteRenderer.sprite = sprite;
-
-            LogViewer.Log($"Sprite Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+            SyncSprite();
         }
 
         isPrevFrameSpriteSynced = isSyncSprite;
-    }
 
-    void CheckPositionSync(float now)
-    {
-        var isSyncPosition = now < SyncPositionEndTime;
+        var isSyncPosition = SyncPositionStartTime < now;
         if (isSyncPosition && !isPrevFramePositionSynced)
         {
-            transform.SetPositionAndRotation(position, rotation);
-
-            LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+            SyncPosition();
         }
 
         isPrevFramePositionSynced = isSyncPosition;
     }
 
+    void SyncSprite()
+    {
+        var spriteName = GetCardSpriteName();
+        var sprite = CardSprites.FindSprite(spriteName);
+        SpriteRenderer.sprite = sprite;
+        LogViewer.Log($"Sprite Synced. ({YamaIndex}: {Type}, {CardNumber}, {GlobalOrder})", 1);
+    }
+
+    void SyncPosition()
+    {
+        transform.SetPositionAndRotation(position, rotation);
+        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+    }
 }

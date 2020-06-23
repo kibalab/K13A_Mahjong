@@ -147,7 +147,7 @@ public class Player : UdonSharpBehaviour
         var now = Time.time;
 
         UIContext.Clear();
-        UIContext.SyncEndTime = now + ESTIMATED_MAX_NETWORK_DELAY;
+        UIContext.SyncStartTime = now + ESTIMATED_MAX_NETWORK_DELAY;
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
@@ -199,23 +199,7 @@ public class Player : UdonSharpBehaviour
         {
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
-
-            var currPosition = card.transform.position;
-            var currRotation = card.transform.rotation;
-            var nextPosition = cardPoint.position;
-            var nextRotation = cardPoint.rotation;
-
-            var isSameTransform = Mathf.Approximately(currPosition.x, nextPosition.x)
-                              && Mathf.Approximately(currPosition.y, nextPosition.y)
-                              && Mathf.Approximately(currPosition.z, nextPosition.z)
-                              && Mathf.Approximately(currRotation.x, nextRotation.x)
-                              && Mathf.Approximately(currRotation.y, nextRotation.y)
-                              && Mathf.Approximately(currRotation.z, nextRotation.z);
-
-            if (!isSameTransform)
-            {
-                card.SetPosition(cardPoint.position, cardPoint.rotation);
-            }
+            card.SetPosition(cardPoint.position, cardPoint.rotation);
         }
     }
 

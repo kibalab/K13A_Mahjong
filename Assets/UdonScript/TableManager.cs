@@ -27,7 +27,7 @@ public class TableManager : UdonSharpBehaviour
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
     private int syncIndex = 9999;
-
+    bool isRunOnMasterScript = false;
     void Start()
     {
         yama = CardPool.GetComponentsInChildren<Card>();
@@ -142,6 +142,8 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize()
     {
+        isRunOnMasterScript = true;
+
         InitializeYama();
         LogViewer.Log("Yama Initalized", 0);
 
@@ -272,9 +274,12 @@ public class TableManager : UdonSharpBehaviour
 
     private void Update()
     {
-        if (syncIndex < yama.Length)
+        if (isRunOnMasterScript)
         {
-            yama[syncIndex++].SyncData();
+            if (syncIndex < yama.Length)
+            {
+                yama[syncIndex++].SyncData();
+            }
         }
     }
 }

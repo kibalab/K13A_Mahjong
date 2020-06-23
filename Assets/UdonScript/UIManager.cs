@@ -40,8 +40,9 @@ public class UIManager : UdonSharpBehaviour
     void Update()
     {
         var now = Time.time;
+        if (UIContext == null) { return; }
 
-        var isSyncTime = now < UIContext.SyncEndTime;
+        var isSyncTime = UIContext.SyncStartTime < now;
 
         if (isSyncTime && isMyTable && !isPrevFrameUISynced)
         {
