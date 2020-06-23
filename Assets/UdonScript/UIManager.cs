@@ -43,7 +43,7 @@ public class UIManager : UdonSharpBehaviour
 
         var isSyncTime = now < UIContext.SyncEndTime;
 
-        if (isSyncTime && isMyTable)
+        if (isSyncTime && isMyTable && !isPrevFrameUISynced)
         {
             if (UIContext.IsChiable) { OpenChiSelect(); }
             if (UIContext.IsPonable) ActiveButton("Pon");
