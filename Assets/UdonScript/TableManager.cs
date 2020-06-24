@@ -175,7 +175,6 @@ public class TableManager : UdonSharpBehaviour
                 {
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
                     yama[index++].Initialize_Master(type, number, isDora);
-                    LogViewer.Log($"Master Card Initalized (Name: {yama[index-1].Type}{yama[index-1].CardNumber}, GlobalOrder: {yama[index-1].GlobalOrder})", 0);
                 }
             }
         }
