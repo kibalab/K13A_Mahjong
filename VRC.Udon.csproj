@@ -70,7 +70,7 @@
     <Compile Include="Assets\Udon\Serialization\Formatters\UdonProgramFormatter.cs" />
     <Compile Include="Assets\Udon\UdonBehaviour.cs" />
     <Compile Include="Assets\Udon\UdonManager.cs" />
-    <Compile Include="Assets\Udon\Wrapper\ExternVRCInstantiate.cs" />
+    <Compile Include="Assets\Udon\WrapperModules\ExternVRCInstantiate.cs" />
     <None Include="Assets\Udon\ReferenceDocs\_sources\nodes\UnityEngine\TextAsset\index.rst.txt" />
     <None Include="Assets\Udon\ReferenceDocs\_sources\nodes\UnityEngine\AvatarBuilder\index.rst.txt" />
     <None Include="Assets\Udon\ReferenceDocs\_sources\nodes\UnityEngine\AnimatorClipInfo\index.rst.txt" />
@@ -625,6 +625,15 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>E:/Unity/K13A_majong/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCTypeResolverModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.VRCTypeResolverModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCWrapperModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCGraphModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.VRCGraphModules.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

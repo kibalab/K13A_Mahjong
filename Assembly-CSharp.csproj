@@ -86,17 +86,6 @@
     <Compile Include="Assets\UdonScript\UIButton.cs" />
     <Compile Include="Assets\UdonScript\UIContext.cs" />
     <Compile Include="Assets\UdonScript\UIManager.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_1.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_2.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_3.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_4_Signal.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_4_Spinner.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_5_Dependent.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Tutorials\SpinningCubes\SpinningCubes_5_Master.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Utilities\BoneFollower.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Utilities\InteractToggle.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Utilities\PlayerModSetter.cs" />
-    <Compile Include="Assets\UdonSharp\Examples\Utilities\TrackingDataFollower.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\Oculus\Spatializer\Scripts\ONSPAudioSource.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\ApiFileHelper.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\AudioManagerSettings.cs" />
@@ -138,7 +127,6 @@
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Add.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient_Cutout.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Video-RealtimeEmissiveGamma.shader" />
-    <None Include="Assets\UdonSharp\version.txt" />
     <None Include="Assets\VRCSDK\Dependencies\VRChat\Resources\awsconfig.xml" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-ToonLit.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedMappedSpecular.shader" />
@@ -149,10 +137,8 @@
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mirror.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Lightmapped.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\VRChat-Sprites-Default.shader" />
-    <None Include="Assets\UdonSharp\Examples\Utilities\ExampleUtilityTemplate.txt" />
     <None Include="Assets\VRCSDK\Sample Assets\PanoViewer\Panosphere.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Alpha.shader" />
-    <None Include="Assets\UdonSharp\Examples\Tutorials\ExampleTutorialTemplate.txt" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat_Cutout.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Multiply.shader" />
@@ -430,6 +416,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>E:/Unity/K13A_majong/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCWrapperModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -790,14 +779,6 @@
     <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
       <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
-      <Name>UdonSharp.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Editor.csproj">
-      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
-      <Name>UdonSharp.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="VRC.Udon.csproj">
       <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>

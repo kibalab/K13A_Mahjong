@@ -51,6 +51,7 @@ public class GameManager : UdonSharpBehaviour
         // Master가 처음 들어왔을 때
         if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
         {
+            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             Initialize_Master();
             if (testMode)
             {
