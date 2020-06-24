@@ -51,7 +51,7 @@ namespace UdonSharp
         {
             programAsset.compileErrors.Clear();
             
-            Microsoft.CodeAnalysis.SyntaxTree tree = CSharpSyntaxTree.ParseText(sourceCode);
+            SyntaxTree tree = CSharpSyntaxTree.ParseText(sourceCode);
 
             CompileTaskResult result = new CompileTaskResult();
             result.programAsset = programAsset;
