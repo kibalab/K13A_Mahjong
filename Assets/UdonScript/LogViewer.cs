@@ -55,14 +55,14 @@ public class LogViewer : UdonSharpBehaviour
 
     void DeleteOldLog()
     {
-        if (debugText1.text.Length > 30000)
+        if (debugText1.text.Length > 3000)
         {
-            debugText1.text = debugText1.text.Substring(15000);
+            debugText1.text = debugText1.text.Substring(1500);
         }
 
-        if (debugText2.text.Length > 30000)
+        if (debugText2.text.Length > 3000)
         {
-            debugText2.text = debugText2.text.Substring(15000);
+            debugText2.text = debugText2.text.Substring(1500);
         }
     }
 }
