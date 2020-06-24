@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
-    private const float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;
+    private const float ESTIMATED_MAX_NETWORK_DELAY = 1.0f;
 
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
@@ -162,6 +162,6 @@ public class Card : UdonSharpBehaviour
     void SyncPosition_Client()
     {
         transform.SetPositionAndRotation(Position, Rotation);
-        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {Position})", 1);
+        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
     }
 }
