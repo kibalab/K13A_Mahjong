@@ -436,15 +436,6 @@
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>E:/Unity/K13A_majong/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
-    <Reference Include="VRC.Udon.VRCTypeResolverModules">
-      <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.VRCTypeResolverModules.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VRCWrapperModules">
-      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VRCGraphModules">
-      <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.VRCGraphModules.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
     </Reference>
@@ -808,6 +799,14 @@
     <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
       <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
+      <Name>UdonSharp.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Editor.csproj">
+      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
+      <Name>UdonSharp.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="VRC.Udon.csproj">
       <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>

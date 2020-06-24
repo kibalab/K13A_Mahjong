@@ -307,6 +307,11 @@ namespace VRC.Udon.Editor
             return _udonEditorInterface.GetWrapper();
         }
 
+        public void RegisterWrapperModule(IUdonWrapperModule wrapperModule)
+        {
+            _udonEditorInterface.RegisterWrapperModule(wrapperModule);
+        }
+
         public IUdonHeap ConstructUdonHeap()
         {
             return _udonEditorInterface.ConstructUdonHeap();
