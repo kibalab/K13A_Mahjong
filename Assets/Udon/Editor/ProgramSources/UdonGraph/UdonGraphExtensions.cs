@@ -106,41 +106,11 @@ namespace VRC.Udon.Editor.ProgramSources
         public static void PopulateNodeMenu(this UdonNodeSearchMenu.NodeMenuLayer nodeLayers)
         {
             List<(string path, UdonNodeDefinition nodeDefinition)> nodePaths = new List<(string path, UdonNodeDefinition nodeDefinition)>();
-            Dictionary<string, INodeRegistry> nodeRegistries = UdonEditorManager.Instance.GetNodeRegistries();
-            Dictionary<string, List<KeyValuePair<string, INodeRegistry>>> sortedRegistries = new Dictionary<string, List<KeyValuePair<string, INodeRegistry>>>()
-            {
-                {"System", new List<KeyValuePair<string, INodeRegistry>>()},
-                {"Udon", new List<KeyValuePair<string, INodeRegistry>>()},
-                {"VRC", new List<KeyValuePair<string, INodeRegistry>>()},
-                {"UnityEngine", new List<KeyValuePair<string, INodeRegistry>>()},
-            };
-            foreach (KeyValuePair<string, INodeRegistry> nodeRegistry in nodeRegistries)
-            {
-                if (nodeRegistry.Key.StartsWith("System"))
-                {
-                    sortedRegistries["System"].Add(nodeRegistry);
-                }
-                else if (nodeRegistry.Key.StartsWith("Udon"))
-                {
-                    sortedRegistries["Udon"].Add(nodeRegistry);
-                }
-                else if (nodeRegistry.Key.StartsWith("VRC"))
-                {
-                    sortedRegistries["VRC"].Add(nodeRegistry);
-                }
-                else if (nodeRegistry.Key.StartsWith("UnityEngine"))
-                {
-                    sortedRegistries["UnityEngine"].Add(nodeRegistry);
-                }
-                else
-                {
-                    UnityEngine.Debug.Log(nodeRegistry.Key);
-                }
-            }
-            foreach (KeyValuePair<string, List<KeyValuePair<string, INodeRegistry>>> topRegistry in sortedRegistries)
+
+            foreach (KeyValuePair<string, INodeRegistry> topRegistry in UdonEditorManager.Instance.GetNodeRegistries())
             {
                 string topName = topRegistry.Key.Replace("NodeRegistry", "");
-                foreach (KeyValuePair<string, INodeRegistry> registry in topRegistry.Value.OrderBy(s => s.Key))
+                foreach (KeyValuePair<string, INodeRegistry> registry in topRegistry.Value.GetNodeRegistries().OrderBy(s => s.Key))
                 {
                     string baseRegistryName = registry.Key.Replace("NodeRegistry", "").FriendlyNameify().ReplaceFirst(topName, "");
                     string registryName = baseRegistryName.UppercaseFirst();
@@ -152,11 +122,12 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         registryName = $"{registryName.Substring(0, registryName.Length - 2)}/{registryName}";
                     }
+                    
                     Dictionary<string, UdonNodeDefinition> baseNodeDefinition = new Dictionary<string, UdonNodeDefinition>();
                     foreach (UdonNodeDefinition nodeDefinition in registry.Value.GetNodeDefinitions().OrderBy(s => UdonNodeSearchMenu.PrettyFullName(s)))
                     {
                         string baseIdentifier = nodeDefinition.fullName;
-                        string[] splitBaseIdentifier = baseIdentifier.Split(new[] { "__" }, StringSplitOptions.None);
+                        string[] splitBaseIdentifier = baseIdentifier.Split(new[] {"__"}, StringSplitOptions.None);
                         if (splitBaseIdentifier.Length >= 2)
                         {
                             baseIdentifier = $"{splitBaseIdentifier[0]}__{splitBaseIdentifier[1]}";
@@ -167,6 +138,7 @@ namespace VRC.Udon.Editor.ProgramSources
                         }
                         baseNodeDefinition.Add(baseIdentifier, nodeDefinition);
                     }
+
                     foreach (KeyValuePair<string, UdonNodeDefinition> nodeDefinitionsEntry in baseNodeDefinition)
                     {
                         string nodeName = PrettyBaseName(nodeDefinitionsEntry.Key).ReplaceFirst(baseRegistryName, "");
@@ -175,7 +147,8 @@ namespace VRC.Udon.Editor.ProgramSources
                             nodeName = nodeName.Split('.')[1];
                         }
                         nodeName = nodeName.UppercaseFirst();
-                        if (topName == "Udon")
+                        
+                        if(topName == "Udon") 
                         {
                             nodePaths.Add((
                                 $"{registryName}/{nodeName}", nodeDefinitionsEntry.Value));
