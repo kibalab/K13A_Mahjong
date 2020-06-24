@@ -13,11 +13,9 @@ namespace VRC.Udon
     [ExecuteInEditMode]
     public class UdonManager : MonoBehaviour, IUdonClientInterface
     {
-        public UdonBehaviour currentlyExecuting;
-        
         private static UdonManager _instance;
         private static bool _isUdonEnabled = true;
-        private static Dictionary<GameObject, List<UdonBehaviour>> _sceneBehaviours = new Dictionary<GameObject, List<UdonBehaviour>>();
+        public UdonBehaviour currentlyExecuting;
 
         public static UdonManager Instance
         {
@@ -52,6 +50,10 @@ namespace VRC.Udon
 
                 _udonClientInterface = new UdonClientInterface();
 
+                #if !VRC_CLIENT
+                _udonClientInterface.RegisterWrapperModule(new ExternVRCInstantiate());
+                #endif
+
                 return _udonClientInterface;
             }
         }
@@ -68,13 +70,12 @@ namespace VRC.Udon
 
         private static void OnSceneLoaded(Scene scene, LoadSceneMode _)
         {
-            _sceneBehaviours.Clear();
-            
-            if (!_isUdonEnabled)
+            if(_isUdonEnabled)
             {
-                VRC.Core.Logger.LogWarning("Udon is disabled globally, Udon components will be removed from the scene.");
+                return;
             }
-            
+
+            VRC.Core.Logger.LogWarning("Udon is disabled globally, Udon components will be removed from the scene.");
             GameObject[] sceneRootGameObjects = scene.GetRootGameObjects();
             List<UdonBehaviour> udonBehavioursWorkingList = new List<UdonBehaviour>();
             foreach(GameObject rootGameObject in sceneRootGameObjects)
@@ -82,20 +83,7 @@ namespace VRC.Udon
                 rootGameObject.GetComponentsInChildren(true, udonBehavioursWorkingList);
                 foreach(UdonBehaviour udonBehaviour in udonBehavioursWorkingList)
                 {
-                    if (_isUdonEnabled)
-                    {
-                        if (!_sceneBehaviours.TryGetValue(udonBehaviour.gameObject,
-                            out List<UdonBehaviour> behavioursOnObject))
-                        {
-                            behavioursOnObject = new List<UdonBehaviour>();
-                            _sceneBehaviours.Add(udonBehaviour.gameObject, behavioursOnObject);
-                        }
-                        behavioursOnObject.Add(udonBehaviour);
-                    }
-                    else
-                    {
-                        Destroy(udonBehaviour);
-                    }
+                    Destroy(udonBehaviour);
                 }
             }
         }
@@ -122,9 +110,9 @@ namespace VRC.Udon
             {
                 DestroyImmediate(this);
             }
-
-            PrimitiveType[] primitiveTypes = (PrimitiveType[])Enum.GetValues(typeof(PrimitiveType));
-            foreach(PrimitiveType primitiveType in primitiveTypes)
+            
+            PrimitiveType[] primitiveTypes = (PrimitiveType[]) Enum.GetValues(typeof(PrimitiveType));
+            foreach (PrimitiveType primitiveType in primitiveTypes)
             {
                 GameObject go = GameObject.CreatePrimitive(primitiveType);
                 Mesh primitiveMesh = go.GetComponent<MeshFilter>().sharedMesh;
@@ -144,11 +132,10 @@ namespace VRC.Udon
             return !_isUdonEnabled ? null : UdonClientInterface.ConstructUdonVM();
         }
 
-        public void FilterBlacklisted<T>(ref T objectToFilter) where T : class
+        public bool IsBlacklisted<T>(T objectToCheck)
         {
-            UdonClientInterface.FilterBlacklisted(ref objectToFilter);
+            return UdonClientInterface.IsBlacklisted(objectToCheck);
         }
-
 
         public void Blacklist(UnityEngine.Object objectToBlacklist)
         {
@@ -160,9 +147,9 @@ namespace VRC.Udon
             UdonClientInterface.Blacklist(objectsToBlacklist);
         }
 
-        public void FilterBlacklisted(ref UnityEngine.Object objectToFilter)
+        public bool IsBlacklisted(UnityEngine.Object objectToCheck)
         {
-            UdonClientInterface.FilterBlacklisted(ref objectToFilter);
+            return UdonClientInterface.IsBlacklisted(objectToCheck);
         }
 
         public void ClearBlacklist()
@@ -170,35 +157,19 @@ namespace VRC.Udon
             UdonClientInterface.ClearBlacklist();
         }
 
+        public bool IsTypeSafe(Type type)
+        {
+            return UdonClientInterface.IsTypeSafe(type);
+        }
+
         public IUdonWrapper GetWrapper()
         {
             return UdonClientInterface.GetWrapper();
         }
 
-        //Run an udon event on all objects in the scene
-        [PublicAPI]
-        public void RunEvent(string eventName, params (string symbolName, object value)[] programVariables)
+        public void RegisterWrapperModule(IUdonWrapperModule wrapperModule)
         {
-            foreach (List<UdonBehaviour> udonBehaviourList in _sceneBehaviours.Values)
-            {
-                foreach (UdonBehaviour udonBehaviour in udonBehaviourList)
-                {
-                    udonBehaviour.RunEvent(eventName, programVariables);    
-                }
-            }
-        }
-        
-        //Run an udon event on a specific gameObject
-        [PublicAPI]
-        public void RunEvent(GameObject eventReceiverObject, string eventName, params (string symbolName, object value)[] programVariables)
-        {
-            if (_sceneBehaviours.TryGetValue(eventReceiverObject, out List<UdonBehaviour> eventReceiverBehaviourList))
-            {
-                foreach (UdonBehaviour udonBehaviour in eventReceiverBehaviourList)
-                {
-                    udonBehaviour.RunEvent(eventName, programVariables);    
-                }
-            }
+            UdonClientInterface.RegisterWrapperModule(wrapperModule);
         }
 
         public bool DebugLogging

@@ -389,9 +389,6 @@
     <Reference Include="VRC.Udon.VM">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VM.dll</HintPath>
     </Reference>
-    <Reference Include="VRC.Udon.VRCWrapperModules">
-      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
-    </Reference>
     <Reference Include="VRC.Udon.Wrapper">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Wrapper.dll</HintPath>
     </Reference>
@@ -794,6 +791,14 @@
       <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
     </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
+      <Name>UdonSharp.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Editor.csproj">
+      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
+      <Name>UdonSharp.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="VRC.Udon.csproj">
       <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>
       <Name>VRC.Udon</Name>
@@ -805,14 +810,6 @@
     <ProjectReference Include="VRCSDK.ShaderStripping.csproj">
       <Project>{E904A13C-84E8-D6AF-4BBD-3ED67634E3F2}</Project>
       <Name>VRCSDK.ShaderStripping</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Editor.csproj">
-      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
-      <Name>UdonSharp.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
-      <Name>UdonSharp.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

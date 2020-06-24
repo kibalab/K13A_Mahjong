@@ -13,8 +13,6 @@ namespace VRC.Udon.Editor
     [CustomEditor(typeof(UdonBehaviour))]
     public class UdonBehaviourEditor : UnityEditor.Editor
     {
-        private const string VRC_UDON_NEW_PROGRAM_TYPE_PREF_KEY = "VRC.Udon.NewProgramType";
-
         private SerializedProperty _programSourceProperty;
         private SerializedProperty _serializedProgramAssetProperty;
         private int _newProgramType = 1;
@@ -23,7 +21,6 @@ namespace VRC.Udon.Editor
         {
             _programSourceProperty = serializedObject.FindProperty("programSource");
             _serializedProgramAssetProperty = serializedObject.FindProperty("serializedProgramAsset");
-            _newProgramType = EditorPrefs.GetInt(VRC_UDON_NEW_PROGRAM_TYPE_PREF_KEY);
 
             UdonEditorManager.Instance.WantRepaint += Repaint;
         }
@@ -45,7 +42,7 @@ namespace VRC.Udon.Editor
                 //    udonTarget.SynchronizeAnimation = EditorGUILayout.Toggle("Synchronize Animation", udonTarget.SynchronizeAnimation);
                 //else
                 //    udonTarget.SynchronizeAnimation = EditorGUILayout.Toggle("Synchronize Animation", false);
-                using(new EditorGUI.DisabledScope(true))
+                using (new EditorGUI.DisabledScope(true))
                 {
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.Toggle("Synchronize Animation", false);
@@ -94,7 +91,7 @@ namespace VRC.Udon.Editor
 
                         string udonBehaviourName = udonTarget.name;
                         Scene scene = udonTarget.gameObject.scene;
-                        if(string.IsNullOrEmpty(scene.path))
+                        if (string.IsNullOrEmpty(scene.path))
                         {
                             Debug.LogError("You need to save the scene before you can create new Udon program assets!");
                         }
@@ -103,26 +100,19 @@ namespace VRC.Udon.Editor
                             AbstractUdonProgramSource newProgramSource = CreateUdonProgramSourceAsset(newProgramType, displayName, scene, udonBehaviourName);
                             _programSourceProperty.objectReferenceValue = newProgramSource;
                             _serializedProgramAssetProperty.objectReferenceValue = newProgramSource.SerializedProgramAsset;
-                            serializedObject.ApplyModifiedProperties();
+                            serializedObject.ApplyModifiedProperties();    
                         }
                     }
 
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.BeginHorizontal();
                     GUILayout.FlexibleSpace();
-
-                    EditorGUI.BeginChangeCheck();
                     _newProgramType = EditorGUILayout.Popup(
                         "",
-                        Mathf.Clamp(_newProgramType, 0, programSourceTypesForNewMenu.Count),
+                        _newProgramType,
                         programSourceTypesForNewMenu.Select(t => t.displayName).ToArray(),
                         GUILayout.ExpandWidth(false)
                     );
-
-                    if(EditorGUI.EndChangeCheck())
-                    {
-                        EditorPrefs.SetInt(VRC_UDON_NEW_PROGRAM_TYPE_PREF_KEY, _newProgramType);
-                    }
                 }
                 else
                 {
@@ -190,19 +180,19 @@ namespace VRC.Udon.Editor
             List<(string displayName, Type newProgramType)> programSourceTypesForNewMenu = new List<(string displayName, Type newProgramType)>();
             foreach(var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                UdonProgramSourceNewMenuAttribute[] udonProgramSourceNewMenuAttributes;
+                object[] attributesUncast;
                 try
                 {
-                    udonProgramSourceNewMenuAttributes = (UdonProgramSourceNewMenuAttribute[])assembly.GetCustomAttributes(attributeNewMenuAttributeType, false);
+                    attributesUncast = assembly.GetCustomAttributes(attributeNewMenuAttributeType, false);
                 }
                 catch
                 {
-                    udonProgramSourceNewMenuAttributes = new UdonProgramSourceNewMenuAttribute[0];
+                    attributesUncast = new object[0];
                 }
 
-                foreach(UdonProgramSourceNewMenuAttribute udonProgramSourceNewMenuAttribute in udonProgramSourceNewMenuAttributes)
+                foreach(object attributeUncast in attributesUncast)
                 {
-                    if(udonProgramSourceNewMenuAttribute == null)
+                    if(!(attributeUncast is UdonProgramSourceNewMenuAttribute udonProgramSourceNewMenuAttribute))
                     {
                         continue;
                     }
@@ -215,14 +205,6 @@ namespace VRC.Udon.Editor
                     programSourceTypesForNewMenu.Add((udonProgramSourceNewMenuAttribute.DisplayName, udonProgramSourceNewMenuAttribute.Type));
                 }
             }
-
-            programSourceTypesForNewMenu.Sort(
-                (left, right) => string.Compare(
-                    left.displayName,
-                    right.displayName,
-                    StringComparison.OrdinalIgnoreCase
-                )
-            );
 
             return programSourceTypesForNewMenu;
         }
