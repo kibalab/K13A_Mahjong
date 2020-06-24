@@ -18,7 +18,6 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public AgariContext AgariContext;
     [SerializeField] public HandCalculator HandCalculator;
     [SerializeField] public Transform StashPositions;
-    [SerializeField] public EventQueue EventQueue1;
 
     private Transform[] cardPoints;
     private Transform plusCardPosition;

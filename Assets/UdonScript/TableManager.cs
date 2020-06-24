@@ -16,7 +16,8 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject StashTables;
     [SerializeField] public Material normalMaterial;
     [SerializeField] public Material doraMaterial;
-    public LogViewer LogViewer;
+    [SerializeField] public LogViewer LogViewer;
+    [SerializeField] public CardSyncQueue SyncQueue;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -26,8 +27,6 @@ public class TableManager : UdonSharpBehaviour
     private Player[] players;
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
-    private int syncIndex = 9999;
-    bool isRunOnMasterScript = false;
     void Start()
     {
         yama = CardPool.GetComponentsInChildren<Card>();
@@ -142,8 +141,6 @@ public class TableManager : UdonSharpBehaviour
 
     public void Initialize()
     {
-        isRunOnMasterScript = true;
-
         InitializeYama();
         LogViewer.Log("Yama Initalized", 0);
 
@@ -160,7 +157,7 @@ public class TableManager : UdonSharpBehaviour
 
     public void SyncCards()
     {
-        syncIndex = 0;
+        SyncQueue.SyncAll();
     }
 
     public void InitializeYama()
@@ -192,6 +189,8 @@ public class TableManager : UdonSharpBehaviour
         }
 
         yama = ShuffleCards(yama);
+
+        SyncQueue.Initialize(yama);
 
         doras = GetNextCards(10);// 도라표시패 5패, 우라도라표시패 5패, 총 10패
         rinShan = GetNextCards(4);// 영상패(왕패) 4패
@@ -269,16 +268,5 @@ public class TableManager : UdonSharpBehaviour
         }
 
         return true;
-    }
-
-    private void Update()
-    {
-        if (isRunOnMasterScript)
-        {
-            if (syncIndex < yama.Length)
-            {
-                yama[syncIndex++].SyncData();
-            }
-        }
     }
 }
