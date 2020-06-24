@@ -1,4 +1,5 @@
-﻿using UdonSharp;
+﻿using System.Diagnostics;
+using UdonSharp;
 
 public class CardSyncQueue : UdonSharpBehaviour
 {
@@ -49,7 +50,7 @@ public class CardSyncQueue : UdonSharpBehaviour
         // 여기가 불릴 일은 거의 없을거라고 생각
         if (topIndex == syncQueue.Length)
         {
-            yama[currIndex].SyncData();
+            yama[currIndex++].SyncData();
             SortQueue();
         }
 
@@ -80,7 +81,9 @@ public class CardSyncQueue : UdonSharpBehaviour
         }
         else if (currIndex < topIndex)
         {
-            yama[currIndex++].SyncData();
+            var index = syncQueue[currIndex++];
+
+            yama[index].SyncPosition();
         }
         else if (currIndex == topIndex)
         {

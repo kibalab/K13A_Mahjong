@@ -2,6 +2,7 @@
 using VRC.Udon.Common.Interfaces;
 using UdonSharp;
 using VRC.SDKBase;
+using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
@@ -13,8 +14,8 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
     [UdonSynced(UdonSyncMode.None)] public bool IsRinShan;
 
-    [UdonSynced(UdonSyncMode.None)] public Vector3 position;
-    [UdonSynced(UdonSyncMode.None)] public Quaternion rotation;
+    [UdonSynced(UdonSyncMode.None)] public Vector3 Position;
+    [UdonSynced(UdonSyncMode.None)] public Quaternion Rotation;
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
@@ -27,10 +28,14 @@ public class Card : UdonSharpBehaviour
     [SerializeField] public BoxCollider BoxColider;
     [SerializeField] public LogViewer LogViewer;
     [SerializeField] public EventQueue EventQueue;
+    [SerializeField] public CardSyncQueue SyncQueue;
 
     private InputEvent inputEvent;
     private bool isPrevFrameSpriteSynced;
     private bool isPrevFramePositionSynced;
+
+    Vector3 localPosition;
+    Quaternion localRotaiton;
 
 
     public override void Interact()
@@ -72,8 +77,8 @@ public class Card : UdonSharpBehaviour
         Type = Type;
         CardNumber = CardNumber;
         IsDora = IsDora;
-        position = position;
-        rotation = rotation;
+        Position = Position;
+        Rotation = Rotation;
         GlobalOrder = GlobalOrder;
         YamaIndex = YamaIndex;
 
@@ -92,12 +97,20 @@ public class Card : UdonSharpBehaviour
         BoxColider.enabled = t;
     }
 
-    public void SetPosition(Vector3 p, Quaternion r)
+    public void SyncPosition()
     {
-        position = p;
-        rotation = r;
+        Position = localPosition;
+        Rotation = localRotaiton;
 
         SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+    }
+
+    public void SetPosition(Vector3 p, Quaternion r)
+    {
+        localPosition = p;
+        localRotaiton = r;
+
+        SyncQueue.AddSync(YamaIndex);
     }
 
     public string GetCardSpriteName()
@@ -124,7 +137,7 @@ public class Card : UdonSharpBehaviour
         var isSyncSprite = SyncSpriteStartTime < now;
         if (isSyncSprite && !isPrevFrameSpriteSynced)
         {
-            SyncSprite();
+            SyncSprite_Client();
         }
 
         isPrevFrameSpriteSynced = isSyncSprite;
@@ -132,13 +145,13 @@ public class Card : UdonSharpBehaviour
         var isSyncPosition = SyncPositionStartTime < now;
         if (isSyncPosition && !isPrevFramePositionSynced)
         {
-            SyncPosition();
+            SyncPosition_Client();
         }
 
         isPrevFramePositionSynced = isSyncPosition;
     }
 
-    void SyncSprite()
+    void SyncSprite_Client()
     {
         var spriteName = GetCardSpriteName();
         var sprite = CardSprites.FindSprite(spriteName);
@@ -146,9 +159,9 @@ public class Card : UdonSharpBehaviour
         LogViewer.Log($"Sprite Synced. ({YamaIndex}: {Type}, {CardNumber}, {GlobalOrder})", 1);
     }
 
-    void SyncPosition()
+    void SyncPosition_Client()
     {
-        transform.SetPositionAndRotation(position, rotation);
-        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {GlobalOrder})", 1);
+        transform.SetPositionAndRotation(Position, Rotation);
+        LogViewer.Log($"Position Synced. ({Type}, {CardNumber}, {Position})", 1);
     }
 }
