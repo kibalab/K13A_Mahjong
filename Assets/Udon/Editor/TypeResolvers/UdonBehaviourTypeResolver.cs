@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using VRC.Udon.EditorBindings;
 using VRC.Udon.UAssembly.Assembler;
+using VRC.Udon.UAssembly.Attributes;
 
+[assembly: UdonTypeResolver(typeof(UdonBehaviourTypeResolver), "UdonBehaviourTypeResolver")]
 namespace VRC.Udon.EditorBindings
 {
     public class UdonBehaviourTypeResolver : BaseTypeResolver

@@ -487,6 +487,12 @@
     <Reference Include="VRC.Udon.UAssembly">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.UAssembly.dll</HintPath>
     </Reference>
+    <Reference Include="VRC.Udon.VRCGraphModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.VRCGraphModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCTypeResolverModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/Editor/External/VRC.Udon.VRCTypeResolverModules.dll</HintPath>
+    </Reference>
     <Reference Include="VRC.Udon.ClientBindings">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.ClientBindings.dll</HintPath>
     </Reference>
@@ -498,6 +504,9 @@
     </Reference>
     <Reference Include="VRC.Udon.VM">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VM.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCWrapperModules">
+      <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
     </Reference>
     <Reference Include="VRC.Udon.Wrapper">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Wrapper.dll</HintPath>
