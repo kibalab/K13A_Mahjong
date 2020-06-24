@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRC.Udon.Serialization.OdinSerializer", "VRC.Udon.Serialization.OdinSerializer.csproj", "{F7DA6981-64D4-2CB3-8789-B1396B382D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdonSharp.Runtime", "UdonSharp.Runtime.csproj", "{B1FA1AB8-F590-3F42-51AA-264D14EECA17}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{92DBFDDD-9A81-2345-2594-92B3FB60A86D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRC.Udon", "VRC.Udon.csproj", "{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{FFDFCC17-49BC-C0B1-D291-6582E2F762CA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdonSharp.Editor", "UdonSharp.Editor.csproj", "{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRC.Udon.Editor", "VRC.Udon.Editor.csproj", "{9253B636-7D73-DA67-DFDC-1F4317FE018A}"
 EndProject
@@ -27,10 +23,6 @@ Global
 		{F7DA6981-64D4-2CB3-8789-B1396B382D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7DA6981-64D4-2CB3-8789-B1396B382D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7DA6981-64D4-2CB3-8789-B1396B382D5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1FA1AB8-F590-3F42-51AA-264D14EECA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1FA1AB8-F590-3F42-51AA-264D14EECA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1FA1AB8-F590-3F42-51AA-264D14EECA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1FA1AB8-F590-3F42-51AA-264D14EECA17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92DBFDDD-9A81-2345-2594-92B3FB60A86D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92DBFDDD-9A81-2345-2594-92B3FB60A86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92DBFDDD-9A81-2345-2594-92B3FB60A86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,10 +35,6 @@ Global
 		{FFDFCC17-49BC-C0B1-D291-6582E2F762CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFDFCC17-49BC-C0B1-D291-6582E2F762CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFDFCC17-49BC-C0B1-D291-6582E2F762CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9253B636-7D73-DA67-DFDC-1F4317FE018A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9253B636-7D73-DA67-DFDC-1F4317FE018A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9253B636-7D73-DA67-DFDC-1F4317FE018A}.Release|Any CPU.ActiveCfg = Release|Any CPU
