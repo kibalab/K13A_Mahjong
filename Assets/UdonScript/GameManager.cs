@@ -294,8 +294,7 @@ public class GameManager : UdonSharpBehaviour
 
     void ChangeGameState(string state)
     {
-        // state 바뀔 때 로그 띄워주려고 단순 대입이지만 함수로 뺌
-        Debug.Log($"GameState = {state}");
+        LogViewer.Log($"GameState: {state}", 0);
 
         GameState = state;
 
