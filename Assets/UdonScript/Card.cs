@@ -10,21 +10,20 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
     [UdonSynced(UdonSyncMode.None)] public int GlobalOrder;
     [UdonSynced(UdonSyncMode.None)] public bool IsDora;
-    [UdonSynced(UdonSyncMode.None)] public bool IsRinShan;
-
     [UdonSynced(UdonSyncMode.None)] public Vector3 Position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion Rotation;
-    [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
-    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
-
     [UdonSynced(UdonSyncMode.None)] public bool IsColliderActive;
 
-    [SerializeField] public HandUtil HandUtil;
-    [SerializeField] public CardSprites CardSprites;
-    [SerializeField] public SpriteRenderer SpriteRenderer;
-    [SerializeField] public BoxCollider BoxColider;
-    [SerializeField] public LogViewer LogViewer;
-    [SerializeField] public EventQueue EventQueue;
+    public bool IsRinShan;
+    public int YamaIndex;
+    public int PlayerIndex;
+
+    [SerializeField] private HandUtil HandUtil;
+    [SerializeField] private CardSprites CardSprites;
+    [SerializeField] private SpriteRenderer SpriteRenderer;
+    [SerializeField] private BoxCollider BoxColider;
+    [SerializeField] private LogViewer LogViewer;
+    [SerializeField] private EventQueue EventQueue;
 
     private InputEvent inputEvent;
     private bool isSpriteInitialized = false;
@@ -40,7 +39,6 @@ public class Card : UdonSharpBehaviour
             SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(_Interact));
         }
     }
-
     public void _Interact()
     {
         inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
@@ -66,10 +64,10 @@ public class Card : UdonSharpBehaviour
         IsColliderActive = t;
     }
 
-    public void SetPosition(Vector3 p, Quaternion r)
+    public void SetPosition(Vector3 position, Quaternion rotation)
     {
-        Position = p;
-        Rotation = r;
+        Position = position;
+        Rotation = rotation;
     }
 
     public string GetCardSpriteName()
@@ -91,15 +89,9 @@ public class Card : UdonSharpBehaviour
 
     private void Update()
     {
-        if (!isSpriteInitialized && SpriteRenderer != null)
+        if (!isSpriteInitialized)
         {
-            var spriteName = GetCardSpriteName();
-            var sprite = CardSprites.FindSprite(spriteName);
-            if (sprite != null)
-            {
-                SpriteRenderer.sprite = sprite;
-                isSpriteInitialized = true;
-            }
+            TryInitializeSprite();
         }
 
         if (BoxColider != null)
@@ -108,5 +100,20 @@ public class Card : UdonSharpBehaviour
         }
 
         transform.SetPositionAndRotation(Position, Rotation);
+    }
+
+    void TryInitializeSprite()
+    {
+        if (SpriteRenderer != null)
+        {
+            var spriteName = GetCardSpriteName();
+            var sprite = CardSprites.FindSprite(spriteName);
+
+            if (sprite != null)
+            {
+                SpriteRenderer.sprite = sprite;
+                isSpriteInitialized = true;
+            }
+        }
     }
 }
