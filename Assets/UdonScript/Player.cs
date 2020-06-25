@@ -146,7 +146,6 @@ public class Player : UdonSharpBehaviour
         var now = Time.time;
 
         UIContext.Clear();
-        UIContext.SyncStartTime = now + ESTIMATED_MAX_NETWORK_DELAY;
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
