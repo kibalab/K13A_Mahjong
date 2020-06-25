@@ -29,8 +29,6 @@ public class Player : UdonSharpBehaviour
         cardPoints = FindPoints();
         stashedCards = new int[34];
         stashedCardIndex = 0;
-
-        UiManager.Initialize();
     }
 
     Transform[] FindPoints()

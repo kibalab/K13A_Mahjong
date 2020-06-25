@@ -82,7 +82,7 @@ public class GameManager : UdonSharpBehaviour
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
         if (testMode)
         {
-            LogViewer.Log("TestMode ON", 0);
+            LogViewer.Log("TestMode ON v1.7", 0);
             TableManager.AddNextCard();
             ChangeGameState(State_WaitForDiscard);
             LogViewer.Log("TestMode GameStart", 0);
