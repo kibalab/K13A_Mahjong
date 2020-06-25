@@ -160,7 +160,6 @@ public class GameManager : UdonSharpBehaviour
         {
             return;
         }
-        else { LogViewer.Log($"PlayerIndex: {inputEvent.PlayerIndex} Invalid Input", 0); }
 
         if (eventType == "Discard")
         {
@@ -187,7 +186,6 @@ public class GameManager : UdonSharpBehaviour
                 ChangeGameState(State_WaitForNaki);
             }
         }
-        else { LogViewer.Log($"EventType: {inputEvent.EventType} Invalid Input", 0); }
     }
 
     void WaitForNaki(InputEvent inputEvent)
@@ -204,7 +202,6 @@ public class GameManager : UdonSharpBehaviour
         {
             ProcessNaki(inputEvent);
         }
-        else { LogViewer.Log($"EventType: {inputEvent.EventType} Invalid Input", 0); }
     }
 
     void ProcessSkip()
@@ -235,7 +232,9 @@ public class GameManager : UdonSharpBehaviour
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
                     };
-                    nakiPlayer.OpenCards(chiCards);
+                    
+                    // 0:오른쪽. 1:반대편, 2:왼쪽, 3:안깡
+                    nakiPlayer.OpenCards(chiCards, 2); 
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;
                 }
@@ -250,7 +249,7 @@ public class GameManager : UdonSharpBehaviour
                         sameOrderCards[1]
                     };
 
-                    nakiPlayer.OpenCards(ponCards);
+                    nakiPlayer.OpenCards(ponCards, getPlayerDirection(TableManager.currentTurnPlayer,nakiPlayer.PlayerIndex));
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;
                 }
@@ -266,7 +265,7 @@ public class GameManager : UdonSharpBehaviour
                         sameOrderCards[2]
                     };
 
-                    nakiPlayer.OpenCards(kkanCards);
+                    nakiPlayer.OpenCards(kkanCards, getPlayerDirection(TableManager.currentTurnPlayer, nakiPlayer.PlayerIndex));
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     TableManager.AddNextRinShanCard();
                     break;
@@ -285,6 +284,19 @@ public class GameManager : UdonSharpBehaviour
         ChangeGameState(State_WaitForDiscard);
     }
 
+    int getPlayerDirection(int currentPlayerIndex, int targetPlayerIndex)
+    {
+        for(var i = 1; i<=4; i++)
+        {
+            if((currentPlayerIndex + i) % 4 == targetPlayerIndex)
+            {
+                return 2 - i - 1 *-1;
+            }
+            
+        }
+        return 0;
+    }
+
     void EndOfGame()
     {
         WaitingTime -= Time.deltaTime;
@@ -297,7 +309,8 @@ public class GameManager : UdonSharpBehaviour
 
     void ChangeGameState(string state)
     {
-        LogViewer.Log($"GameState: {state}", 0);
+        // state 바뀔 때 로그 띄워주려고 단순 대입이지만 함수로 뺌
+        Debug.Log($"GameState = {state}");
 
         GameState = state;
 
