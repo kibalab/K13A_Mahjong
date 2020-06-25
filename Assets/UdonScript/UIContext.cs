@@ -18,9 +18,6 @@ public class UIContext : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string ChiableSprite31;
     [UdonSynced(UdonSyncMode.None)] public string ChiableSprite32;
 
-    [UdonSynced(UdonSyncMode.None)] public int PonableIndex;
-    [UdonSynced(UdonSyncMode.None)] public int KkanableIndex;
-
     [UdonSynced(UdonSyncMode.None)] public bool IsTsumoable;
     [UdonSynced(UdonSyncMode.None)] public bool IsRonable;
     [UdonSynced(UdonSyncMode.None)] public bool IsRiichable;
@@ -41,6 +38,30 @@ public class UIContext : UdonSharpBehaviour
         IsChiable = false;
         IsPonable = false;
         IsKkanable = false;
+    }
+
+    public void SetChiable(int slot, int[] yamaIndexes, string[] spriteNames)
+    {
+        switch (slot)
+        {
+            case 0:
+                ChiableIndex1 = new Vector2(yamaIndexes[0], yamaIndexes[1]);
+                ChiableSprite11 = spriteNames[0];
+                ChiableSprite12 = spriteNames[1];
+                break;
+
+            case 1:
+                ChiableIndex2 = new Vector2(yamaIndexes[0], yamaIndexes[1]);
+                ChiableSprite21 = spriteNames[0];
+                ChiableSprite22 = spriteNames[1];
+                break;
+
+            case 2:
+                ChiableIndex3 = new Vector2(yamaIndexes[0], yamaIndexes[1]);
+                ChiableSprite31 = spriteNames[0];
+                ChiableSprite32 = spriteNames[1];
+                break;
+        }
     }
 
     public string[] GetCardSpriteNames(int slot)
