@@ -113,7 +113,7 @@ public class UIManager : UdonSharpBehaviour
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, "_ClickButton");
+            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_ClickButton));
         }
     }
 

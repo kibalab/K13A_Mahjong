@@ -37,7 +37,7 @@ public class Card : UdonSharpBehaviour
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, "_Interact");
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(_Interact));
         }
     }
 
