@@ -6,8 +6,6 @@ using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
-    private const float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;
-
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
     [UdonSynced(UdonSyncMode.None)] public int GlobalOrder;
@@ -41,11 +39,6 @@ public class Card : UdonSharpBehaviour
         {
             SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(_Interact));
         }
-    }
-
-    public override void OnOwnershipTransferred()
-    {
-        LogViewer.Log("Owner Changed. " + Networking.GetOwner(gameObject).displayName , 1);
     }
 
     public void _Interact()
@@ -95,12 +88,6 @@ public class Card : UdonSharpBehaviour
                 return Type + CardNumber + (IsDora ? "도라" : "");
         }
     }
-
-    public bool IsInit()
-    {
-        return isSpriteInitialized;
-    }
-
 
     private void Update()
     {
