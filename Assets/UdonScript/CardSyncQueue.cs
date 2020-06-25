@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using UdonSharp;
+using UnityEngine;
 
 public class CardSyncQueue : UdonSharpBehaviour
 {
@@ -22,7 +23,7 @@ public class CardSyncQueue : UdonSharpBehaviour
     {
         // TableManager에서 yama 초기화 후 호출
         // syncQueue는 SortPosition용으로, 20개정도면 넉넉하나 혹시모르니 100개 박음
-        syncQueue = new int[100];
+        syncQueue = new int[300];
         topIndex = 0;
         currIndex = 0;
         isInitialized = true;
@@ -50,6 +51,7 @@ public class CardSyncQueue : UdonSharpBehaviour
         // 여기가 불릴 일은 거의 없을거라고 생각
         if (topIndex == syncQueue.Length)
         {
+            UnityEngine.Debug.Log("Queue flushed");
             yama[currIndex++].SyncData();
             SortQueue();
         }
@@ -57,12 +59,17 @@ public class CardSyncQueue : UdonSharpBehaviour
         syncQueue[topIndex++] = yamaIndex;
     }
 
-
     void Update()
     {
         // 초기화 되어있지 않으면 부르지 않는다
         // 이는 Master 아닌 곳에서 불리지 않기 하기 위함도 있음
         if (!isInitialized)
+        {
+            return;
+        }
+
+        // 안전장치
+        if (Time.time < 5.0f)
         {
             return;
         }
@@ -82,7 +89,6 @@ public class CardSyncQueue : UdonSharpBehaviour
         else if (currIndex < topIndex)
         {
             var index = syncQueue[currIndex++];
-
             yama[index].SyncPosition();
         }
         else if (currIndex == topIndex)

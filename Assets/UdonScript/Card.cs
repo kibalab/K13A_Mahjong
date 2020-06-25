@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
-    private const float ESTIMATED_MAX_NETWORK_DELAY = 1.0f;
+    private const float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;
 
     [UdonSynced(UdonSyncMode.None)] public string Type;
     [UdonSynced(UdonSyncMode.None)] public int CardNumber;
@@ -19,8 +19,8 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
-    [UdonSynced(UdonSyncMode.None)] public float SyncSpriteStartTime = float.MaxValue;
-    [UdonSynced(UdonSyncMode.None)] public float SyncPositionStartTime = float.MaxValue;
+    [UdonSynced(UdonSyncMode.None)] public float SyncSpriteEndTime = float.MinValue;
+    [UdonSynced(UdonSyncMode.None)] public float SyncPositionEndTime = float.MinValue;
 
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public CardSprites CardSprites;
@@ -68,8 +68,8 @@ public class Card : UdonSharpBehaviour
         IsDora = isDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
 
-        SyncSpriteStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
-        SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncSpriteEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public void SyncData()
@@ -82,8 +82,8 @@ public class Card : UdonSharpBehaviour
         GlobalOrder = GlobalOrder;
         YamaIndex = YamaIndex;
 
-        SyncSpriteStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
-        SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncSpriteEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
@@ -102,7 +102,7 @@ public class Card : UdonSharpBehaviour
         Position = localPosition;
         Rotation = localRotaiton;
 
-        SyncPositionStartTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
+        SyncPositionEndTime = Time.time + ESTIMATED_MAX_NETWORK_DELAY;
     }
 
     public void SetPosition(Vector3 p, Quaternion r)
@@ -134,21 +134,21 @@ public class Card : UdonSharpBehaviour
     {
         var now = Time.time;
 
-        var isSyncSprite = SyncSpriteStartTime < now;
-        if (isSyncSprite && !isPrevFrameSpriteSynced)
+        var onSyncSprite = now < SyncSpriteEndTime;
+        if (onSyncSprite && !isPrevFrameSpriteSynced)
         {
             SyncSprite_Client();
         }
 
-        isPrevFrameSpriteSynced = isSyncSprite;
+        isPrevFrameSpriteSynced = onSyncSprite;
 
-        var isSyncPosition = SyncPositionStartTime < now;
-        if (isSyncPosition && !isPrevFramePositionSynced)
+        var onSyncPosition = now < SyncPositionEndTime;
+        if (onSyncPosition && !isPrevFramePositionSynced)
         {
             SyncPosition_Client();
         }
 
-        isPrevFramePositionSynced = isSyncPosition;
+        isPrevFramePositionSynced = onSyncPosition;
     }
 
     void SyncSprite_Client()
