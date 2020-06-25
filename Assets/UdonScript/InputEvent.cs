@@ -6,13 +6,10 @@ using VRC.Udon;
 
 public class InputEvent : UdonSharpBehaviour
 {
-    // 모든 데이터는 Owner에게 전달하기 위해 UdonSynced여야 함
-    [UdonSynced(UdonSyncMode.None)] public string EventType;
-    [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
-    [UdonSynced(UdonSyncMode.None)] public int DiscardedCardYamaIndex;
-
-    // 여러개의 Chi중 선택한 치를 담는변수
-    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiIndex;
+    public string EventType;
+    public int PlayerIndex;
+    public int DiscardedCardYamaIndex;
+    public Vector2 ChiIndex;
 
     public void SetUIEvent(string uiName, int playerIndex)
     {

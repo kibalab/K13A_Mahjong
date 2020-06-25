@@ -8,8 +8,6 @@ using VRC.Udon.Common.Interfaces;
 
 public class UIManager : UdonSharpBehaviour
 {
-    [UdonSynced(UdonSyncMode.None)] public string UIName;
-
     [SerializeField] public int PlayerIndex;
     [SerializeField] public InputEvent InputEvent;
     [SerializeField] public EventQueue EventQueue;
@@ -20,14 +18,6 @@ public class UIManager : UdonSharpBehaviour
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
     private bool isMyTable = true;
-
-    // 월드 마스터의 local에서만 true인 항목
-    private bool isRunOnMasterScript = false;
-
-    public void Initialize()
-    {
-        isRunOnMasterScript = true;
-    }
 
     void Start()
     {
@@ -102,56 +92,104 @@ public class UIManager : UdonSharpBehaviour
         UICanvas.SetActive(false);
     }
 
-    public void OnClick(string uiName)
+    public void OnClick(string clickedUIName)
     {
-
-        UIName = uiName;
-
         if (Networking.LocalPlayer == null)
         {
-            _ClickButton();
+            ClickButtonForUnityTests(clickedUIName);
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.All, nameof(_ClickButton));
-        }
-    }
-
-    public void _ClickButton()
-    {
-        if (isRunOnMasterScript)
-        {
-            Debug.Log("[UION] ClickEvent PlayerTurn : " + PlayerIndex + ", UIName : " + UIName);
-
-            DisableButtonAll();
-
-            if (UIName == "Chi" && UIContext.ChiableCount > 1)
+            if (clickedUIName == "Chi" && UIContext.ChiableCount > 1)
             {
                 ActiveButton("ChiSelect");
                 ActiveButton("Skip");
             }
-            else if (UIName == "Chi" && UIContext.ChiableCount == 1)
+            else if (clickedUIName == "Chi" || clickedUIName.StartsWith("chiSelect"))
             {
-                InputEvent.SetChiEvent(UIContext.ChiableIndex1, UIName, PlayerIndex);
-                EventQueue.Enqueue(InputEvent);
-            }
-            else if (UIName.StartsWith("chiSelect"))
-            {
-                var chiYamaIndexes = GetChiIndexByUIName();
-                InputEvent.SetChiEvent(chiYamaIndexes, "Chi", PlayerIndex);
-                EventQueue.Enqueue(InputEvent);
+                ClickChiSelect(clickedUIName);
             }
             else
             {
-                InputEvent.SetUIEvent(UIName, PlayerIndex);
-                EventQueue.Enqueue(InputEvent);
+                ClickOthers(clickedUIName);
             }
         }
     }
 
-    Vector2 GetChiIndexByUIName()
+    void ClickChiSelect(string uiName)
     {
-        switch (UIName)
+        var funcName = GetChiFuncByUIName(uiName);
+        SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
+    }
+
+    string GetChiFuncByUIName(string uiName)
+    {
+        switch (uiName)
+        {
+            case "Chi": return nameof(_ClickChiSelect1);
+            case "chiSelect_1": return nameof(_ClickChiSelect1);
+            case "chiSelect_2": return nameof(_ClickChiSelect2);
+            case "chiSelect_3": return nameof(_ClickChiSelect3);
+            default: return null;
+        }
+    }
+
+    public void _ClickChiSelect1() { SetChiEvent(UIContext.ChiableIndex1); }
+    public void _ClickChiSelect2() { SetChiEvent(UIContext.ChiableIndex2); }
+    public void _ClickChiSelect3() { SetChiEvent(UIContext.ChiableIndex3); }
+
+    void SetChiEvent(Vector2 chiIndex)
+    {
+        InputEvent.SetChiEvent(chiIndex, "Chi", PlayerIndex);
+        EventQueue.Enqueue(InputEvent);
+    }
+
+    public void ClickOthers(string uiName)
+    {
+        var funcName = $"_Click{uiName}";
+        SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
+    }
+
+    public void _ClickPon() { SetUIEvent("Pon"); }
+    public void _ClickKkan() { SetUIEvent("Kkan"); }
+    public void _ClickRon() { SetUIEvent("Ron"); }
+    public void _ClickTsumo() { SetUIEvent("Tsumo"); }
+    public void _ClickSkip() { SetUIEvent("Skip"); }
+
+    void SetUIEvent(string eventName)
+    {
+        InputEvent.SetUIEvent(eventName, PlayerIndex);
+        EventQueue.Enqueue(InputEvent);
+    }
+
+    public void ClickButtonForUnityTests(string uiName)
+    {
+        if (uiName == "Chi" && UIContext.ChiableCount > 1)
+        {
+            ActiveButton("ChiSelect");
+            ActiveButton("Skip");
+        }
+        else if (uiName == "Chi" && UIContext.ChiableCount == 1)
+        {
+            InputEvent.SetChiEvent(UIContext.ChiableIndex1, uiName, PlayerIndex);
+            EventQueue.Enqueue(InputEvent);
+        }
+        else if (uiName.StartsWith("chiSelect"))
+        {
+            var chiYamaIndexes = GetChiIndexByUIName(uiName);
+            InputEvent.SetChiEvent(chiYamaIndexes, "Chi", PlayerIndex);
+            EventQueue.Enqueue(InputEvent);
+        }
+        else
+        {
+            InputEvent.SetUIEvent(uiName, PlayerIndex);
+            EventQueue.Enqueue(InputEvent);
+        }
+    }
+
+    Vector2 GetChiIndexByUIName(string uiName)
+    {
+        switch (uiName)
         {
             case "chiSelect_1": return UIContext.ChiableIndex1;
             case "chiSelect_2": return UIContext.ChiableIndex2;
