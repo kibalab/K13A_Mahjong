@@ -5,7 +5,6 @@ using VRC.Udon;
 
 public class Player : UdonSharpBehaviour
 {
-    private const float ESTIMATED_MAX_NETWORK_DELAY = 1.0f;
     private const int FULL_CARD_COUNT = 14;
 
     [SerializeField] public int PlayerIndex;
