@@ -17,9 +17,12 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public AgariContext AgariContext;
     [SerializeField] public HandCalculator HandCalculator;
     [SerializeField] public Transform StashPositions;
+    [SerializeField] public Transform nakiPoints;
+    [SerializeField] public Transform nakiShapes;
 
     private Transform[] cardPoints;
     private Transform plusCardPosition;
+    private int nakiCount;
 
     int[] stashedCards;
     int stashedCardIndex;
@@ -29,6 +32,7 @@ public class Player : UdonSharpBehaviour
         cardPoints = FindPoints();
         stashedCards = new int[34];
         stashedCardIndex = 0;
+        nakiCount = 0;
     }
 
     Transform[] FindPoints()
@@ -85,8 +89,13 @@ public class Player : UdonSharpBehaviour
         --stashedCardIndex;
     }
 
-    public void OpenCards(Card[] cards)
+    public void OpenCards(Card[] cards, int shapeType)
     {
+        var i = 0;
+        var nakiShape = VRCInstantiate(nakiShapes.GetChild(shapeType).gameObject);
+        var nakiPoint = nakiPoints.GetChild(nakiCount);
+        nakiShape.transform.SetPositionAndRotation(nakiPoint.position, nakiPoint.rotation);
+
         foreach (var card in cards)
         {
             if (Contains(card))
@@ -96,10 +105,19 @@ public class Player : UdonSharpBehaviour
             }
 
             // TODO 일단 안 보이는 곳으로 보내버리는데, 나중에 수정해야함
-            card.SetPosition(new Vector3(999, 999), Quaternion.identity);
-        }
+            //card.SetPosition(new Vector3(999, 999), Quaternion.identity);
 
+            for (var k = 0; k < cards.Length; k++)
+            {
+                Transform nakiCardPosition = nakiShape.transform.GetChild(k).transform;
+                cards[k].SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);
+            }
+            i++;
+        }
+        
         SortPosition();
+
+        nakiCount++;
     }
 
     public Card[] FindCardByGlobalOrder(int globalOrder, int count)
