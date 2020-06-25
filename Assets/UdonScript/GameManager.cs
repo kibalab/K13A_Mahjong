@@ -28,9 +28,7 @@ public class GameManager : UdonSharpBehaviour
     public bool testMode;
     public LogViewer LogViewer;
 
-    float waitTime;
-    bool isWaiting = false;
-    bool isNetworkReady = false;
+    bool isNetworkReady;
 
     void Start()
     {
@@ -66,17 +64,7 @@ public class GameManager : UdonSharpBehaviour
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
             LogViewer.Log($"Player Joined. {player.displayName}", 1);
-
-            waitTime = 3.0f;
-            isWaiting = true;
         }
-    }
-
-    public void _SyncRequested()
-    {
-        // 밑엣줄이 안 보이면 문제가 심각한 것
-        LogViewer.Log($"SyncRequested!", 0);
-        TableManager.SyncCards();
     }
 
     public void Initialize_Master() 
@@ -104,17 +92,6 @@ public class GameManager : UdonSharpBehaviour
     void Update()
     {
         if (!IsReady()) { return; }
-
-        if (isWaiting)
-        {
-            waitTime -= Time.deltaTime;
-            if (waitTime < 0)
-            {
-                isWaiting = false;
-                LogViewer.Log($"SendSyncRequest. Owner: {Networking.GetOwner(gameObject).displayName}", 1);
-                SendCustomNetworkEvent(NetworkEventTarget.Owner, "_SyncRequested");
-            }
-        }
 
         if (!isRunOnMasterScript) { return; }
 

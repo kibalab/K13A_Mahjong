@@ -12,9 +12,6 @@ public class CardSyncQueue : UdonSharpBehaviour
     int topIndex;
     int currIndex;
 
-    bool syncAllRequested = false;
-    int syncAllIndex = 0;
-
     bool isInitialized = false;
 
     Card[] yama;
@@ -31,19 +28,6 @@ public class CardSyncQueue : UdonSharpBehaviour
         this.yama = yama;
     }
 
-    public void SyncAll()
-    {
-        // 기존 Queue를 초기화하고 yama 전체 순회를 시작한다
-        // 큐에 134개를 전부 박을 수도 있지만...
-        // 그러면 N명이 동시에 월드를 입장할때 134xN개가 큐에 쌓이는데 이건 싫음
-        // SyncAll()이 여러번 불리면 0번부터 다시 시작하는 걸 반복하는 것으로
-        currIndex = 0;
-        topIndex = 0;
-
-        syncAllIndex = 0;
-        syncAllRequested = true;
-    }
-
     public void AddSync(int yamaIndex)
     {
         // 하나를 더 추가하려는데 이미 Queue가 100개 쌓여있으면?
@@ -51,7 +35,6 @@ public class CardSyncQueue : UdonSharpBehaviour
         // 여기가 불릴 일은 거의 없을거라고 생각
         if (topIndex == syncQueue.Length)
         {
-            UnityEngine.Debug.Log("Queue flushed");
             yama[currIndex++].SyncData();
             SortQueue();
         }
@@ -74,18 +57,6 @@ public class CardSyncQueue : UdonSharpBehaviour
             return;
         }
 
-        if (syncAllRequested)
-        {
-            if (syncAllIndex < yama.Length)
-            {
-                yama[syncAllIndex++].SyncData();
-            }
-
-            if (syncAllIndex == yama.Length)
-            {
-                syncAllRequested = false;
-            }
-        }
         else if (currIndex < topIndex)
         {
             var index = syncQueue[currIndex++];
