@@ -186,7 +186,7 @@ public class Player : UdonSharpBehaviour
     {
         foreach (Card card in Cards.Clone())
         {
-            card.gameObject.GetComponent<BoxCollider>().enabled = active;
+            card.SetColliderActivate(active);
         }
     }
 

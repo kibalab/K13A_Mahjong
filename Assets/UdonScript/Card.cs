@@ -19,6 +19,8 @@ public class Card : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public int YamaIndex;
     [UdonSynced(UdonSyncMode.None)] public int PlayerIndex;
 
+    [UdonSynced(UdonSyncMode.None)] public bool IsColliderActive;
+
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public CardSprites CardSprites;
     [SerializeField] public SpriteRenderer SpriteRenderer;
@@ -68,7 +70,7 @@ public class Card : UdonSharpBehaviour
 
     public void SetColliderActivate(bool t)
     {
-        BoxColider.enabled = t;
+        IsColliderActive = t;
     }
 
     public void SetPosition(Vector3 p, Quaternion r)
@@ -111,6 +113,11 @@ public class Card : UdonSharpBehaviour
                 SpriteRenderer.sprite = sprite;
                 isSpriteInitialized = true;
             }
+        }
+
+        if (BoxColider != null)
+        {
+            BoxColider.enabled = IsColliderActive;
         }
 
         transform.SetPositionAndRotation(Position, Rotation);
