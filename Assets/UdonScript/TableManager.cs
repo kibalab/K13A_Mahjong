@@ -157,7 +157,10 @@ public class TableManager : UdonSharpBehaviour
 
     public void SyncCards()
     {
-        SyncQueue.SyncAll();
+        foreach (var card in yama)
+        {
+            card.SyncData();
+        }
     }
 
     public void InitializeYama()
