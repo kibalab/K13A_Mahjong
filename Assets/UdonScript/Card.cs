@@ -25,12 +25,9 @@ public class Card : UdonSharpBehaviour
     [SerializeField] public BoxCollider BoxColider;
     [SerializeField] public LogViewer LogViewer;
     [SerializeField] public EventQueue EventQueue;
-    [SerializeField] public CardSyncQueue SyncQueue;
 
     private InputEvent inputEvent;
     private bool isSpriteInitialized = false;
-    Vector3 localPosition;
-    Quaternion localRotaiton;
 
     public override void Interact()
     {
@@ -63,17 +60,6 @@ public class Card : UdonSharpBehaviour
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
     }
 
-    public void SyncData()
-    {
-        Type = Type;
-        CardNumber = CardNumber;
-        IsDora = IsDora;
-        Position = Position;
-        Rotation = Rotation;
-        GlobalOrder = GlobalOrder;
-        YamaIndex = YamaIndex;
-    }
-
     public void SetOwnership(int playerIndex, InputEvent inputEvent)
     {
         this.inputEvent = inputEvent;
@@ -83,12 +69,6 @@ public class Card : UdonSharpBehaviour
     public void SetColliderActivate(bool t)
     {
         BoxColider.enabled = t;
-    }
-
-    public void SyncPosition()
-    {
-        Position = Position;
-        Rotation = Rotation;
     }
 
     public void SetPosition(Vector3 p, Quaternion r)
