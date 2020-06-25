@@ -294,6 +294,78 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.20f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="VRC.Udon.Compiler">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.Compiler.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.EditorBindings">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.EditorBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Graph">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.Graph.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.UAssembly">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.UAssembly.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCGraphModules">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.VRCGraphModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCTypeResolverModules">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.VRCTypeResolverModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.ClientBindings">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.ClientBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Common">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Security">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VM">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.VM.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.VRCWrapperModules">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Wrapper">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CognitoIdentity">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityToken">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.SecurityToken.dll</HintPath>
+    </Reference>
+    <Reference Include="DotZLib">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/DotZLib/DotZLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Blake2Sharp">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/librsync/Blake2Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="librsync.net">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/librsync/librsync.net.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCCore-Editor">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCCore-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3-Editor">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCSDK3-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase">
+      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>D:/Workspace/K13A_Mahjong/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -308,78 +380,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/Workspace/K13A_Mahjong/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.ClientBindings">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.ClientBindings.dll</HintPath>
-    </Reference>
-    <Reference Include="VRCSDK3-Editor">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCSDK3-Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VRCTypeResolverModules">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.VRCTypeResolverModules.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VRCWrapperModules">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.VRCWrapperModules.dll</HintPath>
-    </Reference>
-    <Reference Include="VRCSDK3">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VM">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.VM.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CognitoIdentity">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
-    </Reference>
-    <Reference Include="librsync.net">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/librsync/librsync.net.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.Common">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Core">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.Wrapper">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.Wrapper.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.Compiler">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.Compiler.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.UAssembly">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.UAssembly.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.Security">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/External/VRC.Udon.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.Graph">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.Graph.dll</HintPath>
-    </Reference>
-    <Reference Include="VRCSDKBase">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.VRCGraphModules">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.VRCGraphModules.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.S3">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.S3.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SecurityToken">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.SecurityToken.dll</HintPath>
-    </Reference>
-    <Reference Include="DotZLib">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/DotZLib/DotZLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.EditorBindings">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/Udon/Editor/External/VRC.Udon.EditorBindings.dll</HintPath>
-    </Reference>
-    <Reference Include="Blake2Sharp">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Dependencies/librsync/Blake2Sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="VRCCore-Editor">
-      <HintPath>D:/Workspace/K13A_Mahjong/Assets/VRCSDK/Plugins/VRCCore-Editor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
