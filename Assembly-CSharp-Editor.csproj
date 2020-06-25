@@ -809,6 +809,14 @@
       <Project>{68D1914C-6AC5-A270-C622-F6BF7D0BCCC1}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
     </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{84D6C785-1C97-1243-D26F-69202B4C4B04}</Project>
+      <Name>UdonSharp.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Editor.csproj">
+      <Project>{027C13A4-406C-1745-B8E0-450E043BFDED}</Project>
+      <Name>UdonSharp.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="VRC.Udon.csproj">
       <Project>{05E8560B-F8F2-290A-2576-6708CD0CDEAA}</Project>
       <Name>VRC.Udon</Name>
@@ -820,14 +828,6 @@
     <ProjectReference Include="VRCSDK.ShaderStripping.csproj">
       <Project>{FEE50934-8406-23BA-DD16-FDC997FF61AB}</Project>
       <Name>VRCSDK.ShaderStripping</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{84D6C785-1C97-1243-D26F-69202B4C4B04}</Project>
-      <Name>UdonSharp.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Editor.csproj">
-      <Project>{027C13A4-406C-1745-B8E0-450E043BFDED}</Project>
-      <Name>UdonSharp.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
