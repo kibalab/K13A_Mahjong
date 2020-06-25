@@ -24,8 +24,6 @@ public class UIManager : UdonSharpBehaviour
     // 월드 마스터의 local에서만 true인 항목
     private bool isRunOnMasterScript = false;
 
-    private bool isPrevFrameUISynced;
-
     public void Initialize()
     {
         isRunOnMasterScript = true;
@@ -39,50 +37,29 @@ public class UIManager : UdonSharpBehaviour
 
     void Update()
     {
-        var now = Time.time;
         if (UIContext == null) { return; }
 
-        var isSyncTime = UIContext.SyncStartTime < now;
-
-        if (isSyncTime && isMyTable && !isPrevFrameUISynced)
+        if (isMyTable)
         {
-            if (UIContext.IsChiable) { OpenChiSelect(); }
+            if (UIContext.IsChiable)
+            {
+                ActiveButton("Chi");
+                OpenChiSelect();
+            }
             if (UIContext.IsPonable) ActiveButton("Pon");
             if (UIContext.IsKkanable) ActiveButton("Kkan");
             if (UIContext.IsRiichable) ActiveButton("Rich");
             if (UIContext.IsTsumoable) ActiveButton("Tsumo");
             if (UIContext.IsRonable) ActiveButton("Ron");
             if (UIContext.IsAnythingActived()) ActiveButton("Skip");
+            else { DisableButtonAll(); }
         }
-
-        isPrevFrameUISynced = isSyncTime;
     }
 
     void OpenChiSelect()
     {
-        switch (UIContext.ChiableCount)
-        {
-            case 0:
-                ActiveButton("Chi");
-                //ActiveButton("ChiSelect"); // 임의로 오브젝트이름 넣어둠
-                //SetChiSelectButton(1);
-                break;
-            case 1:
-                ActiveButton("Chi");
-                //ActiveButton("ChiSelect");
-                SetChiSelectButton(1);
-                break;
-            case 2:
-                ActiveButton("Chi");
-                //ActiveButton("ChiSelect");
-                SetChiSelectButton(2);
-                break;
-            case 3:
-                ActiveButton("Chi");
-                //ActiveButton("ChiSelect");
-                SetChiSelectButton(3);
-                break;
-        }
+        var count = UIContext.ChiableCount;
+        if (count != 0) SetChiSelectButton(count);
     }
 
     void SetChiSelectButton(int size)
