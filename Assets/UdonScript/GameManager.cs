@@ -160,6 +160,7 @@ public class GameManager : UdonSharpBehaviour
         {
             return;
         }
+        else { LogViewer.Log($"PlayerIndex: {inputEvent.PlayerIndex} Invalid Input", 0); }
 
         if (eventType == "Discard")
         {
@@ -186,6 +187,7 @@ public class GameManager : UdonSharpBehaviour
                 ChangeGameState(State_WaitForNaki);
             }
         }
+        else { LogViewer.Log($"EventType: {inputEvent.EventType} Invalid Input", 0); }
     }
 
     void WaitForNaki(InputEvent inputEvent)
@@ -202,6 +204,7 @@ public class GameManager : UdonSharpBehaviour
         {
             ProcessNaki(inputEvent);
         }
+        else { LogViewer.Log($"EventType: {inputEvent.EventType} Invalid Input", 0); }
     }
 
     void ProcessSkip()
