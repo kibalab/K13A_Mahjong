@@ -188,7 +188,7 @@ MonoBehaviour:
     \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
     \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
     Player : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # private const
-    float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;\r\n        \r\n         # private const
+    float ESTIMATED_MAX_NETWORK_DELAY = 1.0f;\r\n        \r\n         # private const
     int FULL_CARD_COUNT = 14;\r\n        \r\n         # [SerializeField] public int
     PlayerIndex;\r\n        \r\n         # [SerializeField] public UIManager UiManager;\r\n
     \       \r\n         # [SerializeField] public GameObject CardPositions;\r\n        \r\n
@@ -995,7 +995,7 @@ MonoBehaviour:
       endSourceChar: 187
       line: 7
       lineChar: 18
-      spanCodeSection: "float ESTIMATED_MAX_NETWORK_DELAY = 3.0f;\r\n    "
+      spanCodeSection: "float ESTIMATED_MAX_NETWORK_DELAY = 1.0f;\r\n    "
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 187
