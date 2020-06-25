@@ -17,7 +17,6 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public Material normalMaterial;
     [SerializeField] public Material doraMaterial;
     [SerializeField] public LogViewer LogViewer;
-    [SerializeField] public CardSyncQueue SyncQueue;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -155,14 +154,6 @@ public class TableManager : UdonSharpBehaviour
         LogViewer.Log("PlayersInfo Initalized", 0);
     }
 
-    public void SyncCards()
-    {
-        foreach (var card in yama)
-        {
-            card.SyncData();
-        }
-    }
-
     public void InitializeYama()
     {
         var index = 0;
@@ -192,8 +183,6 @@ public class TableManager : UdonSharpBehaviour
         }
 
         yama = ShuffleCards(yama);
-
-        SyncQueue.Initialize(yama);
 
         doras = GetNextCards(10);// 도라표시패 5패, 우라도라표시패 5패, 총 10패
         rinShan = GetNextCards(4);// 영상패(왕패) 4패
