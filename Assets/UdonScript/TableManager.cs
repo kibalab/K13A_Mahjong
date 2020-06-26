@@ -65,8 +65,6 @@ public class TableManager : UdonSharpBehaviour
 
     public void AddNextCard()
     {
-        GetCurrentTurnPlayer().CheckAnkkanable();
-
         LogViewer.Log($"AddNextCard Player:{currentTurnPlayer} YamaIndex:{currentCardIndex}", 1);
 
         var player = GetCurrentTurnPlayer();
@@ -76,26 +74,21 @@ public class TableManager : UdonSharpBehaviour
         var isFirstTsumo = index == 0;
         var isLastTsumo = index == yama.Length - 1;
 
-        player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
-
-        for (var i = 0; i < 4; i++)
-        {
-            var active = i == currentTurnPlayer;
-            players[i].SetColliderActive(active);
-        }
+        AddNextCardInternal(player, nextCard, isFirstTsumo, isLastTsumo);
     }
 
     public void AddNextRinShanCard()
     {
         var player = GetCurrentTurnPlayer();
-        var index = currentCardIndex;
-
         var nextCard = GetNextRinShanCard();
-        var isFirstTsumo = index == 0;
-        var isLastTsumo = index == yama.Length - 1;
 
-        player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
-        //player.CheckNakiable(nextCard, false);
+        AddNextCardInternal(player, nextCard, false, false);
+    }
+
+    void AddNextCardInternal(Player player, Card card, bool isFirstTsumo, bool isLastTsumo)
+    {
+        player.AddCard(card, isFirstTsumo, isLastTsumo);
+        player.CheckAnkkanable();
 
         for (var i = 0; i < 4; i++)
         {
@@ -103,8 +96,6 @@ public class TableManager : UdonSharpBehaviour
             players[i].SetColliderActive(active);
         }
     }
-
-
 
     public Card GetCardByIndex(int cardIndex)
     {

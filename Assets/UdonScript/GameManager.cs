@@ -154,14 +154,44 @@ public class GameManager : UdonSharpBehaviour
     void WaitForDiscard(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
-        var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
 
         if (!TableManager.IsCurrentTurn(inputEvent.PlayerIndex))
         {
             return;
         }
-        if (eventType == "Discard")
+
+        if (eventType == "Kkan")
         {
+            var currentPlayer = TableManager.GetCurrentTurnPlayer();
+            var ankkanableGlobalOrders = currentPlayer.FindAnkkanableGlobalOrders();
+
+            if (ankkanableGlobalOrders.Length == 0) { Debug.Log("이게 0이면... 안되는데...?"); }
+
+            // 여러개 할 수 있지만 그냥 첫번째 GlobalOrder 쓰는 걸로 함
+            var ankkanTargetGlobalOrder = ankkanableGlobalOrders[0];
+            var sameOrderCards = currentPlayer.FindCardByGlobalOrder(ankkanTargetGlobalOrder, 4);
+            var ankkanCards = new Card[]
+            {
+                sameOrderCards[0],
+                sameOrderCards[1],
+                sameOrderCards[2],
+                sameOrderCards[3]
+            };
+
+            currentPlayer.OpenCards(ankkanCards, getPlayerDirection(TableManager.currentTurnPlayer, currentPlayer.PlayerIndex));
+
+            TableManager.SetTurnOf(inputEvent.PlayerIndex);
+            TableManager.AddNextCard();
+
+            ChangeGameState(State_WaitForDiscard);
+        }
+        else if (eventType == "Skip")
+        {
+            TableManager.DisableUIAll();
+        }
+        else if (eventType == "Discard")
+        {
+            var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
             var currentTable = TableManager.GetCurrentTurnPlayer();
             currentTable.Discard(eventCard);
 
@@ -231,7 +261,7 @@ public class GameManager : UdonSharpBehaviour
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
                     };
-                    
+
                     // 0:오른쪽. 1:반대편, 2:왼쪽, 3:안깡
                     nakiPlayer.OpenCards(chiCards, 2); 
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
@@ -255,12 +285,7 @@ public class GameManager : UdonSharpBehaviour
 
             case "Kkan":
                 {
-                    Card _WaitingNakiCard = WaitingNakiCard;
-                    if (nakiPlayer.PlayerIndex == TableManager.currentTurnPlayer)
-                    {
-                        _WaitingNakiCard = TableManager.lastedSpawnCard;
-                    }
-                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(_WaitingNakiCard.GlobalOrder, 3);
+                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
                     var kkanCards = new Card[]
                     {
                         WaitingNakiCard,
@@ -300,7 +325,6 @@ public class GameManager : UdonSharpBehaviour
             {
                 return 2 - i - 1 *-1;
             }
-            
         }
         return 0;
     }
@@ -313,7 +337,6 @@ public class GameManager : UdonSharpBehaviour
             // 다음 라운드를 시작하는 처리
         }
     }
-
 
     void ChangeGameState(string state)
     {

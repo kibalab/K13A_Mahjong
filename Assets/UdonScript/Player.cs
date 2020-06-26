@@ -69,7 +69,6 @@ public class Player : UdonSharpBehaviour
             AgariContext.Clear();
 
             HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext);
-            
         }
     }
 
@@ -120,7 +119,7 @@ public class Player : UdonSharpBehaviour
             }
             i++;
         }
-        
+
         SortPosition();
 
         nakiCount++;
@@ -148,6 +147,11 @@ public class Player : UdonSharpBehaviour
 
         if (index != count) { Debug.Log("error on FindCardByGlobalOrder"); }
         return arr;
+    }
+
+    public int[] FindAnkkanableGlobalOrders()
+    {
+        return HandCalculator.GetAnkkanableAll(GetArray(Cards));
     }
 
     void Debugging(int globalOrder)
