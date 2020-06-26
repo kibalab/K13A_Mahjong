@@ -103,6 +103,7 @@ public class Player : UdonSharpBehaviour
         var nakiShape = GetNextNakiShape(shapeType);
         SetNakiPosition(openTargetCards, nakiShape);
 
+        // 퐁의 경우 소명깡을 위해 nakiShape를 저장해둔다
         var ponGlobalOrder = openTargetCards[0].GlobalOrder;
         OpenedPonPositions[ponGlobalOrder] = nakiShape;
 
@@ -128,6 +129,9 @@ public class Player : UdonSharpBehaviour
     {
         var nakiShape = GetNextNakiShape(shapeType);
         SetNakiPosition(openTargetCards, nakiShape);
+
+        // 치, 깡의 경우 nakiShape을 저장할 필요가 없다
+        Destroy(nakiShape);
 
         SortPosition();
     }
