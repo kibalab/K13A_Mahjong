@@ -165,23 +165,33 @@ public class GameManager : UdonSharpBehaviour
             var currentPlayer = TableManager.GetCurrentTurnPlayer();
             var ankkanableGlobalOrders = currentPlayer.FindAnkkanableGlobalOrders();
 
-            if (ankkanableGlobalOrders.Length == 0) { Debug.Log("이게 0이면... 안되는데...?"); }
+            // 지금은 안깡, 소명깡이 겹칠 때 안깡부터 하게 한다
+            // 선택이 생긴다면... InputEvent에 SelectedChiIndex처럼 
+            // SelectedKkanGlobalOrder 같은 걸 설정해줘야 할거임
+            // UIContext에도 KkanGlobalOrder 1,2,3,4,5 생겨야할거고
 
-            // 여러개 할 수 있지만 그냥 첫번째 GlobalOrder 쓰는 걸로 함
-            var ankkanTargetGlobalOrder = ankkanableGlobalOrders[0];
-            var sameOrderCards = currentPlayer.FindCardByGlobalOrder(ankkanTargetGlobalOrder, 4);
-            var ankkanCards = new Card[]
+            if (ankkanableGlobalOrders.Length != 0)
             {
-                sameOrderCards[0],
-                sameOrderCards[1],
-                sameOrderCards[2],
-                sameOrderCards[3]
-            };
+                // 여러개 할 수 있지만 일단은 첫번째 GlobalOrder 씀
+                var ankkanTargetGlobalOrder = ankkanableGlobalOrders[0];
+                var sameOrderCards = currentPlayer.FindCardByGlobalOrder(ankkanTargetGlobalOrder, 4);
+                var ankkanCards = new Card[]
+                {
+                    sameOrderCards[0],
+                    sameOrderCards[1],
+                    sameOrderCards[2],
+                    sameOrderCards[3]
+                };
 
-            currentPlayer.OpenCards(ankkanCards, getPlayerDirection(TableManager.currentTurnPlayer, currentPlayer.PlayerIndex));
+                currentPlayer.OpenCards(ankkanCards, getPlayerDirection(TableManager.currentTurnPlayer, currentPlayer.PlayerIndex));
 
-            TableManager.SetTurnOf(inputEvent.PlayerIndex);
-            TableManager.AddNextCard();
+                TableManager.SetTurnOf(inputEvent.PlayerIndex);
+                TableManager.AddNextCard();
+            }
+            else // 소명깡
+            {
+                currentPlayer.AddOpenKkan();
+            }
 
             ChangeGameState(State_WaitForDiscard);
         }
@@ -278,7 +288,7 @@ public class GameManager : UdonSharpBehaviour
                         sameOrderCards[1]
                     };
 
-                    nakiPlayer.OpenCards(ponCards, getPlayerDirection(TableManager.currentTurnPlayer,nakiPlayer.PlayerIndex));
+                    nakiPlayer.OpenCards_Pon(ponCards, getPlayerDirection(TableManager.currentTurnPlayer,nakiPlayer.PlayerIndex));
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     break;
                 }

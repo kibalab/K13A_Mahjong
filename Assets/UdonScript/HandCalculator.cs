@@ -157,6 +157,13 @@ public class HandCalculator : UdonSharpBehaviour
         return Fit_Int(ankkanableGlobalOrders, ankkanableGlobalOrderCount);
     }
 
+    public bool IsOpenKkanable(Card addedCard, Card[] openedCards)
+    {
+        var globalOrders = HandUtil.GetGlobalOrders(openedCards);
+
+        return globalOrders[addedCard.GlobalOrder] == 3;
+    }
+
     public bool IsAnKkanable(Card[] cards)
     {
         var globalOrders = HandUtil.GetGlobalOrders(cards);

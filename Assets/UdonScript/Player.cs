@@ -27,6 +27,9 @@ public class Player : UdonSharpBehaviour
 
     private Transform[] cardPoints;
     private Transform plusCardPosition;
+
+    // GlobalOrder 자리에 퐁한 위치를 저장해두는 용도
+    private Transform[] OpenedPonPositions;
     private int nakiCount;
 
     int[] stashedCards;
@@ -38,6 +41,7 @@ public class Player : UdonSharpBehaviour
         stashedCards = new int[34];
         stashedCardIndex = 0;
         nakiCount = 0;
+        OpenedPonPositions = new Transform[34];
     }
 
     Transform[] FindPoints()
@@ -94,36 +98,66 @@ public class Player : UdonSharpBehaviour
         --stashedCardIndex;
     }
 
-    public void OpenCards(Card[] cards, int shapeType)
+    public void OpenCards_Pon(Card[] openTargetCards, int shapeType)
     {
-        var i = 0;
+        var nakiShape = GetNextNakiShape(shapeType);
+        SetNakiPosition(openTargetCards, nakiShape);
+
+        var ponGlobalOrder = openTargetCards[0].GlobalOrder;
+        OpenedPonPositions[ponGlobalOrder] = nakiShape;
+
+        SortPosition();
+    }
+
+    public void AddOpenKkan()
+    {
+        var card = (Card)Cards.RemoveLast();
+        var nakiShape = OpenedPonPositions[card.GlobalOrder];
+
+        if (nakiShape == null) { Debug.Log("nakiShape가 없으면... 안되는데..?"); }
+
+        OpenendCards.Add(card);
+
+        var nakiCardPosition = nakiShape.GetChild(3).transform;
+        card.SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);
+
+        SortPosition();
+    }
+
+    public void OpenCards(Card[] openTargetCards, int shapeType)
+    {
+        var nakiShape = GetNextNakiShape(shapeType);
+        SetNakiPosition(openTargetCards, nakiShape);
+
+        SortPosition();
+    }
+
+    Transform GetNextNakiShape(int shapeType)
+    {
         var nakiShape = VRCInstantiate(nakiShapes.GetChild(shapeType).gameObject);
-        var nakiPoint = nakiPoints.GetChild(nakiCount);
+        var nakiPoint = nakiPoints.GetChild(nakiCount++);
         nakiShape.transform.SetPositionAndRotation(nakiPoint.position, nakiPoint.rotation);
 
-        foreach (var card in cards)
+        return nakiShape.transform;
+    }
+
+    void SetNakiPosition(Card[] openTargetCards, Transform nakiShape)
+    {
+        for (var index = 0; index < openTargetCards.Length; index++)
         {
+            var card = openTargetCards[index];
+
             if (Contains(card))
             {
                 Cards.RemoveAt(Cards.IndexOf(card));
                 OpenendCards.Add(card);
             }
 
-            // TODO 일단 안 보이는 곳으로 보내버리는데, 나중에 수정해야함
-            //card.SetPosition(new Vector3(999, 999), Quaternion.identity);
-
-            for (var k = 0; k < cards.Length; k++)
-            {
-                Transform nakiCardPosition = nakiShape.transform.GetChild(k).transform;
-                cards[k].SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);
-            }
-            i++;
+            var nakiCardPosition = nakiShape.GetChild(index).transform;
+            openTargetCards[index].SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);
         }
-
-        SortPosition();
-
-        nakiCount++;
     }
+
 
     public Card[] FindCardByGlobalOrder(int globalOrder, int count)
     {
@@ -168,8 +202,6 @@ public class Player : UdonSharpBehaviour
 
     public void CheckNakiable(Card card, bool isDiscardedByLeftPlayer)
     {
-        var now = Time.time;
-
         UIContext.Clear();
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
@@ -178,6 +210,11 @@ public class Player : UdonSharpBehaviour
     public void CheckAnkkanable()
     {
         UIContext.IsKkanable = HandCalculator.IsAnKkanable(GetArray(Cards));
+    }
+
+    public void CheckOpenKkanable(Card addedCard)
+    {
+        UIContext.IsKkanable = HandCalculator.IsOpenKkanable(addedCard, GetArray(OpenendCards));
     }
 
     public bool IsUIActived()
@@ -218,6 +255,21 @@ public class Player : UdonSharpBehaviour
         {
             card.SetColliderActivate(active);
         }
+    }
+    
+    bool IsPon(Card[] cards)
+    {
+        if (cards.Length > 1) return false;
+        var globalOrder = cards[0].GlobalOrder;
+
+        for (var i = 1; i < cards.Length; ++i)
+        {
+            if (cards[i].GlobalOrder != globalOrder)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     void SortPosition()
