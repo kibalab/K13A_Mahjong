@@ -42,6 +42,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         uiContext.IsRonable = agariContext.IsAgariable(discardedCard);
         uiContext.IsTsumoable = false;
+        
     }
 
     void SetChiableOnUiContext(UIContext uiContext, object[] chiableList)
@@ -132,12 +133,26 @@ public class HandCalculator : UdonSharpBehaviour
         return globalOrders[cardOrder] + 1 >= 3;
     }
 
-    bool IsKkanable(Card[] cards, Card discardedCard)
+    public bool IsKkanable(Card[] cards, Card discardedCard)
     {
         var globalOrders = HandUtil.GetGlobalOrders(cards);
         var cardOrder = discardedCard.GlobalOrder;
 
         return globalOrders[cardOrder] + 1 == 4;
+    }
+
+    public bool IsAnKkanable(Card[] cards)
+    {
+        var globalOrders = HandUtil.GetGlobalOrders(cards);
+
+        foreach (var i in globalOrders)
+        {
+            if(i == 4)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void RequestRiichiable(Card[] sealedCards, AgariContext agariContext)

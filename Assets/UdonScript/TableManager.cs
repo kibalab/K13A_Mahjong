@@ -65,6 +65,8 @@ public class TableManager : UdonSharpBehaviour
 
     public void AddNextCard()
     {
+        GetCurrentTurnPlayer().CheckAnkkanable();
+
         LogViewer.Log($"AddNextCard Player:{currentTurnPlayer} YamaIndex:{currentCardIndex}", 1);
 
         var player = GetCurrentTurnPlayer();
@@ -93,6 +95,7 @@ public class TableManager : UdonSharpBehaviour
         var isLastTsumo = index == yama.Length - 1;
 
         player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
+        //player.CheckNakiable(nextCard, false);
 
         for (var i = 0; i < 4; i++)
         {
@@ -100,6 +103,8 @@ public class TableManager : UdonSharpBehaviour
             players[i].SetColliderActive(active);
         }
     }
+
+
 
     public Card GetCardByIndex(int cardIndex)
     {
@@ -182,7 +187,8 @@ public class TableManager : UdonSharpBehaviour
             yama[index++].Initialize_Master("중", 7, false);
         }
 
-        yama = ShuffleCards(yama);
+
+        //yama = ShuffleCards(yama);
 
         doras = GetNextCards(10);// 도라표시패 5패, 우라도라표시패 5패, 총 10패
         rinShan = GetNextCards(4);// 영상패(왕패) 4패

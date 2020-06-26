@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: HandUtil Udon C# Program Asset
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 86802b180d58e29428c9975ae9bb2466,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: c9933db696180924f971f7065b9f8de2,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
     null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    MAN_END_GLOBAL_ORDER:
@@ -41,12 +41,13 @@ MonoBehaviour:
     \   __8_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemObject:
     %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
     \   __1_const_intnl_SystemString: %SystemString, null\r\n    __10_const_intnl_SystemString:
-    %SystemString, null\r\n    __2_const_intnl_SystemString: %SystemString, null\r\n
-    \   __3_const_intnl_SystemString: %SystemString, null\r\n    __4_const_intnl_SystemString:
-    %SystemString, null\r\n    __5_const_intnl_SystemString: %SystemString, null\r\n
-    \   __6_const_intnl_SystemString: %SystemString, null\r\n    __7_const_intnl_SystemString:
-    %SystemString, null\r\n    __8_const_intnl_SystemString: %SystemString, null\r\n
-    \   __9_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver:
+    %SystemString, null\r\n    __11_const_intnl_SystemString: %SystemString, null\r\n
+    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
+    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
+    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
+    %SystemString, null\r\n    __7_const_intnl_SystemString: %SystemString, null\r\n
+    \   __8_const_intnl_SystemString: %SystemString, null\r\n    __9_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver:
     %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
     null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
@@ -98,8 +99,10 @@ MonoBehaviour:
     \   __3_intnl_SystemInt32: %SystemInt32, null\r\n    __30_intnl_SystemInt32: %SystemInt32,
     null\r\n    __31_intnl_SystemInt32: %SystemInt32, null\r\n    __32_intnl_SystemInt32:
     %SystemInt32, null\r\n    __33_intnl_SystemInt32: %SystemInt32, null\r\n    __34_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __35_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_returnValSymbol_Int32:
-    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_returnValSymbol_Int32:
+    %SystemInt32, null\r\n    __35_intnl_SystemInt32: %SystemInt32, null\r\n    __36_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __37_intnl_SystemInt32: %SystemInt32, null\r\n    __38_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __4_intnl_returnValSymbol_Int32: %SystemInt32, null\r\n
+    \   __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_returnValSymbol_Int32:
     %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_returnValSymbol_Int32:
     %SystemInt32, null\r\n    __6_intnl_SystemInt32: %SystemInt32, null\r\n    __7_intnl_returnValSymbol_Int32:
     %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_returnValSymbol_Int32:
@@ -109,10 +112,11 @@ MonoBehaviour:
     null\r\n    __1_intnl_returnValSymbol_Int32Array: %SystemInt32Array, null\r\n
     \   __1_intnl_SystemInt32Array: %SystemInt32Array, null\r\n    __2_intnl_returnValSymbol_Int32Array:
     %SystemInt32Array, null\r\n    __2_intnl_SystemInt32Array: %SystemInt32Array,
-    null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_Card:
-    %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
-    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
-    \        # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __1_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
+    %SystemString, null\r\n    __0_intnl_Card: %VRCUdonUdonBehaviour, null\r\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
+    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
     \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
     HandUtil : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # private
     const int MAN_START_GLOBAL_ORDER = 0;\r\n        \r\n         # private const
@@ -377,14 +381,14 @@ MonoBehaviour:
     \       EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH,
     __22_intnl_SystemInt32\r\n        PUSH, __23_intnl_SystemInt32\r\n        PUSH,
     __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C70\r\n
+    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D10\r\n
     \       PUSH, __0_cards_CardArray\r\n        PUSH, __22_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_Card\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_Card\r\n        PUSH, __0_card_Card\r\n        COPY\r\n
     \       \r\n         # {\r\n        \r\n         # if (card != null)\r\n        PUSH,
     __0_card_Card\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver\r\n
     \       PUSH, __10_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C48\r\n
+    \       PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000CE8\r\n
     \       \r\n         # {\r\n        \r\n         # globalOrders[card.GlobalOrder]++;\r\n
     \       PUSH, __0_card_Card\r\n        PUSH, __0_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
@@ -399,6 +403,18 @@ MonoBehaviour:
     \       PUSH, __29_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __3_globalOrders_Int32Array\r\n        PUSH, __25_intnl_SystemInt32\r\n
     \       PUSH, __29_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
+    \       \r\n         # Debug.Log(\"globalOrder : \" + globalOrders[card.GlobalOrder]);\r\n
+    \       PUSH, __0_card_Card\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       PUSH, __1_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
+    \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __31_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
+    __3_globalOrders_Int32Array\r\n        PUSH, __31_intnl_SystemInt32\r\n        PUSH,
+    __32_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __32_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __1_const_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
     \       PUSH, __22_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
     \       PUSH, __22_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       JUMP, 0x00000AE8\r\n        \r\n         # return globalOrders;\r\n        PUSH,
@@ -412,9 +428,9 @@ MonoBehaviour:
     \       \r\n         # {\r\n        \r\n         # return GetStartGlobalOrderOf(cardType)
     + (cardNumber - 1);\r\n        PUSH, __0_cardType_String\r\n        PUSH, __1_cardType_String\r\n
     \       COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000D48\r\n        PUSH, __0_cardNumber_Int32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __30_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __19_intnl_returnValSymbol_Int32\r\n        PUSH, __30_intnl_SystemInt32\r\n
+    0x00000DE8\r\n        PUSH, __0_cardNumber_Int32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __33_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __19_intnl_returnValSymbol_Int32\r\n        PUSH, __33_intnl_SystemInt32\r\n
     \       PUSH, __18_intnl_returnValSymbol_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32
@@ -424,46 +440,46 @@ MonoBehaviour:
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
     {\r\n        \r\n         # switch (cardType)\r\n        \r\n         # case \"\uB9CC\":
     return MAN_START_GLOBAL_ORDER;\r\n        PUSH, __1_cardType_String\r\n        PUSH,
-    __1_const_intnl_SystemString\r\n        PUSH, __11_intnl_SystemBoolean\r\n        EXTERN,
+    __2_const_intnl_SystemString\r\n        PUSH, __11_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n        PUSH,
-    __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D80\r\n        JUMP,
-    0x00000F80\r\n        \r\n         # case \"\uD1B5\": return PIN_START_GLOBAL_ORDER;\r\n
-    \       PUSH, __1_cardType_String\r\n        PUSH, __2_const_intnl_SystemString\r\n
-    \       PUSH, __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __12_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000DB8\r\n
-    \       JUMP, 0x00000FA8\r\n        \r\n         # case \"\uC0AD\": return SOU_START_GLOBAL_ORDER;\r\n
+    __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E20\r\n        JUMP,
+    0x00001020\r\n        \r\n         # case \"\uD1B5\": return PIN_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __3_const_intnl_SystemString\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000DF0\r\n
-    \       JUMP, 0x00000FD0\r\n        \r\n         # case \"\uB3D9\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __12_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E58\r\n
+    \       JUMP, 0x00001048\r\n        \r\n         # case \"\uC0AD\": return SOU_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __4_const_intnl_SystemString\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E28\r\n
-    \       JUMP, 0x00000FF8\r\n        \r\n         # case \"\uC11C\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E90\r\n
+    \       JUMP, 0x00001070\r\n        \r\n         # case \"\uB3D9\": return WORDS_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __5_const_intnl_SystemString\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E60\r\n
-    \       JUMP, 0x00001020\r\n        \r\n         # case \"\uB0A8\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __14_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000EC8\r\n
+    \       JUMP, 0x00001098\r\n        \r\n         # case \"\uC11C\": return WORDS_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __6_const_intnl_SystemString\r\n
-    \       PUSH, __16_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E98\r\n
-    \       JUMP, 0x00001048\r\n        \r\n         # case \"\uBD81\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __15_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F00\r\n
+    \       JUMP, 0x000010C0\r\n        \r\n         # case \"\uB0A8\": return WORDS_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __7_const_intnl_SystemString\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000ED0\r\n
-    \       JUMP, 0x00001070\r\n        \r\n         # case \"\uBC31\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __16_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F38\r\n
+    \       JUMP, 0x000010E8\r\n        \r\n         # case \"\uBD81\": return WORDS_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __8_const_intnl_SystemString\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F08\r\n
-    \       JUMP, 0x00001098\r\n        \r\n         # case \"\uBC1C\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __17_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __17_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F70\r\n
+    \       JUMP, 0x00001110\r\n        \r\n         # case \"\uBC31\": return WORDS_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __9_const_intnl_SystemString\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F40\r\n
-    \       JUMP, 0x000010C0\r\n        \r\n         # case \"\uC911\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000FA8\r\n
+    \       JUMP, 0x00001138\r\n        \r\n         # case \"\uBC1C\": return WORDS_START_GLOBAL_ORDER;\r\n
     \       PUSH, __1_cardType_String\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __19_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000FE0\r\n
+    \       JUMP, 0x00001160\r\n        \r\n         # case \"\uC911\": return WORDS_START_GLOBAL_ORDER;\r\n
+    \       PUSH, __1_cardType_String\r\n        PUSH, __11_const_intnl_SystemString\r\n
     \       PUSH, __20_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __20_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F78\r\n
-    \       JUMP, 0x000010E8\r\n        JUMP, 0x00001110\r\n        PUSH, MAN_START_GLOBAL_ORDER\r\n
+    \       PUSH, __20_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001018\r\n
+    \       JUMP, 0x00001188\r\n        JUMP, 0x000011B0\r\n        PUSH, MAN_START_GLOBAL_ORDER\r\n
     \       PUSH, __19_intnl_returnValSymbol_Int32\r\n        COPY\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        PUSH, PIN_START_GLOBAL_ORDER\r\n        PUSH,
@@ -502,46 +518,46 @@ MonoBehaviour:
     \   .export GetEndGlobalOrderOf\r\n        \r\n    GetEndGlobalOrderOf:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
     \        # switch (cardType)\r\n        \r\n         # case \"\uB9CC\": return
-    MAN_END_GLOBAL_ORDER;\r\n        PUSH, __2_cardType_String\r\n        PUSH, __1_const_intnl_SystemString\r\n
+    MAN_END_GLOBAL_ORDER;\r\n        PUSH, __2_cardType_String\r\n        PUSH, __2_const_intnl_SystemString\r\n
     \       PUSH, __21_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __21_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001190\r\n
-    \       JUMP, 0x00001390\r\n        \r\n         # case \"\uD1B5\": return PIN_END_GLOBAL_ORDER;\r\n
-    \       PUSH, __2_cardType_String\r\n        PUSH, __2_const_intnl_SystemString\r\n
-    \       PUSH, __22_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __22_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000011C8\r\n
-    \       JUMP, 0x000013B8\r\n        \r\n         # case \"\uC0AD\": return SOU_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __21_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001230\r\n
+    \       JUMP, 0x00001430\r\n        \r\n         # case \"\uD1B5\": return PIN_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __3_const_intnl_SystemString\r\n
-    \       PUSH, __23_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __23_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001200\r\n
-    \       JUMP, 0x000013E0\r\n        \r\n         # case \"\uB3D9\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __22_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __22_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001268\r\n
+    \       JUMP, 0x00001458\r\n        \r\n         # case \"\uC0AD\": return SOU_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __4_const_intnl_SystemString\r\n
-    \       PUSH, __24_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __24_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001238\r\n
-    \       JUMP, 0x00001408\r\n        \r\n         # case \"\uC11C\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __23_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __23_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000012A0\r\n
+    \       JUMP, 0x00001480\r\n        \r\n         # case \"\uB3D9\": return WORDS_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __5_const_intnl_SystemString\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001270\r\n
-    \       JUMP, 0x00001430\r\n        \r\n         # case \"\uB0A8\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __24_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __24_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000012D8\r\n
+    \       JUMP, 0x000014A8\r\n        \r\n         # case \"\uC11C\": return WORDS_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __6_const_intnl_SystemString\r\n
-    \       PUSH, __26_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __26_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000012A8\r\n
-    \       JUMP, 0x00001458\r\n        \r\n         # case \"\uBD81\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __25_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __25_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001310\r\n
+    \       JUMP, 0x000014D0\r\n        \r\n         # case \"\uB0A8\": return WORDS_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __7_const_intnl_SystemString\r\n
-    \       PUSH, __27_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __27_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000012E0\r\n
-    \       JUMP, 0x00001480\r\n        \r\n         # case \"\uBC31\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __26_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __26_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001348\r\n
+    \       JUMP, 0x000014F8\r\n        \r\n         # case \"\uBD81\": return WORDS_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __8_const_intnl_SystemString\r\n
-    \       PUSH, __28_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __28_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001318\r\n
-    \       JUMP, 0x000014A8\r\n        \r\n         # case \"\uBC1C\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __27_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __27_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001380\r\n
+    \       JUMP, 0x00001520\r\n        \r\n         # case \"\uBC31\": return WORDS_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __9_const_intnl_SystemString\r\n
-    \       PUSH, __29_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __29_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001350\r\n
-    \       JUMP, 0x000014D0\r\n        \r\n         # case \"\uC911\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __28_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __28_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000013B8\r\n
+    \       JUMP, 0x00001548\r\n        \r\n         # case \"\uBC1C\": return WORDS_END_GLOBAL_ORDER;\r\n
     \       PUSH, __2_cardType_String\r\n        PUSH, __10_const_intnl_SystemString\r\n
+    \       PUSH, __29_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
+    \       PUSH, __29_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000013F0\r\n
+    \       JUMP, 0x00001570\r\n        \r\n         # case \"\uC911\": return WORDS_END_GLOBAL_ORDER;\r\n
+    \       PUSH, __2_cardType_String\r\n        PUSH, __11_const_intnl_SystemString\r\n
     \       PUSH, __30_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __30_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001388\r\n
-    \       JUMP, 0x000014F8\r\n        JUMP, 0x00001520\r\n        PUSH, MAN_END_GLOBAL_ORDER\r\n
+    \       PUSH, __30_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001428\r\n
+    \       JUMP, 0x00001598\r\n        JUMP, 0x000015C0\r\n        PUSH, MAN_END_GLOBAL_ORDER\r\n
     \       PUSH, __20_intnl_returnValSymbol_Int32\r\n        COPY\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        PUSH, PIN_END_GLOBAL_ORDER\r\n        PUSH,
@@ -584,42 +600,42 @@ MonoBehaviour:
     \       PUSH, __0_index_Int32\r\n        COPY\r\n        \r\n         # for (var
     i = 0; i < globalOrders.Length; ++i)\r\n        PUSH, __7_const_intnl_SystemInt32\r\n
     \       PUSH, __2_i_Int32\r\n        COPY\r\n        PUSH, __2_globalOrders_Int32Array\r\n
-    \       PUSH, __31_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __2_i_Int32\r\n        PUSH, __31_intnl_SystemInt32\r\n        PUSH,
+    \       PUSH, __34_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __2_i_Int32\r\n        PUSH, __34_intnl_SystemInt32\r\n        PUSH,
     __31_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __31_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000017A0\r\n
+    \       PUSH, __31_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001840\r\n
     \       \r\n         # {\r\n        \r\n         # if (i >= WORDS_START_GLOBAL_ORDER
     && globalOrders[i] != 2)\r\n        PUSH, __2_i_Int32\r\n        PUSH, WORDS_START_GLOBAL_ORDER\r\n
     \       PUSH, __33_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_GreaterThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
     \       PUSH, __33_intnl_SystemBoolean\r\n        PUSH, __32_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __32_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x000016BC\r\n        PUSH, __2_globalOrders_Int32Array\r\n        PUSH, __2_i_Int32\r\n
-    \       PUSH, __32_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __32_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    0x0000175C\r\n        PUSH, __2_globalOrders_Int32Array\r\n        PUSH, __2_i_Int32\r\n
+    \       PUSH, __35_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __35_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __34_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
     \       PUSH, __32_intnl_SystemBoolean\r\n        PUSH, __34_intnl_SystemBoolean\r\n
     \       PUSH, __35_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
     \       PUSH, __35_intnl_SystemBoolean\r\n        PUSH, __32_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __32_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x000016D4\r\n        \r\n         # {\r\n        \r\n         # continue;\r\n
-    \       JUMP, 0x00001778\r\n        \r\n         # if (globalOrders[i] >= 2)\r\n
+    0x00001774\r\n        \r\n         # {\r\n        \r\n         # continue;\r\n
+    \       JUMP, 0x00001818\r\n        \r\n         # if (globalOrders[i] >= 2)\r\n
     \       PUSH, __2_globalOrders_Int32Array\r\n        PUSH, __2_i_Int32\r\n        PUSH,
-    __33_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __33_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    __36_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __36_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __36_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_GreaterThanOrEqual__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __36_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001778\r\n
+    \       PUSH, __36_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001818\r\n
     \       \r\n         # {\r\n        \r\n         # arr[index++] = i;\r\n        PUSH,
-    __0_index_Int32\r\n        PUSH, __34_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
+    __0_index_Int32\r\n        PUSH, __37_intnl_SystemInt32\r\n        COPY\r\n        PUSH,
     __0_index_Int32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
     __0_index_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __1_arr_Int32Array\r\n        PUSH, __34_intnl_SystemInt32\r\n        PUSH,
+    \       PUSH, __1_arr_Int32Array\r\n        PUSH, __37_intnl_SystemInt32\r\n        PUSH,
     __2_i_Int32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
     \       PUSH, __2_i_Int32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
     __2_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000015BC\r\n        \r\n         # return Fit(arr, index);\r\n
+    \       JUMP, 0x0000165C\r\n        \r\n         # return Fit(arr, index);\r\n
     \       PUSH, __1_arr_Int32Array\r\n        PUSH, __0_arr_Int32Array\r\n        COPY\r\n
     \       PUSH, __0_index_Int32\r\n        PUSH, __0_count_Int32\r\n        COPY\r\n
-    \       PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x0000181C\r\n
+    \       PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000018BC\r\n
     \       PUSH, __2_intnl_returnValSymbol_Int32Array\r\n        PUSH, __1_intnl_returnValSymbol_Int32Array\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
@@ -634,15 +650,15 @@ MonoBehaviour:
     __7_const_intnl_SystemInt32\r\n        PUSH, __3_i_Int32\r\n        COPY\r\n        PUSH,
     __3_i_Int32\r\n        PUSH, __0_count_Int32\r\n        PUSH, __37_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __37_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000018F4\r\n
+    \       PUSH, __37_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001994\r\n
     \       \r\n         # {\r\n        \r\n         # newArr[i] = arr[i];\r\n        PUSH,
-    __0_arr_Int32Array\r\n        PUSH, __3_i_Int32\r\n        PUSH, __35_intnl_SystemInt32\r\n
+    __0_arr_Int32Array\r\n        PUSH, __3_i_Int32\r\n        PUSH, __38_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
-    __0_newArr_Int32Array\r\n        PUSH, __3_i_Int32\r\n        PUSH, __35_intnl_SystemInt32\r\n
+    __0_newArr_Int32Array\r\n        PUSH, __3_i_Int32\r\n        PUSH, __38_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
     \       PUSH, __3_i_Int32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
     __3_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x0000185C\r\n        \r\n         # return newArr;\r\n        PUSH,
+    \       JUMP, 0x000018FC\r\n        \r\n         # return newArr;\r\n        PUSH,
     __0_newArr_Int32Array\r\n        PUSH, __2_intnl_returnValSymbol_Int32Array\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
@@ -2503,1211 +2519,1302 @@ MonoBehaviour:
       lineChar: 29
       spanCodeSection: card.
     - startInstruction: 2940
-      endInstruction: 3183
+      endInstruction: 3143
       startSourceChar: 3093
-      endSourceChar: 3144
+      endSourceChar: 3126
       line: 134
       lineChar: 34
-      spanCodeSection: "GlobalOrder]++;\r\n            }\r\n        }\r\n        "
-    - startInstruction: 3184
-      endInstruction: 3183
-      startSourceChar: 3144
-      endSourceChar: 3151
-      line: 137
+      spanCodeSection: "GlobalOrder]++;\r\n                "
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3126
+      endSourceChar: 3126
+      line: 135
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3126
+      endSourceChar: 3126
+      line: 135
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3126
+      endSourceChar: 3126
+      line: 135
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3126
+      endSourceChar: 3132
+      line: 135
+      lineChar: 16
+      spanCodeSection: Debug.
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3132
+      endSourceChar: 3136
+      line: 135
+      lineChar: 22
+      spanCodeSection: Log(
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3136
+      endSourceChar: 3136
+      line: 135
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3136
+      endSourceChar: 3155
+      line: 135
+      lineChar: 26
+      spanCodeSection: '"globalOrder : " + '
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3155
+      endSourceChar: 3155
+      line: 135
+      lineChar: 45
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3155
+      endSourceChar: 3168
+      line: 135
+      lineChar: 45
+      spanCodeSection: globalOrders[
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3168
+      endSourceChar: 3168
+      line: 135
+      lineChar: 58
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3168
+      endSourceChar: 3168
+      line: 135
+      lineChar: 58
+      spanCodeSection: 
+    - startInstruction: 3144
+      endInstruction: 3143
+      startSourceChar: 3168
+      endSourceChar: 3173
+      line: 135
+      lineChar: 58
+      spanCodeSection: card.
+    - startInstruction: 3144
+      endInstruction: 3343
+      startSourceChar: 3173
+      endSourceChar: 3223
+      line: 135
+      lineChar: 63
+      spanCodeSection: "GlobalOrder]);\r\n            }\r\n        }\r\n        "
+    - startInstruction: 3344
+      endInstruction: 3343
+      startSourceChar: 3223
+      endSourceChar: 3230
+      line: 138
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 3184
-      endInstruction: 3243
-      startSourceChar: 3151
-      endSourceChar: 3179
-      line: 137
+    - startInstruction: 3344
+      endInstruction: 3403
+      startSourceChar: 3230
+      endSourceChar: 3258
+      line: 138
       lineChar: 15
       spanCodeSection: "globalOrders;\r\n    }\r\n\r\n    "
-    - startInstruction: 3244
-      endInstruction: 3243
-      startSourceChar: 3179
-      endSourceChar: 3205
-      line: 140
-      lineChar: 4
-      spanCodeSection: public int GetGlobalOrder(
-    - startInstruction: 3244
-      endInstruction: 3243
-      startSourceChar: 3205
-      endSourceChar: 3222
-      line: 140
-      lineChar: 30
-      spanCodeSection: 'string cardType, '
-    - startInstruction: 3244
-      endInstruction: 3251
-      startSourceChar: 3222
-      endSourceChar: 3243
-      line: 140
-      lineChar: 47
-      spanCodeSection: "int cardNumber)\r\n    "
-    - startInstruction: 3252
-      endInstruction: 3251
-      startSourceChar: 3243
-      endSourceChar: 3254
+    - startInstruction: 3404
+      endInstruction: 3403
+      startSourceChar: 3258
+      endSourceChar: 3284
       line: 141
       lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 3252
-      endInstruction: 3251
-      startSourceChar: 3254
-      endSourceChar: 3261
+      spanCodeSection: public int GetGlobalOrder(
+    - startInstruction: 3404
+      endInstruction: 3403
+      startSourceChar: 3284
+      endSourceChar: 3301
+      line: 141
+      lineChar: 30
+      spanCodeSection: 'string cardType, '
+    - startInstruction: 3404
+      endInstruction: 3411
+      startSourceChar: 3301
+      endSourceChar: 3322
+      line: 141
+      lineChar: 47
+      spanCodeSection: "int cardNumber)\r\n    "
+    - startInstruction: 3412
+      endInstruction: 3411
+      startSourceChar: 3322
+      endSourceChar: 3333
       line: 142
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 3412
+      endInstruction: 3411
+      startSourceChar: 3333
+      endSourceChar: 3340
+      line: 143
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 3252
-      endInstruction: 3251
-      startSourceChar: 3261
-      endSourceChar: 3261
-      line: 142
+    - startInstruction: 3412
+      endInstruction: 3411
+      startSourceChar: 3340
+      endSourceChar: 3340
+      line: 143
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 3252
-      endInstruction: 3251
-      startSourceChar: 3261
-      endSourceChar: 3261
-      line: 142
+    - startInstruction: 3412
+      endInstruction: 3411
+      startSourceChar: 3340
+      endSourceChar: 3340
+      line: 143
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 3252
-      endInstruction: 3251
-      startSourceChar: 3261
-      endSourceChar: 3283
-      line: 142
+    - startInstruction: 3412
+      endInstruction: 3411
+      startSourceChar: 3340
+      endSourceChar: 3362
+      line: 143
       lineChar: 15
       spanCodeSection: GetStartGlobalOrderOf(
-    - startInstruction: 3252
-      endInstruction: 3287
-      startSourceChar: 3283
-      endSourceChar: 3295
-      line: 142
+    - startInstruction: 3412
+      endInstruction: 3447
+      startSourceChar: 3362
+      endSourceChar: 3374
+      line: 143
       lineChar: 37
       spanCodeSection: 'cardType) + '
-    - startInstruction: 3288
-      endInstruction: 3287
-      startSourceChar: 3295
-      endSourceChar: 3296
-      line: 142
+    - startInstruction: 3448
+      endInstruction: 3447
+      startSourceChar: 3374
+      endSourceChar: 3375
+      line: 143
       lineChar: 49
       spanCodeSection: (
-    - startInstruction: 3288
-      endInstruction: 3287
-      startSourceChar: 3296
-      endSourceChar: 3296
-      line: 142
+    - startInstruction: 3448
+      endInstruction: 3447
+      startSourceChar: 3375
+      endSourceChar: 3375
+      line: 143
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 3288
-      endInstruction: 3287
-      startSourceChar: 3296
-      endSourceChar: 3309
-      line: 142
+    - startInstruction: 3448
+      endInstruction: 3447
+      startSourceChar: 3375
+      endSourceChar: 3388
+      line: 143
       lineChar: 50
       spanCodeSection: 'cardNumber - '
-    - startInstruction: 3288
-      endInstruction: 3391
-      startSourceChar: 3309
-      endSourceChar: 3327
-      line: 142
+    - startInstruction: 3448
+      endInstruction: 3551
+      startSourceChar: 3388
+      endSourceChar: 3406
+      line: 143
       lineChar: 63
       spanCodeSection: "1);\r\n    }\r\n\r\n    "
-    - startInstruction: 3392
-      endInstruction: 3391
-      startSourceChar: 3327
-      endSourceChar: 3360
-      line: 145
-      lineChar: 4
-      spanCodeSection: public int GetStartGlobalOrderOf(
-    - startInstruction: 3392
-      endInstruction: 3399
-      startSourceChar: 3360
-      endSourceChar: 3382
-      line: 145
-      lineChar: 37
-      spanCodeSection: "string cardType)\r\n    "
-    - startInstruction: 3400
-      endInstruction: 3399
-      startSourceChar: 3382
-      endSourceChar: 3393
+    - startInstruction: 3552
+      endInstruction: 3551
+      startSourceChar: 3406
+      endSourceChar: 3439
       line: 146
       lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 3400
-      endInstruction: 3399
-      startSourceChar: 3393
-      endSourceChar: 3401
+      spanCodeSection: public int GetStartGlobalOrderOf(
+    - startInstruction: 3552
+      endInstruction: 3559
+      startSourceChar: 3439
+      endSourceChar: 3461
+      line: 146
+      lineChar: 37
+      spanCodeSection: "string cardType)\r\n    "
+    - startInstruction: 3560
+      endInstruction: 3559
+      startSourceChar: 3461
+      endSourceChar: 3472
       line: 147
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 3560
+      endInstruction: 3559
+      startSourceChar: 3472
+      endSourceChar: 3480
+      line: 148
       lineChar: 8
       spanCodeSection: switch (
-    - startInstruction: 3400
-      endInstruction: 3399
-      startSourceChar: 3401
-      endSourceChar: 3435
-      line: 147
+    - startInstruction: 3560
+      endInstruction: 3559
+      startSourceChar: 3480
+      endSourceChar: 3514
+      line: 148
       lineChar: 16
       spanCodeSection: "cardType)\r\n        {\r\n            "
-    - startInstruction: 3400
-      endInstruction: 3399
-      startSourceChar: 3435
-      endSourceChar: 3440
-      line: 149
+    - startInstruction: 3560
+      endInstruction: 3559
+      startSourceChar: 3514
+      endSourceChar: 3519
+      line: 150
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3400
-      endInstruction: 3455
-      startSourceChar: 3440
-      endSourceChar: 3489
-      line: 149
+    - startInstruction: 3560
+      endInstruction: 3615
+      startSourceChar: 3519
+      endSourceChar: 3568
+      line: 150
       lineChar: 17
       spanCodeSection: "\"\uB9CC\": return MAN_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3456
-      endInstruction: 3455
-      startSourceChar: 3489
-      endSourceChar: 3494
-      line: 150
+    - startInstruction: 3616
+      endInstruction: 3615
+      startSourceChar: 3568
+      endSourceChar: 3573
+      line: 151
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3456
-      endInstruction: 3511
-      startSourceChar: 3494
-      endSourceChar: 3543
-      line: 150
+    - startInstruction: 3616
+      endInstruction: 3671
+      startSourceChar: 3573
+      endSourceChar: 3622
+      line: 151
       lineChar: 17
       spanCodeSection: "\"\uD1B5\": return PIN_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3512
-      endInstruction: 3511
-      startSourceChar: 3543
-      endSourceChar: 3548
-      line: 151
+    - startInstruction: 3672
+      endInstruction: 3671
+      startSourceChar: 3622
+      endSourceChar: 3627
+      line: 152
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3512
-      endInstruction: 3567
-      startSourceChar: 3548
-      endSourceChar: 3597
-      line: 151
+    - startInstruction: 3672
+      endInstruction: 3727
+      startSourceChar: 3627
+      endSourceChar: 3676
+      line: 152
       lineChar: 17
       spanCodeSection: "\"\uC0AD\": return SOU_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3568
-      endInstruction: 3567
-      startSourceChar: 3597
-      endSourceChar: 3602
-      line: 152
+    - startInstruction: 3728
+      endInstruction: 3727
+      startSourceChar: 3676
+      endSourceChar: 3681
+      line: 153
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3568
-      endInstruction: 3623
-      startSourceChar: 3602
-      endSourceChar: 3653
-      line: 152
+    - startInstruction: 3728
+      endInstruction: 3783
+      startSourceChar: 3681
+      endSourceChar: 3732
+      line: 153
       lineChar: 17
       spanCodeSection: "\"\uB3D9\": return WORDS_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3624
-      endInstruction: 3623
-      startSourceChar: 3653
-      endSourceChar: 3658
-      line: 153
+    - startInstruction: 3784
+      endInstruction: 3783
+      startSourceChar: 3732
+      endSourceChar: 3737
+      line: 154
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3624
-      endInstruction: 3679
-      startSourceChar: 3658
-      endSourceChar: 3709
-      line: 153
+    - startInstruction: 3784
+      endInstruction: 3839
+      startSourceChar: 3737
+      endSourceChar: 3788
+      line: 154
       lineChar: 17
       spanCodeSection: "\"\uC11C\": return WORDS_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3680
-      endInstruction: 3679
-      startSourceChar: 3709
-      endSourceChar: 3714
-      line: 154
+    - startInstruction: 3840
+      endInstruction: 3839
+      startSourceChar: 3788
+      endSourceChar: 3793
+      line: 155
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3680
-      endInstruction: 3735
-      startSourceChar: 3714
-      endSourceChar: 3765
-      line: 154
+    - startInstruction: 3840
+      endInstruction: 3895
+      startSourceChar: 3793
+      endSourceChar: 3844
+      line: 155
       lineChar: 17
       spanCodeSection: "\"\uB0A8\": return WORDS_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3736
-      endInstruction: 3735
-      startSourceChar: 3765
-      endSourceChar: 3770
-      line: 155
+    - startInstruction: 3896
+      endInstruction: 3895
+      startSourceChar: 3844
+      endSourceChar: 3849
+      line: 156
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3736
-      endInstruction: 3791
-      startSourceChar: 3770
-      endSourceChar: 3821
-      line: 155
+    - startInstruction: 3896
+      endInstruction: 3951
+      startSourceChar: 3849
+      endSourceChar: 3900
+      line: 156
       lineChar: 17
       spanCodeSection: "\"\uBD81\": return WORDS_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3792
-      endInstruction: 3791
-      startSourceChar: 3821
-      endSourceChar: 3826
-      line: 156
+    - startInstruction: 3952
+      endInstruction: 3951
+      startSourceChar: 3900
+      endSourceChar: 3905
+      line: 157
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3792
-      endInstruction: 3847
-      startSourceChar: 3826
-      endSourceChar: 3877
-      line: 156
+    - startInstruction: 3952
+      endInstruction: 4007
+      startSourceChar: 3905
+      endSourceChar: 3956
+      line: 157
       lineChar: 17
       spanCodeSection: "\"\uBC31\": return WORDS_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3848
-      endInstruction: 3847
-      startSourceChar: 3877
-      endSourceChar: 3882
-      line: 157
+    - startInstruction: 4008
+      endInstruction: 4007
+      startSourceChar: 3956
+      endSourceChar: 3961
+      line: 158
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3848
-      endInstruction: 3903
-      startSourceChar: 3882
-      endSourceChar: 3933
-      line: 157
+    - startInstruction: 4008
+      endInstruction: 4063
+      startSourceChar: 3961
+      endSourceChar: 4012
+      line: 158
       lineChar: 17
       spanCodeSection: "\"\uBC1C\": return WORDS_START_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 3904
-      endInstruction: 3903
-      startSourceChar: 3933
-      endSourceChar: 3938
-      line: 158
+    - startInstruction: 4064
+      endInstruction: 4063
+      startSourceChar: 4012
+      endSourceChar: 4017
+      line: 159
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3904
-      endInstruction: 4327
-      startSourceChar: 3938
-      endSourceChar: 3943
-      line: 158
+    - startInstruction: 4064
+      endInstruction: 4487
+      startSourceChar: 4017
+      endSourceChar: 4022
+      line: 159
       lineChar: 17
       spanCodeSection: "\"\uC911\": "
-    - startInstruction: 4328
-      endInstruction: 4327
-      startSourceChar: 3943
-      endSourceChar: 3950
-      line: 158
+    - startInstruction: 4488
+      endInstruction: 4487
+      startSourceChar: 4022
+      endSourceChar: 4029
+      line: 159
       lineChar: 22
       spanCodeSection: 'return '
-    - startInstruction: 4328
-      endInstruction: 4367
-      startSourceChar: 3950
-      endSourceChar: 3996
-      line: 158
+    - startInstruction: 4488
+      endInstruction: 4527
+      startSourceChar: 4029
+      endSourceChar: 4075
+      line: 159
       lineChar: 29
       spanCodeSection: "WORDS_START_GLOBAL_ORDER;\r\n        }\r\n        "
-    - startInstruction: 4368
-      endInstruction: 4367
-      startSourceChar: 3996
-      endSourceChar: 4003
-      line: 160
+    - startInstruction: 4528
+      endInstruction: 4527
+      startSourceChar: 4075
+      endSourceChar: 4082
+      line: 161
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 4368
-      endInstruction: 4367
-      startSourceChar: 4003
-      endSourceChar: 4004
-      line: 160
+    - startInstruction: 4528
+      endInstruction: 4527
+      startSourceChar: 4082
+      endSourceChar: 4083
+      line: 161
       lineChar: 15
       spanCodeSection: '-'
-    - startInstruction: 4368
-      endInstruction: 4431
-      startSourceChar: 4004
-      endSourceChar: 4021
-      line: 160
+    - startInstruction: 4528
+      endInstruction: 4591
+      startSourceChar: 4083
+      endSourceChar: 4100
+      line: 161
       lineChar: 16
       spanCodeSection: "1;\r\n    }\r\n\r\n    "
-    - startInstruction: 4432
-      endInstruction: 4431
-      startSourceChar: 4021
-      endSourceChar: 4052
-      line: 163
-      lineChar: 4
-      spanCodeSection: public int GetEndGlobalOrderOf(
-    - startInstruction: 4432
-      endInstruction: 4439
-      startSourceChar: 4052
-      endSourceChar: 4074
-      line: 163
-      lineChar: 35
-      spanCodeSection: "string cardType)\r\n    "
-    - startInstruction: 4440
-      endInstruction: 4439
-      startSourceChar: 4074
-      endSourceChar: 4085
+    - startInstruction: 4592
+      endInstruction: 4591
+      startSourceChar: 4100
+      endSourceChar: 4131
       line: 164
       lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 4440
-      endInstruction: 4439
-      startSourceChar: 4085
-      endSourceChar: 4093
+      spanCodeSection: public int GetEndGlobalOrderOf(
+    - startInstruction: 4592
+      endInstruction: 4599
+      startSourceChar: 4131
+      endSourceChar: 4153
+      line: 164
+      lineChar: 35
+      spanCodeSection: "string cardType)\r\n    "
+    - startInstruction: 4600
+      endInstruction: 4599
+      startSourceChar: 4153
+      endSourceChar: 4164
       line: 165
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 4600
+      endInstruction: 4599
+      startSourceChar: 4164
+      endSourceChar: 4172
+      line: 166
       lineChar: 8
       spanCodeSection: switch (
-    - startInstruction: 4440
-      endInstruction: 4439
-      startSourceChar: 4093
-      endSourceChar: 4127
-      line: 165
+    - startInstruction: 4600
+      endInstruction: 4599
+      startSourceChar: 4172
+      endSourceChar: 4206
+      line: 166
       lineChar: 16
       spanCodeSection: "cardType)\r\n        {\r\n            "
-    - startInstruction: 4440
-      endInstruction: 4439
-      startSourceChar: 4127
-      endSourceChar: 4132
-      line: 167
+    - startInstruction: 4600
+      endInstruction: 4599
+      startSourceChar: 4206
+      endSourceChar: 4211
+      line: 168
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4440
-      endInstruction: 4495
-      startSourceChar: 4132
-      endSourceChar: 4179
-      line: 167
+    - startInstruction: 4600
+      endInstruction: 4655
+      startSourceChar: 4211
+      endSourceChar: 4258
+      line: 168
       lineChar: 17
       spanCodeSection: "\"\uB9CC\": return MAN_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4496
-      endInstruction: 4495
-      startSourceChar: 4179
-      endSourceChar: 4184
-      line: 168
+    - startInstruction: 4656
+      endInstruction: 4655
+      startSourceChar: 4258
+      endSourceChar: 4263
+      line: 169
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4496
-      endInstruction: 4551
-      startSourceChar: 4184
-      endSourceChar: 4231
-      line: 168
+    - startInstruction: 4656
+      endInstruction: 4711
+      startSourceChar: 4263
+      endSourceChar: 4310
+      line: 169
       lineChar: 17
       spanCodeSection: "\"\uD1B5\": return PIN_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4552
-      endInstruction: 4551
-      startSourceChar: 4231
-      endSourceChar: 4236
-      line: 169
+    - startInstruction: 4712
+      endInstruction: 4711
+      startSourceChar: 4310
+      endSourceChar: 4315
+      line: 170
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4552
-      endInstruction: 4607
-      startSourceChar: 4236
-      endSourceChar: 4283
-      line: 169
+    - startInstruction: 4712
+      endInstruction: 4767
+      startSourceChar: 4315
+      endSourceChar: 4362
+      line: 170
       lineChar: 17
       spanCodeSection: "\"\uC0AD\": return SOU_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4608
-      endInstruction: 4607
-      startSourceChar: 4283
-      endSourceChar: 4288
-      line: 170
+    - startInstruction: 4768
+      endInstruction: 4767
+      startSourceChar: 4362
+      endSourceChar: 4367
+      line: 171
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4608
-      endInstruction: 4663
-      startSourceChar: 4288
-      endSourceChar: 4337
-      line: 170
+    - startInstruction: 4768
+      endInstruction: 4823
+      startSourceChar: 4367
+      endSourceChar: 4416
+      line: 171
       lineChar: 17
       spanCodeSection: "\"\uB3D9\": return WORDS_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4664
-      endInstruction: 4663
-      startSourceChar: 4337
-      endSourceChar: 4342
-      line: 171
+    - startInstruction: 4824
+      endInstruction: 4823
+      startSourceChar: 4416
+      endSourceChar: 4421
+      line: 172
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4664
-      endInstruction: 4719
-      startSourceChar: 4342
-      endSourceChar: 4391
-      line: 171
+    - startInstruction: 4824
+      endInstruction: 4879
+      startSourceChar: 4421
+      endSourceChar: 4470
+      line: 172
       lineChar: 17
       spanCodeSection: "\"\uC11C\": return WORDS_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4720
-      endInstruction: 4719
-      startSourceChar: 4391
-      endSourceChar: 4396
-      line: 172
+    - startInstruction: 4880
+      endInstruction: 4879
+      startSourceChar: 4470
+      endSourceChar: 4475
+      line: 173
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4720
-      endInstruction: 4775
-      startSourceChar: 4396
-      endSourceChar: 4445
-      line: 172
+    - startInstruction: 4880
+      endInstruction: 4935
+      startSourceChar: 4475
+      endSourceChar: 4524
+      line: 173
       lineChar: 17
       spanCodeSection: "\"\uB0A8\": return WORDS_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4776
-      endInstruction: 4775
-      startSourceChar: 4445
-      endSourceChar: 4450
-      line: 173
+    - startInstruction: 4936
+      endInstruction: 4935
+      startSourceChar: 4524
+      endSourceChar: 4529
+      line: 174
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4776
-      endInstruction: 4831
-      startSourceChar: 4450
-      endSourceChar: 4499
-      line: 173
+    - startInstruction: 4936
+      endInstruction: 4991
+      startSourceChar: 4529
+      endSourceChar: 4578
+      line: 174
       lineChar: 17
       spanCodeSection: "\"\uBD81\": return WORDS_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4832
-      endInstruction: 4831
-      startSourceChar: 4499
-      endSourceChar: 4504
-      line: 174
+    - startInstruction: 4992
+      endInstruction: 4991
+      startSourceChar: 4578
+      endSourceChar: 4583
+      line: 175
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4832
-      endInstruction: 4887
-      startSourceChar: 4504
-      endSourceChar: 4553
-      line: 174
+    - startInstruction: 4992
+      endInstruction: 5047
+      startSourceChar: 4583
+      endSourceChar: 4632
+      line: 175
       lineChar: 17
       spanCodeSection: "\"\uBC31\": return WORDS_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4888
-      endInstruction: 4887
-      startSourceChar: 4553
-      endSourceChar: 4558
-      line: 175
+    - startInstruction: 5048
+      endInstruction: 5047
+      startSourceChar: 4632
+      endSourceChar: 4637
+      line: 176
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4888
-      endInstruction: 4943
-      startSourceChar: 4558
-      endSourceChar: 4607
-      line: 175
+    - startInstruction: 5048
+      endInstruction: 5103
+      startSourceChar: 4637
+      endSourceChar: 4686
+      line: 176
       lineChar: 17
       spanCodeSection: "\"\uBC1C\": return WORDS_END_GLOBAL_ORDER;\r\n            "
-    - startInstruction: 4944
-      endInstruction: 4943
-      startSourceChar: 4607
-      endSourceChar: 4612
-      line: 176
+    - startInstruction: 5104
+      endInstruction: 5103
+      startSourceChar: 4686
+      endSourceChar: 4691
+      line: 177
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 4944
-      endInstruction: 5367
-      startSourceChar: 4612
-      endSourceChar: 4617
-      line: 176
+    - startInstruction: 5104
+      endInstruction: 5527
+      startSourceChar: 4691
+      endSourceChar: 4696
+      line: 177
       lineChar: 17
       spanCodeSection: "\"\uC911\": "
-    - startInstruction: 5368
-      endInstruction: 5367
-      startSourceChar: 4617
-      endSourceChar: 4624
-      line: 176
+    - startInstruction: 5528
+      endInstruction: 5527
+      startSourceChar: 4696
+      endSourceChar: 4703
+      line: 177
       lineChar: 22
       spanCodeSection: 'return '
-    - startInstruction: 5368
-      endInstruction: 5407
-      startSourceChar: 4624
-      endSourceChar: 4668
-      line: 176
+    - startInstruction: 5528
+      endInstruction: 5567
+      startSourceChar: 4703
+      endSourceChar: 4747
+      line: 177
       lineChar: 29
       spanCodeSection: "WORDS_END_GLOBAL_ORDER;\r\n        }\r\n        "
-    - startInstruction: 5408
-      endInstruction: 5407
-      startSourceChar: 4668
-      endSourceChar: 4675
-      line: 178
+    - startInstruction: 5568
+      endInstruction: 5567
+      startSourceChar: 4747
+      endSourceChar: 4754
+      line: 179
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 5408
-      endInstruction: 5407
-      startSourceChar: 4675
-      endSourceChar: 4676
-      line: 178
+    - startInstruction: 5568
+      endInstruction: 5567
+      startSourceChar: 4754
+      endSourceChar: 4755
+      line: 179
       lineChar: 15
       spanCodeSection: '-'
-    - startInstruction: 5408
-      endInstruction: 5471
-      startSourceChar: 4676
-      endSourceChar: 4693
-      line: 178
+    - startInstruction: 5568
+      endInstruction: 5631
+      startSourceChar: 4755
+      endSourceChar: 4772
+      line: 179
       lineChar: 16
       spanCodeSection: "1;\r\n    }\r\n\r\n    "
-    - startInstruction: 5472
-      endInstruction: 5471
-      startSourceChar: 4693
-      endSourceChar: 4716
-      line: 181
+    - startInstruction: 5632
+      endInstruction: 5631
+      startSourceChar: 4772
+      endSourceChar: 4795
+      line: 182
       lineChar: 4
       spanCodeSection: public int[] FindPairs(
-    - startInstruction: 5472
-      endInstruction: 5479
-      startSourceChar: 4716
-      endSourceChar: 4741
-      line: 181
+    - startInstruction: 5632
+      endInstruction: 5639
+      startSourceChar: 4795
+      endSourceChar: 4820
+      line: 182
       lineChar: 27
       spanCodeSection: "int[] globalOrders)\r\n    "
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4741
-      endSourceChar: 4819
-      line: 182
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4820
+      endSourceChar: 4898
+      line: 183
       lineChar: 4
       spanCodeSection: "{\r\n        // \uBA38\uB9AC\uB97C \uCC3E\uB294\uB2E4. \uCD5C\uB300
         \uAC2F\uC218\uB294 14/2 7\uAC1C\r\n        // \uC778\uB370 \uBC84\uADF8\uB098\uC11C
         \uC784\uC2DC\uB85C \uB298\uB824\uBD04;;;\r\n        "
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4819
-      endSourceChar: 4819
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4898
+      endSourceChar: 4898
+      line: 186
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4819
-      endSourceChar: 4819
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4898
+      endSourceChar: 4898
+      line: 186
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4819
-      endSourceChar: 4827
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4898
+      endSourceChar: 4906
+      line: 186
       lineChar: 8
       spanCodeSection: 'var arr '
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4827
-      endSourceChar: 4829
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4906
+      endSourceChar: 4908
+      line: 186
       lineChar: 16
       spanCodeSection: '= '
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4829
-      endSourceChar: 4833
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4908
+      endSourceChar: 4912
+      line: 186
       lineChar: 18
       spanCodeSection: 'new '
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4833
-      endSourceChar: 4833
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4912
+      endSourceChar: 4912
+      line: 186
       lineChar: 22
       spanCodeSection: 
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4833
-      endSourceChar: 4836
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4912
+      endSourceChar: 4915
+      line: 186
       lineChar: 22
       spanCodeSection: int
-    - startInstruction: 5480
-      endInstruction: 5479
-      startSourceChar: 4836
-      endSourceChar: 4837
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5639
+      startSourceChar: 4915
+      endSourceChar: 4916
+      line: 186
       lineChar: 25
       spanCodeSection: '['
-    - startInstruction: 5480
-      endInstruction: 5523
-      startSourceChar: 4837
-      endSourceChar: 4851
-      line: 185
+    - startInstruction: 5640
+      endInstruction: 5683
+      startSourceChar: 4916
+      endSourceChar: 4930
+      line: 186
       lineChar: 26
       spanCodeSection: "14];\r\n        "
-    - startInstruction: 5524
-      endInstruction: 5523
-      startSourceChar: 4851
-      endSourceChar: 4851
-      line: 186
+    - startInstruction: 5684
+      endInstruction: 5683
+      startSourceChar: 4930
+      endSourceChar: 4930
+      line: 187
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5524
-      endInstruction: 5523
-      startSourceChar: 4851
-      endSourceChar: 4851
-      line: 186
+    - startInstruction: 5684
+      endInstruction: 5683
+      startSourceChar: 4930
+      endSourceChar: 4930
+      line: 187
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5524
-      endInstruction: 5523
-      startSourceChar: 4851
-      endSourceChar: 4861
-      line: 186
+    - startInstruction: 5684
+      endInstruction: 5683
+      startSourceChar: 4930
+      endSourceChar: 4940
+      line: 187
       lineChar: 8
       spanCodeSection: 'var index '
-    - startInstruction: 5524
-      endInstruction: 5523
-      startSourceChar: 4861
-      endSourceChar: 4863
-      line: 186
+    - startInstruction: 5684
+      endInstruction: 5683
+      startSourceChar: 4940
+      endSourceChar: 4942
+      line: 187
       lineChar: 18
       spanCodeSection: '= '
-    - startInstruction: 5524
-      endInstruction: 5543
-      startSourceChar: 4863
-      endSourceChar: 4877
-      line: 186
+    - startInstruction: 5684
+      endInstruction: 5703
+      startSourceChar: 4942
+      endSourceChar: 4956
+      line: 187
       lineChar: 20
       spanCodeSection: "0;\r\n\r\n        "
-    - startInstruction: 5544
-      endInstruction: 5543
-      startSourceChar: 4877
-      endSourceChar: 4882
-      line: 188
+    - startInstruction: 5704
+      endInstruction: 5703
+      startSourceChar: 4956
+      endSourceChar: 4961
+      line: 189
       lineChar: 8
       spanCodeSection: for (
-    - startInstruction: 5544
-      endInstruction: 5543
-      startSourceChar: 4882
-      endSourceChar: 4882
-      line: 188
+    - startInstruction: 5704
+      endInstruction: 5703
+      startSourceChar: 4961
+      endSourceChar: 4961
+      line: 189
       lineChar: 13
       spanCodeSection: 
-    - startInstruction: 5544
-      endInstruction: 5543
-      startSourceChar: 4882
-      endSourceChar: 4888
-      line: 188
+    - startInstruction: 5704
+      endInstruction: 5703
+      startSourceChar: 4961
+      endSourceChar: 4967
+      line: 189
       lineChar: 13
       spanCodeSection: 'var i '
-    - startInstruction: 5544
-      endInstruction: 5543
-      startSourceChar: 4888
-      endSourceChar: 4890
-      line: 188
+    - startInstruction: 5704
+      endInstruction: 5703
+      startSourceChar: 4967
+      endSourceChar: 4969
+      line: 189
       lineChar: 19
       spanCodeSection: '= '
-    - startInstruction: 5544
-      endInstruction: 5563
-      startSourceChar: 4890
-      endSourceChar: 4893
-      line: 188
+    - startInstruction: 5704
+      endInstruction: 5723
+      startSourceChar: 4969
+      endSourceChar: 4972
+      line: 189
       lineChar: 21
       spanCodeSection: '0; '
-    - startInstruction: 5564
-      endInstruction: 5563
-      startSourceChar: 4893
-      endSourceChar: 4893
-      line: 188
+    - startInstruction: 5724
+      endInstruction: 5723
+      startSourceChar: 4972
+      endSourceChar: 4972
+      line: 189
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 5564
-      endInstruction: 5563
-      startSourceChar: 4893
-      endSourceChar: 4897
-      line: 188
+    - startInstruction: 5724
+      endInstruction: 5723
+      startSourceChar: 4972
+      endSourceChar: 4976
+      line: 189
       lineChar: 24
       spanCodeSection: 'i < '
-    - startInstruction: 5564
-      endInstruction: 5563
-      startSourceChar: 4897
-      endSourceChar: 4897
-      line: 188
+    - startInstruction: 5724
+      endInstruction: 5723
+      startSourceChar: 4976
+      endSourceChar: 4976
+      line: 189
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 5564
-      endInstruction: 5563
-      startSourceChar: 4897
-      endSourceChar: 4910
-      line: 188
+    - startInstruction: 5724
+      endInstruction: 5723
+      startSourceChar: 4976
+      endSourceChar: 4989
+      line: 189
       lineChar: 28
       spanCodeSection: globalOrders.
-    - startInstruction: 5564
-      endInstruction: 5635
-      startSourceChar: 4910
-      endSourceChar: 4932
-      line: 188
+    - startInstruction: 5724
+      endInstruction: 5795
+      startSourceChar: 4989
+      endSourceChar: 5011
+      line: 189
       lineChar: 41
       spanCodeSection: "Length; ++i)\r\n        "
-    - startInstruction: 5636
-      endInstruction: 5635
-      startSourceChar: 4932
-      endSourceChar: 5001
-      line: 189
+    - startInstruction: 5796
+      endInstruction: 5795
+      startSourceChar: 5011
+      endSourceChar: 5080
+      line: 190
       lineChar: 8
       spanCodeSection: "{\r\n            // \uCEE4\uCBD4\uC778 \uC790\uD328\uB294
         \uBB34\uC2DC\uD55C\uB2E4. \uBA38\uB9AC\uB85C \uBE7C\uBD24\uC790 \uB098\uBA38\uC9C0
         \uD558\uB098\uAC00 \uC5ED\uD560\uC744 \uBABB \uD568\r\n            "
-    - startInstruction: 5636
-      endInstruction: 5635
-      startSourceChar: 5001
-      endSourceChar: 5005
-      line: 191
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 5636
-      endInstruction: 5635
-      startSourceChar: 5005
-      endSourceChar: 5005
-      line: 191
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 5636
-      endInstruction: 5635
-      startSourceChar: 5005
-      endSourceChar: 5005
-      line: 191
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 5636
-      endInstruction: 5635
-      startSourceChar: 5005
-      endSourceChar: 5010
-      line: 191
-      lineChar: 16
-      spanCodeSection: 'i >= '
-    - startInstruction: 5636
-      endInstruction: 5703
-      startSourceChar: 5010
-      endSourceChar: 5038
-      line: 191
-      lineChar: 21
-      spanCodeSection: 'WORDS_START_GLOBAL_ORDER && '
-    - startInstruction: 5704
-      endInstruction: 5703
-      startSourceChar: 5038
-      endSourceChar: 5038
-      line: 191
-      lineChar: 49
-      spanCodeSection: 
-    - startInstruction: 5704
-      endInstruction: 5703
-      startSourceChar: 5038
-      endSourceChar: 5038
-      line: 191
-      lineChar: 49
-      spanCodeSection: 
-    - startInstruction: 5704
-      endInstruction: 5703
-      startSourceChar: 5038
-      endSourceChar: 5051
-      line: 191
-      lineChar: 49
-      spanCodeSection: globalOrders[
-    - startInstruction: 5704
-      endInstruction: 5703
-      startSourceChar: 5051
-      endSourceChar: 5051
-      line: 191
-      lineChar: 62
-      spanCodeSection: 
-    - startInstruction: 5704
-      endInstruction: 5735
-      startSourceChar: 5051
-      endSourceChar: 5057
-      line: 191
-      lineChar: 62
-      spanCodeSection: 'i] != '
-    - startInstruction: 5736
-      endInstruction: 5835
-      startSourceChar: 5057
-      endSourceChar: 5073
-      line: 191
-      lineChar: 68
-      spanCodeSection: "2)\r\n            "
-    - startInstruction: 5836
-      endInstruction: 5835
-      startSourceChar: 5073
-      endSourceChar: 5092
+    - startInstruction: 5796
+      endInstruction: 5795
+      startSourceChar: 5080
+      endSourceChar: 5084
       line: 192
       lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 5836
-      endInstruction: 5843
-      startSourceChar: 5092
+      spanCodeSection: if (
+    - startInstruction: 5796
+      endInstruction: 5795
+      startSourceChar: 5084
+      endSourceChar: 5084
+      line: 192
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 5796
+      endInstruction: 5795
+      startSourceChar: 5084
+      endSourceChar: 5084
+      line: 192
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 5796
+      endInstruction: 5795
+      startSourceChar: 5084
+      endSourceChar: 5089
+      line: 192
+      lineChar: 16
+      spanCodeSection: 'i >= '
+    - startInstruction: 5796
+      endInstruction: 5863
+      startSourceChar: 5089
+      endSourceChar: 5117
+      line: 192
+      lineChar: 21
+      spanCodeSection: 'WORDS_START_GLOBAL_ORDER && '
+    - startInstruction: 5864
+      endInstruction: 5863
+      startSourceChar: 5117
+      endSourceChar: 5117
+      line: 192
+      lineChar: 49
+      spanCodeSection: 
+    - startInstruction: 5864
+      endInstruction: 5863
+      startSourceChar: 5117
+      endSourceChar: 5117
+      line: 192
+      lineChar: 49
+      spanCodeSection: 
+    - startInstruction: 5864
+      endInstruction: 5863
+      startSourceChar: 5117
       endSourceChar: 5130
+      line: 192
+      lineChar: 49
+      spanCodeSection: globalOrders[
+    - startInstruction: 5864
+      endInstruction: 5863
+      startSourceChar: 5130
+      endSourceChar: 5130
+      line: 192
+      lineChar: 62
+      spanCodeSection: 
+    - startInstruction: 5864
+      endInstruction: 5895
+      startSourceChar: 5130
+      endSourceChar: 5136
+      line: 192
+      lineChar: 62
+      spanCodeSection: 'i] != '
+    - startInstruction: 5896
+      endInstruction: 5995
+      startSourceChar: 5136
+      endSourceChar: 5152
+      line: 192
+      lineChar: 68
+      spanCodeSection: "2)\r\n            "
+    - startInstruction: 5996
+      endInstruction: 5995
+      startSourceChar: 5152
+      endSourceChar: 5171
       line: 193
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 5996
+      endInstruction: 6003
+      startSourceChar: 5171
+      endSourceChar: 5209
+      line: 194
       lineChar: 16
       spanCodeSection: "continue;\r\n            }\r\n            "
-    - startInstruction: 5844
-      endInstruction: 5843
-      startSourceChar: 5130
-      endSourceChar: 5134
-      line: 195
-      lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 5844
-      endInstruction: 5843
-      startSourceChar: 5134
-      endSourceChar: 5134
-      line: 195
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 5844
-      endInstruction: 5843
-      startSourceChar: 5134
-      endSourceChar: 5134
-      line: 195
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 5844
-      endInstruction: 5843
-      startSourceChar: 5134
-      endSourceChar: 5147
-      line: 195
-      lineChar: 16
-      spanCodeSection: globalOrders[
-    - startInstruction: 5844
-      endInstruction: 5843
-      startSourceChar: 5147
-      endSourceChar: 5147
-      line: 195
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 5844
-      endInstruction: 5875
-      startSourceChar: 5147
-      endSourceChar: 5153
-      line: 195
-      lineChar: 29
-      spanCodeSection: 'i] >= '
-    - startInstruction: 5876
-      endInstruction: 5923
-      startSourceChar: 5153
-      endSourceChar: 5169
-      line: 195
-      lineChar: 35
-      spanCodeSection: "2)\r\n            "
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5169
-      endSourceChar: 5188
+    - startInstruction: 6004
+      endInstruction: 6003
+      startSourceChar: 5209
+      endSourceChar: 5213
       line: 196
       lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 6004
+      endInstruction: 6003
+      startSourceChar: 5213
+      endSourceChar: 5213
+      line: 196
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 6004
+      endInstruction: 6003
+      startSourceChar: 5213
+      endSourceChar: 5213
+      line: 196
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 6004
+      endInstruction: 6003
+      startSourceChar: 5213
+      endSourceChar: 5226
+      line: 196
+      lineChar: 16
+      spanCodeSection: globalOrders[
+    - startInstruction: 6004
+      endInstruction: 6003
+      startSourceChar: 5226
+      endSourceChar: 5226
+      line: 196
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 6004
+      endInstruction: 6035
+      startSourceChar: 5226
+      endSourceChar: 5232
+      line: 196
+      lineChar: 29
+      spanCodeSection: 'i] >= '
+    - startInstruction: 6036
+      endInstruction: 6083
+      startSourceChar: 5232
+      endSourceChar: 5248
+      line: 196
+      lineChar: 35
+      spanCodeSection: "2)\r\n            "
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5248
+      endSourceChar: 5267
+      line: 197
+      lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5188
-      endSourceChar: 5188
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5267
+      endSourceChar: 5267
+      line: 198
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5188
-      endSourceChar: 5188
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5267
+      endSourceChar: 5267
+      line: 198
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5188
-      endSourceChar: 5188
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5267
+      endSourceChar: 5267
+      line: 198
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5188
-      endSourceChar: 5192
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5267
+      endSourceChar: 5271
+      line: 198
       lineChar: 16
       spanCodeSection: arr[
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5192
-      endSourceChar: 5192
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5271
+      endSourceChar: 5271
+      line: 198
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 5924
-      endInstruction: 5923
-      startSourceChar: 5192
-      endSourceChar: 5192
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6083
+      startSourceChar: 5271
+      endSourceChar: 5271
+      line: 198
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 5924
-      endInstruction: 5975
-      startSourceChar: 5192
-      endSourceChar: 5203
-      line: 197
+    - startInstruction: 6084
+      endInstruction: 6135
+      startSourceChar: 5271
+      endSourceChar: 5282
+      line: 198
       lineChar: 20
       spanCodeSection: 'index++] = '
-    - startInstruction: 5976
-      endInstruction: 6047
-      startSourceChar: 5203
-      endSourceChar: 5241
-      line: 197
+    - startInstruction: 6136
+      endInstruction: 6207
+      startSourceChar: 5282
+      endSourceChar: 5320
+      line: 198
       lineChar: 31
       spanCodeSection: "i;\r\n            }\r\n        }\r\n        "
-    - startInstruction: 6048
-      endInstruction: 6047
-      startSourceChar: 5241
-      endSourceChar: 5248
-      line: 200
+    - startInstruction: 6208
+      endInstruction: 6207
+      startSourceChar: 5320
+      endSourceChar: 5327
+      line: 201
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 6048
-      endInstruction: 6047
-      startSourceChar: 5248
-      endSourceChar: 5248
-      line: 200
+    - startInstruction: 6208
+      endInstruction: 6207
+      startSourceChar: 5327
+      endSourceChar: 5327
+      line: 201
       lineChar: 15
       spanCodeSection: 
-    - startInstruction: 6048
-      endInstruction: 6047
-      startSourceChar: 5248
-      endSourceChar: 5252
-      line: 200
+    - startInstruction: 6208
+      endInstruction: 6207
+      startSourceChar: 5327
+      endSourceChar: 5331
+      line: 201
       lineChar: 15
       spanCodeSection: Fit(
-    - startInstruction: 6048
-      endInstruction: 6047
-      startSourceChar: 5252
-      endSourceChar: 5257
-      line: 200
+    - startInstruction: 6208
+      endInstruction: 6207
+      startSourceChar: 5331
+      endSourceChar: 5336
+      line: 201
       lineChar: 19
       spanCodeSection: 'arr, '
-    - startInstruction: 6048
-      endInstruction: 6163
-      startSourceChar: 5257
-      endSourceChar: 5279
-      line: 200
+    - startInstruction: 6208
+      endInstruction: 6323
+      startSourceChar: 5336
+      endSourceChar: 5358
+      line: 201
       lineChar: 24
       spanCodeSection: "index);\r\n    }\r\n\r\n    "
-    - startInstruction: 6164
-      endInstruction: 6163
-      startSourceChar: 5279
-      endSourceChar: 5289
-      line: 203
-      lineChar: 4
-      spanCodeSection: int[] Fit(
-    - startInstruction: 6164
-      endInstruction: 6163
-      startSourceChar: 5289
-      endSourceChar: 5300
-      line: 203
-      lineChar: 14
-      spanCodeSection: 'int[] arr, '
-    - startInstruction: 6164
-      endInstruction: 6171
-      startSourceChar: 5300
-      endSourceChar: 5316
-      line: 203
-      lineChar: 25
-      spanCodeSection: "int count)\r\n    "
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5316
-      endSourceChar: 5327
+    - startInstruction: 6324
+      endInstruction: 6323
+      startSourceChar: 5358
+      endSourceChar: 5368
       line: 204
       lineChar: 4
+      spanCodeSection: int[] Fit(
+    - startInstruction: 6324
+      endInstruction: 6323
+      startSourceChar: 5368
+      endSourceChar: 5379
+      line: 204
+      lineChar: 14
+      spanCodeSection: 'int[] arr, '
+    - startInstruction: 6324
+      endInstruction: 6331
+      startSourceChar: 5379
+      endSourceChar: 5395
+      line: 204
+      lineChar: 25
+      spanCodeSection: "int count)\r\n    "
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5395
+      endSourceChar: 5406
+      line: 205
+      lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5327
-      endSourceChar: 5327
-      line: 205
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5327
-      endSourceChar: 5327
-      line: 205
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5327
-      endSourceChar: 5338
-      line: 205
-      lineChar: 8
-      spanCodeSection: 'var newArr '
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5338
-      endSourceChar: 5340
-      line: 205
-      lineChar: 19
-      spanCodeSection: '= '
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5340
-      endSourceChar: 5344
-      line: 205
-      lineChar: 21
-      spanCodeSection: 'new '
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5344
-      endSourceChar: 5344
-      line: 205
-      lineChar: 25
-      spanCodeSection: 
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5344
-      endSourceChar: 5347
-      line: 205
-      lineChar: 25
-      spanCodeSection: int
-    - startInstruction: 6172
-      endInstruction: 6171
-      startSourceChar: 5347
-      endSourceChar: 5348
-      line: 205
-      lineChar: 28
-      spanCodeSection: '['
-    - startInstruction: 6172
-      endInstruction: 6215
-      startSourceChar: 5348
-      endSourceChar: 5365
-      line: 205
-      lineChar: 29
-      spanCodeSection: "count];\r\n        "
-    - startInstruction: 6216
-      endInstruction: 6215
-      startSourceChar: 5365
-      endSourceChar: 5370
-      line: 206
-      lineChar: 8
-      spanCodeSection: for (
-    - startInstruction: 6216
-      endInstruction: 6215
-      startSourceChar: 5370
-      endSourceChar: 5370
-      line: 206
-      lineChar: 13
-      spanCodeSection: 
-    - startInstruction: 6216
-      endInstruction: 6215
-      startSourceChar: 5370
-      endSourceChar: 5376
-      line: 206
-      lineChar: 13
-      spanCodeSection: 'var i '
-    - startInstruction: 6216
-      endInstruction: 6215
-      startSourceChar: 5376
-      endSourceChar: 5378
-      line: 206
-      lineChar: 19
-      spanCodeSection: '= '
-    - startInstruction: 6216
-      endInstruction: 6235
-      startSourceChar: 5378
-      endSourceChar: 5381
-      line: 206
-      lineChar: 21
-      spanCodeSection: '0; '
-    - startInstruction: 6236
-      endInstruction: 6235
-      startSourceChar: 5381
-      endSourceChar: 5381
-      line: 206
-      lineChar: 24
-      spanCodeSection: 
-    - startInstruction: 6236
-      endInstruction: 6235
-      startSourceChar: 5381
-      endSourceChar: 5385
-      line: 206
-      lineChar: 24
-      spanCodeSection: 'i < '
-    - startInstruction: 6236
-      endInstruction: 6283
-      startSourceChar: 5385
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5406
       endSourceChar: 5406
       line: 206
-      lineChar: 28
-      spanCodeSection: "count; ++i)\r\n        "
-    - startInstruction: 6284
-      endInstruction: 6283
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 6332
+      endInstruction: 6331
       startSourceChar: 5406
-      endSourceChar: 5421
+      endSourceChar: 5406
+      line: 206
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5406
+      endSourceChar: 5417
+      line: 206
+      lineChar: 8
+      spanCodeSection: 'var newArr '
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5417
+      endSourceChar: 5419
+      line: 206
+      lineChar: 19
+      spanCodeSection: '= '
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5419
+      endSourceChar: 5423
+      line: 206
+      lineChar: 21
+      spanCodeSection: 'new '
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5423
+      endSourceChar: 5423
+      line: 206
+      lineChar: 25
+      spanCodeSection: 
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5423
+      endSourceChar: 5426
+      line: 206
+      lineChar: 25
+      spanCodeSection: int
+    - startInstruction: 6332
+      endInstruction: 6331
+      startSourceChar: 5426
+      endSourceChar: 5427
+      line: 206
+      lineChar: 28
+      spanCodeSection: '['
+    - startInstruction: 6332
+      endInstruction: 6375
+      startSourceChar: 5427
+      endSourceChar: 5444
+      line: 206
+      lineChar: 29
+      spanCodeSection: "count];\r\n        "
+    - startInstruction: 6376
+      endInstruction: 6375
+      startSourceChar: 5444
+      endSourceChar: 5449
       line: 207
       lineChar: 8
+      spanCodeSection: for (
+    - startInstruction: 6376
+      endInstruction: 6375
+      startSourceChar: 5449
+      endSourceChar: 5449
+      line: 207
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 6376
+      endInstruction: 6375
+      startSourceChar: 5449
+      endSourceChar: 5455
+      line: 207
+      lineChar: 13
+      spanCodeSection: 'var i '
+    - startInstruction: 6376
+      endInstruction: 6375
+      startSourceChar: 5455
+      endSourceChar: 5457
+      line: 207
+      lineChar: 19
+      spanCodeSection: '= '
+    - startInstruction: 6376
+      endInstruction: 6395
+      startSourceChar: 5457
+      endSourceChar: 5460
+      line: 207
+      lineChar: 21
+      spanCodeSection: '0; '
+    - startInstruction: 6396
+      endInstruction: 6395
+      startSourceChar: 5460
+      endSourceChar: 5460
+      line: 207
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 6396
+      endInstruction: 6395
+      startSourceChar: 5460
+      endSourceChar: 5464
+      line: 207
+      lineChar: 24
+      spanCodeSection: 'i < '
+    - startInstruction: 6396
+      endInstruction: 6443
+      startSourceChar: 5464
+      endSourceChar: 5485
+      line: 207
+      lineChar: 28
+      spanCodeSection: "count; ++i)\r\n        "
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5485
+      endSourceChar: 5500
+      line: 208
+      lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5421
-      endSourceChar: 5421
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5500
+      endSourceChar: 5500
+      line: 209
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5421
-      endSourceChar: 5421
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5500
+      endSourceChar: 5500
+      line: 209
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5421
-      endSourceChar: 5421
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5500
+      endSourceChar: 5500
+      line: 209
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5421
-      endSourceChar: 5428
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5500
+      endSourceChar: 5507
+      line: 209
       lineChar: 12
       spanCodeSection: newArr[
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5428
-      endSourceChar: 5428
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5507
+      endSourceChar: 5507
+      line: 209
       lineChar: 19
       spanCodeSection: 
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5428
-      endSourceChar: 5433
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5507
+      endSourceChar: 5512
+      line: 209
       lineChar: 19
       spanCodeSection: 'i] = '
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5433
-      endSourceChar: 5433
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5512
+      endSourceChar: 5512
+      line: 209
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5433
-      endSourceChar: 5437
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5512
+      endSourceChar: 5516
+      line: 209
       lineChar: 24
       spanCodeSection: arr[
-    - startInstruction: 6284
-      endInstruction: 6283
-      startSourceChar: 5437
-      endSourceChar: 5437
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6443
+      startSourceChar: 5516
+      endSourceChar: 5516
+      line: 209
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 6284
-      endInstruction: 6387
-      startSourceChar: 5437
-      endSourceChar: 5461
-      line: 208
+    - startInstruction: 6444
+      endInstruction: 6547
+      startSourceChar: 5516
+      endSourceChar: 5540
+      line: 209
       lineChar: 28
       spanCodeSection: "i];\r\n        }\r\n        "
-    - startInstruction: 6388
-      endInstruction: 6387
-      startSourceChar: 5461
-      endSourceChar: 5468
-      line: 210
+    - startInstruction: 6548
+      endInstruction: 6547
+      startSourceChar: 5540
+      endSourceChar: 5547
+      line: 211
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 6388
-      endInstruction: 6388
-      startSourceChar: 5468
-      endSourceChar: 5468
-      line: 210
+    - startInstruction: 6548
+      endInstruction: 6548
+      startSourceChar: 5547
+      endSourceChar: 5547
+      line: 211
       lineChar: 15
       spanCodeSection: 
   hasInteractEvent: 0
