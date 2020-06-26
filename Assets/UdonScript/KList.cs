@@ -216,6 +216,7 @@ public class KList : UdonSharpBehaviour
     {
         ResizeIfNeeded(false);
 
+        Debug.Log("RemoveIndex : " + removeIndex);
         var r = components[removeIndex];
         for (var i = removeIndex; i < components.Length - 1; ++i)
         {

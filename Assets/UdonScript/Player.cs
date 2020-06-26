@@ -20,6 +20,11 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Transform nakiPoints;
     [SerializeField] public Transform nakiShapes;
 
+    [SerializeField] public Card testcard1;
+    [SerializeField] public Card testcard2;
+    [SerializeField] public Card testcard3;
+    [SerializeField] public Card testcard4;
+
     private Transform[] cardPoints;
     private Transform plusCardPosition;
     private int nakiCount;
@@ -64,6 +69,7 @@ public class Player : UdonSharpBehaviour
             AgariContext.Clear();
 
             HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext);
+            
         }
     }
 
@@ -163,6 +169,11 @@ public class Player : UdonSharpBehaviour
         UIContext.Clear();
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
+    }
+
+    public void CheckAnkkanable()
+    {
+        UIContext.IsKkanable = HandCalculator.IsAnKkanable(GetArray(Cards));
     }
 
     public bool IsUIActived()

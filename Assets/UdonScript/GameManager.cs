@@ -160,7 +160,6 @@ public class GameManager : UdonSharpBehaviour
         {
             return;
         }
-
         if (eventType == "Discard")
         {
             var currentTable = TableManager.GetCurrentTurnPlayer();
@@ -256,7 +255,12 @@ public class GameManager : UdonSharpBehaviour
 
             case "Kkan":
                 {
-                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
+                    Card _WaitingNakiCard = WaitingNakiCard;
+                    if (nakiPlayer.PlayerIndex == TableManager.currentTurnPlayer)
+                    {
+                        _WaitingNakiCard = TableManager.lastedSpawnCard;
+                    }
+                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(_WaitingNakiCard.GlobalOrder, 3);
                     var kkanCards = new Card[]
                     {
                         WaitingNakiCard,
@@ -286,6 +290,10 @@ public class GameManager : UdonSharpBehaviour
 
     int getPlayerDirection(int currentPlayerIndex, int targetPlayerIndex)
     {
+        if(currentPlayerIndex == targetPlayerIndex)
+        {
+            return 3;
+        }
         for(var i = 1; i<=4; i++)
         {
             if((currentPlayerIndex + i) % 4 == targetPlayerIndex)
