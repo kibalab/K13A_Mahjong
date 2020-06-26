@@ -42,7 +42,6 @@ public class HandCalculator : UdonSharpBehaviour
 
         uiContext.IsRonable = agariContext.IsAgariable(discardedCard);
         uiContext.IsTsumoable = false;
-        
     }
 
     void SetChiableOnUiContext(UIContext uiContext, object[] chiableList)
@@ -139,6 +138,23 @@ public class HandCalculator : UdonSharpBehaviour
         var cardOrder = discardedCard.GlobalOrder;
 
         return globalOrders[cardOrder] + 1 == 4;
+    }
+
+    public int[] GetAnkkanableAll(Card[] cards)
+    {
+        var globalOrders = HandUtil.GetGlobalOrders(cards);
+        var ankkanableGlobalOrders = new int[10];
+        var ankkanableGlobalOrderCount = 0;
+
+        for (var i = 0; i< TILES_COUNT; ++i)
+        {
+            if (globalOrders[i] == 4)
+            {
+                ankkanableGlobalOrders[ankkanableGlobalOrderCount++] = i;
+            }
+        }
+
+        return Fit_Int(ankkanableGlobalOrders, ankkanableGlobalOrderCount);
     }
 
     public bool IsAnKkanable(Card[] cards)
@@ -784,6 +800,16 @@ public class HandCalculator : UdonSharpBehaviour
     public object[] Fit(object[] arr, int count)
     {
         var newArr = new object[count];
+        for (var i = 0; i < count; ++i)
+        {
+            newArr[i] = arr[i];
+        }
+        return newArr;
+    }
+
+    public int[] Fit_Int(int[] arr, int count)
+    {
+        var newArr = new int[count];
         for (var i = 0; i < count; ++i)
         {
             newArr[i] = arr[i];
