@@ -88,7 +88,8 @@ public class TableManager : UdonSharpBehaviour
     void AddNextCardInternal(Player player, Card card, bool isFirstTsumo, bool isLastTsumo)
     {
         player.AddCard(card, isFirstTsumo, isLastTsumo);
-        player.CheckAnkkanable();
+        player.CheckAnkkanable(); // 안깡
+        player.CheckOpenKkanable(card); // 소명깡
 
         for (var i = 0; i < 4; i++)
         {
