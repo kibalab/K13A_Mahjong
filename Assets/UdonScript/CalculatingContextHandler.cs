@@ -117,7 +117,10 @@ public class CalculatingContextHandler : UdonSharpBehaviour
     public void ApplyPon(object[] context, int startGlobalOrder)
     {
         var globalOrders = ReadGlobalOrders(context);
-        globalOrders[startGlobalOrder] -= 3;
+
+        // -3 하지 않는다. 4개인 깡 상태도 몸1개로 치기 때문
+        //globalOrders[startGlobalOrder] -= 3;
+        globalOrders[startGlobalOrder] = 0;
 
         AppendPonList(context, startGlobalOrder);
     }
