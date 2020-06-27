@@ -179,6 +179,18 @@ public class HandUtil : UdonSharpBehaviour
         return -1;
     }
 
+    public int[] SumGlobalOrders(int[] globalOrders1, int[] globalOrders2)
+    {
+        var arr = new int[TILES_COUNT];
+
+        for (var i = 0; i< TILES_COUNT; ++i)
+        {
+            arr[i] = globalOrders1[i] + globalOrders2[i];
+        }
+
+        return arr;
+    }
+
     public int[] FindPairs(int[] globalOrders)
     {
         // 머리를 찾는다. 최대 갯수는 14/2 7개

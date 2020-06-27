@@ -60,6 +60,11 @@ public class Player : UdonSharpBehaviour
 
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo)
     {
+        UIContext.Clear();
+
+        // 버리는 순간 계산된 AgariContext로 카드 받는 순간 화료 가능한지 본다
+        UIContext.IsTsumoable = AgariContext.IsAgariable(newCard);
+
         Cards.Add(newCard);
 
         newCard.SetOwnership(PlayerIndex, InputEvent);
@@ -71,8 +76,21 @@ public class Player : UdonSharpBehaviour
         if (OpenendCards.Count() == 0)
         {
             AgariContext.Clear();
-            HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext);
+            HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext, UIContext);
         }
+    }
+
+    public void CheckOpenOrAnkkanable(Card newCard)
+    {
+        var isAnkkanable = HandCalculator.IsAnKkanable(GetArray(Cards));
+        var isOpenKkanable = HandCalculator.IsOpenKkanable(newCard, GetArray(OpenendCards));
+
+        UIContext.IsKkanable = isAnkkanable || isOpenKkanable;
+    }
+
+    public void CheckOpenKkanable(Card addedCard)
+    {
+        UIContext.IsKkanable = HandCalculator.IsOpenKkanable(addedCard, GetArray(OpenendCards));
     }
 
     public void Discard(Card card)
@@ -87,6 +105,10 @@ public class Player : UdonSharpBehaviour
         card.SetColliderActivate(false);
 
         SortPosition();
+
+        // 버리는 순간 텐파이인지 검사해놓는다
+        AgariContext.Clear();
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
     }
 
     public void RemoveStashedCard(Card card)
@@ -107,6 +129,25 @@ public class Player : UdonSharpBehaviour
         OpenedPonPositions[ponGlobalOrder] = nakiShape;
 
         SortPosition();
+    }
+
+    public void ActiveRiichiCreateCardColliders()
+    {
+        // 일단 다 끈다
+        SetColliderActive(false);
+
+        var debugStr = "RiichiCreationCards = ";
+
+        // 리치 만들어주는 것만 킨다
+        foreach (var card in AgariContext.RiichiCreationCards)
+        {
+            debugStr += $"({card.Type}, {card.CardNumber})";
+
+            card.SetColliderActivate(true);
+            card.IsDiscardedForRiichi = true;
+        }
+
+        Debug.Log(debugStr);
     }
 
     public void AddOpenKkan()
@@ -194,17 +235,6 @@ public class Player : UdonSharpBehaviour
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
-
-    public void CheckAnkkanable()
-    {
-        UIContext.IsKkanable = HandCalculator.IsAnKkanable(GetArray(Cards));
-    }
-
-    public void CheckOpenKkanable(Card addedCard)
-    {
-        UIContext.IsKkanable = HandCalculator.IsOpenKkanable(addedCard, GetArray(OpenendCards));
-    }
-
     public bool IsUIActived()
     {
         return UIContext.IsAnythingActived();

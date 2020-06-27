@@ -178,13 +178,14 @@ public class HandCalculator : UdonSharpBehaviour
         return false;
     }
 
-    public void RequestRiichiable(Card[] sealedCards, AgariContext agariContext)
+    public void RequestRiichiable(Card[] sealedCards, AgariContext agariContext, UIContext uiContext)
     {
         var riichiableCards = GetRiichiableCards(agariContext, sealedCards);
         var isRiichiable = riichiableCards != null && riichiableCards.Length > 0;
 
+        // [리치]를 누르면 별도 메뉴 없이 리치가 가능한 카드만 콜라이더를 살린다
         agariContext.RiichiCreationCards = riichiableCards;
-        agariContext.IsRiichiable = isRiichiable;
+        uiContext.IsRiichable = isRiichiable;
     }
 
     public Card[] GetRiichiableCards(AgariContext agariContext, Card[] cards)
@@ -214,6 +215,16 @@ public class HandCalculator : UdonSharpBehaviour
         }
 
         return Fit_Card(riichiableCards, riichiableCount);
+    }
+
+    public void CheckTenpai(Card[] sealedCards, Card[] openedCards, AgariContext agariContext)
+    {
+        var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
+        var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
+
+        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
+
+        IsTenpai(agariContext, globalOrders);
     }
 
     bool IsTenpai(AgariContext agariContext, int[] globalOrders)
