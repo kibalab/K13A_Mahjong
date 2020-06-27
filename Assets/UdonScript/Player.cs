@@ -171,7 +171,7 @@ public class Player : UdonSharpBehaviour
         SetNakiPosition(openTargetCards, nakiShape);
 
         // 치, 깡의 경우 nakiShape을 저장할 필요가 없다
-        Destroy(nakiShape);
+        Destroy(nakiShape.gameObject);
 
         SortPosition();
     }
