@@ -17,6 +17,7 @@ public class Card : UdonSharpBehaviour
     public bool IsRinShan;
     public int YamaIndex;
     public int PlayerIndex;
+    public bool IsDiscardedForRiichi;
 
     [SerializeField] private HandUtil HandUtil;
     [SerializeField] private CardSprites CardSprites;

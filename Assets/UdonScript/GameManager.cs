@@ -199,13 +199,29 @@ public class GameManager : UdonSharpBehaviour
         {
             TableManager.DisableUIAll();
         }
-        else if (eventType == "Riichi")
+        else if (eventType == "Rich") // <- 이걸 고치려면 버튼의 물리적 이름을 Riichi로 바꿔야 한다
         {
-            // 해야한다...
+            var currentPlayer = TableManager.GetCurrentTurnPlayer();
+            // 리치 관련 카드만 콜라이더를 킨다
+            currentPlayer.ActiveRiichiCreateCardColliders();
+
+            TableManager.DisableUIAll();
         }
         else if (eventType == "Discard")
         {
             var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
+
+            if (eventCard.IsDiscardedForRiichi)
+            {
+                // 리치봉 놓은 다음 점수 깎고 패 가로로 돌려놓는 처리 해야 함
+
+                // TODO
+
+                // 다른 사람이 바로 줏어갈 수 있으니,
+                // 이 값은 false로 값을 바꿔준다
+                eventCard.IsDiscardedForRiichi = false;
+            }
+
             var currentTable = TableManager.GetCurrentTurnPlayer();
             currentTable.Discard(eventCard);
 

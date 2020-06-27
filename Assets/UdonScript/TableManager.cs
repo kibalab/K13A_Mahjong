@@ -75,8 +75,7 @@ public class TableManager : UdonSharpBehaviour
         var isLastTsumo = index == yama.Length - 1;
 
         player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
-        player.CheckAnkkanable(); // 안깡
-        player.CheckOpenKkanable(nextCard); // 소명깡
+        player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
         player.CheckRiichiable(); // 쯔모에서만 리치를 봄 
 
         ActiveCurrentPlayerColliders();
@@ -88,8 +87,7 @@ public class TableManager : UdonSharpBehaviour
         var nextCard = GetNextRinShanCard();
 
         player.AddCard(nextCard, false, false);
-        player.CheckAnkkanable(); // 안깡
-        player.CheckOpenKkanable(nextCard); // 소명깡
+        player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
 
         ActiveCurrentPlayerColliders();
     }

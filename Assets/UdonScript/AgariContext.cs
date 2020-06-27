@@ -7,8 +7,6 @@ public class AgariContext : UdonSharpBehaviour
 {
     public int[] AgariableCardGlobalOrders;
     public int AgariableCount;
-
-    public bool IsRiichiable;
     public Card[] RiichiCreationCards;
 
     public bool IsSingleWaiting;
@@ -40,7 +38,6 @@ public class AgariContext : UdonSharpBehaviour
         AgariableCardGlobalOrders = new int[14];
         AgariableCount = 0;
 
-        IsRiichiable = false;
         IsSingleWaiting = false;
         RiichiCreationCards = null;
     }
