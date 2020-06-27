@@ -160,9 +160,10 @@ public class GameManager : UdonSharpBehaviour
             return;
         }
 
+        var currentPlayer = TableManager.GetCurrentTurnPlayer();
+
         if (eventType == "Kkan")
         {
-            var currentPlayer = TableManager.GetCurrentTurnPlayer();
             var ankkanableGlobalOrders = currentPlayer.FindAnkkanableGlobalOrders();
 
             // 지금은 안깡, 소명깡이 겹칠 때 안깡부터 하게 한다
@@ -197,20 +198,17 @@ public class GameManager : UdonSharpBehaviour
         }
         else if (eventType == "Skip")
         {
-            TableManager.DisableUIAll();
+            currentPlayer.DisableUI();
         }
         else if (eventType == "Rich") // <- 이걸 고치려면 버튼의 물리적 이름을 Riichi로 바꿔야 한다
         {
-            var currentPlayer = TableManager.GetCurrentTurnPlayer();
             // 리치 관련 카드만 콜라이더를 킨다
             currentPlayer.ActiveRiichiCreateCardColliders();
-
-            TableManager.DisableUIAll();
+            currentPlayer.DisableUI();
         }
         else if (eventType == "Discard")
         {
             var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
-
             if (eventCard.IsDiscardedForRiichi)
             {
                 // 리치봉 놓은 다음 점수 깎고 패 가로로 돌려놓는 처리 해야 함
@@ -222,9 +220,8 @@ public class GameManager : UdonSharpBehaviour
                 eventCard.IsDiscardedForRiichi = false;
             }
 
-            var currentTable = TableManager.GetCurrentTurnPlayer();
-            currentTable.DisableUI();
-            currentTable.Discard(eventCard);
+            currentPlayer.DisableUI();
+            currentPlayer.Discard(eventCard);
 
             TableManager.AnnounceDiscard(eventCard);
 
