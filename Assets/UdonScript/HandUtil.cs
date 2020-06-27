@@ -133,7 +133,6 @@ public class HandUtil : UdonSharpBehaviour
             if (card != null)
             {
                 globalOrders[card.GlobalOrder]++;
-                Debug.Log("globalOrder : " + globalOrders[card.GlobalOrder]);
             }
         }
         return globalOrders;
