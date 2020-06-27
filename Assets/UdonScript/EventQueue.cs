@@ -18,6 +18,8 @@ public class EventQueue : UdonSharpBehaviour
 
     public void Enqueue(InputEvent e)
     {
+        e.SetInputBlock(true);
+
         events[count++] = e;
     }
 
