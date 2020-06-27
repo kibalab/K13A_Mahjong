@@ -64,14 +64,13 @@ public class Player : UdonSharpBehaviour
 
         newCard.SetOwnership(PlayerIndex, InputEvent);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+    }
 
+    public void CheckRiichiable()
+    {
         if (OpenendCards.Count() == 0)
         {
-            // 실제로 리치 가능한 건 쯔모일 때만인데..
-            // 여기 들어오는 과정이 깡에서도 들어와서 좀 애매하게 됐네
-            // 코드 좀 다시 깎아야함
             AgariContext.Clear();
-
             HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext);
         }
     }
@@ -162,11 +161,8 @@ public class Player : UdonSharpBehaviour
         }
     }
 
-
     public Card[] FindCardByGlobalOrder(int globalOrder, int count)
     {
-        Debugging(globalOrder);
-
         var index = 0;
         var arr = new Card[count];
 
@@ -190,18 +186,6 @@ public class Player : UdonSharpBehaviour
     public int[] FindAnkkanableGlobalOrders()
     {
         return HandCalculator.GetAnkkanableAll(GetArray(Cards));
-    }
-
-    void Debugging(int globalOrder)
-    {
-        var str = "";
-        foreach (var card in GetArray(Cards))
-        {
-            str += $"({card.GlobalOrder}) ";
-        }
-
-        str = $"Target:{globalOrder}   " + str;
-        Debug.Log(str);
     }
 
     public void CheckNakiable(Card card, bool isDiscardedByLeftPlayer)

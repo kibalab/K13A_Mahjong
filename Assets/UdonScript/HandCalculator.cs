@@ -180,14 +180,14 @@ public class HandCalculator : UdonSharpBehaviour
 
     public void RequestRiichiable(Card[] sealedCards, AgariContext agariContext)
     {
-        var riichiableCards = IsRiichiable(agariContext, sealedCards);
+        var riichiableCards = GetRiichiableCards(agariContext, sealedCards);
         var isRiichiable = riichiableCards != null && riichiableCards.Length > 0;
 
-        agariContext.IsRiichiable = isRiichiable;
         agariContext.RiichiCreationCards = riichiableCards;
+        agariContext.IsRiichiable = isRiichiable;
     }
 
-    public Card[] IsRiichiable(AgariContext agariContext, Card[] cards)
+    public Card[] GetRiichiableCards(AgariContext agariContext, Card[] cards)
     {
         if (cards.Length != 14)
         {
@@ -282,12 +282,14 @@ public class HandCalculator : UdonSharpBehaviour
                     {
                         agariContext.AddAgariableGlobalOrder(i);
                         agariContext.AddAgariableGlobalOrder(i + 1);
+                        agariContext.IsSingleWaiting = false;
                         break;
                     }
 
                     if (i > 0 && remainsGlobalOrders[i - 1] == 1 && remainsGlobalOrders[i + 1] == 1)
                     {
                         agariContext.AddAgariableGlobalOrder(i);
+                        agariContext.IsSingleWaiting = true;
                         break;
                     }
                 }

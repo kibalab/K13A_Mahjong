@@ -74,7 +74,12 @@ public class TableManager : UdonSharpBehaviour
         var isFirstTsumo = index == 0;
         var isLastTsumo = index == yama.Length - 1;
 
-        AddNextCardInternal(player, nextCard, isFirstTsumo, isLastTsumo);
+        player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
+        player.CheckAnkkanable(); // 안깡
+        player.CheckOpenKkanable(nextCard); // 소명깡
+        player.CheckRiichiable(); // 쯔모에서만 리치를 봄 
+
+        ActiveCurrentPlayerColliders();
     }
 
     public void AddNextRinShanCard()
@@ -82,15 +87,14 @@ public class TableManager : UdonSharpBehaviour
         var player = GetCurrentTurnPlayer();
         var nextCard = GetNextRinShanCard();
 
-        AddNextCardInternal(player, nextCard, false, false);
-    }
-
-    void AddNextCardInternal(Player player, Card card, bool isFirstTsumo, bool isLastTsumo)
-    {
-        player.AddCard(card, isFirstTsumo, isLastTsumo);
+        player.AddCard(nextCard, false, false);
         player.CheckAnkkanable(); // 안깡
-        player.CheckOpenKkanable(card); // 소명깡
+        player.CheckOpenKkanable(nextCard); // 소명깡
 
+        ActiveCurrentPlayerColliders();
+    }
+    void ActiveCurrentPlayerColliders()
+    {
         for (var i = 0; i < 4; i++)
         {
             var active = i == currentTurnPlayer;
@@ -228,6 +232,12 @@ public class TableManager : UdonSharpBehaviour
 
     Card GetNextRinShanCard()
     {
+        if (currentRinShanCardIndex == rinShan.Length)
+        {
+            // 유국처리
+            // EventQueue.AnnounceDraw()
+        }
+
         var nextCard = rinShan[currentRinShanCardIndex];
         nextCard.YamaIndex = currentRinShanCardIndex;
         nextCard.IsRinShan = true;
