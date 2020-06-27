@@ -107,7 +107,7 @@ public class GameManager : UdonSharpBehaviour
                     break;
 
                 case State_WaitForDiscard:
-                    WaitForDiscard(inputEvent);
+                    WaitForPlayerAction(inputEvent);
                     break;
 
                 case State_WaitForNaki:
@@ -151,7 +151,7 @@ public class GameManager : UdonSharpBehaviour
         }
     }
 
-    void WaitForDiscard(InputEvent inputEvent)
+    void WaitForPlayerAction(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
 
@@ -198,6 +198,10 @@ public class GameManager : UdonSharpBehaviour
         else if (eventType == "Skip")
         {
             TableManager.DisableUIAll();
+        }
+        else if (eventType == "Riichi")
+        {
+            // 해야한다...
         }
         else if (eventType == "Discard")
         {
