@@ -206,6 +206,10 @@ public class GameManager : UdonSharpBehaviour
             currentPlayer.ActiveRiichiCreateCardColliders();
             currentPlayer.DisableUI();
         }
+        else if (eventType == "Tsumo")
+        {
+            // 해야 한다...
+        }
         else if (eventType == "Discard")
         {
             var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
