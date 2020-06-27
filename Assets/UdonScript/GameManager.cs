@@ -223,6 +223,7 @@ public class GameManager : UdonSharpBehaviour
             }
 
             var currentTable = TableManager.GetCurrentTurnPlayer();
+            currentTable.DisableUI();
             currentTable.Discard(eventCard);
 
             TableManager.AnnounceDiscard(eventCard);
