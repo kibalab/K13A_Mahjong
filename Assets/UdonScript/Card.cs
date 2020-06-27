@@ -31,15 +31,9 @@ public class Card : UdonSharpBehaviour
 
     public override void Interact()
     {
-        if (Networking.LocalPlayer == null)
-        {
-            _Interact();
-        }
-        else
-        {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(_Interact));
-        }
+        RequestCallFunctionToOwner(nameof(_Interact));
     }
+
     public void _Interact()
     {
         inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
@@ -115,6 +109,18 @@ public class Card : UdonSharpBehaviour
                 SpriteRenderer.sprite = sprite;
                 isSpriteInitialized = true;
             }
+        }
+    }
+
+    void RequestCallFunctionToOwner(string funcName)
+    {
+        if (Networking.LocalPlayer == null)
+        {
+            SendCustomEvent(funcName);
+        }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
         }
     }
 }
