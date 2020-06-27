@@ -201,17 +201,34 @@ public class HandCalculator : UdonSharpBehaviour
         var riichiableCount = 0;
 
         var globalOrders = HandUtil.GetGlobalOrders(cards);
+        var prevGlobalOrder = -1;
+        var prevIsRiichiCreationCard = false;
 
         foreach (var card in cards)
         {
-            --globalOrders[card.GlobalOrder];
-
-            if (IsTenpai(agariContext, globalOrders))
+            var isAlreadyCalculated = prevGlobalOrder == card.GlobalOrder;
+            if (isAlreadyCalculated)
             {
-                riichiableCards[riichiableCount++] = card;
+                if (prevIsRiichiCreationCard)
+                {
+                    riichiableCards[riichiableCount++] = card;
+                }
             }
+            else
+            {
+                --globalOrders[card.GlobalOrder];
 
-            ++globalOrders[card.GlobalOrder];
+                var isTenpai = IsTenpai(agariContext, globalOrders);
+                if (isTenpai)
+                {
+                    riichiableCards[riichiableCount++] = card;
+                }
+
+                ++globalOrders[card.GlobalOrder];
+
+                prevGlobalOrder = card.GlobalOrder;
+                prevIsRiichiCreationCard = isTenpai;
+            }
         }
 
         return Fit_Card(riichiableCards, riichiableCount);
@@ -266,6 +283,8 @@ public class HandCalculator : UdonSharpBehaviour
                     if (remainsGlobalOrders[i] > 0)
                     {
                         agariContext.AddAgariableGlobalOrder(i);
+
+                        Debug.Log($"몸4 카드 1, 단면대기 텐파이 GlobalOrder:{i}");
                         break;
                     }
                 }
@@ -276,6 +295,8 @@ public class HandCalculator : UdonSharpBehaviour
                 agariContext.IsSingleWaiting = false;
                 agariContext.AddAgariableGlobalOrder(pairs[0]);
                 agariContext.AddAgariableGlobalOrder(pairs[1]);
+
+                Debug.Log($"몸4 머리 2, 양면대기 텐파이 GlobalOrder:{pairs[0]}, {pairs[1]}");
             }
             // 몸 3, 머리 1, 카드2개인 경우 -> 단면 or 양면 or 대기아님
             else if (bodies == 3 && pairs.Length == 1)
@@ -294,6 +315,8 @@ public class HandCalculator : UdonSharpBehaviour
                         agariContext.AddAgariableGlobalOrder(i);
                         agariContext.AddAgariableGlobalOrder(i + 1);
                         agariContext.IsSingleWaiting = false;
+
+                        Debug.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i}, {i+1}");
                         break;
                     }
 
@@ -301,6 +324,8 @@ public class HandCalculator : UdonSharpBehaviour
                     {
                         agariContext.AddAgariableGlobalOrder(i);
                         agariContext.IsSingleWaiting = true;
+
+                        Debug.Log($"몸3 머리 1 카드 2, 단면대기 텐파이 GlobalOrder:{i}");
                         break;
                     }
                 }
