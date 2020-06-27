@@ -61,8 +61,9 @@ public class Player : UdonSharpBehaviour
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo)
     {
         UIContext.Clear();
+        AgariContext.Clear();
 
-        // 버리는 순간 계산된 AgariContext로 카드 받는 순간 화료 가능한지 본다
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
         UIContext.IsTsumoable = AgariContext.IsAgariable(newCard);
 
         Cards.Add(newCard);
@@ -105,10 +106,6 @@ public class Player : UdonSharpBehaviour
         card.SetColliderActivate(false);
 
         SortPosition();
-
-        // 버리는 순간 텐파이인지 검사해놓는다
-        AgariContext.Clear();
-        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
     }
 
     public void RemoveStashedCard(Card card)
