@@ -11,6 +11,7 @@ public class InputEvent : UdonSharpBehaviour
     public int PlayerIndex;
     public int DiscardedCardYamaIndex;
     public Vector2 ChiIndex;
+    public string DrawReason;
 
     public void Clear()
     {
@@ -18,5 +19,6 @@ public class InputEvent : UdonSharpBehaviour
         EventType = "";
         PlayerIndex = -1;
         ChiIndex = Vector2.zero;
+        DrawReason = "";
     }
 }

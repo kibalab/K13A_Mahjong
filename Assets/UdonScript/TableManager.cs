@@ -71,25 +71,30 @@ public class TableManager : UdonSharpBehaviour
         var index = currentCardIndex;
 
         var nextCard = GetNextCard();
-        var isFirstTsumo = index == 0;
-        var isLastTsumo = index == yama.Length - 1;
+        if (nextCard != null)
+        {
+            var isFirstTsumo = index == 0;
+            var isLastTsumo = index == yama.Length - 1;
 
-        player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
-        player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
-        player.CheckRiichiable(); // 쯔모에서만 리치를 봄 
+            player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
+            player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
+            player.CheckRiichiable(); // 쯔모에서만 리치를 봄 
 
-        ActiveCurrentPlayerColliders();
+            ActiveCurrentPlayerColliders();
+        }
     }
 
     public void AddNextRinShanCard()
     {
         var player = GetCurrentTurnPlayer();
         var nextCard = GetNextRinShanCard();
+        if (nextCard != null)
+        {
+            player.AddCard(nextCard, false, false);
+            player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
 
-        player.AddCard(nextCard, false, false);
-        player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
-
-        ActiveCurrentPlayerColliders();
+            ActiveCurrentPlayerColliders();
+        }
     }
 
     void ActiveCurrentPlayerColliders()
@@ -225,6 +230,12 @@ public class TableManager : UdonSharpBehaviour
 
     Card GetNextCard()
     {
+        if (currentCardIndex == yama.Length)
+        {
+            EventQueue.AnnounceDraw("ByYamaExhausted");
+            return null;
+        }
+
         var nextCard = yama[currentCardIndex];
 
         ++currentCardIndex;
@@ -236,8 +247,8 @@ public class TableManager : UdonSharpBehaviour
     {
         if (currentRinShanCardIndex == rinShan.Length)
         {
-            // 유국처리
-            // EventQueue.AnnounceDraw()
+            EventQueue.AnnounceDraw("ByFourKkan");
+            return null;
         }
 
         var nextCard = rinShan[currentRinShanCardIndex];
