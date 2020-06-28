@@ -114,14 +114,16 @@ public class Card : UdonSharpBehaviour
 
             if (sprite != null)
             {
+                if (IsDora && !isDoraSetted)
+                {
+                    //setDora();
+                }
+
                 SpriteRenderer.sprite = sprite;
                 isSpriteInitialized = true;
             }
 
-            if (IsDora && !isDoraSetted)
-            {
-                setDora();
-            }
+            
         }
     }
 
