@@ -89,15 +89,16 @@ public class Player : UdonSharpBehaviour
         UIContext.IsKkanable = isAnkkanable || isOpenKkanable;
     }
 
-    public void CheckOpenKkanable(Card addedCard)
-    {
-        UIContext.IsKkanable = HandCalculator.IsOpenKkanable(addedCard, GetArray(OpenendCards));
-    }
-
     public void Discard(Card card)
     {
-        var index = Cards.IndexOf(card);
-        Cards.RemoveAt(index);
+        if (Contains(card))
+        {
+            Cards.RemoveAt(Cards.IndexOf(card));
+        }
+        else
+        {
+            Debug.Log($"없는 카드를 제거하려고 했는데 일단 진행해봄, Card: {card.ToString()}");
+        }
 
         stashedCards[card.GlobalOrder]++;
 
@@ -232,6 +233,7 @@ public class Player : UdonSharpBehaviour
 
         HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
+
     public bool IsUIActived()
     {
         return UIContext.IsAnythingActived();
@@ -270,21 +272,6 @@ public class Player : UdonSharpBehaviour
         {
             card.SetColliderActivate(active);
         }
-    }
-    
-    bool IsPon(Card[] cards)
-    {
-        if (cards.Length > 1) return false;
-        var globalOrder = cards[0].GlobalOrder;
-
-        for (var i = 1; i < cards.Length; ++i)
-        {
-            if (cards[i].GlobalOrder != globalOrder)
-            {
-                return false;
-            }
-        }
-        return true;
     }
 
     void SortPosition()
