@@ -91,6 +91,7 @@ public class TableManager : UdonSharpBehaviour
 
         ActiveCurrentPlayerColliders();
     }
+
     void ActiveCurrentPlayerColliders()
     {
         for (var i = 0; i < 4; i++)
@@ -181,8 +182,12 @@ public class TableManager : UdonSharpBehaviour
             yama[index++].Initialize_Master("중", 7, false);
         }
 
-
         //yama = ShuffleCards(yama);
+
+        for (var i = 0; i < yama.Length; ++i)
+        {
+            yama[i].YamaIndex = i;
+        }
 
         doras = GetNextCards(10);// 도라표시패 5패, 우라도라표시패 5패, 총 10패
         rinShan = GetNextCards(4);// 영상패(왕패) 4패
@@ -221,7 +226,6 @@ public class TableManager : UdonSharpBehaviour
     Card GetNextCard()
     {
         var nextCard = yama[currentCardIndex];
-        nextCard.YamaIndex = currentCardIndex;
 
         ++currentCardIndex;
 
@@ -237,7 +241,6 @@ public class TableManager : UdonSharpBehaviour
         }
 
         var nextCard = rinShan[currentRinShanCardIndex];
-        nextCard.YamaIndex = currentRinShanCardIndex;
         nextCard.IsRinShan = true;
 
         ++currentRinShanCardIndex;
