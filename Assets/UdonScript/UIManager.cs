@@ -9,7 +9,6 @@ using VRC.Udon.Common.Interfaces;
 public class UIManager : UdonSharpBehaviour
 {
     [SerializeField] public int PlayerIndex;
-    [SerializeField] public InputEvent InputEvent;
     [SerializeField] public EventQueue EventQueue;
     [SerializeField] public UIContext UIContext;
     [SerializeField] public GameObject UICanvas;
@@ -133,8 +132,7 @@ public class UIManager : UdonSharpBehaviour
 
     void SetChiEvent(Vector2 chiIndex)
     {
-        InputEvent.SetChiEvent(chiIndex, "Chi", PlayerIndex);
-        EventQueue.Enqueue(InputEvent);
+        EventQueue.SetChiEvent(chiIndex, "Chi", PlayerIndex);
     }
 
     public void ClickOthers(string uiName)
@@ -151,8 +149,7 @@ public class UIManager : UdonSharpBehaviour
 
     void SetUIEvent(string eventName)
     {
-        InputEvent.SetUIEvent(eventName, PlayerIndex);
-        EventQueue.Enqueue(InputEvent);
+        EventQueue.SetUIEvent(eventName, PlayerIndex);
     }
 
     void RequestCallFunctionToOwner(string funcName)

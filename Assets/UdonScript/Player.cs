@@ -12,7 +12,6 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public GameObject CardPositions;
     [SerializeField] public KList Cards;
     [SerializeField] public KList OpenendCards;
-    [SerializeField] public InputEvent InputEvent;
     [SerializeField] public UIContext UIContext;
     [SerializeField] public AgariContext AgariContext;
     [SerializeField] public HandCalculator HandCalculator;
@@ -68,7 +67,7 @@ public class Player : UdonSharpBehaviour
 
         Cards.Add(newCard);
 
-        newCard.SetOwnership(PlayerIndex, InputEvent);
+        newCard.SetOwnership(PlayerIndex);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
     }
 
@@ -259,7 +258,7 @@ public class Player : UdonSharpBehaviour
             var pickedCard = pickedCards[i];
 
             Cards.Add(pickedCards[i]);
-            pickedCard.SetOwnership(PlayerIndex, InputEvent);
+            pickedCard.SetOwnership(PlayerIndex);
             pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
         }
 

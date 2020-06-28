@@ -1,37 +1,72 @@
 
 using UdonSharp;
 using UnityEngine;
-using VRC.SDKBase;
-using VRC.Udon;
 
 public class EventQueue : UdonSharpBehaviour
 {
     private InputEvent[] events;
-    private int count = 0;
+    private int currIndex = 0;
+    private int topIndex = 0;
 
-    private void Start()
+    public void Initialize()
     {
-        events = new InputEvent[256];
+        events = GetComponentsInChildren<InputEvent>();
     }
 
-    public bool IsQueueEmpty() { return count == 0; }
+    public bool IsQueueEmpty() { return topIndex == 0; }
 
-    public void Enqueue(InputEvent e)
+    public void SetUIEvent(string uiName, int playerIndex)
     {
-        e.SetInputBlock(true);
+        var inputEvent = GetInputEvent();
 
-        events[count++] = e;
+        inputEvent.EventType = uiName;
+        inputEvent.PlayerIndex = playerIndex;
+    }
+
+    public void SetDiscardEvent(int yamaIndex, string eventType, int playerIndex)
+    {
+        var inputEvent = GetInputEvent();
+
+        inputEvent.DiscardedCardYamaIndex = yamaIndex;
+        inputEvent.EventType = eventType;
+        inputEvent.PlayerIndex = playerIndex;
+    }
+
+    public void SetChiEvent(Vector2 chiIndex, string eventType, int playerIndex)
+    {
+        var inputEvent = GetInputEvent();
+
+        inputEvent.ChiIndex = new Vector2(chiIndex.x, chiIndex.y);
+        inputEvent.EventType = eventType;
+        inputEvent.PlayerIndex = playerIndex;
+    }
+
+    InputEvent GetInputEvent()
+    {
+        var inputEvent = events[topIndex];
+
+        if (topIndex + 1 != events.Length)
+        {
+            ++topIndex;
+        }
+        else
+        {
+            Debug.Log("too many input");
+        }
+
+        return inputEvent;
     }
 
     public InputEvent Dequeue()
     {
-        InputEvent tmp = events[0];
-        events[0] = null;
-        for (var i = 1; i < count; i++)
+        var inputEvent = events[currIndex++];
+
+        if (currIndex == topIndex)
         {
-            events[i - 1] = events[i];
+            currIndex = 0;
+            topIndex = 0;
         }
-        count--;
-        return tmp;
+
+        return inputEvent;
     }
 }

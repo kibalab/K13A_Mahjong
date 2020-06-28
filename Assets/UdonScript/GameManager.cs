@@ -71,6 +71,7 @@ public class GameManager : UdonSharpBehaviour
     {
         ChangeGameState(State_WaitForStart);
         TableManager.Initialize();
+        EventQueue.Initialize();
 
         isRunOnMasterScript = true;
         LogViewer.Log("Master Initalized", 0);
