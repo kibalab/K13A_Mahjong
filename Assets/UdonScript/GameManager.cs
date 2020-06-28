@@ -187,7 +187,7 @@ public class GameManager : UdonSharpBehaviour
                 currentPlayer.OpenCards(ankkanCards, getPlayerDirection(TableManager.currentTurnPlayer, currentPlayer.PlayerIndex));
 
                 TableManager.SetTurnOf(inputEvent.PlayerIndex);
-                TableManager.AddNextCard();
+                TableManager.AddNextRinShanCard();
             }
             else // 소명깡
             {
