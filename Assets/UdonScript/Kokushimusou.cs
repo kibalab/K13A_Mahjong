@@ -34,7 +34,7 @@ public class Kokushimusou : UdonSharpBehaviour
     public bool IsTenpai(int[] tiles)
     {
         var count = HandUtil.GetYaojuhaiTypeCount(tiles);
-        return count > 12;
+        return count >= 12;
     }
 
     public bool IsWinable(int[] tiles)
