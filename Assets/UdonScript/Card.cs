@@ -26,7 +26,6 @@ public class Card : UdonSharpBehaviour
     [SerializeField] private LogViewer LogViewer;
     [SerializeField] private EventQueue EventQueue;
 
-    private InputEvent inputEvent;
     private bool isSpriteInitialized = false;
 
     public override void Interact()
@@ -36,8 +35,7 @@ public class Card : UdonSharpBehaviour
 
     public void _Interact()
     {
-        inputEvent.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
-        EventQueue.Enqueue(inputEvent);
+        EventQueue.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
     }
 
     public void Initialize_Master(string type, int cardNumber, bool isDora)
@@ -48,10 +46,9 @@ public class Card : UdonSharpBehaviour
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
     }
 
-    public void SetOwnership(int playerIndex, InputEvent inputEvent)
+    public void SetOwnership(int playerIndex)
     {
-        this.inputEvent = inputEvent;
-        this.PlayerIndex = playerIndex;
+        PlayerIndex = playerIndex;
     }
 
     public void SetColliderActivate(bool t)
