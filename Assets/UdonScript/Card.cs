@@ -123,4 +123,9 @@ public class Card : UdonSharpBehaviour
             SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
         }
     }
+
+    public override string ToString()
+    {
+        return $"({Type}, {CardNumber}, {GlobalOrder})";
+    }
 }
