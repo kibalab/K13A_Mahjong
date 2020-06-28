@@ -108,6 +108,13 @@ public class Card : UdonSharpBehaviour
         {
             var spriteName = GetCardSpriteName();
             var sprite = CardSprites.FindSprite(spriteName);
+            //var material = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+            
+
+            if (IsDora)
+            {
+                transform.Find("Display").GetComponentInChildren<Renderer>().material = CardSprites.doraMaterial;
+            }
 
             if (sprite != null)
             {

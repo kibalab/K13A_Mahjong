@@ -15,7 +15,6 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public EventQueue EventQueue;
     [SerializeField] public GameObject StashTables;
     [SerializeField] public Material normalMaterial;
-    [SerializeField] public Material doraMaterial;
     [SerializeField] public LogViewer LogViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
