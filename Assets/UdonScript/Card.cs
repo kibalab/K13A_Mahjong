@@ -35,7 +35,15 @@ public class Card : UdonSharpBehaviour
 
     public void _Interact()
     {
-        EventQueue.SetDiscardEvent(YamaIndex, "Discard", PlayerIndex);
+        if (IsDiscardedForRiichi)
+        {
+            EventQueue.SetRiichiEvent(YamaIndex, PlayerIndex);
+            IsDiscardedForRiichi = false;
+        }
+        else
+        {
+            EventQueue.SetDiscardEvent(YamaIndex, PlayerIndex);
+        }
     }
 
     public void Initialize_Master(string type, int cardNumber, bool isDora)

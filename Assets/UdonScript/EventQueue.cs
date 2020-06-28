@@ -23,12 +23,30 @@ public class EventQueue : UdonSharpBehaviour
         inputEvent.PlayerIndex = playerIndex;
     }
 
-    public void SetDiscardEvent(int yamaIndex, string eventType, int playerIndex)
+    public void SetDiscardEvent(int yamaIndex, int playerIndex)
     {
         var inputEvent = GetInputEvent();
 
         inputEvent.DiscardedCardYamaIndex = yamaIndex;
-        inputEvent.EventType = eventType;
+        inputEvent.EventType = "Discard";
+        inputEvent.PlayerIndex = playerIndex;
+    }
+
+    public void SetRiichiEvent(int yamaIndex, int playerIndex)
+    {
+        var inputEvent = GetInputEvent();
+
+        inputEvent.DiscardedCardYamaIndex = yamaIndex;
+        inputEvent.EventType = "RiichiDiscard";
+        inputEvent.PlayerIndex = playerIndex;
+    }
+
+    public void SetAutoDiscardEvent(int yamaIndex, int playerIndex)
+    {
+        var inputEvent = GetInputEvent();
+
+        inputEvent.DiscardedCardYamaIndex = yamaIndex;
+        inputEvent.EventType = "AutoDiscard";
         inputEvent.PlayerIndex = playerIndex;
     }
 

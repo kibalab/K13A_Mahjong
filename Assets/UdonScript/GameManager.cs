@@ -22,13 +22,14 @@ public class GameManager : UdonSharpBehaviour
     const string State_EndOfGame = "EndOfGame";
 
     private Card WaitingNakiCard;
-    private float WaitingTime = 0.0f;
     private bool isRunOnMasterScript = false;
 
     public bool testMode;
     public LogViewer LogViewer;
 
     bool isNetworkReady;
+
+    float pauseQueueTime = 0.0f;
 
     void Start()
     {
@@ -95,6 +96,12 @@ public class GameManager : UdonSharpBehaviour
         if (!IsReady()) { return; }
 
         if (!isRunOnMasterScript) { return; }
+
+        if (pauseQueueTime > 0.0f)
+        {
+            pauseQueueTime -= Time.deltaTime;
+            return;
+        }
 
         if (!EventQueue.IsQueueEmpty())
         {
@@ -217,20 +224,26 @@ public class GameManager : UdonSharpBehaviour
         {
             // 해야 한다...
         }
+        else if (eventType == "AutoDiscard")
+        {
+            pauseQueueTime = 3.0f;
+
+            // 3초 대기하고 일반적인 discard로 이동 
+            EventQueue.SetDiscardEvent(inputEvent.DiscardedCardYamaIndex, inputEvent.PlayerIndex);
+        }
+        else if (eventType == "RiichiDiscard")
+        {
+            currentPlayer.ActiveRiichiMode();
+            // 리치봉 놓은 다음 점수 깎고 패 가로로 돌려놓는 처리 해야 함
+
+            // TODO
+
+            // 리치 관련 처리 하고 일반적인 Discard로 이동
+            EventQueue.SetDiscardEvent(inputEvent.DiscardedCardYamaIndex, inputEvent.PlayerIndex);
+        }
         else if (eventType == "Discard")
         {
             var eventCard = TableManager.GetCardByIndex(inputEvent.DiscardedCardYamaIndex);
-            if (eventCard.IsDiscardedForRiichi)
-            {
-                // 리치봉 놓은 다음 점수 깎고 패 가로로 돌려놓는 처리 해야 함
-
-                // TODO
-
-                // 다른 사람이 바로 줏어갈 수 있으니,
-                // 이 값은 false로 값을 바꿔준다
-                eventCard.IsDiscardedForRiichi = false;
-            }
-
             currentPlayer.DisableUI();
             currentPlayer.Discard(eventCard);
 
@@ -370,11 +383,7 @@ public class GameManager : UdonSharpBehaviour
 
     void EndOfGame()
     {
-        WaitingTime -= Time.deltaTime;
-        if (WaitingTime < 0)
-        {
-            // 다음 라운드를 시작하는 처리
-        }
+    
     }
 
     void ChangeGameState(string state)
@@ -389,7 +398,7 @@ public class GameManager : UdonSharpBehaviour
         {
             case State_EndOfRound:
                 // 5초동안 결과화면을 보여주고 넘어간다고 하자 (시간은 바뀔 수 있음)
-                WaitingTime = 5f;
+                pauseQueueTime = 5f;
                 break;
         }
     }
