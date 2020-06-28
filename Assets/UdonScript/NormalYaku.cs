@@ -24,15 +24,14 @@ public class NormalYaku : UdonSharpBehaviour
 
             var bodies = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
 
-            // 몸 4, 카드 1인 경우 -> 단면대기 텐파이            
+            // 몸 4, 카드 1인 경우 -> 단면대기 텐파이
             if (bodies == 4 && pairs.Length == 0)
             {
-                agariContext.IsSingleWaiting = true;
                 for (var i = 0; i < remainsGlobalOrders.Length; ++i)
                 {
                     if (remainsGlobalOrders[i] > 0)
                     {
-                        agariContext.AddAgariableGlobalOrder(i);
+                        SetSingleWaiting(agariContext, i);
 
                         Debug.Log($"몸4 카드 1, 단면대기 텐파이 GlobalOrder:{i}");
                         break;
@@ -42,9 +41,7 @@ public class NormalYaku : UdonSharpBehaviour
             // 몸 3, 머리 2인 경우 -> 양면대기 텐파이
             else if (bodies == 3 && pairs.Length == 2)
             {
-                agariContext.IsSingleWaiting = false;
-                agariContext.AddAgariableGlobalOrder(pairs[0]);
-                agariContext.AddAgariableGlobalOrder(pairs[1]);
+                SetDoubleWaiting(agariContext, pairs[0], pairs[1]);
 
                 Debug.Log($"몸4 머리 2, 양면대기 텐파이 GlobalOrder:{pairs[0]}, {pairs[1]}");
             }
@@ -60,20 +57,19 @@ public class NormalYaku : UdonSharpBehaviour
 
                 for (var i = 0; i < 34 - 1; ++i)
                 {
+                    // 2, 3같이 한 칸만 떨어져있는 경우
                     if (remainsGlobalOrders[i] == 1 && remainsGlobalOrders[i + 1] == 1)
                     {
-                        agariContext.AddAgariableGlobalOrder(i);
-                        agariContext.AddAgariableGlobalOrder(i + 1);
-                        agariContext.IsSingleWaiting = false;
+                        SetDoubleWaiting(agariContext, i, i + 1);
 
                         Debug.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i}, {i + 1}");
                         break;
                     }
 
+                    // 2, 4같이 두칸 떨어져 있는 경우
                     if (i > 0 && remainsGlobalOrders[i - 1] == 1 && remainsGlobalOrders[i + 1] == 1)
                     {
-                        agariContext.AddAgariableGlobalOrder(i);
-                        agariContext.IsSingleWaiting = true;
+                        SetSingleWaiting(agariContext, i);
 
                         Debug.Log($"몸3 머리 1 카드 2, 단면대기 텐파이 GlobalOrder:{i}");
                         break;
@@ -83,5 +79,18 @@ public class NormalYaku : UdonSharpBehaviour
         }
 
         return agariContext.AgariableCount != 0;
+    }
+
+    void SetSingleWaiting(AgariContext agariContext, int globalOrder)
+    {
+        agariContext.IsSingleWaiting = true;
+        agariContext.AddAgariableGlobalOrder(globalOrder);
+    }
+
+    void SetDoubleWaiting(AgariContext agariContext, int globalOrder1, int globalOrder2)
+    {
+        agariContext.IsSingleWaiting = false;
+        agariContext.AddAgariableGlobalOrder(globalOrder1);
+        agariContext.AddAgariableGlobalOrder(globalOrder2);
     }
 }
