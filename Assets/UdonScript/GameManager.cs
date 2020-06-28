@@ -101,6 +101,12 @@ public class GameManager : UdonSharpBehaviour
             var inputEvent = EventQueue.Dequeue();
             LogViewer.Log($"inputEvent ({inputEvent.EventType}, {inputEvent.PlayerIndex})", 0);
 
+            if (inputEvent.EventType == "Draw") // 유국
+            {
+                Debug.Log($"DrawReason: {inputEvent.DrawReason}");
+                // 뭔가 더 처리를 해야 하는데 나중에 함
+            }
+
             switch (GameState)
             {
                 case State_WaitForStart:
