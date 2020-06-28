@@ -1,6 +1,7 @@
 
 using UdonSharp;
 using UnityEngine;
+using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
@@ -16,6 +17,7 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject StashTables;
     [SerializeField] public Material normalMaterial;
     [SerializeField] public LogViewer LogViewer;
+    [SerializeField] public GameObject DoreViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -106,7 +108,13 @@ public class TableManager : UdonSharpBehaviour
         {
             if(card.GlobalOrder == globalOrder)
             {
-                card.IsDora = true;
+                //card.IsDora = true;
+
+
+                var doraView = DoreViewer.transform.GetChild(currentDorasCardIndex-1);
+                doraView.GetComponent<Image>().color = Color.white;
+                LogViewer.Log($"SetDora Sprite : {card.GetCardSpriteName()}, {card.ToString()}", 0);
+                doraView.transform.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite(card.GetCardSpriteName().Replace("도라",""));
             }
             
         }
