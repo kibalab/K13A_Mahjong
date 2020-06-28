@@ -589,12 +589,13 @@ public class HandCalculator : UdonSharpBehaviour
         };
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Chiitoitsu.IsTenpai(globalOrders), 1);
+        AgariContextForTest.Clear();
+
+        DebugHelper.IsTrue(Chiitoitsu.CheckTenpai(AgariContextForTest, globalOrders), 1);
 
         TEST__SetTestData(TestComponents[13], "만", 7);
-        globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Chiitoitsu.IsWinable(globalOrders), 2);
+        DebugHelper.IsTrue(AgariContextForTest.IsAgariable(TestComponents[13]), 2);
     }
 
     void Test7()
@@ -620,12 +621,13 @@ public class HandCalculator : UdonSharpBehaviour
         };
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Kokushimusou.IsTenpai(globalOrders), 1);
+        AgariContextForTest.Clear();
+
+        DebugHelper.IsTrue(Kokushimusou.CheckTenpai(AgariContextForTest, globalOrders), 1);
 
         TEST__SetTestData(TestComponents[13], "중", 7);
-        globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(Kokushimusou.IsWinable(globalOrders), 2);
+        DebugHelper.IsTrue(AgariContextForTest.IsAgariable(TestComponents[13]), 2);
     }
 
     void Test8()
