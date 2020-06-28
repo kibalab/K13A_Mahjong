@@ -25,6 +25,7 @@ public class TableManager : UdonSharpBehaviour
     private Player[] players;
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
+    private int currentDorasCardIndex = 0;
     void Start()
     {
         yama = CardPool.GetComponentsInChildren<Card>();
@@ -87,12 +88,27 @@ public class TableManager : UdonSharpBehaviour
     {
         var player = GetCurrentTurnPlayer();
         var nextCard = GetNextRinShanCard();
-        if (nextCard != null)
+        var dora = GetNextdoraCard();
+        if (nextCard != null && dora != null)
         {
             player.AddCard(nextCard, false, false);
             player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
 
+            setDora(dora.GlobalOrder);
+
             ActiveCurrentPlayerColliders();
+        }
+    }
+
+    public void setDora(int globalOrder)
+    {
+        foreach (Card card in yama)
+        {
+            if(card.GlobalOrder == globalOrder)
+            {
+                card.IsDora = true;
+            }
+            
         }
     }
 
@@ -146,6 +162,11 @@ public class TableManager : UdonSharpBehaviour
     {
         InitializeYama();
         LogViewer.Log("Yama Initalized", 0);
+
+        var firstDora =  GetNextdoraCard();
+        setDora(firstDora.GlobalOrder);
+
+        LogViewer.Log($"Set First Dora : {firstDora.ToString()}", 0);
 
         for (int i = 0; i < players.Length; ++i)
         {
@@ -254,6 +275,21 @@ public class TableManager : UdonSharpBehaviour
         nextCard.IsRinShan = true;
 
         ++currentRinShanCardIndex;
+
+        return nextCard;
+    }
+
+    Card GetNextdoraCard()
+    {
+        if (currentDorasCardIndex == doras.Length)
+        {
+            EventQueue.AnnounceDraw("ByFourKkan");
+            return null;
+        }
+
+        var nextCard = doras[currentDorasCardIndex];
+
+        ++currentDorasCardIndex;
 
         return nextCard;
     }
