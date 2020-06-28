@@ -41,6 +41,13 @@ public class EventQueue : UdonSharpBehaviour
         inputEvent.PlayerIndex = playerIndex;
     }
 
+    public void AnnounceDraw(string reason)
+    {
+        var inputEvent = GetInputEvent();
+
+        inputEvent.DrawReason = reason;
+    }
+
     InputEvent GetInputEvent()
     {
         var inputEvent = events[topIndex];
@@ -51,6 +58,9 @@ public class EventQueue : UdonSharpBehaviour
         }
         else
         {
+            // 최대 큐잉 가능한 갯수를 넘어서 들어오면?
+            // 그냥 맨 마지막 InputEvent를 바꾼다
+            // 마우스로 연타해도 Update 속도가 워낙 빨라서 다 채워질 일은 없긴 할 것이다
             Debug.Log("too many input");
         }
 
