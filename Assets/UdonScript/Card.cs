@@ -27,6 +27,7 @@ public class Card : UdonSharpBehaviour
     [SerializeField] private EventQueue EventQueue;
 
     private bool isSpriteInitialized = false;
+    private bool isDoraSetted = false;
 
     public override void Interact()
     {
@@ -111,17 +112,23 @@ public class Card : UdonSharpBehaviour
             //var material = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
             
 
-            if (IsDora)
-            {
-                transform.Find("Display").GetComponentInChildren<Renderer>().material = CardSprites.doraMaterial;
-            }
-
             if (sprite != null)
             {
                 SpriteRenderer.sprite = sprite;
                 isSpriteInitialized = true;
             }
+
+            if (IsDora && !isDoraSetted)
+            {
+                setDora();
+            }
         }
+    }
+
+    public void setDora()
+    {
+        transform.Find("Display").GetComponentInChildren<Renderer>().material = CardSprites.doraMaterial;
+        isDoraSetted = true;
     }
 
     void RequestCallFunctionToOwner(string funcName)
