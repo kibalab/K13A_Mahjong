@@ -153,7 +153,7 @@ public class TableManager : UdonSharpBehaviour
             var pickedCards = GetNextCards(13);
             var player = players[i];
 
-            player.Initialize();
+            player.Initialize(i);
             player.SetCards(pickedCards);
         }
         LogViewer.Log("PlayersInfo Initalized", 0);

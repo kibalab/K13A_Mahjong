@@ -7,7 +7,6 @@ public class Player : UdonSharpBehaviour
 {
     private const int FULL_CARD_COUNT = 14;
 
-    [SerializeField] public int PlayerIndex;
     [SerializeField] public UIManager UiManager;
     [SerializeField] public GameObject CardPositions;
     [SerializeField] public KList Cards;
@@ -18,11 +17,15 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Transform StashPositions;
     [SerializeField] public Transform nakiPoints;
     [SerializeField] public Transform nakiShapes;
+    [SerializeField] public EventQueue EventQueue;
 
     [SerializeField] public Card testcard1;
     [SerializeField] public Card testcard2;
     [SerializeField] public Card testcard3;
     [SerializeField] public Card testcard4;
+
+    public bool IsRiichiMode;
+    public int PlayerIndex;
 
     private Transform[] cardPoints;
     private Transform plusCardPosition;
@@ -34,13 +37,15 @@ public class Player : UdonSharpBehaviour
     int[] stashedCards;
     int stashedCardIndex;
 
-    public void Initialize()
+    public void Initialize(int playerIndex)
     {
         cardPoints = FindPoints();
         stashedCards = new int[34];
         stashedCardIndex = 0;
         nakiCount = 0;
         OpenedPonPositions = new Transform[34];
+        IsRiichiMode = false;
+        PlayerIndex = playerIndex;
     }
 
     Transform[] FindPoints()
@@ -57,6 +62,11 @@ public class Player : UdonSharpBehaviour
         return cardPoints;
     }
 
+    public void ActiveRiichiMode()
+    {
+        IsRiichiMode = true;
+    }
+
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo)
     {
         UIContext.Clear();
@@ -69,6 +79,11 @@ public class Player : UdonSharpBehaviour
 
         newCard.SetOwnership(PlayerIndex);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+
+        if (!UIContext.IsTsumoable && IsRiichiMode)
+        {
+            EventQueue.SetAutoDiscardEvent(newCard.YamaIndex, PlayerIndex);
+        }
     }
 
     public void CheckRiichiable()
@@ -267,6 +282,12 @@ public class Player : UdonSharpBehaviour
 
     public void SetColliderActive(bool active)
     {
+        // 리치 중일 때는 조작이 불가능하게 함
+        if (IsRiichiMode)
+        {
+            return;
+        }
+
         foreach (Card card in Cards.Clone())
         {
             card.SetColliderActivate(active);
