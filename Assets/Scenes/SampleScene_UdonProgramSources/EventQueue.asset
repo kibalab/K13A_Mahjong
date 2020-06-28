@@ -19,39 +19,45 @@ MonoBehaviour:
     %UnityEngineComponentArray, null\r\n    currIndex: %SystemInt32, null\r\n    topIndex:
     %SystemInt32, null\r\n    __0_this_intnl_EventQueue: %VRCUdonUdonBehaviour, this\r\n
     \   __0_playerIndex_Int32: %SystemInt32, null\r\n    __0_yamaIndex_Int32: %SystemInt32,
-    null\r\n    __1_playerIndex_Int32: %SystemInt32, null\r\n    __2_playerIndex_Int32:
+    null\r\n    __1_playerIndex_Int32: %SystemInt32, null\r\n    __1_yamaIndex_Int32:
+    %SystemInt32, null\r\n    __2_playerIndex_Int32: %SystemInt32, null\r\n    __2_yamaIndex_Int32:
+    %SystemInt32, null\r\n    __3_playerIndex_Int32: %SystemInt32, null\r\n    __4_playerIndex_Int32:
     %SystemInt32, null\r\n    __0_eventType_String: %SystemString, null\r\n    __0_reason_String:
-    %SystemString, null\r\n    __0_uiName_String: %SystemString, null\r\n    __1_eventType_String:
-    %SystemString, null\r\n    __0_inputEvent_InputEvent: %VRCUdonUdonBehaviour, null\r\n
-    \   __1_inputEvent_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __2_inputEvent_InputEvent:
-    %VRCUdonUdonBehaviour, null\r\n    __3_inputEvent_InputEvent: %VRCUdonUdonBehaviour,
-    null\r\n    __4_inputEvent_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __5_inputEvent_InputEvent:
-    %VRCUdonUdonBehaviour, null\r\n    __0_chiIndex_Vector2: %UnityEngineVector2,
-    null\r\n    __0_const_intnl_InputEventArray: %UnityEngineComponentArray, null\r\n
-    \   __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_const_intnl_SystemInt64: %SystemInt64, null\r\n
-    \   __1_const_intnl_SystemInt64: %SystemInt64, null\r\n    __0_const_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
-    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
-    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
-    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
-    %SystemString, null\r\n    __6_const_intnl_SystemString: %SystemString, null\r\n
-    \   __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemString, null\r\n    __0_uiName_String: %SystemString, null\r\n    __0_inputEvent_InputEvent:
+    %VRCUdonUdonBehaviour, null\r\n    __1_inputEvent_InputEvent: %VRCUdonUdonBehaviour,
+    null\r\n    __2_inputEvent_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __3_inputEvent_InputEvent:
+    %VRCUdonUdonBehaviour, null\r\n    __4_inputEvent_InputEvent: %VRCUdonUdonBehaviour,
+    null\r\n    __5_inputEvent_InputEvent: %VRCUdonUdonBehaviour, null\r\n    __6_inputEvent_InputEvent:
+    %VRCUdonUdonBehaviour, null\r\n    __7_inputEvent_InputEvent: %VRCUdonUdonBehaviour,
+    null\r\n    __0_chiIndex_Vector2: %UnityEngineVector2, null\r\n    __0_const_intnl_InputEventArray:
+    %UnityEngineComponentArray, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __1_const_intnl_SystemInt64: %SystemInt64, null\r\n
+    \   __0_const_intnl_SystemObject: %SystemObject, null\r\n    __0_const_intnl_SystemString:
+    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
+    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
+    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
+    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
+    %SystemString, null\r\n    __7_const_intnl_SystemString: %SystemString, null\r\n
+    \   __8_const_intnl_SystemString: %SystemString, null\r\n    __9_const_intnl_SystemString:
+    %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
     \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null\r\n    __0_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __3_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __4_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __5_intnl_SystemBoolean: %SystemBoolean, null\r\n    __6_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __7_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __8_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent:
-    %UnityEngineComponent, null\r\n    __1_intnl_UnityEngineComponent: %UnityEngineComponent,
-    null\r\n    __0_intnl_InputEventArray: %UnityEngineComponentArray, null\r\n    __0_intnl_UnityEngineComponentArray:
-    %UnityEngineComponentArray, null\r\n    __1_intnl_UnityEngineComponentArray: %UnityEngineComponentArray,
-    null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __10_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32:
+    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __5_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean,
+    null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __8_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __0_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __1_intnl_UnityEngineComponent:
+    %UnityEngineComponent, null\r\n    __0_intnl_InputEventArray: %UnityEngineComponentArray,
+    null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
+    \   __1_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
+    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __10_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32:
     %SystemInt32, null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_SystemInt32:
     %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_SystemInt32:
     %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_SystemInt32:
@@ -158,7 +164,7 @@ MonoBehaviour:
     \   .export SetUIEvent\r\n        \r\n    SetUIEvent:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
     var inputEvent = GetInputEvent();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000768\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
+    \       JUMP, 0x000008A8\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
     \       PUSH, __0_inputEvent_InputEvent\r\n        COPY\r\n        \r\n         #
     inputEvent.EventType = uiName;\r\n        PUSH, __0_inputEvent_InputEvent\r\n
     \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_uiName_String\r\n
@@ -168,52 +174,86 @@ MonoBehaviour:
     __0_playerIndex_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void SetDiscardEvent(int yamaIndex, string eventType, int playerIndex)\r\n
-    \   .export SetDiscardEvent\r\n        \r\n    SetDiscardEvent:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # var inputEvent = GetInputEvent();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000768\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
+    \        # public void SetDiscardEvent(int yamaIndex, int playerIndex)\r\n    .export
+    SetDiscardEvent\r\n        \r\n    SetDiscardEvent:\r\n        \r\n        PUSH,
+    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
+    var inputEvent = GetInputEvent();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000008A8\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
     \       PUSH, __1_inputEvent_InputEvent\r\n        COPY\r\n        \r\n         #
     inputEvent.DiscardedCardYamaIndex = yamaIndex;\r\n        PUSH, __1_inputEvent_InputEvent\r\n
     \       PUSH, __3_const_intnl_SystemString\r\n        PUSH, __0_yamaIndex_Int32\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       \r\n         # inputEvent.EventType = eventType;\r\n        PUSH, __1_inputEvent_InputEvent\r\n
-    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_eventType_String\r\n
+    \       \r\n         # inputEvent.EventType = \"Discard\";\r\n        PUSH, __1_inputEvent_InputEvent\r\n
+    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __4_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       \r\n         # inputEvent.PlayerIndex = playerIndex;\r\n        PUSH,
     __1_inputEvent_InputEvent\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
     __1_playerIndex_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
+    \        # public void SetRiichiEvent(int yamaIndex, int playerIndex)\r\n    .export
+    SetRiichiEvent\r\n        \r\n    SetRiichiEvent:\r\n        \r\n        PUSH,
+    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
+    var inputEvent = GetInputEvent();\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000008A8\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
+    \       PUSH, __2_inputEvent_InputEvent\r\n        COPY\r\n        \r\n         #
+    inputEvent.DiscardedCardYamaIndex = yamaIndex;\r\n        PUSH, __2_inputEvent_InputEvent\r\n
+    \       PUSH, __3_const_intnl_SystemString\r\n        PUSH, __1_yamaIndex_Int32\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # inputEvent.EventType = \"RiichiDiscard\";\r\n        PUSH,
+    __2_inputEvent_InputEvent\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
+    __5_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # inputEvent.PlayerIndex = playerIndex;\r\n        PUSH,
+    __2_inputEvent_InputEvent\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
+    __2_playerIndex_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
+    \        # public void SetAutoDiscardEvent(int yamaIndex, int playerIndex)\r\n
+    \   .export SetAutoDiscardEvent\r\n        \r\n    SetAutoDiscardEvent:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # var inputEvent = GetInputEvent();\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000008A8\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
+    \       PUSH, __3_inputEvent_InputEvent\r\n        COPY\r\n        \r\n         #
+    inputEvent.DiscardedCardYamaIndex = yamaIndex;\r\n        PUSH, __3_inputEvent_InputEvent\r\n
+    \       PUSH, __3_const_intnl_SystemString\r\n        PUSH, __2_yamaIndex_Int32\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # inputEvent.EventType = \"AutoDiscard\";\r\n        PUSH,
+    __3_inputEvent_InputEvent\r\n        PUSH, __1_const_intnl_SystemString\r\n        PUSH,
+    __6_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       \r\n         # inputEvent.PlayerIndex = playerIndex;\r\n        PUSH,
+    __3_inputEvent_InputEvent\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
+    __3_playerIndex_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public void SetChiEvent(Vector2 chiIndex, string eventType, int playerIndex)\r\n
     \   .export SetChiEvent\r\n        \r\n    SetChiEvent:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    var inputEvent = GetInputEvent();\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000768\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
-    \       PUSH, __2_inputEvent_InputEvent\r\n        COPY\r\n        \r\n         #
+    var inputEvent = GetInputEvent();\r\n        PUSH, __4_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x000008A8\r\n        PUSH, __0_intnl_returnValSymbol_InputEvent\r\n
+    \       PUSH, __4_inputEvent_InputEvent\r\n        COPY\r\n        \r\n         #
     inputEvent.ChiIndex = new Vector2(chiIndex.x, chiIndex.y);\r\n        PUSH, __0_chiIndex_Vector2\r\n
     \       PUSH, __0_intnl_SystemSingle\r\n        EXTERN, \"UnityEngineVector2.__get_x__SystemSingle\"\r\n
     \       PUSH, __0_chiIndex_Vector2\r\n        PUSH, __1_intnl_SystemSingle\r\n
     \       EXTERN, \"UnityEngineVector2.__get_y__SystemSingle\"\r\n        PUSH,
     __0_intnl_SystemSingle\r\n        PUSH, __1_intnl_SystemSingle\r\n        PUSH,
     __0_intnl_UnityEngineVector2\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
-    \       PUSH, __2_inputEvent_InputEvent\r\n        PUSH, __4_const_intnl_SystemString\r\n
+    \       PUSH, __4_inputEvent_InputEvent\r\n        PUSH, __7_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_UnityEngineVector2\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       \r\n         # inputEvent.EventType = eventType;\r\n        PUSH, __2_inputEvent_InputEvent\r\n
-    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __1_eventType_String\r\n
+    \       \r\n         # inputEvent.EventType = eventType;\r\n        PUSH, __4_inputEvent_InputEvent\r\n
+    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_eventType_String\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       \r\n         # inputEvent.PlayerIndex = playerIndex;\r\n        PUSH,
-    __2_inputEvent_InputEvent\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
-    __2_playerIndex_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    __4_inputEvent_InputEvent\r\n        PUSH, __2_const_intnl_SystemString\r\n        PUSH,
+    __4_playerIndex_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public void AnnounceDraw(string reason)\r\n    .export AnnounceDraw\r\n
     \       \r\n    AnnounceDraw:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # var inputEvent = GetInputEvent();\r\n
-    \       PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000768\r\n
-    \       PUSH, __0_intnl_returnValSymbol_InputEvent\r\n        PUSH, __3_inputEvent_InputEvent\r\n
+    \       PUSH, __5_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000008A8\r\n
+    \       PUSH, __0_intnl_returnValSymbol_InputEvent\r\n        PUSH, __5_inputEvent_InputEvent\r\n
     \       COPY\r\n        \r\n         # inputEvent.DrawReason = reason;\r\n        PUSH,
-    __3_inputEvent_InputEvent\r\n        PUSH, __5_const_intnl_SystemString\r\n        PUSH,
+    __5_inputEvent_InputEvent\r\n        PUSH, __8_const_intnl_SystemString\r\n        PUSH,
     __0_reason_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
@@ -221,7 +261,7 @@ MonoBehaviour:
     __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
     var inputEvent = events[topIndex];\r\n        PUSH, events\r\n        PUSH, topIndex\r\n
     \       PUSH, __2_intnl_InputEvent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __2_intnl_InputEvent\r\n        PUSH, __4_inputEvent_InputEvent\r\n
+    \       PUSH, __2_intnl_InputEvent\r\n        PUSH, __6_inputEvent_InputEvent\r\n
     \       COPY\r\n        \r\n         # if (topIndex + 1 != events.Length)\r\n
     \       PUSH, topIndex\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
     __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
@@ -229,14 +269,14 @@ MonoBehaviour:
     \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH, __8_intnl_SystemInt32\r\n
     \       PUSH, __9_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000082C\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000096C\r\n
     \       \r\n         # {\r\n        \r\n         # ++topIndex;\r\n        PUSH,
     topIndex\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, topIndex\r\n
     \       EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x0000083C\r\n        \r\n         # else\r\n        \r\n         #
-    {\r\n        \r\n         # Debug.Log(\"too many input\");\r\n        PUSH, __6_const_intnl_SystemString\r\n
+    \       JUMP, 0x0000097C\r\n        \r\n         # else\r\n        \r\n         #
+    {\r\n        \r\n         # Debug.Log(\"too many input\");\r\n        PUSH, __9_const_intnl_SystemString\r\n
     \       EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        \r\n
-    \        # return inputEvent;\r\n        PUSH, __4_inputEvent_InputEvent\r\n        PUSH,
+    \        # return inputEvent;\r\n        PUSH, __6_inputEvent_InputEvent\r\n        PUSH,
     __0_intnl_returnValSymbol_InputEvent\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
@@ -249,16 +289,16 @@ MonoBehaviour:
     currIndex\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, events\r\n        PUSH, __10_intnl_SystemInt32\r\n        PUSH,
     __3_intnl_InputEvent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __3_intnl_InputEvent\r\n        PUSH, __5_inputEvent_InputEvent\r\n
+    \       PUSH, __3_intnl_InputEvent\r\n        PUSH, __7_inputEvent_InputEvent\r\n
     \       COPY\r\n        \r\n         # if (currIndex == topIndex)\r\n        PUSH,
     currIndex\r\n        PUSH, topIndex\r\n        PUSH, __8_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000940\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A80\r\n
     \       \r\n         # {\r\n        \r\n         # currIndex = 0;\r\n        PUSH,
     __0_const_intnl_SystemInt32\r\n        PUSH, currIndex\r\n        COPY\r\n        \r\n
     \        # topIndex = 0;\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
     topIndex\r\n        COPY\r\n        \r\n         # return inputEvent;\r\n        PUSH,
-    __5_inputEvent_InputEvent\r\n        PUSH, __1_intnl_returnValSymbol_InputEvent\r\n
+    __7_inputEvent_InputEvent\r\n        PUSH, __1_intnl_returnValSymbol_InputEvent\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
@@ -683,731 +723,1116 @@ MonoBehaviour:
       lineChar: 32
       spanCodeSection: 'int yamaIndex, '
     - startInstruction: 1392
-      endInstruction: 1391
+      endInstruction: 1399
       startSourceChar: 608
-      endSourceChar: 626
+      endSourceChar: 630
       line: 25
       lineChar: 47
-      spanCodeSection: 'string eventType, '
-    - startInstruction: 1392
-      endInstruction: 1399
-      startSourceChar: 626
-      endSourceChar: 648
-      line: 25
-      lineChar: 65
       spanCodeSection: "int playerIndex)\r\n    "
     - startInstruction: 1400
       endInstruction: 1399
-      startSourceChar: 648
-      endSourceChar: 659
+      startSourceChar: 630
+      endSourceChar: 641
       line: 26
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1400
       endInstruction: 1399
-      startSourceChar: 659
-      endSourceChar: 659
+      startSourceChar: 641
+      endSourceChar: 641
       line: 27
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1400
       endInstruction: 1399
-      startSourceChar: 659
-      endSourceChar: 659
+      startSourceChar: 641
+      endSourceChar: 641
       line: 27
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1400
       endInstruction: 1399
-      startSourceChar: 659
-      endSourceChar: 674
+      startSourceChar: 641
+      endSourceChar: 656
       line: 27
       lineChar: 8
       spanCodeSection: 'var inputEvent '
     - startInstruction: 1400
       endInstruction: 1399
-      startSourceChar: 674
-      endSourceChar: 676
+      startSourceChar: 656
+      endSourceChar: 658
       line: 27
       lineChar: 23
       spanCodeSection: '= '
     - startInstruction: 1400
       endInstruction: 1399
-      startSourceChar: 676
-      endSourceChar: 676
+      startSourceChar: 658
+      endSourceChar: 658
       line: 27
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 1400
       endInstruction: 1435
-      startSourceChar: 676
-      endSourceChar: 704
+      startSourceChar: 658
+      endSourceChar: 686
       line: 27
       lineChar: 25
       spanCodeSection: "GetInputEvent();\r\n\r\n        "
     - startInstruction: 1436
       endInstruction: 1435
-      startSourceChar: 704
-      endSourceChar: 704
+      startSourceChar: 686
+      endSourceChar: 686
       line: 29
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1436
       endInstruction: 1435
-      startSourceChar: 704
-      endSourceChar: 704
+      startSourceChar: 686
+      endSourceChar: 686
       line: 29
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1436
       endInstruction: 1435
-      startSourceChar: 704
-      endSourceChar: 704
+      startSourceChar: 686
+      endSourceChar: 686
       line: 29
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1436
       endInstruction: 1435
-      startSourceChar: 704
-      endSourceChar: 715
+      startSourceChar: 686
+      endSourceChar: 697
       line: 29
       lineChar: 8
       spanCodeSection: inputEvent.
     - startInstruction: 1436
       endInstruction: 1435
-      startSourceChar: 715
-      endSourceChar: 740
+      startSourceChar: 697
+      endSourceChar: 722
       line: 29
       lineChar: 19
       spanCodeSection: 'DiscardedCardYamaIndex = '
     - startInstruction: 1436
       endInstruction: 1467
-      startSourceChar: 740
-      endSourceChar: 760
+      startSourceChar: 722
+      endSourceChar: 742
       line: 29
       lineChar: 44
       spanCodeSection: "yamaIndex;\r\n        "
     - startInstruction: 1468
       endInstruction: 1467
-      startSourceChar: 760
-      endSourceChar: 760
+      startSourceChar: 742
+      endSourceChar: 742
       line: 30
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1468
       endInstruction: 1467
-      startSourceChar: 760
-      endSourceChar: 760
+      startSourceChar: 742
+      endSourceChar: 742
       line: 30
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1468
       endInstruction: 1467
-      startSourceChar: 760
-      endSourceChar: 760
+      startSourceChar: 742
+      endSourceChar: 742
       line: 30
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1468
       endInstruction: 1467
-      startSourceChar: 760
-      endSourceChar: 771
+      startSourceChar: 742
+      endSourceChar: 753
       line: 30
       lineChar: 8
       spanCodeSection: inputEvent.
     - startInstruction: 1468
       endInstruction: 1467
-      startSourceChar: 771
-      endSourceChar: 783
+      startSourceChar: 753
+      endSourceChar: 765
       line: 30
       lineChar: 19
       spanCodeSection: 'EventType = '
     - startInstruction: 1468
       endInstruction: 1499
-      startSourceChar: 783
-      endSourceChar: 803
+      startSourceChar: 765
+      endSourceChar: 785
       line: 30
       lineChar: 31
-      spanCodeSection: "eventType;\r\n        "
+      spanCodeSection: "\"Discard\";\r\n        "
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 803
-      endSourceChar: 803
+      startSourceChar: 785
+      endSourceChar: 785
       line: 31
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 803
-      endSourceChar: 803
+      startSourceChar: 785
+      endSourceChar: 785
       line: 31
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 803
-      endSourceChar: 803
+      startSourceChar: 785
+      endSourceChar: 785
       line: 31
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 803
-      endSourceChar: 814
+      startSourceChar: 785
+      endSourceChar: 796
       line: 31
       lineChar: 8
       spanCodeSection: inputEvent.
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 814
-      endSourceChar: 828
+      startSourceChar: 796
+      endSourceChar: 810
       line: 31
       lineChar: 19
       spanCodeSection: 'PlayerIndex = '
     - startInstruction: 1500
       endInstruction: 1551
-      startSourceChar: 828
-      endSourceChar: 855
+      startSourceChar: 810
+      endSourceChar: 837
       line: 31
       lineChar: 33
       spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
     - startInstruction: 1552
       endInstruction: 1551
-      startSourceChar: 855
-      endSourceChar: 879
+      startSourceChar: 837
+      endSourceChar: 864
       line: 34
       lineChar: 4
-      spanCodeSection: public void SetChiEvent(
+      spanCodeSection: public void SetRiichiEvent(
     - startInstruction: 1552
       endInstruction: 1551
-      startSourceChar: 879
-      endSourceChar: 897
+      startSourceChar: 864
+      endSourceChar: 879
       line: 34
-      lineChar: 28
-      spanCodeSection: 'Vector2 chiIndex, '
-    - startInstruction: 1552
-      endInstruction: 1551
-      startSourceChar: 897
-      endSourceChar: 915
-      line: 34
-      lineChar: 46
-      spanCodeSection: 'string eventType, '
+      lineChar: 31
+      spanCodeSection: 'int yamaIndex, '
     - startInstruction: 1552
       endInstruction: 1559
-      startSourceChar: 915
-      endSourceChar: 937
+      startSourceChar: 879
+      endSourceChar: 901
       line: 34
-      lineChar: 64
+      lineChar: 46
       spanCodeSection: "int playerIndex)\r\n    "
     - startInstruction: 1560
       endInstruction: 1559
-      startSourceChar: 937
-      endSourceChar: 948
+      startSourceChar: 901
+      endSourceChar: 912
       line: 35
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1560
       endInstruction: 1559
-      startSourceChar: 948
-      endSourceChar: 948
+      startSourceChar: 912
+      endSourceChar: 912
       line: 36
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1560
       endInstruction: 1559
-      startSourceChar: 948
-      endSourceChar: 948
+      startSourceChar: 912
+      endSourceChar: 912
       line: 36
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1560
       endInstruction: 1559
-      startSourceChar: 948
-      endSourceChar: 963
+      startSourceChar: 912
+      endSourceChar: 927
       line: 36
       lineChar: 8
       spanCodeSection: 'var inputEvent '
     - startInstruction: 1560
       endInstruction: 1559
-      startSourceChar: 963
-      endSourceChar: 965
+      startSourceChar: 927
+      endSourceChar: 929
       line: 36
       lineChar: 23
       spanCodeSection: '= '
     - startInstruction: 1560
       endInstruction: 1559
-      startSourceChar: 965
-      endSourceChar: 965
+      startSourceChar: 929
+      endSourceChar: 929
       line: 36
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 1560
       endInstruction: 1595
-      startSourceChar: 965
-      endSourceChar: 993
+      startSourceChar: 929
+      endSourceChar: 957
       line: 36
       lineChar: 25
       spanCodeSection: "GetInputEvent();\r\n\r\n        "
     - startInstruction: 1596
       endInstruction: 1595
-      startSourceChar: 993
-      endSourceChar: 993
+      startSourceChar: 957
+      endSourceChar: 957
       line: 38
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1596
       endInstruction: 1595
-      startSourceChar: 993
-      endSourceChar: 993
+      startSourceChar: 957
+      endSourceChar: 957
       line: 38
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1596
       endInstruction: 1595
-      startSourceChar: 993
-      endSourceChar: 993
+      startSourceChar: 957
+      endSourceChar: 957
       line: 38
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1596
       endInstruction: 1595
-      startSourceChar: 993
-      endSourceChar: 1004
+      startSourceChar: 957
+      endSourceChar: 968
       line: 38
       lineChar: 8
       spanCodeSection: inputEvent.
     - startInstruction: 1596
       endInstruction: 1595
-      startSourceChar: 1004
-      endSourceChar: 1015
+      startSourceChar: 968
+      endSourceChar: 993
       line: 38
       lineChar: 19
-      spanCodeSection: 'ChiIndex = '
+      spanCodeSection: 'DiscardedCardYamaIndex = '
     - startInstruction: 1596
-      endInstruction: 1595
-      startSourceChar: 1015
-      endSourceChar: 1019
+      endInstruction: 1627
+      startSourceChar: 993
+      endSourceChar: 1013
       line: 38
-      lineChar: 30
-      spanCodeSection: 'new '
-    - startInstruction: 1596
-      endInstruction: 1595
-      startSourceChar: 1019
-      endSourceChar: 1027
-      line: 38
-      lineChar: 34
-      spanCodeSection: Vector2(
-    - startInstruction: 1596
-      endInstruction: 1595
-      startSourceChar: 1027
-      endSourceChar: 1027
-      line: 38
-      lineChar: 42
-      spanCodeSection: 
-    - startInstruction: 1596
-      endInstruction: 1595
-      startSourceChar: 1027
-      endSourceChar: 1027
-      line: 38
-      lineChar: 42
-      spanCodeSection: 
-    - startInstruction: 1596
-      endInstruction: 1595
-      startSourceChar: 1027
-      endSourceChar: 1036
-      line: 38
-      lineChar: 42
-      spanCodeSection: chiIndex.
-    - startInstruction: 1596
-      endInstruction: 1619
-      startSourceChar: 1036
-      endSourceChar: 1039
-      line: 38
-      lineChar: 51
-      spanCodeSection: 'x, '
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1039
-      endSourceChar: 1039
-      line: 38
-      lineChar: 54
-      spanCodeSection: 
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1039
-      endSourceChar: 1039
-      line: 38
-      lineChar: 54
-      spanCodeSection: 
-    - startInstruction: 1620
-      endInstruction: 1619
-      startSourceChar: 1039
-      endSourceChar: 1048
-      line: 38
-      lineChar: 54
-      spanCodeSection: chiIndex.
-    - startInstruction: 1620
-      endInstruction: 1707
-      startSourceChar: 1048
-      endSourceChar: 1061
-      line: 38
-      lineChar: 63
-      spanCodeSection: "y);\r\n        "
-    - startInstruction: 1708
-      endInstruction: 1707
-      startSourceChar: 1061
-      endSourceChar: 1061
+      lineChar: 44
+      spanCodeSection: "yamaIndex;\r\n        "
+    - startInstruction: 1628
+      endInstruction: 1627
+      startSourceChar: 1013
+      endSourceChar: 1013
       line: 39
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1708
-      endInstruction: 1707
-      startSourceChar: 1061
-      endSourceChar: 1061
+    - startInstruction: 1628
+      endInstruction: 1627
+      startSourceChar: 1013
+      endSourceChar: 1013
       line: 39
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1708
-      endInstruction: 1707
-      startSourceChar: 1061
-      endSourceChar: 1061
+    - startInstruction: 1628
+      endInstruction: 1627
+      startSourceChar: 1013
+      endSourceChar: 1013
       line: 39
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1708
-      endInstruction: 1707
-      startSourceChar: 1061
-      endSourceChar: 1072
+    - startInstruction: 1628
+      endInstruction: 1627
+      startSourceChar: 1013
+      endSourceChar: 1024
       line: 39
       lineChar: 8
       spanCodeSection: inputEvent.
-    - startInstruction: 1708
-      endInstruction: 1707
-      startSourceChar: 1072
-      endSourceChar: 1084
+    - startInstruction: 1628
+      endInstruction: 1627
+      startSourceChar: 1024
+      endSourceChar: 1036
       line: 39
       lineChar: 19
       spanCodeSection: 'EventType = '
-    - startInstruction: 1708
-      endInstruction: 1739
-      startSourceChar: 1084
-      endSourceChar: 1104
+    - startInstruction: 1628
+      endInstruction: 1659
+      startSourceChar: 1036
+      endSourceChar: 1062
       line: 39
       lineChar: 31
-      spanCodeSection: "eventType;\r\n        "
-    - startInstruction: 1740
-      endInstruction: 1739
-      startSourceChar: 1104
-      endSourceChar: 1104
+      spanCodeSection: "\"RiichiDiscard\";\r\n        "
+    - startInstruction: 1660
+      endInstruction: 1659
+      startSourceChar: 1062
+      endSourceChar: 1062
       line: 40
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1740
-      endInstruction: 1739
-      startSourceChar: 1104
-      endSourceChar: 1104
+    - startInstruction: 1660
+      endInstruction: 1659
+      startSourceChar: 1062
+      endSourceChar: 1062
       line: 40
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1740
-      endInstruction: 1739
-      startSourceChar: 1104
-      endSourceChar: 1104
+    - startInstruction: 1660
+      endInstruction: 1659
+      startSourceChar: 1062
+      endSourceChar: 1062
       line: 40
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1740
-      endInstruction: 1739
-      startSourceChar: 1104
-      endSourceChar: 1115
+    - startInstruction: 1660
+      endInstruction: 1659
+      startSourceChar: 1062
+      endSourceChar: 1073
       line: 40
       lineChar: 8
       spanCodeSection: inputEvent.
-    - startInstruction: 1740
-      endInstruction: 1739
-      startSourceChar: 1115
-      endSourceChar: 1129
+    - startInstruction: 1660
+      endInstruction: 1659
+      startSourceChar: 1073
+      endSourceChar: 1087
       line: 40
       lineChar: 19
       spanCodeSection: 'PlayerIndex = '
-    - startInstruction: 1740
-      endInstruction: 1791
-      startSourceChar: 1129
-      endSourceChar: 1156
+    - startInstruction: 1660
+      endInstruction: 1711
+      startSourceChar: 1087
+      endSourceChar: 1114
       line: 40
       lineChar: 33
       spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
-    - startInstruction: 1792
-      endInstruction: 1791
-      startSourceChar: 1156
-      endSourceChar: 1181
+    - startInstruction: 1712
+      endInstruction: 1711
+      startSourceChar: 1114
+      endSourceChar: 1146
       line: 43
       lineChar: 4
-      spanCodeSection: public void AnnounceDraw(
-    - startInstruction: 1792
-      endInstruction: 1799
-      startSourceChar: 1181
-      endSourceChar: 1201
+      spanCodeSection: public void SetAutoDiscardEvent(
+    - startInstruction: 1712
+      endInstruction: 1711
+      startSourceChar: 1146
+      endSourceChar: 1161
       line: 43
-      lineChar: 29
-      spanCodeSection: "string reason)\r\n    "
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1201
-      endSourceChar: 1212
+      lineChar: 36
+      spanCodeSection: 'int yamaIndex, '
+    - startInstruction: 1712
+      endInstruction: 1719
+      startSourceChar: 1161
+      endSourceChar: 1183
+      line: 43
+      lineChar: 51
+      spanCodeSection: "int playerIndex)\r\n    "
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1183
+      endSourceChar: 1194
       line: 44
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1212
-      endSourceChar: 1212
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1194
+      endSourceChar: 1194
       line: 45
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1212
-      endSourceChar: 1212
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1194
+      endSourceChar: 1194
       line: 45
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1212
-      endSourceChar: 1227
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1194
+      endSourceChar: 1209
       line: 45
       lineChar: 8
       spanCodeSection: 'var inputEvent '
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1227
-      endSourceChar: 1229
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1209
+      endSourceChar: 1211
       line: 45
       lineChar: 23
       spanCodeSection: '= '
-    - startInstruction: 1800
-      endInstruction: 1799
-      startSourceChar: 1229
-      endSourceChar: 1229
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1211
+      endSourceChar: 1211
       line: 45
       lineChar: 25
       spanCodeSection: 
-    - startInstruction: 1800
-      endInstruction: 1835
-      startSourceChar: 1229
-      endSourceChar: 1257
+    - startInstruction: 1720
+      endInstruction: 1755
+      startSourceChar: 1211
+      endSourceChar: 1239
       line: 45
       lineChar: 25
       spanCodeSection: "GetInputEvent();\r\n\r\n        "
-    - startInstruction: 1836
-      endInstruction: 1835
-      startSourceChar: 1257
-      endSourceChar: 1257
+    - startInstruction: 1756
+      endInstruction: 1755
+      startSourceChar: 1239
+      endSourceChar: 1239
       line: 47
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1836
-      endInstruction: 1835
-      startSourceChar: 1257
-      endSourceChar: 1257
+    - startInstruction: 1756
+      endInstruction: 1755
+      startSourceChar: 1239
+      endSourceChar: 1239
       line: 47
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1836
-      endInstruction: 1835
-      startSourceChar: 1257
-      endSourceChar: 1257
+    - startInstruction: 1756
+      endInstruction: 1755
+      startSourceChar: 1239
+      endSourceChar: 1239
       line: 47
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1836
-      endInstruction: 1835
-      startSourceChar: 1257
-      endSourceChar: 1268
+    - startInstruction: 1756
+      endInstruction: 1755
+      startSourceChar: 1239
+      endSourceChar: 1250
       line: 47
       lineChar: 8
       spanCodeSection: inputEvent.
-    - startInstruction: 1836
-      endInstruction: 1835
-      startSourceChar: 1268
-      endSourceChar: 1281
+    - startInstruction: 1756
+      endInstruction: 1755
+      startSourceChar: 1250
+      endSourceChar: 1275
       line: 47
       lineChar: 19
-      spanCodeSection: 'DrawReason = '
-    - startInstruction: 1836
-      endInstruction: 1887
-      startSourceChar: 1281
-      endSourceChar: 1303
+      spanCodeSection: 'DiscardedCardYamaIndex = '
+    - startInstruction: 1756
+      endInstruction: 1787
+      startSourceChar: 1275
+      endSourceChar: 1295
       line: 47
-      lineChar: 32
-      spanCodeSection: "reason;\r\n    }\r\n\r\n    "
-    - startInstruction: 1888
-      endInstruction: 1895
-      startSourceChar: 1303
-      endSourceChar: 1335
-      line: 50
+      lineChar: 44
+      spanCodeSection: "yamaIndex;\r\n        "
+    - startInstruction: 1788
+      endInstruction: 1787
+      startSourceChar: 1295
+      endSourceChar: 1295
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1788
+      endInstruction: 1787
+      startSourceChar: 1295
+      endSourceChar: 1295
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1788
+      endInstruction: 1787
+      startSourceChar: 1295
+      endSourceChar: 1295
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1788
+      endInstruction: 1787
+      startSourceChar: 1295
+      endSourceChar: 1306
+      line: 48
+      lineChar: 8
+      spanCodeSection: inputEvent.
+    - startInstruction: 1788
+      endInstruction: 1787
+      startSourceChar: 1306
+      endSourceChar: 1318
+      line: 48
+      lineChar: 19
+      spanCodeSection: 'EventType = '
+    - startInstruction: 1788
+      endInstruction: 1819
+      startSourceChar: 1318
+      endSourceChar: 1342
+      line: 48
+      lineChar: 31
+      spanCodeSection: "\"AutoDiscard\";\r\n        "
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1342
+      endSourceChar: 1342
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1342
+      endSourceChar: 1342
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1342
+      endSourceChar: 1342
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1342
+      endSourceChar: 1353
+      line: 49
+      lineChar: 8
+      spanCodeSection: inputEvent.
+    - startInstruction: 1820
+      endInstruction: 1819
+      startSourceChar: 1353
+      endSourceChar: 1367
+      line: 49
+      lineChar: 19
+      spanCodeSection: 'PlayerIndex = '
+    - startInstruction: 1820
+      endInstruction: 1871
+      startSourceChar: 1367
+      endSourceChar: 1394
+      line: 49
+      lineChar: 33
+      spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 1394
+      endSourceChar: 1418
+      line: 52
       lineChar: 4
-      spanCodeSection: "InputEvent GetInputEvent()\r\n    "
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1335
-      endSourceChar: 1346
-      line: 51
+      spanCodeSection: public void SetChiEvent(
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 1418
+      endSourceChar: 1436
+      line: 52
+      lineChar: 28
+      spanCodeSection: 'Vector2 chiIndex, '
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 1436
+      endSourceChar: 1454
+      line: 52
+      lineChar: 46
+      spanCodeSection: 'string eventType, '
+    - startInstruction: 1872
+      endInstruction: 1879
+      startSourceChar: 1454
+      endSourceChar: 1476
+      line: 52
+      lineChar: 64
+      spanCodeSection: "int playerIndex)\r\n    "
+    - startInstruction: 1880
+      endInstruction: 1879
+      startSourceChar: 1476
+      endSourceChar: 1487
+      line: 53
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1346
-      endSourceChar: 1346
-      line: 52
+    - startInstruction: 1880
+      endInstruction: 1879
+      startSourceChar: 1487
+      endSourceChar: 1487
+      line: 54
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1346
-      endSourceChar: 1346
-      line: 52
+    - startInstruction: 1880
+      endInstruction: 1879
+      startSourceChar: 1487
+      endSourceChar: 1487
+      line: 54
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1346
-      endSourceChar: 1361
-      line: 52
+    - startInstruction: 1880
+      endInstruction: 1879
+      startSourceChar: 1487
+      endSourceChar: 1502
+      line: 54
       lineChar: 8
       spanCodeSection: 'var inputEvent '
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1361
-      endSourceChar: 1363
-      line: 52
+    - startInstruction: 1880
+      endInstruction: 1879
+      startSourceChar: 1502
+      endSourceChar: 1504
+      line: 54
       lineChar: 23
       spanCodeSection: '= '
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1363
-      endSourceChar: 1363
-      line: 52
+    - startInstruction: 1880
+      endInstruction: 1879
+      startSourceChar: 1504
+      endSourceChar: 1504
+      line: 54
       lineChar: 25
       spanCodeSection: 
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1363
-      endSourceChar: 1370
-      line: 52
+    - startInstruction: 1880
+      endInstruction: 1915
+      startSourceChar: 1504
+      endSourceChar: 1532
+      line: 54
       lineChar: 25
-      spanCodeSection: events[
-    - startInstruction: 1896
-      endInstruction: 1895
-      startSourceChar: 1370
-      endSourceChar: 1370
-      line: 52
-      lineChar: 32
-      spanCodeSection: 
-    - startInstruction: 1896
-      endInstruction: 1947
-      startSourceChar: 1370
-      endSourceChar: 1392
-      line: 52
-      lineChar: 32
-      spanCodeSection: "topIndex];\r\n\r\n        "
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 1392
-      endSourceChar: 1396
-      line: 54
+      spanCodeSection: "GetInputEvent();\r\n\r\n        "
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1532
+      endSourceChar: 1532
+      line: 56
       lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 1396
-      endSourceChar: 1396
-      line: 54
-      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 1396
-      endSourceChar: 1396
-      line: 54
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1948
-      endInstruction: 1947
-      startSourceChar: 1396
-      endSourceChar: 1407
-      line: 54
-      lineChar: 12
-      spanCodeSection: 'topIndex + '
-    - startInstruction: 1948
-      endInstruction: 1979
-      startSourceChar: 1407
-      endSourceChar: 1412
-      line: 54
-      lineChar: 23
-      spanCodeSection: '1 != '
-    - startInstruction: 1980
-      endInstruction: 1979
-      startSourceChar: 1412
-      endSourceChar: 1412
-      line: 54
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 1980
-      endInstruction: 1979
-      startSourceChar: 1412
-      endSourceChar: 1419
-      line: 54
-      lineChar: 28
-      spanCodeSection: events.
-    - startInstruction: 1980
-      endInstruction: 2051
-      startSourceChar: 1419
-      endSourceChar: 1436
-      line: 54
-      lineChar: 35
-      spanCodeSection: "Length)\r\n        "
-    - startInstruction: 2052
-      endInstruction: 2051
-      startSourceChar: 1436
-      endSourceChar: 1451
-      line: 55
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1532
+      endSourceChar: 1532
+      line: 56
       lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 2052
-      endInstruction: 2051
-      startSourceChar: 1451
-      endSourceChar: 1451
-      line: 56
-      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2052
-      endInstruction: 2051
-      startSourceChar: 1451
-      endSourceChar: 1453
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1532
+      endSourceChar: 1532
       line: 56
-      lineChar: 12
-      spanCodeSection: ++
-    - startInstruction: 2052
-      endInstruction: 2091
-      startSourceChar: 1453
-      endSourceChar: 1483
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1532
+      endSourceChar: 1543
       line: 56
-      lineChar: 14
-      spanCodeSection: "topIndex;\r\n        }\r\n        "
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1483
-      endSourceChar: 1497
+      lineChar: 8
+      spanCodeSection: inputEvent.
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1543
+      endSourceChar: 1554
+      line: 56
+      lineChar: 19
+      spanCodeSection: 'ChiIndex = '
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1554
+      endSourceChar: 1558
+      line: 56
+      lineChar: 30
+      spanCodeSection: 'new '
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1558
+      endSourceChar: 1566
+      line: 56
+      lineChar: 34
+      spanCodeSection: Vector2(
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1566
+      endSourceChar: 1566
+      line: 56
+      lineChar: 42
+      spanCodeSection: 
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1566
+      endSourceChar: 1566
+      line: 56
+      lineChar: 42
+      spanCodeSection: 
+    - startInstruction: 1916
+      endInstruction: 1915
+      startSourceChar: 1566
+      endSourceChar: 1575
+      line: 56
+      lineChar: 42
+      spanCodeSection: chiIndex.
+    - startInstruction: 1916
+      endInstruction: 1939
+      startSourceChar: 1575
+      endSourceChar: 1578
+      line: 56
+      lineChar: 51
+      spanCodeSection: 'x, '
+    - startInstruction: 1940
+      endInstruction: 1939
+      startSourceChar: 1578
+      endSourceChar: 1578
+      line: 56
+      lineChar: 54
+      spanCodeSection: 
+    - startInstruction: 1940
+      endInstruction: 1939
+      startSourceChar: 1578
+      endSourceChar: 1578
+      line: 56
+      lineChar: 54
+      spanCodeSection: 
+    - startInstruction: 1940
+      endInstruction: 1939
+      startSourceChar: 1578
+      endSourceChar: 1587
+      line: 56
+      lineChar: 54
+      spanCodeSection: chiIndex.
+    - startInstruction: 1940
+      endInstruction: 2027
+      startSourceChar: 1587
+      endSourceChar: 1600
+      line: 56
+      lineChar: 63
+      spanCodeSection: "y);\r\n        "
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1600
+      endSourceChar: 1600
+      line: 57
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1600
+      endSourceChar: 1600
+      line: 57
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1600
+      endSourceChar: 1600
+      line: 57
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1600
+      endSourceChar: 1611
+      line: 57
+      lineChar: 8
+      spanCodeSection: inputEvent.
+    - startInstruction: 2028
+      endInstruction: 2027
+      startSourceChar: 1611
+      endSourceChar: 1623
+      line: 57
+      lineChar: 19
+      spanCodeSection: 'EventType = '
+    - startInstruction: 2028
+      endInstruction: 2059
+      startSourceChar: 1623
+      endSourceChar: 1643
+      line: 57
+      lineChar: 31
+      spanCodeSection: "eventType;\r\n        "
+    - startInstruction: 2060
+      endInstruction: 2059
+      startSourceChar: 1643
+      endSourceChar: 1643
       line: 58
       lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2060
+      endInstruction: 2059
+      startSourceChar: 1643
+      endSourceChar: 1643
+      line: 58
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2060
+      endInstruction: 2059
+      startSourceChar: 1643
+      endSourceChar: 1643
+      line: 58
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2060
+      endInstruction: 2059
+      startSourceChar: 1643
+      endSourceChar: 1654
+      line: 58
+      lineChar: 8
+      spanCodeSection: inputEvent.
+    - startInstruction: 2060
+      endInstruction: 2059
+      startSourceChar: 1654
+      endSourceChar: 1668
+      line: 58
+      lineChar: 19
+      spanCodeSection: 'PlayerIndex = '
+    - startInstruction: 2060
+      endInstruction: 2111
+      startSourceChar: 1668
+      endSourceChar: 1695
+      line: 58
+      lineChar: 33
+      spanCodeSection: "playerIndex;\r\n    }\r\n\r\n    "
+    - startInstruction: 2112
+      endInstruction: 2111
+      startSourceChar: 1695
+      endSourceChar: 1720
+      line: 61
+      lineChar: 4
+      spanCodeSection: public void AnnounceDraw(
+    - startInstruction: 2112
+      endInstruction: 2119
+      startSourceChar: 1720
+      endSourceChar: 1740
+      line: 61
+      lineChar: 29
+      spanCodeSection: "string reason)\r\n    "
+    - startInstruction: 2120
+      endInstruction: 2119
+      startSourceChar: 1740
+      endSourceChar: 1751
+      line: 62
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 2120
+      endInstruction: 2119
+      startSourceChar: 1751
+      endSourceChar: 1751
+      line: 63
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2120
+      endInstruction: 2119
+      startSourceChar: 1751
+      endSourceChar: 1751
+      line: 63
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2120
+      endInstruction: 2119
+      startSourceChar: 1751
+      endSourceChar: 1766
+      line: 63
+      lineChar: 8
+      spanCodeSection: 'var inputEvent '
+    - startInstruction: 2120
+      endInstruction: 2119
+      startSourceChar: 1766
+      endSourceChar: 1768
+      line: 63
+      lineChar: 23
+      spanCodeSection: '= '
+    - startInstruction: 2120
+      endInstruction: 2119
+      startSourceChar: 1768
+      endSourceChar: 1768
+      line: 63
+      lineChar: 25
+      spanCodeSection: 
+    - startInstruction: 2120
+      endInstruction: 2155
+      startSourceChar: 1768
+      endSourceChar: 1796
+      line: 63
+      lineChar: 25
+      spanCodeSection: "GetInputEvent();\r\n\r\n        "
+    - startInstruction: 2156
+      endInstruction: 2155
+      startSourceChar: 1796
+      endSourceChar: 1796
+      line: 65
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2156
+      endInstruction: 2155
+      startSourceChar: 1796
+      endSourceChar: 1796
+      line: 65
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2156
+      endInstruction: 2155
+      startSourceChar: 1796
+      endSourceChar: 1796
+      line: 65
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2156
+      endInstruction: 2155
+      startSourceChar: 1796
+      endSourceChar: 1807
+      line: 65
+      lineChar: 8
+      spanCodeSection: inputEvent.
+    - startInstruction: 2156
+      endInstruction: 2155
+      startSourceChar: 1807
+      endSourceChar: 1820
+      line: 65
+      lineChar: 19
+      spanCodeSection: 'DrawReason = '
+    - startInstruction: 2156
+      endInstruction: 2207
+      startSourceChar: 1820
+      endSourceChar: 1842
+      line: 65
+      lineChar: 32
+      spanCodeSection: "reason;\r\n    }\r\n\r\n    "
+    - startInstruction: 2208
+      endInstruction: 2215
+      startSourceChar: 1842
+      endSourceChar: 1874
+      line: 68
+      lineChar: 4
+      spanCodeSection: "InputEvent GetInputEvent()\r\n    "
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1874
+      endSourceChar: 1885
+      line: 69
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1885
+      endSourceChar: 1885
+      line: 70
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1885
+      endSourceChar: 1885
+      line: 70
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1885
+      endSourceChar: 1900
+      line: 70
+      lineChar: 8
+      spanCodeSection: 'var inputEvent '
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1900
+      endSourceChar: 1902
+      line: 70
+      lineChar: 23
+      spanCodeSection: '= '
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1902
+      endSourceChar: 1902
+      line: 70
+      lineChar: 25
+      spanCodeSection: 
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1902
+      endSourceChar: 1909
+      line: 70
+      lineChar: 25
+      spanCodeSection: events[
+    - startInstruction: 2216
+      endInstruction: 2215
+      startSourceChar: 1909
+      endSourceChar: 1909
+      line: 70
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 2216
+      endInstruction: 2267
+      startSourceChar: 1909
+      endSourceChar: 1931
+      line: 70
+      lineChar: 32
+      spanCodeSection: "topIndex];\r\n\r\n        "
+    - startInstruction: 2268
+      endInstruction: 2267
+      startSourceChar: 1931
+      endSourceChar: 1935
+      line: 72
+      lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 2268
+      endInstruction: 2267
+      startSourceChar: 1935
+      endSourceChar: 1935
+      line: 72
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2268
+      endInstruction: 2267
+      startSourceChar: 1935
+      endSourceChar: 1935
+      line: 72
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2268
+      endInstruction: 2267
+      startSourceChar: 1935
+      endSourceChar: 1946
+      line: 72
+      lineChar: 12
+      spanCodeSection: 'topIndex + '
+    - startInstruction: 2268
+      endInstruction: 2299
+      startSourceChar: 1946
+      endSourceChar: 1951
+      line: 72
+      lineChar: 23
+      spanCodeSection: '1 != '
+    - startInstruction: 2300
+      endInstruction: 2299
+      startSourceChar: 1951
+      endSourceChar: 1951
+      line: 72
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 2300
+      endInstruction: 2299
+      startSourceChar: 1951
+      endSourceChar: 1958
+      line: 72
+      lineChar: 28
+      spanCodeSection: events.
+    - startInstruction: 2300
+      endInstruction: 2371
+      startSourceChar: 1958
+      endSourceChar: 1975
+      line: 72
+      lineChar: 35
+      spanCodeSection: "Length)\r\n        "
+    - startInstruction: 2372
+      endInstruction: 2371
+      startSourceChar: 1975
+      endSourceChar: 1990
+      line: 73
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 2372
+      endInstruction: 2371
+      startSourceChar: 1990
+      endSourceChar: 1990
+      line: 74
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2372
+      endInstruction: 2371
+      startSourceChar: 1990
+      endSourceChar: 1992
+      line: 74
+      lineChar: 12
+      spanCodeSection: ++
+    - startInstruction: 2372
+      endInstruction: 2411
+      startSourceChar: 1992
+      endSourceChar: 2022
+      line: 74
+      lineChar: 14
+      spanCodeSection: "topIndex;\r\n        }\r\n        "
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2022
+      endSourceChar: 2036
+      line: 76
+      lineChar: 8
       spanCodeSection: "else\r\n        "
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1497
-      endSourceChar: 1691
-      line: 59
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2036
+      endSourceChar: 2230
+      line: 77
       lineChar: 8
       spanCodeSection: "{\r\n            // \uFFFD\u05B4\uFFFD \u0165\uFFFD\uFFFD
         \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD
@@ -1418,242 +1843,242 @@ MonoBehaviour:
         \uFFFD\uFFFD\uFFFD\uFFFD \uFFFD\uFFFD\uFFFD\uFFFD \uFFFD\uFFFD \xE4\uFFFD\uFFFD\uFFFD\uFFFD
         \uFFFD\uFFFD\uFFFD\uFFFD \uFFFD\uFFFD\uFFFD\uFFFD \uFFFD\uFFFD \uFFFD\uFFFD\uFFFD\u0334\uFFFD\r\n
         \           "
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1691
-      endSourceChar: 1691
-      line: 63
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2230
+      endSourceChar: 2230
+      line: 81
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1691
-      endSourceChar: 1691
-      line: 63
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2230
+      endSourceChar: 2230
+      line: 81
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1691
-      endSourceChar: 1691
-      line: 63
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2230
+      endSourceChar: 2230
+      line: 81
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1691
-      endSourceChar: 1697
-      line: 63
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2230
+      endSourceChar: 2236
+      line: 81
       lineChar: 12
       spanCodeSection: Debug.
-    - startInstruction: 2092
-      endInstruction: 2091
-      startSourceChar: 1697
-      endSourceChar: 1701
-      line: 63
+    - startInstruction: 2412
+      endInstruction: 2411
+      startSourceChar: 2236
+      endSourceChar: 2240
+      line: 81
       lineChar: 18
       spanCodeSection: Log(
-    - startInstruction: 2092
-      endInstruction: 2107
-      startSourceChar: 1701
-      endSourceChar: 1742
-      line: 63
+    - startInstruction: 2412
+      endInstruction: 2427
+      startSourceChar: 2240
+      endSourceChar: 2281
+      line: 81
       lineChar: 22
       spanCodeSection: "\"too many input\");\r\n        }\r\n\r\n        "
-    - startInstruction: 2108
-      endInstruction: 2107
-      startSourceChar: 1742
-      endSourceChar: 1749
-      line: 66
+    - startInstruction: 2428
+      endInstruction: 2427
+      startSourceChar: 2281
+      endSourceChar: 2288
+      line: 84
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 2108
-      endInstruction: 2167
-      startSourceChar: 1749
-      endSourceChar: 1775
-      line: 66
+    - startInstruction: 2428
+      endInstruction: 2487
+      startSourceChar: 2288
+      endSourceChar: 2314
+      line: 84
       lineChar: 15
       spanCodeSection: "inputEvent;\r\n    }\r\n\r\n    "
-    - startInstruction: 2168
-      endInstruction: 2175
-      startSourceChar: 1775
-      endSourceChar: 1808
-      line: 69
+    - startInstruction: 2488
+      endInstruction: 2495
+      startSourceChar: 2314
+      endSourceChar: 2347
+      line: 87
       lineChar: 4
       spanCodeSection: "public InputEvent Dequeue()\r\n    "
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1808
-      endSourceChar: 1819
-      line: 70
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2347
+      endSourceChar: 2358
+      line: 88
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1819
-      endSourceChar: 1819
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2358
+      endSourceChar: 2358
+      line: 89
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1819
-      endSourceChar: 1819
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2358
+      endSourceChar: 2358
+      line: 89
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1819
-      endSourceChar: 1834
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2358
+      endSourceChar: 2373
+      line: 89
       lineChar: 8
       spanCodeSection: 'var inputEvent '
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1834
-      endSourceChar: 1836
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2373
+      endSourceChar: 2375
+      line: 89
       lineChar: 23
       spanCodeSection: '= '
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1836
-      endSourceChar: 1836
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2375
+      endSourceChar: 2375
+      line: 89
       lineChar: 25
       spanCodeSection: 
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1836
-      endSourceChar: 1843
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2375
+      endSourceChar: 2382
+      line: 89
       lineChar: 25
       spanCodeSection: events[
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1843
-      endSourceChar: 1843
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2382
+      endSourceChar: 2382
+      line: 89
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 2176
-      endInstruction: 2175
-      startSourceChar: 1843
-      endSourceChar: 1843
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2495
+      startSourceChar: 2382
+      endSourceChar: 2382
+      line: 89
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 2176
-      endInstruction: 2279
-      startSourceChar: 1843
-      endSourceChar: 1868
-      line: 71
+    - startInstruction: 2496
+      endInstruction: 2599
+      startSourceChar: 2382
+      endSourceChar: 2407
+      line: 89
       lineChar: 32
       spanCodeSection: "currIndex++];\r\n\r\n        "
-    - startInstruction: 2280
-      endInstruction: 2279
-      startSourceChar: 1868
-      endSourceChar: 1872
-      line: 73
+    - startInstruction: 2600
+      endInstruction: 2599
+      startSourceChar: 2407
+      endSourceChar: 2411
+      line: 91
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 2280
-      endInstruction: 2279
-      startSourceChar: 1872
-      endSourceChar: 1872
-      line: 73
+    - startInstruction: 2600
+      endInstruction: 2599
+      startSourceChar: 2411
+      endSourceChar: 2411
+      line: 91
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2280
-      endInstruction: 2279
-      startSourceChar: 1872
-      endSourceChar: 1885
-      line: 73
+    - startInstruction: 2600
+      endInstruction: 2599
+      startSourceChar: 2411
+      endSourceChar: 2424
+      line: 91
       lineChar: 12
       spanCodeSection: 'currIndex == '
-    - startInstruction: 2280
-      endInstruction: 2327
-      startSourceChar: 1885
-      endSourceChar: 1904
-      line: 73
+    - startInstruction: 2600
+      endInstruction: 2647
+      startSourceChar: 2424
+      endSourceChar: 2443
+      line: 91
       lineChar: 25
       spanCodeSection: "topIndex)\r\n        "
-    - startInstruction: 2328
-      endInstruction: 2327
-      startSourceChar: 1904
-      endSourceChar: 1919
-      line: 74
+    - startInstruction: 2648
+      endInstruction: 2647
+      startSourceChar: 2443
+      endSourceChar: 2458
+      line: 92
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 2328
-      endInstruction: 2327
-      startSourceChar: 1919
-      endSourceChar: 1919
-      line: 75
+    - startInstruction: 2648
+      endInstruction: 2647
+      startSourceChar: 2458
+      endSourceChar: 2458
+      line: 93
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2328
-      endInstruction: 2327
-      startSourceChar: 1919
-      endSourceChar: 1919
-      line: 75
+    - startInstruction: 2648
+      endInstruction: 2647
+      startSourceChar: 2458
+      endSourceChar: 2458
+      line: 93
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2328
-      endInstruction: 2327
-      startSourceChar: 1919
-      endSourceChar: 1931
-      line: 75
+    - startInstruction: 2648
+      endInstruction: 2647
+      startSourceChar: 2458
+      endSourceChar: 2470
+      line: 93
       lineChar: 12
       spanCodeSection: 'currIndex = '
-    - startInstruction: 2328
-      endInstruction: 2347
-      startSourceChar: 1931
-      endSourceChar: 1947
-      line: 75
+    - startInstruction: 2648
+      endInstruction: 2667
+      startSourceChar: 2470
+      endSourceChar: 2486
+      line: 93
       lineChar: 24
       spanCodeSection: "0;\r\n            "
-    - startInstruction: 2348
-      endInstruction: 2347
-      startSourceChar: 1947
-      endSourceChar: 1947
-      line: 76
+    - startInstruction: 2668
+      endInstruction: 2667
+      startSourceChar: 2486
+      endSourceChar: 2486
+      line: 94
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2348
-      endInstruction: 2347
-      startSourceChar: 1947
-      endSourceChar: 1947
-      line: 76
+    - startInstruction: 2668
+      endInstruction: 2667
+      startSourceChar: 2486
+      endSourceChar: 2486
+      line: 94
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2348
-      endInstruction: 2347
-      startSourceChar: 1947
-      endSourceChar: 1958
-      line: 76
+    - startInstruction: 2668
+      endInstruction: 2667
+      startSourceChar: 2486
+      endSourceChar: 2497
+      line: 94
       lineChar: 12
       spanCodeSection: 'topIndex = '
-    - startInstruction: 2348
-      endInstruction: 2367
-      startSourceChar: 1958
-      endSourceChar: 1983
-      line: 76
+    - startInstruction: 2668
+      endInstruction: 2687
+      startSourceChar: 2497
+      endSourceChar: 2522
+      line: 94
       lineChar: 23
       spanCodeSection: "0;\r\n        }\r\n\r\n        "
-    - startInstruction: 2368
-      endInstruction: 2367
-      startSourceChar: 1983
-      endSourceChar: 1990
-      line: 79
+    - startInstruction: 2688
+      endInstruction: 2687
+      startSourceChar: 2522
+      endSourceChar: 2529
+      line: 97
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 2368
-      endInstruction: 2368
-      startSourceChar: 1990
-      endSourceChar: 1990
-      line: 79
+    - startInstruction: 2688
+      endInstruction: 2688
+      startSourceChar: 2529
+      endSourceChar: 2529
+      line: 97
       lineChar: 15
       spanCodeSection: 
   hasInteractEvent: 0
