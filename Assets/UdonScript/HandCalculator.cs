@@ -247,7 +247,7 @@ public class HandCalculator : UdonSharpBehaviour
     bool IsTenpai(AgariContext agariContext, int[] globalOrders)
     {
         // 머리가 6개인가?
-        if (Chiitoitsu.IsTenpai(globalOrders))
+        if (Chiitoitsu.CheckTenpai(agariContext, globalOrders))
         {
             return true;
         }
