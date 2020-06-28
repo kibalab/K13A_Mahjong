@@ -9,11 +9,8 @@ public class GameManager : UdonSharpBehaviour
 {
     [SerializeField] public EventQueue EventQueue;
     [SerializeField] public TableManager TableManager;
-
-    [UdonSynced(UdonSyncMode.None)] public int Turn = 0;
-    [UdonSynced(UdonSyncMode.None)] public string GameState = "";
-    [UdonSynced(UdonSyncMode.None)] public int UIActivedCount = 0;
-    [UdonSynced(UdonSyncMode.None)] public int RegisteredPlayerCount = 0;
+    [SerializeField] public LogViewer LogViewer;
+    [SerializeField] public bool testMode;
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -21,15 +18,14 @@ public class GameManager : UdonSharpBehaviour
     const string State_EndOfRound = "EndOfRound";
     const string State_EndOfGame = "EndOfGame";
 
-    private Card WaitingNakiCard;
     private bool isRunOnMasterScript = false;
+    private bool isNetworkReady;
 
-    public bool testMode;
-    public LogViewer LogViewer;
-
-    bool isNetworkReady;
-
-    float pauseQueueTime = 0.0f;
+    private int registeredPlayerCount = 0;
+    private int uiActivedCount = 0;
+    private string gameState = "";
+    private Card waitingNakiCard;
+    private float pauseQueueTime = 0.0f;
 
     void Start()
     {
@@ -114,7 +110,7 @@ public class GameManager : UdonSharpBehaviour
                 // 뭔가 더 처리를 해야 하는데 나중에 함
             }
 
-            switch (GameState)
+            switch (gameState)
             {
                 case State_WaitForStart:
                     WaitForStart(inputEvent);
@@ -152,10 +148,10 @@ public class GameManager : UdonSharpBehaviour
         var eventType = inputEvent.EventType;
         if (eventType == "Register")
         {
-            ++RegisteredPlayerCount;
+            ++registeredPlayerCount;
         }
 
-        if (RegisteredPlayerCount == 4 || testMode)
+        if (registeredPlayerCount == 4 || testMode)
         {
             // 4명 중 아무나 첫 턴으로 설정해준다
             TableManager.SetTurnOf(Random.Range(0, 4));
@@ -259,10 +255,10 @@ public class GameManager : UdonSharpBehaviour
             }
             else
             {
-                WaitingNakiCard = eventCard;
-                UIActivedCount = uiActived;
+                waitingNakiCard = eventCard;
+                uiActivedCount = uiActived;
 
-                LogViewer.Log($"UIActived. Count:{UIActivedCount}", 0);
+                LogViewer.Log($"UIActived. Count:{uiActivedCount}", 0);
 
                 ChangeGameState(State_WaitForNaki);
             }
@@ -273,9 +269,9 @@ public class GameManager : UdonSharpBehaviour
     {
         var eventType = inputEvent.EventType;
 
-        if (WaitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
+        if (waitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
 
-        if (eventType == "Skip" && UIActivedCount > 0)
+        if (eventType == "Skip" && uiActivedCount > 0)
         {
             ProcessSkip();
         }
@@ -287,8 +283,8 @@ public class GameManager : UdonSharpBehaviour
 
     void ProcessSkip()
     {
-        --UIActivedCount;
-        if (UIActivedCount == 0)
+        --uiActivedCount;
+        if (uiActivedCount == 0)
         {
             TableManager.DisableUIAll();
             TableManager.SetNextTurn();
@@ -300,7 +296,7 @@ public class GameManager : UdonSharpBehaviour
     void ProcessNaki(InputEvent inputEvent)
     {
         var formerPlayer = TableManager.GetCurrentTurnPlayer();
-        formerPlayer.RemoveStashedCard(WaitingNakiCard);
+        formerPlayer.RemoveStashedCard(waitingNakiCard);
         var nakiPlayer = TableManager.GetPlayer(inputEvent.PlayerIndex);
 
         switch (inputEvent.EventType)
@@ -309,7 +305,7 @@ public class GameManager : UdonSharpBehaviour
                 {
                     var chiCards = new Card[]
                     {
-                        WaitingNakiCard,
+                        waitingNakiCard,
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.x),
                         TableManager.GetCardByIndex((int)inputEvent.ChiIndex.y)
                     };
@@ -322,10 +318,10 @@ public class GameManager : UdonSharpBehaviour
 
             case "Pon":
                 {
-                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 2);
+                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 2);
                     var ponCards = new Card[]
                     {
-                        WaitingNakiCard,
+                        waitingNakiCard,
                         sameOrderCards[0],
                         sameOrderCards[1]
                     };
@@ -337,10 +333,10 @@ public class GameManager : UdonSharpBehaviour
 
             case "Kkan":
                 {
-                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(WaitingNakiCard.GlobalOrder, 3);
+                    var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 3);
                     var kkanCards = new Card[]
                     {
-                        WaitingNakiCard,
+                        waitingNakiCard,
                         sameOrderCards[0],
                         sameOrderCards[1],
                         sameOrderCards[2]
@@ -359,8 +355,8 @@ public class GameManager : UdonSharpBehaviour
                 }
         }
 
-        UIActivedCount = 0;
-        WaitingNakiCard = null;
+        uiActivedCount = 0;
+        waitingNakiCard = null;
         TableManager.DisableUIAll();
         ChangeGameState(State_WaitForDiscard);
     }
@@ -391,10 +387,10 @@ public class GameManager : UdonSharpBehaviour
         // state 바뀔 때 로그 띄워주려고 단순 대입이지만 함수로 뺌
         Debug.Log($"GameState = {state}");
 
-        GameState = state;
+        gameState = state;
 
         // State가 바뀔 때 초기 동작을 여기에 정의
-        switch (GameState)
+        switch (gameState)
         {
             case State_EndOfRound:
                 // 5초동안 결과화면을 보여주고 넘어간다고 하자 (시간은 바뀔 수 있음)
