@@ -114,6 +114,22 @@ public class HandUtil : UdonSharpBehaviour
         return count;
     }
 
+    public int[] GetYaojuhaiGlobalOrders()
+    {
+        return new int[]
+        {
+            MAN_START_GLOBAL_ORDER,
+            MAN_END_GLOBAL_ORDER,
+            SOU_START_GLOBAL_ORDER,
+            SOU_END_GLOBAL_ORDER,
+            PIN_START_GLOBAL_ORDER,
+            PIN_END_GLOBAL_ORDER,
+            WORDS_START_GLOBAL_ORDER, // 27
+            28, 29, 30, 31, 32,
+            WORDS_END_GLOBAL_ORDER,// 33
+        };
+    }
+
     public int GetYaojuhaiTypeCount(int[] tiles)
     {
         return (tiles[MAN_START_GLOBAL_ORDER] > 0 ? 1 : 0)

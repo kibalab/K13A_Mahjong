@@ -7,22 +7,21 @@ using VRC.Udon;
 
 public class HandCalculator : UdonSharpBehaviour
 {
-    public DebugHelper DebugHelper;
-
-    // TODO 이거 테스트용으로 하나 넣어줘야 하는데, 씬 수정해야되서 나중에 
-    public AgariContext AgariContextForTest;
+    [SerializeField] public DebugHelper DebugHelper;
+    [SerializeField] public AgariContext AgariContextForTest;
 
     public Card[] TestComponents;
 
     const int TILES_COUNT = 34;
 
-    public KList Stack;
-    public KList Result;
-    public CalculatingContextHandler Ctx;
+    [SerializeField] public KList Stack;
+    [SerializeField] public KList Result;
+    [SerializeField] public CalculatingContextHandler Ctx;
+    [SerializeField] public HandUtil HandUtil;
 
-    public HandUtil HandUtil;
-    public Chiitoitsu Chiitoitsu;
-    public Kokushimusou Kokushimusou;
+    [SerializeField] public Chiitoitsu Chiitoitsu;
+    [SerializeField] public Kokushimusou Kokushimusou;
+    [SerializeField] public NormalYaku NormalYaku;
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
 
@@ -253,86 +252,19 @@ public class HandCalculator : UdonSharpBehaviour
         }
 
         // 요구패가 13개인가?
-        if (Kokushimusou.IsTenpai(globalOrders))
+        if (Kokushimusou.CheckTenpai(agariContext, globalOrders))
         {
             return true;
         }
 
         var ctxs = FindAll(globalOrders);
 
-        foreach (object[] ctx in ctxs)
+        if (NormalYaku.CheckTenpai(Ctx, ctxs, agariContext, globalOrders))
         {
-            if (ctx == null) { continue; }
-
-            var remainsGlobalOrders = Ctx.ReadGlobalOrders(ctx);
-            var pairs = HandUtil.FindPairs(remainsGlobalOrders);
-
-            foreach (var pair in pairs)
-            {
-                remainsGlobalOrders[pair] -= 2;
-            }
-
-            var bodies = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
-
-            // 몸 4, 카드 1인 경우 -> 단면대기 텐파이            
-            if (bodies == 4 && pairs.Length == 0)
-            {
-                agariContext.IsSingleWaiting = true;
-                for (var i = 0; i < remainsGlobalOrders.Length; ++i)
-                {
-                    if (remainsGlobalOrders[i] > 0)
-                    {
-                        agariContext.AddAgariableGlobalOrder(i);
-
-                        Debug.Log($"몸4 카드 1, 단면대기 텐파이 GlobalOrder:{i}");
-                        break;
-                    }
-                }
-            }
-            // 몸 3, 머리 2인 경우 -> 양면대기 텐파이
-            else if (bodies == 3 && pairs.Length == 2)
-            {
-                agariContext.IsSingleWaiting = false;
-                agariContext.AddAgariableGlobalOrder(pairs[0]);
-                agariContext.AddAgariableGlobalOrder(pairs[1]);
-
-                Debug.Log($"몸4 머리 2, 양면대기 텐파이 GlobalOrder:{pairs[0]}, {pairs[1]}");
-            }
-            // 몸 3, 머리 1, 카드2개인 경우 -> 단면 or 양면 or 대기아님
-            else if (bodies == 3 && pairs.Length == 1)
-            {
-                // 몸2 머리1에 34567인 경우는, 2 5 8로 삼면대기가 되는데 다음 경우로 분해가능
-                // 1. 머리1, 몸2 + (345), (6, 7)남음 → 5, 8 양면대기
-                // 2. 머리1, 몸2 + (567), (3, 4)남음 → 2, 5 양면대기
-                // 따라서 남은 카드가 chiable한지 판단해보아야 함
-                //  - 2, 4같이 한칸 떨어져 있다던지
-                //  - 2, 3같이 붙어 있다던지
-
-                for (var i = 0; i < 34 - 1; ++i)
-                {
-                    if (remainsGlobalOrders[i] == 1 && remainsGlobalOrders[i + 1] == 1)
-                    {
-                        agariContext.AddAgariableGlobalOrder(i);
-                        agariContext.AddAgariableGlobalOrder(i + 1);
-                        agariContext.IsSingleWaiting = false;
-
-                        Debug.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i}, {i+1}");
-                        break;
-                    }
-
-                    if (i > 0 && remainsGlobalOrders[i - 1] == 1 && remainsGlobalOrders[i + 1] == 1)
-                    {
-                        agariContext.AddAgariableGlobalOrder(i);
-                        agariContext.IsSingleWaiting = true;
-
-                        Debug.Log($"몸3 머리 1 카드 2, 단면대기 텐파이 GlobalOrder:{i}");
-                        break;
-                    }
-                }
-            }
+            return true;
         }
 
-        return agariContext.AgariableCount != 0;
+        return false;
     }
 
     object[] FindAll(int[] globalOrders)
