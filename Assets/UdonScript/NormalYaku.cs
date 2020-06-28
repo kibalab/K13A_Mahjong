@@ -24,7 +24,7 @@ public class NormalYaku : UdonSharpBehaviour
 
             var bodies = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
 
-            // ¸ö 4, Ä«µå 1ÀÎ °æ¿ì -> ´Ü¸é´ë±â ÅÙÆÄÀÌ            
+            // ëª¸ 4, ì¹´ë“œ 1ì¸ ê²½ìš° -> ë‹¨ë©´ëŒ€ê¸° í…íŒŒì´            
             if (bodies == 4 && pairs.Length == 0)
             {
                 agariContext.IsSingleWaiting = true;
@@ -34,29 +34,29 @@ public class NormalYaku : UdonSharpBehaviour
                     {
                         agariContext.AddAgariableGlobalOrder(i);
 
-                        Debug.Log($"¸ö4 Ä«µå 1, ´Ü¸é´ë±â ÅÙÆÄÀÌ GlobalOrder:{i}");
+                        Debug.Log($"ëª¸4 ì¹´ë“œ 1, ë‹¨ë©´ëŒ€ê¸° í…íŒŒì´ GlobalOrder:{i}");
                         break;
                     }
                 }
             }
-            // ¸ö 3, ¸Ó¸® 2ÀÎ °æ¿ì -> ¾ç¸é´ë±â ÅÙÆÄÀÌ
+            // ëª¸ 3, ë¨¸ë¦¬ 2ì¸ ê²½ìš° -> ì–‘ë©´ëŒ€ê¸° í…íŒŒì´
             else if (bodies == 3 && pairs.Length == 2)
             {
                 agariContext.IsSingleWaiting = false;
                 agariContext.AddAgariableGlobalOrder(pairs[0]);
                 agariContext.AddAgariableGlobalOrder(pairs[1]);
 
-                Debug.Log($"¸ö4 ¸Ó¸® 2, ¾ç¸é´ë±â ÅÙÆÄÀÌ GlobalOrder:{pairs[0]}, {pairs[1]}");
+                Debug.Log($"ëª¸4 ë¨¸ë¦¬ 2, ì–‘ë©´ëŒ€ê¸° í…íŒŒì´ GlobalOrder:{pairs[0]}, {pairs[1]}");
             }
-            // ¸ö 3, ¸Ó¸® 1, Ä«µå2°³ÀÎ °æ¿ì -> ´Ü¸é or ¾ç¸é or ´ë±â¾Æ´Ô
+            // ëª¸ 3, ë¨¸ë¦¬ 1, ì¹´ë“œ2ê°œì¸ ê²½ìš° -> ë‹¨ë©´ or ì–‘ë©´ or ëŒ€ê¸°ì•„ë‹˜
             else if (bodies == 3 && pairs.Length == 1)
             {
-                // ¸ö2 ¸Ó¸®1¿¡ 34567ÀÎ °æ¿ì´Â, 2 5 8·Î »ï¸é´ë±â°¡ µÇ´Âµ¥ ´ÙÀ½ °æ¿ì·Î ºÐÇØ°¡´É
-                // 1. ¸Ó¸®1, ¸ö2 + (345), (6, 7)³²À½ ¡æ 5, 8 ¾ç¸é´ë±â
-                // 2. ¸Ó¸®1, ¸ö2 + (567), (3, 4)³²À½ ¡æ 2, 5 ¾ç¸é´ë±â
-                // µû¶ó¼­ ³²Àº Ä«µå°¡ chiableÇÑÁö ÆÇ´ÜÇØº¸¾Æ¾ß ÇÔ
-                //  - 2, 4°°ÀÌ ÇÑÄ­ ¶³¾îÁ® ÀÖ´Ù´øÁö
-                //  - 2, 3°°ÀÌ ºÙ¾î ÀÖ´Ù´øÁö
+                // ëª¸2 ë¨¸ë¦¬1ì— 34567ì¸ ê²½ìš°ëŠ”, 2 5 8ë¡œ ì‚¼ë©´ëŒ€ê¸°ê°€ ë˜ëŠ”ë° ë‹¤ìŒ ê²½ìš°ë¡œ ë¶„í•´ê°€ëŠ¥
+                // 1. ë¨¸ë¦¬1, ëª¸2 + (345), (6, 7)ë‚¨ìŒ â†’ 5, 8 ì–‘ë©´ëŒ€ê¸°
+                // 2. ë¨¸ë¦¬1, ëª¸2 + (567), (3, 4)ë‚¨ìŒ â†’ 2, 5 ì–‘ë©´ëŒ€ê¸°
+                // ë”°ë¼ì„œ ë‚¨ì€ ì¹´ë“œê°€ chiableí•œì§€ íŒë‹¨í•´ë³´ì•„ì•¼ í•¨
+                //  - 2, 4ê°™ì´ í•œì¹¸ ë–¨ì–´ì ¸ ìžˆë‹¤ë˜ì§€
+                //  - 2, 3ê°™ì´ ë¶™ì–´ ìžˆë‹¤ë˜ì§€
 
                 for (var i = 0; i < 34 - 1; ++i)
                 {
@@ -66,7 +66,7 @@ public class NormalYaku : UdonSharpBehaviour
                         agariContext.AddAgariableGlobalOrder(i + 1);
                         agariContext.IsSingleWaiting = false;
 
-                        Debug.Log($"¸ö3 ¸Ó¸® 1 Ä«µå 2, ¾ç¸é´ë±â ÅÙÆÄÀÌ GlobalOrder:{i}, {i + 1}");
+                        Debug.Log($"ëª¸3 ë¨¸ë¦¬ 1 ì¹´ë“œ 2, ì–‘ë©´ëŒ€ê¸° í…íŒŒì´ GlobalOrder:{i}, {i + 1}");
                         break;
                     }
 
@@ -75,7 +75,7 @@ public class NormalYaku : UdonSharpBehaviour
                         agariContext.AddAgariableGlobalOrder(i);
                         agariContext.IsSingleWaiting = true;
 
-                        Debug.Log($"¸ö3 ¸Ó¸® 1 Ä«µå 2, ´Ü¸é´ë±â ÅÙÆÄÀÌ GlobalOrder:{i}");
+                        Debug.Log($"ëª¸3 ë¨¸ë¦¬ 1 ì¹´ë“œ 2, ë‹¨ë©´ëŒ€ê¸° í…íŒŒì´ GlobalOrder:{i}");
                         break;
                     }
                 }
