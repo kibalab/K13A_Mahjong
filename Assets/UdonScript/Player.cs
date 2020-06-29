@@ -318,18 +318,4 @@ public class Player : UdonSharpBehaviour
         }
         return cards;
     }
-
-    public void NakiedCard(int[] globalOrders)
-    {
-        foreach(int globalOrder in globalOrders)
-        {
-            foreach(Card card in Cards.Clone())
-            {
-                if (card.GlobalOrder == globalOrder)
-                {
-                    OpenendCards.Add(card);
-                }
-            }
-        }
-    }
 }
