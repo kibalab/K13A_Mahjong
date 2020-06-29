@@ -97,7 +97,7 @@ public class Card : UdonSharpBehaviour
     {
         if (!isSpriteInitialized && IsCardSpriteInitializeReady())
         {
-            TryInitializeSprite();
+            InitializeSprite();
         }
 
         if (BoxColider != null)
@@ -114,7 +114,7 @@ public class Card : UdonSharpBehaviour
         transform.SetPositionAndRotation(Position, Rotation);
     }
 
-    void TryInitializeSprite()
+    void InitializeSprite()
     {
         var spriteName = GetCardSpriteName();
         var sprite = CardSprites.FindSprite(spriteName);
