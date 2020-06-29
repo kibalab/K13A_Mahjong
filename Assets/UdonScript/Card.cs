@@ -59,7 +59,6 @@ public class Card : UdonSharpBehaviour
 
     public void SetAsDora()
     {
-        SpriteRenderer.material = CardSprites.doraMaterial;
         IsDora = true;
     }
 
@@ -103,6 +102,11 @@ public class Card : UdonSharpBehaviour
         if (BoxColider != null)
         {
             BoxColider.enabled = IsColliderActive;
+        }
+
+        if (SpriteRenderer != null && IsDora)
+        {
+            SpriteRenderer.material = CardSprites.doraMaterial;
         }
 
         transform.SetPositionAndRotation(Position, Rotation);
