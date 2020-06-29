@@ -29,6 +29,7 @@ public class Card : UdonSharpBehaviour
     [SerializeField] private EventQueue EventQueue;
 
     private bool isSpriteInitialized = false;
+    private bool isDoraMaterialSetted = false;
 
     public override void Interact()
     {
@@ -104,9 +105,10 @@ public class Card : UdonSharpBehaviour
             BoxColider.enabled = IsColliderActive;
         }
 
-        if (SpriteRenderer != null && IsDora && !IsDoraMaterialSetted())
+        if (SpriteRenderer != null && IsDora && !isDoraMaterialSetted)
         {
             SpriteRenderer.material = CardSprites.doraMaterial;
+            isDoraMaterialSetted = true;
         }
 
         transform.SetPositionAndRotation(Position, Rotation);
@@ -143,10 +145,5 @@ public class Card : UdonSharpBehaviour
             && Type != "None"
             && CardNumber != -1
             && SpriteNamePostfix != "None";
-    }
-
-    bool IsDoraMaterialSetted()
-    {
-        return SpriteRenderer.material.name == CardSprites.doraMaterial.name + " (Instance)";
     }
 }
