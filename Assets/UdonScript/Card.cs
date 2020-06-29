@@ -104,7 +104,7 @@ public class Card : UdonSharpBehaviour
             BoxColider.enabled = IsColliderActive;
         }
 
-        if (SpriteRenderer != null && IsDora)
+        if (SpriteRenderer != null && IsDora && !IsDoraMaterialSetted())
         {
             SpriteRenderer.material = CardSprites.doraMaterial;
         }
@@ -143,5 +143,10 @@ public class Card : UdonSharpBehaviour
             && Type != "None"
             && CardNumber != -1
             && SpriteNamePostfix != "None";
+    }
+
+    bool IsDoraMaterialSetted()
+    {
+        return SpriteRenderer.material.name == CardSprites.doraMaterial.name + " (Instance)";
     }
 }
