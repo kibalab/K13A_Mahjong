@@ -90,33 +90,26 @@ public class TableManager : UdonSharpBehaviour
     {
         var player = GetCurrentTurnPlayer();
         var nextCard = GetNextRinShanCard();
-        var dora = GetNextdoraCard();
+        var dora = GetNextDoraCard();
         if (nextCard != null && dora != null)
         {
             player.AddCard(nextCard, false, false);
             player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
 
-            setDora(dora.GlobalOrder);
+            SetDoraMaterials(dora.GlobalOrder);
 
             ActiveCurrentPlayerColliders();
         }
     }
 
-    public void setDora(int globalOrder)
+    public void SetDoraMaterials(int globalOrder)
     {
         foreach (Card card in yama)
         {
-            if(card.GlobalOrder == globalOrder)
+            if (card.GlobalOrder == globalOrder)
             {
-                //card.IsDora = true;
-
-
-                var doraView = DoreViewer.transform.GetChild(currentDorasCardIndex-1);
-                doraView.GetComponent<Image>().color = Color.white;
-                LogViewer.Log($"SetDora Sprite : {card.GetCardSpriteName()}, {card.ToString()}", 0);
-                doraView.transform.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite(card.GetCardSpriteName().Replace("도라",""));
+                card.SetAsDora();
             }
-            
         }
     }
 
@@ -171,10 +164,10 @@ public class TableManager : UdonSharpBehaviour
         InitializeYama();
         LogViewer.Log("Yama Initalized", 0);
 
-        var firstDora =  GetNextdoraCard();
-        setDora(firstDora.GlobalOrder);
+        var firstDora =  GetNextDoraCard();
+        SetDoraMaterials(firstDora.GlobalOrder);
 
-        LogViewer.Log($"Set First Dora : {firstDora.ToString()}", 0);
+        LogViewer.Log($"Set First Dora : {firstDora}", 0);
 
         for (int i = 0; i < players.Length; ++i)
         {
@@ -287,7 +280,7 @@ public class TableManager : UdonSharpBehaviour
         return nextCard;
     }
 
-    Card GetNextdoraCard()
+    Card GetNextDoraCard()
     {
         if (currentDorasCardIndex == doras.Length)
         {
