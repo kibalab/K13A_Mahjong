@@ -17,7 +17,7 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject StashTables;
     [SerializeField] public Material normalMaterial;
     [SerializeField] public LogViewer LogViewer;
-    [SerializeField] public GameObject DoreViewer;
+    [SerializeField] public GameObject DoraViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
 
@@ -169,6 +169,7 @@ public class TableManager : UdonSharpBehaviour
 
         LogViewer.Log($"Set First Dora : {firstDora}", 0);
 
+
         for (int i = 0; i < players.Length; ++i)
         {
             var pickedCards = GetNextCards(13);
@@ -290,9 +291,20 @@ public class TableManager : UdonSharpBehaviour
 
         var nextCard = doras[currentDorasCardIndex];
 
+        setDoraViewerNextCard(nextCard.GetCardSpriteName());
+
         ++currentDorasCardIndex;
 
+        
+
         return nextCard;
+    }
+
+    void setDoraViewerNextCard(string spriteName)
+    {
+        var doraDisplay = DoraViewer.transform.GetChild(currentDorasCardIndex);
+        doraDisplay.GetComponent<Image>().color = Color.white;
+        doraDisplay.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite(spriteName);
     }
 
     public bool IsReady()
