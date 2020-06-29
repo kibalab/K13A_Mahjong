@@ -6,9 +6,9 @@ using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
-    [UdonSynced(UdonSyncMode.None)] public string Type = null;
+    [UdonSynced(UdonSyncMode.None)] public string Type = "None";
     [UdonSynced(UdonSyncMode.None)] public int CardNumber = -1;
-    [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = null;
+    [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = "None";
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 Position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion Rotation;
@@ -136,8 +136,8 @@ public class Card : UdonSharpBehaviour
     bool IsCardSpriteInitializeReady()
     {
         return SpriteRenderer != null
-            && !string.IsNullOrEmpty(Type)
+            && Type != "None"
             && CardNumber != -1
-            && !string.IsNullOrEmpty(SpriteNamePostfix);
+            && SpriteNamePostfix != "None";
     }
 }
