@@ -6,18 +6,20 @@ using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
-    [UdonSynced(UdonSyncMode.None)] public string Type;
-    [UdonSynced(UdonSyncMode.None)] public int CardNumber;
-    [UdonSynced(UdonSyncMode.None)] public int GlobalOrder;
-    [UdonSynced(UdonSyncMode.None)] public bool IsDora;
+    [UdonSynced(UdonSyncMode.None)] public string Type = null;
+    [UdonSynced(UdonSyncMode.None)] public int CardNumber = -1;
+    [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = null;
+
     [UdonSynced(UdonSyncMode.None)] public Vector3 Position;
     [UdonSynced(UdonSyncMode.None)] public Quaternion Rotation;
     [UdonSynced(UdonSyncMode.None)] public bool IsColliderActive;
+    [UdonSynced(UdonSyncMode.None)] public bool IsDora;
 
     public bool IsRinShan;
     public int YamaIndex;
     public int PlayerIndex;
     public bool IsDiscardedForRiichi;
+    public int GlobalOrder;
 
     [SerializeField] private HandUtil HandUtil;
     [SerializeField] private CardSprites CardSprites;
@@ -27,7 +29,6 @@ public class Card : UdonSharpBehaviour
     [SerializeField] private EventQueue EventQueue;
 
     private bool isSpriteInitialized = false;
-    private bool isDoraSetted = false;
 
     public override void Interact()
     {
@@ -47,12 +48,19 @@ public class Card : UdonSharpBehaviour
         }
     }
 
-    public void Initialize_Master(string type, int cardNumber, bool isDora)
+    public void Initialize_Master(string type, int cardNumber, bool isRedDora)
     {
         Type = type;
         CardNumber = cardNumber;
-        IsDora = isDora;
+        IsDora = isRedDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
+        SpriteNamePostfix = isRedDora ? "도라" : "";
+    }
+
+    public void SetAsDora()
+    {
+        SpriteRenderer.material = CardSprites.doraMaterial;
+        IsDora = true;
     }
 
     public void SetOwnership(int playerIndex)
@@ -75,22 +83,19 @@ public class Card : UdonSharpBehaviour
     {
         switch (Type)
         {
-            case "동":
-            case "남":
-            case "서":
-            case "북":
-            case "백":
-            case "발":
-            case "중":
+            case "만":
+            case "삭":
+            case "통":
+                return Type + CardNumber + SpriteNamePostfix;
+
+            default: // 동서남북백발중
                 return Type;
-            default:
-                return Type + CardNumber + (IsDora ? "도라" : "");
         }
     }
 
     private void Update()
     {
-        if (!isSpriteInitialized)
+        if (!isSpriteInitialized && IsCardSpriteInitializeReady())
         {
             TryInitializeSprite();
         }
@@ -105,32 +110,10 @@ public class Card : UdonSharpBehaviour
 
     void TryInitializeSprite()
     {
-        if (SpriteRenderer != null)
-        {
-            var spriteName = GetCardSpriteName();
-            var sprite = CardSprites.FindSprite(spriteName);
-            //var material = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
-            
-
-            if (sprite != null)
-            {
-                if (IsDora && !isDoraSetted)
-                {
-                    //setDora();
-                }
-
-                SpriteRenderer.sprite = sprite;
-                isSpriteInitialized = true;
-            }
-
-            
-        }
-    }
-
-    public void setDora()
-    {
-        transform.Find("Display").GetComponentInChildren<Renderer>().material = CardSprites.doraMaterial;
-        isDoraSetted = true;
+        var spriteName = GetCardSpriteName();
+        var sprite = CardSprites.FindSprite(spriteName);
+        SpriteRenderer.sprite = sprite;
+        isSpriteInitialized = true;
     }
 
     void RequestCallFunctionToOwner(string funcName)
@@ -148,5 +131,13 @@ public class Card : UdonSharpBehaviour
     public override string ToString()
     {
         return $"({Type}, {CardNumber}, {GlobalOrder})";
+    }
+
+    bool IsCardSpriteInitializeReady()
+    {
+        return SpriteRenderer != null
+            && !string.IsNullOrEmpty(Type)
+            && CardNumber != -1
+            && !string.IsNullOrEmpty(SpriteNamePostfix);
     }
 }
