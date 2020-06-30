@@ -45,6 +45,7 @@ public class Player : UdonSharpBehaviour
         nakiCount = 0;
         OpenedPonPositions = new Transform[34];
         PlayerIndex = playerIndex;
+        PlayerStatus.Initialize();
     }
 
     Transform[] FindPoints()
