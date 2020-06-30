@@ -1,5 +1,4 @@
 
-using System.Linq;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -18,12 +17,30 @@ public class HandCalculator : UdonSharpBehaviour
     [SerializeField] public KList Result;
     [SerializeField] public CalculatingContextHandler Ctx;
     [SerializeField] public HandUtil HandUtil;
+    [SerializeField] public ScoreCalculator ScoreCalculator;
 
     [SerializeField] public Chiitoitsu Chiitoitsu;
     [SerializeField] public Kokushimusou Kokushimusou;
     [SerializeField] public NormalYaku NormalYaku;
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
+
+    public void RequestTsumoScore(Card[] sealedCards, Card[] openedCards, PlayerStatus playerStatus)
+    {
+        var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
+        var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
+
+        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
+        var pairs = HandUtil.FindPairs(globalOrders);
+        
+        // 특수역: 치또이츠
+        if (pairs.Length == 7)
+        {
+            playerStatus.Han = 2;
+            playerStatus.Fu = 25;
+            return;
+        }
+    }
 
     public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer)
     {
