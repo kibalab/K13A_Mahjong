@@ -83,6 +83,8 @@
     <Compile Include="Assets\UdonScript\NakiInput.cs" />
     <Compile Include="Assets\UdonScript\NormalYaku.cs" />
     <Compile Include="Assets\UdonScript\Player.cs" />
+    <Compile Include="Assets\UdonScript\PlayerStatus.cs" />
+    <Compile Include="Assets\UdonScript\ScoreCalculator.cs" />
     <Compile Include="Assets\UdonScript\TableManager.cs" />
     <Compile Include="Assets\UdonScript\UIButton.cs" />
     <Compile Include="Assets\UdonScript\UIContext.cs" />
