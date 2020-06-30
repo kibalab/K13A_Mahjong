@@ -291,6 +291,7 @@ public class TableManager : UdonSharpBehaviour
 
     Card GetNextDoraCard()
     {
+        Debug.Log($"currentDorasCardIndex : {currentDorasCardIndex}, doras.Length : {doras.Length}");
         if (currentDorasCardIndex == doras.Length)
         {
             EventQueue.AnnounceDraw("ByFourKkan");
@@ -298,6 +299,8 @@ public class TableManager : UdonSharpBehaviour
         }
 
         var nextCard = doras[currentDorasCardIndex];
+
+        Debug.Log($"nextCard : {nextCard.ToString()}");
 
         setDoraViewerNextCard(nextCard.GetCardSpriteName());
 
