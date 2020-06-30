@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: TableManager
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: cf3bc0bbd894a5547bbc22e7373392d4,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 2b601ef93186ee140bf5b1dd4b3f82dd,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export CardPool\r\n    .export Players\r\n
     \   .export Sprites\r\n    .export HandCalculator\r\n    .export HandUtil\r\n
@@ -109,6 +109,8 @@ MonoBehaviour:
     \   __56_const_intnl_SystemString: %SystemString, null\r\n    __57_const_intnl_SystemString:
     %SystemString, null\r\n    __58_const_intnl_SystemString: %SystemString, null\r\n
     \   __59_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
+    %SystemString, null\r\n    __60_const_intnl_SystemString: %SystemString, null\r\n
+    \   __61_const_intnl_SystemString: %SystemString, null\r\n    __62_const_intnl_SystemString:
     %SystemString, null\r\n    __7_const_intnl_SystemString: %SystemString, null\r\n
     \   __8_const_intnl_SystemString: %SystemString, null\r\n    __9_const_intnl_SystemString:
     %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __1_const_intnl_SystemType:
@@ -195,23 +197,30 @@ MonoBehaviour:
     %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __40_intnl_SystemInt32:
     %SystemInt32, null\r\n    __41_intnl_SystemInt32: %SystemInt32, null\r\n    __42_intnl_SystemInt32:
     %SystemInt32, null\r\n    __43_intnl_SystemInt32: %SystemInt32, null\r\n    __44_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __9_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemInt32Array:
-    %SystemInt32Array, null\r\n    __0_intnl_SystemInt64: %SystemInt64, null\r\n    __1_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __2_intnl_SystemInt64: %SystemInt64, null\r\n    __3_intnl_SystemInt64:
+    %SystemInt32, null\r\n    __45_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __6_intnl_SystemInt32: %SystemInt32, null\r\n    __7_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __8_intnl_SystemInt32: %SystemInt32, null\r\n    __9_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_SystemInt32Array: %SystemInt32Array, null\r\n
+    \   __0_intnl_SystemInt64: %SystemInt64, null\r\n    __1_intnl_SystemInt64: %SystemInt64,
+    null\r\n    __2_intnl_SystemInt64: %SystemInt64, null\r\n    __3_intnl_SystemInt64:
     %SystemInt64, null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __1_intnl_SystemObject:
     %SystemObject, null\r\n    __2_intnl_SystemObject: %SystemObject, null\r\n    __3_intnl_SystemObject:
     %SystemObject, null\r\n    __4_intnl_SystemObject: %SystemObject, null\r\n    __5_intnl_SystemObject:
     %SystemObject, null\r\n    __6_intnl_SystemObject: %SystemObject, null\r\n    __7_intnl_SystemObject:
-    %SystemObject, null\r\n    __8_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_UnityEngineSprite:
-    %UnityEngineSprite, null\r\n    __0_intnl_interpolatedStr_String: %SystemString,
-    null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __10_intnl_SystemString:
+    %SystemObject, null\r\n    __8_intnl_SystemObject: %SystemObject, null\r\n    __9_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_intnl_UnityEngineSprite: %UnityEngineSprite, null\r\n
+    \   __0_intnl_interpolatedStr_String: %SystemString, null\r\n    __0_intnl_SystemString:
+    %SystemString, null\r\n    __1_intnl_interpolatedStr_String: %SystemString, null\r\n
+    \   __1_intnl_SystemString: %SystemString, null\r\n    __10_intnl_SystemString:
     %SystemString, null\r\n    __11_intnl_SystemString: %SystemString, null\r\n    __12_intnl_SystemString:
     %SystemString, null\r\n    __13_intnl_SystemString: %SystemString, null\r\n    __14_intnl_SystemString:
-    %SystemString, null\r\n    __15_intnl_SystemString: %SystemString, null\r\n    __2_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
+    %SystemString, null\r\n    __15_intnl_SystemString: %SystemString, null\r\n    __16_intnl_SystemString:
+    %SystemString, null\r\n    __17_intnl_SystemString: %SystemString, null\r\n    __18_intnl_SystemString:
+    %SystemString, null\r\n    __19_intnl_SystemString: %SystemString, null\r\n    __2_intnl_interpolatedStr_String:
+    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __20_intnl_SystemString:
+    %SystemString, null\r\n    __21_intnl_SystemString: %SystemString, null\r\n    __22_intnl_SystemString:
+    %SystemString, null\r\n    __3_intnl_interpolatedStr_String: %SystemString, null\r\n
+    \   __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_interpolatedStr_String:
     %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __5_intnl_SystemString:
     %SystemString, null\r\n    __6_intnl_SystemString: %SystemString, null\r\n    __7_intnl_SystemString:
     %SystemString, null\r\n    __8_intnl_SystemString: %SystemString, null\r\n    __9_intnl_SystemString:
@@ -1215,11 +1224,32 @@ MonoBehaviour:
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # Card GetNextDoraCard()\r\n    GetNextDoraCard:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (currentDorasCardIndex == doras.Length)\r\n        PUSH,
-    doras\r\n        PUSH, __42_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, currentDorasCardIndex\r\n        PUSH, __42_intnl_SystemInt32\r\n
+    {\r\n        \r\n         # Debug.Log($\"currentDorasCardIndex : {currentDorasCardIndex},
+    doras.Length : {doras.Length}\");\r\n        PUSH, __55_const_intnl_SystemString\r\n
+    \       PUSH, __3_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
+    currentDorasCardIndex\r\n        PUSH, __15_intnl_SystemString\r\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n
+    \       PUSH, __15_intnl_SystemString\r\n        PUSH, __16_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __16_intnl_SystemString\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n        PUSH,
+    __56_const_intnl_SystemString\r\n        PUSH, __17_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __17_intnl_SystemString\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, doras\r\n        PUSH, __42_intnl_SystemInt32\r\n
+    \       EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH,
+    __42_intnl_SystemInt32\r\n        PUSH, __18_intnl_SystemString\r\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n
+    \       PUSH, __18_intnl_SystemString\r\n        PUSH, __19_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __19_intnl_SystemString\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __3_intnl_interpolatedStr_String\r\n        EXTERN,
+    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        \r\n         #
+    if (currentDorasCardIndex == doras.Length)\r\n        PUSH, doras\r\n        PUSH,
+    __43_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, currentDorasCardIndex\r\n        PUSH, __43_intnl_SystemInt32\r\n
     \       PUSH, __37_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __37_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000032DC\r\n
+    \       PUSH, __37_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000033E4\r\n
     \       \r\n         # {\r\n        \r\n         # EventQueue.AnnounceDraw(\"ByFourKkan\");\r\n
     \       PUSH, EventQueue\r\n        PUSH, __51_const_intnl_SystemString\r\n        PUSH,
     __53_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
@@ -1232,15 +1262,27 @@ MonoBehaviour:
     \       PUSH, doras\r\n        PUSH, currentDorasCardIndex\r\n        PUSH, __15_intnl_Card\r\n
     \       EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __15_intnl_Card\r\n        PUSH, __4_nextCard_Card\r\n        COPY\r\n
-    \       \r\n         # setDoraViewerNextCard(nextCard.GetCardSpriteName());\r\n
-    \       PUSH, __4_nextCard_Card\r\n        PUSH, __55_const_intnl_SystemString\r\n
+    \       \r\n         # Debug.Log($\"nextCard : {nextCard.ToString()}\");\r\n        PUSH,
+    __57_const_intnl_SystemString\r\n        PUSH, __4_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __4_nextCard_Card\r\n        PUSH, __28_const_intnl_SystemString\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __4_nextCard_Card\r\n        PUSH, __56_const_intnl_SystemString\r\n
+    \       PUSH, __4_nextCard_Card\r\n        PUSH, __29_const_intnl_SystemString\r\n
     \       PUSH, __7_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __7_intnl_SystemObject\r\n        PUSH, __15_intnl_SystemString\r\n
-    \       COPY\r\n        PUSH, __15_intnl_SystemString\r\n        PUSH, __0_spriteName_String\r\n
+    \       PUSH, __7_intnl_SystemObject\r\n        PUSH, __20_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, __4_intnl_interpolatedStr_String\r\n        PUSH,
+    __20_intnl_SystemString\r\n        PUSH, __21_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __21_intnl_SystemString\r\n        PUSH, __4_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __4_intnl_interpolatedStr_String\r\n        EXTERN,
+    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        \r\n         #
+    setDoraViewerNextCard(nextCard.GetCardSpriteName());\r\n        PUSH, __4_nextCard_Card\r\n
+    \       PUSH, __58_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __4_nextCard_Card\r\n        PUSH, __59_const_intnl_SystemString\r\n
+    \       PUSH, __8_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
+    \       PUSH, __8_intnl_SystemObject\r\n        PUSH, __22_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, __22_intnl_SystemString\r\n        PUSH, __0_spriteName_String\r\n
     \       COPY\r\n        PUSH, __17_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x000033E4\r\n        \r\n         # ++currentDorasCardIndex;\r\n        PUSH,
+    0x00003590\r\n        \r\n         # ++currentDorasCardIndex;\r\n        PUSH,
     currentDorasCardIndex\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
     currentDorasCardIndex\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       \r\n         # return nextCard;\r\n        PUSH, __4_nextCard_Card\r\n
@@ -1268,13 +1310,13 @@ MonoBehaviour:
     \       EXTERN, \"UnityEngineTransform.__GetChild__SystemInt32__UnityEngineTransform\"\r\n
     \       PUSH, __2_intnl_UnityEngineTransform\r\n        PUSH, __1_const_intnl_SystemType\r\n
     \       PUSH, __1_intnl_UnityEngineUIImage\r\n        EXTERN, \"UnityEngineUIImage.__GetComponent__T\"\r\n
-    \       PUSH, Sprites\r\n        PUSH, __57_const_intnl_SystemString\r\n        PUSH,
+    \       PUSH, Sprites\r\n        PUSH, __60_const_intnl_SystemString\r\n        PUSH,
     __0_spriteName_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, Sprites\r\n        PUSH, __58_const_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, Sprites\r\n        PUSH, __61_const_intnl_SystemString\r\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, Sprites\r\n        PUSH, __59_const_intnl_SystemString\r\n        PUSH,
-    __8_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __8_intnl_SystemObject\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n
+    \       PUSH, Sprites\r\n        PUSH, __62_const_intnl_SystemString\r\n        PUSH,
+    __9_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
+    \       PUSH, __9_intnl_SystemObject\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n
     \       COPY\r\n        PUSH, __1_intnl_UnityEngineUIImage\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n
     \       EXTERN, \"UnityEngineUIImage.__set_sprite__UnityEngineSprite__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
@@ -1286,17 +1328,17 @@ MonoBehaviour:
     __38_intnl_SystemBoolean\r\n        EXTERN, \"VRCSDKBaseNetworking.__IsObjectReady__UnityEngineGameObject__SystemBoolean\"\r\n
     \       PUSH, __38_intnl_SystemBoolean\r\n        PUSH, __39_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __39_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000035C0\r\n
+    \       PUSH, __39_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000376C\r\n
     \       PUSH, __0_const_intnl_SystemBoolean\r\n        PUSH, __1_intnl_returnValSymbol_Boolean\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \        # foreach (var card in yama)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __43_intnl_SystemInt32\r\n        COPY\r\n        PUSH, yama\r\n
-    \       PUSH, __44_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __43_intnl_SystemInt32\r\n        PUSH, __44_intnl_SystemInt32\r\n
+    \       PUSH, __44_intnl_SystemInt32\r\n        COPY\r\n        PUSH, yama\r\n
+    \       PUSH, __45_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __44_intnl_SystemInt32\r\n        PUSH, __45_intnl_SystemInt32\r\n
     \       PUSH, __40_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __40_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000036F8\r\n
-    \       PUSH, yama\r\n        PUSH, __43_intnl_SystemInt32\r\n        PUSH, __16_intnl_Card\r\n
+    \       PUSH, __40_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000038A4\r\n
+    \       PUSH, yama\r\n        PUSH, __44_intnl_SystemInt32\r\n        PUSH, __16_intnl_Card\r\n
     \       EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __16_intnl_Card\r\n        PUSH, __2_card_Card\r\n        COPY\r\n
     \       \r\n         # {\r\n        \r\n         # if (!Networking.IsObjectReady(card.gameObject))\r\n
@@ -1306,21 +1348,21 @@ MonoBehaviour:
     \       EXTERN, \"VRCSDKBaseNetworking.__IsObjectReady__UnityEngineGameObject__SystemBoolean\"\r\n
     \       PUSH, __41_intnl_SystemBoolean\r\n        PUSH, __42_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __42_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000036D0\r\n
+    \       PUSH, __42_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000387C\r\n
     \       \r\n         # {\r\n        \r\n         # return false;\r\n        PUSH,
     __0_const_intnl_SystemBoolean\r\n        PUSH, __1_intnl_returnValSymbol_Boolean\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
-    __43_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __43_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000035EC\r\n        \r\n         # foreach (var player in players)\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __43_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, players\r\n        PUSH, __44_intnl_SystemInt32\r\n
+    __44_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
+    __44_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       JUMP, 0x00003798\r\n        \r\n         # foreach (var player in players)\r\n
+    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __44_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, players\r\n        PUSH, __45_intnl_SystemInt32\r\n
     \       EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH,
-    __43_intnl_SystemInt32\r\n        PUSH, __44_intnl_SystemInt32\r\n        PUSH,
+    __44_intnl_SystemInt32\r\n        PUSH, __45_intnl_SystemInt32\r\n        PUSH,
     __40_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __40_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00003830\r\n
-    \       PUSH, players\r\n        PUSH, __43_intnl_SystemInt32\r\n        PUSH,
+    \       PUSH, __40_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000039DC\r\n
+    \       PUSH, players\r\n        PUSH, __44_intnl_SystemInt32\r\n        PUSH,
     __12_intnl_Player\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __12_intnl_Player\r\n        PUSH, __6_player_Player\r\n        COPY\r\n
     \       \r\n         # {\r\n        \r\n         # if (!Networking.IsObjectReady(player.gameObject))\r\n
@@ -1330,14 +1372,14 @@ MonoBehaviour:
     \       EXTERN, \"VRCSDKBaseNetworking.__IsObjectReady__UnityEngineGameObject__SystemBoolean\"\r\n
     \       PUSH, __41_intnl_SystemBoolean\r\n        PUSH, __42_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __42_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00003808\r\n
+    \       PUSH, __42_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000039B4\r\n
     \       \r\n         # {\r\n        \r\n         # return false;\r\n        PUSH,
     __0_const_intnl_SystemBoolean\r\n        PUSH, __1_intnl_returnValSymbol_Boolean\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
-    __43_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __43_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00003724\r\n        \r\n         # return true;\r\n        PUSH,
+    __44_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
+    __44_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       JUMP, 0x000038D0\r\n        \r\n         # return true;\r\n        PUSH,
     __1_const_intnl_SystemBoolean\r\n        PUSH, __1_intnl_returnValSymbol_Boolean\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
@@ -7871,890 +7913,1072 @@ MonoBehaviour:
     - startInstruction: 12852
       endInstruction: 12851
       startSourceChar: 7896
-      endSourceChar: 7900
+      endSourceChar: 7896
       line: 293
       lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 12852
-      endInstruction: 12851
-      startSourceChar: 7900
-      endSourceChar: 7900
-      line: 293
-      lineChar: 12
       spanCodeSection: 
     - startInstruction: 12852
       endInstruction: 12851
-      startSourceChar: 7900
-      endSourceChar: 7925
+      startSourceChar: 7896
+      endSourceChar: 7896
       line: 293
-      lineChar: 12
-      spanCodeSection: 'currentDorasCardIndex == '
-    - startInstruction: 12852
-      endInstruction: 12851
-      startSourceChar: 7925
-      endSourceChar: 7925
-      line: 293
-      lineChar: 37
+      lineChar: 8
       spanCodeSection: 
     - startInstruction: 12852
       endInstruction: 12851
-      startSourceChar: 7925
-      endSourceChar: 7931
+      startSourceChar: 7896
+      endSourceChar: 7896
       line: 293
-      lineChar: 37
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 12852
+      endInstruction: 12851
+      startSourceChar: 7896
+      endSourceChar: 7902
+      line: 293
+      lineChar: 8
+      spanCodeSection: Debug.
+    - startInstruction: 12852
+      endInstruction: 12851
+      startSourceChar: 7902
+      endSourceChar: 7906
+      line: 293
+      lineChar: 14
+      spanCodeSection: Log(
+    - startInstruction: 12852
+      endInstruction: 12851
+      startSourceChar: 7906
+      endSourceChar: 7908
+      line: 293
+      lineChar: 18
+      spanCodeSection: $"
+    - startInstruction: 12852
+      endInstruction: 12871
+      startSourceChar: 7908
+      endSourceChar: 7932
+      line: 293
+      lineChar: 20
+      spanCodeSection: 'currentDorasCardIndex : '
+    - startInstruction: 12872
+      endInstruction: 12871
+      startSourceChar: 7932
+      endSourceChar: 7933
+      line: 293
+      lineChar: 44
+      spanCodeSection: '{'
+    - startInstruction: 12872
+      endInstruction: 12947
+      startSourceChar: 7933
+      endSourceChar: 7955
+      line: 293
+      lineChar: 45
+      spanCodeSection: currentDorasCardIndex}
+    - startInstruction: 12948
+      endInstruction: 12999
+      startSourceChar: 7955
+      endSourceChar: 7972
+      line: 293
+      lineChar: 67
+      spanCodeSection: ', doras.Length : '
+    - startInstruction: 13000
+      endInstruction: 12999
+      startSourceChar: 7972
+      endSourceChar: 7973
+      line: 293
+      lineChar: 84
+      spanCodeSection: '{'
+    - startInstruction: 13000
+      endInstruction: 12999
+      startSourceChar: 7973
+      endSourceChar: 7973
+      line: 293
+      lineChar: 85
+      spanCodeSection: 
+    - startInstruction: 13000
+      endInstruction: 12999
+      startSourceChar: 7973
+      endSourceChar: 7979
+      line: 293
+      lineChar: 85
       spanCodeSection: doras.
-    - startInstruction: 12852
-      endInstruction: 12923
-      startSourceChar: 7931
-      endSourceChar: 7948
+    - startInstruction: 13000
+      endInstruction: 13115
+      startSourceChar: 7979
+      endSourceChar: 7999
       line: 293
-      lineChar: 43
-      spanCodeSection: "Length)\r\n        "
-    - startInstruction: 12924
-      endInstruction: 12923
-      startSourceChar: 7948
-      endSourceChar: 7963
+      lineChar: 91
+      spanCodeSection: "Length}\");\r\n        "
+    - startInstruction: 13116
+      endInstruction: 13115
+      startSourceChar: 7999
+      endSourceChar: 8003
       line: 294
       lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 13116
+      endInstruction: 13115
+      startSourceChar: 8003
+      endSourceChar: 8003
+      line: 294
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 13116
+      endInstruction: 13115
+      startSourceChar: 8003
+      endSourceChar: 8028
+      line: 294
+      lineChar: 12
+      spanCodeSection: 'currentDorasCardIndex == '
+    - startInstruction: 13116
+      endInstruction: 13115
+      startSourceChar: 8028
+      endSourceChar: 8028
+      line: 294
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 13116
+      endInstruction: 13115
+      startSourceChar: 8028
+      endSourceChar: 8034
+      line: 294
+      lineChar: 37
+      spanCodeSection: doras.
+    - startInstruction: 13116
+      endInstruction: 13187
+      startSourceChar: 8034
+      endSourceChar: 8051
+      line: 294
+      lineChar: 43
+      spanCodeSection: "Length)\r\n        "
+    - startInstruction: 13188
+      endInstruction: 13187
+      startSourceChar: 8051
+      endSourceChar: 8066
+      line: 295
+      lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 12924
-      endInstruction: 12923
-      startSourceChar: 7963
-      endSourceChar: 7963
-      line: 295
+    - startInstruction: 13188
+      endInstruction: 13187
+      startSourceChar: 8066
+      endSourceChar: 8066
+      line: 296
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 12924
-      endInstruction: 12923
-      startSourceChar: 7963
-      endSourceChar: 7963
-      line: 295
+    - startInstruction: 13188
+      endInstruction: 13187
+      startSourceChar: 8066
+      endSourceChar: 8066
+      line: 296
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 12924
-      endInstruction: 12923
-      startSourceChar: 7963
-      endSourceChar: 7963
-      line: 295
+    - startInstruction: 13188
+      endInstruction: 13187
+      startSourceChar: 8066
+      endSourceChar: 8066
+      line: 296
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 12924
-      endInstruction: 12923
-      startSourceChar: 7963
-      endSourceChar: 7974
-      line: 295
+    - startInstruction: 13188
+      endInstruction: 13187
+      startSourceChar: 8066
+      endSourceChar: 8077
+      line: 296
       lineChar: 12
       spanCodeSection: EventQueue.
-    - startInstruction: 12924
-      endInstruction: 12923
-      startSourceChar: 7974
-      endSourceChar: 7987
-      line: 295
+    - startInstruction: 13188
+      endInstruction: 13187
+      startSourceChar: 8077
+      endSourceChar: 8090
+      line: 296
       lineChar: 23
       spanCodeSection: AnnounceDraw(
-    - startInstruction: 12924
-      endInstruction: 12979
-      startSourceChar: 7987
-      endSourceChar: 8015
-      line: 295
+    - startInstruction: 13188
+      endInstruction: 13243
+      startSourceChar: 8090
+      endSourceChar: 8118
+      line: 296
       lineChar: 36
       spanCodeSection: "\"ByFourKkan\");\r\n            "
-    - startInstruction: 12980
-      endInstruction: 12979
-      startSourceChar: 8015
-      endSourceChar: 8022
-      line: 296
+    - startInstruction: 13244
+      endInstruction: 13243
+      startSourceChar: 8118
+      endSourceChar: 8125
+      line: 297
       lineChar: 12
       spanCodeSection: 'return '
-    - startInstruction: 12980
-      endInstruction: 13019
-      startSourceChar: 8022
-      endSourceChar: 8050
-      line: 296
+    - startInstruction: 13244
+      endInstruction: 13283
+      startSourceChar: 8125
+      endSourceChar: 8153
+      line: 297
       lineChar: 19
       spanCodeSection: "null;\r\n        }\r\n\r\n        "
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8050
-      endSourceChar: 8050
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8153
+      endSourceChar: 8153
+      line: 300
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8050
-      endSourceChar: 8050
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8153
+      endSourceChar: 8153
+      line: 300
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8050
-      endSourceChar: 8063
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8153
+      endSourceChar: 8166
+      line: 300
       lineChar: 8
       spanCodeSection: 'var nextCard '
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8063
-      endSourceChar: 8065
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8166
+      endSourceChar: 8168
+      line: 300
       lineChar: 21
       spanCodeSection: '= '
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8065
-      endSourceChar: 8065
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8168
+      endSourceChar: 8168
+      line: 300
       lineChar: 23
       spanCodeSection: 
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8065
-      endSourceChar: 8071
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8168
+      endSourceChar: 8174
+      line: 300
       lineChar: 23
       spanCodeSection: doras[
-    - startInstruction: 13020
-      endInstruction: 13019
-      startSourceChar: 8071
-      endSourceChar: 8071
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13283
+      startSourceChar: 8174
+      endSourceChar: 8174
+      line: 300
       lineChar: 29
       spanCodeSection: 
-    - startInstruction: 13020
-      endInstruction: 13071
-      startSourceChar: 8071
-      endSourceChar: 8106
-      line: 299
+    - startInstruction: 13284
+      endInstruction: 13335
+      startSourceChar: 8174
+      endSourceChar: 8209
+      line: 300
       lineChar: 29
       spanCodeSection: "currentDorasCardIndex];\r\n\r\n        "
-    - startInstruction: 13072
-      endInstruction: 13071
-      startSourceChar: 8106
-      endSourceChar: 8106
-      line: 301
+    - startInstruction: 13336
+      endInstruction: 13335
+      startSourceChar: 8209
+      endSourceChar: 8209
+      line: 302
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13072
-      endInstruction: 13071
-      startSourceChar: 8106
-      endSourceChar: 8106
-      line: 301
+    - startInstruction: 13336
+      endInstruction: 13335
+      startSourceChar: 8209
+      endSourceChar: 8209
+      line: 302
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13072
-      endInstruction: 13071
-      startSourceChar: 8106
-      endSourceChar: 8128
-      line: 301
+    - startInstruction: 13336
+      endInstruction: 13335
+      startSourceChar: 8209
+      endSourceChar: 8209
+      line: 302
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13336
+      endInstruction: 13335
+      startSourceChar: 8209
+      endSourceChar: 8215
+      line: 302
+      lineChar: 8
+      spanCodeSection: Debug.
+    - startInstruction: 13336
+      endInstruction: 13335
+      startSourceChar: 8215
+      endSourceChar: 8219
+      line: 302
+      lineChar: 14
+      spanCodeSection: Log(
+    - startInstruction: 13336
+      endInstruction: 13335
+      startSourceChar: 8219
+      endSourceChar: 8221
+      line: 302
+      lineChar: 18
+      spanCodeSection: $"
+    - startInstruction: 13336
+      endInstruction: 13355
+      startSourceChar: 8221
+      endSourceChar: 8232
+      line: 302
+      lineChar: 20
+      spanCodeSection: 'nextCard : '
+    - startInstruction: 13356
+      endInstruction: 13355
+      startSourceChar: 8232
+      endSourceChar: 8233
+      line: 302
+      lineChar: 31
+      spanCodeSection: '{'
+    - startInstruction: 13356
+      endInstruction: 13355
+      startSourceChar: 8233
+      endSourceChar: 8233
+      line: 302
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 13356
+      endInstruction: 13355
+      startSourceChar: 8233
+      endSourceChar: 8233
+      line: 302
+      lineChar: 32
+      spanCodeSection: 
+    - startInstruction: 13356
+      endInstruction: 13355
+      startSourceChar: 8233
+      endSourceChar: 8242
+      line: 302
+      lineChar: 32
+      spanCodeSection: nextCard.
+    - startInstruction: 13356
+      endInstruction: 13499
+      startSourceChar: 8242
+      endSourceChar: 8268
+      line: 302
+      lineChar: 41
+      spanCodeSection: "ToString()}\");\r\n\r\n        "
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 8268
+      endSourceChar: 8268
+      line: 304
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 8268
+      endSourceChar: 8268
+      line: 304
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 8268
+      endSourceChar: 8290
+      line: 304
       lineChar: 8
       spanCodeSection: setDoraViewerNextCard(
-    - startInstruction: 13072
-      endInstruction: 13071
-      startSourceChar: 8128
-      endSourceChar: 8128
-      line: 301
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 8290
+      endSourceChar: 8290
+      line: 304
       lineChar: 30
       spanCodeSection: 
-    - startInstruction: 13072
-      endInstruction: 13071
-      startSourceChar: 8128
-      endSourceChar: 8128
-      line: 301
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 8290
+      endSourceChar: 8290
+      line: 304
       lineChar: 30
       spanCodeSection: 
-    - startInstruction: 13072
-      endInstruction: 13071
-      startSourceChar: 8128
-      endSourceChar: 8137
-      line: 301
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 8290
+      endSourceChar: 8299
+      line: 304
       lineChar: 30
       spanCodeSection: nextCard.
-    - startInstruction: 13072
-      endInstruction: 13183
-      startSourceChar: 8137
-      endSourceChar: 8170
-      line: 301
+    - startInstruction: 13500
+      endInstruction: 13611
+      startSourceChar: 8299
+      endSourceChar: 8332
+      line: 304
       lineChar: 39
       spanCodeSection: "GetCardSpriteName());\r\n\r\n        "
-    - startInstruction: 13184
-      endInstruction: 13183
-      startSourceChar: 8170
-      endSourceChar: 8170
-      line: 303
+    - startInstruction: 13612
+      endInstruction: 13611
+      startSourceChar: 8332
+      endSourceChar: 8332
+      line: 306
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13184
-      endInstruction: 13183
-      startSourceChar: 8170
-      endSourceChar: 8172
-      line: 303
+    - startInstruction: 13612
+      endInstruction: 13611
+      startSourceChar: 8332
+      endSourceChar: 8334
+      line: 306
       lineChar: 8
       spanCodeSection: ++
-    - startInstruction: 13184
-      endInstruction: 13215
-      startSourceChar: 8172
-      endSourceChar: 8218
-      line: 303
+    - startInstruction: 13612
+      endInstruction: 13643
+      startSourceChar: 8334
+      endSourceChar: 8380
+      line: 306
       lineChar: 10
       spanCodeSection: "currentDorasCardIndex;\r\n\r\n        \r\n\r\n        "
-    - startInstruction: 13216
-      endInstruction: 13215
-      startSourceChar: 8218
-      endSourceChar: 8225
-      line: 307
+    - startInstruction: 13644
+      endInstruction: 13643
+      startSourceChar: 8380
+      endSourceChar: 8387
+      line: 310
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 13216
-      endInstruction: 13275
-      startSourceChar: 8225
-      endSourceChar: 8249
-      line: 307
+    - startInstruction: 13644
+      endInstruction: 13703
+      startSourceChar: 8387
+      endSourceChar: 8411
+      line: 310
       lineChar: 15
       spanCodeSection: "nextCard;\r\n    }\r\n\r\n    "
-    - startInstruction: 13276
-      endInstruction: 13275
-      startSourceChar: 8249
-      endSourceChar: 8276
-      line: 310
+    - startInstruction: 13704
+      endInstruction: 13703
+      startSourceChar: 8411
+      endSourceChar: 8438
+      line: 313
       lineChar: 4
       spanCodeSection: void setDoraViewerNextCard(
-    - startInstruction: 13276
-      endInstruction: 13283
-      startSourceChar: 8276
-      endSourceChar: 8300
-      line: 310
+    - startInstruction: 13704
+      endInstruction: 13711
+      startSourceChar: 8438
+      endSourceChar: 8462
+      line: 313
       lineChar: 31
       spanCodeSection: "string spriteName)\r\n    "
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8300
-      endSourceChar: 8311
-      line: 311
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8462
+      endSourceChar: 8473
+      line: 314
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8311
-      endSourceChar: 8311
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8473
+      endSourceChar: 8473
+      line: 315
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8311
-      endSourceChar: 8311
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8473
+      endSourceChar: 8473
+      line: 315
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8311
-      endSourceChar: 8327
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8473
+      endSourceChar: 8489
+      line: 315
       lineChar: 8
       spanCodeSection: 'var doraDisplay '
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8327
-      endSourceChar: 8329
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8489
+      endSourceChar: 8491
+      line: 315
       lineChar: 24
       spanCodeSection: '= '
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8329
-      endSourceChar: 8329
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8491
+      endSourceChar: 8491
+      line: 315
       lineChar: 26
       spanCodeSection: 
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8329
-      endSourceChar: 8329
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8491
+      endSourceChar: 8491
+      line: 315
       lineChar: 26
       spanCodeSection: 
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8329
-      endSourceChar: 8329
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8491
+      endSourceChar: 8491
+      line: 315
       lineChar: 26
       spanCodeSection: 
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8329
-      endSourceChar: 8340
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8491
+      endSourceChar: 8502
+      line: 315
       lineChar: 26
       spanCodeSection: DoraViewer.
-    - startInstruction: 13284
-      endInstruction: 13283
-      startSourceChar: 8340
-      endSourceChar: 8350
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13711
+      startSourceChar: 8502
+      endSourceChar: 8512
+      line: 315
       lineChar: 37
       spanCodeSection: transform.
-    - startInstruction: 13284
-      endInstruction: 13307
-      startSourceChar: 8350
-      endSourceChar: 8359
-      line: 312
+    - startInstruction: 13712
+      endInstruction: 13735
+      startSourceChar: 8512
+      endSourceChar: 8521
+      line: 315
       lineChar: 47
       spanCodeSection: GetChild(
-    - startInstruction: 13308
-      endInstruction: 13359
-      startSourceChar: 8359
-      endSourceChar: 8392
-      line: 312
+    - startInstruction: 13736
+      endInstruction: 13787
+      startSourceChar: 8521
+      endSourceChar: 8554
+      line: 315
       lineChar: 56
       spanCodeSection: "currentDorasCardIndex);\r\n        "
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8392
-      endSourceChar: 8392
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8554
+      endSourceChar: 8554
+      line: 316
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8392
-      endSourceChar: 8392
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8554
+      endSourceChar: 8554
+      line: 316
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8392
-      endSourceChar: 8392
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8554
+      endSourceChar: 8554
+      line: 316
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8392
-      endSourceChar: 8392
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8554
+      endSourceChar: 8554
+      line: 316
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8392
-      endSourceChar: 8392
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8554
+      endSourceChar: 8554
+      line: 316
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8392
-      endSourceChar: 8404
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8554
+      endSourceChar: 8566
+      line: 316
       lineChar: 8
       spanCodeSection: doraDisplay.
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8404
-      endSourceChar: 8416
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8566
+      endSourceChar: 8578
+      line: 316
       lineChar: 20
       spanCodeSection: GetComponent
-    - startInstruction: 13360
-      endInstruction: 13359
-      startSourceChar: 8416
-      endSourceChar: 8417
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13787
+      startSourceChar: 8578
+      endSourceChar: 8579
+      line: 316
       lineChar: 32
       spanCodeSection: <
-    - startInstruction: 13360
-      endInstruction: 13391
-      startSourceChar: 8417
-      endSourceChar: 8426
-      line: 313
+    - startInstruction: 13788
+      endInstruction: 13819
+      startSourceChar: 8579
+      endSourceChar: 8588
+      line: 316
       lineChar: 33
       spanCodeSection: Image>().
-    - startInstruction: 13392
-      endInstruction: 13391
-      startSourceChar: 8426
-      endSourceChar: 8434
-      line: 313
+    - startInstruction: 13820
+      endInstruction: 13819
+      startSourceChar: 8588
+      endSourceChar: 8596
+      line: 316
       lineChar: 42
       spanCodeSection: 'color = '
-    - startInstruction: 13392
-      endInstruction: 13391
-      startSourceChar: 8434
-      endSourceChar: 8434
-      line: 313
+    - startInstruction: 13820
+      endInstruction: 13819
+      startSourceChar: 8596
+      endSourceChar: 8596
+      line: 316
       lineChar: 50
       spanCodeSection: 
-    - startInstruction: 13392
-      endInstruction: 13391
-      startSourceChar: 8434
-      endSourceChar: 8440
-      line: 313
+    - startInstruction: 13820
+      endInstruction: 13819
+      startSourceChar: 8596
+      endSourceChar: 8602
+      line: 316
       lineChar: 50
       spanCodeSection: Color.
-    - startInstruction: 13392
-      endInstruction: 13431
-      startSourceChar: 8440
-      endSourceChar: 8456
-      line: 313
+    - startInstruction: 13820
+      endInstruction: 13859
+      startSourceChar: 8602
+      endSourceChar: 8618
+      line: 316
       lineChar: 56
       spanCodeSection: "white;\r\n        "
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8456
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8618
+      line: 317
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8456
-      endSourceChar: 8468
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8618
+      endSourceChar: 8630
+      line: 317
       lineChar: 8
       spanCodeSection: doraDisplay.
-    - startInstruction: 13432
-      endInstruction: 13431
-      startSourceChar: 8468
-      endSourceChar: 8477
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13859
+      startSourceChar: 8630
+      endSourceChar: 8639
+      line: 317
       lineChar: 20
       spanCodeSection: GetChild(
-    - startInstruction: 13432
-      endInstruction: 13463
-      startSourceChar: 8477
-      endSourceChar: 8480
-      line: 314
+    - startInstruction: 13860
+      endInstruction: 13891
+      startSourceChar: 8639
+      endSourceChar: 8642
+      line: 317
       lineChar: 29
       spanCodeSection: 0).
-    - startInstruction: 13464
-      endInstruction: 13463
-      startSourceChar: 8480
-      endSourceChar: 8492
-      line: 314
+    - startInstruction: 13892
+      endInstruction: 13891
+      startSourceChar: 8642
+      endSourceChar: 8654
+      line: 317
       lineChar: 32
       spanCodeSection: GetComponent
-    - startInstruction: 13464
-      endInstruction: 13463
-      startSourceChar: 8492
-      endSourceChar: 8493
-      line: 314
+    - startInstruction: 13892
+      endInstruction: 13891
+      startSourceChar: 8654
+      endSourceChar: 8655
+      line: 317
       lineChar: 44
       spanCodeSection: <
-    - startInstruction: 13464
-      endInstruction: 13495
-      startSourceChar: 8493
-      endSourceChar: 8502
-      line: 314
+    - startInstruction: 13892
+      endInstruction: 13923
+      startSourceChar: 8655
+      endSourceChar: 8664
+      line: 317
       lineChar: 45
       spanCodeSection: Image>().
-    - startInstruction: 13496
-      endInstruction: 13495
-      startSourceChar: 8502
-      endSourceChar: 8511
-      line: 314
+    - startInstruction: 13924
+      endInstruction: 13923
+      startSourceChar: 8664
+      endSourceChar: 8673
+      line: 317
       lineChar: 54
       spanCodeSection: 'sprite = '
-    - startInstruction: 13496
-      endInstruction: 13495
-      startSourceChar: 8511
-      endSourceChar: 8511
-      line: 314
+    - startInstruction: 13924
+      endInstruction: 13923
+      startSourceChar: 8673
+      endSourceChar: 8673
+      line: 317
       lineChar: 63
       spanCodeSection: 
-    - startInstruction: 13496
-      endInstruction: 13495
-      startSourceChar: 8511
-      endSourceChar: 8511
-      line: 314
+    - startInstruction: 13924
+      endInstruction: 13923
+      startSourceChar: 8673
+      endSourceChar: 8673
+      line: 317
       lineChar: 63
       spanCodeSection: 
-    - startInstruction: 13496
-      endInstruction: 13495
-      startSourceChar: 8511
-      endSourceChar: 8519
-      line: 314
+    - startInstruction: 13924
+      endInstruction: 13923
+      startSourceChar: 8673
+      endSourceChar: 8681
+      line: 317
       lineChar: 63
       spanCodeSection: Sprites.
-    - startInstruction: 13496
-      endInstruction: 13495
-      startSourceChar: 8519
-      endSourceChar: 8530
-      line: 314
+    - startInstruction: 13924
+      endInstruction: 13923
+      startSourceChar: 8681
+      endSourceChar: 8692
+      line: 317
       lineChar: 71
       spanCodeSection: FindSprite(
-    - startInstruction: 13496
-      endInstruction: 13647
-      startSourceChar: 8530
-      endSourceChar: 8557
-      line: 314
+    - startInstruction: 13924
+      endInstruction: 14075
+      startSourceChar: 8692
+      endSourceChar: 8719
+      line: 317
       lineChar: 82
       spanCodeSection: "spriteName);\r\n    }\r\n\r\n    "
-    - startInstruction: 13648
-      endInstruction: 13655
-      startSourceChar: 8557
-      endSourceChar: 8584
-      line: 317
+    - startInstruction: 14076
+      endInstruction: 14083
+      startSourceChar: 8719
+      endSourceChar: 8746
+      line: 320
       lineChar: 4
       spanCodeSection: "public bool IsReady()\r\n    "
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8584
-      endSourceChar: 8595
-      line: 318
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8746
+      endSourceChar: 8757
+      line: 321
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8595
-      endSourceChar: 8599
-      line: 319
-      lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8599
-      endSourceChar: 8600
-      line: 319
-      lineChar: 12
-      spanCodeSection: '!'
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8600
-      endSourceChar: 8600
-      line: 319
-      lineChar: 13
-      spanCodeSection: 
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8600
-      endSourceChar: 8600
-      line: 319
-      lineChar: 13
-      spanCodeSection: 
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8600
-      endSourceChar: 8611
-      line: 319
-      lineChar: 13
-      spanCodeSection: Networking.
-    - startInstruction: 13656
-      endInstruction: 13655
-      startSourceChar: 8611
-      endSourceChar: 8625
-      line: 319
-      lineChar: 24
-      spanCodeSection: IsObjectReady(
-    - startInstruction: 13656
-      endInstruction: 13719
-      startSourceChar: 8625
-      endSourceChar: 8638
-      line: 319
-      lineChar: 38
-      spanCodeSection: 'gameObject)) '
-    - startInstruction: 13720
-      endInstruction: 13719
-      startSourceChar: 8638
-      endSourceChar: 8640
-      line: 319
-      lineChar: 51
-      spanCodeSection: '{ '
-    - startInstruction: 13720
-      endInstruction: 13719
-      startSourceChar: 8640
-      endSourceChar: 8647
-      line: 319
-      lineChar: 53
-      spanCodeSection: 'return '
-    - startInstruction: 13720
-      endInstruction: 13759
-      startSourceChar: 8647
-      endSourceChar: 8667
-      line: 319
-      lineChar: 60
-      spanCodeSection: "false; }\r\n\r\n        "
-    - startInstruction: 13760
-      endInstruction: 13759
-      startSourceChar: 8667
-      endSourceChar: 8676
-      line: 321
-      lineChar: 8
-      spanCodeSection: foreach (
-    - startInstruction: 13760
-      endInstruction: 13759
-      startSourceChar: 8676
-      endSourceChar: 8688
-      line: 321
-      lineChar: 17
-      spanCodeSection: 'var card in '
-    - startInstruction: 13760
-      endInstruction: 13903
-      startSourceChar: 8688
-      endSourceChar: 8703
-      line: 321
-      lineChar: 29
-      spanCodeSection: "yama)\r\n        "
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8703
-      endSourceChar: 8718
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8757
+      endSourceChar: 8761
       line: 322
       lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8718
-      endSourceChar: 8722
-      line: 323
-      lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8722
-      endSourceChar: 8723
-      line: 323
-      lineChar: 16
-      spanCodeSection: '!'
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8723
-      endSourceChar: 8723
-      line: 323
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8723
-      endSourceChar: 8723
-      line: 323
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8723
-      endSourceChar: 8734
-      line: 323
-      lineChar: 17
-      spanCodeSection: Networking.
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8734
-      endSourceChar: 8748
-      line: 323
-      lineChar: 28
-      spanCodeSection: IsObjectReady(
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8748
-      endSourceChar: 8748
-      line: 323
-      lineChar: 42
-      spanCodeSection: 
-    - startInstruction: 13904
-      endInstruction: 13903
-      startSourceChar: 8748
-      endSourceChar: 8753
-      line: 323
-      lineChar: 42
-      spanCodeSection: card.
-    - startInstruction: 13904
-      endInstruction: 13991
-      startSourceChar: 8753
-      endSourceChar: 8779
-      line: 323
-      lineChar: 47
-      spanCodeSection: "gameObject))\r\n            "
-    - startInstruction: 13992
-      endInstruction: 13991
-      startSourceChar: 8779
-      endSourceChar: 8798
-      line: 324
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8761
+      endSourceChar: 8762
+      line: 322
       lineChar: 12
-      spanCodeSection: "{\r\n                "
-    - startInstruction: 13992
-      endInstruction: 13991
-      startSourceChar: 8798
-      endSourceChar: 8805
-      line: 325
-      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8762
+      endSourceChar: 8762
+      line: 322
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8762
+      endSourceChar: 8762
+      line: 322
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8762
+      endSourceChar: 8773
+      line: 322
+      lineChar: 13
+      spanCodeSection: Networking.
+    - startInstruction: 14084
+      endInstruction: 14083
+      startSourceChar: 8773
+      endSourceChar: 8787
+      line: 322
+      lineChar: 24
+      spanCodeSection: IsObjectReady(
+    - startInstruction: 14084
+      endInstruction: 14147
+      startSourceChar: 8787
+      endSourceChar: 8800
+      line: 322
+      lineChar: 38
+      spanCodeSection: 'gameObject)) '
+    - startInstruction: 14148
+      endInstruction: 14147
+      startSourceChar: 8800
+      endSourceChar: 8802
+      line: 322
+      lineChar: 51
+      spanCodeSection: '{ '
+    - startInstruction: 14148
+      endInstruction: 14147
+      startSourceChar: 8802
+      endSourceChar: 8809
+      line: 322
+      lineChar: 53
       spanCodeSection: 'return '
-    - startInstruction: 13992
-      endInstruction: 14071
-      startSourceChar: 8805
-      endSourceChar: 8849
-      line: 325
-      lineChar: 23
-      spanCodeSection: "false;\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 14072
-      endInstruction: 14071
-      startSourceChar: 8849
-      endSourceChar: 8858
-      line: 329
+    - startInstruction: 14148
+      endInstruction: 14187
+      startSourceChar: 8809
+      endSourceChar: 8829
+      line: 322
+      lineChar: 60
+      spanCodeSection: "false; }\r\n\r\n        "
+    - startInstruction: 14188
+      endInstruction: 14187
+      startSourceChar: 8829
+      endSourceChar: 8838
+      line: 324
       lineChar: 8
       spanCodeSection: foreach (
-    - startInstruction: 14072
-      endInstruction: 14071
-      startSourceChar: 8858
-      endSourceChar: 8872
-      line: 329
+    - startInstruction: 14188
+      endInstruction: 14187
+      startSourceChar: 8838
+      endSourceChar: 8850
+      line: 324
       lineChar: 17
-      spanCodeSection: 'var player in '
-    - startInstruction: 14072
-      endInstruction: 14215
-      startSourceChar: 8872
-      endSourceChar: 8890
-      line: 329
-      lineChar: 31
-      spanCodeSection: "players)\r\n        "
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8890
-      endSourceChar: 8905
-      line: 330
+      spanCodeSection: 'var card in '
+    - startInstruction: 14188
+      endInstruction: 14331
+      startSourceChar: 8850
+      endSourceChar: 8865
+      line: 324
+      lineChar: 29
+      spanCodeSection: "yama)\r\n        "
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8865
+      endSourceChar: 8880
+      line: 325
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8905
-      endSourceChar: 8909
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8880
+      endSourceChar: 8884
+      line: 326
       lineChar: 12
       spanCodeSection: if (
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8909
-      endSourceChar: 8910
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8884
+      endSourceChar: 8885
+      line: 326
       lineChar: 16
       spanCodeSection: '!'
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8910
-      endSourceChar: 8910
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8885
+      endSourceChar: 8885
+      line: 326
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8910
-      endSourceChar: 8910
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8885
+      endSourceChar: 8885
+      line: 326
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8910
-      endSourceChar: 8921
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8885
+      endSourceChar: 8896
+      line: 326
       lineChar: 17
       spanCodeSection: Networking.
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8921
-      endSourceChar: 8935
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8896
+      endSourceChar: 8910
+      line: 326
       lineChar: 28
       spanCodeSection: IsObjectReady(
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8935
-      endSourceChar: 8935
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8910
+      endSourceChar: 8910
+      line: 326
       lineChar: 42
       spanCodeSection: 
-    - startInstruction: 14216
-      endInstruction: 14215
-      startSourceChar: 8935
-      endSourceChar: 8942
-      line: 331
+    - startInstruction: 14332
+      endInstruction: 14331
+      startSourceChar: 8910
+      endSourceChar: 8915
+      line: 326
       lineChar: 42
-      spanCodeSection: player.
-    - startInstruction: 14216
-      endInstruction: 14303
-      startSourceChar: 8942
-      endSourceChar: 8968
-      line: 331
-      lineChar: 49
+      spanCodeSection: card.
+    - startInstruction: 14332
+      endInstruction: 14419
+      startSourceChar: 8915
+      endSourceChar: 8941
+      line: 326
+      lineChar: 47
       spanCodeSection: "gameObject))\r\n            "
-    - startInstruction: 14304
-      endInstruction: 14303
-      startSourceChar: 8968
-      endSourceChar: 8987
-      line: 332
+    - startInstruction: 14420
+      endInstruction: 14419
+      startSourceChar: 8941
+      endSourceChar: 8960
+      line: 327
       lineChar: 12
       spanCodeSection: "{\r\n                "
-    - startInstruction: 14304
-      endInstruction: 14303
-      startSourceChar: 8987
-      endSourceChar: 8994
-      line: 333
+    - startInstruction: 14420
+      endInstruction: 14419
+      startSourceChar: 8960
+      endSourceChar: 8967
+      line: 328
       lineChar: 16
       spanCodeSection: 'return '
-    - startInstruction: 14304
-      endInstruction: 14383
-      startSourceChar: 8994
-      endSourceChar: 9038
-      line: 333
+    - startInstruction: 14420
+      endInstruction: 14499
+      startSourceChar: 8967
+      endSourceChar: 9011
+      line: 328
       lineChar: 23
       spanCodeSection: "false;\r\n            }\r\n        }\r\n\r\n        "
-    - startInstruction: 14384
-      endInstruction: 14383
-      startSourceChar: 9038
-      endSourceChar: 9045
-      line: 337
+    - startInstruction: 14500
+      endInstruction: 14499
+      startSourceChar: 9011
+      endSourceChar: 9020
+      line: 332
+      lineChar: 8
+      spanCodeSection: foreach (
+    - startInstruction: 14500
+      endInstruction: 14499
+      startSourceChar: 9020
+      endSourceChar: 9034
+      line: 332
+      lineChar: 17
+      spanCodeSection: 'var player in '
+    - startInstruction: 14500
+      endInstruction: 14643
+      startSourceChar: 9034
+      endSourceChar: 9052
+      line: 332
+      lineChar: 31
+      spanCodeSection: "players)\r\n        "
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9052
+      endSourceChar: 9067
+      line: 333
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9067
+      endSourceChar: 9071
+      line: 334
+      lineChar: 12
+      spanCodeSection: if (
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9071
+      endSourceChar: 9072
+      line: 334
+      lineChar: 16
+      spanCodeSection: '!'
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9072
+      endSourceChar: 9072
+      line: 334
+      lineChar: 17
+      spanCodeSection: 
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9072
+      endSourceChar: 9072
+      line: 334
+      lineChar: 17
+      spanCodeSection: 
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9072
+      endSourceChar: 9083
+      line: 334
+      lineChar: 17
+      spanCodeSection: Networking.
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9083
+      endSourceChar: 9097
+      line: 334
+      lineChar: 28
+      spanCodeSection: IsObjectReady(
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9097
+      endSourceChar: 9097
+      line: 334
+      lineChar: 42
+      spanCodeSection: 
+    - startInstruction: 14644
+      endInstruction: 14643
+      startSourceChar: 9097
+      endSourceChar: 9104
+      line: 334
+      lineChar: 42
+      spanCodeSection: player.
+    - startInstruction: 14644
+      endInstruction: 14731
+      startSourceChar: 9104
+      endSourceChar: 9130
+      line: 334
+      lineChar: 49
+      spanCodeSection: "gameObject))\r\n            "
+    - startInstruction: 14732
+      endInstruction: 14731
+      startSourceChar: 9130
+      endSourceChar: 9149
+      line: 335
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 14732
+      endInstruction: 14731
+      startSourceChar: 9149
+      endSourceChar: 9156
+      line: 336
+      lineChar: 16
+      spanCodeSection: 'return '
+    - startInstruction: 14732
+      endInstruction: 14811
+      startSourceChar: 9156
+      endSourceChar: 9200
+      line: 336
+      lineChar: 23
+      spanCodeSection: "false;\r\n            }\r\n        }\r\n\r\n        "
+    - startInstruction: 14812
+      endInstruction: 14811
+      startSourceChar: 9200
+      endSourceChar: 9207
+      line: 340
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 14384
-      endInstruction: 14384
-      startSourceChar: 9045
-      endSourceChar: 9045
-      line: 337
+    - startInstruction: 14812
+      endInstruction: 14812
+      startSourceChar: 9207
+      endSourceChar: 9207
+      line: 340
       lineChar: 15
       spanCodeSection: 
   hasInteractEvent: 0
