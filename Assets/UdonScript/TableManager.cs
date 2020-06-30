@@ -78,7 +78,7 @@ public class TableManager : UdonSharpBehaviour
             var isFirstTsumo = index == 0;
             var isLastTsumo = index == yama.Length - 1;
 
-            player.AddCard(nextCard, isFirstTsumo, isLastTsumo);
+            player.AddCard(nextCard, isFirstTsumo, isLastTsumo, false);
             player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
             player.CheckRiichiable(); // 쯔모에서만 리치를 봄 
 
@@ -93,7 +93,7 @@ public class TableManager : UdonSharpBehaviour
         var dora = GetNextDoraCard();
         if (nextCard != null && dora != null)
         {
-            player.AddCard(nextCard, false, false);
+            player.AddCard(nextCard, false, false, true);
             player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
 
             SetDoraMaterials(dora.GlobalOrder);
@@ -152,6 +152,14 @@ public class TableManager : UdonSharpBehaviour
     }
 
     public void DisableUIAll()
+    {
+        foreach (var player in players)
+        {
+            player.DisableUI();
+        }
+    }
+
+    public void DisableOneShotRiichiAll()
     {
         foreach (var player in players)
         {

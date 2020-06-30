@@ -357,6 +357,7 @@ public class GameManager : UdonSharpBehaviour
 
         uiActivedCount = 0;
         waitingNakiCard = null;
+        TableManager.DisableOneShotRiichiAll(); // 누군가 울면 일발이 깨진다 
         TableManager.DisableUIAll();
         ChangeGameState(State_WaitForDiscard);
     }

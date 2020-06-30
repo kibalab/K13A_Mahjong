@@ -130,6 +130,22 @@ public class HandUtil : UdonSharpBehaviour
         };
     }
 
+    public bool IsYaojuhai(int globalOrder)
+    {
+        return globalOrder != MAN_START_GLOBAL_ORDER
+            && globalOrder != MAN_END_GLOBAL_ORDER
+            && globalOrder != SOU_START_GLOBAL_ORDER
+            && globalOrder != SOU_END_GLOBAL_ORDER
+            && globalOrder != PIN_START_GLOBAL_ORDER
+            && globalOrder != PIN_END_GLOBAL_ORDER
+            && globalOrder < WORDS_START_GLOBAL_ORDER;
+    }
+
+    public bool IsWordCard(int globalOrder)
+    {
+        return WORDS_START_GLOBAL_ORDER <= globalOrder && globalOrder <= WORDS_END_GLOBAL_ORDER;
+    }
+
     public int GetYaojuhaiTypeCount(int[] tiles)
     {
         return (tiles[MAN_START_GLOBAL_ORDER] > 0 ? 1 : 0)
