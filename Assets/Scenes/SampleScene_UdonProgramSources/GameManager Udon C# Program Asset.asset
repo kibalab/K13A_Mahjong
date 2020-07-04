@@ -5513,1463 +5513,1464 @@ MonoBehaviour:
     - startInstruction: 6560
       endInstruction: 6559
       startSourceChar: 7354
-      endSourceChar: 7369
+      endSourceChar: 7469
       line: 246
       lineChar: 8
-      spanCodeSection: "{\r\n            "
+      spanCodeSection: "{\r\n            // \uB9AC\uCE58\uBD09 \uB193\uC740 \uB2E4\uC74C
+        \uC810\uC218 \uAE4E\uACE0 \uD328 \uAC00\uB85C\uB85C \uB3CC\uB824\uB193\uB294
+        \uCC98\uB9AC \uD574\uC57C \uD568\r\n            //  - ActiveRiichiMode() \uC5D0\uC11C
+        \uCC98\uB9AC\uD558\uAC8C \uD574\uB460\r\n            "
     - startInstruction: 6560
       endInstruction: 6559
-      startSourceChar: 7369
-      endSourceChar: 7369
-      line: 247
+      startSourceChar: 7469
+      endSourceChar: 7469
+      line: 249
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6560
       endInstruction: 6559
-      startSourceChar: 7369
-      endSourceChar: 7369
-      line: 247
+      startSourceChar: 7469
+      endSourceChar: 7469
+      line: 249
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6560
       endInstruction: 6559
-      startSourceChar: 7369
-      endSourceChar: 7369
-      line: 247
+      startSourceChar: 7469
+      endSourceChar: 7469
+      line: 249
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6560
       endInstruction: 6559
-      startSourceChar: 7369
-      endSourceChar: 7383
-      line: 247
+      startSourceChar: 7469
+      endSourceChar: 7483
+      line: 249
       lineChar: 12
       spanCodeSection: currentPlayer.
     - startInstruction: 6560
       endInstruction: 6583
-      startSourceChar: 7383
-      endSourceChar: 7533
-      line: 247
+      startSourceChar: 7483
+      endSourceChar: 7565
+      line: 249
       lineChar: 26
-      spanCodeSection: "ActiveRiichiMode();\r\n            // \uB9AC\uCE58\uBD09 \uB193\uC740
-        \uB2E4\uC74C \uC810\uC218 \uAE4E\uACE0 \uD328 \uAC00\uB85C\uB85C \uB3CC\uB824\uB193\uB294
-        \uCC98\uB9AC \uD574\uC57C \uD568\r\n            // TODO\r\n            //
-        \uB9AC\uCE58 \uAD00\uB828 \uCC98\uB9AC \uD558\uACE0 \uC77C\uBC18\uC801\uC778
-        Discard\uB85C \uC774\uB3D9\r\n            "
+      spanCodeSection: "ActiveRiichiMode();\r\n\r\n\r\n            // \uB9AC\uCE58
+        \uAD00\uB828 \uCC98\uB9AC \uD558\uACE0 \uC77C\uBC18\uC801\uC778 Discard\uB85C
+        \uC774\uB3D9\r\n            "
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7533
-      endSourceChar: 7533
-      line: 251
+      startSourceChar: 7565
+      endSourceChar: 7565
+      line: 253
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7533
-      endSourceChar: 7533
-      line: 251
+      startSourceChar: 7565
+      endSourceChar: 7565
+      line: 253
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7533
-      endSourceChar: 7533
-      line: 251
+      startSourceChar: 7565
+      endSourceChar: 7565
+      line: 253
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7533
-      endSourceChar: 7544
-      line: 251
+      startSourceChar: 7565
+      endSourceChar: 7576
+      line: 253
       lineChar: 12
       spanCodeSection: EventQueue.
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7544
-      endSourceChar: 7560
-      line: 251
+      startSourceChar: 7576
+      endSourceChar: 7592
+      line: 253
       lineChar: 23
       spanCodeSection: SetDiscardEvent(
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7560
-      endSourceChar: 7560
-      line: 251
+      startSourceChar: 7592
+      endSourceChar: 7592
+      line: 253
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 6584
       endInstruction: 6583
-      startSourceChar: 7560
-      endSourceChar: 7571
-      line: 251
+      startSourceChar: 7592
+      endSourceChar: 7603
+      line: 253
       lineChar: 39
       spanCodeSection: inputEvent.
     - startInstruction: 6584
       endInstruction: 6639
-      startSourceChar: 7571
-      endSourceChar: 7595
-      line: 251
+      startSourceChar: 7603
+      endSourceChar: 7627
+      line: 253
       lineChar: 50
       spanCodeSection: 'DiscardedCardYamaIndex, '
     - startInstruction: 6640
       endInstruction: 6639
-      startSourceChar: 7595
-      endSourceChar: 7595
-      line: 251
+      startSourceChar: 7627
+      endSourceChar: 7627
+      line: 253
       lineChar: 74
       spanCodeSection: 
     - startInstruction: 6640
       endInstruction: 6639
-      startSourceChar: 7595
-      endSourceChar: 7606
-      line: 251
+      startSourceChar: 7627
+      endSourceChar: 7638
+      line: 253
       lineChar: 74
       spanCodeSection: inputEvent.
     - startInstruction: 6640
       endInstruction: 6791
-      startSourceChar: 7606
-      endSourceChar: 7640
-      line: 251
+      startSourceChar: 7638
+      endSourceChar: 7672
+      line: 253
       lineChar: 85
       spanCodeSection: "PlayerIndex);\r\n        }\r\n        "
     - startInstruction: 6792
       endInstruction: 6791
-      startSourceChar: 7640
-      endSourceChar: 7645
-      line: 253
+      startSourceChar: 7672
+      endSourceChar: 7677
+      line: 255
       lineChar: 8
       spanCodeSection: 'else '
     - startInstruction: 6792
       endInstruction: 6791
-      startSourceChar: 7645
-      endSourceChar: 7649
-      line: 253
+      startSourceChar: 7677
+      endSourceChar: 7681
+      line: 255
       lineChar: 13
       spanCodeSection: if (
     - startInstruction: 6792
       endInstruction: 6791
-      startSourceChar: 7649
-      endSourceChar: 7649
-      line: 253
+      startSourceChar: 7681
+      endSourceChar: 7681
+      line: 255
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 6792
       endInstruction: 6791
-      startSourceChar: 7649
-      endSourceChar: 7662
-      line: 253
+      startSourceChar: 7681
+      endSourceChar: 7694
+      line: 255
       lineChar: 17
       spanCodeSection: 'eventType == '
     - startInstruction: 6792
       endInstruction: 6839
-      startSourceChar: 7662
-      endSourceChar: 7682
-      line: 253
+      startSourceChar: 7694
+      endSourceChar: 7714
+      line: 255
       lineChar: 30
       spanCodeSection: "\"Discard\")\r\n        "
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7682
-      endSourceChar: 7697
-      line: 254
+      startSourceChar: 7714
+      endSourceChar: 7729
+      line: 256
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7697
-      endSourceChar: 7697
-      line: 255
+      startSourceChar: 7729
+      endSourceChar: 7729
+      line: 257
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7697
-      endSourceChar: 7697
-      line: 255
+      startSourceChar: 7729
+      endSourceChar: 7729
+      line: 257
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7697
-      endSourceChar: 7711
-      line: 255
+      startSourceChar: 7729
+      endSourceChar: 7743
+      line: 257
       lineChar: 12
       spanCodeSection: 'var eventCard '
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7711
-      endSourceChar: 7713
-      line: 255
+      startSourceChar: 7743
+      endSourceChar: 7745
+      line: 257
       lineChar: 26
       spanCodeSection: '= '
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7713
-      endSourceChar: 7713
-      line: 255
+      startSourceChar: 7745
+      endSourceChar: 7745
+      line: 257
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7713
-      endSourceChar: 7713
-      line: 255
+      startSourceChar: 7745
+      endSourceChar: 7745
+      line: 257
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7713
-      endSourceChar: 7726
-      line: 255
+      startSourceChar: 7745
+      endSourceChar: 7758
+      line: 257
       lineChar: 28
       spanCodeSection: TableManager.
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7726
-      endSourceChar: 7741
-      line: 255
+      startSourceChar: 7758
+      endSourceChar: 7773
+      line: 257
       lineChar: 41
       spanCodeSection: GetCardByIndex(
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7741
-      endSourceChar: 7741
-      line: 255
+      startSourceChar: 7773
+      endSourceChar: 7773
+      line: 257
       lineChar: 56
       spanCodeSection: 
     - startInstruction: 6840
       endInstruction: 6839
-      startSourceChar: 7741
-      endSourceChar: 7752
-      line: 255
+      startSourceChar: 7773
+      endSourceChar: 7784
+      line: 257
       lineChar: 56
       spanCodeSection: inputEvent.
     - startInstruction: 6840
       endInstruction: 7023
-      startSourceChar: 7752
-      endSourceChar: 7790
-      line: 255
+      startSourceChar: 7784
+      endSourceChar: 7822
+      line: 257
       lineChar: 67
       spanCodeSection: "DiscardedCardYamaIndex);\r\n            "
     - startInstruction: 7024
       endInstruction: 7023
-      startSourceChar: 7790
-      endSourceChar: 7790
-      line: 256
+      startSourceChar: 7822
+      endSourceChar: 7822
+      line: 258
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7024
       endInstruction: 7023
-      startSourceChar: 7790
-      endSourceChar: 7790
-      line: 256
+      startSourceChar: 7822
+      endSourceChar: 7822
+      line: 258
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7024
       endInstruction: 7023
-      startSourceChar: 7790
-      endSourceChar: 7790
-      line: 256
+      startSourceChar: 7822
+      endSourceChar: 7822
+      line: 258
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7024
       endInstruction: 7023
-      startSourceChar: 7790
-      endSourceChar: 7804
-      line: 256
+      startSourceChar: 7822
+      endSourceChar: 7836
+      line: 258
       lineChar: 12
       spanCodeSection: currentPlayer.
     - startInstruction: 7024
       endInstruction: 7047
-      startSourceChar: 7804
-      endSourceChar: 7830
-      line: 256
+      startSourceChar: 7836
+      endSourceChar: 7862
+      line: 258
       lineChar: 26
       spanCodeSection: "DisableUI();\r\n            "
     - startInstruction: 7048
       endInstruction: 7047
-      startSourceChar: 7830
-      endSourceChar: 7830
-      line: 257
+      startSourceChar: 7862
+      endSourceChar: 7862
+      line: 259
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7048
       endInstruction: 7047
-      startSourceChar: 7830
-      endSourceChar: 7830
-      line: 257
+      startSourceChar: 7862
+      endSourceChar: 7862
+      line: 259
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7048
       endInstruction: 7047
-      startSourceChar: 7830
-      endSourceChar: 7830
-      line: 257
+      startSourceChar: 7862
+      endSourceChar: 7862
+      line: 259
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7048
       endInstruction: 7047
-      startSourceChar: 7830
-      endSourceChar: 7844
-      line: 257
+      startSourceChar: 7862
+      endSourceChar: 7876
+      line: 259
       lineChar: 12
       spanCodeSection: currentPlayer.
     - startInstruction: 7048
       endInstruction: 7047
-      startSourceChar: 7844
-      endSourceChar: 7852
-      line: 257
+      startSourceChar: 7876
+      endSourceChar: 7884
+      line: 259
       lineChar: 26
       spanCodeSection: Discard(
     - startInstruction: 7048
       endInstruction: 7103
-      startSourceChar: 7852
-      endSourceChar: 7879
-      line: 257
+      startSourceChar: 7884
+      endSourceChar: 7911
+      line: 259
       lineChar: 34
       spanCodeSection: "eventCard);\r\n\r\n            "
     - startInstruction: 7104
       endInstruction: 7103
-      startSourceChar: 7879
-      endSourceChar: 7879
-      line: 259
+      startSourceChar: 7911
+      endSourceChar: 7911
+      line: 261
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7104
       endInstruction: 7103
-      startSourceChar: 7879
-      endSourceChar: 7879
-      line: 259
+      startSourceChar: 7911
+      endSourceChar: 7911
+      line: 261
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7104
       endInstruction: 7103
-      startSourceChar: 7879
-      endSourceChar: 7879
-      line: 259
+      startSourceChar: 7911
+      endSourceChar: 7911
+      line: 261
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7104
       endInstruction: 7103
-      startSourceChar: 7879
-      endSourceChar: 7892
-      line: 259
+      startSourceChar: 7911
+      endSourceChar: 7924
+      line: 261
       lineChar: 12
       spanCodeSection: TableManager.
     - startInstruction: 7104
       endInstruction: 7103
-      startSourceChar: 7892
-      endSourceChar: 7908
-      line: 259
+      startSourceChar: 7924
+      endSourceChar: 7940
+      line: 261
       lineChar: 25
       spanCodeSection: AnnounceDiscard(
     - startInstruction: 7104
       endInstruction: 7159
-      startSourceChar: 7908
-      endSourceChar: 7935
-      line: 259
+      startSourceChar: 7940
+      endSourceChar: 7967
+      line: 261
       lineChar: 41
       spanCodeSection: "eventCard);\r\n\r\n            "
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7935
-      endSourceChar: 7935
-      line: 261
+      startSourceChar: 7967
+      endSourceChar: 7967
+      line: 263
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7935
-      endSourceChar: 7935
-      line: 261
+      startSourceChar: 7967
+      endSourceChar: 7967
+      line: 263
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7935
-      endSourceChar: 7949
-      line: 261
+      startSourceChar: 7967
+      endSourceChar: 7981
+      line: 263
       lineChar: 12
       spanCodeSection: 'var uiActived '
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7949
-      endSourceChar: 7951
-      line: 261
+      startSourceChar: 7981
+      endSourceChar: 7983
+      line: 263
       lineChar: 26
       spanCodeSection: '= '
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7951
-      endSourceChar: 7951
-      line: 261
+      startSourceChar: 7983
+      endSourceChar: 7983
+      line: 263
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7951
-      endSourceChar: 7951
-      line: 261
+      startSourceChar: 7983
+      endSourceChar: 7983
+      line: 263
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 7160
       endInstruction: 7159
-      startSourceChar: 7951
-      endSourceChar: 7964
-      line: 261
+      startSourceChar: 7983
+      endSourceChar: 7996
+      line: 263
       lineChar: 28
       spanCodeSection: TableManager.
     - startInstruction: 7160
       endInstruction: 7259
-      startSourceChar: 7964
-      endSourceChar: 8002
-      line: 261
+      startSourceChar: 7996
+      endSourceChar: 8034
+      line: 263
       lineChar: 41
       spanCodeSection: "GetUIActivedUserCount();\r\n            "
     - startInstruction: 7260
       endInstruction: 7259
-      startSourceChar: 8002
-      endSourceChar: 8006
-      line: 262
+      startSourceChar: 8034
+      endSourceChar: 8038
+      line: 264
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 7260
       endInstruction: 7259
-      startSourceChar: 8006
-      endSourceChar: 8006
-      line: 262
+      startSourceChar: 8038
+      endSourceChar: 8038
+      line: 264
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7260
       endInstruction: 7259
-      startSourceChar: 8006
-      endSourceChar: 8019
-      line: 262
+      startSourceChar: 8038
+      endSourceChar: 8051
+      line: 264
       lineChar: 16
       spanCodeSection: 'uiActived == '
     - startInstruction: 7260
       endInstruction: 7307
-      startSourceChar: 8019
-      endSourceChar: 8035
-      line: 262
+      startSourceChar: 8051
+      endSourceChar: 8067
+      line: 264
       lineChar: 29
       spanCodeSection: "0)\r\n            "
     - startInstruction: 7308
       endInstruction: 7307
-      startSourceChar: 8035
-      endSourceChar: 8054
-      line: 263
+      startSourceChar: 8067
+      endSourceChar: 8086
+      line: 265
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 7308
       endInstruction: 7307
-      startSourceChar: 8054
-      endSourceChar: 8054
-      line: 264
+      startSourceChar: 8086
+      endSourceChar: 8086
+      line: 266
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7308
       endInstruction: 7307
-      startSourceChar: 8054
-      endSourceChar: 8054
-      line: 264
+      startSourceChar: 8086
+      endSourceChar: 8086
+      line: 266
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7308
       endInstruction: 7307
-      startSourceChar: 8054
-      endSourceChar: 8054
-      line: 264
+      startSourceChar: 8086
+      endSourceChar: 8086
+      line: 266
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7308
       endInstruction: 7307
-      startSourceChar: 8054
-      endSourceChar: 8067
-      line: 264
+      startSourceChar: 8086
+      endSourceChar: 8099
+      line: 266
       lineChar: 16
       spanCodeSection: TableManager.
     - startInstruction: 7308
       endInstruction: 7331
-      startSourceChar: 8067
-      endSourceChar: 8099
-      line: 264
+      startSourceChar: 8099
+      endSourceChar: 8131
+      line: 266
       lineChar: 29
       spanCodeSection: "SetNextTurn();\r\n                "
     - startInstruction: 7332
       endInstruction: 7331
-      startSourceChar: 8099
-      endSourceChar: 8099
-      line: 265
+      startSourceChar: 8131
+      endSourceChar: 8131
+      line: 267
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7332
       endInstruction: 7331
-      startSourceChar: 8099
-      endSourceChar: 8099
-      line: 265
+      startSourceChar: 8131
+      endSourceChar: 8131
+      line: 267
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7332
       endInstruction: 7331
-      startSourceChar: 8099
-      endSourceChar: 8099
-      line: 265
+      startSourceChar: 8131
+      endSourceChar: 8131
+      line: 267
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7332
       endInstruction: 7331
-      startSourceChar: 8099
-      endSourceChar: 8112
-      line: 265
+      startSourceChar: 8131
+      endSourceChar: 8144
+      line: 267
       lineChar: 16
       spanCodeSection: TableManager.
     - startInstruction: 7332
       endInstruction: 7355
-      startSourceChar: 8112
-      endSourceChar: 8146
-      line: 265
+      startSourceChar: 8144
+      endSourceChar: 8178
+      line: 267
       lineChar: 29
       spanCodeSection: "AddNextCard();\r\n\r\n                "
     - startInstruction: 7356
       endInstruction: 7355
-      startSourceChar: 8146
-      endSourceChar: 8146
-      line: 267
+      startSourceChar: 8178
+      endSourceChar: 8178
+      line: 269
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7356
       endInstruction: 7355
-      startSourceChar: 8146
-      endSourceChar: 8146
-      line: 267
+      startSourceChar: 8178
+      endSourceChar: 8178
+      line: 269
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7356
       endInstruction: 7355
-      startSourceChar: 8146
-      endSourceChar: 8162
-      line: 267
+      startSourceChar: 8178
+      endSourceChar: 8194
+      line: 269
       lineChar: 16
       spanCodeSection: ChangeGameState(
     - startInstruction: 7356
       endInstruction: 7419
-      startSourceChar: 8162
-      endSourceChar: 8213
-      line: 267
+      startSourceChar: 8194
+      endSourceChar: 8245
+      line: 269
       lineChar: 32
       spanCodeSection: "State_WaitForDiscard);\r\n            }\r\n            "
     - startInstruction: 7420
       endInstruction: 7419
-      startSourceChar: 8213
-      endSourceChar: 8231
-      line: 269
+      startSourceChar: 8245
+      endSourceChar: 8263
+      line: 271
       lineChar: 12
       spanCodeSection: "else\r\n            "
     - startInstruction: 7420
       endInstruction: 7419
-      startSourceChar: 8231
-      endSourceChar: 8250
-      line: 270
+      startSourceChar: 8263
+      endSourceChar: 8282
+      line: 272
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 7420
       endInstruction: 7419
-      startSourceChar: 8250
-      endSourceChar: 8250
-      line: 271
+      startSourceChar: 8282
+      endSourceChar: 8282
+      line: 273
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7420
       endInstruction: 7419
-      startSourceChar: 8250
-      endSourceChar: 8250
-      line: 271
+      startSourceChar: 8282
+      endSourceChar: 8282
+      line: 273
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7420
       endInstruction: 7419
-      startSourceChar: 8250
-      endSourceChar: 8268
-      line: 271
+      startSourceChar: 8282
+      endSourceChar: 8300
+      line: 273
       lineChar: 16
       spanCodeSection: 'waitingNakiCard = '
     - startInstruction: 7420
       endInstruction: 7439
-      startSourceChar: 8268
-      endSourceChar: 8296
-      line: 271
+      startSourceChar: 8300
+      endSourceChar: 8328
+      line: 273
       lineChar: 34
       spanCodeSection: "eventCard;\r\n                "
     - startInstruction: 7440
       endInstruction: 7439
-      startSourceChar: 8296
-      endSourceChar: 8296
-      line: 272
+      startSourceChar: 8328
+      endSourceChar: 8328
+      line: 274
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7440
       endInstruction: 7439
-      startSourceChar: 8296
-      endSourceChar: 8296
-      line: 272
+      startSourceChar: 8328
+      endSourceChar: 8328
+      line: 274
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7440
       endInstruction: 7439
-      startSourceChar: 8296
-      endSourceChar: 8313
-      line: 272
+      startSourceChar: 8328
+      endSourceChar: 8345
+      line: 274
       lineChar: 16
       spanCodeSection: 'uiActivedCount = '
     - startInstruction: 7440
       endInstruction: 7459
-      startSourceChar: 8313
-      endSourceChar: 8343
-      line: 272
+      startSourceChar: 8345
+      endSourceChar: 8375
+      line: 274
       lineChar: 33
       spanCodeSection: "uiActived;\r\n\r\n                "
     - startInstruction: 7460
       endInstruction: 7459
-      startSourceChar: 8343
-      endSourceChar: 8343
-      line: 274
+      startSourceChar: 8375
+      endSourceChar: 8375
+      line: 276
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7460
       endInstruction: 7459
-      startSourceChar: 8343
-      endSourceChar: 8343
-      line: 274
+      startSourceChar: 8375
+      endSourceChar: 8375
+      line: 276
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7460
       endInstruction: 7459
-      startSourceChar: 8343
-      endSourceChar: 8343
-      line: 274
+      startSourceChar: 8375
+      endSourceChar: 8375
+      line: 276
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7460
       endInstruction: 7459
-      startSourceChar: 8343
-      endSourceChar: 8353
-      line: 274
+      startSourceChar: 8375
+      endSourceChar: 8385
+      line: 276
       lineChar: 16
       spanCodeSection: LogViewer.
     - startInstruction: 7460
       endInstruction: 7459
-      startSourceChar: 8353
-      endSourceChar: 8357
-      line: 274
+      startSourceChar: 8385
+      endSourceChar: 8389
+      line: 276
       lineChar: 26
       spanCodeSection: Log(
     - startInstruction: 7460
       endInstruction: 7459
-      startSourceChar: 8357
-      endSourceChar: 8359
-      line: 274
+      startSourceChar: 8389
+      endSourceChar: 8391
+      line: 276
       lineChar: 30
       spanCodeSection: $"
     - startInstruction: 7460
       endInstruction: 7479
-      startSourceChar: 8359
-      endSourceChar: 8376
-      line: 274
+      startSourceChar: 8391
+      endSourceChar: 8408
+      line: 276
       lineChar: 32
       spanCodeSection: 'UIActived. Count:'
     - startInstruction: 7480
       endInstruction: 7479
-      startSourceChar: 8376
-      endSourceChar: 8377
-      line: 274
+      startSourceChar: 8408
+      endSourceChar: 8409
+      line: 276
       lineChar: 49
       spanCodeSection: '{'
     - startInstruction: 7480
       endInstruction: 7555
-      startSourceChar: 8377
-      endSourceChar: 8395
-      line: 274
+      startSourceChar: 8409
+      endSourceChar: 8427
+      line: 276
       lineChar: 50
       spanCodeSection: 'uiActivedCount}", '
     - startInstruction: 7556
       endInstruction: 7663
-      startSourceChar: 8395
-      endSourceChar: 8418
-      line: 274
+      startSourceChar: 8427
+      endSourceChar: 8450
+      line: 276
       lineChar: 68
       spanCodeSection: "0);\r\n\r\n                "
     - startInstruction: 7664
       endInstruction: 7663
-      startSourceChar: 8418
-      endSourceChar: 8418
-      line: 276
+      startSourceChar: 8450
+      endSourceChar: 8450
+      line: 278
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7664
       endInstruction: 7663
-      startSourceChar: 8418
-      endSourceChar: 8418
-      line: 276
+      startSourceChar: 8450
+      endSourceChar: 8450
+      line: 278
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 7664
       endInstruction: 7663
-      startSourceChar: 8418
-      endSourceChar: 8434
-      line: 276
+      startSourceChar: 8450
+      endSourceChar: 8466
+      line: 278
       lineChar: 16
       spanCodeSection: ChangeGameState(
     - startInstruction: 7664
       endInstruction: 7739
-      startSourceChar: 8434
-      endSourceChar: 8496
-      line: 276
+      startSourceChar: 8466
+      endSourceChar: 8528
+      line: 278
       lineChar: 32
       spanCodeSection: "State_WaitForNaki);\r\n            }\r\n\r\n        }\r\n
         \   }\r\n\r\n    "
     - startInstruction: 7740
       endInstruction: 7739
-      startSourceChar: 8496
-      endSourceChar: 8513
-      line: 282
+      startSourceChar: 8528
+      endSourceChar: 8545
+      line: 284
       lineChar: 4
       spanCodeSection: void WaitForNaki(
     - startInstruction: 7740
       endInstruction: 7747
-      startSourceChar: 8513
-      endSourceChar: 8541
-      line: 282
+      startSourceChar: 8545
+      endSourceChar: 8573
+      line: 284
       lineChar: 21
       spanCodeSection: "InputEvent inputEvent)\r\n    "
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8541
-      endSourceChar: 8552
-      line: 283
+      startSourceChar: 8573
+      endSourceChar: 8584
+      line: 285
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8552
-      endSourceChar: 8552
-      line: 284
+      startSourceChar: 8584
+      endSourceChar: 8584
+      line: 286
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8552
-      endSourceChar: 8552
-      line: 284
+      startSourceChar: 8584
+      endSourceChar: 8584
+      line: 286
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8552
-      endSourceChar: 8566
-      line: 284
+      startSourceChar: 8584
+      endSourceChar: 8598
+      line: 286
       lineChar: 8
       spanCodeSection: 'var eventType '
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8566
-      endSourceChar: 8568
-      line: 284
+      startSourceChar: 8598
+      endSourceChar: 8600
+      line: 286
       lineChar: 22
       spanCodeSection: '= '
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8568
-      endSourceChar: 8568
-      line: 284
+      startSourceChar: 8600
+      endSourceChar: 8600
+      line: 286
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 7748
       endInstruction: 7747
-      startSourceChar: 8568
-      endSourceChar: 8579
-      line: 284
+      startSourceChar: 8600
+      endSourceChar: 8611
+      line: 286
       lineChar: 24
       spanCodeSection: inputEvent.
     - startInstruction: 7748
       endInstruction: 7819
-      startSourceChar: 8579
-      endSourceChar: 8601
-      line: 284
+      startSourceChar: 8611
+      endSourceChar: 8633
+      line: 286
       lineChar: 35
       spanCodeSection: "EventType;\r\n\r\n        "
     - startInstruction: 7820
       endInstruction: 7819
-      startSourceChar: 8601
-      endSourceChar: 8605
-      line: 286
+      startSourceChar: 8633
+      endSourceChar: 8637
+      line: 288
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 7820
       endInstruction: 7819
-      startSourceChar: 8605
-      endSourceChar: 8605
-      line: 286
+      startSourceChar: 8637
+      endSourceChar: 8637
+      line: 288
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7820
       endInstruction: 7819
-      startSourceChar: 8605
-      endSourceChar: 8624
-      line: 286
+      startSourceChar: 8637
+      endSourceChar: 8656
+      line: 288
       lineChar: 12
       spanCodeSection: 'waitingNakiCard == '
     - startInstruction: 7820
       endInstruction: 7867
-      startSourceChar: 8624
-      endSourceChar: 8630
-      line: 286
+      startSourceChar: 8656
+      endSourceChar: 8662
+      line: 288
       lineChar: 31
       spanCodeSection: 'null) '
     - startInstruction: 7868
       endInstruction: 7867
-      startSourceChar: 8630
-      endSourceChar: 8632
-      line: 286
+      startSourceChar: 8662
+      endSourceChar: 8664
+      line: 288
       lineChar: 37
       spanCodeSection: '{ '
     - startInstruction: 7868
       endInstruction: 7867
-      startSourceChar: 8632
-      endSourceChar: 8632
-      line: 286
+      startSourceChar: 8664
+      endSourceChar: 8664
+      line: 288
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 7868
       endInstruction: 7867
-      startSourceChar: 8632
-      endSourceChar: 8632
-      line: 286
+      startSourceChar: 8664
+      endSourceChar: 8664
+      line: 288
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 7868
       endInstruction: 7867
-      startSourceChar: 8632
-      endSourceChar: 8632
-      line: 286
+      startSourceChar: 8664
+      endSourceChar: 8664
+      line: 288
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 7868
       endInstruction: 7867
-      startSourceChar: 8632
-      endSourceChar: 8638
-      line: 286
+      startSourceChar: 8664
+      endSourceChar: 8670
+      line: 288
       lineChar: 39
       spanCodeSection: Debug.
     - startInstruction: 7868
       endInstruction: 7867
-      startSourceChar: 8638
-      endSourceChar: 8642
-      line: 286
+      startSourceChar: 8670
+      endSourceChar: 8674
+      line: 288
       lineChar: 45
       spanCodeSection: Log(
     - startInstruction: 7868
       endInstruction: 7883
-      startSourceChar: 8642
-      endSourceChar: 8677
-      line: 286
+      startSourceChar: 8674
+      endSourceChar: 8709
+      line: 288
       lineChar: 49
       spanCodeSection: "\"\uC774\uAC8C null\uC774\uBA74.. \uC548\uB418\uB294\uB370?\");
         }\r\n\r\n        "
     - startInstruction: 7884
       endInstruction: 7883
-      startSourceChar: 8677
-      endSourceChar: 8681
-      line: 288
+      startSourceChar: 8709
+      endSourceChar: 8713
+      line: 290
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 7884
       endInstruction: 7883
-      startSourceChar: 8681
-      endSourceChar: 8681
-      line: 288
+      startSourceChar: 8713
+      endSourceChar: 8713
+      line: 290
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7884
       endInstruction: 7883
-      startSourceChar: 8681
-      endSourceChar: 8681
-      line: 288
+      startSourceChar: 8713
+      endSourceChar: 8713
+      line: 290
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 7884
       endInstruction: 7883
-      startSourceChar: 8681
-      endSourceChar: 8694
-      line: 288
+      startSourceChar: 8713
+      endSourceChar: 8726
+      line: 290
       lineChar: 12
       spanCodeSection: 'eventType == '
     - startInstruction: 7884
       endInstruction: 7951
-      startSourceChar: 8694
-      endSourceChar: 8704
-      line: 288
+      startSourceChar: 8726
+      endSourceChar: 8736
+      line: 290
       lineChar: 25
       spanCodeSection: '"Skip" && '
     - startInstruction: 7952
       endInstruction: 7951
-      startSourceChar: 8704
-      endSourceChar: 8704
-      line: 288
+      startSourceChar: 8736
+      endSourceChar: 8736
+      line: 290
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 7952
       endInstruction: 7951
-      startSourceChar: 8704
-      endSourceChar: 8721
-      line: 288
+      startSourceChar: 8736
+      endSourceChar: 8753
+      line: 290
       lineChar: 35
       spanCodeSection: 'uiActivedCount > '
     - startInstruction: 7952
       endInstruction: 8051
-      startSourceChar: 8721
-      endSourceChar: 8733
-      line: 288
+      startSourceChar: 8753
+      endSourceChar: 8765
+      line: 290
       lineChar: 52
       spanCodeSection: "0)\r\n        "
     - startInstruction: 8052
       endInstruction: 8051
-      startSourceChar: 8733
-      endSourceChar: 8748
-      line: 289
+      startSourceChar: 8765
+      endSourceChar: 8780
+      line: 291
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8052
       endInstruction: 8051
-      startSourceChar: 8748
-      endSourceChar: 8748
-      line: 290
+      startSourceChar: 8780
+      endSourceChar: 8780
+      line: 292
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8052
       endInstruction: 8051
-      startSourceChar: 8748
-      endSourceChar: 8748
-      line: 290
+      startSourceChar: 8780
+      endSourceChar: 8780
+      line: 292
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8052
       endInstruction: 8075
-      startSourceChar: 8748
-      endSourceChar: 8783
-      line: 290
+      startSourceChar: 8780
+      endSourceChar: 8815
+      line: 292
       lineChar: 12
       spanCodeSection: "ProcessSkip();\r\n        }\r\n        "
     - startInstruction: 8076
       endInstruction: 8075
-      startSourceChar: 8783
-      endSourceChar: 8788
-      line: 292
+      startSourceChar: 8815
+      endSourceChar: 8820
+      line: 294
       lineChar: 8
       spanCodeSection: 'else '
     - startInstruction: 8076
       endInstruction: 8075
-      startSourceChar: 8788
-      endSourceChar: 8792
-      line: 292
+      startSourceChar: 8820
+      endSourceChar: 8824
+      line: 294
       lineChar: 13
       spanCodeSection: if (
     - startInstruction: 8076
       endInstruction: 8075
-      startSourceChar: 8792
-      endSourceChar: 8792
-      line: 292
+      startSourceChar: 8824
+      endSourceChar: 8824
+      line: 294
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 8076
       endInstruction: 8075
-      startSourceChar: 8792
-      endSourceChar: 8804
-      line: 292
+      startSourceChar: 8824
+      endSourceChar: 8836
+      line: 294
       lineChar: 17
       spanCodeSection: IsNakiInput(
     - startInstruction: 8076
       endInstruction: 8127
-      startSourceChar: 8804
-      endSourceChar: 8826
-      line: 292
+      startSourceChar: 8836
+      endSourceChar: 8858
+      line: 294
       lineChar: 29
       spanCodeSection: "inputEvent))\r\n        "
     - startInstruction: 8128
       endInstruction: 8127
-      startSourceChar: 8826
-      endSourceChar: 8841
-      line: 293
+      startSourceChar: 8858
+      endSourceChar: 8873
+      line: 295
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8128
       endInstruction: 8127
-      startSourceChar: 8841
-      endSourceChar: 8841
-      line: 294
+      startSourceChar: 8873
+      endSourceChar: 8873
+      line: 296
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8128
       endInstruction: 8127
-      startSourceChar: 8841
-      endSourceChar: 8841
-      line: 294
+      startSourceChar: 8873
+      endSourceChar: 8873
+      line: 296
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8128
       endInstruction: 8127
-      startSourceChar: 8841
-      endSourceChar: 8853
-      line: 294
+      startSourceChar: 8873
+      endSourceChar: 8885
+      line: 296
       lineChar: 12
       spanCodeSection: ProcessNaki(
     - startInstruction: 8128
       endInstruction: 8183
-      startSourceChar: 8853
-      endSourceChar: 8891
-      line: 294
+      startSourceChar: 8885
+      endSourceChar: 8923
+      line: 296
       lineChar: 24
       spanCodeSection: "inputEvent);\r\n        }\r\n    }\r\n\r\n    "
     - startInstruction: 8184
       endInstruction: 8191
-      startSourceChar: 8891
-      endSourceChar: 8915
-      line: 298
+      startSourceChar: 8923
+      endSourceChar: 8947
+      line: 300
       lineChar: 4
       spanCodeSection: "void ProcessSkip()\r\n    "
     - startInstruction: 8192
       endInstruction: 8191
-      startSourceChar: 8915
-      endSourceChar: 8926
-      line: 299
+      startSourceChar: 8947
+      endSourceChar: 8958
+      line: 301
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8192
       endInstruction: 8191
-      startSourceChar: 8926
-      endSourceChar: 8926
-      line: 300
+      startSourceChar: 8958
+      endSourceChar: 8958
+      line: 302
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8192
       endInstruction: 8191
-      startSourceChar: 8926
-      endSourceChar: 8928
-      line: 300
+      startSourceChar: 8958
+      endSourceChar: 8960
+      line: 302
       lineChar: 8
       spanCodeSection: --
     - startInstruction: 8192
       endInstruction: 8223
-      startSourceChar: 8928
-      endSourceChar: 8953
-      line: 300
+      startSourceChar: 8960
+      endSourceChar: 8985
+      line: 302
       lineChar: 10
       spanCodeSection: "uiActivedCount;\r\n        "
     - startInstruction: 8224
       endInstruction: 8223
-      startSourceChar: 8953
-      endSourceChar: 8957
-      line: 301
+      startSourceChar: 8985
+      endSourceChar: 8989
+      line: 303
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 8224
       endInstruction: 8223
-      startSourceChar: 8957
-      endSourceChar: 8957
-      line: 301
+      startSourceChar: 8989
+      endSourceChar: 8989
+      line: 303
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8224
       endInstruction: 8223
-      startSourceChar: 8957
-      endSourceChar: 8975
-      line: 301
+      startSourceChar: 8989
+      endSourceChar: 9007
+      line: 303
       lineChar: 12
       spanCodeSection: 'uiActivedCount == '
     - startInstruction: 8224
       endInstruction: 8271
-      startSourceChar: 8975
-      endSourceChar: 8987
-      line: 301
+      startSourceChar: 9007
+      endSourceChar: 9019
+      line: 303
       lineChar: 30
       spanCodeSection: "0)\r\n        "
     - startInstruction: 8272
       endInstruction: 8271
-      startSourceChar: 8987
-      endSourceChar: 9002
-      line: 302
+      startSourceChar: 9019
+      endSourceChar: 9034
+      line: 304
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 8272
       endInstruction: 8271
-      startSourceChar: 9002
-      endSourceChar: 9002
-      line: 303
+      startSourceChar: 9034
+      endSourceChar: 9034
+      line: 305
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8272
       endInstruction: 8271
-      startSourceChar: 9002
-      endSourceChar: 9002
-      line: 303
+      startSourceChar: 9034
+      endSourceChar: 9034
+      line: 305
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8272
       endInstruction: 8271
-      startSourceChar: 9002
-      endSourceChar: 9002
-      line: 303
+      startSourceChar: 9034
+      endSourceChar: 9034
+      line: 305
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8272
       endInstruction: 8271
-      startSourceChar: 9002
-      endSourceChar: 9015
-      line: 303
+      startSourceChar: 9034
+      endSourceChar: 9047
+      line: 305
       lineChar: 12
       spanCodeSection: TableManager.
     - startInstruction: 8272
       endInstruction: 8295
-      startSourceChar: 9015
-      endSourceChar: 9044
-      line: 303
+      startSourceChar: 9047
+      endSourceChar: 9076
+      line: 305
       lineChar: 25
       spanCodeSection: "DisableUIAll();\r\n            "
     - startInstruction: 8296
       endInstruction: 8295
-      startSourceChar: 9044
-      endSourceChar: 9044
-      line: 304
+      startSourceChar: 9076
+      endSourceChar: 9076
+      line: 306
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8296
       endInstruction: 8295
-      startSourceChar: 9044
-      endSourceChar: 9044
-      line: 304
+      startSourceChar: 9076
+      endSourceChar: 9076
+      line: 306
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8296
       endInstruction: 8295
-      startSourceChar: 9044
-      endSourceChar: 9044
-      line: 304
+      startSourceChar: 9076
+      endSourceChar: 9076
+      line: 306
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8296
       endInstruction: 8295
-      startSourceChar: 9044
-      endSourceChar: 9057
-      line: 304
+      startSourceChar: 9076
+      endSourceChar: 9089
+      line: 306
       lineChar: 12
       spanCodeSection: TableManager.
     - startInstruction: 8296
       endInstruction: 8319
-      startSourceChar: 9057
-      endSourceChar: 9085
-      line: 304
+      startSourceChar: 9089
+      endSourceChar: 9117
+      line: 306
       lineChar: 25
       spanCodeSection: "SetNextTurn();\r\n            "
     - startInstruction: 8320
       endInstruction: 8319
-      startSourceChar: 9085
-      endSourceChar: 9085
-      line: 305
+      startSourceChar: 9117
+      endSourceChar: 9117
+      line: 307
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8320
       endInstruction: 8319
-      startSourceChar: 9085
-      endSourceChar: 9085
-      line: 305
+      startSourceChar: 9117
+      endSourceChar: 9117
+      line: 307
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8320
       endInstruction: 8319
-      startSourceChar: 9085
-      endSourceChar: 9085
-      line: 305
+      startSourceChar: 9117
+      endSourceChar: 9117
+      line: 307
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8320
       endInstruction: 8319
-      startSourceChar: 9085
-      endSourceChar: 9098
-      line: 305
+      startSourceChar: 9117
+      endSourceChar: 9130
+      line: 307
       lineChar: 12
       spanCodeSection: TableManager.
     - startInstruction: 8320
       endInstruction: 8343
-      startSourceChar: 9098
-      endSourceChar: 9126
-      line: 305
+      startSourceChar: 9130
+      endSourceChar: 9158
+      line: 307
       lineChar: 25
       spanCodeSection: "AddNextCard();\r\n            "
     - startInstruction: 8344
       endInstruction: 8343
-      startSourceChar: 9126
-      endSourceChar: 9126
-      line: 306
+      startSourceChar: 9158
+      endSourceChar: 9158
+      line: 308
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8344
       endInstruction: 8343
-      startSourceChar: 9126
-      endSourceChar: 9126
-      line: 306
+      startSourceChar: 9158
+      endSourceChar: 9158
+      line: 308
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 8344
       endInstruction: 8343
-      startSourceChar: 9126
-      endSourceChar: 9142
-      line: 306
+      startSourceChar: 9158
+      endSourceChar: 9174
+      line: 308
       lineChar: 12
       spanCodeSection: ChangeGameState(
     - startInstruction: 8344
       endInstruction: 8419
-      startSourceChar: 9142
-      endSourceChar: 9190
-      line: 306
+      startSourceChar: 9174
+      endSourceChar: 9222
+      line: 308
       lineChar: 28
       spanCodeSection: "State_WaitForDiscard);\r\n        }\r\n    }\r\n\r\n    "
     - startInstruction: 8420
       endInstruction: 8419
-      startSourceChar: 9190
-      endSourceChar: 9207
-      line: 310
+      startSourceChar: 9222
+      endSourceChar: 9239
+      line: 312
       lineChar: 4
       spanCodeSection: void ProcessNaki(
     - startInstruction: 8420
       endInstruction: 8427
-      startSourceChar: 9207
-      endSourceChar: 9235
-      line: 310
+      startSourceChar: 9239
+      endSourceChar: 9267
+      line: 312
       lineChar: 21
       spanCodeSection: "InputEvent inputEvent)\r\n    "
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9235
-      endSourceChar: 9246
-      line: 311
+      startSourceChar: 9267
+      endSourceChar: 9278
+      line: 313
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9246
-      endSourceChar: 9246
-      line: 312
+      startSourceChar: 9278
+      endSourceChar: 9278
+      line: 314
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9246
-      endSourceChar: 9246
-      line: 312
+      startSourceChar: 9278
+      endSourceChar: 9278
+      line: 314
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9246
-      endSourceChar: 9263
-      line: 312
+      startSourceChar: 9278
+      endSourceChar: 9295
+      line: 314
       lineChar: 8
       spanCodeSection: 'var formerPlayer '
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9263
-      endSourceChar: 9265
-      line: 312
+      startSourceChar: 9295
+      endSourceChar: 9297
+      line: 314
       lineChar: 25
       spanCodeSection: '= '
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9265
-      endSourceChar: 9265
-      line: 312
+      startSourceChar: 9297
+      endSourceChar: 9297
+      line: 314
       lineChar: 27
       spanCodeSection: 
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9265
-      endSourceChar: 9265
-      line: 312
+      startSourceChar: 9297
+      endSourceChar: 9297
+      line: 314
       lineChar: 27
       spanCodeSection: 
     - startInstruction: 8428
       endInstruction: 8427
-      startSourceChar: 9265
-      endSourceChar: 9278
-      line: 312
+      startSourceChar: 9297
+      endSourceChar: 9310
+      line: 314
       lineChar: 27
       spanCodeSection: TableManager.
     - startInstruction: 8428
       endInstruction: 8523
-      startSourceChar: 9278
-      endSourceChar: 9311
-      line: 312
+      startSourceChar: 9310
+      endSourceChar: 9343
+      line: 314
       lineChar: 40
       spanCodeSection: "GetCurrentTurnPlayer();\r\n        "
     - startInstruction: 8524
       endInstruction: 8523
-      startSourceChar: 9311
-      endSourceChar: 9311
-      line: 313
+      startSourceChar: 9343
+      endSourceChar: 9343
+      line: 315
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8524
       endInstruction: 8523
-      startSourceChar: 9311
-      endSourceChar: 9311
-      line: 313
+      startSourceChar: 9343
+      endSourceChar: 9343
+      line: 315
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8524
       endInstruction: 8523
-      startSourceChar: 9311
-      endSourceChar: 9311
-      line: 313
+      startSourceChar: 9343
+      endSourceChar: 9343
+      line: 315
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8524
       endInstruction: 8523
-      startSourceChar: 9311
-      endSourceChar: 9324
-      line: 313
+      startSourceChar: 9343
+      endSourceChar: 9356
+      line: 315
       lineChar: 8
       spanCodeSection: formerPlayer.
     - startInstruction: 8524
       endInstruction: 8523
-      startSourceChar: 9324
-      endSourceChar: 9342
-      line: 313
+      startSourceChar: 9356
+      endSourceChar: 9374
+      line: 315
       lineChar: 21
       spanCodeSection: RemoveStashedCard(
     - startInstruction: 8524
       endInstruction: 8599
-      startSourceChar: 9342
-      endSourceChar: 9369
-      line: 313
+      startSourceChar: 9374
+      endSourceChar: 9401
+      line: 315
       lineChar: 39
       spanCodeSection: "waitingNakiCard);\r\n        "
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9369
-      endSourceChar: 9369
-      line: 314
+      startSourceChar: 9401
+      endSourceChar: 9401
+      line: 316
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9369
-      endSourceChar: 9369
-      line: 314
+      startSourceChar: 9401
+      endSourceChar: 9401
+      line: 316
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9369
-      endSourceChar: 9384
-      line: 314
+      startSourceChar: 9401
+      endSourceChar: 9416
+      line: 316
       lineChar: 8
       spanCodeSection: 'var nakiPlayer '
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9384
-      endSourceChar: 9386
-      line: 314
+      startSourceChar: 9416
+      endSourceChar: 9418
+      line: 316
       lineChar: 23
       spanCodeSection: '= '
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9386
-      endSourceChar: 9386
-      line: 314
+      startSourceChar: 9418
+      endSourceChar: 9418
+      line: 316
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9386
-      endSourceChar: 9386
-      line: 314
+      startSourceChar: 9418
+      endSourceChar: 9418
+      line: 316
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9386
-      endSourceChar: 9399
-      line: 314
+      startSourceChar: 9418
+      endSourceChar: 9431
+      line: 316
       lineChar: 25
       spanCodeSection: TableManager.
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9399
-      endSourceChar: 9409
-      line: 314
+      startSourceChar: 9431
+      endSourceChar: 9441
+      line: 316
       lineChar: 38
       spanCodeSection: GetPlayer(
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9409
-      endSourceChar: 9409
-      line: 314
+      startSourceChar: 9441
+      endSourceChar: 9441
+      line: 316
       lineChar: 48
       spanCodeSection: 
     - startInstruction: 8600
       endInstruction: 8599
-      startSourceChar: 9409
-      endSourceChar: 9420
-      line: 314
+      startSourceChar: 9441
+      endSourceChar: 9452
+      line: 316
       lineChar: 48
       spanCodeSection: inputEvent.
     - startInstruction: 8600
       endInstruction: 8783
-      startSourceChar: 9420
-      endSourceChar: 9445
-      line: 314
+      startSourceChar: 9452
+      endSourceChar: 9477
+      line: 316
       lineChar: 59
       spanCodeSection: "PlayerIndex);\r\n\r\n        "
     - startInstruction: 8784
       endInstruction: 8783
-      startSourceChar: 9445
-      endSourceChar: 9453
-      line: 316
+      startSourceChar: 9477
+      endSourceChar: 9485
+      line: 318
       lineChar: 8
       spanCodeSection: switch (
     - startInstruction: 8784
       endInstruction: 8783
-      startSourceChar: 9453
-      endSourceChar: 9453
-      line: 316
+      startSourceChar: 9485
+      endSourceChar: 9485
+      line: 318
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 8784
       endInstruction: 8783
-      startSourceChar: 9453
-      endSourceChar: 9464
-      line: 316
+      startSourceChar: 9485
+      endSourceChar: 9496
+      line: 318
       lineChar: 16
       spanCodeSection: inputEvent.
     - startInstruction: 8784
       endInstruction: 8835
-      startSourceChar: 9464
-      endSourceChar: 9499
-      line: 316
+      startSourceChar: 9496
+      endSourceChar: 9531
+      line: 318
       lineChar: 27
       spanCodeSection: "EventType)\r\n        {\r\n            "
     - startInstruction: 8836
       endInstruction: 8835
-      startSourceChar: 9499
-      endSourceChar: 9504
-      line: 318
+      startSourceChar: 9531
+      endSourceChar: 9536
+      line: 320
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 8836
       endInstruction: 8891
-      startSourceChar: 9504
-      endSourceChar: 10068
-      line: 318
+      startSourceChar: 9536
+      endSourceChar: 10100
+      line: 320
       lineChar: 17
       spanCodeSection: "\"Chi\":\r\n                {\r\n                    var chiCards
         = new Card[]\r\n                    {\r\n                        waitingNakiCard,\r\n
@@ -6981,16 +6982,16 @@ MonoBehaviour:
         \                   break;\r\n                }\r\n\r\n            "
     - startInstruction: 8892
       endInstruction: 8891
-      startSourceChar: 10068
-      endSourceChar: 10073
-      line: 333
+      startSourceChar: 10100
+      endSourceChar: 10105
+      line: 335
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 8892
       endInstruction: 8947
-      startSourceChar: 10073
-      endSourceChar: 10695
-      line: 333
+      startSourceChar: 10105
+      endSourceChar: 10727
+      line: 335
       lineChar: 17
       spanCodeSection: "\"Pon\":\r\n                {\r\n                    var sameOrderCards
         = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 2);\r\n                    var
@@ -7002,16 +7003,16 @@ MonoBehaviour:
         \               }\r\n\r\n            "
     - startInstruction: 8948
       endInstruction: 8947
-      startSourceChar: 10695
-      endSourceChar: 10700
-      line: 348
+      startSourceChar: 10727
+      endSourceChar: 10732
+      line: 350
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 8948
       endInstruction: 9003
-      startSourceChar: 10700
-      endSourceChar: 11422
-      line: 348
+      startSourceChar: 10732
+      endSourceChar: 11454
+      line: 350
       lineChar: 17
       spanCodeSection: "\"Kkan\":\r\n                {\r\n                    var
         sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder,
@@ -7024,1003 +7025,1003 @@ MonoBehaviour:
         \                   break;\r\n                }\r\n\r\n            "
     - startInstruction: 9004
       endInstruction: 9003
-      startSourceChar: 11422
-      endSourceChar: 11427
-      line: 365
+      startSourceChar: 11454
+      endSourceChar: 11459
+      line: 367
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 9004
       endInstruction: 11519
-      startSourceChar: 11427
-      endSourceChar: 11451
-      line: 365
+      startSourceChar: 11459
+      endSourceChar: 11483
+      line: 367
       lineChar: 17
       spanCodeSection: "\"Ron\":\r\n                "
     - startInstruction: 11520
       endInstruction: 11519
-      startSourceChar: 11451
-      endSourceChar: 11505
-      line: 366
+      startSourceChar: 11483
+      endSourceChar: 11537
+      line: 368
       lineChar: 16
       spanCodeSection: "{\r\n                    // \uD574\uC57C\uD55C\uB2E4..\r\n
         \                   "
     - startInstruction: 11520
       endInstruction: 11527
-      startSourceChar: 11505
-      endSourceChar: 11553
-      line: 368
+      startSourceChar: 11537
+      endSourceChar: 11585
+      line: 370
       lineChar: 20
       spanCodeSection: "break;\r\n                }\r\n        }\r\n\r\n        "
     - startInstruction: 11528
       endInstruction: 11527
-      startSourceChar: 11553
-      endSourceChar: 11553
-      line: 372
+      startSourceChar: 11585
+      endSourceChar: 11585
+      line: 374
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11528
       endInstruction: 11527
-      startSourceChar: 11553
-      endSourceChar: 11553
-      line: 372
+      startSourceChar: 11585
+      endSourceChar: 11585
+      line: 374
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11528
       endInstruction: 11527
-      startSourceChar: 11553
-      endSourceChar: 11570
-      line: 372
+      startSourceChar: 11585
+      endSourceChar: 11602
+      line: 374
       lineChar: 8
       spanCodeSection: 'uiActivedCount = '
     - startInstruction: 11528
       endInstruction: 11547
-      startSourceChar: 11570
-      endSourceChar: 11582
-      line: 372
+      startSourceChar: 11602
+      endSourceChar: 11614
+      line: 374
       lineChar: 25
       spanCodeSection: "0;\r\n        "
     - startInstruction: 11548
       endInstruction: 11547
-      startSourceChar: 11582
-      endSourceChar: 11582
-      line: 373
+      startSourceChar: 11614
+      endSourceChar: 11614
+      line: 375
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11548
       endInstruction: 11547
-      startSourceChar: 11582
-      endSourceChar: 11582
-      line: 373
+      startSourceChar: 11614
+      endSourceChar: 11614
+      line: 375
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11548
       endInstruction: 11547
-      startSourceChar: 11582
-      endSourceChar: 11600
-      line: 373
+      startSourceChar: 11614
+      endSourceChar: 11632
+      line: 375
       lineChar: 8
       spanCodeSection: 'waitingNakiCard = '
     - startInstruction: 11548
       endInstruction: 11567
-      startSourceChar: 11600
-      endSourceChar: 11615
-      line: 373
+      startSourceChar: 11632
+      endSourceChar: 11647
+      line: 375
       lineChar: 26
       spanCodeSection: "null;\r\n        "
     - startInstruction: 11568
       endInstruction: 11567
-      startSourceChar: 11615
-      endSourceChar: 11615
-      line: 374
+      startSourceChar: 11647
+      endSourceChar: 11647
+      line: 376
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11568
       endInstruction: 11567
-      startSourceChar: 11615
-      endSourceChar: 11615
-      line: 374
+      startSourceChar: 11647
+      endSourceChar: 11647
+      line: 376
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11568
       endInstruction: 11567
-      startSourceChar: 11615
-      endSourceChar: 11615
-      line: 374
+      startSourceChar: 11647
+      endSourceChar: 11647
+      line: 376
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11568
       endInstruction: 11567
-      startSourceChar: 11615
-      endSourceChar: 11628
-      line: 374
+      startSourceChar: 11647
+      endSourceChar: 11660
+      line: 376
       lineChar: 8
       spanCodeSection: TableManager.
     - startInstruction: 11568
       endInstruction: 11591
-      startSourceChar: 11628
-      endSourceChar: 11683
-      line: 374
+      startSourceChar: 11660
+      endSourceChar: 11715
+      line: 376
       lineChar: 21
       spanCodeSection: "DisableOneShotRiichiAll(); // \uB204\uAD70\uAC00 \uC6B8\uBA74
         \uC77C\uBC1C\uC774 \uAE68\uC9C4\uB2E4 \r\n        "
     - startInstruction: 11592
       endInstruction: 11591
-      startSourceChar: 11683
-      endSourceChar: 11683
-      line: 375
+      startSourceChar: 11715
+      endSourceChar: 11715
+      line: 377
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11592
       endInstruction: 11591
-      startSourceChar: 11683
-      endSourceChar: 11683
-      line: 375
+      startSourceChar: 11715
+      endSourceChar: 11715
+      line: 377
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11592
       endInstruction: 11591
-      startSourceChar: 11683
-      endSourceChar: 11683
-      line: 375
+      startSourceChar: 11715
+      endSourceChar: 11715
+      line: 377
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11592
       endInstruction: 11591
-      startSourceChar: 11683
-      endSourceChar: 11696
-      line: 375
+      startSourceChar: 11715
+      endSourceChar: 11728
+      line: 377
       lineChar: 8
       spanCodeSection: TableManager.
     - startInstruction: 11592
       endInstruction: 11615
-      startSourceChar: 11696
-      endSourceChar: 11721
-      line: 375
+      startSourceChar: 11728
+      endSourceChar: 11753
+      line: 377
       lineChar: 21
       spanCodeSection: "DisableUIAll();\r\n        "
     - startInstruction: 11616
       endInstruction: 11615
-      startSourceChar: 11721
-      endSourceChar: 11721
-      line: 376
+      startSourceChar: 11753
+      endSourceChar: 11753
+      line: 378
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11616
       endInstruction: 11615
-      startSourceChar: 11721
-      endSourceChar: 11721
-      line: 376
+      startSourceChar: 11753
+      endSourceChar: 11753
+      line: 378
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 11616
       endInstruction: 11615
-      startSourceChar: 11721
-      endSourceChar: 11737
-      line: 376
+      startSourceChar: 11753
+      endSourceChar: 11769
+      line: 378
       lineChar: 8
       spanCodeSection: ChangeGameState(
     - startInstruction: 11616
       endInstruction: 11691
-      startSourceChar: 11737
-      endSourceChar: 11774
-      line: 376
+      startSourceChar: 11769
+      endSourceChar: 11806
+      line: 378
       lineChar: 24
       spanCodeSection: "State_WaitForDiscard);\r\n    }\r\n\r\n    "
     - startInstruction: 11692
       endInstruction: 11691
-      startSourceChar: 11774
-      endSourceChar: 11797
-      line: 379
+      startSourceChar: 11806
+      endSourceChar: 11829
+      line: 381
       lineChar: 4
       spanCodeSection: int getPlayerDirection(
     - startInstruction: 11692
       endInstruction: 11691
-      startSourceChar: 11797
-      endSourceChar: 11821
-      line: 379
+      startSourceChar: 11829
+      endSourceChar: 11853
+      line: 381
       lineChar: 27
       spanCodeSection: 'int currentPlayerIndex, '
     - startInstruction: 11692
       endInstruction: 11699
-      startSourceChar: 11821
-      endSourceChar: 11849
-      line: 379
+      startSourceChar: 11853
+      endSourceChar: 11881
+      line: 381
       lineChar: 51
       spanCodeSection: "int targetPlayerIndex)\r\n    "
     - startInstruction: 11700
       endInstruction: 11699
-      startSourceChar: 11849
-      endSourceChar: 11860
-      line: 380
+      startSourceChar: 11881
+      endSourceChar: 11892
+      line: 382
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 11700
       endInstruction: 11699
-      startSourceChar: 11860
-      endSourceChar: 11863
-      line: 381
+      startSourceChar: 11892
+      endSourceChar: 11895
+      line: 383
       lineChar: 8
       spanCodeSection: if(
     - startInstruction: 11700
       endInstruction: 11699
-      startSourceChar: 11863
-      endSourceChar: 11863
-      line: 381
+      startSourceChar: 11895
+      endSourceChar: 11895
+      line: 383
       lineChar: 11
       spanCodeSection: 
     - startInstruction: 11700
       endInstruction: 11699
-      startSourceChar: 11863
-      endSourceChar: 11885
-      line: 381
+      startSourceChar: 11895
+      endSourceChar: 11917
+      line: 383
       lineChar: 11
       spanCodeSection: 'currentPlayerIndex == '
     - startInstruction: 11700
       endInstruction: 11747
-      startSourceChar: 11885
-      endSourceChar: 11913
-      line: 381
+      startSourceChar: 11917
+      endSourceChar: 11945
+      line: 383
       lineChar: 33
       spanCodeSection: "targetPlayerIndex)\r\n        "
     - startInstruction: 11748
       endInstruction: 11747
-      startSourceChar: 11913
-      endSourceChar: 11928
-      line: 382
+      startSourceChar: 11945
+      endSourceChar: 11960
+      line: 384
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 11748
       endInstruction: 11747
-      startSourceChar: 11928
-      endSourceChar: 11935
-      line: 383
+      startSourceChar: 11960
+      endSourceChar: 11967
+      line: 385
       lineChar: 12
       spanCodeSection: 'return '
     - startInstruction: 11748
       endInstruction: 11787
-      startSourceChar: 11935
-      endSourceChar: 11958
-      line: 383
+      startSourceChar: 11967
+      endSourceChar: 11990
+      line: 385
       lineChar: 19
       spanCodeSection: "3;\r\n        }\r\n        "
     - startInstruction: 11788
       endInstruction: 11787
-      startSourceChar: 11958
-      endSourceChar: 11962
-      line: 385
+      startSourceChar: 11990
+      endSourceChar: 11994
+      line: 387
       lineChar: 8
       spanCodeSection: for(
     - startInstruction: 11788
       endInstruction: 11787
-      startSourceChar: 11962
-      endSourceChar: 11962
-      line: 385
+      startSourceChar: 11994
+      endSourceChar: 11994
+      line: 387
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 11788
       endInstruction: 11787
-      startSourceChar: 11962
-      endSourceChar: 11968
-      line: 385
+      startSourceChar: 11994
+      endSourceChar: 12000
+      line: 387
       lineChar: 12
       spanCodeSection: 'var i '
     - startInstruction: 11788
       endInstruction: 11787
-      startSourceChar: 11968
-      endSourceChar: 11970
-      line: 385
+      startSourceChar: 12000
+      endSourceChar: 12002
+      line: 387
       lineChar: 18
       spanCodeSection: '= '
     - startInstruction: 11788
       endInstruction: 11807
-      startSourceChar: 11970
-      endSourceChar: 11973
-      line: 385
+      startSourceChar: 12002
+      endSourceChar: 12005
+      line: 387
       lineChar: 20
       spanCodeSection: '1; '
     - startInstruction: 11808
       endInstruction: 11807
-      startSourceChar: 11973
-      endSourceChar: 11973
-      line: 385
+      startSourceChar: 12005
+      endSourceChar: 12005
+      line: 387
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 11808
       endInstruction: 11807
-      startSourceChar: 11973
-      endSourceChar: 11976
-      line: 385
+      startSourceChar: 12005
+      endSourceChar: 12008
+      line: 387
       lineChar: 23
       spanCodeSection: i<=
     - startInstruction: 11808
       endInstruction: 11855
-      startSourceChar: 11976
-      endSourceChar: 11993
-      line: 385
+      startSourceChar: 12008
+      endSourceChar: 12025
+      line: 387
       lineChar: 26
       spanCodeSection: "4; i++)\r\n        "
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 11993
-      endSourceChar: 12008
-      line: 386
+      startSourceChar: 12025
+      endSourceChar: 12040
+      line: 388
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 12008
-      endSourceChar: 12011
-      line: 387
+      startSourceChar: 12040
+      endSourceChar: 12043
+      line: 389
       lineChar: 12
       spanCodeSection: if(
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 12011
-      endSourceChar: 12011
-      line: 387
+      startSourceChar: 12043
+      endSourceChar: 12043
+      line: 389
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 12011
-      endSourceChar: 12011
-      line: 387
+      startSourceChar: 12043
+      endSourceChar: 12043
+      line: 389
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 12011
-      endSourceChar: 12012
-      line: 387
+      startSourceChar: 12043
+      endSourceChar: 12044
+      line: 389
       lineChar: 15
       spanCodeSection: (
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 12012
-      endSourceChar: 12012
-      line: 387
+      startSourceChar: 12044
+      endSourceChar: 12044
+      line: 389
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 11856
       endInstruction: 11855
-      startSourceChar: 12012
-      endSourceChar: 12033
-      line: 387
+      startSourceChar: 12044
+      endSourceChar: 12065
+      line: 389
       lineChar: 16
       spanCodeSection: 'currentPlayerIndex + '
     - startInstruction: 11856
       endInstruction: 11887
-      startSourceChar: 12033
-      endSourceChar: 12038
-      line: 387
+      startSourceChar: 12065
+      endSourceChar: 12070
+      line: 389
       lineChar: 37
       spanCodeSection: 'i) % '
     - startInstruction: 11888
       endInstruction: 11919
-      startSourceChar: 12038
-      endSourceChar: 12043
-      line: 387
+      startSourceChar: 12070
+      endSourceChar: 12075
+      line: 389
       lineChar: 42
       spanCodeSection: '4 == '
     - startInstruction: 11920
       endInstruction: 11967
-      startSourceChar: 12043
-      endSourceChar: 12075
-      line: 387
+      startSourceChar: 12075
+      endSourceChar: 12107
+      line: 389
       lineChar: 47
       spanCodeSection: "targetPlayerIndex)\r\n            "
     - startInstruction: 11968
       endInstruction: 11967
-      startSourceChar: 12075
-      endSourceChar: 12094
-      line: 388
+      startSourceChar: 12107
+      endSourceChar: 12126
+      line: 390
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 11968
       endInstruction: 11967
-      startSourceChar: 12094
-      endSourceChar: 12101
-      line: 389
+      startSourceChar: 12126
+      endSourceChar: 12133
+      line: 391
       lineChar: 16
       spanCodeSection: 'return '
     - startInstruction: 11968
       endInstruction: 11967
-      startSourceChar: 12101
-      endSourceChar: 12101
-      line: 389
+      startSourceChar: 12133
+      endSourceChar: 12133
+      line: 391
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 11968
       endInstruction: 11967
-      startSourceChar: 12101
-      endSourceChar: 12101
-      line: 389
+      startSourceChar: 12133
+      endSourceChar: 12133
+      line: 391
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 11968
       endInstruction: 11967
-      startSourceChar: 12101
-      endSourceChar: 12105
-      line: 389
+      startSourceChar: 12133
+      endSourceChar: 12137
+      line: 391
       lineChar: 23
       spanCodeSection: '2 - '
     - startInstruction: 11968
       endInstruction: 11999
-      startSourceChar: 12105
-      endSourceChar: 12109
-      line: 389
+      startSourceChar: 12137
+      endSourceChar: 12141
+      line: 391
       lineChar: 27
       spanCodeSection: 'i - '
     - startInstruction: 12000
       endInstruction: 11999
-      startSourceChar: 12109
-      endSourceChar: 12109
-      line: 389
+      startSourceChar: 12141
+      endSourceChar: 12141
+      line: 391
       lineChar: 31
       spanCodeSection: 
     - startInstruction: 12000
       endInstruction: 11999
-      startSourceChar: 12109
-      endSourceChar: 12112
-      line: 389
+      startSourceChar: 12141
+      endSourceChar: 12144
+      line: 391
       lineChar: 31
       spanCodeSection: 1 *
     - startInstruction: 12000
       endInstruction: 11999
-      startSourceChar: 12112
-      endSourceChar: 12113
-      line: 389
+      startSourceChar: 12144
+      endSourceChar: 12145
+      line: 391
       lineChar: 34
       spanCodeSection: '-'
     - startInstruction: 12000
       endInstruction: 12167
-      startSourceChar: 12113
-      endSourceChar: 12151
-      line: 389
+      startSourceChar: 12145
+      endSourceChar: 12183
+      line: 391
       lineChar: 35
       spanCodeSection: "1;\r\n            }\r\n        }\r\n        "
     - startInstruction: 12168
       endInstruction: 12167
-      startSourceChar: 12151
-      endSourceChar: 12158
-      line: 392
+      startSourceChar: 12183
+      endSourceChar: 12190
+      line: 394
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 12168
       endInstruction: 12227
-      startSourceChar: 12158
-      endSourceChar: 12175
-      line: 392
+      startSourceChar: 12190
+      endSourceChar: 12207
+      line: 394
       lineChar: 15
       spanCodeSection: "0;\r\n    }\r\n\r\n    "
     - startInstruction: 12228
       endInstruction: 12235
-      startSourceChar: 12175
-      endSourceChar: 12197
-      line: 395
+      startSourceChar: 12207
+      endSourceChar: 12229
+      line: 397
       lineChar: 4
       spanCodeSection: "void EndOfGame()\r\n    "
     - startInstruction: 12236
       endInstruction: 12255
-      startSourceChar: 12197
-      endSourceChar: 12219
-      line: 396
+      startSourceChar: 12229
+      endSourceChar: 12251
+      line: 398
       lineChar: 4
       spanCodeSection: "{\r\n    \r\n    }\r\n\r\n    "
     - startInstruction: 12256
       endInstruction: 12255
-      startSourceChar: 12219
-      endSourceChar: 12240
-      line: 400
+      startSourceChar: 12251
+      endSourceChar: 12272
+      line: 402
       lineChar: 4
       spanCodeSection: void ChangeGameState(
     - startInstruction: 12256
       endInstruction: 12263
-      startSourceChar: 12240
-      endSourceChar: 12259
-      line: 400
+      startSourceChar: 12272
+      endSourceChar: 12291
+      line: 402
       lineChar: 25
       spanCodeSection: "string state)\r\n    "
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12259
-      endSourceChar: 12317
-      line: 401
+      startSourceChar: 12291
+      endSourceChar: 12349
+      line: 403
       lineChar: 4
       spanCodeSection: "{\r\n        // state \uBC14\uB014 \uB54C \uB85C\uADF8 \uB744\uC6CC\uC8FC\uB824\uACE0
         \uB2E8\uC21C \uB300\uC785\uC774\uC9C0\uB9CC \uD568\uC218\uB85C \uBE8C\r\n
         \       "
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12317
-      endSourceChar: 12317
-      line: 403
+      startSourceChar: 12349
+      endSourceChar: 12349
+      line: 405
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12317
-      endSourceChar: 12317
-      line: 403
+      startSourceChar: 12349
+      endSourceChar: 12349
+      line: 405
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12317
-      endSourceChar: 12317
-      line: 403
+      startSourceChar: 12349
+      endSourceChar: 12349
+      line: 405
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12317
-      endSourceChar: 12323
-      line: 403
+      startSourceChar: 12349
+      endSourceChar: 12355
+      line: 405
       lineChar: 8
       spanCodeSection: Debug.
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12323
-      endSourceChar: 12327
-      line: 403
+      startSourceChar: 12355
+      endSourceChar: 12359
+      line: 405
       lineChar: 14
       spanCodeSection: Log(
     - startInstruction: 12264
       endInstruction: 12263
-      startSourceChar: 12327
-      endSourceChar: 12329
-      line: 403
+      startSourceChar: 12359
+      endSourceChar: 12361
+      line: 405
       lineChar: 18
       spanCodeSection: $"
     - startInstruction: 12264
       endInstruction: 12283
-      startSourceChar: 12329
-      endSourceChar: 12341
-      line: 403
+      startSourceChar: 12361
+      endSourceChar: 12373
+      line: 405
       lineChar: 20
       spanCodeSection: 'GameState = '
     - startInstruction: 12284
       endInstruction: 12283
-      startSourceChar: 12341
-      endSourceChar: 12342
-      line: 403
+      startSourceChar: 12373
+      endSourceChar: 12374
+      line: 405
       lineChar: 32
       spanCodeSection: '{'
     - startInstruction: 12284
       endInstruction: 12351
-      startSourceChar: 12342
-      endSourceChar: 12363
-      line: 403
+      startSourceChar: 12374
+      endSourceChar: 12395
+      line: 405
       lineChar: 33
       spanCodeSection: "state}\");\r\n\r\n        "
     - startInstruction: 12352
       endInstruction: 12351
-      startSourceChar: 12363
-      endSourceChar: 12363
-      line: 405
+      startSourceChar: 12395
+      endSourceChar: 12395
+      line: 407
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12352
       endInstruction: 12351
-      startSourceChar: 12363
-      endSourceChar: 12363
-      line: 405
+      startSourceChar: 12395
+      endSourceChar: 12395
+      line: 407
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12352
       endInstruction: 12351
-      startSourceChar: 12363
-      endSourceChar: 12375
-      line: 405
+      startSourceChar: 12395
+      endSourceChar: 12407
+      line: 407
       lineChar: 8
       spanCodeSection: 'gameState = '
     - startInstruction: 12352
       endInstruction: 12371
-      startSourceChar: 12375
-      endSourceChar: 12431
-      line: 405
+      startSourceChar: 12407
+      endSourceChar: 12463
+      line: 407
       lineChar: 20
       spanCodeSection: "state;\r\n\r\n        // State\uAC00 \uBC14\uB014 \uB54C \uCD08\uAE30
         \uB3D9\uC791\uC744 \uC5EC\uAE30\uC5D0 \uC815\uC758\r\n        "
     - startInstruction: 12372
       endInstruction: 12371
-      startSourceChar: 12431
-      endSourceChar: 12439
-      line: 408
+      startSourceChar: 12463
+      endSourceChar: 12471
+      line: 410
       lineChar: 8
       spanCodeSection: switch (
     - startInstruction: 12372
       endInstruction: 12371
-      startSourceChar: 12439
-      endSourceChar: 12474
-      line: 408
+      startSourceChar: 12471
+      endSourceChar: 12506
+      line: 410
       lineChar: 16
       spanCodeSection: "gameState)\r\n        {\r\n            "
     - startInstruction: 12372
       endInstruction: 12371
-      startSourceChar: 12474
-      endSourceChar: 12479
-      line: 410
+      startSourceChar: 12506
+      endSourceChar: 12511
+      line: 412
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 12372
       endInstruction: 12435
-      startSourceChar: 12479
-      endSourceChar: 12573
-      line: 410
+      startSourceChar: 12511
+      endSourceChar: 12605
+      line: 412
       lineChar: 17
       spanCodeSection: "State_EndOfRound:\r\n                // 5\uCD08\uB3D9\uC548
         \uACB0\uACFC\uD654\uBA74\uC744 \uBCF4\uC5EC\uC8FC\uACE0 \uB118\uC5B4\uAC04\uB2E4\uACE0
         \uD558\uC790 (\uC2DC\uAC04\uC740 \uBC14\uB014 \uC218 \uC788\uC74C)\r\n                "
     - startInstruction: 12436
       endInstruction: 12435
-      startSourceChar: 12573
-      endSourceChar: 12573
-      line: 412
+      startSourceChar: 12605
+      endSourceChar: 12605
+      line: 414
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 12436
       endInstruction: 12435
-      startSourceChar: 12573
-      endSourceChar: 12573
-      line: 412
+      startSourceChar: 12605
+      endSourceChar: 12605
+      line: 414
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 12436
       endInstruction: 12435
-      startSourceChar: 12573
-      endSourceChar: 12590
-      line: 412
+      startSourceChar: 12605
+      endSourceChar: 12622
+      line: 414
       lineChar: 16
       spanCodeSection: 'pauseQueueTime = '
     - startInstruction: 12436
       endInstruction: 12455
-      startSourceChar: 12590
-      endSourceChar: 12611
-      line: 412
+      startSourceChar: 12622
+      endSourceChar: 12643
+      line: 414
       lineChar: 33
       spanCodeSection: "5f;\r\n                "
     - startInstruction: 12456
       endInstruction: 12483
-      startSourceChar: 12611
-      endSourceChar: 12643
-      line: 413
+      startSourceChar: 12643
+      endSourceChar: 12675
+      line: 415
       lineChar: 16
       spanCodeSection: "break;\r\n        }\r\n    }\r\n\r\n    "
     - startInstruction: 12484
       endInstruction: 12483
-      startSourceChar: 12643
-      endSourceChar: 12660
-      line: 417
+      startSourceChar: 12675
+      endSourceChar: 12692
+      line: 419
       lineChar: 4
       spanCodeSection: bool IsNakiInput(
     - startInstruction: 12484
       endInstruction: 12491
-      startSourceChar: 12660
-      endSourceChar: 12688
-      line: 417
+      startSourceChar: 12692
+      endSourceChar: 12720
+      line: 419
       lineChar: 21
       spanCodeSection: "InputEvent inputEvent)\r\n    "
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12688
-      endSourceChar: 12699
-      line: 418
+      startSourceChar: 12720
+      endSourceChar: 12731
+      line: 420
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12699
-      endSourceChar: 12699
-      line: 419
+      startSourceChar: 12731
+      endSourceChar: 12731
+      line: 421
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12699
-      endSourceChar: 12699
-      line: 419
+      startSourceChar: 12731
+      endSourceChar: 12731
+      line: 421
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12699
-      endSourceChar: 12713
-      line: 419
+      startSourceChar: 12731
+      endSourceChar: 12745
+      line: 421
       lineChar: 8
       spanCodeSection: 'var eventType '
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12713
-      endSourceChar: 12715
-      line: 419
+      startSourceChar: 12745
+      endSourceChar: 12747
+      line: 421
       lineChar: 22
       spanCodeSection: '= '
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12715
-      endSourceChar: 12715
-      line: 419
+      startSourceChar: 12747
+      endSourceChar: 12747
+      line: 421
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 12492
       endInstruction: 12491
-      startSourceChar: 12715
-      endSourceChar: 12726
-      line: 419
+      startSourceChar: 12747
+      endSourceChar: 12758
+      line: 421
       lineChar: 24
       spanCodeSection: inputEvent.
     - startInstruction: 12492
       endInstruction: 12563
-      startSourceChar: 12726
-      endSourceChar: 12746
-      line: 419
+      startSourceChar: 12758
+      endSourceChar: 12778
+      line: 421
       lineChar: 35
       spanCodeSection: "EventType;\r\n        "
     - startInstruction: 12564
       endInstruction: 12563
-      startSourceChar: 12746
-      endSourceChar: 12753
-      line: 420
+      startSourceChar: 12778
+      endSourceChar: 12785
+      line: 422
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 12564
       endInstruction: 12563
-      startSourceChar: 12753
-      endSourceChar: 12753
-      line: 420
+      startSourceChar: 12785
+      endSourceChar: 12785
+      line: 422
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12564
       endInstruction: 12563
-      startSourceChar: 12753
-      endSourceChar: 12753
-      line: 420
+      startSourceChar: 12785
+      endSourceChar: 12785
+      line: 422
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12564
       endInstruction: 12563
-      startSourceChar: 12753
-      endSourceChar: 12753
-      line: 420
+      startSourceChar: 12785
+      endSourceChar: 12785
+      line: 422
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12564
       endInstruction: 12563
-      startSourceChar: 12753
-      endSourceChar: 12753
-      line: 420
+      startSourceChar: 12785
+      endSourceChar: 12785
+      line: 422
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12564
       endInstruction: 12563
-      startSourceChar: 12753
-      endSourceChar: 12766
-      line: 420
+      startSourceChar: 12785
+      endSourceChar: 12798
+      line: 422
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 12564
       endInstruction: 12655
-      startSourceChar: 12766
-      endSourceChar: 12788
-      line: 420
+      startSourceChar: 12798
+      endSourceChar: 12820
+      line: 422
       lineChar: 28
       spanCodeSection: "\"Chi\"\r\n            || "
     - startInstruction: 12656
       endInstruction: 12655
-      startSourceChar: 12788
-      endSourceChar: 12788
-      line: 421
+      startSourceChar: 12820
+      endSourceChar: 12820
+      line: 423
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12656
       endInstruction: 12655
-      startSourceChar: 12788
-      endSourceChar: 12801
-      line: 421
+      startSourceChar: 12820
+      endSourceChar: 12833
+      line: 423
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 12656
       endInstruction: 12799
-      startSourceChar: 12801
-      endSourceChar: 12823
-      line: 421
+      startSourceChar: 12833
+      endSourceChar: 12855
+      line: 423
       lineChar: 28
       spanCodeSection: "\"Pon\"\r\n            || "
     - startInstruction: 12800
       endInstruction: 12799
-      startSourceChar: 12823
-      endSourceChar: 12823
-      line: 422
+      startSourceChar: 12855
+      endSourceChar: 12855
+      line: 424
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12800
       endInstruction: 12799
-      startSourceChar: 12823
-      endSourceChar: 12836
-      line: 422
+      startSourceChar: 12855
+      endSourceChar: 12868
+      line: 424
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 12800
       endInstruction: 12943
-      startSourceChar: 12836
-      endSourceChar: 12859
-      line: 422
+      startSourceChar: 12868
+      endSourceChar: 12891
+      line: 424
       lineChar: 28
       spanCodeSection: "\"Kkan\"\r\n            || "
     - startInstruction: 12944
       endInstruction: 12943
-      startSourceChar: 12859
-      endSourceChar: 12859
-      line: 423
+      startSourceChar: 12891
+      endSourceChar: 12891
+      line: 425
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 12944
       endInstruction: 12943
-      startSourceChar: 12859
-      endSourceChar: 12872
-      line: 423
+      startSourceChar: 12891
+      endSourceChar: 12904
+      line: 425
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 12944
       endInstruction: 13087
-      startSourceChar: 12872
-      endSourceChar: 12893
-      line: 423
+      startSourceChar: 12904
+      endSourceChar: 12925
+      line: 425
       lineChar: 28
       spanCodeSection: "\"Ron\";\r\n    }\r\n\r\n    "
     - startInstruction: 13088
       endInstruction: 13095
-      startSourceChar: 12893
-      endSourceChar: 12913
-      line: 426
+      startSourceChar: 12925
+      endSourceChar: 12945
+      line: 428
       lineChar: 4
       spanCodeSection: "bool IsReady()\r\n    "
     - startInstruction: 13096
       endInstruction: 13095
-      startSourceChar: 12913
-      endSourceChar: 12924
-      line: 427
+      startSourceChar: 12945
+      endSourceChar: 12956
+      line: 429
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 13096
       endInstruction: 13095
-      startSourceChar: 12924
-      endSourceChar: 12928
-      line: 428
+      startSourceChar: 12956
+      endSourceChar: 12960
+      line: 430
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 13096
       endInstruction: 13111
-      startSourceChar: 12928
-      endSourceChar: 12944
-      line: 428
+      startSourceChar: 12960
+      endSourceChar: 12976
+      line: 430
       lineChar: 12
       spanCodeSection: 'isNetworkReady) '
     - startInstruction: 13112
       endInstruction: 13111
-      startSourceChar: 12944
-      endSourceChar: 12946
-      line: 428
+      startSourceChar: 12976
+      endSourceChar: 12978
+      line: 430
       lineChar: 28
       spanCodeSection: '{ '
     - startInstruction: 13112
       endInstruction: 13111
-      startSourceChar: 12946
-      endSourceChar: 12953
-      line: 428
+      startSourceChar: 12978
+      endSourceChar: 12985
+      line: 430
       lineChar: 30
       spanCodeSection: 'return '
     - startInstruction: 13112
       endInstruction: 13151
-      startSourceChar: 12953
-      endSourceChar: 12970
-      line: 428
+      startSourceChar: 12985
+      endSourceChar: 13002
+      line: 430
       lineChar: 37
       spanCodeSection: "true; }\r\n        "
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12970
-      endSourceChar: 12970
-      line: 429
+      startSourceChar: 13002
+      endSourceChar: 13002
+      line: 431
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12970
-      endSourceChar: 12970
-      line: 429
+      startSourceChar: 13002
+      endSourceChar: 13002
+      line: 431
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12970
-      endSourceChar: 12987
-      line: 429
+      startSourceChar: 13002
+      endSourceChar: 13019
+      line: 431
       lineChar: 8
       spanCodeSection: 'isNetworkReady = '
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12987
-      endSourceChar: 12987
-      line: 429
+      startSourceChar: 13019
+      endSourceChar: 13019
+      line: 431
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12987
-      endSourceChar: 12987
-      line: 429
+      startSourceChar: 13019
+      endSourceChar: 13019
+      line: 431
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12987
-      endSourceChar: 12987
-      line: 429
+      startSourceChar: 13019
+      endSourceChar: 13019
+      line: 431
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12987
-      endSourceChar: 12998
-      line: 429
+      startSourceChar: 13019
+      endSourceChar: 13030
+      line: 431
       lineChar: 25
       spanCodeSection: Networking.
     - startInstruction: 13152
       endInstruction: 13151
-      startSourceChar: 12998
-      endSourceChar: 13012
-      line: 429
+      startSourceChar: 13030
+      endSourceChar: 13044
+      line: 431
       lineChar: 36
       spanCodeSection: IsObjectReady(
     - startInstruction: 13152
       endInstruction: 13211
-      startSourceChar: 13012
-      endSourceChar: 13027
-      line: 429
+      startSourceChar: 13044
+      endSourceChar: 13059
+      line: 431
       lineChar: 50
       spanCodeSection: 'gameObject) && '
     - startInstruction: 13212
       endInstruction: 13211
-      startSourceChar: 13027
-      endSourceChar: 13027
-      line: 429
+      startSourceChar: 13059
+      endSourceChar: 13059
+      line: 431
       lineChar: 65
       spanCodeSection: 
     - startInstruction: 13212
       endInstruction: 13211
-      startSourceChar: 13027
-      endSourceChar: 13027
-      line: 429
+      startSourceChar: 13059
+      endSourceChar: 13059
+      line: 431
       lineChar: 65
       spanCodeSection: 
     - startInstruction: 13212
       endInstruction: 13211
-      startSourceChar: 13027
-      endSourceChar: 13040
-      line: 429
+      startSourceChar: 13059
+      endSourceChar: 13072
+      line: 431
       lineChar: 65
       spanCodeSection: TableManager.
     - startInstruction: 13212
       endInstruction: 13363
-      startSourceChar: 13040
-      endSourceChar: 13060
-      line: 429
+      startSourceChar: 13072
+      endSourceChar: 13092
+      line: 431
       lineChar: 78
       spanCodeSection: "IsReady();\r\n        "
     - startInstruction: 13364
       endInstruction: 13363
-      startSourceChar: 13060
-      endSourceChar: 13067
-      line: 430
+      startSourceChar: 13092
+      endSourceChar: 13099
+      line: 432
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 13364
       endInstruction: 13364
-      startSourceChar: 13067
-      endSourceChar: 13067
-      line: 430
+      startSourceChar: 13099
+      endSourceChar: 13099
+      line: 432
       lineChar: 15
       spanCodeSection: 
   hasInteractEvent: 0
