@@ -139,8 +139,24 @@ public class GameManager : UdonSharpBehaviour
                     break;
             }
 
-            inputEvent.Clear();
+            
+
+            //리치하면 프로세스중에 한번더 inputEvent를 담는데 담자마자 여기로 나와서 Clear()해버린다.
+            if (checkCanClearInputEvent(inputEvent))
+            {
+                inputEvent.Clear();
+            }
+            
         }
+    }
+
+    bool checkCanClearInputEvent(InputEvent inputEvent)
+    {
+        bool canClear = true;
+
+        canClear = !TableManager.GetPlayer(inputEvent.PlayerIndex).PlayerStatus.IsRiichiMode;
+
+        return canClear;
     }
 
     void WaitForStart(InputEvent inputEvent)
@@ -229,10 +245,10 @@ public class GameManager : UdonSharpBehaviour
         }
         else if (eventType == "RiichiDiscard")
         {
-            currentPlayer.ActiveRiichiMode();
             // 리치봉 놓은 다음 점수 깎고 패 가로로 돌려놓는 처리 해야 함
+            //  - ActiveRiichiMode() 에서 처리하게 해둠
+            currentPlayer.ActiveRiichiMode();
 
-            // TODO
 
             // 리치 관련 처리 하고 일반적인 Discard로 이동
             EventQueue.SetDiscardEvent(inputEvent.DiscardedCardYamaIndex, inputEvent.PlayerIndex);
@@ -262,6 +278,7 @@ public class GameManager : UdonSharpBehaviour
 
                 ChangeGameState(State_WaitForNaki);
             }
+
         }
     }
 

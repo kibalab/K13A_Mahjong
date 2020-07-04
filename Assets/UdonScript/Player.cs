@@ -66,6 +66,7 @@ public class Player : UdonSharpBehaviour
     {
         PlayerStatus.IsRiichiMode = true;
         PlayerStatus.IsOneShotRiichi = true;
+        setStashPositionRichMode();
     }
 
     public void DeactiveOneShotRiichi()
@@ -128,6 +129,23 @@ public class Player : UdonSharpBehaviour
         card.SetColliderActivate(false);
 
         SortPosition();
+    }
+
+    public void setStashPositionRichMode()
+    {
+        Transform[] positions;
+        var CurrentLine = stashedCardIndex / 6;
+        var l = 0;
+
+        var point = StashPositions.GetChild(stashedCardIndex);
+        point.rotation = Quaternion.Euler(point.rotation.eulerAngles - new Vector3(0, 90, 0));
+        point.position -= point.forward * 0.0085001f;
+
+        for (var i = stashedCardIndex + 1; i < CurrentLine + 6; i++, l++)
+        {
+            point = StashPositions.GetChild(i);
+            point.position += point.up * 0.0085001f * 2;
+        }
     }
 
     public void RemoveStashedCard(Card card)

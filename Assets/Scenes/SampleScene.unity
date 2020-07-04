@@ -28500,7 +28500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fac42b2fe86876438f6d8f09e88ba0b, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fac42b2fe86876438f6d8f09e88ba0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35414,7 +35414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fac42b2fe86876438f6d8f09e88ba0b, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fac42b2fe86876438f6d8f09e88ba0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -45757,7 +45757,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589614901}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1589614903
 Camera:
   m_ObjectHideFlags: 0
@@ -56796,7 +56796,7 @@ RectTransform:
   m_Children:
   - {fileID: 1252221022}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -58922,7 +58922,7 @@ RectTransform:
   - {fileID: 719432233}
   - {fileID: 2071894794}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -61612,7 +61612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fac42b2fe86876438f6d8f09e88ba0b, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fac42b2fe86876438f6d8f09e88ba0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
