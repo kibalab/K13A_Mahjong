@@ -138,25 +138,7 @@ public class GameManager : UdonSharpBehaviour
                 default:
                     break;
             }
-
-            
-
-            //리치하면 프로세스중에 한번더 inputEvent를 담는데 담자마자 여기로 나와서 Clear()해버린다.
-            if (checkCanClearInputEvent(inputEvent))
-            {
-                inputEvent.Clear();
-            }
-            
         }
-    }
-
-    bool checkCanClearInputEvent(InputEvent inputEvent)
-    {
-        bool canClear = true;
-
-        canClear = !TableManager.GetPlayer(inputEvent.PlayerIndex).PlayerStatus.IsRiichiMode;
-
-        return canClear;
     }
 
     void WaitForStart(InputEvent inputEvent)
