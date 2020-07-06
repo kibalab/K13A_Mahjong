@@ -5,19 +5,22 @@ using UnityEngine;
 public class EventQueue : UdonSharpBehaviour
 {
     private InputEvent[] events;
-    private int currIndex = 0;
-    private int topIndex = 0;
+    private int tail = 0;
+    private int head = 0;
+    private int size = 0;
 
     public void Initialize()
     {
         events = GetComponentsInChildren<InputEvent>();
+        size = events.Length;
     }
 
-    public bool IsQueueEmpty() { return topIndex == 0; }
+    public bool IsQueueEmpty() { return head == tail; }
+    public bool IsQueueFull() { return head == (tail + 1) % size; }
 
     public void SetUIEvent(string uiName, int playerIndex)
     {
-        var inputEvent = GetInputEvent();
+        var inputEvent = GetNextInputEvent();
 
         inputEvent.EventType = uiName;
         inputEvent.PlayerIndex = playerIndex;
@@ -25,7 +28,7 @@ public class EventQueue : UdonSharpBehaviour
 
     public void SetDiscardEvent(int yamaIndex, int playerIndex)
     {
-        var inputEvent = GetInputEvent();
+        var inputEvent = GetNextInputEvent();
 
         inputEvent.DiscardedCardYamaIndex = yamaIndex;
         inputEvent.EventType = "Discard";
@@ -34,7 +37,7 @@ public class EventQueue : UdonSharpBehaviour
 
     public void SetRiichiEvent(int yamaIndex, int playerIndex)
     {
-        var inputEvent = GetInputEvent();
+        var inputEvent = GetNextInputEvent();
 
         inputEvent.DiscardedCardYamaIndex = yamaIndex;
         inputEvent.EventType = "RiichiDiscard";
@@ -43,7 +46,7 @@ public class EventQueue : UdonSharpBehaviour
 
     public void SetAutoDiscardEvent(int yamaIndex, int playerIndex)
     {
-        var inputEvent = GetInputEvent();
+        var inputEvent = GetNextInputEvent();
 
         inputEvent.DiscardedCardYamaIndex = yamaIndex;
         inputEvent.EventType = "AutoDiscard";
@@ -52,7 +55,7 @@ public class EventQueue : UdonSharpBehaviour
 
     public void SetChiEvent(Vector2 chiIndex, string eventType, int playerIndex)
     {
-        var inputEvent = GetInputEvent();
+        var inputEvent = GetNextInputEvent();
 
         inputEvent.ChiIndex = new Vector2(chiIndex.x, chiIndex.y);
         inputEvent.EventType = eventType;
@@ -61,40 +64,39 @@ public class EventQueue : UdonSharpBehaviour
 
     public void AnnounceDraw(string reason)
     {
-        var inputEvent = GetInputEvent();
+        var inputEvent = GetNextInputEvent();
 
         inputEvent.DrawReason = reason;
     }
 
-    InputEvent GetInputEvent()
+    InputEvent GetNextInputEvent()
     {
-        var inputEvent = events[topIndex];
-
-        if (topIndex + 1 != events.Length)
-        {
-            ++topIndex;
-        }
-        else
+        if (IsQueueFull())
         {
             // 최대 큐잉 가능한 갯수를 넘어서 들어오면?
             // 그냥 맨 마지막 InputEvent를 바꾼다
             // 마우스로 연타해도 Update 속도가 워낙 빨라서 다 채워질 일은 없긴 할 것이다
             Debug.Log("too many input");
+            return events[tail];
         }
 
-        return inputEvent;
+        tail = GetNextIndex(tail);
+        return events[tail];
     }
 
     public InputEvent Dequeue()
     {
-        var inputEvent = events[currIndex++];
-
-        if (currIndex == topIndex)
+        if (IsQueueEmpty())
         {
-            currIndex = 0;
-            topIndex = 0;
+            return null;
         }
 
-        return inputEvent;
+        head = GetNextIndex(head);
+        return events[head];
+    }
+
+    int GetNextIndex(int index)
+    {
+        return (index + 1) % size;
     }
 }
