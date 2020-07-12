@@ -13,6 +13,8 @@ public class SubtitleComponent : UdonSharpBehaviour
     public string text;
     public float playTime = 3.0f;
 
+    private float fadeOutPoint = 0.5f;
+
     private Text UItext;
 
     void Start()
@@ -57,6 +59,7 @@ public class SubtitleComponent : UdonSharpBehaviour
     {
         if (!isShow) return;
         playTime -= UnityEngine.Time.deltaTime;
+
 
         if(playTime <= 0)
         {
