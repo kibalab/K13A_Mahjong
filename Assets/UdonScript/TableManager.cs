@@ -187,6 +187,7 @@ public class TableManager : UdonSharpBehaviour
             player.SetCards(pickedCards);
         }
         LogViewer.Log("PlayersInfo Initalized", 0);
+
     }
 
     public void InitializeYama()
@@ -339,5 +340,14 @@ public class TableManager : UdonSharpBehaviour
         }
 
         return true;
+    }
+
+    public void setSubtitleAllPlayers(string name, string text)
+    {
+        foreach (Player p in players)
+        {
+            p.Subtitle.setSubtitle(name, text);
+
+        }
     }
 }

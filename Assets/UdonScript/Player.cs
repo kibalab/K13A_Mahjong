@@ -19,6 +19,7 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Transform nakiShapes;
     [SerializeField] public EventQueue EventQueue;
     [SerializeField] public PlayerStatus PlayerStatus;
+    [SerializeField] public Subtitle Subtitle;
 
     [SerializeField] public Card testcard1;
     [SerializeField] public Card testcard2;
@@ -26,6 +27,7 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Card testcard4;
 
     public int PlayerIndex;
+
 
     private Transform[] cardPoints;
     private Transform plusCardPosition;
@@ -46,6 +48,7 @@ public class Player : UdonSharpBehaviour
         OpenedPonPositions = new Transform[34];
         PlayerIndex = playerIndex;
         PlayerStatus.Initialize();
+        Subtitle.setPlaytime(12.0f);
     }
 
     Transform[] FindPoints()
