@@ -19,68 +19,76 @@ MonoBehaviour:
     %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
     \   isShow: %SystemBoolean, null\r\n    id: %SystemInt32, null\r\n    playTime:
     %SystemSingle, null\r\n    name: %SystemString, null\r\n    text: %SystemString,
-    null\r\n    UItext: %UnityEngineUIText, null\r\n    __0_this_intnl_UnityEngineGameObject:
-    %UnityEngineGameObject, this\r\n    __0_this_intnl_UnityEngineTransform: %UnityEngineTransform,
-    this\r\n    __0_this_intnl_SubtitleComponent: %VRCUdonUdonBehaviour, this\r\n
-    \   __0_t_Boolean: %SystemBoolean, null\r\n    __0_showTime_Single: %SystemSingle,
-    null\r\n    __0_name_String: %SystemString, null\r\n    __0_text_String: %SystemString,
-    null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemString:
+    null\r\n    fadeOutPoint: %SystemSingle, null\r\n    UItext: %UnityEngineUIText,
+    null\r\n    __0_this_intnl_UnityEngineTransform: %UnityEngineTransform, this\r\n
+    \   __0_this_intnl_SubtitleComponent: %VRCUdonUdonBehaviour, this\r\n    __0_t_Boolean:
+    %SystemBoolean, null\r\n    __0_showTime_Single: %SystemSingle, null\r\n    __0_name_String:
+    %SystemString, null\r\n    __0_text_String: %SystemString, null\r\n    __0_const_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __0_const_intnl_SystemString: %SystemString, null\r\n    __1_const_intnl_SystemString:
     %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
     \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemSingle:
-    %SystemSingle, null\r\n    __1_intnl_SystemSingle: %SystemSingle, null\r\n    __2_intnl_SystemSingle:
-    %SystemSingle, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
-    \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
-    %SystemString, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
-    \       \r\n         # using UnityEngine.UI;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
-    SubtitleComponent : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
-    public bool isShow = false;\r\n        \r\n         # public int id;\r\n        \r\n
-    \        # public string name;\r\n        \r\n         # public string text;\r\n
-    \       \r\n         # public float playTime = 3.0f;\r\n        \r\n         #
+    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __5_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __0_intnl_SystemSingle: %SystemSingle, null\r\n    __1_intnl_SystemSingle:
+    %SystemSingle, null\r\n    __2_intnl_SystemSingle: %SystemSingle, null\r\n    __0_intnl_interpolatedStr_String:
+    %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
+    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
+    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
+    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
+    \       \r\n         # public class SubtitleComponent : UdonSharpBehaviour\r\n.code_start\r\n
+    \       \r\n         # public bool isShow = false;\r\n        \r\n         # public
+    int id;\r\n        \r\n         # public string name;\r\n        \r\n         #
+    public string text;\r\n        \r\n         # public float playTime = 3.0f;\r\n
+    \       \r\n         # private float fadeOutPoint = 0.5f;\r\n        \r\n         #
     private Text UItext;\r\n        \r\n         # void Start()\r\n    .export _start\r\n
     \       \r\n    _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # Initializing();\r\n        PUSH,
-    __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000034\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public void
-    Initializing()\r\n    .export Initializing\r\n        \r\n    Initializing:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # UItext = GetComponent<Text>();\r\n        PUSH, __0_this_intnl_SubtitleComponent\r\n
-    \       PUSH, __0_const_intnl_SystemType\r\n        PUSH, UItext\r\n        EXTERN,
-    \"UnityEngineUIText.__GetComponent__T\"\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void Set(string name, string text, float
-    showTime)\r\n    .export Set\r\n        \r\n    Set:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    this.name = name;\r\n        PUSH, __0_name_String\r\n        PUSH, name\r\n        COPY\r\n
-    \       \r\n         # this.text = text;\r\n        PUSH, __0_text_String\r\n
-    \       PUSH, text\r\n        COPY\r\n        \r\n         # this.playTime = showTime;\r\n
-    \       PUSH, __0_showTime_Single\r\n        PUSH, playTime\r\n        COPY\r\n
-    \       \r\n         # UpdateOnUI();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x000000D8\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000058\r\n        \r\n
+    \        # setActiveText(false);\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
+    \       PUSH, __0_t_Boolean\r\n        COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x0000026C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # void UpdateOnUI()\r\n    UpdateOnUI:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # transform.SetAsFirstSibling();\r\n        PUSH, __0_this_intnl_UnityEngineTransform\r\n
-    \       EXTERN, \"UnityEngineTransform.__SetAsFirstSibling__SystemVoid\"\r\n        \r\n
-    \        # UItext.text = $\"{name} : {text}\";\r\n        PUSH, name\r\n        PUSH,
-    __0_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       \r\n        \r\n         # public void Initializing()\r\n    .export Initializing\r\n
+    \       \r\n    Initializing:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # UItext = GetComponent<Text>();\r\n
+    \       PUSH, __0_this_intnl_SubtitleComponent\r\n        PUSH, __0_const_intnl_SystemType\r\n
+    \       PUSH, UItext\r\n        EXTERN, \"UnityEngineUIText.__GetComponent__T\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
+    \        # public void Set(string name, string text, float showTime)\r\n    .export
+    Set\r\n        \r\n    Set:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # this.name = name;\r\n        PUSH,
+    __0_name_String\r\n        PUSH, name\r\n        COPY\r\n        \r\n         #
+    this.text = text;\r\n        PUSH, __0_text_String\r\n        PUSH, text\r\n        COPY\r\n
+    \       \r\n         # this.playTime = showTime;\r\n        PUSH, __0_showTime_Single\r\n
+    \       PUSH, playTime\r\n        COPY\r\n        \r\n         # UpdateOnUI();\r\n
+    \       PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000000FC\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
+    \        # void UpdateOnUI()\r\n    UpdateOnUI:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # transform.SetAsFirstSibling();\r\n
+    \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__SetAsFirstSibling__SystemVoid\"\r\n
+    \       \r\n         # UItext.text = $\"<color=orange><b>{name}</b></color> :
+    {text}\";\r\n        PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    name\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, __0_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    text\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    __1_const_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, text\r\n        PUSH,
+    __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, UItext\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
-    \       \r\n         # Toggle();\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x000001A8\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       \r\n         # Toggle();\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x00000200\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # void Toggle()\r\n    Toggle:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
@@ -88,20 +96,20 @@ MonoBehaviour:
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
     \       \r\n         # setActiveText(isShow);\r\n        PUSH, isShow\r\n        PUSH,
     __0_t_Boolean\r\n        COPY\r\n        PUSH, isShow\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000214\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __4_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x0000026C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # void setActiveText(bool t)\r\n    setActiveText:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # gameObject.SetActive(t);\r\n        PUSH, __0_this_intnl_UnityEngineGameObject\r\n
-    \       PUSH, __0_t_Boolean\r\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n
+    {\r\n        \r\n         # UItext.enabled = t;\r\n        PUSH, UItext\r\n        PUSH,
+    __0_t_Boolean\r\n        EXTERN, \"UnityEngineUIText.__set_enabled__SystemBoolean__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # void Update()\r\n    .export _update\r\n        \r\n    _update:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
     {\r\n        \r\n         # if (!isShow) return;\r\n        PUSH, isShow\r\n        PUSH,
     __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000284\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002DC\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
     playTime -= UnityEngine.Time.deltaTime;\r\n        PUSH, __0_intnl_SystemSingle\r\n
@@ -113,9 +121,9 @@ MonoBehaviour:
     \       PUSH, __2_intnl_SystemSingle\r\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n
     \       PUSH, playTime\r\n        PUSH, __2_intnl_SystemSingle\r\n        PUSH,
     __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemSingle.__op_LessThanOrEqual__SystemSingle_SystemSingle__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000320\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000378\r\n
     \       \r\n         # {\r\n        \r\n         # Toggle();\r\n        PUSH,
-    __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000001A8\r\n        PUSH,
+    __5_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000200\r\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
@@ -400,729 +408,785 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 310
-      endSourceChar: 330
+      endSourceChar: 344
       line: 15
+      lineChar: 12
+      spanCodeSection: "float fadeOutPoint = 0.5f;\r\n\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 344
+      endSourceChar: 352
+      line: 17
+      lineChar: 4
+      spanCodeSection: 'private '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 352
+      endSourceChar: 352
+      line: 17
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 352
+      endSourceChar: 372
+      line: 17
       lineChar: 12
       spanCodeSection: "Text UItext;\r\n\r\n    "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 330
-      endSourceChar: 348
-      line: 17
+      startSourceChar: 372
+      endSourceChar: 390
+      line: 19
       lineChar: 4
       spanCodeSection: "void Start()\r\n    "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 348
-      endSourceChar: 359
-      line: 18
+      startSourceChar: 390
+      endSourceChar: 401
+      line: 20
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 359
-      endSourceChar: 359
-      line: 19
+      startSourceChar: 401
+      endSourceChar: 401
+      line: 21
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 359
-      endSourceChar: 359
-      line: 19
+      startSourceChar: 401
+      endSourceChar: 401
+      line: 21
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
-      endInstruction: 43
-      startSourceChar: 359
-      endSourceChar: 389
-      line: 19
+      endInstruction: 23
+      startSourceChar: 401
+      endSourceChar: 426
+      line: 21
       lineChar: 8
-      spanCodeSection: "Initializing();\r\n    }\r\n\r\n    "
-    - startInstruction: 44
-      endInstruction: 51
-      startSourceChar: 389
-      endSourceChar: 421
+      spanCodeSection: "Initializing();\r\n        "
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 426
+      endSourceChar: 426
       line: 22
-      lineChar: 4
-      spanCodeSection: "public void Initializing()\r\n    "
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 421
-      endSourceChar: 432
-      line: 23
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 432
-      endSourceChar: 432
-      line: 24
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 432
-      endSourceChar: 432
-      line: 24
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 426
+      endSourceChar: 426
+      line: 22
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 432
-      endSourceChar: 441
-      line: 24
-      lineChar: 8
-      spanCodeSection: 'UItext = '
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 441
-      endSourceChar: 441
-      line: 24
-      lineChar: 17
-      spanCodeSection: 
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 441
-      endSourceChar: 453
-      line: 24
-      lineChar: 17
-      spanCodeSection: GetComponent
-    - startInstruction: 52
-      endInstruction: 51
-      startSourceChar: 453
-      endSourceChar: 454
-      line: 24
-      lineChar: 29
-      spanCodeSection: <
-    - startInstruction: 52
-      endInstruction: 103
-      startSourceChar: 454
-      endSourceChar: 481
-      line: 24
-      lineChar: 30
-      spanCodeSection: "Text>();\r\n    }\r\n    \r\n    "
-    - startInstruction: 104
-      endInstruction: 103
-      startSourceChar: 481
-      endSourceChar: 497
-      line: 27
-      lineChar: 4
-      spanCodeSection: public void Set(
-    - startInstruction: 104
-      endInstruction: 103
-      startSourceChar: 497
-      endSourceChar: 510
-      line: 27
-      lineChar: 20
-      spanCodeSection: 'string name, '
-    - startInstruction: 104
-      endInstruction: 103
-      startSourceChar: 510
-      endSourceChar: 523
-      line: 27
-      lineChar: 33
-      spanCodeSection: 'string text, '
-    - startInstruction: 104
-      endInstruction: 111
-      startSourceChar: 523
-      endSourceChar: 544
-      line: 27
-      lineChar: 46
-      spanCodeSection: "float showTime)\r\n    "
-    - startInstruction: 112
-      endInstruction: 111
-      startSourceChar: 544
-      endSourceChar: 555
-      line: 28
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 112
-      endInstruction: 111
-      startSourceChar: 555
-      endSourceChar: 555
-      line: 29
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 112
-      endInstruction: 111
-      startSourceChar: 555
-      endSourceChar: 555
-      line: 29
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 112
-      endInstruction: 111
-      startSourceChar: 555
-      endSourceChar: 555
-      line: 29
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 112
-      endInstruction: 111
-      startSourceChar: 555
-      endSourceChar: 560
-      line: 29
-      lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 112
-      endInstruction: 111
-      startSourceChar: 560
-      endSourceChar: 567
-      line: 29
-      lineChar: 13
-      spanCodeSection: 'name = '
-    - startInstruction: 112
-      endInstruction: 131
-      startSourceChar: 567
-      endSourceChar: 582
-      line: 29
-      lineChar: 20
-      spanCodeSection: "name;\r\n        "
-    - startInstruction: 132
-      endInstruction: 131
-      startSourceChar: 582
-      endSourceChar: 582
-      line: 30
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 132
-      endInstruction: 131
-      startSourceChar: 582
-      endSourceChar: 582
-      line: 30
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 132
-      endInstruction: 131
-      startSourceChar: 582
-      endSourceChar: 582
-      line: 30
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 132
-      endInstruction: 131
-      startSourceChar: 582
-      endSourceChar: 587
-      line: 30
-      lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 132
-      endInstruction: 131
-      startSourceChar: 587
-      endSourceChar: 594
-      line: 30
-      lineChar: 13
-      spanCodeSection: 'text = '
-    - startInstruction: 132
-      endInstruction: 151
-      startSourceChar: 594
-      endSourceChar: 609
-      line: 30
-      lineChar: 20
-      spanCodeSection: "text;\r\n        "
-    - startInstruction: 152
-      endInstruction: 151
-      startSourceChar: 609
-      endSourceChar: 609
-      line: 31
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
-      startSourceChar: 609
-      endSourceChar: 609
-      line: 31
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
-      startSourceChar: 609
-      endSourceChar: 609
-      line: 31
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 152
-      endInstruction: 151
-      startSourceChar: 609
-      endSourceChar: 614
-      line: 31
-      lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 152
-      endInstruction: 151
-      startSourceChar: 614
-      endSourceChar: 625
-      line: 31
-      lineChar: 13
-      spanCodeSection: 'playTime = '
-    - startInstruction: 152
-      endInstruction: 171
-      startSourceChar: 625
-      endSourceChar: 646
-      line: 31
-      lineChar: 24
-      spanCodeSection: "showTime;\r\n\r\n        "
-    - startInstruction: 172
-      endInstruction: 171
-      startSourceChar: 646
-      endSourceChar: 646
-      line: 33
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 172
-      endInstruction: 171
-      startSourceChar: 646
-      endSourceChar: 646
-      line: 33
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 172
-      endInstruction: 207
-      startSourceChar: 646
-      endSourceChar: 674
-      line: 33
-      lineChar: 8
-      spanCodeSection: "UpdateOnUI();\r\n    }\r\n\r\n    "
-    - startInstruction: 208
-      endInstruction: 215
-      startSourceChar: 674
-      endSourceChar: 697
-      line: 36
-      lineChar: 4
-      spanCodeSection: "void UpdateOnUI()\r\n    "
-    - startInstruction: 216
-      endInstruction: 215
-      startSourceChar: 697
-      endSourceChar: 708
-      line: 37
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 216
-      endInstruction: 215
-      startSourceChar: 708
-      endSourceChar: 708
-      line: 38
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 216
-      endInstruction: 215
-      startSourceChar: 708
-      endSourceChar: 708
-      line: 38
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 216
-      endInstruction: 215
-      startSourceChar: 708
-      endSourceChar: 708
-      line: 38
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 216
-      endInstruction: 215
-      startSourceChar: 708
-      endSourceChar: 718
-      line: 38
-      lineChar: 8
-      spanCodeSection: transform.
-    - startInstruction: 216
-      endInstruction: 231
-      startSourceChar: 718
-      endSourceChar: 748
-      line: 38
-      lineChar: 18
-      spanCodeSection: "SetAsFirstSibling();\r\n        "
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 748
-      endSourceChar: 748
-      line: 39
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 748
-      endSourceChar: 748
-      line: 39
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 748
-      endSourceChar: 748
-      line: 39
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 748
-      endSourceChar: 755
-      line: 39
-      lineChar: 8
-      spanCodeSection: UItext.
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 755
-      endSourceChar: 762
-      line: 39
-      lineChar: 15
-      spanCodeSection: 'text = '
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 762
-      endSourceChar: 764
-      line: 39
-      lineChar: 22
-      spanCodeSection: $"
-    - startInstruction: 232
-      endInstruction: 231
-      startSourceChar: 764
-      endSourceChar: 765
-      line: 39
-      lineChar: 24
-      spanCodeSection: '{'
-    - startInstruction: 232
-      endInstruction: 251
-      startSourceChar: 765
-      endSourceChar: 770
-      line: 39
-      lineChar: 25
-      spanCodeSection: name}
-    - startInstruction: 252
-      endInstruction: 303
-      startSourceChar: 770
-      endSourceChar: 773
-      line: 39
-      lineChar: 30
-      spanCodeSection: ' : '
-    - startInstruction: 304
-      endInstruction: 303
-      startSourceChar: 773
-      endSourceChar: 774
-      line: 39
-      lineChar: 33
-      spanCodeSection: '{'
-    - startInstruction: 304
-      endInstruction: 379
-      startSourceChar: 774
-      endSourceChar: 791
-      line: 39
-      lineChar: 34
-      spanCodeSection: "text}\";\r\n        "
-    - startInstruction: 380
-      endInstruction: 379
-      startSourceChar: 791
-      endSourceChar: 791
-      line: 40
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 380
-      endInstruction: 379
-      startSourceChar: 791
-      endSourceChar: 791
-      line: 40
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 380
-      endInstruction: 415
-      startSourceChar: 791
-      endSourceChar: 815
-      line: 40
-      lineChar: 8
-      spanCodeSection: "Toggle();\r\n    }\r\n\r\n    "
-    - startInstruction: 416
-      endInstruction: 423
-      startSourceChar: 815
-      endSourceChar: 834
-      line: 43
-      lineChar: 4
-      spanCodeSection: "void Toggle()\r\n    "
-    - startInstruction: 424
-      endInstruction: 423
-      startSourceChar: 834
-      endSourceChar: 845
-      line: 44
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 424
-      endInstruction: 423
-      startSourceChar: 845
-      endSourceChar: 845
-      line: 45
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 424
-      endInstruction: 423
-      startSourceChar: 845
-      endSourceChar: 845
-      line: 45
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 424
-      endInstruction: 423
-      startSourceChar: 845
-      endSourceChar: 854
-      line: 45
-      lineChar: 8
-      spanCodeSection: 'isShow = '
-    - startInstruction: 424
-      endInstruction: 423
-      startSourceChar: 854
-      endSourceChar: 855
-      line: 45
-      lineChar: 17
-      spanCodeSection: '!'
-    - startInstruction: 424
-      endInstruction: 447
-      startSourceChar: 855
-      endSourceChar: 872
-      line: 45
-      lineChar: 18
-      spanCodeSection: "isShow;\r\n        "
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 872
-      endSourceChar: 872
-      line: 46
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 872
-      endSourceChar: 872
-      line: 46
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 448
-      endInstruction: 447
-      startSourceChar: 872
-      endSourceChar: 886
-      line: 46
+    - startInstruction: 24
+      endInstruction: 23
+      startSourceChar: 426
+      endSourceChar: 440
+      line: 22
       lineChar: 8
       spanCodeSection: setActiveText(
-    - startInstruction: 448
-      endInstruction: 523
-      startSourceChar: 886
-      endSourceChar: 913
+    - startInstruction: 24
+      endInstruction: 79
+      startSourceChar: 440
+      endSourceChar: 462
+      line: 22
+      lineChar: 22
+      spanCodeSection: "false);\r\n    }\r\n\r\n    "
+    - startInstruction: 80
+      endInstruction: 87
+      startSourceChar: 462
+      endSourceChar: 494
+      line: 25
+      lineChar: 4
+      spanCodeSection: "public void Initializing()\r\n    "
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 494
+      endSourceChar: 505
+      line: 26
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 505
+      endSourceChar: 505
+      line: 27
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 505
+      endSourceChar: 505
+      line: 27
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 505
+      endSourceChar: 514
+      line: 27
+      lineChar: 8
+      spanCodeSection: 'UItext = '
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 514
+      endSourceChar: 514
+      line: 27
+      lineChar: 17
+      spanCodeSection: 
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 514
+      endSourceChar: 526
+      line: 27
+      lineChar: 17
+      spanCodeSection: GetComponent
+    - startInstruction: 88
+      endInstruction: 87
+      startSourceChar: 526
+      endSourceChar: 527
+      line: 27
+      lineChar: 29
+      spanCodeSection: <
+    - startInstruction: 88
+      endInstruction: 139
+      startSourceChar: 527
+      endSourceChar: 554
+      line: 27
+      lineChar: 30
+      spanCodeSection: "Text>();\r\n    }\r\n    \r\n    "
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 554
+      endSourceChar: 570
+      line: 30
+      lineChar: 4
+      spanCodeSection: public void Set(
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 570
+      endSourceChar: 583
+      line: 30
+      lineChar: 20
+      spanCodeSection: 'string name, '
+    - startInstruction: 140
+      endInstruction: 139
+      startSourceChar: 583
+      endSourceChar: 596
+      line: 30
+      lineChar: 33
+      spanCodeSection: 'string text, '
+    - startInstruction: 140
+      endInstruction: 147
+      startSourceChar: 596
+      endSourceChar: 617
+      line: 30
+      lineChar: 46
+      spanCodeSection: "float showTime)\r\n    "
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 617
+      endSourceChar: 628
+      line: 31
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 628
+      endSourceChar: 628
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 628
+      endSourceChar: 628
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 628
+      endSourceChar: 628
+      line: 32
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 628
+      endSourceChar: 633
+      line: 32
+      lineChar: 8
+      spanCodeSection: this.
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 633
+      endSourceChar: 640
+      line: 32
+      lineChar: 13
+      spanCodeSection: 'name = '
+    - startInstruction: 148
+      endInstruction: 167
+      startSourceChar: 640
+      endSourceChar: 655
+      line: 32
+      lineChar: 20
+      spanCodeSection: "name;\r\n        "
+    - startInstruction: 168
+      endInstruction: 167
+      startSourceChar: 655
+      endSourceChar: 655
+      line: 33
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 168
+      endInstruction: 167
+      startSourceChar: 655
+      endSourceChar: 655
+      line: 33
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 168
+      endInstruction: 167
+      startSourceChar: 655
+      endSourceChar: 655
+      line: 33
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 168
+      endInstruction: 167
+      startSourceChar: 655
+      endSourceChar: 660
+      line: 33
+      lineChar: 8
+      spanCodeSection: this.
+    - startInstruction: 168
+      endInstruction: 167
+      startSourceChar: 660
+      endSourceChar: 667
+      line: 33
+      lineChar: 13
+      spanCodeSection: 'text = '
+    - startInstruction: 168
+      endInstruction: 187
+      startSourceChar: 667
+      endSourceChar: 682
+      line: 33
+      lineChar: 20
+      spanCodeSection: "text;\r\n        "
+    - startInstruction: 188
+      endInstruction: 187
+      startSourceChar: 682
+      endSourceChar: 682
+      line: 34
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 188
+      endInstruction: 187
+      startSourceChar: 682
+      endSourceChar: 682
+      line: 34
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 188
+      endInstruction: 187
+      startSourceChar: 682
+      endSourceChar: 682
+      line: 34
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 188
+      endInstruction: 187
+      startSourceChar: 682
+      endSourceChar: 687
+      line: 34
+      lineChar: 8
+      spanCodeSection: this.
+    - startInstruction: 188
+      endInstruction: 187
+      startSourceChar: 687
+      endSourceChar: 698
+      line: 34
+      lineChar: 13
+      spanCodeSection: 'playTime = '
+    - startInstruction: 188
+      endInstruction: 207
+      startSourceChar: 698
+      endSourceChar: 719
+      line: 34
+      lineChar: 24
+      spanCodeSection: "showTime;\r\n\r\n        "
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 719
+      endSourceChar: 719
+      line: 36
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 208
+      endInstruction: 207
+      startSourceChar: 719
+      endSourceChar: 719
+      line: 36
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 208
+      endInstruction: 243
+      startSourceChar: 719
+      endSourceChar: 747
+      line: 36
+      lineChar: 8
+      spanCodeSection: "UpdateOnUI();\r\n    }\r\n\r\n    "
+    - startInstruction: 244
+      endInstruction: 251
+      startSourceChar: 747
+      endSourceChar: 770
+      line: 39
+      lineChar: 4
+      spanCodeSection: "void UpdateOnUI()\r\n    "
+    - startInstruction: 252
+      endInstruction: 251
+      startSourceChar: 770
+      endSourceChar: 781
+      line: 40
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 252
+      endInstruction: 251
+      startSourceChar: 781
+      endSourceChar: 781
+      line: 41
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 252
+      endInstruction: 251
+      startSourceChar: 781
+      endSourceChar: 781
+      line: 41
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 252
+      endInstruction: 251
+      startSourceChar: 781
+      endSourceChar: 781
+      line: 41
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 252
+      endInstruction: 251
+      startSourceChar: 781
+      endSourceChar: 791
+      line: 41
+      lineChar: 8
+      spanCodeSection: transform.
+    - startInstruction: 252
+      endInstruction: 267
+      startSourceChar: 791
+      endSourceChar: 821
+      line: 41
+      lineChar: 18
+      spanCodeSection: "SetAsFirstSibling();\r\n        "
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 821
+      endSourceChar: 821
+      line: 42
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 821
+      endSourceChar: 821
+      line: 42
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 821
+      endSourceChar: 821
+      line: 42
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 821
+      endSourceChar: 828
+      line: 42
+      lineChar: 8
+      spanCodeSection: UItext.
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 828
+      endSourceChar: 835
+      line: 42
+      lineChar: 15
+      spanCodeSection: 'text = '
+    - startInstruction: 268
+      endInstruction: 267
+      startSourceChar: 835
+      endSourceChar: 837
+      line: 42
+      lineChar: 22
+      spanCodeSection: $"
+    - startInstruction: 268
+      endInstruction: 287
+      startSourceChar: 837
+      endSourceChar: 854
+      line: 42
+      lineChar: 24
+      spanCodeSection: <color=orange><b>
+    - startInstruction: 288
+      endInstruction: 287
+      startSourceChar: 854
+      endSourceChar: 855
+      line: 42
+      lineChar: 41
+      spanCodeSection: '{'
+    - startInstruction: 288
+      endInstruction: 339
+      startSourceChar: 855
+      endSourceChar: 860
+      line: 42
+      lineChar: 42
+      spanCodeSection: name}
+    - startInstruction: 340
+      endInstruction: 391
+      startSourceChar: 860
+      endSourceChar: 875
+      line: 42
+      lineChar: 47
+      spanCodeSection: '</b></color> : '
+    - startInstruction: 392
+      endInstruction: 391
+      startSourceChar: 875
+      endSourceChar: 876
+      line: 42
+      lineChar: 62
+      spanCodeSection: '{'
+    - startInstruction: 392
+      endInstruction: 467
+      startSourceChar: 876
+      endSourceChar: 893
+      line: 42
+      lineChar: 63
+      spanCodeSection: "text}\";\r\n        "
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 893
+      endSourceChar: 893
+      line: 43
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 468
+      endInstruction: 467
+      startSourceChar: 893
+      endSourceChar: 893
+      line: 43
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 468
+      endInstruction: 503
+      startSourceChar: 893
+      endSourceChar: 917
+      line: 43
+      lineChar: 8
+      spanCodeSection: "Toggle();\r\n    }\r\n\r\n    "
+    - startInstruction: 504
+      endInstruction: 511
+      startSourceChar: 917
+      endSourceChar: 936
       line: 46
+      lineChar: 4
+      spanCodeSection: "void Toggle()\r\n    "
+    - startInstruction: 512
+      endInstruction: 511
+      startSourceChar: 936
+      endSourceChar: 947
+      line: 47
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 512
+      endInstruction: 511
+      startSourceChar: 947
+      endSourceChar: 947
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 512
+      endInstruction: 511
+      startSourceChar: 947
+      endSourceChar: 947
+      line: 48
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 512
+      endInstruction: 511
+      startSourceChar: 947
+      endSourceChar: 956
+      line: 48
+      lineChar: 8
+      spanCodeSection: 'isShow = '
+    - startInstruction: 512
+      endInstruction: 511
+      startSourceChar: 956
+      endSourceChar: 957
+      line: 48
+      lineChar: 17
+      spanCodeSection: '!'
+    - startInstruction: 512
+      endInstruction: 535
+      startSourceChar: 957
+      endSourceChar: 974
+      line: 48
+      lineChar: 18
+      spanCodeSection: "isShow;\r\n        "
+    - startInstruction: 536
+      endInstruction: 535
+      startSourceChar: 974
+      endSourceChar: 974
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 536
+      endInstruction: 535
+      startSourceChar: 974
+      endSourceChar: 974
+      line: 49
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 536
+      endInstruction: 535
+      startSourceChar: 974
+      endSourceChar: 988
+      line: 49
+      lineChar: 8
+      spanCodeSection: setActiveText(
+    - startInstruction: 536
+      endInstruction: 611
+      startSourceChar: 988
+      endSourceChar: 1015
+      line: 49
       lineChar: 22
       spanCodeSection: "isShow);\r\n    }\r\n    \r\n    "
-    - startInstruction: 524
-      endInstruction: 523
-      startSourceChar: 913
-      endSourceChar: 932
-      line: 49
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1015
+      endSourceChar: 1034
+      line: 52
       lineChar: 4
       spanCodeSection: void setActiveText(
-    - startInstruction: 524
-      endInstruction: 531
-      startSourceChar: 932
-      endSourceChar: 945
-      line: 49
+    - startInstruction: 612
+      endInstruction: 619
+      startSourceChar: 1034
+      endSourceChar: 1047
+      line: 52
       lineChar: 23
       spanCodeSection: "bool t)\r\n    "
-    - startInstruction: 532
-      endInstruction: 531
-      startSourceChar: 945
-      endSourceChar: 956
-      line: 50
+    - startInstruction: 620
+      endInstruction: 619
+      startSourceChar: 1047
+      endSourceChar: 1058
+      line: 53
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 532
-      endInstruction: 531
-      startSourceChar: 956
-      endSourceChar: 956
-      line: 51
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 532
-      endInstruction: 531
-      startSourceChar: 956
-      endSourceChar: 956
-      line: 51
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 532
-      endInstruction: 531
-      startSourceChar: 956
-      endSourceChar: 956
-      line: 51
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 532
-      endInstruction: 531
-      startSourceChar: 956
-      endSourceChar: 967
-      line: 51
-      lineChar: 8
-      spanCodeSection: gameObject.
-    - startInstruction: 532
-      endInstruction: 531
-      startSourceChar: 967
-      endSourceChar: 977
-      line: 51
-      lineChar: 19
-      spanCodeSection: SetActive(
-    - startInstruction: 532
-      endInstruction: 575
-      startSourceChar: 977
-      endSourceChar: 995
-      line: 51
-      lineChar: 29
-      spanCodeSection: "t);\r\n    }\r\n\r\n    "
-    - startInstruction: 576
-      endInstruction: 583
-      startSourceChar: 995
-      endSourceChar: 1014
+    - startInstruction: 620
+      endInstruction: 619
+      startSourceChar: 1058
+      endSourceChar: 1058
       line: 54
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 620
+      endInstruction: 619
+      startSourceChar: 1058
+      endSourceChar: 1058
+      line: 54
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 620
+      endInstruction: 619
+      startSourceChar: 1058
+      endSourceChar: 1058
+      line: 54
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 620
+      endInstruction: 619
+      startSourceChar: 1058
+      endSourceChar: 1065
+      line: 54
+      lineChar: 8
+      spanCodeSection: UItext.
+    - startInstruction: 620
+      endInstruction: 619
+      startSourceChar: 1065
+      endSourceChar: 1075
+      line: 54
+      lineChar: 15
+      spanCodeSection: 'enabled = '
+    - startInstruction: 620
+      endInstruction: 663
+      startSourceChar: 1075
+      endSourceChar: 1092
+      line: 54
+      lineChar: 25
+      spanCodeSection: "t;\r\n    }\r\n\r\n    "
+    - startInstruction: 664
+      endInstruction: 671
+      startSourceChar: 1092
+      endSourceChar: 1111
+      line: 57
       lineChar: 4
       spanCodeSection: "void Update()\r\n    "
-    - startInstruction: 584
-      endInstruction: 583
-      startSourceChar: 1014
-      endSourceChar: 1025
-      line: 55
+    - startInstruction: 672
+      endInstruction: 671
+      startSourceChar: 1111
+      endSourceChar: 1122
+      line: 58
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 584
-      endInstruction: 583
-      startSourceChar: 1025
-      endSourceChar: 1029
-      line: 56
+    - startInstruction: 672
+      endInstruction: 671
+      startSourceChar: 1122
+      endSourceChar: 1126
+      line: 59
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 584
-      endInstruction: 583
-      startSourceChar: 1029
-      endSourceChar: 1030
-      line: 56
+    - startInstruction: 672
+      endInstruction: 671
+      startSourceChar: 1126
+      endSourceChar: 1127
+      line: 59
       lineChar: 12
       spanCodeSection: '!'
-    - startInstruction: 584
-      endInstruction: 623
-      startSourceChar: 1030
-      endSourceChar: 1038
-      line: 56
+    - startInstruction: 672
+      endInstruction: 711
+      startSourceChar: 1127
+      endSourceChar: 1135
+      line: 59
       lineChar: 13
       spanCodeSection: 'isShow) '
-    - startInstruction: 624
-      endInstruction: 643
-      startSourceChar: 1038
-      endSourceChar: 1057
-      line: 56
+    - startInstruction: 712
+      endInstruction: 731
+      startSourceChar: 1135
+      endSourceChar: 1152
+      line: 59
       lineChar: 21
-      spanCodeSection: "return;\r\n\r\n        "
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1057
-      endSourceChar: 1057
-      line: 58
+      spanCodeSection: "return;\r\n        "
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1152
+      endSourceChar: 1152
+      line: 60
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1057
-      endSourceChar: 1057
-      line: 58
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1152
+      endSourceChar: 1152
+      line: 60
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1057
-      endSourceChar: 1069
-      line: 58
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1152
+      endSourceChar: 1164
+      line: 60
       lineChar: 8
       spanCodeSection: 'playTime -= '
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1069
-      endSourceChar: 1069
-      line: 58
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1164
+      endSourceChar: 1164
+      line: 60
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1069
-      endSourceChar: 1069
-      line: 58
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1164
+      endSourceChar: 1164
+      line: 60
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1069
-      endSourceChar: 1081
-      line: 58
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1164
+      endSourceChar: 1176
+      line: 60
       lineChar: 20
       spanCodeSection: UnityEngine.
-    - startInstruction: 644
-      endInstruction: 643
-      startSourceChar: 1081
-      endSourceChar: 1086
-      line: 58
+    - startInstruction: 732
+      endInstruction: 731
+      startSourceChar: 1176
+      endSourceChar: 1181
+      line: 60
       lineChar: 32
       spanCodeSection: Time.
-    - startInstruction: 644
-      endInstruction: 711
-      startSourceChar: 1086
-      endSourceChar: 1108
-      line: 58
-      lineChar: 37
-      spanCodeSection: "deltaTime;\r\n\r\n        "
-    - startInstruction: 712
-      endInstruction: 711
-      startSourceChar: 1108
-      endSourceChar: 1111
+    - startInstruction: 732
+      endInstruction: 799
+      startSourceChar: 1181
+      endSourceChar: 1205
       line: 60
+      lineChar: 37
+      spanCodeSection: "deltaTime;\r\n\r\n\r\n        "
+    - startInstruction: 800
+      endInstruction: 799
+      startSourceChar: 1205
+      endSourceChar: 1208
+      line: 63
       lineChar: 8
       spanCodeSection: if(
-    - startInstruction: 712
-      endInstruction: 711
-      startSourceChar: 1111
-      endSourceChar: 1111
-      line: 60
+    - startInstruction: 800
+      endInstruction: 799
+      startSourceChar: 1208
+      endSourceChar: 1208
+      line: 63
       lineChar: 11
       spanCodeSection: 
-    - startInstruction: 712
-      endInstruction: 711
-      startSourceChar: 1111
-      endSourceChar: 1123
-      line: 60
+    - startInstruction: 800
+      endInstruction: 799
+      startSourceChar: 1208
+      endSourceChar: 1220
+      line: 63
       lineChar: 11
       spanCodeSection: 'playTime <= '
-    - startInstruction: 712
-      endInstruction: 783
-      startSourceChar: 1123
-      endSourceChar: 1135
-      line: 60
+    - startInstruction: 800
+      endInstruction: 871
+      startSourceChar: 1220
+      endSourceChar: 1232
+      line: 63
       lineChar: 23
       spanCodeSection: "0)\r\n        "
-    - startInstruction: 784
-      endInstruction: 783
-      startSourceChar: 1135
-      endSourceChar: 1150
-      line: 61
+    - startInstruction: 872
+      endInstruction: 871
+      startSourceChar: 1232
+      endSourceChar: 1247
+      line: 64
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 784
-      endInstruction: 783
-      startSourceChar: 1150
-      endSourceChar: 1150
-      line: 62
+    - startInstruction: 872
+      endInstruction: 871
+      startSourceChar: 1247
+      endSourceChar: 1247
+      line: 65
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 784
-      endInstruction: 783
-      startSourceChar: 1150
-      endSourceChar: 1150
-      line: 62
+    - startInstruction: 872
+      endInstruction: 871
+      startSourceChar: 1247
+      endSourceChar: 1247
+      line: 65
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 784
-      endInstruction: 784
-      startSourceChar: 1150
-      endSourceChar: 1150
-      line: 62
+    - startInstruction: 872
+      endInstruction: 872
+      startSourceChar: 1247
+      endSourceChar: 1247
+      line: 65
       lineChar: 12
       spanCodeSection: 
   hasInteractEvent: 0
@@ -1148,7 +1212,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 6
+      Data: 7
     - Name: 
       Entry: 7
       Data: 
@@ -1463,7 +1527,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: UItext
+      Data: fadeOutPoint
     - Name: $v
       Entry: 7
       Data: 21|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -1471,8 +1535,65 @@ MonoBehaviour:
       Entry: 7
       Data: 22|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
+      Entry: 9
+      Data: 19
+    - Name: declarationType
+      Entry: 3
+      Data: 2
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemSingle
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: fadeOutPoint
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: fadeOutPoint
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
       Entry: 7
-      Data: 23|System.RuntimeType, mscorlib
+      Data: 23|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UItext
+    - Name: $v
+      Entry: 7
+      Data: 24|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 25|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 7
+      Data: 26|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityEngine.UI.Text, UnityEngine.UI
@@ -1502,7 +1623,7 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 24|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 27|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
