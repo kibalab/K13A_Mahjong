@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: ba2948fb0f283584f923afee71dac5e3,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export EventPlayerIndex\r\n    .export PlayerIndex\r\n
-    \   .export EventQueue\r\n    .export UIContext\r\n    .export UICanvas\r\n    .export
-    CardSprites\r\n    .sync EventPlayerIndex, none\r\n\r\n    __refl_const_intnl_udonTypeID:
-    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
-    \   UICanvas: %UnityEngineGameObject, null\r\n    EventPlayerIndex: %SystemInt32,
-    null\r\n    PlayerIndex: %SystemInt32, null\r\n    CardSprites: %VRCUdonUdonBehaviour,
-    null\r\n    EventQueue: %VRCUdonUdonBehaviour, null\r\n    UIContext: %VRCUdonUdonBehaviour,
-    null\r\n    isMyTable: %SystemBoolean, null\r\n    __0_this_intnl_UIManager: %VRCUdonUdonBehaviour,
+  udonAssembly: ".data_start\r\n\r\n    .export PlayerIndex\r\n    .export EventQueue\r\n
+    \   .export UIContext\r\n    .export UICanvas\r\n    .export CardSprites\r\n\r\n
+    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\r\n    UICanvas: %UnityEngineGameObject, null\r\n    PlayerIndex:
+    %SystemInt32, null\r\n    CardSprites: %VRCUdonUdonBehaviour, null\r\n    EventQueue:
+    %VRCUdonUdonBehaviour, null\r\n    UIContext: %VRCUdonUdonBehaviour, null\r\n
+    \   isMyTable: %SystemBoolean, null\r\n    __0_this_intnl_UIManager: %VRCUdonUdonBehaviour,
     this\r\n    __0_image_Image: %UnityEngineUIImage, null\r\n    __0_count_Int32:
     %SystemInt32, null\r\n    __0_i_Int32: %SystemInt32, null\r\n    __0_j_Int32:
     %SystemInt32, null\r\n    __0_size_Int32: %SystemInt32, null\r\n    __1_i_Int32:
@@ -144,16 +143,15 @@ MonoBehaviour:
     using UnityEngine.UI;\r\n        \r\n         # using VRC.SDKBase;\r\n        \r\n
     \        # using VRC.Udon;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n
     \       \r\n         # public class UIManager : UdonSharpBehaviour\r\n.code_start\r\n
-    \       \r\n         # [SerializeField][UdonSynced(UdonSyncMode.None)] public
-    int EventPlayerIndex;\r\n        \r\n         # [SerializeField] public int PlayerIndex;\r\n
-    \       \r\n         # [SerializeField] public EventQueue EventQueue;\r\n        \r\n
-    \        # [SerializeField] public UIContext UIContext;\r\n        \r\n         #
-    [SerializeField] public GameObject UICanvas;\r\n        \r\n         # [SerializeField]
-    public CardSprites CardSprites;\r\n        \r\n         # private bool isMyTable
-    = true;\r\n        \r\n         # void Start()\r\n    .export _start\r\n        \r\n
-    \   _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # DisableButtonAll();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000A44\r\n        \r\n         # UIContext.Clear();\r\n        PUSH,
+    \       \r\n         # [SerializeField] public int PlayerIndex;\r\n        \r\n
+    \        # [SerializeField] public EventQueue EventQueue;\r\n        \r\n         #
+    [SerializeField] public UIContext UIContext;\r\n        \r\n         # [SerializeField]
+    public GameObject UICanvas;\r\n        \r\n         # [SerializeField] public
+    CardSprites CardSprites;\r\n        \r\n         # private bool isMyTable = true;\r\n
+    \       \r\n         # void Start()\r\n    .export _start\r\n        \r\n    _start:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # DisableButtonAll();\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x00000A2C\r\n        \r\n         # UIContext.Clear();\r\n        PUSH,
     UIContext\r\n        PUSH, __0_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
@@ -227,7 +225,7 @@ MonoBehaviour:
     \       PUSH, __15_const_intnl_SystemString\r\n        PUSH, __0_uiName_String\r\n
     \       COPY\r\n        PUSH, __8_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
     0x0000090C\r\n        JUMP, 0x000003D4\r\n        \r\n         # else { DisableButtonAll();
-    }\r\n        PUSH, __9_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000A44\r\n
+    }\r\n        PUSH, __9_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000A2C\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # void OpenChiSelect()\r\n    OpenChiSelect:\r\n        \r\n        PUSH,
@@ -344,8 +342,6 @@ MonoBehaviour:
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
     __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
     \       PUSH, __0_intnl_interpolatedStr_String\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       \r\n         # UICanvas.SetActive(true);\r\n        PUSH, UICanvas\r\n
-    \       PUSH, __0_const_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n
     \       \r\n         # tr.gameObject.SetActive(true);\r\n        PUSH, __1_tr_Transform\r\n
     \       PUSH, __1_intnl_UnityEngineGameObject\r\n        EXTERN, \"UnityEngineTransform.__get_gameObject__UnityEngineGameObject\"\r\n
     \       PUSH, __1_intnl_UnityEngineGameObject\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
@@ -362,7 +358,7 @@ MonoBehaviour:
     \       EXTERN, \"UnityEngineTransform.__get_childCount__SystemInt32\"\r\n        PUSH,
     __1_i_Int32\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH, __18_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B5C\r\n
+    \       PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000B44\r\n
     \       \r\n         # {\r\n        \r\n         # UICanvas.transform.GetChild(i).gameObject.SetActive(false);\r\n
     \       PUSH, UICanvas\r\n        PUSH, __7_intnl_UnityEngineTransform\r\n        EXTERN,
     \"UnityEngineGameObject.__get_transform__UnityEngineTransform\"\r\n        PUSH,
@@ -375,20 +371,18 @@ MonoBehaviour:
     \       PUSH, __1_i_Int32\r\n        PUSH, __4_intnl_SystemInt32\r\n        COPY\r\n
     \       PUSH, __1_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
     __1_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000A58\r\n        \r\n         # UICanvas.SetActive(false);\r\n
-    \       PUSH, UICanvas\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n        EXTERN,
-    \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public void
-    OnClick(string clickedUIName)\r\n    .export OnClick\r\n        \r\n    OnClick:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (clickedUIName == \"Chi\" && UIContext.ChiableCount
-    > 1)\r\n        PUSH, __0_clickedUIName_String\r\n        PUSH, __2_const_intnl_SystemString\r\n
-    \       PUSH, __20_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __20_intnl_SystemBoolean\r\n        PUSH, __19_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000C60\r\n        PUSH, UIContext\r\n        PUSH, __16_const_intnl_SystemString\r\n
-    \       PUSH, __10_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
+    \       JUMP, 0x00000A40\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # public void OnClick(string clickedUIName)\r\n
+    \   .export OnClick\r\n        \r\n    OnClick:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n         # {\r\n        \r\n         # if (clickedUIName == \"Chi\"
+    && UIContext.ChiableCount > 1)\r\n        PUSH, __0_clickedUIName_String\r\n        PUSH,
+    __2_const_intnl_SystemString\r\n        PUSH, __20_intnl_SystemBoolean\r\n        EXTERN,
+    \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n        PUSH,
+    __20_intnl_SystemBoolean\r\n        PUSH, __19_intnl_SystemBoolean\r\n        COPY\r\n
+    \       PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000C30\r\n
+    \       PUSH, UIContext\r\n        PUSH, __16_const_intnl_SystemString\r\n        PUSH,
+    __10_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __10_intnl_SystemObject\r\n        PUSH, __6_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
     __6_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
@@ -397,43 +391,43 @@ MonoBehaviour:
     \       PUSH, __22_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
     \       PUSH, __22_intnl_SystemBoolean\r\n        PUSH, __19_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000CC0\r\n        \r\n         # {\r\n        \r\n         # ActiveButton(\"ChiSelect\");\r\n
+    0x00000C90\r\n        \r\n         # {\r\n        \r\n         # ActiveButton(\"ChiSelect\");\r\n
     \       PUSH, __17_const_intnl_SystemString\r\n        PUSH, __0_uiName_String\r\n
     \       COPY\r\n        PUSH, __11_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
     0x0000090C\r\n        \r\n         # ActiveButton(\"Skip\");\r\n        PUSH,
     __15_const_intnl_SystemString\r\n        PUSH, __0_uiName_String\r\n        COPY\r\n
     \       PUSH, __12_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x0000090C\r\n
-    \       JUMP, 0x00000DD0\r\n        \r\n         # else if (clickedUIName == \"Chi\"
+    \       JUMP, 0x00000DA0\r\n        \r\n         # else if (clickedUIName == \"Chi\"
     || clickedUIName.StartsWith(\"chiSelect\"))\r\n        PUSH, __0_clickedUIName_String\r\n
     \       PUSH, __2_const_intnl_SystemString\r\n        PUSH, __24_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
     \       PUSH, __24_intnl_SystemBoolean\r\n        PUSH, __23_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __23_intnl_SystemBoolean\r\n        PUSH, __25_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D70\r\n
+    \       PUSH, __25_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000D40\r\n
     \       PUSH, __0_clickedUIName_String\r\n        PUSH, __25_const_intnl_SystemString\r\n
     \       PUSH, __26_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__StartsWith__SystemString__SystemBoolean\"\r\n
     \       PUSH, __23_intnl_SystemBoolean\r\n        PUSH, __26_intnl_SystemBoolean\r\n
     \       PUSH, __27_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
     \       PUSH, __27_intnl_SystemBoolean\r\n        PUSH, __23_intnl_SystemBoolean\r\n
     \       COPY\r\n        PUSH, __23_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000DAC\r\n        \r\n         # {\r\n        \r\n         # ClickChiSelect(clickedUIName);\r\n
+    0x00000D7C\r\n        \r\n         # {\r\n        \r\n         # ClickChiSelect(clickedUIName);\r\n
     \       PUSH, __0_clickedUIName_String\r\n        PUSH, __1_uiName_String\r\n
     \       COPY\r\n        PUSH, __13_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000DEC\r\n        JUMP, 0x00000DD0\r\n        \r\n         # else\r\n        \r\n
+    0x00000DBC\r\n        JUMP, 0x00000DA0\r\n        \r\n         # else\r\n        \r\n
     \        # {\r\n        \r\n         # ClickOthers(clickedUIName);\r\n        PUSH,
     __0_clickedUIName_String\r\n        PUSH, __3_uiName_String\r\n        COPY\r\n
-    \       PUSH, __14_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00001234\r\n
+    \       PUSH, __14_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00001204\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # void ClickChiSelect(string uiName)\r\n    ClickChiSelect:\r\n        \r\n
     \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
     \        # var funcName = GetChiFuncByUIName(uiName);\r\n        PUSH, __1_uiName_String\r\n
     \       PUSH, __2_uiName_String\r\n        COPY\r\n        PUSH, __15_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000E64\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
+    \       JUMP, 0x00000E34\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
     \       PUSH, __1_funcName_String\r\n        COPY\r\n        \r\n         # RequestCallFunctionToOwner(funcName);\r\n
     \       PUSH, __1_funcName_String\r\n        PUSH, __0_funcName_String\r\n        COPY\r\n
-    \       PUSH, __16_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000014D8\r\n
+    \       PUSH, __16_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000014A8\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # string GetChiFuncByUIName(string uiName)\r\n    GetChiFuncByUIName:\r\n
@@ -442,22 +436,22 @@ MonoBehaviour:
     return nameof(_ClickChiSelect1);\r\n        PUSH, __2_uiName_String\r\n        PUSH,
     __2_const_intnl_SystemString\r\n        PUSH, __28_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n        PUSH,
-    __28_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E9C\r\n        JUMP,
-    0x00000F4C\r\n        \r\n         # case \"chiSelect_1\": return nameof(_ClickChiSelect1);\r\n
+    __28_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000E6C\r\n        JUMP,
+    0x00000F1C\r\n        \r\n         # case \"chiSelect_1\": return nameof(_ClickChiSelect1);\r\n
     \       PUSH, __2_uiName_String\r\n        PUSH, __26_const_intnl_SystemString\r\n
     \       PUSH, __29_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __29_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000ED4\r\n
-    \       JUMP, 0x00000F74\r\n        \r\n         # case \"chiSelect_2\": return
+    \       PUSH, __29_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000EA4\r\n
+    \       JUMP, 0x00000F44\r\n        \r\n         # case \"chiSelect_2\": return
     nameof(_ClickChiSelect2);\r\n        PUSH, __2_uiName_String\r\n        PUSH,
     __27_const_intnl_SystemString\r\n        PUSH, __30_intnl_SystemBoolean\r\n        EXTERN,
     \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n        PUSH,
-    __30_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F0C\r\n        JUMP,
-    0x00000F9C\r\n        \r\n         # case \"chiSelect_3\": return nameof(_ClickChiSelect3);\r\n
+    __30_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000EDC\r\n        JUMP,
+    0x00000F6C\r\n        \r\n         # case \"chiSelect_3\": return nameof(_ClickChiSelect3);\r\n
     \       PUSH, __2_uiName_String\r\n        PUSH, __28_const_intnl_SystemString\r\n
     \       PUSH, __31_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __31_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F44\r\n
-    \       JUMP, 0x00000FC4\r\n        \r\n         # default: return null;\r\n        JUMP,
-    0x00000FEC\r\n        PUSH, __29_const_intnl_SystemString\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
+    \       PUSH, __31_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000F14\r\n
+    \       JUMP, 0x00000F94\r\n        \r\n         # default: return null;\r\n        JUMP,
+    0x00000FBC\r\n        PUSH, __29_const_intnl_SystemString\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
     \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
     __29_const_intnl_SystemString\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
@@ -481,7 +475,7 @@ MonoBehaviour:
     \       PUSH, __11_intnl_SystemObject\r\n        PUSH, __0_intnl_UnityEngineVector2\r\n
     \       COPY\r\n        PUSH, __0_intnl_UnityEngineVector2\r\n        PUSH, __0_chiIndex_Vector2\r\n
     \       COPY\r\n        PUSH, __17_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x0000118C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    0x0000115C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \       \r\n         # public void _ClickChiSelect2() { SetChiEvent(UIContext.ChiableIndex2);
     }\r\n    .export _ClickChiSelect2\r\n        \r\n    _ClickChiSelect2:\r\n        \r\n
@@ -491,7 +485,7 @@ MonoBehaviour:
     \       PUSH, __12_intnl_SystemObject\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n
     \       COPY\r\n        PUSH, __1_intnl_UnityEngineVector2\r\n        PUSH, __0_chiIndex_Vector2\r\n
     \       COPY\r\n        PUSH, __18_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x0000118C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    0x0000115C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \       \r\n         # public void _ClickChiSelect3() { SetChiEvent(UIContext.ChiableIndex3);
     }\r\n    .export _ClickChiSelect3\r\n        \r\n    _ClickChiSelect3:\r\n        \r\n
@@ -501,7 +495,7 @@ MonoBehaviour:
     \       PUSH, __13_intnl_SystemObject\r\n        PUSH, __2_intnl_UnityEngineVector2\r\n
     \       COPY\r\n        PUSH, __2_intnl_UnityEngineVector2\r\n        PUSH, __0_chiIndex_Vector2\r\n
     \       COPY\r\n        PUSH, __19_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x0000118C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    0x0000115C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \       \r\n         # void SetChiEvent(Vector2 chiIndex)\r\n    SetChiEvent:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
@@ -527,44 +521,44 @@ MonoBehaviour:
     \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
     __2_funcName_String\r\n        COPY\r\n        \r\n         # RequestCallFunctionToOwner(funcName);\r\n
     \       PUSH, __2_funcName_String\r\n        PUSH, __0_funcName_String\r\n        COPY\r\n
-    \       PUSH, __20_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000014D8\r\n
+    \       PUSH, __20_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000014A8\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
     \        # public void _ClickPon() { SetUIEvent(\"Pon\"); }\r\n    .export _ClickPon\r\n
     \       \r\n    _ClickPon:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       PUSH, __4_const_intnl_SystemString\r\n        PUSH, __0_eventName_String\r\n
     \       COPY\r\n        PUSH, __21_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00001450\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    0x00001420\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \       \r\n         # public void _ClickKkan() { SetUIEvent(\"Kkan\"); }\r\n
     \   .export _ClickKkan\r\n        \r\n    _ClickKkan:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        PUSH, __6_const_intnl_SystemString\r\n
     \       PUSH, __0_eventName_String\r\n        COPY\r\n        PUSH, __22_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00001450\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00001420\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void _ClickRon() { SetUIEvent(\"Ron\");
     }\r\n    .export _ClickRon\r\n        \r\n    _ClickRon:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        PUSH, __12_const_intnl_SystemString\r\n
     \       PUSH, __0_eventName_String\r\n        COPY\r\n        PUSH, __23_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00001450\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00001420\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void _ClickTsumo() { SetUIEvent(\"Tsumo\");
     }\r\n    .export _ClickTsumo\r\n        \r\n    _ClickTsumo:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        PUSH, __10_const_intnl_SystemString\r\n
     \       PUSH, __0_eventName_String\r\n        COPY\r\n        PUSH, __24_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00001450\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00001420\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void _ClickSkip() { SetUIEvent(\"Skip\");
     }\r\n    .export _ClickSkip\r\n        \r\n    _ClickSkip:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        PUSH, __15_const_intnl_SystemString\r\n
     \       PUSH, __0_eventName_String\r\n        COPY\r\n        PUSH, __25_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00001450\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00001420\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # public void _ClickRich() { SetUIEvent(\"Rich\");
     }\r\n    .export _ClickRich\r\n        \r\n    _ClickRich:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        PUSH, __8_const_intnl_SystemString\r\n
     \       PUSH, __0_eventName_String\r\n        COPY\r\n        PUSH, __26_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00001450\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00001420\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # void SetUIEvent(string eventName)\r\n    SetUIEvent:\r\n
     \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
@@ -584,11 +578,11 @@ MonoBehaviour:
     __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
     \       PUSH, __32_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __32_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001538\r\n
+    \       PUSH, __32_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00001508\r\n
     \       \r\n         # {\r\n        \r\n         # SendCustomEvent(funcName);\r\n
     \       PUSH, __0_this_intnl_UIManager\r\n        PUSH, __0_funcName_String\r\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x00001558\r\n        \r\n         # else\r\n        \r\n         #
+    \       JUMP, 0x00001528\r\n        \r\n         # else\r\n        \r\n         #
     {\r\n        \r\n         # SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);\r\n
     \       PUSH, __0_this_intnl_UIManager\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
     \       PUSH, __0_funcName_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
@@ -820,232 +814,169 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 190
-      endSourceChar: 206
+      endSourceChar: 190
       line: 10
       lineChar: 5
-      spanCodeSection: SerializeField][
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 206
-      endSourceChar: 217
-      line: 10
-      lineChar: 21
-      spanCodeSection: UdonSynced(
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 217
-      endSourceChar: 217
-      line: 10
-      lineChar: 32
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 217
-      endSourceChar: 230
+      startSourceChar: 190
+      endSourceChar: 213
       line: 10
-      lineChar: 32
-      spanCodeSection: UdonSyncMode.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 230
-      endSourceChar: 230
-      line: 10
-      lineChar: 45
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 230
-      endSourceChar: 244
-      line: 10
-      lineChar: 45
-      spanCodeSection: 'None)] public '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 244
-      endSourceChar: 244
-      line: 10
-      lineChar: 59
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 244
-      endSourceChar: 271
-      line: 10
-      lineChar: 59
-      spanCodeSection: "int EventPlayerIndex;\r\n    "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 271
-      endSourceChar: 272
-      line: 11
-      lineChar: 4
-      spanCodeSection: '['
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 272
-      endSourceChar: 272
-      line: 11
-      lineChar: 5
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 272
-      endSourceChar: 295
-      line: 11
       lineChar: 5
       spanCodeSection: 'SerializeField] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 295
-      endSourceChar: 295
-      line: 11
+      startSourceChar: 213
+      endSourceChar: 213
+      line: 10
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 295
-      endSourceChar: 317
-      line: 11
+      startSourceChar: 213
+      endSourceChar: 235
+      line: 10
       lineChar: 28
       spanCodeSection: "int PlayerIndex;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 317
-      endSourceChar: 318
-      line: 12
+      startSourceChar: 235
+      endSourceChar: 236
+      line: 11
       lineChar: 4
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 318
-      endSourceChar: 318
-      line: 12
+      startSourceChar: 236
+      endSourceChar: 236
+      line: 11
       lineChar: 5
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 318
-      endSourceChar: 341
-      line: 12
+      startSourceChar: 236
+      endSourceChar: 259
+      line: 11
       lineChar: 5
       spanCodeSection: 'SerializeField] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 341
-      endSourceChar: 341
-      line: 12
+      startSourceChar: 259
+      endSourceChar: 259
+      line: 11
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 341
-      endSourceChar: 369
-      line: 12
+      startSourceChar: 259
+      endSourceChar: 287
+      line: 11
       lineChar: 28
       spanCodeSection: "EventQueue EventQueue;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 369
-      endSourceChar: 370
-      line: 13
+      startSourceChar: 287
+      endSourceChar: 288
+      line: 12
       lineChar: 4
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 370
-      endSourceChar: 370
-      line: 13
+      startSourceChar: 288
+      endSourceChar: 288
+      line: 12
       lineChar: 5
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 370
-      endSourceChar: 393
-      line: 13
+      startSourceChar: 288
+      endSourceChar: 311
+      line: 12
       lineChar: 5
       spanCodeSection: 'SerializeField] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 393
-      endSourceChar: 393
-      line: 13
+      startSourceChar: 311
+      endSourceChar: 311
+      line: 12
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 393
-      endSourceChar: 419
-      line: 13
+      startSourceChar: 311
+      endSourceChar: 337
+      line: 12
       lineChar: 28
       spanCodeSection: "UIContext UIContext;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 419
-      endSourceChar: 420
-      line: 14
+      startSourceChar: 337
+      endSourceChar: 338
+      line: 13
       lineChar: 4
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 420
-      endSourceChar: 420
-      line: 14
+      startSourceChar: 338
+      endSourceChar: 338
+      line: 13
       lineChar: 5
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 420
-      endSourceChar: 443
-      line: 14
+      startSourceChar: 338
+      endSourceChar: 361
+      line: 13
       lineChar: 5
       spanCodeSection: 'SerializeField] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 443
-      endSourceChar: 443
-      line: 14
+      startSourceChar: 361
+      endSourceChar: 361
+      line: 13
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 443
-      endSourceChar: 469
-      line: 14
+      startSourceChar: 361
+      endSourceChar: 387
+      line: 13
       lineChar: 28
       spanCodeSection: "GameObject UICanvas;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 469
-      endSourceChar: 470
-      line: 15
+      startSourceChar: 387
+      endSourceChar: 388
+      line: 14
       lineChar: 4
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 470
-      endSourceChar: 470
-      line: 15
+      startSourceChar: 388
+      endSourceChar: 388
+      line: 14
       lineChar: 5
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 470
-      endSourceChar: 493
-      line: 15
+      startSourceChar: 388
+      endSourceChar: 411
+      line: 14
       lineChar: 5
       spanCodeSection: 'SerializeField] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 493
-      endSourceChar: 493
-      line: 15
+      startSourceChar: 411
+      endSourceChar: 411
+      line: 14
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 493
-      endSourceChar: 615
-      line: 15
+      startSourceChar: 411
+      endSourceChar: 533
+      line: 14
       lineChar: 28
       spanCodeSection: "CardSprites CardSprites;\r\n\r\n    // \uFFFD\xF7\uFFFD\uFFFD\u033E\uEC21
         [\uFFFD\uFFFD\uFFFD\uFFFD] \uFFFD\uFFFD\u01B0\uFFFD\uFFFD \uFFFD\uFFFD\uFFFD\uFFFD
@@ -1054,3460 +985,3378 @@ MonoBehaviour:
         \uFFFD\uFFFD\uFFFD\u063C\uFFFD true\uFFFD\uFFFD \uFFFD\uFFFD\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 615
-      endSourceChar: 623
-      line: 19
+      startSourceChar: 533
+      endSourceChar: 541
+      line: 18
       lineChar: 4
       spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 623
-      endSourceChar: 623
-      line: 19
+      startSourceChar: 541
+      endSourceChar: 541
+      line: 18
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 623
-      endSourceChar: 653
-      line: 19
+      startSourceChar: 541
+      endSourceChar: 571
+      line: 18
       lineChar: 12
       spanCodeSection: "bool isMyTable = true;\r\n\r\n    "
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 653
-      endSourceChar: 671
-      line: 21
+      startSourceChar: 571
+      endSourceChar: 589
+      line: 20
       lineChar: 4
       spanCodeSection: "void Start()\r\n    "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 671
-      endSourceChar: 682
-      line: 22
+      startSourceChar: 589
+      endSourceChar: 600
+      line: 21
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 682
-      endSourceChar: 682
-      line: 23
+      startSourceChar: 600
+      endSourceChar: 600
+      line: 22
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 682
-      endSourceChar: 682
-      line: 23
+      startSourceChar: 600
+      endSourceChar: 600
+      line: 22
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 23
-      startSourceChar: 682
-      endSourceChar: 711
-      line: 23
+      startSourceChar: 600
+      endSourceChar: 629
+      line: 22
       lineChar: 8
       spanCodeSection: "DisableButtonAll();\r\n        "
     - startInstruction: 24
       endInstruction: 23
-      startSourceChar: 711
-      endSourceChar: 711
-      line: 24
+      startSourceChar: 629
+      endSourceChar: 629
+      line: 23
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 24
       endInstruction: 23
-      startSourceChar: 711
-      endSourceChar: 711
-      line: 24
+      startSourceChar: 629
+      endSourceChar: 629
+      line: 23
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 24
       endInstruction: 23
-      startSourceChar: 711
-      endSourceChar: 711
-      line: 24
+      startSourceChar: 629
+      endSourceChar: 629
+      line: 23
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 24
       endInstruction: 23
-      startSourceChar: 711
-      endSourceChar: 721
-      line: 24
+      startSourceChar: 629
+      endSourceChar: 639
+      line: 23
       lineChar: 8
       spanCodeSection: UIContext.
     - startInstruction: 24
       endInstruction: 67
-      startSourceChar: 721
-      endSourceChar: 744
-      line: 24
+      startSourceChar: 639
+      endSourceChar: 662
+      line: 23
       lineChar: 18
       spanCodeSection: "Clear();\r\n    }\r\n\r\n    "
     - startInstruction: 68
       endInstruction: 75
-      startSourceChar: 744
-      endSourceChar: 763
-      line: 27
+      startSourceChar: 662
+      endSourceChar: 681
+      line: 26
       lineChar: 4
       spanCodeSection: "void Update()\r\n    "
     - startInstruction: 76
       endInstruction: 75
-      startSourceChar: 763
-      endSourceChar: 774
-      line: 28
+      startSourceChar: 681
+      endSourceChar: 692
+      line: 27
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 76
       endInstruction: 75
-      startSourceChar: 774
-      endSourceChar: 778
-      line: 29
+      startSourceChar: 692
+      endSourceChar: 696
+      line: 28
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 76
       endInstruction: 75
-      startSourceChar: 778
-      endSourceChar: 778
-      line: 29
+      startSourceChar: 696
+      endSourceChar: 696
+      line: 28
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 76
       endInstruction: 75
-      startSourceChar: 778
-      endSourceChar: 791
-      line: 29
+      startSourceChar: 696
+      endSourceChar: 709
+      line: 28
       lineChar: 12
       spanCodeSection: 'UIContext == '
     - startInstruction: 76
       endInstruction: 123
-      startSourceChar: 791
-      endSourceChar: 797
-      line: 29
+      startSourceChar: 709
+      endSourceChar: 715
+      line: 28
       lineChar: 25
       spanCodeSection: 'null) '
     - startInstruction: 124
       endInstruction: 123
-      startSourceChar: 797
-      endSourceChar: 799
-      line: 29
+      startSourceChar: 715
+      endSourceChar: 717
+      line: 28
       lineChar: 31
       spanCodeSection: '{ '
     - startInstruction: 124
       endInstruction: 143
-      startSourceChar: 799
-      endSourceChar: 820
-      line: 29
+      startSourceChar: 717
+      endSourceChar: 738
+      line: 28
       lineChar: 33
       spanCodeSection: "return; }\r\n\r\n        "
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 820
-      endSourceChar: 824
-      line: 31
+      startSourceChar: 738
+      endSourceChar: 742
+      line: 30
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 144
       endInstruction: 159
-      startSourceChar: 824
-      endSourceChar: 844
-      line: 31
+      startSourceChar: 742
+      endSourceChar: 762
+      line: 30
       lineChar: 12
       spanCodeSection: "isMyTable)\r\n        "
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 844
-      endSourceChar: 859
-      line: 32
+      startSourceChar: 762
+      endSourceChar: 777
+      line: 31
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 859
-      endSourceChar: 863
-      line: 33
+      startSourceChar: 777
+      endSourceChar: 781
+      line: 32
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 863
-      endSourceChar: 863
-      line: 33
+      startSourceChar: 781
+      endSourceChar: 781
+      line: 32
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 160
       endInstruction: 159
-      startSourceChar: 863
-      endSourceChar: 873
-      line: 33
+      startSourceChar: 781
+      endSourceChar: 791
+      line: 32
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 160
       endInstruction: 231
-      startSourceChar: 873
-      endSourceChar: 897
-      line: 33
+      startSourceChar: 791
+      endSourceChar: 815
+      line: 32
       lineChar: 26
       spanCodeSection: "IsChiable)\r\n            "
     - startInstruction: 232
       endInstruction: 231
-      startSourceChar: 897
-      endSourceChar: 916
-      line: 34
+      startSourceChar: 815
+      endSourceChar: 834
+      line: 33
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 232
       endInstruction: 231
-      startSourceChar: 916
-      endSourceChar: 916
-      line: 35
+      startSourceChar: 834
+      endSourceChar: 834
+      line: 34
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 232
       endInstruction: 231
-      startSourceChar: 916
-      endSourceChar: 916
-      line: 35
+      startSourceChar: 834
+      endSourceChar: 834
+      line: 34
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 232
       endInstruction: 231
-      startSourceChar: 916
-      endSourceChar: 929
-      line: 35
+      startSourceChar: 834
+      endSourceChar: 847
+      line: 34
       lineChar: 16
       spanCodeSection: ActiveButton(
     - startInstruction: 232
       endInstruction: 267
-      startSourceChar: 929
-      endSourceChar: 954
-      line: 35
+      startSourceChar: 847
+      endSourceChar: 872
+      line: 34
       lineChar: 29
       spanCodeSection: "\"Chi\");\r\n                "
     - startInstruction: 268
       endInstruction: 267
-      startSourceChar: 954
-      endSourceChar: 954
-      line: 36
+      startSourceChar: 872
+      endSourceChar: 872
+      line: 35
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 268
       endInstruction: 267
-      startSourceChar: 954
-      endSourceChar: 954
-      line: 36
+      startSourceChar: 872
+      endSourceChar: 872
+      line: 35
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 268
       endInstruction: 283
-      startSourceChar: 954
-      endSourceChar: 999
-      line: 36
+      startSourceChar: 872
+      endSourceChar: 917
+      line: 35
       lineChar: 16
       spanCodeSection: "OpenChiSelect();\r\n            }\r\n            "
     - startInstruction: 284
       endInstruction: 283
-      startSourceChar: 999
-      endSourceChar: 1003
-      line: 38
+      startSourceChar: 917
+      endSourceChar: 921
+      line: 37
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 284
       endInstruction: 283
-      startSourceChar: 1003
-      endSourceChar: 1003
-      line: 38
+      startSourceChar: 921
+      endSourceChar: 921
+      line: 37
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 284
       endInstruction: 283
-      startSourceChar: 1003
-      endSourceChar: 1013
-      line: 38
+      startSourceChar: 921
+      endSourceChar: 931
+      line: 37
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 284
       endInstruction: 355
-      startSourceChar: 1013
-      endSourceChar: 1024
-      line: 38
+      startSourceChar: 931
+      endSourceChar: 942
+      line: 37
       lineChar: 26
       spanCodeSection: 'IsPonable) '
     - startInstruction: 356
       endInstruction: 355
-      startSourceChar: 1024
-      endSourceChar: 1024
-      line: 38
+      startSourceChar: 942
+      endSourceChar: 942
+      line: 37
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 356
       endInstruction: 355
-      startSourceChar: 1024
-      endSourceChar: 1024
-      line: 38
+      startSourceChar: 942
+      endSourceChar: 942
+      line: 37
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 356
       endInstruction: 355
-      startSourceChar: 1024
-      endSourceChar: 1037
-      line: 38
+      startSourceChar: 942
+      endSourceChar: 955
+      line: 37
       lineChar: 37
       spanCodeSection: ActiveButton(
     - startInstruction: 356
       endInstruction: 391
-      startSourceChar: 1037
-      endSourceChar: 1058
-      line: 38
+      startSourceChar: 955
+      endSourceChar: 976
+      line: 37
       lineChar: 50
       spanCodeSection: "\"Pon\");\r\n            "
     - startInstruction: 392
       endInstruction: 391
-      startSourceChar: 1058
-      endSourceChar: 1062
-      line: 39
+      startSourceChar: 976
+      endSourceChar: 980
+      line: 38
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 392
       endInstruction: 391
-      startSourceChar: 1062
-      endSourceChar: 1062
-      line: 39
+      startSourceChar: 980
+      endSourceChar: 980
+      line: 38
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 392
       endInstruction: 391
-      startSourceChar: 1062
-      endSourceChar: 1072
-      line: 39
+      startSourceChar: 980
+      endSourceChar: 990
+      line: 38
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 392
       endInstruction: 463
-      startSourceChar: 1072
-      endSourceChar: 1084
-      line: 39
+      startSourceChar: 990
+      endSourceChar: 1002
+      line: 38
       lineChar: 26
       spanCodeSection: 'IsKkanable) '
     - startInstruction: 464
       endInstruction: 463
-      startSourceChar: 1084
-      endSourceChar: 1084
-      line: 39
+      startSourceChar: 1002
+      endSourceChar: 1002
+      line: 38
       lineChar: 38
       spanCodeSection: 
     - startInstruction: 464
       endInstruction: 463
-      startSourceChar: 1084
-      endSourceChar: 1084
-      line: 39
+      startSourceChar: 1002
+      endSourceChar: 1002
+      line: 38
       lineChar: 38
       spanCodeSection: 
     - startInstruction: 464
       endInstruction: 463
-      startSourceChar: 1084
-      endSourceChar: 1097
-      line: 39
+      startSourceChar: 1002
+      endSourceChar: 1015
+      line: 38
       lineChar: 38
       spanCodeSection: ActiveButton(
     - startInstruction: 464
       endInstruction: 499
-      startSourceChar: 1097
-      endSourceChar: 1119
-      line: 39
+      startSourceChar: 1015
+      endSourceChar: 1037
+      line: 38
       lineChar: 51
       spanCodeSection: "\"Kkan\");\r\n            "
     - startInstruction: 500
       endInstruction: 499
-      startSourceChar: 1119
-      endSourceChar: 1123
-      line: 40
+      startSourceChar: 1037
+      endSourceChar: 1041
+      line: 39
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 500
       endInstruction: 499
-      startSourceChar: 1123
-      endSourceChar: 1123
-      line: 40
+      startSourceChar: 1041
+      endSourceChar: 1041
+      line: 39
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 500
       endInstruction: 499
-      startSourceChar: 1123
-      endSourceChar: 1133
-      line: 40
+      startSourceChar: 1041
+      endSourceChar: 1051
+      line: 39
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 500
       endInstruction: 571
-      startSourceChar: 1133
-      endSourceChar: 1146
-      line: 40
+      startSourceChar: 1051
+      endSourceChar: 1064
+      line: 39
       lineChar: 26
       spanCodeSection: 'IsRiichable) '
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 1146
-      endSourceChar: 1146
-      line: 40
+      startSourceChar: 1064
+      endSourceChar: 1064
+      line: 39
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 1146
-      endSourceChar: 1146
-      line: 40
+      startSourceChar: 1064
+      endSourceChar: 1064
+      line: 39
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 572
       endInstruction: 571
-      startSourceChar: 1146
-      endSourceChar: 1159
-      line: 40
+      startSourceChar: 1064
+      endSourceChar: 1077
+      line: 39
       lineChar: 39
       spanCodeSection: ActiveButton(
     - startInstruction: 572
       endInstruction: 607
-      startSourceChar: 1159
-      endSourceChar: 1181
-      line: 40
+      startSourceChar: 1077
+      endSourceChar: 1099
+      line: 39
       lineChar: 52
       spanCodeSection: "\"Rich\");\r\n            "
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1181
-      endSourceChar: 1185
-      line: 41
+      startSourceChar: 1099
+      endSourceChar: 1103
+      line: 40
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1185
-      endSourceChar: 1185
-      line: 41
+      startSourceChar: 1103
+      endSourceChar: 1103
+      line: 40
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 608
       endInstruction: 607
-      startSourceChar: 1185
-      endSourceChar: 1195
-      line: 41
+      startSourceChar: 1103
+      endSourceChar: 1113
+      line: 40
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 608
       endInstruction: 679
-      startSourceChar: 1195
-      endSourceChar: 1208
-      line: 41
+      startSourceChar: 1113
+      endSourceChar: 1126
+      line: 40
       lineChar: 26
       spanCodeSection: 'IsTsumoable) '
     - startInstruction: 680
       endInstruction: 679
-      startSourceChar: 1208
-      endSourceChar: 1208
-      line: 41
+      startSourceChar: 1126
+      endSourceChar: 1126
+      line: 40
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 680
       endInstruction: 679
-      startSourceChar: 1208
-      endSourceChar: 1208
-      line: 41
+      startSourceChar: 1126
+      endSourceChar: 1126
+      line: 40
       lineChar: 39
       spanCodeSection: 
     - startInstruction: 680
       endInstruction: 679
-      startSourceChar: 1208
-      endSourceChar: 1221
-      line: 41
+      startSourceChar: 1126
+      endSourceChar: 1139
+      line: 40
       lineChar: 39
       spanCodeSection: ActiveButton(
     - startInstruction: 680
       endInstruction: 715
-      startSourceChar: 1221
-      endSourceChar: 1244
-      line: 41
+      startSourceChar: 1139
+      endSourceChar: 1162
+      line: 40
       lineChar: 52
       spanCodeSection: "\"Tsumo\");\r\n            "
     - startInstruction: 716
       endInstruction: 715
-      startSourceChar: 1244
-      endSourceChar: 1248
-      line: 42
+      startSourceChar: 1162
+      endSourceChar: 1166
+      line: 41
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 716
       endInstruction: 715
-      startSourceChar: 1248
-      endSourceChar: 1248
-      line: 42
+      startSourceChar: 1166
+      endSourceChar: 1166
+      line: 41
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 716
       endInstruction: 715
-      startSourceChar: 1248
-      endSourceChar: 1258
-      line: 42
+      startSourceChar: 1166
+      endSourceChar: 1176
+      line: 41
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 716
       endInstruction: 787
-      startSourceChar: 1258
-      endSourceChar: 1269
-      line: 42
+      startSourceChar: 1176
+      endSourceChar: 1187
+      line: 41
       lineChar: 26
       spanCodeSection: 'IsRonable) '
     - startInstruction: 788
       endInstruction: 787
-      startSourceChar: 1269
-      endSourceChar: 1269
-      line: 42
+      startSourceChar: 1187
+      endSourceChar: 1187
+      line: 41
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 788
       endInstruction: 787
-      startSourceChar: 1269
-      endSourceChar: 1269
-      line: 42
+      startSourceChar: 1187
+      endSourceChar: 1187
+      line: 41
       lineChar: 37
       spanCodeSection: 
     - startInstruction: 788
       endInstruction: 787
-      startSourceChar: 1269
-      endSourceChar: 1282
-      line: 42
+      startSourceChar: 1187
+      endSourceChar: 1200
+      line: 41
       lineChar: 37
       spanCodeSection: ActiveButton(
     - startInstruction: 788
       endInstruction: 823
-      startSourceChar: 1282
-      endSourceChar: 1303
-      line: 42
+      startSourceChar: 1200
+      endSourceChar: 1221
+      line: 41
       lineChar: 50
       spanCodeSection: "\"Ron\");\r\n            "
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1303
-      endSourceChar: 1307
-      line: 43
+      startSourceChar: 1221
+      endSourceChar: 1225
+      line: 42
       lineChar: 12
       spanCodeSection: if (
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1307
-      endSourceChar: 1307
-      line: 43
+      startSourceChar: 1225
+      endSourceChar: 1225
+      line: 42
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1307
-      endSourceChar: 1307
-      line: 43
+      startSourceChar: 1225
+      endSourceChar: 1225
+      line: 42
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 824
       endInstruction: 823
-      startSourceChar: 1307
-      endSourceChar: 1317
-      line: 43
+      startSourceChar: 1225
+      endSourceChar: 1235
+      line: 42
       lineChar: 16
       spanCodeSection: UIContext.
     - startInstruction: 824
       endInstruction: 919
-      startSourceChar: 1317
-      endSourceChar: 1338
-      line: 43
+      startSourceChar: 1235
+      endSourceChar: 1256
+      line: 42
       lineChar: 26
       spanCodeSection: 'IsAnythingActived()) '
     - startInstruction: 920
       endInstruction: 919
-      startSourceChar: 1338
-      endSourceChar: 1338
-      line: 43
+      startSourceChar: 1256
+      endSourceChar: 1256
+      line: 42
       lineChar: 47
       spanCodeSection: 
     - startInstruction: 920
       endInstruction: 919
-      startSourceChar: 1338
-      endSourceChar: 1338
-      line: 43
+      startSourceChar: 1256
+      endSourceChar: 1256
+      line: 42
       lineChar: 47
       spanCodeSection: 
     - startInstruction: 920
       endInstruction: 919
-      startSourceChar: 1338
-      endSourceChar: 1351
-      line: 43
+      startSourceChar: 1256
+      endSourceChar: 1269
+      line: 42
       lineChar: 47
       spanCodeSection: ActiveButton(
     - startInstruction: 920
       endInstruction: 963
-      startSourceChar: 1351
-      endSourceChar: 1373
-      line: 43
+      startSourceChar: 1269
+      endSourceChar: 1291
+      line: 42
       lineChar: 60
       spanCodeSection: "\"Skip\");\r\n            "
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1373
-      endSourceChar: 1378
-      line: 44
+      startSourceChar: 1291
+      endSourceChar: 1296
+      line: 43
       lineChar: 12
       spanCodeSection: 'else '
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1378
-      endSourceChar: 1380
-      line: 44
+      startSourceChar: 1296
+      endSourceChar: 1298
+      line: 43
       lineChar: 17
       spanCodeSection: '{ '
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1380
-      endSourceChar: 1380
-      line: 44
+      startSourceChar: 1298
+      endSourceChar: 1298
+      line: 43
       lineChar: 19
       spanCodeSection: 
     - startInstruction: 964
       endInstruction: 963
-      startSourceChar: 1380
-      endSourceChar: 1380
-      line: 44
+      startSourceChar: 1298
+      endSourceChar: 1298
+      line: 43
       lineChar: 19
       spanCodeSection: 
     - startInstruction: 964
       endInstruction: 999
-      startSourceChar: 1380
-      endSourceChar: 1427
-      line: 44
+      startSourceChar: 1298
+      endSourceChar: 1345
+      line: 43
       lineChar: 19
       spanCodeSection: "DisableButtonAll(); }\r\n        }\r\n    }\r\n\r\n    "
     - startInstruction: 1000
       endInstruction: 1007
-      startSourceChar: 1427
-      endSourceChar: 1453
-      line: 48
+      startSourceChar: 1345
+      endSourceChar: 1371
+      line: 47
       lineChar: 4
       spanCodeSection: "void OpenChiSelect()\r\n    "
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1453
-      endSourceChar: 1464
-      line: 49
+      startSourceChar: 1371
+      endSourceChar: 1382
+      line: 48
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1464
-      endSourceChar: 1464
-      line: 50
+      startSourceChar: 1382
+      endSourceChar: 1382
+      line: 49
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1464
-      endSourceChar: 1464
-      line: 50
+      startSourceChar: 1382
+      endSourceChar: 1382
+      line: 49
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1464
-      endSourceChar: 1474
-      line: 50
+      startSourceChar: 1382
+      endSourceChar: 1392
+      line: 49
       lineChar: 8
       spanCodeSection: 'var count '
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1474
-      endSourceChar: 1476
-      line: 50
+      startSourceChar: 1392
+      endSourceChar: 1394
+      line: 49
       lineChar: 18
       spanCodeSection: '= '
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1476
-      endSourceChar: 1476
-      line: 50
+      startSourceChar: 1394
+      endSourceChar: 1394
+      line: 49
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 1008
       endInstruction: 1007
-      startSourceChar: 1476
-      endSourceChar: 1486
-      line: 50
+      startSourceChar: 1394
+      endSourceChar: 1404
+      line: 49
       lineChar: 20
       spanCodeSection: UIContext.
     - startInstruction: 1008
       endInstruction: 1083
-      startSourceChar: 1486
-      endSourceChar: 1509
-      line: 50
+      startSourceChar: 1404
+      endSourceChar: 1427
+      line: 49
       lineChar: 30
       spanCodeSection: "ChiableCount;\r\n        "
     - startInstruction: 1084
       endInstruction: 1083
-      startSourceChar: 1509
-      endSourceChar: 1513
-      line: 51
+      startSourceChar: 1427
+      endSourceChar: 1431
+      line: 50
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 1084
       endInstruction: 1083
-      startSourceChar: 1513
-      endSourceChar: 1513
-      line: 51
+      startSourceChar: 1431
+      endSourceChar: 1431
+      line: 50
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1084
       endInstruction: 1083
-      startSourceChar: 1513
-      endSourceChar: 1522
-      line: 51
+      startSourceChar: 1431
+      endSourceChar: 1440
+      line: 50
       lineChar: 12
       spanCodeSection: 'count != '
     - startInstruction: 1084
       endInstruction: 1131
-      startSourceChar: 1522
-      endSourceChar: 1525
-      line: 51
+      startSourceChar: 1440
+      endSourceChar: 1443
+      line: 50
       lineChar: 21
       spanCodeSection: '0) '
     - startInstruction: 1132
       endInstruction: 1131
-      startSourceChar: 1525
-      endSourceChar: 1525
-      line: 51
+      startSourceChar: 1443
+      endSourceChar: 1443
+      line: 50
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1132
       endInstruction: 1131
-      startSourceChar: 1525
-      endSourceChar: 1525
-      line: 51
+      startSourceChar: 1443
+      endSourceChar: 1443
+      line: 50
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1132
       endInstruction: 1131
-      startSourceChar: 1525
-      endSourceChar: 1544
-      line: 51
+      startSourceChar: 1443
+      endSourceChar: 1462
+      line: 50
       lineChar: 24
       spanCodeSection: SetChiSelectButton(
     - startInstruction: 1132
       endInstruction: 1187
-      startSourceChar: 1544
-      endSourceChar: 1566
-      line: 51
+      startSourceChar: 1462
+      endSourceChar: 1484
+      line: 50
       lineChar: 43
       spanCodeSection: "count);\r\n    }\r\n\r\n    "
     - startInstruction: 1188
       endInstruction: 1187
-      startSourceChar: 1566
-      endSourceChar: 1590
-      line: 54
+      startSourceChar: 1484
+      endSourceChar: 1508
+      line: 53
       lineChar: 4
       spanCodeSection: void SetChiSelectButton(
     - startInstruction: 1188
       endInstruction: 1195
-      startSourceChar: 1590
-      endSourceChar: 1605
-      line: 54
+      startSourceChar: 1508
+      endSourceChar: 1523
+      line: 53
       lineChar: 28
       spanCodeSection: "int size)\r\n    "
     - startInstruction: 1196
       endInstruction: 1195
-      startSourceChar: 1605
-      endSourceChar: 1616
-      line: 55
+      startSourceChar: 1523
+      endSourceChar: 1534
+      line: 54
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1196
       endInstruction: 1195
-      startSourceChar: 1616
-      endSourceChar: 1621
-      line: 56
+      startSourceChar: 1534
+      endSourceChar: 1539
+      line: 55
       lineChar: 8
       spanCodeSection: for (
     - startInstruction: 1196
       endInstruction: 1195
-      startSourceChar: 1621
-      endSourceChar: 1621
-      line: 56
+      startSourceChar: 1539
+      endSourceChar: 1539
+      line: 55
       lineChar: 13
       spanCodeSection: 
     - startInstruction: 1196
       endInstruction: 1195
-      startSourceChar: 1621
-      endSourceChar: 1627
-      line: 56
+      startSourceChar: 1539
+      endSourceChar: 1545
+      line: 55
       lineChar: 13
       spanCodeSection: 'var i '
     - startInstruction: 1196
       endInstruction: 1195
-      startSourceChar: 1627
-      endSourceChar: 1629
-      line: 56
+      startSourceChar: 1545
+      endSourceChar: 1547
+      line: 55
       lineChar: 19
       spanCodeSection: '= '
     - startInstruction: 1196
       endInstruction: 1215
-      startSourceChar: 1629
-      endSourceChar: 1632
-      line: 56
+      startSourceChar: 1547
+      endSourceChar: 1550
+      line: 55
       lineChar: 21
       spanCodeSection: '0; '
     - startInstruction: 1216
       endInstruction: 1215
-      startSourceChar: 1632
-      endSourceChar: 1632
-      line: 56
+      startSourceChar: 1550
+      endSourceChar: 1550
+      line: 55
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 1216
       endInstruction: 1215
-      startSourceChar: 1632
-      endSourceChar: 1636
-      line: 56
+      startSourceChar: 1550
+      endSourceChar: 1554
+      line: 55
       lineChar: 24
       spanCodeSection: 'i < '
     - startInstruction: 1216
       endInstruction: 1263
-      startSourceChar: 1636
-      endSourceChar: 1656
-      line: 56
+      startSourceChar: 1554
+      endSourceChar: 1574
+      line: 55
       lineChar: 28
       spanCodeSection: "size; i++)\r\n        "
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1656
-      endSourceChar: 1671
-      line: 57
+      startSourceChar: 1574
+      endSourceChar: 1589
+      line: 56
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1671
-      endSourceChar: 1671
-      line: 58
+      startSourceChar: 1589
+      endSourceChar: 1589
+      line: 57
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1671
-      endSourceChar: 1671
-      line: 58
+      startSourceChar: 1589
+      endSourceChar: 1589
+      line: 57
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1671
-      endSourceChar: 1678
-      line: 58
+      startSourceChar: 1589
+      endSourceChar: 1596
+      line: 57
       lineChar: 12
       spanCodeSection: 'var tr '
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1678
-      endSourceChar: 1680
-      line: 58
+      startSourceChar: 1596
+      endSourceChar: 1598
+      line: 57
       lineChar: 19
       spanCodeSection: '= '
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 58
+      startSourceChar: 1598
+      endSourceChar: 1598
+      line: 57
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 58
+      startSourceChar: 1598
+      endSourceChar: 1598
+      line: 57
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 58
+      startSourceChar: 1598
+      endSourceChar: 1598
+      line: 57
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 58
+      startSourceChar: 1598
+      endSourceChar: 1598
+      line: 57
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1680
-      endSourceChar: 1680
-      line: 58
+      startSourceChar: 1598
+      endSourceChar: 1598
+      line: 57
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1680
-      endSourceChar: 1689
-      line: 58
+      startSourceChar: 1598
+      endSourceChar: 1607
+      line: 57
       lineChar: 21
       spanCodeSection: UICanvas.
     - startInstruction: 1264
       endInstruction: 1263
-      startSourceChar: 1689
-      endSourceChar: 1699
-      line: 58
+      startSourceChar: 1607
+      endSourceChar: 1617
+      line: 57
       lineChar: 30
       spanCodeSection: transform.
     - startInstruction: 1264
       endInstruction: 1287
-      startSourceChar: 1699
-      endSourceChar: 1704
-      line: 58
+      startSourceChar: 1617
+      endSourceChar: 1622
+      line: 57
       lineChar: 40
       spanCodeSection: Find(
     - startInstruction: 1288
       endInstruction: 1319
-      startSourceChar: 1704
-      endSourceChar: 1717
-      line: 58
+      startSourceChar: 1622
+      endSourceChar: 1635
+      line: 57
       lineChar: 45
       spanCodeSection: '"ChiSelect").'
     - startInstruction: 1320
       endInstruction: 1319
-      startSourceChar: 1717
-      endSourceChar: 1726
-      line: 58
+      startSourceChar: 1635
+      endSourceChar: 1644
+      line: 57
       lineChar: 58
       spanCodeSection: GetChild(
     - startInstruction: 1320
       endInstruction: 1371
-      startSourceChar: 1726
-      endSourceChar: 1743
-      line: 58
+      startSourceChar: 1644
+      endSourceChar: 1661
+      line: 57
       lineChar: 67
       spanCodeSection: "i);\r\n            "
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1743
-      endSourceChar: 1743
-      line: 59
+      startSourceChar: 1661
+      endSourceChar: 1661
+      line: 58
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1743
-      endSourceChar: 1743
-      line: 59
+      startSourceChar: 1661
+      endSourceChar: 1661
+      line: 58
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1743
-      endSourceChar: 1759
-      line: 59
+      startSourceChar: 1661
+      endSourceChar: 1677
+      line: 58
       lineChar: 12
       spanCodeSection: 'var spriteNames '
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1759
-      endSourceChar: 1761
-      line: 59
+      startSourceChar: 1677
+      endSourceChar: 1679
+      line: 58
       lineChar: 28
       spanCodeSection: '= '
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1761
-      endSourceChar: 1761
-      line: 59
+      startSourceChar: 1679
+      endSourceChar: 1679
+      line: 58
       lineChar: 30
       spanCodeSection: 
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1761
-      endSourceChar: 1761
-      line: 59
+      startSourceChar: 1679
+      endSourceChar: 1679
+      line: 58
       lineChar: 30
       spanCodeSection: 
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1761
-      endSourceChar: 1771
-      line: 59
+      startSourceChar: 1679
+      endSourceChar: 1689
+      line: 58
       lineChar: 30
       spanCodeSection: UIContext.
     - startInstruction: 1372
       endInstruction: 1371
-      startSourceChar: 1771
-      endSourceChar: 1790
-      line: 59
+      startSourceChar: 1689
+      endSourceChar: 1708
+      line: 58
       lineChar: 40
       spanCodeSection: GetCardSpriteNames(
     - startInstruction: 1372
       endInstruction: 1499
-      startSourceChar: 1790
-      endSourceChar: 1809
-      line: 59
+      startSourceChar: 1708
+      endSourceChar: 1727
+      line: 58
       lineChar: 59
       spanCodeSection: "i);\r\n\r\n            "
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 1809
-      endSourceChar: 1809
-      line: 61
+      startSourceChar: 1727
+      endSourceChar: 1727
+      line: 60
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 1809
-      endSourceChar: 1809
-      line: 61
+      startSourceChar: 1727
+      endSourceChar: 1727
+      line: 60
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 1809
-      endSourceChar: 1809
-      line: 61
+      startSourceChar: 1727
+      endSourceChar: 1727
+      line: 60
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 1809
-      endSourceChar: 1809
-      line: 61
+      startSourceChar: 1727
+      endSourceChar: 1727
+      line: 60
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 1809
-      endSourceChar: 1812
-      line: 61
+      startSourceChar: 1727
+      endSourceChar: 1730
+      line: 60
       lineChar: 12
       spanCodeSection: tr.
     - startInstruction: 1500
       endInstruction: 1499
-      startSourceChar: 1812
-      endSourceChar: 1823
-      line: 61
+      startSourceChar: 1730
+      endSourceChar: 1741
+      line: 60
       lineChar: 15
       spanCodeSection: gameObject.
     - startInstruction: 1500
       endInstruction: 1523
-      startSourceChar: 1823
-      endSourceChar: 1833
-      line: 61
+      startSourceChar: 1741
+      endSourceChar: 1751
+      line: 60
       lineChar: 26
       spanCodeSection: SetActive(
     - startInstruction: 1524
       endInstruction: 1547
-      startSourceChar: 1833
-      endSourceChar: 1853
-      line: 61
+      startSourceChar: 1751
+      endSourceChar: 1771
+      line: 60
       lineChar: 36
       spanCodeSection: "true);\r\n            "
     - startInstruction: 1548
       endInstruction: 1547
-      startSourceChar: 1853
-      endSourceChar: 1858
-      line: 62
+      startSourceChar: 1771
+      endSourceChar: 1776
+      line: 61
       lineChar: 12
       spanCodeSection: for (
     - startInstruction: 1548
       endInstruction: 1547
-      startSourceChar: 1858
-      endSourceChar: 1858
-      line: 62
+      startSourceChar: 1776
+      endSourceChar: 1776
+      line: 61
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 1548
       endInstruction: 1547
-      startSourceChar: 1858
-      endSourceChar: 1864
-      line: 62
+      startSourceChar: 1776
+      endSourceChar: 1782
+      line: 61
       lineChar: 17
       spanCodeSection: 'var j '
     - startInstruction: 1548
       endInstruction: 1547
-      startSourceChar: 1864
-      endSourceChar: 1866
-      line: 62
+      startSourceChar: 1782
+      endSourceChar: 1784
+      line: 61
       lineChar: 23
       spanCodeSection: '= '
     - startInstruction: 1548
       endInstruction: 1567
-      startSourceChar: 1866
-      endSourceChar: 1869
-      line: 62
+      startSourceChar: 1784
+      endSourceChar: 1787
+      line: 61
       lineChar: 25
       spanCodeSection: '0; '
     - startInstruction: 1568
       endInstruction: 1567
-      startSourceChar: 1869
-      endSourceChar: 1869
-      line: 62
+      startSourceChar: 1787
+      endSourceChar: 1787
+      line: 61
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 1568
       endInstruction: 1567
-      startSourceChar: 1869
-      endSourceChar: 1873
-      line: 62
+      startSourceChar: 1787
+      endSourceChar: 1791
+      line: 61
       lineChar: 28
       spanCodeSection: 'j < '
     - startInstruction: 1568
       endInstruction: 1615
-      startSourceChar: 1873
-      endSourceChar: 1894
-      line: 62
+      startSourceChar: 1791
+      endSourceChar: 1812
+      line: 61
       lineChar: 32
       spanCodeSection: "2; j++)\r\n            "
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1894
-      endSourceChar: 1913
-      line: 63
+      startSourceChar: 1812
+      endSourceChar: 1831
+      line: 62
       lineChar: 12
       spanCodeSection: "{\r\n                "
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1913
-      endSourceChar: 1913
-      line: 64
+      startSourceChar: 1831
+      endSourceChar: 1831
+      line: 63
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1913
-      endSourceChar: 1913
-      line: 64
+      startSourceChar: 1831
+      endSourceChar: 1831
+      line: 63
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1913
-      endSourceChar: 1928
-      line: 64
+      startSourceChar: 1831
+      endSourceChar: 1846
+      line: 63
       lineChar: 16
       spanCodeSection: 'var spriteName '
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1928
-      endSourceChar: 1930
-      line: 64
+      startSourceChar: 1846
+      endSourceChar: 1848
+      line: 63
       lineChar: 31
       spanCodeSection: '= '
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1930
-      endSourceChar: 1930
-      line: 64
+      startSourceChar: 1848
+      endSourceChar: 1848
+      line: 63
       lineChar: 33
       spanCodeSection: 
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1930
-      endSourceChar: 1942
-      line: 64
+      startSourceChar: 1848
+      endSourceChar: 1860
+      line: 63
       lineChar: 33
       spanCodeSection: spriteNames[
     - startInstruction: 1616
       endInstruction: 1615
-      startSourceChar: 1942
-      endSourceChar: 1942
-      line: 64
+      startSourceChar: 1860
+      endSourceChar: 1860
+      line: 63
       lineChar: 45
       spanCodeSection: 
     - startInstruction: 1616
       endInstruction: 1667
-      startSourceChar: 1942
-      endSourceChar: 1963
-      line: 64
+      startSourceChar: 1860
+      endSourceChar: 1881
+      line: 63
       lineChar: 45
       spanCodeSection: "j];\r\n                "
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1963
-      endSourceChar: 1963
-      line: 65
+      startSourceChar: 1881
+      endSourceChar: 1881
+      line: 64
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1963
-      endSourceChar: 1963
-      line: 65
+      startSourceChar: 1881
+      endSourceChar: 1881
+      line: 64
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1963
-      endSourceChar: 1974
-      line: 65
+      startSourceChar: 1881
+      endSourceChar: 1892
+      line: 64
       lineChar: 16
       spanCodeSection: 'var sprite '
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1974
-      endSourceChar: 1976
-      line: 65
+      startSourceChar: 1892
+      endSourceChar: 1894
+      line: 64
       lineChar: 27
       spanCodeSection: '= '
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1976
-      endSourceChar: 1976
-      line: 65
+      startSourceChar: 1894
+      endSourceChar: 1894
+      line: 64
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1976
-      endSourceChar: 1976
-      line: 65
+      startSourceChar: 1894
+      endSourceChar: 1894
+      line: 64
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1976
-      endSourceChar: 1988
-      line: 65
+      startSourceChar: 1894
+      endSourceChar: 1906
+      line: 64
       lineChar: 29
       spanCodeSection: CardSprites.
     - startInstruction: 1668
       endInstruction: 1667
-      startSourceChar: 1988
-      endSourceChar: 1999
-      line: 65
+      startSourceChar: 1906
+      endSourceChar: 1917
+      line: 64
       lineChar: 41
       spanCodeSection: FindSprite(
     - startInstruction: 1668
       endInstruction: 1795
-      startSourceChar: 1999
-      endSourceChar: 2031
-      line: 65
+      startSourceChar: 1917
+      endSourceChar: 1949
+      line: 64
       lineChar: 52
       spanCodeSection: "spriteName);\r\n\r\n                "
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2031
-      endSourceChar: 2031
-      line: 67
+      startSourceChar: 1949
+      endSourceChar: 1949
+      line: 66
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2031
-      endSourceChar: 2031
-      line: 67
+      startSourceChar: 1949
+      endSourceChar: 1949
+      line: 66
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2031
-      endSourceChar: 2041
-      line: 67
+      startSourceChar: 1949
+      endSourceChar: 1959
+      line: 66
       lineChar: 16
       spanCodeSection: 'var image '
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2041
-      endSourceChar: 2043
-      line: 67
+      startSourceChar: 1959
+      endSourceChar: 1961
+      line: 66
       lineChar: 26
       spanCodeSection: '= '
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2043
-      endSourceChar: 2043
-      line: 67
+      startSourceChar: 1961
+      endSourceChar: 1961
+      line: 66
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2043
-      endSourceChar: 2043
-      line: 67
+      startSourceChar: 1961
+      endSourceChar: 1961
+      line: 66
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2043
-      endSourceChar: 2043
-      line: 67
+      startSourceChar: 1961
+      endSourceChar: 1961
+      line: 66
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2043
-      endSourceChar: 2043
-      line: 67
+      startSourceChar: 1961
+      endSourceChar: 1961
+      line: 66
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2043
-      endSourceChar: 2046
-      line: 67
+      startSourceChar: 1961
+      endSourceChar: 1964
+      line: 66
       lineChar: 28
       spanCodeSection: tr.
     - startInstruction: 1796
       endInstruction: 1795
-      startSourceChar: 2046
-      endSourceChar: 2055
-      line: 67
+      startSourceChar: 1964
+      endSourceChar: 1973
+      line: 66
       lineChar: 31
       spanCodeSection: GetChild(
     - startInstruction: 1796
       endInstruction: 1827
-      startSourceChar: 2055
-      endSourceChar: 2058
-      line: 67
+      startSourceChar: 1973
+      endSourceChar: 1976
+      line: 66
       lineChar: 40
       spanCodeSection: j).
     - startInstruction: 1828
       endInstruction: 1827
-      startSourceChar: 2058
-      endSourceChar: 2070
-      line: 67
+      startSourceChar: 1976
+      endSourceChar: 1988
+      line: 66
       lineChar: 43
       spanCodeSection: GetComponent
     - startInstruction: 1828
       endInstruction: 1827
-      startSourceChar: 2070
-      endSourceChar: 2071
-      line: 67
+      startSourceChar: 1988
+      endSourceChar: 1989
+      line: 66
       lineChar: 55
       spanCodeSection: <
     - startInstruction: 1828
       endInstruction: 1879
-      startSourceChar: 2071
-      endSourceChar: 2098
-      line: 67
+      startSourceChar: 1989
+      endSourceChar: 2016
+      line: 66
       lineChar: 56
       spanCodeSection: "Image>();\r\n                "
     - startInstruction: 1880
       endInstruction: 1879
-      startSourceChar: 2098
-      endSourceChar: 2098
-      line: 68
+      startSourceChar: 2016
+      endSourceChar: 2016
+      line: 67
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1880
       endInstruction: 1879
-      startSourceChar: 2098
-      endSourceChar: 2098
-      line: 68
+      startSourceChar: 2016
+      endSourceChar: 2016
+      line: 67
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1880
       endInstruction: 1879
-      startSourceChar: 2098
-      endSourceChar: 2098
-      line: 68
+      startSourceChar: 2016
+      endSourceChar: 2016
+      line: 67
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1880
       endInstruction: 1879
-      startSourceChar: 2098
-      endSourceChar: 2104
-      line: 68
+      startSourceChar: 2016
+      endSourceChar: 2022
+      line: 67
       lineChar: 16
       spanCodeSection: image.
     - startInstruction: 1880
       endInstruction: 1879
-      startSourceChar: 2104
-      endSourceChar: 2113
-      line: 68
+      startSourceChar: 2022
+      endSourceChar: 2031
+      line: 67
       lineChar: 22
       spanCodeSection: 'sprite = '
     - startInstruction: 1880
       endInstruction: 2023
-      startSourceChar: 2113
-      endSourceChar: 2156
-      line: 68
+      startSourceChar: 2031
+      endSourceChar: 2074
+      line: 67
       lineChar: 31
       spanCodeSection: "sprite;\r\n            }\r\n        }\r\n        "
     - startInstruction: 2024
       endInstruction: 2023
-      startSourceChar: 2156
-      endSourceChar: 2161
-      line: 71
+      startSourceChar: 2074
+      endSourceChar: 2079
+      line: 70
       lineChar: 8
       spanCodeSection: for (
     - startInstruction: 2024
       endInstruction: 2023
-      startSourceChar: 2161
-      endSourceChar: 2161
-      line: 71
+      startSourceChar: 2079
+      endSourceChar: 2079
+      line: 70
       lineChar: 13
       spanCodeSection: 
     - startInstruction: 2024
       endInstruction: 2023
-      startSourceChar: 2161
-      endSourceChar: 2167
-      line: 71
+      startSourceChar: 2079
+      endSourceChar: 2085
+      line: 70
       lineChar: 13
       spanCodeSection: 'var i '
     - startInstruction: 2024
       endInstruction: 2023
-      startSourceChar: 2167
-      endSourceChar: 2169
-      line: 71
+      startSourceChar: 2085
+      endSourceChar: 2087
+      line: 70
       lineChar: 19
       spanCodeSection: '= '
     - startInstruction: 2024
       endInstruction: 2043
-      startSourceChar: 2169
-      endSourceChar: 2172
-      line: 71
+      startSourceChar: 2087
+      endSourceChar: 2090
+      line: 70
       lineChar: 21
       spanCodeSection: '2; '
     - startInstruction: 2044
       endInstruction: 2043
-      startSourceChar: 2172
-      endSourceChar: 2172
-      line: 71
+      startSourceChar: 2090
+      endSourceChar: 2090
+      line: 70
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 2044
       endInstruction: 2043
-      startSourceChar: 2172
-      endSourceChar: 2177
-      line: 71
+      startSourceChar: 2090
+      endSourceChar: 2095
+      line: 70
       lineChar: 24
       spanCodeSection: 'i >= '
     - startInstruction: 2044
       endInstruction: 2091
-      startSourceChar: 2177
-      endSourceChar: 2197
-      line: 71
+      startSourceChar: 2095
+      endSourceChar: 2115
+      line: 70
       lineChar: 29
       spanCodeSection: "size; i--)\r\n        "
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2197
-      endSourceChar: 2212
-      line: 72
+      startSourceChar: 2115
+      endSourceChar: 2130
+      line: 71
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2212
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2130
+      line: 72
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2212
-      endSourceChar: 2221
-      line: 73
+      startSourceChar: 2130
+      endSourceChar: 2139
+      line: 72
       lineChar: 12
       spanCodeSection: UICanvas.
     - startInstruction: 2092
       endInstruction: 2091
-      startSourceChar: 2221
-      endSourceChar: 2231
-      line: 73
+      startSourceChar: 2139
+      endSourceChar: 2149
+      line: 72
       lineChar: 21
       spanCodeSection: transform.
     - startInstruction: 2092
       endInstruction: 2115
-      startSourceChar: 2231
-      endSourceChar: 2236
-      line: 73
+      startSourceChar: 2149
+      endSourceChar: 2154
+      line: 72
       lineChar: 31
       spanCodeSection: Find(
     - startInstruction: 2116
       endInstruction: 2147
-      startSourceChar: 2236
-      endSourceChar: 2249
-      line: 73
+      startSourceChar: 2154
+      endSourceChar: 2167
+      line: 72
       lineChar: 36
       spanCodeSection: '"ChiSelect").'
     - startInstruction: 2148
       endInstruction: 2147
-      startSourceChar: 2249
-      endSourceChar: 2258
-      line: 73
+      startSourceChar: 2167
+      endSourceChar: 2176
+      line: 72
       lineChar: 49
       spanCodeSection: GetChild(
     - startInstruction: 2148
       endInstruction: 2179
-      startSourceChar: 2258
-      endSourceChar: 2261
-      line: 73
+      startSourceChar: 2176
+      endSourceChar: 2179
+      line: 72
       lineChar: 58
       spanCodeSection: i).
     - startInstruction: 2180
       endInstruction: 2179
-      startSourceChar: 2261
-      endSourceChar: 2272
-      line: 73
+      startSourceChar: 2179
+      endSourceChar: 2190
+      line: 72
       lineChar: 61
       spanCodeSection: gameObject.
     - startInstruction: 2180
       endInstruction: 2203
-      startSourceChar: 2272
-      endSourceChar: 2282
-      line: 73
+      startSourceChar: 2190
+      endSourceChar: 2200
+      line: 72
       lineChar: 72
       spanCodeSection: SetActive(
     - startInstruction: 2204
       endInstruction: 2307
-      startSourceChar: 2282
-      endSourceChar: 2315
-      line: 73
+      startSourceChar: 2200
+      endSourceChar: 2233
+      line: 72
       lineChar: 82
       spanCodeSection: "false);\r\n        }\r\n    }\r\n\r\n    "
     - startInstruction: 2308
       endInstruction: 2307
-      startSourceChar: 2315
-      endSourceChar: 2333
-      line: 77
+      startSourceChar: 2233
+      endSourceChar: 2251
+      line: 76
       lineChar: 4
       spanCodeSection: void ActiveButton(
     - startInstruction: 2308
       endInstruction: 2315
-      startSourceChar: 2333
-      endSourceChar: 2353
-      line: 77
+      startSourceChar: 2251
+      endSourceChar: 2271
+      line: 76
       lineChar: 22
       spanCodeSection: "string uiName)\r\n    "
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2353
-      endSourceChar: 2364
-      line: 78
+      startSourceChar: 2271
+      endSourceChar: 2282
+      line: 77
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2364
-      endSourceChar: 2364
-      line: 79
+      startSourceChar: 2282
+      endSourceChar: 2282
+      line: 78
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2364
-      endSourceChar: 2364
-      line: 79
+      startSourceChar: 2282
+      endSourceChar: 2282
+      line: 78
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2364
-      endSourceChar: 2371
-      line: 79
+      startSourceChar: 2282
+      endSourceChar: 2289
+      line: 78
       lineChar: 8
       spanCodeSection: 'var tr '
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2371
-      endSourceChar: 2373
-      line: 79
+      startSourceChar: 2289
+      endSourceChar: 2291
+      line: 78
       lineChar: 15
       spanCodeSection: '= '
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2373
-      endSourceChar: 2373
-      line: 79
+      startSourceChar: 2291
+      endSourceChar: 2291
+      line: 78
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2373
-      endSourceChar: 2373
-      line: 79
+      startSourceChar: 2291
+      endSourceChar: 2291
+      line: 78
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2373
-      endSourceChar: 2373
-      line: 79
+      startSourceChar: 2291
+      endSourceChar: 2291
+      line: 78
       lineChar: 17
       spanCodeSection: 
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2373
-      endSourceChar: 2382
-      line: 79
+      startSourceChar: 2291
+      endSourceChar: 2300
+      line: 78
       lineChar: 17
       spanCodeSection: UICanvas.
     - startInstruction: 2316
       endInstruction: 2315
-      startSourceChar: 2382
-      endSourceChar: 2392
-      line: 79
+      startSourceChar: 2300
+      endSourceChar: 2310
+      line: 78
       lineChar: 26
       spanCodeSection: transform.
     - startInstruction: 2316
       endInstruction: 2339
-      startSourceChar: 2392
-      endSourceChar: 2397
-      line: 79
+      startSourceChar: 2310
+      endSourceChar: 2315
+      line: 78
       lineChar: 36
       spanCodeSection: Find(
     - startInstruction: 2340
       endInstruction: 2391
-      startSourceChar: 2397
-      endSourceChar: 2415
-      line: 79
+      startSourceChar: 2315
+      endSourceChar: 2333
+      line: 78
       lineChar: 41
       spanCodeSection: "uiName);\r\n        "
     - startInstruction: 2392
       endInstruction: 2391
-      startSourceChar: 2415
-      endSourceChar: 2419
-      line: 80
+      startSourceChar: 2333
+      endSourceChar: 2337
+      line: 79
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 2392
       endInstruction: 2391
-      startSourceChar: 2419
-      endSourceChar: 2419
-      line: 80
+      startSourceChar: 2337
+      endSourceChar: 2337
+      line: 79
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 2392
       endInstruction: 2391
-      startSourceChar: 2419
-      endSourceChar: 2425
-      line: 80
+      startSourceChar: 2337
+      endSourceChar: 2343
+      line: 79
       lineChar: 12
       spanCodeSection: 'tr == '
     - startInstruction: 2392
       endInstruction: 2439
-      startSourceChar: 2425
-      endSourceChar: 2431
-      line: 80
+      startSourceChar: 2343
+      endSourceChar: 2349
+      line: 79
       lineChar: 18
       spanCodeSection: 'null) '
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2431
-      endSourceChar: 2433
-      line: 80
+      startSourceChar: 2349
+      endSourceChar: 2351
+      line: 79
       lineChar: 24
       spanCodeSection: '{ '
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2433
-      endSourceChar: 2433
-      line: 80
+      startSourceChar: 2351
+      endSourceChar: 2351
+      line: 79
       lineChar: 26
       spanCodeSection: 
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2433
-      endSourceChar: 2433
-      line: 80
+      startSourceChar: 2351
+      endSourceChar: 2351
+      line: 79
       lineChar: 26
       spanCodeSection: 
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2433
-      endSourceChar: 2433
-      line: 80
+      startSourceChar: 2351
+      endSourceChar: 2351
+      line: 79
       lineChar: 26
       spanCodeSection: 
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2433
-      endSourceChar: 2439
-      line: 80
+      startSourceChar: 2351
+      endSourceChar: 2357
+      line: 79
       lineChar: 26
       spanCodeSection: Debug.
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2439
-      endSourceChar: 2443
-      line: 80
+      startSourceChar: 2357
+      endSourceChar: 2361
+      line: 79
       lineChar: 32
       spanCodeSection: Log(
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2443
-      endSourceChar: 2445
-      line: 80
+      startSourceChar: 2361
+      endSourceChar: 2363
+      line: 79
       lineChar: 36
       spanCodeSection: $"
     - startInstruction: 2440
       endInstruction: 2439
-      startSourceChar: 2445
-      endSourceChar: 2446
-      line: 80
+      startSourceChar: 2363
+      endSourceChar: 2364
+      line: 79
       lineChar: 38
       spanCodeSection: '{'
     - startInstruction: 2440
       endInstruction: 2459
-      startSourceChar: 2446
-      endSourceChar: 2453
-      line: 80
+      startSourceChar: 2364
+      endSourceChar: 2371
+      line: 79
       lineChar: 39
       spanCodeSection: uiName}
     - startInstruction: 2460
       endInstruction: 2527
-      startSourceChar: 2453
-      endSourceChar: 2480
-      line: 80
+      startSourceChar: 2371
+      endSourceChar: 2435
+      line: 79
       lineChar: 46
-      spanCodeSection: " not exists.\"); }\r\n        "
+      spanCodeSection: " not exists.\"); }\r\n        //UICanvas.SetActive(true);\r\n
+        \       "
     - startInstruction: 2528
       endInstruction: 2527
-      startSourceChar: 2480
-      endSourceChar: 2480
-      line: 81
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2528
-      endInstruction: 2527
-      startSourceChar: 2480
-      endSourceChar: 2480
+      startSourceChar: 2435
+      endSourceChar: 2435
       line: 81
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2528
       endInstruction: 2527
-      startSourceChar: 2480
-      endSourceChar: 2480
+      startSourceChar: 2435
+      endSourceChar: 2435
       line: 81
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 2528
       endInstruction: 2527
-      startSourceChar: 2480
-      endSourceChar: 2489
+      startSourceChar: 2435
+      endSourceChar: 2435
       line: 81
       lineChar: 8
-      spanCodeSection: UICanvas.
+      spanCodeSection: 
     - startInstruction: 2528
       endInstruction: 2527
-      startSourceChar: 2489
-      endSourceChar: 2499
+      startSourceChar: 2435
+      endSourceChar: 2435
       line: 81
-      lineChar: 17
-      spanCodeSection: SetActive(
+      lineChar: 8
+      spanCodeSection: 
     - startInstruction: 2528
-      endInstruction: 2551
-      startSourceChar: 2499
-      endSourceChar: 2515
+      endInstruction: 2527
+      startSourceChar: 2435
+      endSourceChar: 2438
       line: 81
-      lineChar: 27
-      spanCodeSection: "true);\r\n        "
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2515
-      endSourceChar: 2515
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2515
-      endSourceChar: 2515
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2515
-      endSourceChar: 2515
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2515
-      endSourceChar: 2515
-      line: 82
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2515
-      endSourceChar: 2518
-      line: 82
       lineChar: 8
       spanCodeSection: tr.
-    - startInstruction: 2552
-      endInstruction: 2551
-      startSourceChar: 2518
-      endSourceChar: 2529
-      line: 82
+    - startInstruction: 2528
+      endInstruction: 2527
+      startSourceChar: 2438
+      endSourceChar: 2449
+      line: 81
       lineChar: 11
       spanCodeSection: gameObject.
-    - startInstruction: 2552
-      endInstruction: 2575
-      startSourceChar: 2529
-      endSourceChar: 2539
-      line: 82
+    - startInstruction: 2528
+      endInstruction: 2551
+      startSourceChar: 2449
+      endSourceChar: 2459
+      line: 81
       lineChar: 22
       spanCodeSection: SetActive(
-    - startInstruction: 2576
-      endInstruction: 2619
-      startSourceChar: 2539
-      endSourceChar: 2560
-      line: 82
+    - startInstruction: 2552
+      endInstruction: 2595
+      startSourceChar: 2459
+      endSourceChar: 2480
+      line: 81
       lineChar: 32
       spanCodeSection: "true);\r\n    }\r\n\r\n    "
-    - startInstruction: 2620
-      endInstruction: 2627
-      startSourceChar: 2560
-      endSourceChar: 2596
-      line: 85
+    - startInstruction: 2596
+      endInstruction: 2603
+      startSourceChar: 2480
+      endSourceChar: 2516
+      line: 84
       lineChar: 4
       spanCodeSection: "public void DisableButtonAll()\r\n    "
-    - startInstruction: 2628
-      endInstruction: 2627
-      startSourceChar: 2596
-      endSourceChar: 2607
-      line: 86
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 2516
+      endSourceChar: 2527
+      line: 85
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2628
-      endInstruction: 2627
-      startSourceChar: 2607
-      endSourceChar: 2612
-      line: 87
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 2527
+      endSourceChar: 2532
+      line: 86
       lineChar: 8
       spanCodeSection: for (
-    - startInstruction: 2628
-      endInstruction: 2627
-      startSourceChar: 2612
-      endSourceChar: 2612
-      line: 87
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 2532
+      endSourceChar: 2532
+      line: 86
       lineChar: 13
       spanCodeSection: 
-    - startInstruction: 2628
-      endInstruction: 2627
-      startSourceChar: 2612
-      endSourceChar: 2618
-      line: 87
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 2532
+      endSourceChar: 2538
+      line: 86
       lineChar: 13
       spanCodeSection: 'var i '
-    - startInstruction: 2628
-      endInstruction: 2627
-      startSourceChar: 2618
-      endSourceChar: 2620
-      line: 87
+    - startInstruction: 2604
+      endInstruction: 2603
+      startSourceChar: 2538
+      endSourceChar: 2540
+      line: 86
       lineChar: 19
       spanCodeSection: '= '
-    - startInstruction: 2628
-      endInstruction: 2647
-      startSourceChar: 2620
-      endSourceChar: 2623
-      line: 87
+    - startInstruction: 2604
+      endInstruction: 2623
+      startSourceChar: 2540
+      endSourceChar: 2543
+      line: 86
       lineChar: 21
       spanCodeSection: '0; '
-    - startInstruction: 2648
-      endInstruction: 2647
-      startSourceChar: 2623
-      endSourceChar: 2623
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2543
+      endSourceChar: 2543
+      line: 86
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 2648
-      endInstruction: 2647
-      startSourceChar: 2623
-      endSourceChar: 2627
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2543
+      endSourceChar: 2547
+      line: 86
       lineChar: 24
       spanCodeSection: 'i < '
-    - startInstruction: 2648
-      endInstruction: 2647
-      startSourceChar: 2627
-      endSourceChar: 2627
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2547
+      endSourceChar: 2547
+      line: 86
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 2648
-      endInstruction: 2647
-      startSourceChar: 2627
-      endSourceChar: 2627
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2547
+      endSourceChar: 2547
+      line: 86
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 2648
-      endInstruction: 2647
-      startSourceChar: 2627
-      endSourceChar: 2636
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2547
+      endSourceChar: 2556
+      line: 86
       lineChar: 28
       spanCodeSection: UICanvas.
-    - startInstruction: 2648
-      endInstruction: 2647
-      startSourceChar: 2636
-      endSourceChar: 2646
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2623
+      startSourceChar: 2556
+      endSourceChar: 2566
+      line: 86
       lineChar: 37
       spanCodeSection: transform.
-    - startInstruction: 2648
-      endInstruction: 2743
-      startSourceChar: 2646
-      endSourceChar: 2672
-      line: 87
+    - startInstruction: 2624
+      endInstruction: 2719
+      startSourceChar: 2566
+      endSourceChar: 2592
+      line: 86
       lineChar: 47
       spanCodeSection: "childCount; i++)\r\n        "
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2672
-      endSourceChar: 2687
-      line: 88
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2592
+      endSourceChar: 2607
+      line: 87
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2687
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2607
+      line: 88
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2687
-      endSourceChar: 2696
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2607
+      endSourceChar: 2616
+      line: 88
       lineChar: 12
       spanCodeSection: UICanvas.
-    - startInstruction: 2744
-      endInstruction: 2743
-      startSourceChar: 2696
-      endSourceChar: 2706
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2719
+      startSourceChar: 2616
+      endSourceChar: 2626
+      line: 88
       lineChar: 21
       spanCodeSection: transform.
-    - startInstruction: 2744
-      endInstruction: 2767
-      startSourceChar: 2706
-      endSourceChar: 2715
-      line: 89
+    - startInstruction: 2720
+      endInstruction: 2743
+      startSourceChar: 2626
+      endSourceChar: 2635
+      line: 88
       lineChar: 31
       spanCodeSection: GetChild(
-    - startInstruction: 2768
-      endInstruction: 2799
-      startSourceChar: 2715
-      endSourceChar: 2718
-      line: 89
+    - startInstruction: 2744
+      endInstruction: 2775
+      startSourceChar: 2635
+      endSourceChar: 2638
+      line: 88
       lineChar: 40
       spanCodeSection: i).
-    - startInstruction: 2800
-      endInstruction: 2799
-      startSourceChar: 2718
-      endSourceChar: 2729
-      line: 89
+    - startInstruction: 2776
+      endInstruction: 2775
+      startSourceChar: 2638
+      endSourceChar: 2649
+      line: 88
       lineChar: 43
       spanCodeSection: gameObject.
-    - startInstruction: 2800
-      endInstruction: 2823
-      startSourceChar: 2729
-      endSourceChar: 2739
-      line: 89
+    - startInstruction: 2776
+      endInstruction: 2799
+      startSourceChar: 2649
+      endSourceChar: 2659
+      line: 88
       lineChar: 54
       spanCodeSection: SetActive(
-    - startInstruction: 2824
-      endInstruction: 2907
-      startSourceChar: 2739
-      endSourceChar: 2767
-      line: 89
+    - startInstruction: 2800
+      endInstruction: 2903
+      startSourceChar: 2659
+      endSourceChar: 2730
+      line: 88
       lineChar: 64
-      spanCodeSection: "false);\r\n        }\r\n        "
-    - startInstruction: 2908
-      endInstruction: 2907
-      startSourceChar: 2767
-      endSourceChar: 2767
-      line: 91
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2908
-      endInstruction: 2907
-      startSourceChar: 2767
-      endSourceChar: 2767
-      line: 91
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2908
-      endInstruction: 2907
-      startSourceChar: 2767
-      endSourceChar: 2767
-      line: 91
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2908
-      endInstruction: 2907
-      startSourceChar: 2767
-      endSourceChar: 2776
-      line: 91
-      lineChar: 8
-      spanCodeSection: UICanvas.
-    - startInstruction: 2908
-      endInstruction: 2907
-      startSourceChar: 2776
-      endSourceChar: 2786
-      line: 91
-      lineChar: 17
-      spanCodeSection: SetActive(
-    - startInstruction: 2908
-      endInstruction: 2951
-      startSourceChar: 2786
-      endSourceChar: 2808
-      line: 91
-      lineChar: 27
-      spanCodeSection: "false);\r\n    }\r\n\r\n    "
-    - startInstruction: 2952
-      endInstruction: 2951
-      startSourceChar: 2808
-      endSourceChar: 2828
-      line: 94
+      spanCodeSection: "false);\r\n        }\r\n        //UICanvas.SetActive(false);\r\n
+        \   }\r\n\r\n    "
+    - startInstruction: 2904
+      endInstruction: 2903
+      startSourceChar: 2730
+      endSourceChar: 2750
+      line: 93
       lineChar: 4
       spanCodeSection: public void OnClick(
-    - startInstruction: 2952
-      endInstruction: 2959
-      startSourceChar: 2828
-      endSourceChar: 2855
-      line: 94
+    - startInstruction: 2904
+      endInstruction: 2911
+      startSourceChar: 2750
+      endSourceChar: 2777
+      line: 93
       lineChar: 24
       spanCodeSection: "string clickedUIName)\r\n    "
-    - startInstruction: 2960
-      endInstruction: 2959
-      startSourceChar: 2855
-      endSourceChar: 2866
-      line: 95
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 2777
+      endSourceChar: 2788
+      line: 94
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2960
-      endInstruction: 2959
-      startSourceChar: 2866
-      endSourceChar: 2870
-      line: 96
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 2788
+      endSourceChar: 2792
+      line: 95
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 2960
-      endInstruction: 2959
-      startSourceChar: 2870
-      endSourceChar: 2870
-      line: 96
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 2792
+      endSourceChar: 2792
+      line: 95
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2960
-      endInstruction: 2959
-      startSourceChar: 2870
-      endSourceChar: 2870
-      line: 96
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 2792
+      endSourceChar: 2792
+      line: 95
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 2960
-      endInstruction: 2959
-      startSourceChar: 2870
-      endSourceChar: 2887
-      line: 96
+    - startInstruction: 2912
+      endInstruction: 2911
+      startSourceChar: 2792
+      endSourceChar: 2809
+      line: 95
       lineChar: 12
       spanCodeSection: 'clickedUIName == '
-    - startInstruction: 2960
-      endInstruction: 3027
-      startSourceChar: 2887
-      endSourceChar: 2896
-      line: 96
+    - startInstruction: 2912
+      endInstruction: 2979
+      startSourceChar: 2809
+      endSourceChar: 2818
+      line: 95
       lineChar: 29
       spanCodeSection: '"Chi" && '
-    - startInstruction: 3028
-      endInstruction: 3027
-      startSourceChar: 2896
-      endSourceChar: 2896
-      line: 96
+    - startInstruction: 2980
+      endInstruction: 2979
+      startSourceChar: 2818
+      endSourceChar: 2818
+      line: 95
       lineChar: 38
       spanCodeSection: 
-    - startInstruction: 3028
-      endInstruction: 3027
-      startSourceChar: 2896
-      endSourceChar: 2896
-      line: 96
+    - startInstruction: 2980
+      endInstruction: 2979
+      startSourceChar: 2818
+      endSourceChar: 2818
+      line: 95
       lineChar: 38
       spanCodeSection: 
-    - startInstruction: 3028
-      endInstruction: 3027
-      startSourceChar: 2896
-      endSourceChar: 2906
-      line: 96
+    - startInstruction: 2980
+      endInstruction: 2979
+      startSourceChar: 2818
+      endSourceChar: 2828
+      line: 95
       lineChar: 38
       spanCodeSection: UIContext.
-    - startInstruction: 3028
-      endInstruction: 3083
-      startSourceChar: 2906
-      endSourceChar: 2921
-      line: 96
+    - startInstruction: 2980
+      endInstruction: 3035
+      startSourceChar: 2828
+      endSourceChar: 2843
+      line: 95
       lineChar: 48
       spanCodeSection: 'ChiableCount > '
-    - startInstruction: 3084
-      endInstruction: 3183
-      startSourceChar: 2921
-      endSourceChar: 2933
-      line: 96
+    - startInstruction: 3036
+      endInstruction: 3135
+      startSourceChar: 2843
+      endSourceChar: 2855
+      line: 95
       lineChar: 63
       spanCodeSection: "1)\r\n        "
-    - startInstruction: 3184
-      endInstruction: 3183
-      startSourceChar: 2933
-      endSourceChar: 2948
-      line: 97
+    - startInstruction: 3136
+      endInstruction: 3135
+      startSourceChar: 2855
+      endSourceChar: 2870
+      line: 96
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 3184
-      endInstruction: 3183
-      startSourceChar: 2948
-      endSourceChar: 2948
-      line: 98
+    - startInstruction: 3136
+      endInstruction: 3135
+      startSourceChar: 2870
+      endSourceChar: 2870
+      line: 97
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3184
-      endInstruction: 3183
-      startSourceChar: 2948
-      endSourceChar: 2948
-      line: 98
+    - startInstruction: 3136
+      endInstruction: 3135
+      startSourceChar: 2870
+      endSourceChar: 2870
+      line: 97
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3184
-      endInstruction: 3183
-      startSourceChar: 2948
-      endSourceChar: 2961
-      line: 98
+    - startInstruction: 3136
+      endInstruction: 3135
+      startSourceChar: 2870
+      endSourceChar: 2883
+      line: 97
       lineChar: 12
       spanCodeSection: ActiveButton(
-    - startInstruction: 3184
-      endInstruction: 3219
-      startSourceChar: 2961
-      endSourceChar: 2988
-      line: 98
+    - startInstruction: 3136
+      endInstruction: 3171
+      startSourceChar: 2883
+      endSourceChar: 2910
+      line: 97
       lineChar: 25
       spanCodeSection: "\"ChiSelect\");\r\n            "
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 2988
-      endSourceChar: 2988
-      line: 99
+    - startInstruction: 3172
+      endInstruction: 3171
+      startSourceChar: 2910
+      endSourceChar: 2910
+      line: 98
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 2988
-      endSourceChar: 2988
-      line: 99
+    - startInstruction: 3172
+      endInstruction: 3171
+      startSourceChar: 2910
+      endSourceChar: 2910
+      line: 98
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3220
-      endInstruction: 3219
-      startSourceChar: 2988
-      endSourceChar: 3001
-      line: 99
+    - startInstruction: 3172
+      endInstruction: 3171
+      startSourceChar: 2910
+      endSourceChar: 2923
+      line: 98
       lineChar: 12
       spanCodeSection: ActiveButton(
-    - startInstruction: 3220
-      endInstruction: 3263
-      startSourceChar: 3001
-      endSourceChar: 3030
-      line: 99
+    - startInstruction: 3172
+      endInstruction: 3215
+      startSourceChar: 2923
+      endSourceChar: 2952
+      line: 98
       lineChar: 25
       spanCodeSection: "\"Skip\");\r\n        }\r\n        "
-    - startInstruction: 3264
-      endInstruction: 3263
-      startSourceChar: 3030
-      endSourceChar: 3035
-      line: 101
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 2952
+      endSourceChar: 2957
+      line: 100
       lineChar: 8
       spanCodeSection: 'else '
-    - startInstruction: 3264
-      endInstruction: 3263
-      startSourceChar: 3035
-      endSourceChar: 3039
-      line: 101
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 2957
+      endSourceChar: 2961
+      line: 100
       lineChar: 13
       spanCodeSection: if (
-    - startInstruction: 3264
-      endInstruction: 3263
-      startSourceChar: 3039
-      endSourceChar: 3039
-      line: 101
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 2961
+      endSourceChar: 2961
+      line: 100
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 3264
-      endInstruction: 3263
-      startSourceChar: 3039
-      endSourceChar: 3039
-      line: 101
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 2961
+      endSourceChar: 2961
+      line: 100
       lineChar: 17
       spanCodeSection: 
-    - startInstruction: 3264
-      endInstruction: 3263
-      startSourceChar: 3039
-      endSourceChar: 3056
-      line: 101
+    - startInstruction: 3216
+      endInstruction: 3215
+      startSourceChar: 2961
+      endSourceChar: 2978
+      line: 100
       lineChar: 17
       spanCodeSection: 'clickedUIName == '
-    - startInstruction: 3264
-      endInstruction: 3355
-      startSourceChar: 3056
-      endSourceChar: 3065
-      line: 101
+    - startInstruction: 3216
+      endInstruction: 3307
+      startSourceChar: 2978
+      endSourceChar: 2987
+      line: 100
       lineChar: 34
       spanCodeSection: '"Chi" || '
-    - startInstruction: 3356
-      endInstruction: 3355
-      startSourceChar: 3065
-      endSourceChar: 3065
-      line: 101
+    - startInstruction: 3308
+      endInstruction: 3307
+      startSourceChar: 2987
+      endSourceChar: 2987
+      line: 100
       lineChar: 43
       spanCodeSection: 
-    - startInstruction: 3356
-      endInstruction: 3355
-      startSourceChar: 3065
-      endSourceChar: 3065
-      line: 101
+    - startInstruction: 3308
+      endInstruction: 3307
+      startSourceChar: 2987
+      endSourceChar: 2987
+      line: 100
       lineChar: 43
       spanCodeSection: 
-    - startInstruction: 3356
-      endInstruction: 3355
-      startSourceChar: 3065
-      endSourceChar: 3079
-      line: 101
+    - startInstruction: 3308
+      endInstruction: 3307
+      startSourceChar: 2987
+      endSourceChar: 3001
+      line: 100
       lineChar: 43
       spanCodeSection: clickedUIName.
-    - startInstruction: 3356
-      endInstruction: 3355
-      startSourceChar: 3079
-      endSourceChar: 3090
-      line: 101
+    - startInstruction: 3308
+      endInstruction: 3307
+      startSourceChar: 3001
+      endSourceChar: 3012
+      line: 100
       lineChar: 57
       spanCodeSection: StartsWith(
-    - startInstruction: 3356
-      endInstruction: 3455
-      startSourceChar: 3090
-      endSourceChar: 3113
-      line: 101
+    - startInstruction: 3308
+      endInstruction: 3407
+      startSourceChar: 3012
+      endSourceChar: 3035
+      line: 100
       lineChar: 68
       spanCodeSection: "\"chiSelect\"))\r\n        "
-    - startInstruction: 3456
-      endInstruction: 3455
-      startSourceChar: 3113
-      endSourceChar: 3128
-      line: 102
+    - startInstruction: 3408
+      endInstruction: 3407
+      startSourceChar: 3035
+      endSourceChar: 3050
+      line: 101
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 3456
-      endInstruction: 3455
-      startSourceChar: 3128
-      endSourceChar: 3128
-      line: 103
+    - startInstruction: 3408
+      endInstruction: 3407
+      startSourceChar: 3050
+      endSourceChar: 3050
+      line: 102
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3456
-      endInstruction: 3455
-      startSourceChar: 3128
-      endSourceChar: 3128
-      line: 103
+    - startInstruction: 3408
+      endInstruction: 3407
+      startSourceChar: 3050
+      endSourceChar: 3050
+      line: 102
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3456
-      endInstruction: 3455
-      startSourceChar: 3128
-      endSourceChar: 3143
-      line: 103
+    - startInstruction: 3408
+      endInstruction: 3407
+      startSourceChar: 3050
+      endSourceChar: 3065
+      line: 102
       lineChar: 12
       spanCodeSection: ClickChiSelect(
-    - startInstruction: 3456
-      endInstruction: 3499
-      startSourceChar: 3143
-      endSourceChar: 3179
-      line: 103
+    - startInstruction: 3408
+      endInstruction: 3451
+      startSourceChar: 3065
+      endSourceChar: 3101
+      line: 102
       lineChar: 27
       spanCodeSection: "clickedUIName);\r\n        }\r\n        "
-    - startInstruction: 3500
-      endInstruction: 3499
-      startSourceChar: 3179
-      endSourceChar: 3193
-      line: 105
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 3101
+      endSourceChar: 3115
+      line: 104
       lineChar: 8
       spanCodeSection: "else\r\n        "
-    - startInstruction: 3500
-      endInstruction: 3499
-      startSourceChar: 3193
-      endSourceChar: 3208
-      line: 106
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 3115
+      endSourceChar: 3130
+      line: 105
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 3500
-      endInstruction: 3499
-      startSourceChar: 3208
-      endSourceChar: 3208
-      line: 107
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 3130
+      endSourceChar: 3130
+      line: 106
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3500
-      endInstruction: 3499
-      startSourceChar: 3208
-      endSourceChar: 3208
-      line: 107
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 3130
+      endSourceChar: 3130
+      line: 106
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 3500
-      endInstruction: 3499
-      startSourceChar: 3208
-      endSourceChar: 3220
-      line: 107
+    - startInstruction: 3452
+      endInstruction: 3451
+      startSourceChar: 3130
+      endSourceChar: 3142
+      line: 106
       lineChar: 12
       spanCodeSection: ClickOthers(
-    - startInstruction: 3500
-      endInstruction: 3555
-      startSourceChar: 3220
-      endSourceChar: 3261
-      line: 107
+    - startInstruction: 3452
+      endInstruction: 3507
+      startSourceChar: 3142
+      endSourceChar: 3183
+      line: 106
       lineChar: 24
       spanCodeSection: "clickedUIName);\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 3556
-      endInstruction: 3555
-      startSourceChar: 3261
-      endSourceChar: 3281
-      line: 111
+    - startInstruction: 3508
+      endInstruction: 3507
+      startSourceChar: 3183
+      endSourceChar: 3203
+      line: 110
       lineChar: 4
       spanCodeSection: void ClickChiSelect(
-    - startInstruction: 3556
-      endInstruction: 3563
-      startSourceChar: 3281
-      endSourceChar: 3301
-      line: 111
+    - startInstruction: 3508
+      endInstruction: 3515
+      startSourceChar: 3203
+      endSourceChar: 3223
+      line: 110
       lineChar: 24
       spanCodeSection: "string uiName)\r\n    "
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3301
-      endSourceChar: 3312
-      line: 112
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3223
+      endSourceChar: 3234
+      line: 111
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3312
-      endSourceChar: 3312
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3234
+      endSourceChar: 3234
+      line: 112
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3312
-      endSourceChar: 3312
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3234
+      endSourceChar: 3234
+      line: 112
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3312
-      endSourceChar: 3325
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3234
+      endSourceChar: 3247
+      line: 112
       lineChar: 8
       spanCodeSection: 'var funcName '
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3325
-      endSourceChar: 3327
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3247
+      endSourceChar: 3249
+      line: 112
       lineChar: 21
       spanCodeSection: '= '
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3327
-      endSourceChar: 3327
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3249
+      endSourceChar: 3249
+      line: 112
       lineChar: 23
       spanCodeSection: 
-    - startInstruction: 3564
-      endInstruction: 3563
-      startSourceChar: 3327
-      endSourceChar: 3346
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3515
+      startSourceChar: 3249
+      endSourceChar: 3268
+      line: 112
       lineChar: 23
       spanCodeSection: GetChiFuncByUIName(
-    - startInstruction: 3564
-      endInstruction: 3619
-      startSourceChar: 3346
-      endSourceChar: 3364
-      line: 113
+    - startInstruction: 3516
+      endInstruction: 3571
+      startSourceChar: 3268
+      endSourceChar: 3286
+      line: 112
       lineChar: 42
       spanCodeSection: "uiName);\r\n        "
-    - startInstruction: 3620
-      endInstruction: 3619
-      startSourceChar: 3364
-      endSourceChar: 3364
-      line: 114
+    - startInstruction: 3572
+      endInstruction: 3571
+      startSourceChar: 3286
+      endSourceChar: 3286
+      line: 113
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 3620
-      endInstruction: 3619
-      startSourceChar: 3364
-      endSourceChar: 3364
-      line: 114
+    - startInstruction: 3572
+      endInstruction: 3571
+      startSourceChar: 3286
+      endSourceChar: 3286
+      line: 113
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 3620
-      endInstruction: 3619
-      startSourceChar: 3364
-      endSourceChar: 3391
-      line: 114
+    - startInstruction: 3572
+      endInstruction: 3571
+      startSourceChar: 3286
+      endSourceChar: 3313
+      line: 113
       lineChar: 8
       spanCodeSection: RequestCallFunctionToOwner(
-    - startInstruction: 3620
-      endInstruction: 3675
-      startSourceChar: 3391
-      endSourceChar: 3416
-      line: 114
+    - startInstruction: 3572
+      endInstruction: 3627
+      startSourceChar: 3313
+      endSourceChar: 3338
+      line: 113
       lineChar: 35
       spanCodeSection: "funcName);\r\n    }\r\n\r\n    "
-    - startInstruction: 3676
-      endInstruction: 3675
-      startSourceChar: 3416
-      endSourceChar: 3442
-      line: 117
+    - startInstruction: 3628
+      endInstruction: 3627
+      startSourceChar: 3338
+      endSourceChar: 3364
+      line: 116
       lineChar: 4
       spanCodeSection: string GetChiFuncByUIName(
-    - startInstruction: 3676
-      endInstruction: 3683
-      startSourceChar: 3442
-      endSourceChar: 3462
-      line: 117
+    - startInstruction: 3628
+      endInstruction: 3635
+      startSourceChar: 3364
+      endSourceChar: 3384
+      line: 116
       lineChar: 30
       spanCodeSection: "string uiName)\r\n    "
-    - startInstruction: 3684
-      endInstruction: 3683
-      startSourceChar: 3462
-      endSourceChar: 3473
-      line: 118
+    - startInstruction: 3636
+      endInstruction: 3635
+      startSourceChar: 3384
+      endSourceChar: 3395
+      line: 117
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 3684
-      endInstruction: 3683
-      startSourceChar: 3473
-      endSourceChar: 3481
-      line: 119
+    - startInstruction: 3636
+      endInstruction: 3635
+      startSourceChar: 3395
+      endSourceChar: 3403
+      line: 118
       lineChar: 8
       spanCodeSection: switch (
-    - startInstruction: 3684
-      endInstruction: 3683
-      startSourceChar: 3481
-      endSourceChar: 3513
-      line: 119
+    - startInstruction: 3636
+      endInstruction: 3635
+      startSourceChar: 3403
+      endSourceChar: 3435
+      line: 118
       lineChar: 16
       spanCodeSection: "uiName)\r\n        {\r\n            "
-    - startInstruction: 3684
-      endInstruction: 3683
-      startSourceChar: 3513
-      endSourceChar: 3518
-      line: 121
+    - startInstruction: 3636
+      endInstruction: 3635
+      startSourceChar: 3435
+      endSourceChar: 3440
+      line: 120
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3684
-      endInstruction: 3739
-      startSourceChar: 3518
-      endSourceChar: 3571
-      line: 121
+    - startInstruction: 3636
+      endInstruction: 3691
+      startSourceChar: 3440
+      endSourceChar: 3493
+      line: 120
       lineChar: 17
       spanCodeSection: "\"Chi\": return nameof(_ClickChiSelect1);\r\n            "
-    - startInstruction: 3740
-      endInstruction: 3739
-      startSourceChar: 3571
-      endSourceChar: 3576
-      line: 122
+    - startInstruction: 3692
+      endInstruction: 3691
+      startSourceChar: 3493
+      endSourceChar: 3498
+      line: 121
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3740
-      endInstruction: 3795
-      startSourceChar: 3576
-      endSourceChar: 3637
-      line: 122
+    - startInstruction: 3692
+      endInstruction: 3747
+      startSourceChar: 3498
+      endSourceChar: 3559
+      line: 121
       lineChar: 17
       spanCodeSection: "\"chiSelect_1\": return nameof(_ClickChiSelect1);\r\n            "
-    - startInstruction: 3796
-      endInstruction: 3795
-      startSourceChar: 3637
-      endSourceChar: 3642
-      line: 123
+    - startInstruction: 3748
+      endInstruction: 3747
+      startSourceChar: 3559
+      endSourceChar: 3564
+      line: 122
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3796
-      endInstruction: 3851
-      startSourceChar: 3642
-      endSourceChar: 3703
-      line: 123
+    - startInstruction: 3748
+      endInstruction: 3803
+      startSourceChar: 3564
+      endSourceChar: 3625
+      line: 122
       lineChar: 17
       spanCodeSection: "\"chiSelect_2\": return nameof(_ClickChiSelect2);\r\n            "
-    - startInstruction: 3852
-      endInstruction: 3851
-      startSourceChar: 3703
-      endSourceChar: 3708
-      line: 124
+    - startInstruction: 3804
+      endInstruction: 3803
+      startSourceChar: 3625
+      endSourceChar: 3630
+      line: 123
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 3852
-      endInstruction: 3907
-      startSourceChar: 3708
-      endSourceChar: 3769
-      line: 124
+    - startInstruction: 3804
+      endInstruction: 3859
+      startSourceChar: 3630
+      endSourceChar: 3691
+      line: 123
       lineChar: 17
       spanCodeSection: "\"chiSelect_3\": return nameof(_ClickChiSelect3);\r\n            "
-    - startInstruction: 3908
-      endInstruction: 4075
-      startSourceChar: 3769
-      endSourceChar: 3778
-      line: 125
+    - startInstruction: 3860
+      endInstruction: 4027
+      startSourceChar: 3691
+      endSourceChar: 3700
+      line: 124
       lineChar: 12
       spanCodeSection: 'default: '
-    - startInstruction: 4076
-      endInstruction: 4075
-      startSourceChar: 3778
-      endSourceChar: 3785
-      line: 125
+    - startInstruction: 4028
+      endInstruction: 4027
+      startSourceChar: 3700
+      endSourceChar: 3707
+      line: 124
       lineChar: 21
       spanCodeSection: 'return '
-    - startInstruction: 4076
-      endInstruction: 4135
-      startSourceChar: 3785
-      endSourceChar: 3816
-      line: 125
+    - startInstruction: 4028
+      endInstruction: 4087
+      startSourceChar: 3707
+      endSourceChar: 3738
+      line: 124
       lineChar: 28
       spanCodeSection: "null;\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 4136
-      endInstruction: 4143
+    - startInstruction: 4088
+      endInstruction: 4095
+      startSourceChar: 3738
+      endSourceChar: 3769
+      line: 128
+      lineChar: 4
+      spanCodeSection: 'public void _ClickChiSelect1() '
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 3769
+      endSourceChar: 3771
+      line: 128
+      lineChar: 35
+      spanCodeSection: '{ '
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 3771
+      endSourceChar: 3771
+      line: 128
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 3771
+      endSourceChar: 3771
+      line: 128
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 3771
+      endSourceChar: 3783
+      line: 128
+      lineChar: 37
+      spanCodeSection: SetChiEvent(
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 3783
+      endSourceChar: 3783
+      line: 128
+      lineChar: 49
+      spanCodeSection: 
+    - startInstruction: 4096
+      endInstruction: 4095
+      startSourceChar: 3783
+      endSourceChar: 3793
+      line: 128
+      lineChar: 49
+      spanCodeSection: UIContext.
+    - startInstruction: 4096
+      endInstruction: 4203
+      startSourceChar: 3793
+      endSourceChar: 3816
+      line: 128
+      lineChar: 59
+      spanCodeSection: "ChiableIndex1); }\r\n    "
+    - startInstruction: 4204
+      endInstruction: 4211
       startSourceChar: 3816
       endSourceChar: 3847
       line: 129
       lineChar: 4
-      spanCodeSection: 'public void _ClickChiSelect1() '
-    - startInstruction: 4144
-      endInstruction: 4143
+      spanCodeSection: 'public void _ClickChiSelect2() '
+    - startInstruction: 4212
+      endInstruction: 4211
       startSourceChar: 3847
       endSourceChar: 3849
       line: 129
       lineChar: 35
       spanCodeSection: '{ '
-    - startInstruction: 4144
-      endInstruction: 4143
+    - startInstruction: 4212
+      endInstruction: 4211
       startSourceChar: 3849
       endSourceChar: 3849
       line: 129
       lineChar: 37
       spanCodeSection: 
-    - startInstruction: 4144
-      endInstruction: 4143
+    - startInstruction: 4212
+      endInstruction: 4211
       startSourceChar: 3849
       endSourceChar: 3849
       line: 129
       lineChar: 37
       spanCodeSection: 
-    - startInstruction: 4144
-      endInstruction: 4143
+    - startInstruction: 4212
+      endInstruction: 4211
       startSourceChar: 3849
       endSourceChar: 3861
       line: 129
       lineChar: 37
       spanCodeSection: SetChiEvent(
-    - startInstruction: 4144
-      endInstruction: 4143
+    - startInstruction: 4212
+      endInstruction: 4211
       startSourceChar: 3861
       endSourceChar: 3861
       line: 129
       lineChar: 49
       spanCodeSection: 
-    - startInstruction: 4144
-      endInstruction: 4143
+    - startInstruction: 4212
+      endInstruction: 4211
       startSourceChar: 3861
       endSourceChar: 3871
       line: 129
       lineChar: 49
       spanCodeSection: UIContext.
-    - startInstruction: 4144
-      endInstruction: 4251
+    - startInstruction: 4212
+      endInstruction: 4319
       startSourceChar: 3871
       endSourceChar: 3894
       line: 129
       lineChar: 59
-      spanCodeSection: "ChiableIndex1); }\r\n    "
-    - startInstruction: 4252
-      endInstruction: 4259
+      spanCodeSection: "ChiableIndex2); }\r\n    "
+    - startInstruction: 4320
+      endInstruction: 4327
       startSourceChar: 3894
       endSourceChar: 3925
       line: 130
       lineChar: 4
-      spanCodeSection: 'public void _ClickChiSelect2() '
-    - startInstruction: 4260
-      endInstruction: 4259
+      spanCodeSection: 'public void _ClickChiSelect3() '
+    - startInstruction: 4328
+      endInstruction: 4327
       startSourceChar: 3925
       endSourceChar: 3927
       line: 130
       lineChar: 35
       spanCodeSection: '{ '
-    - startInstruction: 4260
-      endInstruction: 4259
+    - startInstruction: 4328
+      endInstruction: 4327
       startSourceChar: 3927
       endSourceChar: 3927
       line: 130
       lineChar: 37
       spanCodeSection: 
-    - startInstruction: 4260
-      endInstruction: 4259
+    - startInstruction: 4328
+      endInstruction: 4327
       startSourceChar: 3927
       endSourceChar: 3927
       line: 130
       lineChar: 37
       spanCodeSection: 
-    - startInstruction: 4260
-      endInstruction: 4259
+    - startInstruction: 4328
+      endInstruction: 4327
       startSourceChar: 3927
       endSourceChar: 3939
       line: 130
       lineChar: 37
       spanCodeSection: SetChiEvent(
-    - startInstruction: 4260
-      endInstruction: 4259
+    - startInstruction: 4328
+      endInstruction: 4327
       startSourceChar: 3939
       endSourceChar: 3939
       line: 130
       lineChar: 49
       spanCodeSection: 
-    - startInstruction: 4260
-      endInstruction: 4259
+    - startInstruction: 4328
+      endInstruction: 4327
       startSourceChar: 3939
       endSourceChar: 3949
       line: 130
       lineChar: 49
       spanCodeSection: UIContext.
-    - startInstruction: 4260
-      endInstruction: 4367
+    - startInstruction: 4328
+      endInstruction: 4435
       startSourceChar: 3949
-      endSourceChar: 3972
+      endSourceChar: 3974
       line: 130
       lineChar: 59
-      spanCodeSection: "ChiableIndex2); }\r\n    "
-    - startInstruction: 4368
-      endInstruction: 4375
-      startSourceChar: 3972
-      endSourceChar: 4003
-      line: 131
-      lineChar: 4
-      spanCodeSection: 'public void _ClickChiSelect3() '
-    - startInstruction: 4376
-      endInstruction: 4375
-      startSourceChar: 4003
-      endSourceChar: 4005
-      line: 131
-      lineChar: 35
-      spanCodeSection: '{ '
-    - startInstruction: 4376
-      endInstruction: 4375
-      startSourceChar: 4005
-      endSourceChar: 4005
-      line: 131
-      lineChar: 37
-      spanCodeSection: 
-    - startInstruction: 4376
-      endInstruction: 4375
-      startSourceChar: 4005
-      endSourceChar: 4005
-      line: 131
-      lineChar: 37
-      spanCodeSection: 
-    - startInstruction: 4376
-      endInstruction: 4375
-      startSourceChar: 4005
-      endSourceChar: 4017
-      line: 131
-      lineChar: 37
-      spanCodeSection: SetChiEvent(
-    - startInstruction: 4376
-      endInstruction: 4375
-      startSourceChar: 4017
-      endSourceChar: 4017
-      line: 131
-      lineChar: 49
-      spanCodeSection: 
-    - startInstruction: 4376
-      endInstruction: 4375
-      startSourceChar: 4017
-      endSourceChar: 4027
-      line: 131
-      lineChar: 49
-      spanCodeSection: UIContext.
-    - startInstruction: 4376
-      endInstruction: 4483
-      startSourceChar: 4027
-      endSourceChar: 4052
-      line: 131
-      lineChar: 59
       spanCodeSection: "ChiableIndex3); }\r\n\r\n    "
-    - startInstruction: 4484
-      endInstruction: 4483
-      startSourceChar: 4052
-      endSourceChar: 4069
-      line: 133
+    - startInstruction: 4436
+      endInstruction: 4435
+      startSourceChar: 3974
+      endSourceChar: 3991
+      line: 132
       lineChar: 4
       spanCodeSection: void SetChiEvent(
-    - startInstruction: 4484
-      endInstruction: 4491
-      startSourceChar: 4069
-      endSourceChar: 4092
-      line: 133
+    - startInstruction: 4436
+      endInstruction: 4443
+      startSourceChar: 3991
+      endSourceChar: 4014
+      line: 132
       lineChar: 21
       spanCodeSection: "Vector2 chiIndex)\r\n    "
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4092
-      endSourceChar: 4103
-      line: 134
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4014
+      endSourceChar: 4025
+      line: 133
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4103
-      endSourceChar: 4103
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4025
+      endSourceChar: 4025
+      line: 134
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4103
-      endSourceChar: 4103
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4025
+      endSourceChar: 4025
+      line: 134
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4103
-      endSourceChar: 4103
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4025
+      endSourceChar: 4025
+      line: 134
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4103
-      endSourceChar: 4114
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4025
+      endSourceChar: 4036
+      line: 134
       lineChar: 8
       spanCodeSection: EventQueue.
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4114
-      endSourceChar: 4126
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4036
+      endSourceChar: 4048
+      line: 134
       lineChar: 19
       spanCodeSection: SetChiEvent(
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4126
-      endSourceChar: 4136
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4048
+      endSourceChar: 4058
+      line: 134
       lineChar: 31
       spanCodeSection: 'chiIndex, '
-    - startInstruction: 4492
-      endInstruction: 4491
-      startSourceChar: 4136
-      endSourceChar: 4143
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4443
+      startSourceChar: 4058
+      endSourceChar: 4065
+      line: 134
       lineChar: 41
       spanCodeSection: '"Chi", '
-    - startInstruction: 4492
-      endInstruction: 4651
-      startSourceChar: 4143
-      endSourceChar: 4171
-      line: 135
+    - startInstruction: 4444
+      endInstruction: 4603
+      startSourceChar: 4065
+      endSourceChar: 4093
+      line: 134
       lineChar: 48
       spanCodeSection: "PlayerIndex);\r\n    }\r\n\r\n    "
-    - startInstruction: 4652
-      endInstruction: 4651
-      startSourceChar: 4171
-      endSourceChar: 4195
-      line: 138
+    - startInstruction: 4604
+      endInstruction: 4603
+      startSourceChar: 4093
+      endSourceChar: 4117
+      line: 137
       lineChar: 4
       spanCodeSection: public void ClickOthers(
-    - startInstruction: 4652
-      endInstruction: 4659
-      startSourceChar: 4195
-      endSourceChar: 4215
-      line: 138
+    - startInstruction: 4604
+      endInstruction: 4611
+      startSourceChar: 4117
+      endSourceChar: 4137
+      line: 137
       lineChar: 28
       spanCodeSection: "string uiName)\r\n    "
-    - startInstruction: 4660
-      endInstruction: 4659
-      startSourceChar: 4215
-      endSourceChar: 4226
-      line: 139
+    - startInstruction: 4612
+      endInstruction: 4611
+      startSourceChar: 4137
+      endSourceChar: 4148
+      line: 138
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 4660
-      endInstruction: 4659
-      startSourceChar: 4226
-      endSourceChar: 4226
-      line: 140
+    - startInstruction: 4612
+      endInstruction: 4611
+      startSourceChar: 4148
+      endSourceChar: 4148
+      line: 139
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4660
-      endInstruction: 4659
-      startSourceChar: 4226
-      endSourceChar: 4226
-      line: 140
+    - startInstruction: 4612
+      endInstruction: 4611
+      startSourceChar: 4148
+      endSourceChar: 4148
+      line: 139
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4660
-      endInstruction: 4659
-      startSourceChar: 4226
-      endSourceChar: 4239
-      line: 140
+    - startInstruction: 4612
+      endInstruction: 4611
+      startSourceChar: 4148
+      endSourceChar: 4161
+      line: 139
       lineChar: 8
       spanCodeSection: 'var funcName '
-    - startInstruction: 4660
-      endInstruction: 4659
-      startSourceChar: 4239
-      endSourceChar: 4241
-      line: 140
+    - startInstruction: 4612
+      endInstruction: 4611
+      startSourceChar: 4161
+      endSourceChar: 4163
+      line: 139
       lineChar: 21
       spanCodeSection: '= '
-    - startInstruction: 4660
-      endInstruction: 4659
-      startSourceChar: 4241
-      endSourceChar: 4243
-      line: 140
+    - startInstruction: 4612
+      endInstruction: 4611
+      startSourceChar: 4163
+      endSourceChar: 4165
+      line: 139
       lineChar: 23
       spanCodeSection: $"
-    - startInstruction: 4660
-      endInstruction: 4679
-      startSourceChar: 4243
-      endSourceChar: 4249
-      line: 140
+    - startInstruction: 4612
+      endInstruction: 4631
+      startSourceChar: 4165
+      endSourceChar: 4171
+      line: 139
       lineChar: 25
       spanCodeSection: _Click
-    - startInstruction: 4680
-      endInstruction: 4679
-      startSourceChar: 4249
-      endSourceChar: 4250
-      line: 140
+    - startInstruction: 4632
+      endInstruction: 4631
+      startSourceChar: 4171
+      endSourceChar: 4172
+      line: 139
       lineChar: 31
       spanCodeSection: '{'
-    - startInstruction: 4680
-      endInstruction: 4751
-      startSourceChar: 4250
-      endSourceChar: 4269
-      line: 140
+    - startInstruction: 4632
+      endInstruction: 4703
+      startSourceChar: 4172
+      endSourceChar: 4191
+      line: 139
       lineChar: 32
       spanCodeSection: "uiName}\";\r\n        "
-    - startInstruction: 4752
-      endInstruction: 4751
-      startSourceChar: 4269
-      endSourceChar: 4269
-      line: 141
+    - startInstruction: 4704
+      endInstruction: 4703
+      startSourceChar: 4191
+      endSourceChar: 4191
+      line: 140
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4752
-      endInstruction: 4751
-      startSourceChar: 4269
-      endSourceChar: 4269
-      line: 141
+    - startInstruction: 4704
+      endInstruction: 4703
+      startSourceChar: 4191
+      endSourceChar: 4191
+      line: 140
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 4752
-      endInstruction: 4751
-      startSourceChar: 4269
-      endSourceChar: 4296
-      line: 141
+    - startInstruction: 4704
+      endInstruction: 4703
+      startSourceChar: 4191
+      endSourceChar: 4218
+      line: 140
       lineChar: 8
       spanCodeSection: RequestCallFunctionToOwner(
-    - startInstruction: 4752
-      endInstruction: 4807
-      startSourceChar: 4296
-      endSourceChar: 4319
-      line: 141
+    - startInstruction: 4704
+      endInstruction: 4759
+      startSourceChar: 4218
+      endSourceChar: 4241
+      line: 140
       lineChar: 35
       spanCodeSection: "funcName);\r\n    }\r\n    "
-    - startInstruction: 4808
-      endInstruction: 4815
-      startSourceChar: 4319
-      endSourceChar: 4343
-      line: 143
+    - startInstruction: 4760
+      endInstruction: 4767
+      startSourceChar: 4241
+      endSourceChar: 4265
+      line: 142
       lineChar: 4
       spanCodeSection: 'public void _ClickPon() '
-    - startInstruction: 4816
-      endInstruction: 4815
-      startSourceChar: 4343
-      endSourceChar: 4345
-      line: 143
+    - startInstruction: 4768
+      endInstruction: 4767
+      startSourceChar: 4265
+      endSourceChar: 4267
+      line: 142
       lineChar: 28
       spanCodeSection: '{ '
-    - startInstruction: 4816
-      endInstruction: 4815
-      startSourceChar: 4345
-      endSourceChar: 4345
-      line: 143
+    - startInstruction: 4768
+      endInstruction: 4767
+      startSourceChar: 4267
+      endSourceChar: 4267
+      line: 142
       lineChar: 30
       spanCodeSection: 
-    - startInstruction: 4816
-      endInstruction: 4815
-      startSourceChar: 4345
-      endSourceChar: 4345
-      line: 143
+    - startInstruction: 4768
+      endInstruction: 4767
+      startSourceChar: 4267
+      endSourceChar: 4267
+      line: 142
       lineChar: 30
       spanCodeSection: 
-    - startInstruction: 4816
-      endInstruction: 4815
-      startSourceChar: 4345
-      endSourceChar: 4356
-      line: 143
+    - startInstruction: 4768
+      endInstruction: 4767
+      startSourceChar: 4267
+      endSourceChar: 4278
+      line: 142
       lineChar: 30
       spanCodeSection: SetUIEvent(
-    - startInstruction: 4816
-      endInstruction: 4871
-      startSourceChar: 4356
-      endSourceChar: 4371
-      line: 143
+    - startInstruction: 4768
+      endInstruction: 4823
+      startSourceChar: 4278
+      endSourceChar: 4293
+      line: 142
       lineChar: 41
       spanCodeSection: "\"Pon\"); }\r\n    "
-    - startInstruction: 4872
-      endInstruction: 4879
-      startSourceChar: 4371
-      endSourceChar: 4396
-      line: 144
+    - startInstruction: 4824
+      endInstruction: 4831
+      startSourceChar: 4293
+      endSourceChar: 4318
+      line: 143
       lineChar: 4
       spanCodeSection: 'public void _ClickKkan() '
-    - startInstruction: 4880
-      endInstruction: 4879
-      startSourceChar: 4396
-      endSourceChar: 4398
-      line: 144
+    - startInstruction: 4832
+      endInstruction: 4831
+      startSourceChar: 4318
+      endSourceChar: 4320
+      line: 143
       lineChar: 29
       spanCodeSection: '{ '
-    - startInstruction: 4880
-      endInstruction: 4879
-      startSourceChar: 4398
-      endSourceChar: 4398
-      line: 144
+    - startInstruction: 4832
+      endInstruction: 4831
+      startSourceChar: 4320
+      endSourceChar: 4320
+      line: 143
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 4880
-      endInstruction: 4879
-      startSourceChar: 4398
-      endSourceChar: 4398
-      line: 144
+    - startInstruction: 4832
+      endInstruction: 4831
+      startSourceChar: 4320
+      endSourceChar: 4320
+      line: 143
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 4880
-      endInstruction: 4879
-      startSourceChar: 4398
-      endSourceChar: 4409
-      line: 144
+    - startInstruction: 4832
+      endInstruction: 4831
+      startSourceChar: 4320
+      endSourceChar: 4331
+      line: 143
       lineChar: 31
       spanCodeSection: SetUIEvent(
-    - startInstruction: 4880
-      endInstruction: 4935
-      startSourceChar: 4409
-      endSourceChar: 4425
-      line: 144
+    - startInstruction: 4832
+      endInstruction: 4887
+      startSourceChar: 4331
+      endSourceChar: 4347
+      line: 143
       lineChar: 42
       spanCodeSection: "\"Kkan\"); }\r\n    "
-    - startInstruction: 4936
-      endInstruction: 4943
-      startSourceChar: 4425
-      endSourceChar: 4449
-      line: 145
+    - startInstruction: 4888
+      endInstruction: 4895
+      startSourceChar: 4347
+      endSourceChar: 4371
+      line: 144
       lineChar: 4
       spanCodeSection: 'public void _ClickRon() '
-    - startInstruction: 4944
-      endInstruction: 4943
-      startSourceChar: 4449
-      endSourceChar: 4451
-      line: 145
+    - startInstruction: 4896
+      endInstruction: 4895
+      startSourceChar: 4371
+      endSourceChar: 4373
+      line: 144
       lineChar: 28
       spanCodeSection: '{ '
-    - startInstruction: 4944
-      endInstruction: 4943
-      startSourceChar: 4451
-      endSourceChar: 4451
-      line: 145
+    - startInstruction: 4896
+      endInstruction: 4895
+      startSourceChar: 4373
+      endSourceChar: 4373
+      line: 144
       lineChar: 30
       spanCodeSection: 
-    - startInstruction: 4944
-      endInstruction: 4943
-      startSourceChar: 4451
-      endSourceChar: 4451
-      line: 145
+    - startInstruction: 4896
+      endInstruction: 4895
+      startSourceChar: 4373
+      endSourceChar: 4373
+      line: 144
       lineChar: 30
       spanCodeSection: 
-    - startInstruction: 4944
-      endInstruction: 4943
-      startSourceChar: 4451
-      endSourceChar: 4462
-      line: 145
+    - startInstruction: 4896
+      endInstruction: 4895
+      startSourceChar: 4373
+      endSourceChar: 4384
+      line: 144
       lineChar: 30
       spanCodeSection: SetUIEvent(
-    - startInstruction: 4944
-      endInstruction: 4999
-      startSourceChar: 4462
-      endSourceChar: 4477
-      line: 145
+    - startInstruction: 4896
+      endInstruction: 4951
+      startSourceChar: 4384
+      endSourceChar: 4399
+      line: 144
       lineChar: 41
       spanCodeSection: "\"Ron\"); }\r\n    "
-    - startInstruction: 5000
-      endInstruction: 5007
-      startSourceChar: 4477
-      endSourceChar: 4503
-      line: 146
+    - startInstruction: 4952
+      endInstruction: 4959
+      startSourceChar: 4399
+      endSourceChar: 4425
+      line: 145
       lineChar: 4
       spanCodeSection: 'public void _ClickTsumo() '
-    - startInstruction: 5008
-      endInstruction: 5007
-      startSourceChar: 4503
-      endSourceChar: 4505
-      line: 146
+    - startInstruction: 4960
+      endInstruction: 4959
+      startSourceChar: 4425
+      endSourceChar: 4427
+      line: 145
       lineChar: 30
       spanCodeSection: '{ '
-    - startInstruction: 5008
-      endInstruction: 5007
-      startSourceChar: 4505
-      endSourceChar: 4505
-      line: 146
+    - startInstruction: 4960
+      endInstruction: 4959
+      startSourceChar: 4427
+      endSourceChar: 4427
+      line: 145
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 5008
-      endInstruction: 5007
-      startSourceChar: 4505
-      endSourceChar: 4505
-      line: 146
+    - startInstruction: 4960
+      endInstruction: 4959
+      startSourceChar: 4427
+      endSourceChar: 4427
+      line: 145
       lineChar: 32
       spanCodeSection: 
-    - startInstruction: 5008
-      endInstruction: 5007
-      startSourceChar: 4505
-      endSourceChar: 4516
-      line: 146
+    - startInstruction: 4960
+      endInstruction: 4959
+      startSourceChar: 4427
+      endSourceChar: 4438
+      line: 145
       lineChar: 32
       spanCodeSection: SetUIEvent(
-    - startInstruction: 5008
-      endInstruction: 5063
-      startSourceChar: 4516
-      endSourceChar: 4533
-      line: 146
+    - startInstruction: 4960
+      endInstruction: 5015
+      startSourceChar: 4438
+      endSourceChar: 4455
+      line: 145
       lineChar: 43
       spanCodeSection: "\"Tsumo\"); }\r\n    "
-    - startInstruction: 5064
-      endInstruction: 5071
-      startSourceChar: 4533
-      endSourceChar: 4558
-      line: 147
+    - startInstruction: 5016
+      endInstruction: 5023
+      startSourceChar: 4455
+      endSourceChar: 4480
+      line: 146
       lineChar: 4
       spanCodeSection: 'public void _ClickSkip() '
-    - startInstruction: 5072
-      endInstruction: 5071
-      startSourceChar: 4558
-      endSourceChar: 4560
-      line: 147
+    - startInstruction: 5024
+      endInstruction: 5023
+      startSourceChar: 4480
+      endSourceChar: 4482
+      line: 146
       lineChar: 29
       spanCodeSection: '{ '
-    - startInstruction: 5072
-      endInstruction: 5071
-      startSourceChar: 4560
-      endSourceChar: 4560
-      line: 147
+    - startInstruction: 5024
+      endInstruction: 5023
+      startSourceChar: 4482
+      endSourceChar: 4482
+      line: 146
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 5072
-      endInstruction: 5071
-      startSourceChar: 4560
-      endSourceChar: 4560
-      line: 147
+    - startInstruction: 5024
+      endInstruction: 5023
+      startSourceChar: 4482
+      endSourceChar: 4482
+      line: 146
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 5072
-      endInstruction: 5071
-      startSourceChar: 4560
-      endSourceChar: 4571
-      line: 147
+    - startInstruction: 5024
+      endInstruction: 5023
+      startSourceChar: 4482
+      endSourceChar: 4493
+      line: 146
       lineChar: 31
       spanCodeSection: SetUIEvent(
-    - startInstruction: 5072
-      endInstruction: 5127
-      startSourceChar: 4571
-      endSourceChar: 4587
-      line: 147
+    - startInstruction: 5024
+      endInstruction: 5079
+      startSourceChar: 4493
+      endSourceChar: 4509
+      line: 146
       lineChar: 42
       spanCodeSection: "\"Skip\"); }\r\n    "
-    - startInstruction: 5128
-      endInstruction: 5135
-      startSourceChar: 4587
-      endSourceChar: 4612
-      line: 148
+    - startInstruction: 5080
+      endInstruction: 5087
+      startSourceChar: 4509
+      endSourceChar: 4534
+      line: 147
       lineChar: 4
       spanCodeSection: 'public void _ClickRich() '
-    - startInstruction: 5136
-      endInstruction: 5135
-      startSourceChar: 4612
-      endSourceChar: 4614
-      line: 148
+    - startInstruction: 5088
+      endInstruction: 5087
+      startSourceChar: 4534
+      endSourceChar: 4536
+      line: 147
       lineChar: 29
       spanCodeSection: '{ '
-    - startInstruction: 5136
-      endInstruction: 5135
-      startSourceChar: 4614
-      endSourceChar: 4614
-      line: 148
+    - startInstruction: 5088
+      endInstruction: 5087
+      startSourceChar: 4536
+      endSourceChar: 4536
+      line: 147
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 5136
-      endInstruction: 5135
-      startSourceChar: 4614
-      endSourceChar: 4614
-      line: 148
+    - startInstruction: 5088
+      endInstruction: 5087
+      startSourceChar: 4536
+      endSourceChar: 4536
+      line: 147
       lineChar: 31
       spanCodeSection: 
-    - startInstruction: 5136
-      endInstruction: 5135
-      startSourceChar: 4614
-      endSourceChar: 4625
-      line: 148
+    - startInstruction: 5088
+      endInstruction: 5087
+      startSourceChar: 4536
+      endSourceChar: 4547
+      line: 147
       lineChar: 31
       spanCodeSection: SetUIEvent(
-    - startInstruction: 5136
-      endInstruction: 5191
-      startSourceChar: 4625
-      endSourceChar: 4643
-      line: 148
+    - startInstruction: 5088
+      endInstruction: 5143
+      startSourceChar: 4547
+      endSourceChar: 4565
+      line: 147
       lineChar: 42
       spanCodeSection: "\"Rich\"); }\r\n\r\n    "
-    - startInstruction: 5192
-      endInstruction: 5191
-      startSourceChar: 4643
-      endSourceChar: 4659
-      line: 150
+    - startInstruction: 5144
+      endInstruction: 5143
+      startSourceChar: 4565
+      endSourceChar: 4581
+      line: 149
       lineChar: 4
       spanCodeSection: void SetUIEvent(
-    - startInstruction: 5192
-      endInstruction: 5199
-      startSourceChar: 4659
-      endSourceChar: 4682
-      line: 150
+    - startInstruction: 5144
+      endInstruction: 5151
+      startSourceChar: 4581
+      endSourceChar: 4604
+      line: 149
       lineChar: 20
       spanCodeSection: "string eventName)\r\n    "
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4682
-      endSourceChar: 4693
-      line: 151
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4604
+      endSourceChar: 4615
+      line: 150
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4693
-      endSourceChar: 4693
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4615
+      endSourceChar: 4615
+      line: 151
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4693
-      endSourceChar: 4693
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4615
+      endSourceChar: 4615
+      line: 151
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4693
-      endSourceChar: 4693
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4615
+      endSourceChar: 4615
+      line: 151
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4693
-      endSourceChar: 4704
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4615
+      endSourceChar: 4626
+      line: 151
       lineChar: 8
       spanCodeSection: EventQueue.
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4704
-      endSourceChar: 4715
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4626
+      endSourceChar: 4637
+      line: 151
       lineChar: 19
       spanCodeSection: SetUIEvent(
-    - startInstruction: 5200
-      endInstruction: 5199
-      startSourceChar: 4715
-      endSourceChar: 4726
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5151
+      startSourceChar: 4637
+      endSourceChar: 4648
+      line: 151
       lineChar: 30
       spanCodeSection: 'eventName, '
-    - startInstruction: 5200
-      endInstruction: 5327
-      startSourceChar: 4726
-      endSourceChar: 4754
-      line: 152
+    - startInstruction: 5152
+      endInstruction: 5279
+      startSourceChar: 4648
+      endSourceChar: 4676
+      line: 151
       lineChar: 41
       spanCodeSection: "PlayerIndex);\r\n    }\r\n\r\n    "
-    - startInstruction: 5328
-      endInstruction: 5327
-      startSourceChar: 4754
-      endSourceChar: 4786
-      line: 155
+    - startInstruction: 5280
+      endInstruction: 5279
+      startSourceChar: 4676
+      endSourceChar: 4708
+      line: 154
       lineChar: 4
       spanCodeSection: void RequestCallFunctionToOwner(
-    - startInstruction: 5328
-      endInstruction: 5335
-      startSourceChar: 4786
-      endSourceChar: 4808
-      line: 155
+    - startInstruction: 5280
+      endInstruction: 5287
+      startSourceChar: 4708
+      endSourceChar: 4730
+      line: 154
       lineChar: 36
       spanCodeSection: "string funcName)\r\n    "
-    - startInstruction: 5336
-      endInstruction: 5335
-      startSourceChar: 4808
-      endSourceChar: 4819
-      line: 156
+    - startInstruction: 5288
+      endInstruction: 5287
+      startSourceChar: 4730
+      endSourceChar: 4741
+      line: 155
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 5336
-      endInstruction: 5335
-      startSourceChar: 4819
-      endSourceChar: 4823
-      line: 157
+    - startInstruction: 5288
+      endInstruction: 5287
+      startSourceChar: 4741
+      endSourceChar: 4745
+      line: 156
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 5336
-      endInstruction: 5335
-      startSourceChar: 4823
-      endSourceChar: 4823
-      line: 157
+    - startInstruction: 5288
+      endInstruction: 5287
+      startSourceChar: 4745
+      endSourceChar: 4745
+      line: 156
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 5336
-      endInstruction: 5335
-      startSourceChar: 4823
-      endSourceChar: 4823
-      line: 157
+    - startInstruction: 5288
+      endInstruction: 5287
+      startSourceChar: 4745
+      endSourceChar: 4745
+      line: 156
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 5336
-      endInstruction: 5335
-      startSourceChar: 4823
-      endSourceChar: 4834
-      line: 157
+    - startInstruction: 5288
+      endInstruction: 5287
+      startSourceChar: 4745
+      endSourceChar: 4756
+      line: 156
       lineChar: 12
       spanCodeSection: Networking.
-    - startInstruction: 5336
-      endInstruction: 5351
-      startSourceChar: 4834
-      endSourceChar: 4849
-      line: 157
+    - startInstruction: 5288
+      endInstruction: 5303
+      startSourceChar: 4756
+      endSourceChar: 4771
+      line: 156
       lineChar: 23
       spanCodeSection: 'LocalPlayer == '
-    - startInstruction: 5352
-      endInstruction: 5399
-      startSourceChar: 4849
-      endSourceChar: 4864
-      line: 157
+    - startInstruction: 5304
+      endInstruction: 5351
+      startSourceChar: 4771
+      endSourceChar: 4786
+      line: 156
       lineChar: 38
       spanCodeSection: "null)\r\n        "
-    - startInstruction: 5400
-      endInstruction: 5399
-      startSourceChar: 4864
-      endSourceChar: 4879
-      line: 158
+    - startInstruction: 5352
+      endInstruction: 5351
+      startSourceChar: 4786
+      endSourceChar: 4801
+      line: 157
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 5400
-      endInstruction: 5399
-      startSourceChar: 4879
-      endSourceChar: 4879
-      line: 159
+    - startInstruction: 5352
+      endInstruction: 5351
+      startSourceChar: 4801
+      endSourceChar: 4801
+      line: 158
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 5400
-      endInstruction: 5399
-      startSourceChar: 4879
-      endSourceChar: 4879
-      line: 159
+    - startInstruction: 5352
+      endInstruction: 5351
+      startSourceChar: 4801
+      endSourceChar: 4801
+      line: 158
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 5400
-      endInstruction: 5399
-      startSourceChar: 4879
-      endSourceChar: 4895
-      line: 159
+    - startInstruction: 5352
+      endInstruction: 5351
+      startSourceChar: 4801
+      endSourceChar: 4817
+      line: 158
       lineChar: 12
       spanCodeSection: SendCustomEvent(
-    - startInstruction: 5400
-      endInstruction: 5431
-      startSourceChar: 4895
-      endSourceChar: 4926
-      line: 159
+    - startInstruction: 5352
+      endInstruction: 5383
+      startSourceChar: 4817
+      endSourceChar: 4848
+      line: 158
       lineChar: 28
       spanCodeSection: "funcName);\r\n        }\r\n        "
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4926
-      endSourceChar: 4940
-      line: 161
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4848
+      endSourceChar: 4862
+      line: 160
       lineChar: 8
       spanCodeSection: "else\r\n        "
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4940
-      endSourceChar: 4955
-      line: 162
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4862
+      endSourceChar: 4877
+      line: 161
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4955
-      endSourceChar: 4955
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4877
+      endSourceChar: 4877
+      line: 162
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4955
-      endSourceChar: 4955
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4877
+      endSourceChar: 4877
+      line: 162
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4955
-      endSourceChar: 4978
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4877
+      endSourceChar: 4900
+      line: 162
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4978
-      endSourceChar: 4978
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4900
+      endSourceChar: 4900
+      line: 162
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4978
-      endSourceChar: 4997
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4900
+      endSourceChar: 4919
+      line: 162
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
-    - startInstruction: 5432
-      endInstruction: 5431
-      startSourceChar: 4997
-      endSourceChar: 5004
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5383
+      startSourceChar: 4919
+      endSourceChar: 4926
+      line: 162
       lineChar: 54
       spanCodeSection: 'Owner, '
-    - startInstruction: 5432
-      endInstruction: 5432
-      startSourceChar: 5004
-      endSourceChar: 5004
-      line: 163
+    - startInstruction: 5384
+      endInstruction: 5384
+      startSourceChar: 4926
+      endSourceChar: 4926
+      line: 162
       lineChar: 61
       spanCodeSection: 
   hasInteractEvent: 0
@@ -4536,13 +4385,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: EventPlayerIndex
+      Data: PlayerIndex
     - Name: $v
       Entry: 7
       Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -4558,75 +4407,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 1
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: SystemInt32
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: EventPlayerIndex
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: EventPlayerIndex
-    - Name: symbolDefaultValue
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fieldAttributes
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 7|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: userBehaviourSource
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: PlayerIndex
-    - Name: $v
-      Entry: 7
-      Data: 8|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 9|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 9
-      Data: 4
     - Name: declarationType
       Entry: 3
       Data: 1
@@ -4650,13 +4430,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 11|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 6|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -4683,13 +4463,13 @@ MonoBehaviour:
       Data: EventQueue
     - Name: $v
       Entry: 7
-      Data: 12|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 13|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 14|System.RuntimeType, mscorlib
+      Data: 9|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: EventQueue, Assembly-CSharp
@@ -4719,13 +4499,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 15|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 10|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 16|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 11|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -4752,13 +4532,13 @@ MonoBehaviour:
       Data: UIContext
     - Name: $v
       Entry: 7
-      Data: 17|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 12|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 18|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 13|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 19|System.RuntimeType, mscorlib
+      Data: 14|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UIContext, Assembly-CSharp
@@ -4788,13 +4568,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 20|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 15|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 21|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 16|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -4821,13 +4601,13 @@ MonoBehaviour:
       Data: UICanvas
     - Name: $v
       Entry: 7
-      Data: 22|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 17|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 23|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 18|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 24|System.RuntimeType, mscorlib
+      Data: 19|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine.CoreModule
@@ -4857,13 +4637,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 25|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 20|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 26|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 21|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -4890,13 +4670,13 @@ MonoBehaviour:
       Data: CardSprites
     - Name: $v
       Entry: 7
-      Data: 27|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 22|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 28|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 23|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 29|System.RuntimeType, mscorlib
+      Data: 24|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: CardSprites, Assembly-CSharp
@@ -4926,13 +4706,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 30|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 25|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 31|UnityEngine.SerializeField, UnityEngine.CoreModule
+      Data: 26|UnityEngine.SerializeField, UnityEngine.CoreModule
     - Name: 
       Entry: 8
       Data: 
@@ -4959,13 +4739,13 @@ MonoBehaviour:
       Data: isMyTable
     - Name: $v
       Entry: 7
-      Data: 32|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 27|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 33|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 28|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 34|System.RuntimeType, mscorlib
+      Data: 29|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: System.Boolean, mscorlib
@@ -4995,7 +4775,7 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 35|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 30|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0

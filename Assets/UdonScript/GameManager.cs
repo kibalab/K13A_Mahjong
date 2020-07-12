@@ -173,7 +173,7 @@ public class GameManager : UdonSharpBehaviour
         if (eventType == "Kkan")
         {
             var ankkanableGlobalOrders = currentPlayer.FindAnkkanableGlobalOrders();
-
+            TableManager.setSubtitleAllPlayers(currentPlayer.gameObject.name, "깡");
             // 지금은 안깡, 소명깡이 겹칠 때 안깡부터 하게 한다
             // 선택이 생긴다면... InputEvent에 SelectedChiIndex처럼 
             // SelectedKkanGlobalOrder 같은 걸 설정해줘야 할거임
@@ -210,12 +210,14 @@ public class GameManager : UdonSharpBehaviour
         }
         else if (eventType == "Rich") // <- 이걸 고치려면 버튼의 물리적 이름을 Riichi로 바꿔야 한다
         {
+            TableManager.setSubtitleAllPlayers(currentPlayer.gameObject.name, "리치!");
             // 리치 관련 카드만 콜라이더를 킨다
             currentPlayer.ActiveRiichiCreateCardColliders();
             currentPlayer.DisableUI();
         }
         else if (eventType == "Tsumo")
         {
+            TableManager.setSubtitleAllPlayers(currentPlayer.gameObject.name, "쯔모");
             // 해야 한다...
         }
         else if (eventType == "AutoDiscard")
@@ -302,6 +304,7 @@ public class GameManager : UdonSharpBehaviour
         {
             case "Chi":
                 {
+                    TableManager.setSubtitleAllPlayers(nakiPlayer.gameObject.name, "치!");
                     var chiCards = new Card[]
                     {
                         waitingNakiCard,
@@ -317,6 +320,7 @@ public class GameManager : UdonSharpBehaviour
 
             case "Pon":
                 {
+                    TableManager.setSubtitleAllPlayers(nakiPlayer.gameObject.name, "퐁!");
                     var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 2);
                     var ponCards = new Card[]
                     {
@@ -332,6 +336,7 @@ public class GameManager : UdonSharpBehaviour
 
             case "Kkan":
                 {
+                    TableManager.setSubtitleAllPlayers(nakiPlayer.gameObject.name, "깡!");
                     var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 3);
                     var kkanCards = new Card[]
                     {
