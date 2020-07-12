@@ -96,7 +96,29 @@ public class TableManager : UdonSharpBehaviour
             player.AddCard(nextCard, false, false, true);
             player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
 
-            SetDoraMaterials(dora.GlobalOrder);
+            var doraGlobalIndex = -1;
+            if(dora.GlobalOrder == HandUtil.GetManEndGlobalOrder())
+            {
+                doraGlobalIndex = HandUtil.GetManStartGlobalOrder();
+            }else if (dora.GlobalOrder == HandUtil.GetPinEndGlobalOrder())
+            {
+                doraGlobalIndex = HandUtil.GetPinStartGlobalOrder();
+            }else if (dora.GlobalOrder == HandUtil.GetSouEndGlobalOrder())
+            {
+                doraGlobalIndex = HandUtil.GetSouStartGlobalOrder();
+            }else if (dora.GlobalOrder == HandUtil.GetEastCardNumber())
+            {
+                doraGlobalIndex = HandUtil.GetNorthCardNumber();
+            }else if (dora.GlobalOrder == HandUtil.GetWhiteCardNumber())
+            {
+                doraGlobalIndex = HandUtil.GetRedCardNumber();
+            }
+            else
+            {
+                doraGlobalIndex = dora.GlobalOrder + 1;
+            }
+
+            SetDoraMaterials(doraGlobalIndex);
 
             ActiveCurrentPlayerColliders();
         }
@@ -173,7 +195,35 @@ public class TableManager : UdonSharpBehaviour
         LogViewer.Log("Yama Initalized", 0);
 
         var firstDora =  GetNextDoraCard();
-        SetDoraMaterials(firstDora.GlobalOrder);
+
+
+        var doraGlobalIndex = -1;
+        if (firstDora.GlobalOrder == HandUtil.GetManEndGlobalOrder())
+        {
+            doraGlobalIndex = HandUtil.GetManStartGlobalOrder();
+        }
+        else if (firstDora.GlobalOrder == HandUtil.GetPinEndGlobalOrder())
+        {
+            doraGlobalIndex = HandUtil.GetPinStartGlobalOrder();
+        }
+        else if (firstDora.GlobalOrder == HandUtil.GetSouEndGlobalOrder())
+        {
+            doraGlobalIndex = HandUtil.GetSouStartGlobalOrder();
+        }
+        else if (firstDora.GlobalOrder == HandUtil.GetEastCardNumber())
+        {
+            doraGlobalIndex = HandUtil.GetNorthCardNumber();
+        }
+        else if (firstDora.GlobalOrder == HandUtil.GetWhiteCardNumber())
+        {
+            doraGlobalIndex = HandUtil.GetRedCardNumber();
+        }
+        else
+        {
+            doraGlobalIndex = firstDora.GlobalOrder + 1;
+        }
+
+        SetDoraMaterials(doraGlobalIndex);
 
         LogViewer.Log($"Set First Dora : {firstDora}", 0);
 
