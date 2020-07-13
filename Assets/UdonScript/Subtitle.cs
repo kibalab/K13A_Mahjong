@@ -31,7 +31,7 @@ public class Subtitle : UdonSharpBehaviour
         this.playtime = playtime;
     }
 
-    public void ReqConfirm()
+    public void _ReqConfirm()
     {
         showRequest = false;
     }
@@ -45,7 +45,7 @@ public class Subtitle : UdonSharpBehaviour
 
         
 
-        RequestCallFunctionToOwner("ReqConfirm");
+        RequestCallFunctionToOwner(nameof(_ReqConfirm));
     }
 
     void RequestCallFunctionToOwner(string funcName)
