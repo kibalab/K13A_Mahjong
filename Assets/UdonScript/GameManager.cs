@@ -236,6 +236,8 @@ public class GameManager : UdonSharpBehaviour
 
             // 리치 관련 처리 하고 일반적인 Discard로 이동
             EventQueue.SetDiscardEvent(inputEvent.DiscardedCardYamaIndex, inputEvent.PlayerIndex);
+
+            currentPlayer.SetColliderActive(false);
         }
         else if (eventType == "Discard")
         {
