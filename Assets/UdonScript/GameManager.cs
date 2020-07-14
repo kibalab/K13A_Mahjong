@@ -304,6 +304,11 @@ public class GameManager : UdonSharpBehaviour
         {
             case "Chi":
                 {
+                    if (nakiPlayer.IsRiichiMode())
+                    {
+                        return;
+                    }
+
                     TableManager.setSubtitleAllPlayers(nakiPlayer.gameObject.name, "치!");
                     var chiCards = new Card[]
                     {
@@ -320,6 +325,10 @@ public class GameManager : UdonSharpBehaviour
 
             case "Pon":
                 {
+                    if (nakiPlayer.IsRiichiMode())
+                    {
+                        return;
+                    }
                     TableManager.setSubtitleAllPlayers(nakiPlayer.gameObject.name, "퐁!");
                     var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 2);
                     var ponCards = new Card[]
@@ -331,11 +340,15 @@ public class GameManager : UdonSharpBehaviour
 
                     nakiPlayer.OpenCards_Pon(ponCards, getPlayerDirection(TableManager.currentTurnPlayer,nakiPlayer.PlayerIndex));
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
-                    break;
+                    break; 
                 }
 
             case "Kkan":
                 {
+                    if (nakiPlayer.IsRiichiMode())
+                    {
+                        return;
+                    }
                     TableManager.setSubtitleAllPlayers(nakiPlayer.gameObject.name, "깡!");
                     var sameOrderCards = nakiPlayer.FindCardByGlobalOrder(waitingNakiCard.GlobalOrder, 3);
                     var kkanCards = new Card[]

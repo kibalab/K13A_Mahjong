@@ -72,6 +72,11 @@ public class Player : UdonSharpBehaviour
         setStashPositionRichMode();
     }
 
+    public bool IsRiichiMode()
+    {
+        return PlayerStatus.IsRiichiMode;
+    }
+
     public void DeactiveOneShotRiichi()
     {
         PlayerStatus.IsOneShotRiichi = false;
@@ -275,7 +280,7 @@ public class Player : UdonSharpBehaviour
     {
         UIContext.Clear();
 
-        HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
+        HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer, IsRiichiMode());
     }
 
     public bool IsUIActived()

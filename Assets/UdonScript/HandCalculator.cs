@@ -42,20 +42,22 @@ public class HandCalculator : UdonSharpBehaviour
         }
     }
 
-    public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer)
+    public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer, bool IsRichiMode)
     {
-        var chiableList = GetChiableAll(cards, discardedCard);
-        var isChiable = chiableList.Length > 0 && isDiscardedByLeftPlayer;
-
-        uiContext.IsChiable = isChiable;
-        uiContext.IsPonable = IsPonable(cards, discardedCard);
-        uiContext.IsKkanable = IsKkanable(cards, discardedCard);
-
-        if (isChiable)
+        if (!IsRichiMode)
         {
-            SetChiableOnUiContext(uiContext, chiableList);
-        }
+            var chiableList = GetChiableAll(cards, discardedCard);
+            var isChiable = chiableList.Length > 0 && isDiscardedByLeftPlayer;
 
+            uiContext.IsChiable = isChiable;
+            uiContext.IsPonable = IsPonable(cards, discardedCard);
+            uiContext.IsKkanable = IsKkanable(cards, discardedCard);
+
+            if (isChiable)
+            {
+                SetChiableOnUiContext(uiContext, chiableList);
+            }
+        }
         uiContext.IsRonable = agariContext.IsAgariable(discardedCard);
         uiContext.IsTsumoable = false;
     }
