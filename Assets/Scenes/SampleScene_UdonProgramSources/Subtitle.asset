@@ -84,8 +84,8 @@ MonoBehaviour:
     this.playtime = playtime;\r\n        PUSH, __0_playtime_Single\r\n        PUSH,
     playtime\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void ReqConfirm()\r\n    .export ReqConfirm\r\n
-    \       \r\n    ReqConfirm:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
+    \       \r\n        \r\n         # public void _ReqConfirm()\r\n    .export _ReqConfirm\r\n
+    \       \r\n    _ReqConfirm:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
     \       \r\n         # {\r\n        \r\n         # showRequest = false;\r\n        PUSH,
     __1_const_intnl_SystemBoolean\r\n        PUSH, showRequest\r\n        COPY\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
@@ -189,7 +189,7 @@ MonoBehaviour:
     dirtied\r\n        PUSH, components\r\n        PUSH, __1_intnl_SubtitleComponentArray\r\n
     \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __0_intnl_SubtitleComponent\r\n
     \       PUSH, __4_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # RequestCallFunctionToOwner(\"ReqConfirm\");\r\n        PUSH,
+    \       \r\n         # RequestCallFunctionToOwner(nameof(_ReqConfirm));\r\n        PUSH,
     __5_const_intnl_SystemString\r\n        PUSH, __0_funcName_String\r\n        COPY\r\n
     \       PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000006E0\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
@@ -885,441 +885,441 @@ MonoBehaviour:
     - startInstruction: 136
       endInstruction: 143
       startSourceChar: 768
-      endSourceChar: 798
+      endSourceChar: 799
       line: 33
       lineChar: 4
-      spanCodeSection: "public void ReqConfirm()\r\n    "
+      spanCodeSection: "public void _ReqConfirm()\r\n    "
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 798
-      endSourceChar: 809
+      startSourceChar: 799
+      endSourceChar: 810
       line: 34
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 809
-      endSourceChar: 809
+      startSourceChar: 810
+      endSourceChar: 810
       line: 35
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 809
-      endSourceChar: 809
+      startSourceChar: 810
+      endSourceChar: 810
       line: 35
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 809
-      endSourceChar: 823
+      startSourceChar: 810
+      endSourceChar: 824
       line: 35
       lineChar: 8
       spanCodeSection: 'showRequest = '
     - startInstruction: 144
       endInstruction: 183
-      startSourceChar: 823
-      endSourceChar: 844
+      startSourceChar: 824
+      endSourceChar: 845
       line: 35
       lineChar: 22
       spanCodeSection: "false;\r\n    }\r\n\r\n    "
     - startInstruction: 184
       endInstruction: 191
-      startSourceChar: 844
-      endSourceChar: 863
+      startSourceChar: 845
+      endSourceChar: 864
       line: 38
       lineChar: 4
       spanCodeSection: "void Update()\r\n    "
     - startInstruction: 192
       endInstruction: 191
-      startSourceChar: 863
-      endSourceChar: 874
+      startSourceChar: 864
+      endSourceChar: 875
       line: 39
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 192
       endInstruction: 191
-      startSourceChar: 874
-      endSourceChar: 878
+      startSourceChar: 875
+      endSourceChar: 879
       line: 40
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 192
       endInstruction: 191
-      startSourceChar: 878
-      endSourceChar: 879
+      startSourceChar: 879
+      endSourceChar: 880
       line: 40
       lineChar: 12
       spanCodeSection: '!'
     - startInstruction: 192
       endInstruction: 231
-      startSourceChar: 879
-      endSourceChar: 892
+      startSourceChar: 880
+      endSourceChar: 893
       line: 40
       lineChar: 13
       spanCodeSection: 'showRequest) '
     - startInstruction: 232
       endInstruction: 251
-      startSourceChar: 892
-      endSourceChar: 911
+      startSourceChar: 893
+      endSourceChar: 912
       line: 40
       lineChar: 26
       spanCodeSection: "return;\r\n\r\n        "
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 911
-      endSourceChar: 911
+      startSourceChar: 912
+      endSourceChar: 912
       line: 42
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 911
-      endSourceChar: 911
+      startSourceChar: 912
+      endSourceChar: 912
       line: 42
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 911
-      endSourceChar: 924
+      startSourceChar: 912
+      endSourceChar: 925
       line: 42
       lineChar: 8
       spanCodeSection: 'components = '
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 924
-      endSourceChar: 924
+      startSourceChar: 925
+      endSourceChar: 925
       line: 42
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 924
-      endSourceChar: 924
+      startSourceChar: 925
+      endSourceChar: 925
       line: 42
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 924
-      endSourceChar: 935
+      startSourceChar: 925
+      endSourceChar: 936
       line: 42
       lineChar: 21
       spanCodeSection: gameObject.
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 935
-      endSourceChar: 958
+      startSourceChar: 936
+      endSourceChar: 959
       line: 42
       lineChar: 32
       spanCodeSection: GetComponentsInChildren
     - startInstruction: 252
       endInstruction: 251
-      startSourceChar: 958
-      endSourceChar: 959
+      startSourceChar: 959
+      endSourceChar: 960
       line: 42
       lineChar: 55
       spanCodeSection: <
     - startInstruction: 252
       endInstruction: 1407
-      startSourceChar: 959
-      endSourceChar: 990
+      startSourceChar: 960
+      endSourceChar: 991
       line: 42
       lineChar: 56
       spanCodeSection: "SubtitleComponent>();\r\n        "
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 990
-      endSourceChar: 990
+      startSourceChar: 991
+      endSourceChar: 991
       line: 43
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 990
-      endSourceChar: 990
+      startSourceChar: 991
+      endSourceChar: 991
       line: 43
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 990
-      endSourceChar: 990
+      startSourceChar: 991
+      endSourceChar: 991
       line: 43
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 990
-      endSourceChar: 990
+      startSourceChar: 991
+      endSourceChar: 991
       line: 43
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 990
-      endSourceChar: 1001
+      startSourceChar: 991
+      endSourceChar: 1002
       line: 43
       lineChar: 8
       spanCodeSection: components[
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 1001
-      endSourceChar: 1001
+      startSourceChar: 1002
+      endSourceChar: 1002
       line: 43
       lineChar: 19
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 1001
-      endSourceChar: 1001
+      startSourceChar: 1002
+      endSourceChar: 1002
       line: 43
       lineChar: 19
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 1001
-      endSourceChar: 1001
+      startSourceChar: 1002
+      endSourceChar: 1002
       line: 43
       lineChar: 19
       spanCodeSection: 
     - startInstruction: 1408
       endInstruction: 1407
-      startSourceChar: 1001
-      endSourceChar: 1012
+      startSourceChar: 1002
+      endSourceChar: 1013
       line: 43
       lineChar: 19
       spanCodeSection: components.
     - startInstruction: 1408
       endInstruction: 1431
-      startSourceChar: 1012
-      endSourceChar: 1021
+      startSourceChar: 1013
+      endSourceChar: 1022
       line: 43
       lineChar: 30
       spanCodeSection: 'Length - '
     - startInstruction: 1432
       endInstruction: 1463
-      startSourceChar: 1021
-      endSourceChar: 1024
+      startSourceChar: 1022
+      endSourceChar: 1025
       line: 43
       lineChar: 39
       spanCodeSection: 1].
     - startInstruction: 1464
       endInstruction: 1495
-      startSourceChar: 1024
-      endSourceChar: 1028
+      startSourceChar: 1025
+      endSourceChar: 1029
       line: 43
       lineChar: 42
       spanCodeSection: Set(
     - startInstruction: 1496
       endInstruction: 1495
-      startSourceChar: 1028
-      endSourceChar: 1034
+      startSourceChar: 1029
+      endSourceChar: 1035
       line: 43
       lineChar: 46
       spanCodeSection: 'name, '
     - startInstruction: 1496
       endInstruction: 1495
-      startSourceChar: 1034
-      endSourceChar: 1040
+      startSourceChar: 1035
+      endSourceChar: 1041
       line: 43
       lineChar: 52
       spanCodeSection: 'text, '
     - startInstruction: 1496
       endInstruction: 1695
-      startSourceChar: 1040
-      endSourceChar: 1074
+      startSourceChar: 1041
+      endSourceChar: 1075
       line: 43
       lineChar: 58
       spanCodeSection: "playtime);\r\n\r\n        \r\n\r\n        "
     - startInstruction: 1696
       endInstruction: 1695
-      startSourceChar: 1074
-      endSourceChar: 1074
+      startSourceChar: 1075
+      endSourceChar: 1075
       line: 47
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1696
       endInstruction: 1695
-      startSourceChar: 1074
-      endSourceChar: 1074
+      startSourceChar: 1075
+      endSourceChar: 1075
       line: 47
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1696
       endInstruction: 1695
-      startSourceChar: 1074
-      endSourceChar: 1101
+      startSourceChar: 1075
+      endSourceChar: 1102
       line: 47
       lineChar: 8
       spanCodeSection: RequestCallFunctionToOwner(
     - startInstruction: 1696
       endInstruction: 1751
-      startSourceChar: 1101
-      endSourceChar: 1130
+      startSourceChar: 1102
+      endSourceChar: 1138
       line: 47
       lineChar: 35
-      spanCodeSection: "\"ReqConfirm\");\r\n    }\r\n\r\n    "
+      spanCodeSection: "nameof(_ReqConfirm));\r\n    }\r\n\r\n    "
     - startInstruction: 1752
       endInstruction: 1751
-      startSourceChar: 1130
-      endSourceChar: 1162
+      startSourceChar: 1138
+      endSourceChar: 1170
       line: 50
       lineChar: 4
       spanCodeSection: void RequestCallFunctionToOwner(
     - startInstruction: 1752
       endInstruction: 1759
-      startSourceChar: 1162
-      endSourceChar: 1184
+      startSourceChar: 1170
+      endSourceChar: 1192
       line: 50
       lineChar: 36
       spanCodeSection: "string funcName)\r\n    "
     - startInstruction: 1760
       endInstruction: 1759
-      startSourceChar: 1184
-      endSourceChar: 1195
+      startSourceChar: 1192
+      endSourceChar: 1203
       line: 51
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1760
       endInstruction: 1759
-      startSourceChar: 1195
-      endSourceChar: 1199
+      startSourceChar: 1203
+      endSourceChar: 1207
       line: 52
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 1760
       endInstruction: 1759
-      startSourceChar: 1199
-      endSourceChar: 1199
+      startSourceChar: 1207
+      endSourceChar: 1207
       line: 52
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1760
       endInstruction: 1759
-      startSourceChar: 1199
-      endSourceChar: 1199
+      startSourceChar: 1207
+      endSourceChar: 1207
       line: 52
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1760
       endInstruction: 1759
-      startSourceChar: 1199
-      endSourceChar: 1210
+      startSourceChar: 1207
+      endSourceChar: 1218
       line: 52
       lineChar: 12
       spanCodeSection: Networking.
     - startInstruction: 1760
       endInstruction: 1775
-      startSourceChar: 1210
-      endSourceChar: 1225
+      startSourceChar: 1218
+      endSourceChar: 1233
       line: 52
       lineChar: 23
       spanCodeSection: 'LocalPlayer == '
     - startInstruction: 1776
       endInstruction: 1823
-      startSourceChar: 1225
-      endSourceChar: 1240
+      startSourceChar: 1233
+      endSourceChar: 1248
       line: 52
       lineChar: 38
       spanCodeSection: "null)\r\n        "
     - startInstruction: 1824
       endInstruction: 1823
-      startSourceChar: 1240
-      endSourceChar: 1255
+      startSourceChar: 1248
+      endSourceChar: 1263
       line: 53
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 1824
       endInstruction: 1823
-      startSourceChar: 1255
-      endSourceChar: 1255
+      startSourceChar: 1263
+      endSourceChar: 1263
       line: 54
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1824
       endInstruction: 1823
-      startSourceChar: 1255
-      endSourceChar: 1255
+      startSourceChar: 1263
+      endSourceChar: 1263
       line: 54
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1824
       endInstruction: 1823
-      startSourceChar: 1255
-      endSourceChar: 1271
+      startSourceChar: 1263
+      endSourceChar: 1279
       line: 54
       lineChar: 12
       spanCodeSection: SendCustomEvent(
     - startInstruction: 1824
       endInstruction: 1855
-      startSourceChar: 1271
-      endSourceChar: 1302
+      startSourceChar: 1279
+      endSourceChar: 1310
       line: 54
       lineChar: 28
       spanCodeSection: "funcName);\r\n        }\r\n        "
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1302
-      endSourceChar: 1316
+      startSourceChar: 1310
+      endSourceChar: 1324
       line: 56
       lineChar: 8
       spanCodeSection: "else\r\n        "
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1316
-      endSourceChar: 1331
+      startSourceChar: 1324
+      endSourceChar: 1339
       line: 57
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1331
-      endSourceChar: 1331
+      startSourceChar: 1339
+      endSourceChar: 1339
       line: 58
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1331
-      endSourceChar: 1331
+      startSourceChar: 1339
+      endSourceChar: 1339
       line: 58
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1331
-      endSourceChar: 1354
+      startSourceChar: 1339
+      endSourceChar: 1362
       line: 58
       lineChar: 12
       spanCodeSection: SendCustomNetworkEvent(
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1354
-      endSourceChar: 1354
+      startSourceChar: 1362
+      endSourceChar: 1362
       line: 58
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1354
-      endSourceChar: 1373
+      startSourceChar: 1362
+      endSourceChar: 1381
       line: 58
       lineChar: 35
       spanCodeSection: NetworkEventTarget.
     - startInstruction: 1856
       endInstruction: 1855
-      startSourceChar: 1373
-      endSourceChar: 1380
+      startSourceChar: 1381
+      endSourceChar: 1388
       line: 58
       lineChar: 54
       spanCodeSection: 'Owner, '
     - startInstruction: 1856
       endInstruction: 1856
-      startSourceChar: 1380
-      endSourceChar: 1380
+      startSourceChar: 1388
+      endSourceChar: 1388
       line: 58
       lineChar: 61
       spanCodeSection: 
