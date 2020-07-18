@@ -21,28 +21,23 @@ MonoBehaviour:
     \   __refl_const_intnl_udonTypeName: %SystemString, null\r\n    showRequest: %SystemBoolean,
     null\r\n    components: %UnityEngineComponentArray, null\r\n    playtime: %SystemSingle,
     null\r\n    name: %SystemString, null\r\n    text: %SystemString, null\r\n    __0_this_intnl_UnityEngineGameObject:
-    %UnityEngineGameObject, this\r\n    __0_this_intnl_Subtitle: %VRCUdonUdonBehaviour,
-    this\r\n    __0_playtime_Single: %SystemSingle, null\r\n    __0_funcName_String:
-    %SystemString, null\r\n    __0_name_String: %SystemString, null\r\n    __0_text_String:
-    %SystemString, null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __1_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_const_intnl_SubtitleComponentArray:
-    %UnityEngineComponentArray, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __1_const_intnl_SystemInt64: %SystemInt64, null\r\n
-    \   __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
-    null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n    __0_const_intnl_SystemString:
-    %SystemString, null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n
-    \   __2_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
-    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
-    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemType:
-    %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n
-    \   __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi:
-    %VRCSDKBaseVRCPlayerApi, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean,
-    null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n    __2_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __3_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __4_intnl_SystemBoolean: %SystemBoolean, null\r\n    __5_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __6_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __7_intnl_SystemBoolean: %SystemBoolean, null\r\n    __8_intnl_SystemBoolean:
+    %UnityEngineGameObject, this\r\n    __0_playtime_Single: %SystemSingle, null\r\n
+    \   __0_name_String: %SystemString, null\r\n    __0_text_String: %SystemString,
+    null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_const_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __0_const_intnl_SubtitleComponentArray: %UnityEngineComponentArray,
+    null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_const_intnl_SystemInt64: %SystemInt64, null\r\n
+    \   __1_const_intnl_SystemInt64: %SystemInt64, null\r\n    __0_const_intnl_SystemObject:
+    %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
+    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
+    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
+    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemType:
+    %SystemType, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
+    \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent: %UnityEngineComponent,
     null\r\n    __1_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __0_intnl_SubtitleComponentArray:
     %UnityEngineComponentArray, null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray,
@@ -59,9 +54,8 @@ MonoBehaviour:
     %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __0_intnl_SubtitleComponent:
     %VRCUdonUdonBehaviour, null\r\n    __1_intnl_SubtitleComponent: %VRCUdonUdonBehaviour,
     null\r\n    __2_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
-    \        # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
+    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
+    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
     \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
     \       \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n         #
     public class Subtitle : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
@@ -84,17 +78,11 @@ MonoBehaviour:
     this.playtime = playtime;\r\n        PUSH, __0_playtime_Single\r\n        PUSH,
     playtime\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void _ReqConfirm()\r\n    .export _ReqConfirm\r\n
-    \       \r\n    _ReqConfirm:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # showRequest = false;\r\n        PUSH,
-    __1_const_intnl_SystemBoolean\r\n        PUSH, showRequest\r\n        COPY\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void Update()\r\n    .export _update\r\n        \r\n    _update:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (!showRequest) return;\r\n        PUSH, showRequest\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000FC\r\n
+    \       \r\n        \r\n         # void Update()\r\n    .export _update\r\n        \r\n
+    \   _update:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
+    \        # {\r\n        \r\n         # if (!showRequest) return;\r\n        PUSH,
+    showRequest\r\n        PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
+    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000CC\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
     components = gameObject.GetComponentsInChildren<SubtitleComponent>();\r\n        PUSH,
@@ -107,7 +95,7 @@ MonoBehaviour:
     \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
     \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000030C\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002DC\r\n
     \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __0_intnl_SubtitleComponent\r\n
@@ -115,25 +103,25 @@ MonoBehaviour:
     \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
     \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000258\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000228\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
     \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
     __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x0000026C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    \       JUMP, 0x0000023C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
     __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
     \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002D0\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002A0\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __3_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __4_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000170\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000140\r\n        PUSH, __0_intnl_SystemInt32\r\n
     \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000056C\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000053C\r\n
     \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_UnityEngineComponentArray\r\n
     \       EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
     \       PUSH, __1_intnl_UnityEngineComponentArray\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
@@ -141,7 +129,7 @@ MonoBehaviour:
     \       COPY\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
     \       PUSH, __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000056C\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000053C\r\n
     \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       PUSH, __1_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __1_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_SubtitleComponent\r\n
@@ -149,15 +137,15 @@ MonoBehaviour:
     \       PUSH, __1_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
     \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000478\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000448\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __3_intnl_SystemInt64\r\n
     \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
     __3_intnl_SystemInt64\r\n        PUSH, __2_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x0000048C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    \       JUMP, 0x0000045C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
     __2_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __2_intnl_SystemInt64\r\n
     \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __7_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000530\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000500\r\n
     \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       PUSH, __2_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_SubtitleComponentArray\r\n        PUSH, __5_intnl_SystemInt32\r\n
@@ -168,7 +156,7 @@ MonoBehaviour:
     \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
     \       PUSH, __7_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
     \       PUSH, __7_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000390\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
+    \       COPY\r\n        JUMP, 0x00000360\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
     \       PUSH, components\r\n        COPY\r\n        \r\n         # components[components.Length
     - 1].Set(name, text, playtime);\r\n        PUSH, components\r\n        PUSH, __0_intnl_SystemInt32\r\n
     \       EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH,
@@ -189,27 +177,10 @@ MonoBehaviour:
     dirtied\r\n        PUSH, components\r\n        PUSH, __1_intnl_SubtitleComponentArray\r\n
     \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __0_intnl_SubtitleComponent\r\n
     \       PUSH, __4_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # RequestCallFunctionToOwner(nameof(_ReqConfirm));\r\n        PUSH,
-    __5_const_intnl_SystemString\r\n        PUSH, __0_funcName_String\r\n        COPY\r\n
-    \       PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000006E0\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void RequestCallFunctionToOwner(string funcName)\r\n    RequestCallFunctionToOwner:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (Networking.LocalPlayer == null)\r\n        PUSH,
-    __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000740\r\n
-    \       \r\n         # {\r\n        \r\n         # SendCustomEvent(funcName);\r\n
-    \       PUSH, __0_this_intnl_Subtitle\r\n        PUSH, __0_funcName_String\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x00000760\r\n        \r\n         # else\r\n        \r\n         #
-    {\r\n        \r\n         # SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);\r\n
-    \       PUSH, __0_this_intnl_Subtitle\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, __0_funcName_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
+    \       \r\n         # showRequest = false;\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
+    \       PUSH, showRequest\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n.code_end\r\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 7608cbe3dd237f94f89aae349615245b, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
@@ -885,443 +856,240 @@ MonoBehaviour:
     - startInstruction: 136
       endInstruction: 143
       startSourceChar: 768
-      endSourceChar: 799
+      endSourceChar: 787
       line: 33
       lineChar: 4
-      spanCodeSection: "public void _ReqConfirm()\r\n    "
+      spanCodeSection: "void Update()\r\n    "
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 799
-      endSourceChar: 810
+      startSourceChar: 787
+      endSourceChar: 798
       line: 34
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 144
       endInstruction: 143
-      startSourceChar: 810
-      endSourceChar: 810
+      startSourceChar: 798
+      endSourceChar: 802
       line: 35
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 144
-      endInstruction: 143
-      startSourceChar: 810
-      endSourceChar: 810
-      line: 35
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 144
-      endInstruction: 143
-      startSourceChar: 810
-      endSourceChar: 824
-      line: 35
-      lineChar: 8
-      spanCodeSection: 'showRequest = '
-    - startInstruction: 144
-      endInstruction: 183
-      startSourceChar: 824
-      endSourceChar: 845
-      line: 35
-      lineChar: 22
-      spanCodeSection: "false;\r\n    }\r\n\r\n    "
-    - startInstruction: 184
-      endInstruction: 191
-      startSourceChar: 845
-      endSourceChar: 864
-      line: 38
-      lineChar: 4
-      spanCodeSection: "void Update()\r\n    "
-    - startInstruction: 192
-      endInstruction: 191
-      startSourceChar: 864
-      endSourceChar: 875
-      line: 39
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 192
-      endInstruction: 191
-      startSourceChar: 875
-      endSourceChar: 879
-      line: 40
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 192
-      endInstruction: 191
-      startSourceChar: 879
-      endSourceChar: 880
-      line: 40
+    - startInstruction: 144
+      endInstruction: 143
+      startSourceChar: 802
+      endSourceChar: 803
+      line: 35
       lineChar: 12
       spanCodeSection: '!'
-    - startInstruction: 192
-      endInstruction: 231
-      startSourceChar: 880
-      endSourceChar: 893
-      line: 40
+    - startInstruction: 144
+      endInstruction: 183
+      startSourceChar: 803
+      endSourceChar: 816
+      line: 35
       lineChar: 13
       spanCodeSection: 'showRequest) '
-    - startInstruction: 232
-      endInstruction: 251
-      startSourceChar: 893
-      endSourceChar: 912
-      line: 40
+    - startInstruction: 184
+      endInstruction: 203
+      startSourceChar: 816
+      endSourceChar: 835
+      line: 35
       lineChar: 26
       spanCodeSection: "return;\r\n\r\n        "
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 912
-      endSourceChar: 912
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 835
+      endSourceChar: 835
+      line: 37
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 912
-      endSourceChar: 912
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 835
+      endSourceChar: 835
+      line: 37
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 912
-      endSourceChar: 925
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 835
+      endSourceChar: 848
+      line: 37
       lineChar: 8
       spanCodeSection: 'components = '
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 925
-      endSourceChar: 925
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 848
+      endSourceChar: 848
+      line: 37
       lineChar: 21
       spanCodeSection: 
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 925
-      endSourceChar: 925
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 848
+      endSourceChar: 848
+      line: 37
       lineChar: 21
       spanCodeSection: 
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 925
-      endSourceChar: 936
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 848
+      endSourceChar: 859
+      line: 37
       lineChar: 21
       spanCodeSection: gameObject.
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 936
-      endSourceChar: 959
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 859
+      endSourceChar: 882
+      line: 37
       lineChar: 32
       spanCodeSection: GetComponentsInChildren
-    - startInstruction: 252
-      endInstruction: 251
-      startSourceChar: 959
-      endSourceChar: 960
-      line: 42
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 882
+      endSourceChar: 883
+      line: 37
       lineChar: 55
       spanCodeSection: <
-    - startInstruction: 252
-      endInstruction: 1407
-      startSourceChar: 960
-      endSourceChar: 991
-      line: 42
+    - startInstruction: 204
+      endInstruction: 1359
+      startSourceChar: 883
+      endSourceChar: 914
+      line: 37
       lineChar: 56
       spanCodeSection: "SubtitleComponent>();\r\n        "
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 991
-      endSourceChar: 991
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 914
+      endSourceChar: 914
+      line: 38
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 991
-      endSourceChar: 991
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 914
+      endSourceChar: 914
+      line: 38
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 991
-      endSourceChar: 991
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 914
+      endSourceChar: 914
+      line: 38
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 991
-      endSourceChar: 991
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 914
+      endSourceChar: 914
+      line: 38
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 991
-      endSourceChar: 1002
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 914
+      endSourceChar: 925
+      line: 38
       lineChar: 8
       spanCodeSection: components[
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 1002
-      endSourceChar: 1002
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 925
+      endSourceChar: 925
+      line: 38
       lineChar: 19
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 1002
-      endSourceChar: 1002
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 925
+      endSourceChar: 925
+      line: 38
       lineChar: 19
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 1002
-      endSourceChar: 1002
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 925
+      endSourceChar: 925
+      line: 38
       lineChar: 19
       spanCodeSection: 
-    - startInstruction: 1408
-      endInstruction: 1407
-      startSourceChar: 1002
-      endSourceChar: 1013
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1359
+      startSourceChar: 925
+      endSourceChar: 936
+      line: 38
       lineChar: 19
       spanCodeSection: components.
-    - startInstruction: 1408
-      endInstruction: 1431
-      startSourceChar: 1013
-      endSourceChar: 1022
-      line: 43
+    - startInstruction: 1360
+      endInstruction: 1383
+      startSourceChar: 936
+      endSourceChar: 945
+      line: 38
       lineChar: 30
       spanCodeSection: 'Length - '
-    - startInstruction: 1432
-      endInstruction: 1463
-      startSourceChar: 1022
-      endSourceChar: 1025
-      line: 43
+    - startInstruction: 1384
+      endInstruction: 1415
+      startSourceChar: 945
+      endSourceChar: 948
+      line: 38
       lineChar: 39
       spanCodeSection: 1].
-    - startInstruction: 1464
-      endInstruction: 1495
-      startSourceChar: 1025
-      endSourceChar: 1029
-      line: 43
+    - startInstruction: 1416
+      endInstruction: 1447
+      startSourceChar: 948
+      endSourceChar: 952
+      line: 38
       lineChar: 42
       spanCodeSection: Set(
-    - startInstruction: 1496
-      endInstruction: 1495
-      startSourceChar: 1029
-      endSourceChar: 1035
-      line: 43
+    - startInstruction: 1448
+      endInstruction: 1447
+      startSourceChar: 952
+      endSourceChar: 958
+      line: 38
       lineChar: 46
       spanCodeSection: 'name, '
-    - startInstruction: 1496
-      endInstruction: 1495
-      startSourceChar: 1035
-      endSourceChar: 1041
-      line: 43
+    - startInstruction: 1448
+      endInstruction: 1447
+      startSourceChar: 958
+      endSourceChar: 964
+      line: 38
       lineChar: 52
       spanCodeSection: 'text, '
-    - startInstruction: 1496
-      endInstruction: 1695
-      startSourceChar: 1041
-      endSourceChar: 1075
-      line: 43
+    - startInstruction: 1448
+      endInstruction: 1647
+      startSourceChar: 964
+      endSourceChar: 984
+      line: 38
       lineChar: 58
-      spanCodeSection: "playtime);\r\n\r\n        \r\n\r\n        "
-    - startInstruction: 1696
-      endInstruction: 1695
-      startSourceChar: 1075
-      endSourceChar: 1075
-      line: 47
+      spanCodeSection: "playtime);\r\n        "
+    - startInstruction: 1648
+      endInstruction: 1647
+      startSourceChar: 984
+      endSourceChar: 984
+      line: 39
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1696
-      endInstruction: 1695
-      startSourceChar: 1075
-      endSourceChar: 1075
-      line: 47
+    - startInstruction: 1648
+      endInstruction: 1647
+      startSourceChar: 984
+      endSourceChar: 984
+      line: 39
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1696
-      endInstruction: 1695
-      startSourceChar: 1075
-      endSourceChar: 1102
-      line: 47
+    - startInstruction: 1648
+      endInstruction: 1647
+      startSourceChar: 984
+      endSourceChar: 998
+      line: 39
       lineChar: 8
-      spanCodeSection: RequestCallFunctionToOwner(
-    - startInstruction: 1696
-      endInstruction: 1751
-      startSourceChar: 1102
-      endSourceChar: 1138
-      line: 47
-      lineChar: 35
-      spanCodeSection: "nameof(_ReqConfirm));\r\n    }\r\n\r\n    "
-    - startInstruction: 1752
-      endInstruction: 1751
-      startSourceChar: 1138
-      endSourceChar: 1170
-      line: 50
-      lineChar: 4
-      spanCodeSection: void RequestCallFunctionToOwner(
-    - startInstruction: 1752
-      endInstruction: 1759
-      startSourceChar: 1170
-      endSourceChar: 1192
-      line: 50
-      lineChar: 36
-      spanCodeSection: "string funcName)\r\n    "
-    - startInstruction: 1760
-      endInstruction: 1759
-      startSourceChar: 1192
-      endSourceChar: 1203
-      line: 51
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 1760
-      endInstruction: 1759
-      startSourceChar: 1203
-      endSourceChar: 1207
-      line: 52
-      lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 1760
-      endInstruction: 1759
-      startSourceChar: 1207
-      endSourceChar: 1207
-      line: 52
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1760
-      endInstruction: 1759
-      startSourceChar: 1207
-      endSourceChar: 1207
-      line: 52
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1760
-      endInstruction: 1759
-      startSourceChar: 1207
-      endSourceChar: 1218
-      line: 52
-      lineChar: 12
-      spanCodeSection: Networking.
-    - startInstruction: 1760
-      endInstruction: 1775
-      startSourceChar: 1218
-      endSourceChar: 1233
-      line: 52
-      lineChar: 23
-      spanCodeSection: 'LocalPlayer == '
-    - startInstruction: 1776
-      endInstruction: 1823
-      startSourceChar: 1233
-      endSourceChar: 1248
-      line: 52
-      lineChar: 38
-      spanCodeSection: "null)\r\n        "
-    - startInstruction: 1824
-      endInstruction: 1823
-      startSourceChar: 1248
-      endSourceChar: 1263
-      line: 53
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1824
-      endInstruction: 1823
-      startSourceChar: 1263
-      endSourceChar: 1263
-      line: 54
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1824
-      endInstruction: 1823
-      startSourceChar: 1263
-      endSourceChar: 1263
-      line: 54
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1824
-      endInstruction: 1823
-      startSourceChar: 1263
-      endSourceChar: 1279
-      line: 54
-      lineChar: 12
-      spanCodeSection: SendCustomEvent(
-    - startInstruction: 1824
-      endInstruction: 1855
-      startSourceChar: 1279
-      endSourceChar: 1310
-      line: 54
-      lineChar: 28
-      spanCodeSection: "funcName);\r\n        }\r\n        "
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1310
-      endSourceChar: 1324
-      line: 56
-      lineChar: 8
-      spanCodeSection: "else\r\n        "
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1324
-      endSourceChar: 1339
-      line: 57
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1339
-      endSourceChar: 1339
-      line: 58
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1339
-      endSourceChar: 1339
-      line: 58
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1339
-      endSourceChar: 1362
-      line: 58
-      lineChar: 12
-      spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1362
-      endSourceChar: 1362
-      line: 58
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1362
-      endSourceChar: 1381
-      line: 58
-      lineChar: 35
-      spanCodeSection: NetworkEventTarget.
-    - startInstruction: 1856
-      endInstruction: 1855
-      startSourceChar: 1381
-      endSourceChar: 1388
-      line: 58
-      lineChar: 54
-      spanCodeSection: 'Owner, '
-    - startInstruction: 1856
-      endInstruction: 1856
-      startSourceChar: 1388
-      endSourceChar: 1388
-      line: 58
-      lineChar: 61
+      spanCodeSection: 'showRequest = '
+    - startInstruction: 1648
+      endInstruction: 1648
+      startSourceChar: 998
+      endSourceChar: 998
+      line: 39
+      lineChar: 22
       spanCodeSection: 
   hasInteractEvent: 0
   serializationData:

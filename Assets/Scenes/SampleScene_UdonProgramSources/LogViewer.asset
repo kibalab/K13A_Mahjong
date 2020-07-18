@@ -20,9 +20,10 @@ MonoBehaviour:
     %UnityEngineUIText, null\r\n    __0_logViewer_Int32: %SystemInt32, null\r\n    __1_logViewer_Int32:
     %SystemInt32, null\r\n    __0_dateTime_String: %SystemString, null\r\n    __0_str_String:
     %SystemString, null\r\n    __1_str_String: %SystemString, null\r\n    __2_str_String:
-    %SystemString, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __1_const_intnl_SystemInt32: %SystemInt32, null\r\n    __2_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __3_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    %SystemString, null\r\n    __3_str_String: %SystemString, null\r\n    __0_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __2_const_intnl_SystemInt32: %SystemInt32, null\r\n    __3_const_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n
     \   __0_const_intnl_SystemString: %SystemString, null\r\n    __1_const_intnl_SystemString:
     %SystemString, null\r\n    __2_const_intnl_SystemString: %SystemString, null\r\n
     \   __3_const_intnl_SystemString: %SystemString, null\r\n    __4_const_intnl_SystemString:
@@ -33,26 +34,29 @@ MonoBehaviour:
     %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
     \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __5_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
     null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_SystemDateTime: %SystemDateTime, null\r\n    __0_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __0_intnl_returnValSymbol_String: %SystemString, null\r\n
-    \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
-    %SystemString, null\r\n    __10_intnl_SystemString: %SystemString, null\r\n    __11_intnl_SystemString:
-    %SystemString, null\r\n    __12_intnl_SystemString: %SystemString, null\r\n    __13_intnl_SystemString:
-    %SystemString, null\r\n    __14_intnl_SystemString: %SystemString, null\r\n    __15_intnl_SystemString:
-    %SystemString, null\r\n    __16_intnl_SystemString: %SystemString, null\r\n    __17_intnl_SystemString:
-    %SystemString, null\r\n    __18_intnl_SystemString: %SystemString, null\r\n    __2_intnl_SystemString:
+    \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemDateTime:
+    %SystemDateTime, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
+    \   __0_intnl_returnValSymbol_String: %SystemString, null\r\n    __0_intnl_SystemString:
+    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __10_intnl_SystemString:
+    %SystemString, null\r\n    __11_intnl_SystemString: %SystemString, null\r\n    __12_intnl_SystemString:
+    %SystemString, null\r\n    __13_intnl_SystemString: %SystemString, null\r\n    __14_intnl_SystemString:
+    %SystemString, null\r\n    __15_intnl_SystemString: %SystemString, null\r\n    __16_intnl_SystemString:
+    %SystemString, null\r\n    __17_intnl_SystemString: %SystemString, null\r\n    __2_intnl_SystemString:
     %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_SystemString:
     %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __6_intnl_SystemString:
     %SystemString, null\r\n    __7_intnl_SystemString: %SystemString, null\r\n    __8_intnl_SystemString:
     %SystemString, null\r\n    __9_intnl_SystemString: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using System;\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
-    \       \r\n         # using UnityEngine.UI;\r\n        \r\n         # using VRC.SDKBase;\r\n
+    %SystemUInt32, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using System;\r\n        \r\n
+    \        # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n        \r\n
+    \        # using UnityEngine.UI;\r\n        \r\n         # using VRC.SDKBase;\r\n
     \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
     LogViewer : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # public
     Text debugText1;\r\n        \r\n         # public Text debugText2;\r\n        \r\n
@@ -99,7 +103,7 @@ MonoBehaviour:
     __4_intnl_SystemString\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
     \       \r\n         # break;\r\n        JUMP, 0x00000238\r\n        \r\n         #
     DeleteOldLog();\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000638\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
+    0x000006B8\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
     \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
     \       \r\n         # public void ErrorLog(string str, int logViewer)\r\n    .export
     ErrorLog\r\n        \r\n    ErrorLog:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
@@ -127,11 +131,11 @@ MonoBehaviour:
     \       PUSH, __9_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, debugText1\r\n        PUSH, __9_intnl_SystemString\r\n        EXTERN,
     \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        PUSH, __5_const_intnl_SystemString\r\n
-    \       PUSH, __1_str_String\r\n        PUSH, __10_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, __1_str_String\r\n        PUSH, __3_str_String\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __10_intnl_SystemString\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       JUMP, 0x000004D4\r\n        \r\n         # debugText2.text += \"\\n<color=red>\"
-    + str + \"</color>\";\r\n        PUSH, __3_const_intnl_SystemString\r\n        PUSH,
+    __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000638\r\n        JUMP,
+    0x000004D4\r\n        \r\n         # debugText2.text += \"\\n<color=red>\" + str
+    + \"</color>\";\r\n        PUSH, __3_const_intnl_SystemString\r\n        PUSH,
     __1_str_String\r\n        PUSH, __5_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, __5_intnl_SystemString\r\n        PUSH, __4_const_intnl_SystemString\r\n
     \       PUSH, __6_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
@@ -142,67 +146,79 @@ MonoBehaviour:
     \       PUSH, __9_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
     \       PUSH, debugText2\r\n        PUSH, __9_intnl_SystemString\r\n        EXTERN,
     \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n        \r\n         #
-    Debug.Log(\"[LogViewer2 Error] \" + str);\r\n        PUSH, __6_const_intnl_SystemString\r\n
-    \       PUSH, __1_str_String\r\n        PUSH, __10_intnl_SystemString\r\n        EXTERN,
+    debuglog(\"[LogViewer2 Error] \" + str);\r\n        PUSH, __6_const_intnl_SystemString\r\n
+    \       PUSH, __1_str_String\r\n        PUSH, __3_str_String\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __10_intnl_SystemString\r\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n
-    \       \r\n         # break;\r\n        JUMP, 0x000004D4\r\n        \r\n         #
-    DeleteOldLog();\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000638\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \       \r\n         # string AddTimestamp(string str)\r\n    AddTimestamp:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # var dateTime = DateTime.Now.ToString(\"HH:mm:ss\");\r\n
-    \       PUSH, __0_intnl_SystemDateTime\r\n        EXTERN, \"SystemDateTime.__get_Now__SystemDateTime\"\r\n
+    __4_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000638\r\n        \r\n
+    \        # break;\r\n        JUMP, 0x000004D4\r\n        \r\n         # DeleteOldLog();\r\n
+    \       PUSH, __5_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000006B8\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
+    \        # string AddTimestamp(string str)\r\n    AddTimestamp:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # var dateTime = DateTime.Now.ToString(\"HH:mm:ss\");\r\n        PUSH,
+    __0_intnl_SystemDateTime\r\n        EXTERN, \"SystemDateTime.__get_Now__SystemDateTime\"\r\n
     \       PUSH, __0_intnl_SystemDateTime\r\n        PUSH, __7_const_intnl_SystemString\r\n
-    \       PUSH, __11_intnl_SystemString\r\n        EXTERN, \"SystemDateTime.__ToString__SystemString__SystemString\"\r\n
-    \       PUSH, __11_intnl_SystemString\r\n        PUSH, __0_dateTime_String\r\n
+    \       PUSH, __10_intnl_SystemString\r\n        EXTERN, \"SystemDateTime.__ToString__SystemString__SystemString\"\r\n
+    \       PUSH, __10_intnl_SystemString\r\n        PUSH, __0_dateTime_String\r\n
     \       COPY\r\n        \r\n         # return $\"[{dateTime}]: {str}\";\r\n        PUSH,
     __8_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __0_dateTime_String\r\n        PUSH, __12_intnl_SystemString\r\n        EXTERN,
+    __0_dateTime_String\r\n        PUSH, __11_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __11_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __9_const_intnl_SystemString\r\n        PUSH, __12_intnl_SystemString\r\n        EXTERN,
     \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
     __12_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __9_const_intnl_SystemString\r\n        PUSH, __13_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __13_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __2_str_String\r\n        PUSH, __14_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __14_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    __2_str_String\r\n        PUSH, __13_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __13_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
     \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
     __0_intnl_returnValSymbol_String\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void DeleteOldLog()\r\n    DeleteOldLog:\r\n        \r\n        PUSH,
+    \        # void debuglog(string str)\r\n    debuglog:\r\n        \r\n        PUSH,
     __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    if (debugText1.text.Length > 3000)\r\n        PUSH, debugText1\r\n        PUSH,
-    __15_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__get_text__SystemString\"\r\n
-    \       PUSH, __15_intnl_SystemString\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    if (Networking.LocalPlayer != null)\r\n        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
+    \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000068C\r\n
+    \       \r\n         # {\r\n        \r\n         # return;\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n         # Debug.Log(str);\r\n        PUSH, __3_str_String\r\n        EXTERN,
+    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # void DeleteOldLog()\r\n    DeleteOldLog:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # if (debugText1.text.Length > 3000)\r\n        PUSH,
+    debugText1\r\n        PUSH, __14_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__get_text__SystemString\"\r\n
+    \       PUSH, __14_intnl_SystemString\r\n        PUSH, __0_intnl_SystemInt32\r\n
     \       EXTERN, \"SystemString.__get_Length__SystemInt32\"\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006E8\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000768\r\n
     \       \r\n         # {\r\n        \r\n         # debugText1.text = debugText1.text.Substring(1500);\r\n
-    \       PUSH, debugText1\r\n        PUSH, __16_intnl_SystemString\r\n        EXTERN,
+    \       PUSH, debugText1\r\n        PUSH, __15_intnl_SystemString\r\n        EXTERN,
+    \"UnityEngineUIText.__get_text__SystemString\"\r\n        PUSH, __15_intnl_SystemString\r\n
+    \       PUSH, __3_const_intnl_SystemInt32\r\n        PUSH, __16_intnl_SystemString\r\n
+    \       EXTERN, \"SystemString.__Substring__SystemInt32__SystemString\"\r\n        PUSH,
+    debugText1\r\n        PUSH, __16_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
+    \       \r\n         # if (debugText2.text.Length > 3000)\r\n        PUSH, debugText2\r\n
+    \       PUSH, __15_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__get_text__SystemString\"\r\n
+    \       PUSH, __15_intnl_SystemString\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemString.__get_Length__SystemInt32\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __6_intnl_SystemBoolean\r\n
+    \       EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000818\r\n
+    \       \r\n         # {\r\n        \r\n         # debugText2.text = debugText2.text.Substring(1500);\r\n
+    \       PUSH, debugText2\r\n        PUSH, __16_intnl_SystemString\r\n        EXTERN,
     \"UnityEngineUIText.__get_text__SystemString\"\r\n        PUSH, __16_intnl_SystemString\r\n
     \       PUSH, __3_const_intnl_SystemInt32\r\n        PUSH, __17_intnl_SystemString\r\n
     \       EXTERN, \"SystemString.__Substring__SystemInt32__SystemString\"\r\n        PUSH,
-    debugText1\r\n        PUSH, __17_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
-    \       \r\n         # if (debugText2.text.Length > 3000)\r\n        PUSH, debugText2\r\n
-    \       PUSH, __16_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__get_text__SystemString\"\r\n
-    \       PUSH, __16_intnl_SystemString\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemString.__get_Length__SystemInt32\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000798\r\n
-    \       \r\n         # {\r\n        \r\n         # debugText2.text = debugText2.text.Substring(1500);\r\n
-    \       PUSH, debugText2\r\n        PUSH, __17_intnl_SystemString\r\n        EXTERN,
-    \"UnityEngineUIText.__get_text__SystemString\"\r\n        PUSH, __17_intnl_SystemString\r\n
-    \       PUSH, __3_const_intnl_SystemInt32\r\n        PUSH, __18_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__Substring__SystemInt32__SystemString\"\r\n        PUSH,
-    debugText2\r\n        PUSH, __18_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
+    debugText2\r\n        PUSH, __17_intnl_SystemString\r\n        EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
@@ -769,640 +785,745 @@ MonoBehaviour:
     - startInstruction: 668
       endInstruction: 723
       startSourceChar: 840
-      endSourceChar: 1009
+      endSourceChar: 1008
       line: 37
       lineChar: 17
       spanCodeSection: "0:\r\n                debugText1.text += \"\\n<color=red>\"
-        + str + \"</color>\";\r\n                Debug.Log(\"[LogViewer1 Error] \"
+        + str + \"</color>\";\r\n                debuglog(\"[LogViewer1 Error] \"
         + str);\r\n                break;\r\n            "
     - startInstruction: 724
       endInstruction: 723
-      startSourceChar: 1009
-      endSourceChar: 1014
+      startSourceChar: 1008
+      endSourceChar: 1013
       line: 41
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 724
       endInstruction: 1011
-      startSourceChar: 1014
-      endSourceChar: 1034
+      startSourceChar: 1013
+      endSourceChar: 1033
       line: 41
       lineChar: 17
       spanCodeSection: "1:\r\n                "
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1034
-      endSourceChar: 1034
+      startSourceChar: 1033
+      endSourceChar: 1033
       line: 42
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1034
-      endSourceChar: 1034
+      startSourceChar: 1033
+      endSourceChar: 1033
       line: 42
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1034
-      endSourceChar: 1034
+      startSourceChar: 1033
+      endSourceChar: 1033
       line: 42
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1034
-      endSourceChar: 1045
+      startSourceChar: 1033
+      endSourceChar: 1044
       line: 42
       lineChar: 16
       spanCodeSection: debugText2.
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1045
-      endSourceChar: 1053
+      startSourceChar: 1044
+      endSourceChar: 1052
       line: 42
       lineChar: 27
       spanCodeSection: 'text += '
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1053
-      endSourceChar: 1053
+      startSourceChar: 1052
+      endSourceChar: 1052
       line: 42
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1053
-      endSourceChar: 1053
+      startSourceChar: 1052
+      endSourceChar: 1052
       line: 42
       lineChar: 35
       spanCodeSection: 
     - startInstruction: 1012
       endInstruction: 1011
-      startSourceChar: 1053
-      endSourceChar: 1071
+      startSourceChar: 1052
+      endSourceChar: 1070
       line: 42
       lineChar: 35
       spanCodeSection: '"\n<color=red>" + '
     - startInstruction: 1012
       endInstruction: 1043
-      startSourceChar: 1071
-      endSourceChar: 1077
+      startSourceChar: 1070
+      endSourceChar: 1076
       line: 42
       lineChar: 53
       spanCodeSection: 'str + '
     - startInstruction: 1044
       endInstruction: 1179
-      startSourceChar: 1077
-      endSourceChar: 1106
+      startSourceChar: 1076
+      endSourceChar: 1105
       line: 42
       lineChar: 59
       spanCodeSection: "\"</color>\";\r\n                "
     - startInstruction: 1180
       endInstruction: 1179
-      startSourceChar: 1106
-      endSourceChar: 1106
+      startSourceChar: 1105
+      endSourceChar: 1105
       line: 43
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1180
       endInstruction: 1179
-      startSourceChar: 1106
-      endSourceChar: 1106
+      startSourceChar: 1105
+      endSourceChar: 1105
       line: 43
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 1180
       endInstruction: 1179
-      startSourceChar: 1106
-      endSourceChar: 1106
+      startSourceChar: 1105
+      endSourceChar: 1114
       line: 43
       lineChar: 16
+      spanCodeSection: debuglog(
+    - startInstruction: 1180
+      endInstruction: 1179
+      startSourceChar: 1114
+      endSourceChar: 1114
+      line: 43
+      lineChar: 25
       spanCodeSection: 
     - startInstruction: 1180
       endInstruction: 1179
-      startSourceChar: 1106
-      endSourceChar: 1112
+      startSourceChar: 1114
+      endSourceChar: 1138
       line: 43
-      lineChar: 16
-      spanCodeSection: Debug.
-    - startInstruction: 1180
-      endInstruction: 1179
-      startSourceChar: 1112
-      endSourceChar: 1116
-      line: 43
-      lineChar: 22
-      spanCodeSection: Log(
-    - startInstruction: 1180
-      endInstruction: 1179
-      startSourceChar: 1116
-      endSourceChar: 1116
-      line: 43
-      lineChar: 26
-      spanCodeSection: 
-    - startInstruction: 1180
-      endInstruction: 1179
-      startSourceChar: 1116
-      endSourceChar: 1140
-      line: 43
-      lineChar: 26
+      lineChar: 25
       spanCodeSection: '"[LogViewer2 Error] " + '
     - startInstruction: 1180
       endInstruction: 1227
-      startSourceChar: 1140
-      endSourceChar: 1163
+      startSourceChar: 1138
+      endSourceChar: 1161
       line: 43
-      lineChar: 50
+      lineChar: 49
       spanCodeSection: "str);\r\n                "
     - startInstruction: 1228
       endInstruction: 1235
-      startSourceChar: 1163
-      endSourceChar: 1190
+      startSourceChar: 1161
+      endSourceChar: 1188
       line: 44
       lineChar: 16
       spanCodeSection: "break;\r\n        }\r\n        "
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 1190
-      endSourceChar: 1190
+      startSourceChar: 1188
+      endSourceChar: 1188
       line: 46
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1236
       endInstruction: 1235
-      startSourceChar: 1190
-      endSourceChar: 1190
+      startSourceChar: 1188
+      endSourceChar: 1188
       line: 46
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1236
       endInstruction: 1271
-      startSourceChar: 1190
-      endSourceChar: 1220
+      startSourceChar: 1188
+      endSourceChar: 1218
       line: 46
       lineChar: 8
       spanCodeSection: "DeleteOldLog();\r\n    }\r\n\r\n    "
     - startInstruction: 1272
       endInstruction: 1271
-      startSourceChar: 1220
-      endSourceChar: 1240
+      startSourceChar: 1218
+      endSourceChar: 1238
       line: 49
       lineChar: 4
       spanCodeSection: string AddTimestamp(
     - startInstruction: 1272
       endInstruction: 1279
-      startSourceChar: 1240
-      endSourceChar: 1257
+      startSourceChar: 1238
+      endSourceChar: 1255
       line: 49
       lineChar: 24
       spanCodeSection: "string str)\r\n    "
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1257
-      endSourceChar: 1268
+      startSourceChar: 1255
+      endSourceChar: 1266
       line: 50
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1268
-      endSourceChar: 1268
+      startSourceChar: 1266
+      endSourceChar: 1266
       line: 51
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1268
-      endSourceChar: 1268
+      startSourceChar: 1266
+      endSourceChar: 1266
       line: 51
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1268
-      endSourceChar: 1281
+      startSourceChar: 1266
+      endSourceChar: 1279
       line: 51
       lineChar: 8
       spanCodeSection: 'var dateTime '
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1281
-      endSourceChar: 1283
+      startSourceChar: 1279
+      endSourceChar: 1281
       line: 51
       lineChar: 21
       spanCodeSection: '= '
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1283
-      endSourceChar: 1283
+      startSourceChar: 1281
+      endSourceChar: 1281
       line: 51
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1283
-      endSourceChar: 1283
+      startSourceChar: 1281
+      endSourceChar: 1281
       line: 51
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1283
-      endSourceChar: 1283
+      startSourceChar: 1281
+      endSourceChar: 1281
       line: 51
       lineChar: 23
       spanCodeSection: 
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1283
-      endSourceChar: 1292
+      startSourceChar: 1281
+      endSourceChar: 1290
       line: 51
       lineChar: 23
       spanCodeSection: DateTime.
     - startInstruction: 1280
       endInstruction: 1279
-      startSourceChar: 1292
-      endSourceChar: 1296
+      startSourceChar: 1290
+      endSourceChar: 1294
       line: 51
       lineChar: 32
       spanCodeSection: Now.
     - startInstruction: 1280
       endInstruction: 1295
-      startSourceChar: 1296
-      endSourceChar: 1305
+      startSourceChar: 1294
+      endSourceChar: 1303
       line: 51
       lineChar: 36
       spanCodeSection: ToString(
     - startInstruction: 1296
       endInstruction: 1347
-      startSourceChar: 1305
-      endSourceChar: 1327
+      startSourceChar: 1303
+      endSourceChar: 1325
       line: 51
       lineChar: 45
       spanCodeSection: "\"HH:mm:ss\");\r\n        "
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1327
-      endSourceChar: 1334
+      startSourceChar: 1325
+      endSourceChar: 1332
       line: 52
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 1348
       endInstruction: 1347
-      startSourceChar: 1334
-      endSourceChar: 1336
+      startSourceChar: 1332
+      endSourceChar: 1334
       line: 52
       lineChar: 15
       spanCodeSection: $"
     - startInstruction: 1348
       endInstruction: 1367
-      startSourceChar: 1336
-      endSourceChar: 1337
+      startSourceChar: 1334
+      endSourceChar: 1335
       line: 52
       lineChar: 17
       spanCodeSection: '['
     - startInstruction: 1368
       endInstruction: 1367
-      startSourceChar: 1337
-      endSourceChar: 1338
+      startSourceChar: 1335
+      endSourceChar: 1336
       line: 52
       lineChar: 18
       spanCodeSection: '{'
     - startInstruction: 1368
       endInstruction: 1419
-      startSourceChar: 1338
-      endSourceChar: 1347
+      startSourceChar: 1336
+      endSourceChar: 1345
       line: 52
       lineChar: 19
       spanCodeSection: dateTime}
     - startInstruction: 1420
       endInstruction: 1471
-      startSourceChar: 1347
-      endSourceChar: 1350
+      startSourceChar: 1345
+      endSourceChar: 1348
       line: 52
       lineChar: 28
       spanCodeSection: ']: '
     - startInstruction: 1472
       endInstruction: 1471
-      startSourceChar: 1350
-      endSourceChar: 1351
+      startSourceChar: 1348
+      endSourceChar: 1349
       line: 52
       lineChar: 31
       spanCodeSection: '{'
     - startInstruction: 1472
       endInstruction: 1583
-      startSourceChar: 1351
-      endSourceChar: 1372
+      startSourceChar: 1349
+      endSourceChar: 1370
       line: 52
       lineChar: 32
       spanCodeSection: "str}\";\r\n    }\r\n\r\n    "
     - startInstruction: 1584
-      endInstruction: 1591
-      startSourceChar: 1372
-      endSourceChar: 1397
+      endInstruction: 1583
+      startSourceChar: 1370
+      endSourceChar: 1384
       line: 55
       lineChar: 4
-      spanCodeSection: "void DeleteOldLog()\r\n    "
+      spanCodeSection: void debuglog(
+    - startInstruction: 1584
+      endInstruction: 1591
+      startSourceChar: 1384
+      endSourceChar: 1401
+      line: 55
+      lineChar: 18
+      spanCodeSection: "string str)\r\n    "
     - startInstruction: 1592
       endInstruction: 1591
-      startSourceChar: 1397
-      endSourceChar: 1408
+      startSourceChar: 1401
+      endSourceChar: 1412
       line: 56
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 1592
       endInstruction: 1591
-      startSourceChar: 1408
-      endSourceChar: 1412
+      startSourceChar: 1412
+      endSourceChar: 1416
       line: 57
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 1592
       endInstruction: 1591
-      startSourceChar: 1412
-      endSourceChar: 1412
+      startSourceChar: 1416
+      endSourceChar: 1416
       line: 57
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1592
       endInstruction: 1591
-      startSourceChar: 1412
-      endSourceChar: 1412
+      startSourceChar: 1416
+      endSourceChar: 1416
       line: 57
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 1592
       endInstruction: 1591
-      startSourceChar: 1412
-      endSourceChar: 1412
+      startSourceChar: 1416
+      endSourceChar: 1427
       line: 57
       lineChar: 12
-      spanCodeSection: 
+      spanCodeSection: Networking.
     - startInstruction: 1592
-      endInstruction: 1591
-      startSourceChar: 1412
-      endSourceChar: 1423
-      line: 57
-      lineChar: 12
-      spanCodeSection: debugText1.
-    - startInstruction: 1592
-      endInstruction: 1591
-      startSourceChar: 1423
-      endSourceChar: 1428
+      endInstruction: 1607
+      startSourceChar: 1427
+      endSourceChar: 1442
       line: 57
       lineChar: 23
-      spanCodeSection: text.
-    - startInstruction: 1592
-      endInstruction: 1639
-      startSourceChar: 1428
-      endSourceChar: 1437
+      spanCodeSection: 'LocalPlayer != '
+    - startInstruction: 1608
+      endInstruction: 1655
+      startSourceChar: 1442
+      endSourceChar: 1457
       line: 57
-      lineChar: 28
-      spanCodeSection: 'Length > '
-    - startInstruction: 1640
-      endInstruction: 1687
-      startSourceChar: 1437
-      endSourceChar: 1452
-      line: 57
-      lineChar: 37
-      spanCodeSection: "3000)\r\n        "
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1452
-      endSourceChar: 1467
+      lineChar: 38
+      spanCodeSection: "null)\r\n        "
+    - startInstruction: 1656
+      endInstruction: 1655
+      startSourceChar: 1457
+      endSourceChar: 1472
       line: 58
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1467
-      endSourceChar: 1467
+    - startInstruction: 1656
+      endInstruction: 1675
+      startSourceChar: 1472
+      endSourceChar: 1500
       line: 59
       lineChar: 12
+      spanCodeSection: "return;\r\n        }\r\n        "
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 1500
+      endSourceChar: 1500
+      line: 61
+      lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1467
-      endSourceChar: 1467
-      line: 59
-      lineChar: 12
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 1500
+      endSourceChar: 1500
+      line: 61
+      lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1467
-      endSourceChar: 1467
-      line: 59
-      lineChar: 12
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 1500
+      endSourceChar: 1500
+      line: 61
+      lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1467
-      endSourceChar: 1478
-      line: 59
-      lineChar: 12
-      spanCodeSection: debugText1.
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1478
-      endSourceChar: 1485
-      line: 59
-      lineChar: 23
-      spanCodeSection: 'text = '
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1485
-      endSourceChar: 1485
-      line: 59
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1485
-      endSourceChar: 1485
-      line: 59
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1485
-      endSourceChar: 1485
-      line: 59
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1485
-      endSourceChar: 1496
-      line: 59
-      lineChar: 30
-      spanCodeSection: debugText1.
-    - startInstruction: 1688
-      endInstruction: 1687
-      startSourceChar: 1496
-      endSourceChar: 1501
-      line: 59
-      lineChar: 41
-      spanCodeSection: text.
-    - startInstruction: 1688
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 1500
+      endSourceChar: 1506
+      line: 61
+      lineChar: 8
+      spanCodeSection: Debug.
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 1506
+      endSourceChar: 1510
+      line: 61
+      lineChar: 14
+      spanCodeSection: Log(
+    - startInstruction: 1676
       endInstruction: 1711
-      startSourceChar: 1501
-      endSourceChar: 1511
-      line: 59
-      lineChar: 46
-      spanCodeSection: Substring(
+      startSourceChar: 1510
+      endSourceChar: 1530
+      line: 61
+      lineChar: 18
+      spanCodeSection: "str);\r\n    }\r\n\r\n    "
     - startInstruction: 1712
-      endInstruction: 1767
-      startSourceChar: 1511
-      endSourceChar: 1540
-      line: 59
-      lineChar: 56
-      spanCodeSection: "1500);\r\n        }\r\n\r\n        "
-    - startInstruction: 1768
-      endInstruction: 1767
-      startSourceChar: 1540
-      endSourceChar: 1544
-      line: 62
+      endInstruction: 1719
+      startSourceChar: 1530
+      endSourceChar: 1555
+      line: 64
+      lineChar: 4
+      spanCodeSection: "void DeleteOldLog()\r\n    "
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1555
+      endSourceChar: 1566
+      line: 65
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1566
+      endSourceChar: 1570
+      line: 66
       lineChar: 8
       spanCodeSection: if (
-    - startInstruction: 1768
-      endInstruction: 1767
-      startSourceChar: 1544
-      endSourceChar: 1544
-      line: 62
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1570
+      endSourceChar: 1570
+      line: 66
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1768
-      endInstruction: 1767
-      startSourceChar: 1544
-      endSourceChar: 1544
-      line: 62
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1570
+      endSourceChar: 1570
+      line: 66
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1768
-      endInstruction: 1767
-      startSourceChar: 1544
-      endSourceChar: 1544
-      line: 62
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1570
+      endSourceChar: 1570
+      line: 66
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1768
-      endInstruction: 1767
-      startSourceChar: 1544
-      endSourceChar: 1555
-      line: 62
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1570
+      endSourceChar: 1581
+      line: 66
       lineChar: 12
-      spanCodeSection: debugText2.
-    - startInstruction: 1768
-      endInstruction: 1767
-      startSourceChar: 1555
-      endSourceChar: 1560
-      line: 62
+      spanCodeSection: debugText1.
+    - startInstruction: 1720
+      endInstruction: 1719
+      startSourceChar: 1581
+      endSourceChar: 1586
+      line: 66
       lineChar: 23
       spanCodeSection: text.
-    - startInstruction: 1768
-      endInstruction: 1815
-      startSourceChar: 1560
-      endSourceChar: 1569
-      line: 62
+    - startInstruction: 1720
+      endInstruction: 1767
+      startSourceChar: 1586
+      endSourceChar: 1595
+      line: 66
       lineChar: 28
       spanCodeSection: 'Length > '
-    - startInstruction: 1816
-      endInstruction: 1863
-      startSourceChar: 1569
-      endSourceChar: 1584
-      line: 62
+    - startInstruction: 1768
+      endInstruction: 1815
+      startSourceChar: 1595
+      endSourceChar: 1610
+      line: 66
       lineChar: 37
       spanCodeSection: "3000)\r\n        "
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1584
-      endSourceChar: 1599
-      line: 63
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1610
+      endSourceChar: 1625
+      line: 67
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1599
-      endSourceChar: 1599
-      line: 64
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1625
+      endSourceChar: 1625
+      line: 68
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1599
-      endSourceChar: 1599
-      line: 64
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1625
+      endSourceChar: 1625
+      line: 68
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1599
-      endSourceChar: 1599
-      line: 64
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1625
+      endSourceChar: 1625
+      line: 68
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1599
-      endSourceChar: 1610
-      line: 64
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1625
+      endSourceChar: 1636
+      line: 68
       lineChar: 12
-      spanCodeSection: debugText2.
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1610
-      endSourceChar: 1617
-      line: 64
+      spanCodeSection: debugText1.
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1636
+      endSourceChar: 1643
+      line: 68
       lineChar: 23
       spanCodeSection: 'text = '
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1617
-      endSourceChar: 1617
-      line: 64
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1617
-      endSourceChar: 1617
-      line: 64
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1617
-      endSourceChar: 1617
-      line: 64
-      lineChar: 30
-      spanCodeSection: 
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1617
-      endSourceChar: 1628
-      line: 64
-      lineChar: 30
-      spanCodeSection: debugText2.
-    - startInstruction: 1864
-      endInstruction: 1863
-      startSourceChar: 1628
-      endSourceChar: 1633
-      line: 64
-      lineChar: 41
-      spanCodeSection: text.
-    - startInstruction: 1864
-      endInstruction: 1887
-      startSourceChar: 1633
-      endSourceChar: 1643
-      line: 64
-      lineChar: 46
-      spanCodeSection: Substring(
-    - startInstruction: 1888
-      endInstruction: 1888
+    - startInstruction: 1816
+      endInstruction: 1815
       startSourceChar: 1643
       endSourceChar: 1643
-      line: 64
+      line: 68
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1643
+      endSourceChar: 1643
+      line: 68
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1643
+      endSourceChar: 1643
+      line: 68
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1643
+      endSourceChar: 1654
+      line: 68
+      lineChar: 30
+      spanCodeSection: debugText1.
+    - startInstruction: 1816
+      endInstruction: 1815
+      startSourceChar: 1654
+      endSourceChar: 1659
+      line: 68
+      lineChar: 41
+      spanCodeSection: text.
+    - startInstruction: 1816
+      endInstruction: 1839
+      startSourceChar: 1659
+      endSourceChar: 1669
+      line: 68
+      lineChar: 46
+      spanCodeSection: Substring(
+    - startInstruction: 1840
+      endInstruction: 1895
+      startSourceChar: 1669
+      endSourceChar: 1698
+      line: 68
+      lineChar: 56
+      spanCodeSection: "1500);\r\n        }\r\n\r\n        "
+    - startInstruction: 1896
+      endInstruction: 1895
+      startSourceChar: 1698
+      endSourceChar: 1702
+      line: 71
+      lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 1896
+      endInstruction: 1895
+      startSourceChar: 1702
+      endSourceChar: 1702
+      line: 71
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1896
+      endInstruction: 1895
+      startSourceChar: 1702
+      endSourceChar: 1702
+      line: 71
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1896
+      endInstruction: 1895
+      startSourceChar: 1702
+      endSourceChar: 1702
+      line: 71
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1896
+      endInstruction: 1895
+      startSourceChar: 1702
+      endSourceChar: 1713
+      line: 71
+      lineChar: 12
+      spanCodeSection: debugText2.
+    - startInstruction: 1896
+      endInstruction: 1895
+      startSourceChar: 1713
+      endSourceChar: 1718
+      line: 71
+      lineChar: 23
+      spanCodeSection: text.
+    - startInstruction: 1896
+      endInstruction: 1943
+      startSourceChar: 1718
+      endSourceChar: 1727
+      line: 71
+      lineChar: 28
+      spanCodeSection: 'Length > '
+    - startInstruction: 1944
+      endInstruction: 1991
+      startSourceChar: 1727
+      endSourceChar: 1742
+      line: 71
+      lineChar: 37
+      spanCodeSection: "3000)\r\n        "
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1742
+      endSourceChar: 1757
+      line: 72
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1757
+      endSourceChar: 1757
+      line: 73
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1757
+      endSourceChar: 1757
+      line: 73
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1757
+      endSourceChar: 1757
+      line: 73
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1757
+      endSourceChar: 1768
+      line: 73
+      lineChar: 12
+      spanCodeSection: debugText2.
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1768
+      endSourceChar: 1775
+      line: 73
+      lineChar: 23
+      spanCodeSection: 'text = '
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1775
+      endSourceChar: 1775
+      line: 73
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1775
+      endSourceChar: 1775
+      line: 73
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1775
+      endSourceChar: 1775
+      line: 73
+      lineChar: 30
+      spanCodeSection: 
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1775
+      endSourceChar: 1786
+      line: 73
+      lineChar: 30
+      spanCodeSection: debugText2.
+    - startInstruction: 1992
+      endInstruction: 1991
+      startSourceChar: 1786
+      endSourceChar: 1791
+      line: 73
+      lineChar: 41
+      spanCodeSection: text.
+    - startInstruction: 1992
+      endInstruction: 2015
+      startSourceChar: 1791
+      endSourceChar: 1801
+      line: 73
+      lineChar: 46
+      spanCodeSection: Substring(
+    - startInstruction: 2016
+      endInstruction: 2016
+      startSourceChar: 1801
+      endSourceChar: 1801
+      line: 73
       lineChar: 56
       spanCodeSection: 
   hasInteractEvent: 0

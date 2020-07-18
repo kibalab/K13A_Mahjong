@@ -37,11 +37,11 @@ public class LogViewer : UdonSharpBehaviour
         {
             case 0:
                 debugText1.text += "\n<color=red>" + str + "</color>";
-                Debug.Log("[LogViewer1 Error] " + str);
+                debuglog("[LogViewer1 Error] " + str);
                 break;
             case 1:
                 debugText2.text += "\n<color=red>" + str + "</color>";
-                Debug.Log("[LogViewer2 Error] " + str);
+                debuglog("[LogViewer2 Error] " + str);
                 break;
         }
         DeleteOldLog();
@@ -51,6 +51,15 @@ public class LogViewer : UdonSharpBehaviour
     {
         var dateTime = DateTime.Now.ToString("HH:mm:ss");
         return $"[{dateTime}]: {str}";
+    }
+
+    void debuglog(string str)
+    {
+        if (Networking.LocalPlayer != null)
+        {
+            return;
+        }
+        Debug.Log(str);
     }
 
     void DeleteOldLog()

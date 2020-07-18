@@ -20,6 +20,8 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject DoraViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
+    [UdonSynced(UdonSyncMode.None)] public bool reqNewDora = false;
+    [UdonSynced(UdonSyncMode.None)] public string lastedDoraSpriteName = "";
 
     private Card[] yama;
     private Card[] doras;
@@ -353,13 +355,21 @@ public class TableManager : UdonSharpBehaviour
 
         Debug.Log($"nextCard : {nextCard.ToString()}");
 
-        setDoraViewerNextCard(nextCard.GetCardSpriteName());
-
-        ++currentDorasCardIndex;
-
+        lastedDoraSpriteName = nextCard.GetCardSpriteName();
+        reqNewDora = true;
         
 
         return nextCard;
+    }
+
+    private void Update()
+    {
+        if (reqNewDora)
+        {
+            setDoraViewerNextCard(lastedDoraSpriteName);
+            reqNewDora = false;
+            ++currentDorasCardIndex;
+        }
     }
 
     void setDoraViewerNextCard(string spriteName)
