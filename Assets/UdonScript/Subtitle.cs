@@ -31,32 +31,12 @@ public class Subtitle : UdonSharpBehaviour
         this.playtime = playtime;
     }
 
-    public void _ReqConfirm()
-    {
-        showRequest = false;
-    }
-
     void Update()
     {
         if (!showRequest) return;
 
         components = gameObject.GetComponentsInChildren<SubtitleComponent>();
         components[components.Length - 1].Set(name, text, playtime);
-
-        
-
-        RequestCallFunctionToOwner(nameof(_ReqConfirm));
-    }
-
-    void RequestCallFunctionToOwner(string funcName)
-    {
-        if (Networking.LocalPlayer == null)
-        {
-            SendCustomEvent(funcName);
-        }
-        else
-        {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
-        }
+        showRequest = false;
     }
 }
