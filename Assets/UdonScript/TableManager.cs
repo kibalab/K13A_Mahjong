@@ -157,8 +157,14 @@ public class TableManager : UdonSharpBehaviour
         {
             if (playerIndex != currentTurnPlayer)
             {
+                var player = players[playerIndex];
+                if (player.IsRiichiMode())
+                { 
+                    continue;
+                }
+
                 var isDiscardedByLeftPlayer = playerIndex == (currentTurnPlayer + 1) % 4;
-                players[playerIndex].CheckNakiable(card, isDiscardedByLeftPlayer);
+                player.CheckNakiable(card, isDiscardedByLeftPlayer);
             }
         }
     }
