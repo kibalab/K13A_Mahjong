@@ -184,9 +184,9 @@ public class HandCalculator : UdonSharpBehaviour
     {
         var globalOrders = HandUtil.GetGlobalOrders(cards);
 
-        foreach (var i in globalOrders)
+        for (var index = 0; index < globalOrders.Length; index++)
         {
-            if(i == 4)
+            if (globalOrders[index] == 4)
             {
                 return true;
             }
