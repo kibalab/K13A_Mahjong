@@ -408,12 +408,11 @@ public class TableManager : UdonSharpBehaviour
         return true;
     }
 
-    public void setSubtitleAllPlayers(string name, string text)
+    public void SetSubtitleAllPlayers(string name, string text)
     {
-        foreach (Player p in players)
+        foreach (var player in players)
         {
-            p.Subtitle.setSubtitle(name, text);
-
+            player.Subtitle.SetSubtitle(name, text);
         }
     }
 }

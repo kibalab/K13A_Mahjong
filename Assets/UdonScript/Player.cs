@@ -48,7 +48,7 @@ public class Player : UdonSharpBehaviour
         OpenedPonPositions = new Transform[34];
         PlayerIndex = playerIndex;
         PlayerStatus.Initialize();
-        Subtitle.setPlaytime(12.0f);
+        Subtitle.SetPlaytime(12.0f);
     }
 
     Transform[] FindPoints()
