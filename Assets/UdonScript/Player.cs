@@ -280,7 +280,7 @@ public class Player : UdonSharpBehaviour
     {
         UIContext.Clear();
 
-        HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer, IsRiichiMode());
+        HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
     }
 
     public bool IsUIActived()
