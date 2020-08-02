@@ -20,9 +20,13 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject DoraViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
-    [UdonSynced(UdonSyncMode.None)] public bool reqNewDora = false;
-    [UdonSynced(UdonSyncMode.None)] public string lastedDoraSpriteName = "";
+    [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
 
+    public string lastedDoraSpriteName = "";
+
+    
+    private int messageNumber = 0; // 마스터 전용
+    private int lastMessageNumber = -1; // 모든 유저용
     private Card[] yama;
     private Card[] doras;
     private Card[] rinShan;
@@ -347,6 +351,12 @@ public class TableManager : UdonSharpBehaviour
 
         return nextCard;
     }
+    
+    string SerializeDora(string doraName)
+    {
+        var serializedString = $"{messageNumber++},{doraName}";
+        return serializedString;
+    }
 
     Card GetNextDoraCard()
     {
@@ -362,18 +372,30 @@ public class TableManager : UdonSharpBehaviour
         Debug.Log($"nextCard : {nextCard.ToString()}");
 
         lastedDoraSpriteName = nextCard.GetCardSpriteName();
-        reqNewDora = true;
-        
+
+        NetworkMessage = SerializeDora(lastedDoraSpriteName);
+
+
 
         return nextCard;
     }
 
     private void Update()
     {
-        if (reqNewDora)
+        if (string.IsNullOrEmpty(NetworkMessage))
         {
+            return;
+        }
+
+        var splited = NetworkMessage.Split(',');
+        var networkMessageNumber = int.Parse(splited[0]);
+
+        if (lastMessageNumber != networkMessageNumber)
+        {
+            lastMessageNumber = networkMessageNumber;
+            lastedDoraSpriteName = splited[1];
+
             setDoraViewerNextCard(lastedDoraSpriteName);
-            reqNewDora = false;
             ++currentDorasCardIndex;
         }
     }
