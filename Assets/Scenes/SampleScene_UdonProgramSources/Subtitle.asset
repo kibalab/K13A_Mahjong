@@ -14,173 +14,236 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: cae843d75406f874ebb0f63bc89ee702,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export showRequest\r\n    .export name\r\n
-    \   .export text\r\n    .export playtime\r\n    .export components\r\n    .sync
-    showRequest, none\r\n    .sync name, none\r\n    .sync text, none\r\n    .sync
-    playtime, none\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n
-    \   __refl_const_intnl_udonTypeName: %SystemString, null\r\n    showRequest: %SystemBoolean,
-    null\r\n    components: %UnityEngineComponentArray, null\r\n    playtime: %SystemSingle,
-    null\r\n    name: %SystemString, null\r\n    text: %SystemString, null\r\n    __0_this_intnl_UnityEngineGameObject:
-    %UnityEngineGameObject, this\r\n    __0_playtime_Single: %SystemSingle, null\r\n
-    \   __0_name_String: %SystemString, null\r\n    __0_text_String: %SystemString,
-    null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_const_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_const_intnl_SubtitleComponentArray: %UnityEngineComponentArray,
+  udonAssembly: ".data_start\r\n\r\n    .export NetworkMessage\r\n    .export playtime\r\n
+    \   .export components\r\n    .sync NetworkMessage, none\r\n    .sync playtime,
+    none\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\r\n    components: %UnityEngineComponentArray, null\r\n    playtime:
+    %SystemSingle, null\r\n    NetworkMessage: %SystemString, null\r\n    lastMessageNumber:
+    %SystemInt32, null\r\n    messageNumber: %SystemInt32, null\r\n    __0_this_intnl_UnityEngineGameObject:
+    %UnityEngineGameObject, this\r\n    __0_networkMessageNumber_Int32: %SystemInt32,
+    null\r\n    __0_playtime_Single: %SystemSingle, null\r\n    __0_name_String: %SystemString,
+    null\r\n    __0_serializedString_String: %SystemString, null\r\n    __0_text_String:
+    %SystemString, null\r\n    __1_name_String: %SystemString, null\r\n    __1_text_String:
+    %SystemString, null\r\n    __2_name_String: %SystemString, null\r\n    __2_text_String:
+    %SystemString, null\r\n    __0_splited_StringArray: %SystemStringArray, null\r\n
+    \   __0_const_intnl_SystemChar: %SystemChar, null\r\n    __0_const_intnl_SystemCharArray:
+    %SystemCharArray, null\r\n    __0_const_intnl_SubtitleComponentArray: %UnityEngineComponentArray,
     null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_const_intnl_SystemInt64: %SystemInt64, null\r\n
-    \   __1_const_intnl_SystemInt64: %SystemInt64, null\r\n    __0_const_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
-    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
-    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
-    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_SystemType:
-    %SystemType, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
+    %SystemInt32, null\r\n    __2_const_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __0_const_intnl_SystemInt64: %SystemInt64, null\r\n    __1_const_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n
+    \   __0_const_intnl_SystemString: %SystemString, null\r\n    __1_const_intnl_SystemString:
+    %SystemString, null\r\n    __2_const_intnl_SystemString: %SystemString, null\r\n
+    \   __3_const_intnl_SystemString: %SystemString, null\r\n    __4_const_intnl_SystemString:
+    %SystemString, null\r\n    __5_const_intnl_SystemString: %SystemString, null\r\n
+    \   __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
     \   __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
     %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
     \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_intnl_UnityEngineComponent: %UnityEngineComponent,
-    null\r\n    __1_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __0_intnl_SubtitleComponentArray:
-    %UnityEngineComponentArray, null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray,
-    null\r\n    __1_intnl_SubtitleComponentArray: %UnityEngineComponentArray, null\r\n
-    \   __1_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __4_intnl_SystemInt32: %SystemInt32, null\r\n    __5_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __6_intnl_SystemInt32: %SystemInt32, null\r\n    __7_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_intnl_SystemInt64: %SystemInt64, null\r\n    __1_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __2_intnl_SystemInt64: %SystemInt64, null\r\n    __3_intnl_SystemInt64:
-    %SystemInt64, null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __1_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_intnl_SystemSingle: %SystemSingle, null\r\n    __0_intnl_SystemString:
-    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __0_intnl_SubtitleComponent:
-    %VRCUdonUdonBehaviour, null\r\n    __1_intnl_SubtitleComponent: %VRCUdonUdonBehaviour,
-    null\r\n    __2_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
+    %SystemBoolean, null\r\n    __8_intnl_SystemBoolean: %SystemBoolean, null\r\n
+    \   __0_intnl_UnityEngineComponent: %UnityEngineComponent, null\r\n    __1_intnl_UnityEngineComponent:
+    %UnityEngineComponent, null\r\n    __0_intnl_SubtitleComponentArray: %UnityEngineComponentArray,
+    null\r\n    __0_intnl_UnityEngineComponentArray: %UnityEngineComponentArray, null\r\n
+    \   __1_intnl_SubtitleComponentArray: %UnityEngineComponentArray, null\r\n    __1_intnl_UnityEngineComponentArray:
+    %UnityEngineComponentArray, null\r\n    __0_intnl_SystemInt32: %SystemInt32, null\r\n
+    \   __1_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32: %SystemInt32,
+    null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_SystemInt32:
+    %SystemInt32, null\r\n    __9_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __1_intnl_SystemInt64: %SystemInt64, null\r\n    __2_intnl_SystemInt64:
+    %SystemInt64, null\r\n    __3_intnl_SystemInt64: %SystemInt64, null\r\n    __0_intnl_SystemObject:
+    %SystemObject, null\r\n    __1_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_SystemSingle:
+    %SystemSingle, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
+    \   __0_intnl_returnValSymbol_String: %SystemString, null\r\n    __0_intnl_SystemString:
+    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_SystemString:
+    %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_SystemString:
+    %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __6_intnl_SystemString:
+    %SystemString, null\r\n    __7_intnl_SystemString: %SystemString, null\r\n    __0_intnl_SystemStringArray:
+    %SystemStringArray, null\r\n    __0_intnl_SubtitleComponent: %VRCUdonUdonBehaviour,
+    null\r\n    __1_intnl_SubtitleComponent: %VRCUdonUdonBehaviour, null\r\n    __2_intnl_UnityEngineComponent:
+    %UnityEngineComponent, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32,
+    null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n        \r\n
+    \        # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
     \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
     \       \r\n         # using VRC.Udon.Common.Interfaces;\r\n        \r\n         #
     public class Subtitle : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
-    [UdonSynced(UdonSyncMode.None)] public bool showRequest = false;\r\n        \r\n
-    \        # [UdonSynced(UdonSyncMode.None)] public string name;\r\n        \r\n
-    \        # [UdonSynced(UdonSyncMode.None)] public string text;\r\n        \r\n
-    \        # [UdonSynced(UdonSyncMode.None)] public float playtime = 3.0f;\r\n        \r\n
-    \        # public SubtitleComponent[] components;\r\n        \r\n         # public
-    void setSubtitle(string name, string text)\r\n    .export setSubtitle\r\n        \r\n
-    \   setSubtitle:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # this.name = name;\r\n        PUSH,
-    __0_name_String\r\n        PUSH, name\r\n        COPY\r\n        \r\n         #
-    this.text = text;\r\n        PUSH, __0_text_String\r\n        PUSH, text\r\n        COPY\r\n
-    \       \r\n         # showRequest = true;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
-    \       PUSH, showRequest\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    private int messageNumber = 0;\r\n        \r\n         # private int lastMessageNumber
+    = -1;\r\n        \r\n         # [UdonSynced(UdonSyncMode.None)] public string
+    NetworkMessage = \"\";\r\n        \r\n         # [UdonSynced(UdonSyncMode.None)]
+    public float playtime = 3.0f;\r\n        \r\n         # public SubtitleComponent[]
+    components;\r\n        \r\n         # public void SetSubtitle(string name, string
+    text)\r\n    .export SetSubtitle\r\n        \r\n    SetSubtitle:\r\n        \r\n
+    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
+    \        # NetworkMessage = Serialize(name, text);\r\n        PUSH, __0_name_String\r\n
+    \       PUSH, __1_name_String\r\n        COPY\r\n        PUSH, __0_text_String\r\n
+    \       PUSH, __1_text_String\r\n        COPY\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n
+    \       JUMP, 0x00000070\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
+    \       PUSH, NetworkMessage\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void setPlaytime(float playtime)\r\n
-    \   .export setPlaytime\r\n        \r\n    setPlaytime:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    this.playtime = playtime;\r\n        PUSH, __0_playtime_Single\r\n        PUSH,
-    playtime\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n        \r\n         # string Serialize(string name, string text)\r\n
+    \   Serialize:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
+    \        # {\r\n        \r\n         # var serializedString = $\"{messageNumber++},{name},{text}\";\r\n
+    \       PUSH, messageNumber\r\n        PUSH, __0_intnl_SystemInt32\r\n        COPY\r\n
+    \       PUSH, messageNumber\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
+    messageNumber\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_SystemString\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
+    __0_intnl_interpolatedStr_String\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __1_name_String\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __0_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
+    __3_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
+    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __1_text_String\r\n
+    \       PUSH, __4_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
+    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
+    __0_serializedString_String\r\n        COPY\r\n        \r\n         # return serializedString;\r\n
+    \       PUSH, __0_serializedString_String\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
+    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
+    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public void
+    SetPlaytime(float playtime)\r\n    .export SetPlaytime\r\n        \r\n    SetPlaytime:\r\n
+    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
+    {\r\n        \r\n         # this.playtime = playtime;\r\n        PUSH, __0_playtime_Single\r\n
+    \       PUSH, playtime\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
     \       \r\n        \r\n         # void Update()\r\n    .export _update\r\n        \r\n
     \   _update:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # if (!showRequest) return;\r\n        PUSH,
-    showRequest\r\n        PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000CC\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
-    components = gameObject.GetComponentsInChildren<SubtitleComponent>();\r\n        PUSH,
-    __0_this_intnl_UnityEngineGameObject\r\n        PUSH, __0_const_intnl_SystemType\r\n
+    \        # {\r\n        \r\n         # if (string.IsNullOrEmpty(NetworkMessage))\r\n
+    \       PUSH, NetworkMessage\r\n        PUSH, __0_intnl_SystemBoolean\r\n        EXTERN,
+    \"SystemString.__IsNullOrEmpty__SystemString__SystemBoolean\"\r\n        PUSH,
+    __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000264\r\n        \r\n         #
+    {\r\n        \r\n         # return;\r\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
+    \       \r\n         # var splited = NetworkMessage.Split(',');\r\n        PUSH,
+    __0_const_intnl_SystemCharArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __0_const_intnl_SystemChar\r\n        EXTERN, \"SystemCharArray.__Set__SystemInt32_SystemChar__SystemVoid\"\r\n
+    \       PUSH, NetworkMessage\r\n        PUSH, __0_const_intnl_SystemCharArray\r\n
+    \       PUSH, __0_intnl_SystemStringArray\r\n        EXTERN, \"SystemString.__Split__SystemCharArray__SystemStringArray\"\r\n
+    \       PUSH, __0_intnl_SystemStringArray\r\n        PUSH, __0_splited_StringArray\r\n
+    \       COPY\r\n        \r\n         # var networkMessageNumber = int.Parse(splited[0]);\r\n
+    \       PUSH, __0_splited_StringArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
+    \       PUSH, __5_intnl_SystemString\r\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n
+    \       PUSH, __5_intnl_SystemString\r\n        PUSH, __1_intnl_SystemInt32\r\n
+    \       EXTERN, \"SystemInt32.__Parse__SystemString__SystemInt32\"\r\n        PUSH,
+    __1_intnl_SystemInt32\r\n        PUSH, __0_networkMessageNumber_Int32\r\n        COPY\r\n
+    \       \r\n         # if (lastMessageNumber != networkMessageNumber)\r\n        PUSH,
+    lastMessageNumber\r\n        PUSH, __0_networkMessageNumber_Int32\r\n        PUSH,
+    __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000092C\r\n
+    \       \r\n         # {\r\n        \r\n         # lastMessageNumber = networkMessageNumber;\r\n
+    \       PUSH, __0_networkMessageNumber_Int32\r\n        PUSH, lastMessageNumber\r\n
+    \       COPY\r\n        \r\n         # var name = splited[1];\r\n        PUSH,
+    __0_splited_StringArray\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
+    __6_intnl_SystemString\r\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n
+    \       PUSH, __6_intnl_SystemString\r\n        PUSH, __2_name_String\r\n        COPY\r\n
+    \       \r\n         # var text = splited[2];\r\n        PUSH, __0_splited_StringArray\r\n
+    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemString\r\n
+    \       EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n        PUSH,
+    __7_intnl_SystemString\r\n        PUSH, __2_text_String\r\n        COPY\r\n        \r\n
+    \        # components = gameObject.GetComponentsInChildren<SubtitleComponent>();\r\n
+    \       PUSH, __0_this_intnl_UnityEngineGameObject\r\n        PUSH, __0_const_intnl_SystemType\r\n
     \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        EXTERN, \"UnityEngineGameObject.__GetComponentsInChildren__SystemType__UnityEngineComponentArray\"\r\n
     \       PUSH, __0_const_intnl_SubtitleComponentArray\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
-    \       COPY\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       COPY\r\n        PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002DC\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    __3_intnl_SystemInt32\r\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000005C0\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __0_intnl_UnityEngineComponent\r\n        PUSH, __0_intnl_SubtitleComponent\r\n
-    \       COPY\r\n        PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __1_const_intnl_SystemString\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000228\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000050C\r\n
     \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt64\r\n
     \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
     __1_intnl_SystemInt64\r\n        PUSH, __0_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x0000023C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    \       JUMP, 0x00000520\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
     __0_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __0_intnl_SystemInt64\r\n
-    \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __3_intnl_SystemBoolean\r\n
+    \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __4_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002A0\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __3_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __4_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000140\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemBoolean\r\n
+    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000584\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __5_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __5_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __6_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __6_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000424\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000053C\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_UnityEngineComponentArray\r\n
+    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000820\r\n
+    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_intnl_UnityEngineComponentArray\r\n
     \       EXTERN, \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\r\n
     \       PUSH, __1_intnl_UnityEngineComponentArray\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
-    \       COPY\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000053C\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
+    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000820\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       PUSH, __1_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
     \       PUSH, __1_intnl_UnityEngineComponent\r\n        PUSH, __1_intnl_SubtitleComponent\r\n
-    \       COPY\r\n        PUSH, __1_intnl_SubtitleComponent\r\n        PUSH, __0_const_intnl_SystemString\r\n
+    \       COPY\r\n        PUSH, __1_intnl_SubtitleComponent\r\n        PUSH, __1_const_intnl_SystemString\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __0_const_intnl_SystemObject\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000448\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean\"\r\n
+    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000072C\r\n
     \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __3_intnl_SystemInt64\r\n
     \       EXTERN, \"SystemConvert.__ToInt64__SystemObject__SystemInt64\"\r\n        PUSH,
     __3_intnl_SystemInt64\r\n        PUSH, __2_intnl_SystemInt64\r\n        COPY\r\n
-    \       JUMP, 0x0000045C\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
+    \       JUMP, 0x00000740\r\n        PUSH, __1_const_intnl_SystemInt64\r\n        PUSH,
     __2_intnl_SystemInt64\r\n        COPY\r\n        PUSH, __2_intnl_SystemInt64\r\n
-    \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __7_intnl_SystemBoolean\r\n
+    \       PUSH, __0_const_intnl_SystemInt64\r\n        PUSH, __8_intnl_SystemBoolean\r\n
     \       EXTERN, \"SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000500\r\n
-    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __2_intnl_SystemInt32\r\n
+    \       PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000007E4\r\n
+    \       PUSH, __0_intnl_UnityEngineComponentArray\r\n        PUSH, __4_intnl_SystemInt32\r\n
     \       PUSH, __2_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_SubtitleComponentArray\r\n        PUSH, __5_intnl_SystemInt32\r\n
+    \       PUSH, __0_intnl_SubtitleComponentArray\r\n        PUSH, __7_intnl_SystemInt32\r\n
     \       PUSH, __2_intnl_UnityEngineComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\r\n
-    \       PUSH, __5_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __6_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __6_intnl_SystemInt32\r\n        PUSH, __5_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       COPY\r\n        JUMP, 0x00000360\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
+    \       PUSH, __7_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemInt32\r\n
+    \       COPY\r\n        PUSH, __4_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
+    \       PUSH, __9_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, __9_intnl_SystemInt32\r\n        PUSH, __4_intnl_SystemInt32\r\n
+    \       COPY\r\n        JUMP, 0x00000644\r\n        PUSH, __0_intnl_SubtitleComponentArray\r\n
     \       PUSH, components\r\n        COPY\r\n        \r\n         # components[components.Length
-    - 1].Set(name, text, playtime);\r\n        PUSH, components\r\n        PUSH, __0_intnl_SystemInt32\r\n
+    - 1].Set(name, text, playtime);\r\n        PUSH, components\r\n        PUSH, __2_intnl_SystemInt32\r\n
     \       EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, components\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
+    __2_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
+    __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
+    \       PUSH, components\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH,
     __0_intnl_SubtitleComponent\r\n        EXTERN, \"UnityEngineComponentArray.__Get__SystemInt32__UnityEngineComponent\"\r\n
-    \       PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __1_const_intnl_SystemString\r\n
-    \       PUSH, name\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __2_const_intnl_SystemString\r\n
-    \       PUSH, text\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __2_name_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
     \       PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __3_const_intnl_SystemString\r\n
+    \       PUSH, __2_text_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __4_const_intnl_SystemString\r\n
     \       PUSH, playtime\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, name\r\n        PUSH, __0_intnl_SystemString\r\n        COPY # Copy-on-write
-    symbol value dirtied\r\n        PUSH, text\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, playtime\r\n
-    \       PUSH, __0_intnl_SystemSingle\r\n        COPY # Copy-on-write symbol value
-    dirtied\r\n        PUSH, components\r\n        PUSH, __1_intnl_SubtitleComponentArray\r\n
-    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __0_intnl_SubtitleComponent\r\n
-    \       PUSH, __4_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # showRequest = false;\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
-    \       PUSH, showRequest\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+    \       PUSH, playtime\r\n        PUSH, __0_intnl_SystemSingle\r\n        COPY
+    # Copy-on-write symbol value dirtied\r\n        PUSH, components\r\n        PUSH,
+    __1_intnl_SubtitleComponentArray\r\n        COPY # Copy-on-write symbol value
+    dirtied\r\n        PUSH, __0_intnl_SubtitleComponent\r\n        PUSH, __5_const_intnl_SystemString\r\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 7608cbe3dd237f94f89aae349615245b, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
@@ -190,906 +253,1238 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 0
-      endSourceChar: 2
+      endSourceChar: 0
       line: 0
-      lineChar: 0
-      spanCodeSection: "\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 2
-      endSourceChar: 2
-      line: 1
       lineChar: 0
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 2
-      endSourceChar: 8
-      line: 1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 8
-      endSourceChar: 20
-      line: 1
+      startSourceChar: 6
+      endSourceChar: 18
+      line: 0
       lineChar: 6
       spanCodeSection: "UdonSharp;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 20
-      endSourceChar: 26
-      line: 2
+      startSourceChar: 18
+      endSourceChar: 24
+      line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 26
-      endSourceChar: 40
-      line: 2
+      startSourceChar: 24
+      endSourceChar: 38
+      line: 1
       lineChar: 6
       spanCodeSection: "UnityEngine;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 40
-      endSourceChar: 46
-      line: 3
+      startSourceChar: 38
+      endSourceChar: 44
+      line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 46
-      line: 3
+      startSourceChar: 44
+      endSourceChar: 44
+      line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 58
-      line: 3
+      startSourceChar: 44
+      endSourceChar: 56
+      line: 2
       lineChar: 6
       spanCodeSection: UnityEngine.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 58
-      endSourceChar: 63
-      line: 3
+      startSourceChar: 56
+      endSourceChar: 61
+      line: 2
       lineChar: 18
       spanCodeSection: "UI;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 63
-      endSourceChar: 69
-      line: 4
+      startSourceChar: 61
+      endSourceChar: 67
+      line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 69
-      endSourceChar: 69
-      line: 4
+      startSourceChar: 67
+      endSourceChar: 67
+      line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 69
-      endSourceChar: 73
-      line: 4
+      startSourceChar: 67
+      endSourceChar: 71
+      line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 73
-      endSourceChar: 83
-      line: 4
+      startSourceChar: 71
+      endSourceChar: 81
+      line: 3
       lineChar: 10
       spanCodeSection: "SDKBase;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 83
-      endSourceChar: 89
-      line: 5
+      startSourceChar: 81
+      endSourceChar: 87
+      line: 4
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 89
-      endSourceChar: 89
-      line: 5
+      startSourceChar: 87
+      endSourceChar: 87
+      line: 4
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 89
-      endSourceChar: 93
-      line: 5
+      startSourceChar: 87
+      endSourceChar: 91
+      line: 4
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 93
-      endSourceChar: 100
-      line: 5
+      startSourceChar: 91
+      endSourceChar: 98
+      line: 4
       lineChar: 10
       spanCodeSection: "Udon;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 100
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 98
+      endSourceChar: 104
+      line: 5
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 104
+      line: 5
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 104
+      line: 5
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 104
+      line: 5
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 110
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 108
+      line: 5
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 110
-      endSourceChar: 115
-      line: 6
+      startSourceChar: 108
+      endSourceChar: 113
+      line: 5
       lineChar: 10
       spanCodeSection: Udon.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 115
-      endSourceChar: 122
-      line: 6
+      startSourceChar: 113
+      endSourceChar: 120
+      line: 5
       lineChar: 15
       spanCodeSection: Common.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 122
-      endSourceChar: 162
-      line: 6
+      startSourceChar: 120
+      endSourceChar: 160
+      line: 5
       lineChar: 22
       spanCodeSection: "Interfaces;\r\n\r\n//\uAC8C\uC784 \uB9C8\uC2A4\uD130\uAC00
         \uC790\uB9C9 \uD45C\uC2DC\uB97C \uBA85\uB839\uD558\uB294\uBD80\uBD84\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 162
-      endSourceChar: 184
-      line: 9
+      startSourceChar: 160
+      endSourceChar: 182
+      line: 8
       lineChar: 0
       spanCodeSection: 'public class Subtitle '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 184
-      endSourceChar: 186
-      line: 9
+      startSourceChar: 182
+      endSourceChar: 184
+      line: 8
       lineChar: 22
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 186
-      endSourceChar: 186
-      line: 9
+      startSourceChar: 184
+      endSourceChar: 184
+      line: 8
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 186
-      endSourceChar: 213
-      line: 9
+      startSourceChar: 184
+      endSourceChar: 226
+      line: 8
       lineChar: 24
-      spanCodeSection: "UdonSharpBehaviour\r\n{\r\n    "
+      spanCodeSection: "UdonSharpBehaviour\r\n{\r\n    // \uB9C8\uC2A4\uD130 \uC804\uC6A9\r\n
+        \   "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 213
-      endSourceChar: 214
+      startSourceChar: 226
+      endSourceChar: 234
       line: 11
       lineChar: 4
-      spanCodeSection: '['
+      spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 214
-      endSourceChar: 225
+      startSourceChar: 234
+      endSourceChar: 234
       line: 11
-      lineChar: 5
-      spanCodeSection: UdonSynced(
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 225
-      endSourceChar: 225
-      line: 11
-      lineChar: 16
+      lineChar: 12
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 225
-      endSourceChar: 238
+      startSourceChar: 234
+      endSourceChar: 279
       line: 11
-      lineChar: 16
-      spanCodeSection: UdonSyncMode.
+      lineChar: 12
+      spanCodeSection: "int messageNumber = 0;\r\n\r\n    // \uBAA8\uB4E0 \uC720\uC800\uC6A9\r\n
+        \   "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 238
-      endSourceChar: 238
-      line: 11
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 238
-      endSourceChar: 252
-      line: 11
-      lineChar: 29
-      spanCodeSection: 'None)] public '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 252
-      endSourceChar: 252
-      line: 11
-      lineChar: 43
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 252
-      endSourceChar: 283
-      line: 11
-      lineChar: 43
-      spanCodeSection: "bool showRequest = false;\r\n    "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 283
-      endSourceChar: 284
-      line: 12
+      startSourceChar: 279
+      endSourceChar: 287
+      line: 14
       lineChar: 4
-      spanCodeSection: '['
+      spanCodeSection: 'private '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 284
-      endSourceChar: 295
-      line: 12
-      lineChar: 5
-      spanCodeSection: UdonSynced(
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 295
-      endSourceChar: 295
-      line: 12
-      lineChar: 16
+      startSourceChar: 287
+      endSourceChar: 287
+      line: 14
+      lineChar: 12
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 295
-      endSourceChar: 308
-      line: 12
-      lineChar: 16
-      spanCodeSection: UdonSyncMode.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 308
-      endSourceChar: 308
-      line: 12
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 308
+      startSourceChar: 287
       endSourceChar: 322
-      line: 12
-      lineChar: 29
-      spanCodeSection: 'None)] public '
+      line: 14
+      lineChar: 12
+      spanCodeSection: "int lastMessageNumber = -1;\r\n\r\n    "
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 322
-      endSourceChar: 322
-      line: 12
-      lineChar: 43
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 322
-      endSourceChar: 340
-      line: 12
-      lineChar: 43
-      spanCodeSection: "string name;\r\n    "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 340
-      endSourceChar: 341
-      line: 13
+      endSourceChar: 323
+      line: 16
       lineChar: 4
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 341
-      endSourceChar: 352
-      line: 13
+      startSourceChar: 323
+      endSourceChar: 334
+      line: 16
       lineChar: 5
       spanCodeSection: UdonSynced(
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 352
-      endSourceChar: 352
-      line: 13
+      startSourceChar: 334
+      endSourceChar: 334
+      line: 16
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 352
-      endSourceChar: 365
-      line: 13
-      lineChar: 16
-      spanCodeSection: UdonSyncMode.
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 365
-      endSourceChar: 365
-      line: 13
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 365
-      endSourceChar: 379
-      line: 13
-      lineChar: 29
-      spanCodeSection: 'None)] public '
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 379
-      endSourceChar: 379
-      line: 13
-      lineChar: 43
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 379
-      endSourceChar: 397
-      line: 13
-      lineChar: 43
-      spanCodeSection: "string text;\r\n    "
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 397
-      endSourceChar: 398
-      line: 14
-      lineChar: 4
-      spanCodeSection: '['
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 398
-      endSourceChar: 409
-      line: 14
-      lineChar: 5
-      spanCodeSection: UdonSynced(
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 409
-      endSourceChar: 409
-      line: 14
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 409
-      endSourceChar: 422
-      line: 14
+      startSourceChar: 334
+      endSourceChar: 347
+      line: 16
       lineChar: 16
       spanCodeSection: UdonSyncMode.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 422
-      endSourceChar: 422
-      line: 14
+      startSourceChar: 347
+      endSourceChar: 347
+      line: 16
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 422
-      endSourceChar: 436
-      line: 14
+      startSourceChar: 347
+      endSourceChar: 361
+      line: 16
       lineChar: 29
       spanCodeSection: 'None)] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 436
-      endSourceChar: 436
-      line: 14
+      startSourceChar: 361
+      endSourceChar: 361
+      line: 16
       lineChar: 43
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 436
-      endSourceChar: 468
-      line: 14
+      startSourceChar: 361
+      endSourceChar: 394
+      line: 16
       lineChar: 43
-      spanCodeSection: "float playtime = 3.0f;\r\n\r\n\r\n    "
+      spanCodeSection: "string NetworkMessage = \"\";\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 468
-      endSourceChar: 475
+      startSourceChar: 394
+      endSourceChar: 395
       line: 17
+      lineChar: 4
+      spanCodeSection: '['
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 395
+      endSourceChar: 406
+      line: 17
+      lineChar: 5
+      spanCodeSection: UdonSynced(
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 406
+      endSourceChar: 406
+      line: 17
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 406
+      endSourceChar: 419
+      line: 17
+      lineChar: 16
+      spanCodeSection: UdonSyncMode.
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 419
+      endSourceChar: 419
+      line: 17
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 419
+      endSourceChar: 433
+      line: 17
+      lineChar: 29
+      spanCodeSection: 'None)] public '
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 433
+      endSourceChar: 433
+      line: 17
+      lineChar: 43
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 433
+      endSourceChar: 463
+      line: 17
+      lineChar: 43
+      spanCodeSection: "float playtime = 3.0f;\r\n\r\n    "
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 463
+      endSourceChar: 470
+      line: 19
       lineChar: 4
       spanCodeSection: 'public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 475
-      endSourceChar: 475
-      line: 17
+      startSourceChar: 470
+      endSourceChar: 470
+      line: 19
       lineChar: 11
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 475
-      endSourceChar: 475
-      line: 17
+      startSourceChar: 470
+      endSourceChar: 470
+      line: 19
       lineChar: 11
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 475
-      endSourceChar: 516
-      line: 17
+      startSourceChar: 470
+      endSourceChar: 525
+      line: 19
       lineChar: 11
-      spanCodeSection: "SubtitleComponent[] components;\r\n\r\n\r\n    "
+      spanCodeSection: "SubtitleComponent[] components;\r\n\r\n    // \uB9C8\uC2A4\uD130\uAC00
+        \uD638\uCD9C\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 516
-      endSourceChar: 540
-      line: 20
+      startSourceChar: 525
+      endSourceChar: 549
+      line: 22
       lineChar: 4
-      spanCodeSection: public void setSubtitle(
+      spanCodeSection: public void SetSubtitle(
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 540
-      endSourceChar: 553
-      line: 20
+      startSourceChar: 549
+      endSourceChar: 562
+      line: 22
       lineChar: 28
       spanCodeSection: 'string name, '
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 553
-      endSourceChar: 571
-      line: 20
+      startSourceChar: 562
+      endSourceChar: 580
+      line: 22
       lineChar: 41
       spanCodeSection: "string text)\r\n    "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 571
-      endSourceChar: 582
-      line: 21
+      startSourceChar: 580
+      endSourceChar: 591
+      line: 23
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 582
-      endSourceChar: 582
-      line: 22
+      startSourceChar: 591
+      endSourceChar: 591
+      line: 24
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 582
-      endSourceChar: 582
-      line: 22
+      startSourceChar: 591
+      endSourceChar: 591
+      line: 24
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 582
-      endSourceChar: 582
-      line: 22
+      startSourceChar: 591
+      endSourceChar: 608
+      line: 24
       lineChar: 8
+      spanCodeSection: 'NetworkMessage = '
+    - startInstruction: 8
+      endInstruction: 7
+      startSourceChar: 608
+      endSourceChar: 608
+      line: 24
+      lineChar: 25
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 582
-      endSourceChar: 587
-      line: 22
-      lineChar: 8
-      spanCodeSection: this.
+      startSourceChar: 608
+      endSourceChar: 618
+      line: 24
+      lineChar: 25
+      spanCodeSection: Serialize(
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 587
-      endSourceChar: 594
-      line: 22
-      lineChar: 13
-      spanCodeSection: 'name = '
+      startSourceChar: 618
+      endSourceChar: 624
+      line: 24
+      lineChar: 35
+      spanCodeSection: 'name, '
     - startInstruction: 8
-      endInstruction: 27
-      startSourceChar: 594
-      endSourceChar: 609
-      line: 22
-      lineChar: 20
-      spanCodeSection: "name;\r\n        "
-    - startInstruction: 28
-      endInstruction: 27
-      startSourceChar: 609
-      endSourceChar: 609
-      line: 23
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 28
-      endInstruction: 27
-      startSourceChar: 609
-      endSourceChar: 609
-      line: 23
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 28
-      endInstruction: 27
-      startSourceChar: 609
-      endSourceChar: 609
-      line: 23
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 28
-      endInstruction: 27
-      startSourceChar: 609
-      endSourceChar: 614
-      line: 23
-      lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 28
-      endInstruction: 27
-      startSourceChar: 614
-      endSourceChar: 621
-      line: 23
-      lineChar: 13
-      spanCodeSection: 'text = '
-    - startInstruction: 28
-      endInstruction: 47
-      startSourceChar: 621
-      endSourceChar: 636
-      line: 23
-      lineChar: 20
-      spanCodeSection: "text;\r\n        "
-    - startInstruction: 48
-      endInstruction: 47
-      startSourceChar: 636
-      endSourceChar: 636
+      endInstruction: 103
+      startSourceChar: 624
+      endSourceChar: 645
       line: 24
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 48
-      endInstruction: 47
-      startSourceChar: 636
-      endSourceChar: 636
-      line: 24
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 48
-      endInstruction: 47
-      startSourceChar: 636
-      endSourceChar: 650
-      line: 24
-      lineChar: 8
-      spanCodeSection: 'showRequest = '
-    - startInstruction: 48
-      endInstruction: 87
-      startSourceChar: 650
-      endSourceChar: 672
-      line: 24
-      lineChar: 22
-      spanCodeSection: "true;\r\n\r\n    }\r\n\r\n    "
-    - startInstruction: 88
-      endInstruction: 87
-      startSourceChar: 672
-      endSourceChar: 696
+      lineChar: 41
+      spanCodeSection: "text);\r\n    }\r\n\r\n    "
+    - startInstruction: 104
+      endInstruction: 103
+      startSourceChar: 645
+      endSourceChar: 662
+      line: 27
+      lineChar: 4
+      spanCodeSection: string Serialize(
+    - startInstruction: 104
+      endInstruction: 103
+      startSourceChar: 662
+      endSourceChar: 675
+      line: 27
+      lineChar: 21
+      spanCodeSection: 'string name, '
+    - startInstruction: 104
+      endInstruction: 111
+      startSourceChar: 675
+      endSourceChar: 693
+      line: 27
+      lineChar: 34
+      spanCodeSection: "string text)\r\n    "
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 693
+      endSourceChar: 704
       line: 28
       lineChar: 4
-      spanCodeSection: public void setPlaytime(
-    - startInstruction: 88
-      endInstruction: 95
-      startSourceChar: 696
-      endSourceChar: 717
-      line: 28
-      lineChar: 28
-      spanCodeSection: "float playtime)\r\n    "
-    - startInstruction: 96
-      endInstruction: 95
-      startSourceChar: 717
-      endSourceChar: 728
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 704
+      endSourceChar: 704
       line: 29
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 96
-      endInstruction: 95
-      startSourceChar: 728
-      endSourceChar: 728
-      line: 30
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 96
-      endInstruction: 95
-      startSourceChar: 728
-      endSourceChar: 728
-      line: 30
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 704
+      endSourceChar: 704
+      line: 29
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 96
-      endInstruction: 95
-      startSourceChar: 728
-      endSourceChar: 728
-      line: 30
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 704
+      endSourceChar: 725
+      line: 29
       lineChar: 8
+      spanCodeSection: 'var serializedString '
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 725
+      endSourceChar: 727
+      line: 29
+      lineChar: 29
+      spanCodeSection: '= '
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 727
+      endSourceChar: 729
+      line: 29
+      lineChar: 31
+      spanCodeSection: $"
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 729
+      endSourceChar: 730
+      line: 29
+      lineChar: 33
+      spanCodeSection: '{'
+    - startInstruction: 112
+      endInstruction: 111
+      startSourceChar: 730
+      endSourceChar: 730
+      line: 29
+      lineChar: 34
       spanCodeSection: 
-    - startInstruction: 96
-      endInstruction: 95
-      startSourceChar: 728
-      endSourceChar: 733
+    - startInstruction: 112
+      endInstruction: 207
+      startSourceChar: 730
+      endSourceChar: 746
+      line: 29
+      lineChar: 34
+      spanCodeSection: messageNumber++}
+    - startInstruction: 208
+      endInstruction: 259
+      startSourceChar: 746
+      endSourceChar: 747
+      line: 29
+      lineChar: 50
+      spanCodeSection: ','
+    - startInstruction: 260
+      endInstruction: 259
+      startSourceChar: 747
+      endSourceChar: 748
+      line: 29
+      lineChar: 51
+      spanCodeSection: '{'
+    - startInstruction: 260
+      endInstruction: 311
+      startSourceChar: 748
+      endSourceChar: 753
+      line: 29
+      lineChar: 52
+      spanCodeSection: name}
+    - startInstruction: 312
+      endInstruction: 363
+      startSourceChar: 753
+      endSourceChar: 754
+      line: 29
+      lineChar: 57
+      spanCodeSection: ','
+    - startInstruction: 364
+      endInstruction: 363
+      startSourceChar: 754
+      endSourceChar: 755
+      line: 29
+      lineChar: 58
+      spanCodeSection: '{'
+    - startInstruction: 364
+      endInstruction: 435
+      startSourceChar: 755
+      endSourceChar: 772
+      line: 29
+      lineChar: 59
+      spanCodeSection: "text}\";\r\n        "
+    - startInstruction: 436
+      endInstruction: 435
+      startSourceChar: 772
+      endSourceChar: 779
       line: 30
       lineChar: 8
-      spanCodeSection: this.
-    - startInstruction: 96
-      endInstruction: 95
-      startSourceChar: 733
-      endSourceChar: 744
+      spanCodeSection: 'return '
+    - startInstruction: 436
+      endInstruction: 495
+      startSourceChar: 779
+      endSourceChar: 811
       line: 30
-      lineChar: 13
-      spanCodeSection: 'playtime = '
-    - startInstruction: 96
-      endInstruction: 135
-      startSourceChar: 744
-      endSourceChar: 768
-      line: 30
-      lineChar: 24
-      spanCodeSection: "playtime;\r\n    }\r\n\r\n    "
-    - startInstruction: 136
-      endInstruction: 143
-      startSourceChar: 768
-      endSourceChar: 787
+      lineChar: 15
+      spanCodeSection: "serializedString;\r\n    }\r\n\r\n    "
+    - startInstruction: 496
+      endInstruction: 495
+      startSourceChar: 811
+      endSourceChar: 835
       line: 33
       lineChar: 4
-      spanCodeSection: "void Update()\r\n    "
-    - startInstruction: 144
-      endInstruction: 143
-      startSourceChar: 787
-      endSourceChar: 798
+      spanCodeSection: public void SetPlaytime(
+    - startInstruction: 496
+      endInstruction: 503
+      startSourceChar: 835
+      endSourceChar: 856
+      line: 33
+      lineChar: 28
+      spanCodeSection: "float playtime)\r\n    "
+    - startInstruction: 504
+      endInstruction: 503
+      startSourceChar: 856
+      endSourceChar: 867
       line: 34
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 144
-      endInstruction: 143
-      startSourceChar: 798
-      endSourceChar: 802
+    - startInstruction: 504
+      endInstruction: 503
+      startSourceChar: 867
+      endSourceChar: 867
       line: 35
       lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 144
-      endInstruction: 143
-      startSourceChar: 802
-      endSourceChar: 803
+      spanCodeSection: 
+    - startInstruction: 504
+      endInstruction: 503
+      startSourceChar: 867
+      endSourceChar: 867
       line: 35
-      lineChar: 12
-      spanCodeSection: '!'
-    - startInstruction: 144
-      endInstruction: 183
-      startSourceChar: 803
-      endSourceChar: 816
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 504
+      endInstruction: 503
+      startSourceChar: 867
+      endSourceChar: 867
+      line: 35
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 504
+      endInstruction: 503
+      startSourceChar: 867
+      endSourceChar: 872
+      line: 35
+      lineChar: 8
+      spanCodeSection: this.
+    - startInstruction: 504
+      endInstruction: 503
+      startSourceChar: 872
+      endSourceChar: 883
       line: 35
       lineChar: 13
-      spanCodeSection: 'showRequest) '
-    - startInstruction: 184
-      endInstruction: 203
-      startSourceChar: 816
-      endSourceChar: 835
-      line: 35
-      lineChar: 26
-      spanCodeSection: "return;\r\n\r\n        "
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 835
-      endSourceChar: 835
-      line: 37
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 835
-      endSourceChar: 835
-      line: 37
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 835
-      endSourceChar: 848
-      line: 37
-      lineChar: 8
-      spanCodeSection: 'components = '
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 848
-      endSourceChar: 848
-      line: 37
-      lineChar: 21
-      spanCodeSection: 
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 848
-      endSourceChar: 848
-      line: 37
-      lineChar: 21
-      spanCodeSection: 
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 848
-      endSourceChar: 859
-      line: 37
-      lineChar: 21
-      spanCodeSection: gameObject.
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 859
-      endSourceChar: 882
-      line: 37
-      lineChar: 32
-      spanCodeSection: GetComponentsInChildren
-    - startInstruction: 204
-      endInstruction: 203
-      startSourceChar: 882
-      endSourceChar: 883
-      line: 37
-      lineChar: 55
-      spanCodeSection: <
-    - startInstruction: 204
-      endInstruction: 1359
+      spanCodeSection: 'playtime = '
+    - startInstruction: 504
+      endInstruction: 543
       startSourceChar: 883
-      endSourceChar: 914
-      line: 37
-      lineChar: 56
-      spanCodeSection: "SubtitleComponent>();\r\n        "
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 914
-      endSourceChar: 914
+      endSourceChar: 907
+      line: 35
+      lineChar: 24
+      spanCodeSection: "playtime;\r\n    }\r\n\r\n    "
+    - startInstruction: 544
+      endInstruction: 551
+      startSourceChar: 907
+      endSourceChar: 926
       line: 38
+      lineChar: 4
+      spanCodeSection: "void Update()\r\n    "
+    - startInstruction: 552
+      endInstruction: 551
+      startSourceChar: 926
+      endSourceChar: 937
+      line: 39
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 552
+      endInstruction: 551
+      startSourceChar: 937
+      endSourceChar: 941
+      line: 40
       lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 552
+      endInstruction: 551
+      startSourceChar: 941
+      endSourceChar: 941
+      line: 40
+      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 914
-      endSourceChar: 914
-      line: 38
-      lineChar: 8
+    - startInstruction: 552
+      endInstruction: 551
+      startSourceChar: 941
+      endSourceChar: 941
+      line: 40
+      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 914
-      endSourceChar: 914
-      line: 38
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 914
-      endSourceChar: 914
-      line: 38
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 914
-      endSourceChar: 925
-      line: 38
-      lineChar: 8
-      spanCodeSection: components[
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 925
-      endSourceChar: 925
-      line: 38
-      lineChar: 19
-      spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 925
-      endSourceChar: 925
-      line: 38
-      lineChar: 19
-      spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 925
-      endSourceChar: 925
-      line: 38
-      lineChar: 19
-      spanCodeSection: 
-    - startInstruction: 1360
-      endInstruction: 1359
-      startSourceChar: 925
-      endSourceChar: 936
-      line: 38
-      lineChar: 19
-      spanCodeSection: components.
-    - startInstruction: 1360
-      endInstruction: 1383
-      startSourceChar: 936
-      endSourceChar: 945
-      line: 38
-      lineChar: 30
-      spanCodeSection: 'Length - '
-    - startInstruction: 1384
-      endInstruction: 1415
-      startSourceChar: 945
+    - startInstruction: 552
+      endInstruction: 551
+      startSourceChar: 941
       endSourceChar: 948
-      line: 38
-      lineChar: 39
-      spanCodeSection: 1].
-    - startInstruction: 1416
-      endInstruction: 1447
+      line: 40
+      lineChar: 12
+      spanCodeSection: string.
+    - startInstruction: 552
+      endInstruction: 551
       startSourceChar: 948
-      endSourceChar: 952
-      line: 38
-      lineChar: 42
-      spanCodeSection: Set(
-    - startInstruction: 1448
-      endInstruction: 1447
-      startSourceChar: 952
-      endSourceChar: 958
-      line: 38
-      lineChar: 46
-      spanCodeSection: 'name, '
-    - startInstruction: 1448
-      endInstruction: 1447
-      startSourceChar: 958
-      endSourceChar: 964
-      line: 38
-      lineChar: 52
-      spanCodeSection: 'text, '
-    - startInstruction: 1448
-      endInstruction: 1647
-      startSourceChar: 964
-      endSourceChar: 984
-      line: 38
-      lineChar: 58
-      spanCodeSection: "playtime);\r\n        "
-    - startInstruction: 1648
-      endInstruction: 1647
-      startSourceChar: 984
-      endSourceChar: 984
-      line: 39
+      endSourceChar: 962
+      line: 40
+      lineChar: 19
+      spanCodeSection: IsNullOrEmpty(
+    - startInstruction: 552
+      endInstruction: 591
+      startSourceChar: 962
+      endSourceChar: 988
+      line: 40
+      lineChar: 33
+      spanCodeSection: "NetworkMessage))\r\n        "
+    - startInstruction: 592
+      endInstruction: 591
+      startSourceChar: 988
+      endSourceChar: 1003
+      line: 41
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 592
+      endInstruction: 611
+      startSourceChar: 1003
+      endSourceChar: 1033
+      line: 42
+      lineChar: 12
+      spanCodeSection: "return;\r\n        }\r\n\r\n        "
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1033
+      endSourceChar: 1033
+      line: 45
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1648
-      endInstruction: 1647
-      startSourceChar: 984
-      endSourceChar: 984
-      line: 39
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1033
+      endSourceChar: 1033
+      line: 45
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 1648
-      endInstruction: 1647
-      startSourceChar: 984
-      endSourceChar: 998
-      line: 39
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1033
+      endSourceChar: 1045
+      line: 45
       lineChar: 8
-      spanCodeSection: 'showRequest = '
-    - startInstruction: 1648
-      endInstruction: 1648
-      startSourceChar: 998
-      endSourceChar: 998
-      line: 39
+      spanCodeSection: 'var splited '
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1045
+      endSourceChar: 1047
+      line: 45
+      lineChar: 20
+      spanCodeSection: '= '
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1047
+      endSourceChar: 1047
+      line: 45
       lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1047
+      endSourceChar: 1047
+      line: 45
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1047
+      endSourceChar: 1062
+      line: 45
+      lineChar: 22
+      spanCodeSection: NetworkMessage.
+    - startInstruction: 612
+      endInstruction: 611
+      startSourceChar: 1062
+      endSourceChar: 1068
+      line: 45
+      lineChar: 37
+      spanCodeSection: Split(
+    - startInstruction: 612
+      endInstruction: 695
+      startSourceChar: 1068
+      endSourceChar: 1083
+      line: 45
+      lineChar: 43
+      spanCodeSection: "',');\r\n        "
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1083
+      endSourceChar: 1083
+      line: 46
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1083
+      endSourceChar: 1083
+      line: 46
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1083
+      endSourceChar: 1108
+      line: 46
+      lineChar: 8
+      spanCodeSection: 'var networkMessageNumber '
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1108
+      endSourceChar: 1110
+      line: 46
+      lineChar: 33
+      spanCodeSection: '= '
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1110
+      endSourceChar: 1110
+      line: 46
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1110
+      endSourceChar: 1110
+      line: 46
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1110
+      endSourceChar: 1114
+      line: 46
+      lineChar: 35
+      spanCodeSection: int.
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1114
+      endSourceChar: 1120
+      line: 46
+      lineChar: 39
+      spanCodeSection: Parse(
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1120
+      endSourceChar: 1120
+      line: 46
+      lineChar: 45
+      spanCodeSection: 
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1120
+      endSourceChar: 1128
+      line: 46
+      lineChar: 45
+      spanCodeSection: splited[
+    - startInstruction: 696
+      endInstruction: 695
+      startSourceChar: 1128
+      endSourceChar: 1128
+      line: 46
+      lineChar: 53
+      spanCodeSection: 
+    - startInstruction: 696
+      endInstruction: 771
+      startSourceChar: 1128
+      endSourceChar: 1152
+      line: 46
+      lineChar: 53
+      spanCodeSection: "0]);\r\n        \r\n        "
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 1152
+      endSourceChar: 1156
+      line: 48
+      lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 1156
+      endSourceChar: 1156
+      line: 48
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 772
+      endInstruction: 771
+      startSourceChar: 1156
+      endSourceChar: 1177
+      line: 48
+      lineChar: 12
+      spanCodeSection: 'lastMessageNumber != '
+    - startInstruction: 772
+      endInstruction: 819
+      startSourceChar: 1177
+      endSourceChar: 1208
+      line: 48
+      lineChar: 33
+      spanCodeSection: "networkMessageNumber)\r\n        "
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 1208
+      endSourceChar: 1223
+      line: 49
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 1223
+      endSourceChar: 1223
+      line: 50
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 1223
+      endSourceChar: 1223
+      line: 50
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 820
+      endInstruction: 819
+      startSourceChar: 1223
+      endSourceChar: 1243
+      line: 50
+      lineChar: 12
+      spanCodeSection: 'lastMessageNumber = '
+    - startInstruction: 820
+      endInstruction: 839
+      startSourceChar: 1243
+      endSourceChar: 1278
+      line: 50
+      lineChar: 32
+      spanCodeSection: "networkMessageNumber;\r\n            "
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1278
+      endSourceChar: 1278
+      line: 51
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1278
+      endSourceChar: 1278
+      line: 51
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1278
+      endSourceChar: 1287
+      line: 51
+      lineChar: 12
+      spanCodeSection: 'var name '
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1287
+      endSourceChar: 1289
+      line: 51
+      lineChar: 21
+      spanCodeSection: '= '
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1289
+      endSourceChar: 1289
+      line: 51
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1289
+      endSourceChar: 1297
+      line: 51
+      lineChar: 23
+      spanCodeSection: splited[
+    - startInstruction: 840
+      endInstruction: 839
+      startSourceChar: 1297
+      endSourceChar: 1297
+      line: 51
+      lineChar: 31
+      spanCodeSection: 
+    - startInstruction: 840
+      endInstruction: 891
+      startSourceChar: 1297
+      endSourceChar: 1314
+      line: 51
+      lineChar: 31
+      spanCodeSection: "1];\r\n            "
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1314
+      endSourceChar: 1314
+      line: 52
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1314
+      endSourceChar: 1314
+      line: 52
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1314
+      endSourceChar: 1323
+      line: 52
+      lineChar: 12
+      spanCodeSection: 'var text '
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1323
+      endSourceChar: 1325
+      line: 52
+      lineChar: 21
+      spanCodeSection: '= '
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1325
+      endSourceChar: 1325
+      line: 52
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1325
+      endSourceChar: 1333
+      line: 52
+      lineChar: 23
+      spanCodeSection: splited[
+    - startInstruction: 892
+      endInstruction: 891
+      startSourceChar: 1333
+      endSourceChar: 1333
+      line: 52
+      lineChar: 31
+      spanCodeSection: 
+    - startInstruction: 892
+      endInstruction: 943
+      startSourceChar: 1333
+      endSourceChar: 1352
+      line: 52
+      lineChar: 31
+      spanCodeSection: "2];\r\n\r\n            "
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1352
+      endSourceChar: 1352
+      line: 54
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1352
+      endSourceChar: 1352
+      line: 54
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1352
+      endSourceChar: 1365
+      line: 54
+      lineChar: 12
+      spanCodeSection: 'components = '
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1365
+      endSourceChar: 1365
+      line: 54
+      lineChar: 25
+      spanCodeSection: 
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1365
+      endSourceChar: 1365
+      line: 54
+      lineChar: 25
+      spanCodeSection: 
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1365
+      endSourceChar: 1376
+      line: 54
+      lineChar: 25
+      spanCodeSection: gameObject.
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1376
+      endSourceChar: 1399
+      line: 54
+      lineChar: 36
+      spanCodeSection: GetComponentsInChildren
+    - startInstruction: 944
+      endInstruction: 943
+      startSourceChar: 1399
+      endSourceChar: 1400
+      line: 54
+      lineChar: 59
+      spanCodeSection: <
+    - startInstruction: 944
+      endInstruction: 2099
+      startSourceChar: 1400
+      endSourceChar: 1435
+      line: 54
+      lineChar: 60
+      spanCodeSection: "SubtitleComponent>();\r\n            "
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1435
+      endSourceChar: 1435
+      line: 55
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1435
+      endSourceChar: 1435
+      line: 55
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1435
+      endSourceChar: 1435
+      line: 55
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1435
+      endSourceChar: 1435
+      line: 55
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1435
+      endSourceChar: 1446
+      line: 55
+      lineChar: 12
+      spanCodeSection: components[
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1446
+      endSourceChar: 1446
+      line: 55
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1446
+      endSourceChar: 1446
+      line: 55
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1446
+      endSourceChar: 1446
+      line: 55
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 2100
+      endInstruction: 2099
+      startSourceChar: 1446
+      endSourceChar: 1457
+      line: 55
+      lineChar: 23
+      spanCodeSection: components.
+    - startInstruction: 2100
+      endInstruction: 2123
+      startSourceChar: 1457
+      endSourceChar: 1466
+      line: 55
+      lineChar: 34
+      spanCodeSection: 'Length - '
+    - startInstruction: 2124
+      endInstruction: 2155
+      startSourceChar: 1466
+      endSourceChar: 1469
+      line: 55
+      lineChar: 43
+      spanCodeSection: 1].
+    - startInstruction: 2156
+      endInstruction: 2187
+      startSourceChar: 1469
+      endSourceChar: 1473
+      line: 55
+      lineChar: 46
+      spanCodeSection: Set(
+    - startInstruction: 2188
+      endInstruction: 2187
+      startSourceChar: 1473
+      endSourceChar: 1479
+      line: 55
+      lineChar: 50
+      spanCodeSection: 'name, '
+    - startInstruction: 2188
+      endInstruction: 2187
+      startSourceChar: 1479
+      endSourceChar: 1485
+      line: 55
+      lineChar: 56
+      spanCodeSection: 'text, '
+    - startInstruction: 2188
+      endInstruction: 2188
+      startSourceChar: 1485
+      endSourceChar: 1485
+      line: 55
+      lineChar: 62
       spanCodeSection: 
   hasInteractEvent: 0
   serializationData:
@@ -1121,7 +1516,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: showRequest
+      Data: messageNumber
     - Name: $v
       Entry: 7
       Data: 2|UdonSharp.FieldDefinition, UdonSharp.Editor
@@ -1133,25 +1528,25 @@ MonoBehaviour:
       Data: 4|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: System.Boolean, mscorlib
+      Data: System.Int32, mscorlib
     - Name: 
       Entry: 8
       Data: 
     - Name: declarationType
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: syncMode
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: symbolResolvedTypeName
       Entry: 1
-      Data: SystemBoolean
+      Data: SystemInt32
     - Name: symbolOriginalName
       Entry: 1
-      Data: showRequest
+      Data: messageNumber
     - Name: symbolUniqueName
       Entry: 1
-      Data: showRequest
+      Data: messageNumber
     - Name: symbolDefaultValue
       Entry: 6
       Data: 
@@ -1163,13 +1558,7 @@ MonoBehaviour:
       Data: 5|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 6|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
@@ -1190,16 +1579,73 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: name
+      Data: lastMessageNumber
     - Name: $v
       Entry: 7
-      Data: 7|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 6|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 8|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 7|UdonSharp.SymbolDefinition, UdonSharp.Editor
+    - Name: internalType
+      Entry: 9
+      Data: 4
+    - Name: declarationType
+      Entry: 3
+      Data: 2
+    - Name: syncMode
+      Entry: 3
+      Data: 0
+    - Name: symbolResolvedTypeName
+      Entry: 1
+      Data: SystemInt32
+    - Name: symbolOriginalName
+      Entry: 1
+      Data: lastMessageNumber
+    - Name: symbolUniqueName
+      Entry: 1
+      Data: lastMessageNumber
+    - Name: symbolDefaultValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: fieldAttributes
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userBehaviourSource
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: NetworkMessage
+    - Name: $v
+      Entry: 7
+      Data: 9|UdonSharp.FieldDefinition, UdonSharp.Editor
+    - Name: fieldSymbol
+      Entry: 7
+      Data: 10|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 9|System.RuntimeType, mscorlib
+      Data: 11|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: System.String, mscorlib
@@ -1217,10 +1663,10 @@ MonoBehaviour:
       Data: SystemString
     - Name: symbolOriginalName
       Entry: 1
-      Data: name
+      Data: NetworkMessage
     - Name: symbolUniqueName
       Entry: 1
-      Data: name
+      Data: NetworkMessage
     - Name: symbolDefaultValue
       Entry: 6
       Data: 
@@ -1229,76 +1675,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 12|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 11|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: userBehaviourSource
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: text
-    - Name: $v
-      Entry: 7
-      Data: 12|UdonSharp.FieldDefinition, UdonSharp.Editor
-    - Name: fieldSymbol
-      Entry: 7
-      Data: 13|UdonSharp.SymbolDefinition, UdonSharp.Editor
-    - Name: internalType
-      Entry: 9
-      Data: 9
-    - Name: declarationType
-      Entry: 3
-      Data: 1
-    - Name: syncMode
-      Entry: 3
-      Data: 1
-    - Name: symbolResolvedTypeName
-      Entry: 1
-      Data: SystemString
-    - Name: symbolOriginalName
-      Entry: 1
-      Data: text
-    - Name: symbolUniqueName
-      Entry: 1
-      Data: text
-    - Name: symbolDefaultValue
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: fieldAttributes
-      Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 15|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
+      Data: 13|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
     - Name: 
       Entry: 8
       Data: 
@@ -1325,13 +1708,13 @@ MonoBehaviour:
       Data: playtime
     - Name: $v
       Entry: 7
-      Data: 16|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 14|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 17|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 15|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 18|System.RuntimeType, mscorlib
+      Data: 16|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: System.Single, mscorlib
@@ -1361,13 +1744,13 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 19|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 17|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 20|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
+      Data: 18|UdonSharp.UdonSyncedAttribute, UdonSharp.Runtime
     - Name: 
       Entry: 8
       Data: 
@@ -1394,13 +1777,13 @@ MonoBehaviour:
       Data: components
     - Name: $v
       Entry: 7
-      Data: 21|UdonSharp.FieldDefinition, UdonSharp.Editor
+      Data: 19|UdonSharp.FieldDefinition, UdonSharp.Editor
     - Name: fieldSymbol
       Entry: 7
-      Data: 22|UdonSharp.SymbolDefinition, UdonSharp.Editor
+      Data: 20|UdonSharp.SymbolDefinition, UdonSharp.Editor
     - Name: internalType
       Entry: 7
-      Data: 23|System.RuntimeType, mscorlib
+      Data: 21|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: SubtitleComponent[], Assembly-CSharp
@@ -1430,7 +1813,7 @@ MonoBehaviour:
       Data: 
     - Name: fieldAttributes
       Entry: 7
-      Data: 24|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
+      Data: 22|System.Collections.Generic.List`1[[System.Attribute, mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
