@@ -98,6 +98,12 @@ public class ScoreCalculator : UdonSharpBehaviour
         {
             playerStatus.Han += 1;
         }
+
+        //더블리치
+        if (playerStatus.IsFirstOrder)
+        {
+            playerStatus.Han += 2;
+        }
     }
 
     void AddScore_Pinfu(PlayerStatus playerStatus, AgariContext agariContext, object[] ctx)
@@ -239,6 +245,12 @@ public class ScoreCalculator : UdonSharpBehaviour
         }
 
         playerStatus.Han += totalDoraCount;
+    }
+
+    //삼색동순
+    void AddScore_ThreeColorStraight(PlayerStatus playerStatus, object[] ctx)
+    {
+        // 아직 Ctx 쪽을 재대로 이해못해서 TODO
     }
 
     bool IsWhiteGreenRed(int globalOrder)
