@@ -20,14 +20,19 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public EventQueue EventQueue;
     [SerializeField] public PlayerStatus PlayerStatus;
     [SerializeField] public Subtitle Subtitle;
+    [SerializeField] public GameObject RiichiBon;
 
     [SerializeField] public Card testcard1;
     [SerializeField] public Card testcard2;
     [SerializeField] public Card testcard3;
     [SerializeField] public Card testcard4;
 
+    [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
+
     public int PlayerIndex;
 
+    private int messageNumber = 0; // 마스터 전용
+    private int lastMessageNumber = -1; // 모든 유저용
 
     private Transform[] cardPoints;
     private Transform plusCardPosition;
@@ -65,11 +70,19 @@ public class Player : UdonSharpBehaviour
         return cardPoints;
     }
 
+    string SerializeRiichi(bool riichiMode)
+    {
+        var serializedString = $"{messageNumber++},{riichiMode}";
+        return serializedString;
+    }
+
     public void ActiveRiichiMode()
     {
         PlayerStatus.IsRiichiMode = true;
         PlayerStatus.IsOneShotRiichi = true;
         setStashPositionRichMode();
+        Debug.Log($"[Player] Request RiichiBon setActive : {true}");
+        NetworkMessage = SerializeRiichi(true);
     }
 
     public bool IsRiichiMode()
@@ -135,6 +148,7 @@ public class Player : UdonSharpBehaviour
         var point = StashPositions.GetChild(stashedCardIndex++);
         card.SetPosition(point.position, point.rotation);
         card.SetColliderActivate(false);
+        PlayerStatus.IsFirstOrder = false;
 
         SortPosition();
     }
@@ -359,5 +373,25 @@ public class Player : UdonSharpBehaviour
             cards[i] = (Card)objs[i];
         }
         return cards;
+    }
+
+    private void Update()
+    {
+        if (string.IsNullOrEmpty(NetworkMessage))
+        {
+            return;
+        }
+
+        var splited = NetworkMessage.Split(',');
+        var networkMessageNumber = int.Parse(splited[0]);
+
+        if (lastMessageNumber != networkMessageNumber)
+        {
+            lastMessageNumber = networkMessageNumber;
+
+            Debug.Log($"[Player] RiichiBon setActive : {splited[1]}");
+            RiichiBon.SetActive(bool.Parse(splited[1]));
+
+        }
     }
 }
