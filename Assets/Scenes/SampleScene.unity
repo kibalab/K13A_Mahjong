@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 6ec81a8b73dac9e42a54cf74633119da
+  m_OcclusionCullingData: {fileID: 36300000, guid: 95730ea8322deb64b8e85a7f09b943dc,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -265,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -277,6 +282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -419,6 +429,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -431,6 +445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -685,7 +704,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &13047544
 Transform:
@@ -824,6 +843,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -836,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (127)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -1160,6 +1188,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1172,6 +1204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -1426,7 +1463,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &37548047
 Transform:
@@ -1622,6 +1659,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1634,6 +1675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -1782,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1794,6 +1844,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -2024,6 +2079,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2036,6 +2095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -2130,7 +2194,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &63862779
 Transform:
@@ -2155,7 +2219,7 @@ BoxCollider:
   m_GameObject: {fileID: 63862778}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2220,7 +2284,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &69355182
 RectTransform:
@@ -2445,7 +2509,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &86923697
 RectTransform:
@@ -2944,6 +3008,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2956,6 +3024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -3104,7 +3177,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &112448234
 RectTransform:
@@ -3225,6 +3298,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3237,6 +3314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -3416,7 +3498,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &118259758
 RectTransform:
@@ -3487,7 +3569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1
+  m_ReferencePixelsPerUnit: 0
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -3495,7 +3577,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 0
 --- !u!223 &118259762
 Canvas:
   m_ObjectHideFlags: 0
@@ -3645,6 +3727,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3657,6 +3743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -3870,7 +3961,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &134078928
 RectTransform:
@@ -4090,6 +4181,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4102,6 +4197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -4244,6 +4344,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4256,6 +4360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -4512,7 +4621,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &164176276
 Transform:
@@ -4866,6 +4975,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4878,6 +4991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -5517,7 +5635,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!23 &188494373
 MeshRenderer:
@@ -5651,7 +5769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5851,7 +5969,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &205113756
 RectTransform:
@@ -5922,7 +6040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1
+  m_ReferencePixelsPerUnit: 0
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -5930,7 +6048,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 0
 --- !u!223 &205113760
 Canvas:
   m_ObjectHideFlags: 0
@@ -5987,7 +6105,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &212171991
 RectTransform:
@@ -6057,7 +6175,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &213693863
 Transform:
@@ -6094,7 +6212,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &214145764
 RectTransform:
@@ -6480,6 +6598,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -6492,6 +6614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -6634,6 +6761,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -6646,6 +6777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (105)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -7048,7 +7184,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &239633776
 RectTransform:
@@ -7402,7 +7538,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 10
+  m_DynamicPixelsPerUnit: 4
 --- !u!223 &241887461
 Canvas:
   m_ObjectHideFlags: 0
@@ -7460,7 +7596,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &242995820
 RectTransform:
@@ -7530,7 +7666,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &245766327
 Transform:
@@ -7748,6 +7884,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7760,6 +7900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -7997,6 +8142,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -8009,6 +8158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (115)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -8105,7 +8259,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &253204122
 RectTransform:
@@ -8176,7 +8330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1
+  m_ReferencePixelsPerUnit: 0
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -8184,7 +8338,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 10
+  m_DynamicPixelsPerUnit: 0
 --- !u!223 &253204126
 Canvas:
   m_ObjectHideFlags: 0
@@ -8355,6 +8509,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -8367,6 +8525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -8595,7 +8758,7 @@ BoxCollider:
   m_GameObject: {fileID: 272699369}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8747,7 +8910,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &283487110
 RectTransform:
@@ -9122,6 +9285,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -9134,6 +9301,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (106)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -9507,6 +9679,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -9519,6 +9695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -9796,7 +9977,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &308343785
 RectTransform:
@@ -10097,7 +10278,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &320274811
 RectTransform:
@@ -10243,7 +10424,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &325565004
 Transform:
@@ -10324,6 +10505,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -10336,6 +10521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -10567,6 +10757,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -10579,6 +10773,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -10806,6 +11005,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -10818,6 +11021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (104)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -11051,6 +11259,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11063,6 +11275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (113)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -11282,6 +11499,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11294,6 +11515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (118)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -11436,6 +11662,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11448,6 +11678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (126)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -11696,7 +11931,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &366511271
 Transform:
@@ -11731,7 +11966,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &368453813
 RectTransform:
@@ -11805,7 +12040,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &374610851
 RectTransform:
@@ -11923,7 +12158,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &376159624
 RectTransform:
@@ -12120,6 +12355,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12132,6 +12371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -12274,6 +12518,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12286,6 +12534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -12379,7 +12632,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &382622557
 RectTransform:
@@ -12506,7 +12759,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &400317483
 RectTransform:
@@ -12870,6 +13123,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12882,6 +13139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -13035,7 +13297,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &415982469
 RectTransform:
@@ -13109,7 +13371,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &418139052
 RectTransform:
@@ -13391,6 +13653,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -13403,6 +13669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -13903,6 +14174,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -13915,6 +14190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (125)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -14010,7 +14290,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!114 &455124562
 MonoBehaviour:
@@ -15052,6 +15332,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15064,6 +15348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (123)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -15206,6 +15495,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15218,6 +15511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -15360,6 +15658,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15372,6 +15674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -15756,6 +16063,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15768,6 +16079,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -15891,7 +16207,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!224 &517747995
 RectTransform:
@@ -16017,6 +16333,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -16029,6 +16349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (133)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -16558,7 +16883,7 @@ BoxCollider:
   m_GameObject: {fileID: 536940070}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -16625,7 +16950,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &539289797
 RectTransform:
@@ -16804,7 +17129,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!64 &546710488
 MeshCollider:
@@ -16895,7 +17220,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!23 &549493741
 MeshRenderer:
@@ -16969,7 +17294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17523,6 +17848,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -17535,6 +17864,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -17785,6 +18119,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -17797,6 +18135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -17939,6 +18282,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -17951,6 +18298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -18291,6 +18643,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -18303,6 +18659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -18662,7 +19023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19089,7 +19450,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &612436044
 Transform:
@@ -19567,7 +19928,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &630528636
 Transform:
@@ -19596,7 +19957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: af89799734a22a948ae3bb30aada229f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: af89799734a22a948ae3bb30aada229f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20167,6 +20528,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -20179,6 +20544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (109)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -20263,6 +20633,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2958517746805342840, guid: 70279d83763c0d745a4e513a75053671,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2958517746811294840, guid: 70279d83763c0d745a4e513a75053671,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20337,6 +20712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: customShader
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499662108231401120, guid: 70279d83763c0d745a4e513a75053671,
+        type: 3}
+      propertyPath: m_ReflectLayers.m_Bits
+      value: 265731
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70279d83763c0d745a4e513a75053671, type: 3}
@@ -20455,7 +20835,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &665160717
 RectTransform:
@@ -20652,6 +21032,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -20664,6 +21048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (135)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -20759,7 +21148,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &675009410
 RectTransform:
@@ -20873,7 +21262,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &676726980
 Transform:
@@ -21013,6 +21402,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -21025,6 +21418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -21211,7 +21609,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &687546443
 RectTransform:
@@ -21548,7 +21946,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &691094901
 Transform:
@@ -22072,6 +22470,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22084,6 +22486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -22226,6 +22633,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22238,6 +22649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -22331,7 +22747,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &708836662
 RectTransform:
@@ -22434,7 +22850,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!64 &709059853
 MeshCollider:
@@ -22717,6 +23133,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22729,6 +23149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (122)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -22944,6 +23369,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22956,6 +23385,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (128)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -23098,6 +23532,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -23110,6 +23548,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -23260,7 +23703,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &730019326
 RectTransform:
@@ -23425,6 +23868,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -23437,6 +23884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -23528,7 +23980,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &739342621
 Transform:
@@ -23565,7 +24017,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!64 &748828956
 MeshCollider:
@@ -23658,7 +24110,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &750243440
 RectTransform:
@@ -24000,7 +24452,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &761463013
 Transform:
@@ -24025,7 +24477,7 @@ BoxCollider:
   m_GameObject: {fileID: 761463012}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -24260,6 +24712,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -24272,6 +24728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (129)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -24363,7 +24824,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &769684715
 Transform:
@@ -24447,6 +24908,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -24459,6 +24924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -24726,6 +25196,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -24738,6 +25212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -24880,6 +25359,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -24892,6 +25375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -25322,6 +25810,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -25334,6 +25826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (97)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -25476,6 +25973,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -25488,6 +25989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -25737,7 +26243,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!64 &803383627
 MeshCollider:
@@ -26021,6 +26527,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -26033,6 +26543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -26246,7 +26761,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &829898514
 Transform:
@@ -26271,7 +26786,7 @@ BoxCollider:
   m_GameObject: {fileID: 829898513}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -26398,7 +26913,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &842215134
 RectTransform:
@@ -26548,7 +27063,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &844490874
 RectTransform:
@@ -26694,7 +27209,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &853987081
 Transform:
@@ -26937,6 +27452,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -26949,6 +27468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -27743,7 +28267,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &899097565
 RectTransform:
@@ -27893,7 +28417,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &908966566
 RectTransform:
@@ -28436,7 +28960,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &958930655
 RectTransform:
@@ -28667,7 +29191,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &964294113
 RectTransform:
@@ -28922,6 +29446,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -28934,6 +29462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (114)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -29178,6 +29711,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -29190,6 +29727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -29285,7 +29827,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &976800683
 RectTransform:
@@ -29450,6 +29992,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -29462,6 +30008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -29561,7 +30112,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1003006635
 RectTransform:
@@ -29762,7 +30313,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1010435151
 RectTransform:
@@ -30348,6 +30899,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -30360,6 +30915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (134)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -30583,6 +31143,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -30595,6 +31159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -31253,6 +31822,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -31265,6 +31838,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -31764,6 +32342,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -31776,6 +32358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -31918,6 +32505,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -31930,6 +32521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -32051,7 +32647,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1061740958
 Transform:
@@ -32132,6 +32728,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -32144,6 +32744,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -32713,7 +33318,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1108310949
 Transform:
@@ -32798,6 +33403,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -32810,6 +33419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (124)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -32982,6 +33596,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -32994,6 +33612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -33244,6 +33867,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -33256,6 +33883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (93)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -33471,6 +34103,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -33483,6 +34119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -33813,7 +34454,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1133609487
 RectTransform:
@@ -34372,6 +35013,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -34384,6 +35029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (100)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -34637,7 +35287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34820,7 +35470,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1149820556
 RectTransform:
@@ -35408,7 +36058,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1164823874
 RectTransform:
@@ -35664,7 +36314,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1172617666
 RectTransform:
@@ -36464,7 +37114,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1217224031
 RectTransform:
@@ -36694,6 +37344,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -36706,6 +37360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -36801,7 +37460,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1224897224
 RectTransform:
@@ -37215,6 +37874,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -37227,6 +37890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (120)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -37891,6 +38559,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -37903,6 +38575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -38087,7 +38764,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1276567166
 RectTransform:
@@ -38347,6 +39024,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -38359,6 +39040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -38460,7 +39146,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1285947485
 RectTransform:
@@ -38837,6 +39523,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -38849,6 +39539,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -39024,7 +39719,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1306919503
 RectTransform:
@@ -39197,7 +39892,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1308804728
 RectTransform:
@@ -39315,7 +40010,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1309841648
 RectTransform:
@@ -39486,6 +40181,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -39498,6 +40197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -39640,6 +40344,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -39652,6 +40360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -39849,6 +40562,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -39861,6 +40578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -39956,7 +40678,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1343262685
 RectTransform:
@@ -40369,7 +41091,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1353720423
 RectTransform:
@@ -40840,7 +41562,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1366859150
 RectTransform:
@@ -41158,6 +41880,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -41170,6 +41896,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (117)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -41403,6 +42134,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -41415,6 +42150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -41557,6 +42297,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -41569,6 +42313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -41771,6 +42520,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -41783,6 +42536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (96)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -41925,6 +42683,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -41937,6 +42699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -42060,7 +42827,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1399774498
 RectTransform:
@@ -42181,6 +42948,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -42193,6 +42964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -42499,6 +43275,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -42511,6 +43291,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -42889,6 +43674,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -42901,6 +43690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -43043,6 +43837,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -43055,6 +43853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -43261,7 +44064,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1426415184
 RectTransform:
@@ -43458,6 +44261,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -43470,6 +44277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (91)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -43595,7 +44407,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1431986074
 RectTransform:
@@ -44067,7 +44879,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1450413041
 Transform:
@@ -44203,7 +45015,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1466231230
 RectTransform:
@@ -44331,7 +45143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44423,7 +45235,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1468750968
 Transform:
@@ -44504,6 +45316,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -44516,6 +45332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (103)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -44658,6 +45479,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -44670,6 +45495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -45031,7 +45861,6 @@ GameObject:
   - component: {fileID: 1478622333}
   - component: {fileID: 1478622332}
   - component: {fileID: 1478622331}
-  - component: {fileID: 1478622330}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -45058,30 +45887,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000009536743, y: 0}
   m_SizeDelta: {x: 270, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1478622330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478622328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45115577ef41a5b4ca741ed302693907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactTextPlacement: {fileID: 0}
-  interactText: Use
-  interactTextGO: {fileID: 0}
-  proximity: 2
-  SynchronizePosition: 0
-  AllowCollisionOwnershipTransfer: 0
-  serializedProgramAsset: {fileID: 11400000, guid: 01324ffc2433f9040a3e382bf48097b3,
-    type: 2}
-  programSource: {fileID: 11400000, guid: 3e75677476c16ad4fb8708a91106c7a9, type: 2}
-  serializedPublicVariablesBytesString: Ai8AAAAAATIAAABWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgAuAFUAZABvAG4AVgBhAHIAaQBhAGIAbABlAFQAYQBiAGwAZQAsACAAVgBSAEMALgBVAGQAbwBuAC4AQwBvAG0AbQBvAG4AAAAAAAYBAAAAAAAAACcBBAAAAHQAeQBwAGUAAWgAAABTAHkAcwB0AGUAbQAuAEMAbwBsAGwAZQBjAHQAaQBvAG4AcwAuAEcAZQBuAGUAcgBpAGMALgBMAGkAcwB0AGAAMQBbAFsAVgBSAEMALgBVAGQAbwBuAC4AQwBvAG0AbQBvAG4ALgBJAG4AdABlAHIAZgBhAGMAZQBzAC4ASQBVAGQAbwBuAFYAYQByAGkAYQBiAGwAZQAsACAAVgBSAEMALgBVAGQAbwBuAC4AQwBvAG0AbQBvAG4AXQBdACwAIABtAHMAYwBvAHIAbABpAGIAAQEJAAAAVgBhAHIAaQBhAGIAbABlAHMALwEAAAABaAAAAFMAeQBzAHQAZQBtAC4AQwBvAGwAbABlAGMAdABpAG8AbgBzAC4ARwBlAG4AZQByAGkAYwAuAEwAaQBzAHQAYAAxAFsAWwBWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgAuAEkAbgB0AGUAcgBmAGEAYwBlAHMALgBJAFUAZABvAG4AVgBhAHIAaQBhAGIAbABlACwAIABWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgBdAF0ALAAgAG0AcwBjAG8AcgBsAGkAYgABAAAABgAAAAAAAAAABwUHBQ==
-  publicVariablesUnityEngineObjects: []
-  publicVariablesSerializationDataFormat: 0
 --- !u!114 &1478622331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45122,7 +45927,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478622330}
+      - m_Target: {fileID: 0}
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -45186,7 +45991,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1482351759
 RectTransform:
@@ -45365,7 +46170,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1484242632
 Transform:
@@ -45390,7 +46195,7 @@ BoxCollider:
   m_GameObject: {fileID: 1484242631}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -45609,7 +46414,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1497200968
 Transform:
@@ -45739,7 +46544,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!23 &1508433413
 MeshRenderer:
@@ -45926,6 +46731,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -45938,6 +46747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -46033,7 +46847,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1513629657
 RectTransform:
@@ -46266,7 +47080,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1530239233
 RectTransform:
@@ -46387,6 +47201,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -46399,6 +47217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -46541,6 +47364,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -46553,6 +47380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -46695,6 +47527,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -46707,6 +47543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (94)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -47055,7 +47896,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1547951314
 RectTransform:
@@ -47383,6 +48224,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -47395,6 +48240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -47537,6 +48387,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -47549,6 +48403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (102)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -48016,7 +48875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566756919}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.04141, y: 0.063818, z: 0.00076}
+  m_LocalPosition: {x: 0.04141, y: 0.06382, z: 0.00084}
   m_LocalScale: {x: 0.10362814, y: 0.001273285, z: 0.10637744}
   m_Children: []
   m_Father: {fileID: 1752937369}
@@ -48335,6 +49194,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -48347,6 +49210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -48442,7 +49310,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1577859217
 RectTransform:
@@ -48755,6 +49623,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -48767,6 +49639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -48920,7 +49797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589614901}
   m_LocalRotation: {x: -0.010369712, y: -0.67994773, z: 0.009617665, w: -0.73312426}
-  m_LocalPosition: {x: 1.3036726, y: 1.222044, z: -1.5522245}
+  m_LocalPosition: {x: -2.368, y: 1.222044, z: -1.5522245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49215,6 +50092,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -49227,6 +50108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -49318,7 +50204,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1601016842
 Transform:
@@ -49352,7 +50238,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!114 &1608821681
 MonoBehaviour:
@@ -49485,7 +50371,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1609058455
 RectTransform:
@@ -49684,6 +50570,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -49696,6 +50586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (99)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -49883,7 +50778,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1613236853
 RectTransform:
@@ -49954,7 +50849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1
+  m_ReferencePixelsPerUnit: 0
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -49962,7 +50857,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 0
 --- !u!223 &1613236857
 Canvas:
   m_ObjectHideFlags: 0
@@ -50323,6 +51218,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -50335,6 +51234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -50510,6 +51414,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -50522,6 +51430,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -50724,6 +51637,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -50736,6 +51653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -50951,6 +51873,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -50963,6 +51889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (121)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -51058,7 +51989,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!114 &1654910621
 MonoBehaviour:
@@ -51189,7 +52120,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1657052537
 RectTransform:
@@ -52061,6 +52992,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52073,6 +53008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -52215,6 +53155,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52227,6 +53171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -52401,7 +53350,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1699175749
 RectTransform:
@@ -52693,6 +53642,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52705,6 +53658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -52932,6 +53890,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52944,6 +53906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (131)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -53038,7 +54005,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1723709170
 Transform:
@@ -53063,7 +54030,7 @@ BoxCollider:
   m_GameObject: {fileID: 1723709169}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -53177,6 +54144,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -53189,6 +54160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -53735,6 +54711,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -53747,6 +54727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (110)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -54037,6 +55022,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -54049,6 +55038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -54232,7 +55226,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1754549171
 RectTransform:
@@ -54455,7 +55449,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1757320543
 Transform:
@@ -54542,6 +55536,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -54554,6 +55552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -54978,7 +55981,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1778996285
 Transform:
@@ -55003,7 +56006,7 @@ BoxCollider:
   m_GameObject: {fileID: 1778996284}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -55117,6 +56120,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -55129,6 +56136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (111)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -55271,6 +56283,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -55283,6 +56299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (112)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -55378,7 +56399,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1787189815
 RectTransform:
@@ -55751,7 +56772,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1793636050
 RectTransform:
@@ -56055,6 +57076,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -56067,6 +57092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -56368,7 +57398,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1809066299
 RectTransform:
@@ -56810,6 +57840,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -56822,6 +57856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (107)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -57215,7 +58254,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1835450231
 RectTransform:
@@ -57336,6 +58375,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -57348,6 +58391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (116)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -57520,6 +58568,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -57532,6 +58584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -57627,7 +58684,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1843406304
 RectTransform:
@@ -58064,6 +59121,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -58076,6 +59137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -58433,7 +59499,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1881666157
 RectTransform:
@@ -58583,7 +59649,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!224 &1882302922
 RectTransform:
@@ -58709,6 +59775,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -58721,6 +59791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -59103,6 +60178,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -59115,6 +60194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (119)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -59212,7 +60296,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1897417570
 RectTransform:
@@ -59415,7 +60499,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1904601065
 RectTransform:
@@ -59700,7 +60784,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1910172472
 Transform:
@@ -59734,7 +60818,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1914400472
 RectTransform:
@@ -59882,7 +60966,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1916534007
 RectTransform:
@@ -59988,7 +61072,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1918936147
 RectTransform:
@@ -60134,7 +61218,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1919200390
 RectTransform:
@@ -60208,7 +61292,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1925952527
 RectTransform:
@@ -60373,6 +61457,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -60385,6 +61473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -60791,7 +61884,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 10
+  m_DynamicPixelsPerUnit: 4
 --- !u!223 &1945462206
 Canvas:
   m_ObjectHideFlags: 0
@@ -60904,7 +61997,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1952739237
 RectTransform:
@@ -61133,6 +62226,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -61145,6 +62242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -61424,6 +62526,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -61436,6 +62542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -61678,7 +62789,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &1971773529
 RectTransform:
@@ -61992,7 +63103,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!64 &1975726216
 MeshCollider:
@@ -62215,6 +63326,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -62227,6 +63342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -62915,7 +64035,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 10
+  m_DynamicPixelsPerUnit: 7
 --- !u!223 &2020279362
 Canvas:
   m_ObjectHideFlags: 0
@@ -63027,6 +64147,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -63039,6 +64163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -63164,7 +64293,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2023740594
 RectTransform:
@@ -63690,7 +64819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a617e4c49490f0479c2955083eb4f94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63877,7 +65006,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2043500891
 RectTransform:
@@ -64027,7 +65156,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 111
   m_IsActive: 0
 --- !u!23 &2044108870
 MeshRenderer:
@@ -64383,7 +65512,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2058200537
 RectTransform:
@@ -64554,6 +65683,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -64566,6 +65699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (132)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -64840,6 +65978,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -64852,6 +65994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -65208,7 +66355,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2079771728
 RectTransform:
@@ -65329,6 +66476,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -65341,6 +66492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -65514,6 +66670,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -65526,6 +66686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (130)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -65617,7 +66782,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &2086949102
 Transform:
@@ -65732,7 +66897,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &2090283233
 Transform:
@@ -65766,7 +66931,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2090388485
 RectTransform:
@@ -66018,6 +67183,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -66030,6 +67199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -66123,7 +67297,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2097151987
 RectTransform:
@@ -66197,7 +67371,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2100698018
 RectTransform:
@@ -66377,7 +67551,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2105425416
 RectTransform:
@@ -66598,6 +67772,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -66610,6 +67788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (92)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -66963,7 +68146,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!224 &2112110366
 RectTransform:
@@ -67239,7 +68422,7 @@ BoxCollider:
   m_GameObject: {fileID: 2116619458}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -67306,7 +68489,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 110
   m_IsActive: 1
 --- !u!114 &2117611345
 MonoBehaviour:
@@ -67486,6 +68669,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -67498,6 +68685,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -67589,7 +68781,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &2124972020
 Transform:
@@ -67810,7 +69002,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &2143775780
 Transform:
@@ -67891,6 +69083,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -67903,6 +69099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
@@ -68223,6 +69424,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016843686, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2016843688, guid: 933a2bda6f6891f47bb1f2bf69d1f616, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -68235,6 +69440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013517149622320611, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3013517149622673859, guid: 933a2bda6f6891f47bb1f2bf69d1f616,
         type: 3}
