@@ -54,6 +54,7 @@ public class Player : UdonSharpBehaviour
         PlayerIndex = playerIndex;
         PlayerStatus.Initialize();
         Subtitle.SetPlaytime(12.0f);
+        NetworkMessage = SerializeRiichi(false);
     }
 
     Transform[] FindPoints()

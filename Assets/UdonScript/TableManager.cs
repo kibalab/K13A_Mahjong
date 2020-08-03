@@ -280,7 +280,7 @@ public class TableManager : UdonSharpBehaviour
             yama[index++].Initialize_Master("중", 7, false);
         }
 
-        //yama = ShuffleCards(yama);
+        yama = ShuffleCards(yama);
 
         for (var i = 0; i < yama.Length; ++i)
         {

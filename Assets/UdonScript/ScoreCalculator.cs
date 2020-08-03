@@ -106,7 +106,8 @@ public class ScoreCalculator : UdonSharpBehaviour
         }
     }
 
-    void AddScore_Pinfu(PlayerStatus playerStatus, AgariContext agariContext, object[] ctx)
+
+     void AddScore_Pinfu(PlayerStatus playerStatus, AgariContext agariContext, object[] ctx)
     {
         var head = GetHeadGlobalOrder(ctx);
         var ponCount = Ctx.ReadPonCount(ctx);
