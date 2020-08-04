@@ -4,10 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using VRC.SDKBase;
+using VRC.SDKBase.Editor.BuildPipeline;
 #if UDON
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
@@ -20,6 +23,26 @@ using Object = UnityEngine.Object;
 public partial class VRCSdkControlPanel : EditorWindow
 {
     public static System.Action _EnableSpatialization = null;   // assigned in AutoAddONSPAudioSourceComponents
+
+    private static PropertyInfo _legacyBlendshapeNormalsPropertyInfo;
+    private static PropertyInfo LegacyBlendShapeNormalsPropertyInfo
+    {
+        get
+        {
+            if(_legacyBlendshapeNormalsPropertyInfo != null)
+            {
+                return _legacyBlendshapeNormalsPropertyInfo;
+            }
+
+            Type modelImporterType = typeof(ModelImporter);
+            _legacyBlendshapeNormalsPropertyInfo = modelImporterType.GetProperty(
+                "legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes",
+                BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
+            );
+
+            return _legacyBlendshapeNormalsPropertyInfo;
+        }
+    }
 
     const string kCantPublishContent = "Before you can upload avatars or worlds, you will need to spend some time in VRChat.";
     const string kCantPublishAvatars = "Before you can upload avatars, you will need to spend some time in VRChat.";
@@ -1544,24 +1567,28 @@ public partial class VRCSdkControlPanel : EditorWindow
         GUI.enabled = (GUIErrors.Count == 0 && checkedForIssues) || VRC.Core.APIUser.CurrentUser.developerType == VRC.Core.APIUser.DeveloperType.Internal;
         if (GUILayout.Button(GetBuildAndPublishButtonString()))
         {
-            if (VRC.Core.APIUser.CurrentUser.canPublishWorlds)
+            bool buildBlocked = !VRCBuildPipelineCallbacks.OnVRCSDKBuildRequested(VRCSDKRequestedBuildType.Scene);
+            if(!buildBlocked)
             {
-                EnvConfig.ConfigurePlayerSettings();
-                EditorPrefs.SetBool("VRC.SDKBase_StripAllShaders", false);
+                if (VRC.Core.APIUser.CurrentUser.canPublishWorlds)
+                {
+                    EnvConfig.ConfigurePlayerSettings();
+                    EditorPrefs.SetBool("VRC.SDKBase_StripAllShaders", false);
 
-#if VRC_SDK_VRCSDK2
-                VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
-                VRC_SdkBuilder.PreBuildBehaviourPackaging();
-                VRC_SdkBuilder.ExportAndUploadSceneBlueprint(customNamespace);
-#elif VRC_SDK_VRCSDK3
+                    #if VRC_SDK_VRCSDK2
+                    VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
+                    VRC_SdkBuilder.PreBuildBehaviourPackaging();
+                    VRC_SdkBuilder.ExportAndUploadSceneBlueprint(customNamespace);
+                    #elif VRC_SDK_VRCSDK3
                     VRC.SDK3.Editor.VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
                     VRC.SDK3.Editor.VRC_SdkBuilder.PreBuildBehaviourPackaging();
                     VRC.SDK3.Editor.VRC_SdkBuilder.ExportAndUploadSceneBlueprint(customNamespace);
-#endif
-            }
-            else
-            {
-                ShowContentPublishPermissionsDialog();
+                    #endif
+                }
+                else
+                {
+                    ShowContentPublishPermissionsDialog();
+                }
             }
         }
         GUILayout.EndVertical();
@@ -1915,18 +1942,20 @@ public partial class VRCSdkControlPanel : EditorWindow
 
         if (HasSubstances(avatar.gameObject))
         {
-            OnGUIWarning(avatar, "This avatar has one or more Substance materials, which is not supported and may break ingame. Please bake your Substances to regular materials.",
+            OnGUIWarning(avatar, "This avatar has one or more Substance materials, which is not supported and may break in-game. Please bake your Substances to regular materials.",
                     () => { Selection.objects = GetSubstanceObjects(avatar.gameObject); },
                     null);
         }
 
-#if UNITY_ANDROID
+        CheckAvatarMeshesForLegacyBlendShapesSetting(avatar);
+
+        #if UNITY_ANDROID
         IEnumerable<Shader> illegalShaders = AvatarValidation.FindIllegalShaders(avatar.gameObject);
         foreach (Shader s in illegalShaders)
         {
             OnGUIError(avatar, "Avatar uses unsupported shader '" + s.name + "'. You can only use the shaders provided in 'VRChat/Mobile' for Quest avatars.", delegate () { Selection.activeObject = avatar.gameObject; }, null);
         }
-#endif
+        #endif
 
         foreach (AvatarPerformanceCategory perfCategory in System.Enum.GetValues(typeof(AvatarPerformanceCategory)))
         {
@@ -1982,6 +2011,189 @@ public partial class VRCSdkControlPanel : EditorWindow
         }
 
         OnGUILink(avatar, "Avatar Optimization Tips", kAvatarOptimizationTipsURL);
+    }
+
+    private void CheckAvatarMeshesForLegacyBlendShapesSetting(VRC_AvatarDescriptor avatar)
+    {
+        if(LegacyBlendShapeNormalsPropertyInfo == null)
+        {
+            Debug.LogError("Could not check for legacy blend shape normals because 'legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes' was not found.");
+            return;
+        }
+
+        // Get all of the meshes used by skinned mesh renderers.
+        HashSet<Mesh> avatarSkinnedMeshes = GetAllMeshesInGameObjectHierarchy(avatar.gameObject);
+        HashSet<Mesh> incorrectlyConfiguredMeshes = ScanMeshesForIncorrectBlendShapeNormalsSetting(avatarSkinnedMeshes);
+        if(incorrectlyConfiguredMeshes.Count > 0)
+        {
+            OnGUIError(
+                avatar,
+                "This avatar contains skinned meshes that were imported with Blendshape Normals set to 'Calculate' but aren't using 'Legacy Blendshape Normals'. This will significantly increase the size of the uploaded avatar. This must be fixed in the mesh import settings before uploading.",
+                null,
+                () =>
+                {
+                    EnableLegacyBlendshapeNormals(incorrectlyConfiguredMeshes);
+                });
+        }
+    }
+
+    private static HashSet<Mesh> ScanMeshesForIncorrectBlendShapeNormalsSetting(HashSet<Mesh> avatarMeshes)
+    {
+        HashSet<Mesh> incorrectlyConfiguredMeshes = new HashSet<Mesh>();
+        foreach(Mesh avatarMesh in avatarMeshes)
+        {
+            // Can't get ModelImporter if the model isn't an asset.
+            if(!AssetDatabase.Contains(avatarMesh))
+            {
+                continue;
+            }
+
+            string meshAssetPath = AssetDatabase.GetAssetPath(avatarMesh);
+            if(string.IsNullOrEmpty(meshAssetPath))
+            {
+                continue;
+            }
+
+            ModelImporter avatarImporter = AssetImporter.GetAtPath(meshAssetPath) as ModelImporter;
+            if(avatarImporter == null)
+            {
+                continue;
+            }
+
+            if(avatarImporter.importBlendShapeNormals != ModelImporterNormals.Calculate)
+            {
+                continue;
+            }
+
+            bool useLegacyBlendshapeNormals = (bool)LegacyBlendShapeNormalsPropertyInfo.GetValue(avatarImporter);
+            if(useLegacyBlendshapeNormals)
+            {
+                continue;
+            }
+
+            if(!incorrectlyConfiguredMeshes.Contains(avatarMesh))
+            {
+                incorrectlyConfiguredMeshes.Add(avatarMesh);
+            }
+        }
+
+        return incorrectlyConfiguredMeshes;
+    }
+
+    private static HashSet<Mesh> GetAllMeshesInGameObjectHierarchy(GameObject avatar)
+    {
+        HashSet<Mesh> avatarMeshes = new HashSet<Mesh>();
+        foreach(SkinnedMeshRenderer avatarSkinnedMeshRenderer in avatar.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+        {
+            if(avatarSkinnedMeshRenderer == null)
+            {
+                continue;
+            }
+
+            Mesh skinnedMesh = avatarSkinnedMeshRenderer.sharedMesh;
+            if(skinnedMesh == null)
+            {
+                continue;
+            }
+
+            if(avatarMeshes.Contains(skinnedMesh))
+            {
+                continue;
+            }
+
+            avatarMeshes.Add(skinnedMesh);
+        }
+
+        foreach(MeshFilter avatarMeshFilter in avatar.GetComponentsInChildren<MeshFilter>(true))
+        {
+            if(avatarMeshFilter == null)
+            {
+                continue;
+            }
+
+            Mesh skinnedMesh = avatarMeshFilter.sharedMesh;
+            if(skinnedMesh == null)
+            {
+                continue;
+            }
+
+            if(avatarMeshes.Contains(skinnedMesh))
+            {
+                continue;
+            }
+
+            avatarMeshes.Add(skinnedMesh);
+        }
+
+        foreach(ParticleSystemRenderer avatarParticleSystemRenderer in avatar.GetComponentsInChildren<ParticleSystemRenderer>(true))
+        {
+            if(avatarParticleSystemRenderer == null)
+            {
+                continue;
+            }
+
+            Mesh[] avatarParticleSystemRendererMeshes = new Mesh[avatarParticleSystemRenderer.meshCount];
+            avatarParticleSystemRenderer.GetMeshes(avatarParticleSystemRendererMeshes);
+            foreach(Mesh avatarParticleSystemRendererMesh in avatarParticleSystemRendererMeshes)
+            {
+                if(avatarParticleSystemRendererMesh == null)
+                {
+                    continue;
+                }
+
+                if(avatarMeshes.Contains(avatarParticleSystemRendererMesh))
+                {
+                    continue;
+                }
+
+                avatarMeshes.Add(avatarParticleSystemRendererMesh);
+            }
+        }
+
+        return avatarMeshes;
+    }
+
+    private static void EnableLegacyBlendshapeNormals(IEnumerable<Mesh> meshesToFix)
+    {
+        HashSet<string> meshAssetPaths = new HashSet<string>();
+        foreach(Mesh meshToFix in meshesToFix)
+        {
+            // Can't get ModelImporter if the model isn't an asset.
+            if(!AssetDatabase.Contains(meshToFix))
+            {
+                continue;
+            }
+
+            string meshAssetPath = AssetDatabase.GetAssetPath(meshToFix);
+            if(string.IsNullOrEmpty(meshAssetPath))
+            {
+                continue;
+            }
+
+            if(meshAssetPaths.Contains(meshAssetPath))
+            {
+                continue;
+            }
+
+            meshAssetPaths.Add(meshAssetPath);
+        }
+
+        foreach(string meshAssetPath in meshAssetPaths)
+        {
+            ModelImporter avatarImporter = AssetImporter.GetAtPath(meshAssetPath) as ModelImporter;
+            if(avatarImporter == null)
+            {
+                continue;
+            }
+
+            if(avatarImporter.importBlendShapeNormals != ModelImporterNormals.Calculate)
+            {
+                continue;
+            }
+
+            LegacyBlendShapeNormalsPropertyInfo.SetValue(avatarImporter, true);
+            avatarImporter.SaveAndReimport();
+        }
     }
 
     GameObject[] GetSubstanceObjects(GameObject obj = null, bool earlyOut = false)
@@ -2170,30 +2382,34 @@ public partial class VRCSdkControlPanel : EditorWindow
         GUI.enabled = (GUIErrors.Count == 0 && checkedForIssues) || VRC.Core.APIUser.CurrentUser.developerType == VRC.Core.APIUser.DeveloperType.Internal;
         if (GUILayout.Button(GetBuildAndPublishButtonString()))
         {
-            if (VRC.Core.APIUser.CurrentUser.canPublishAvatars)
+            bool buildBlocked = !VRCBuildPipelineCallbacks.OnVRCSDKBuildRequested(VRCSDKRequestedBuildType.Avatar);
+            if(!buildBlocked)
             {
-                EnvConfig.FogSettings originalFogSettings = EnvConfig.GetFogSettings();
-                EnvConfig.SetFogSettings(new EnvConfig.FogSettings(EnvConfig.FogSettings.FogStrippingMode.Custom, true, true, true));
+                if(VRC.Core.APIUser.CurrentUser.canPublishAvatars)
+                {
+                    EnvConfig.FogSettings originalFogSettings = EnvConfig.GetFogSettings();
+                    EnvConfig.SetFogSettings(new EnvConfig.FogSettings(EnvConfig.FogSettings.FogStrippingMode.Custom, true, true, true));
 
-                #if UNITY_ANDROID
-                EditorPrefs.SetBool("VRC.SDKBase_StripAllShaders", true);
-                #else
-                EditorPrefs.SetBool("VRC.SDKBase_StripAllShaders", false);
-                #endif
+                    #if UNITY_ANDROID
+                    EditorPrefs.SetBool("VRC.SDKBase_StripAllShaders", true);
+                    #else
+                    EditorPrefs.SetBool("VRC.SDKBase_StripAllShaders", false);
+                    #endif
 
-#if VRC_SDK_VRCSDK2
-                VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
-                VRC_SdkBuilder.ExportAndUploadAvatarBlueprint(avatar.gameObject);
-#elif VRC_SDK_VRCSDK3
-                VRC.SDK3.Editor.VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
-                VRC.SDK3.Editor.VRC_SdkBuilder.ExportAndUploadAvatarBlueprint(avatar.gameObject);
-#endif
+                    #if VRC_SDK_VRCSDK2
+                    VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
+                    VRC_SdkBuilder.ExportAndUploadAvatarBlueprint(avatar.gameObject);
+                    #elif VRC_SDK_VRCSDK3
+                    VRC.SDK3.Editor.VRC_SdkBuilder.shouldBuildUnityPackage = VRCSdkControlPanel.FutureProofPublishEnabled;
+                    VRC.SDK3.Editor.VRC_SdkBuilder.ExportAndUploadAvatarBlueprint(avatar.gameObject);
+                    #endif
 
-                EnvConfig.SetFogSettings(originalFogSettings);
-            }
-            else
-            {
-                ShowContentPublishPermissionsDialog();
+                    EnvConfig.SetFogSettings(originalFogSettings);
+                }
+                else
+                {
+                    ShowContentPublishPermissionsDialog();
+                } 
             }
         }
         GUI.enabled = true;

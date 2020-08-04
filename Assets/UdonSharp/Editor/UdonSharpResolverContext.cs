@@ -144,6 +144,8 @@ namespace UdonSharp
             { "_onTriggerStay2D", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(Collider2D), "onTriggerStay2DOther") } },
             { "_onPlayerJoined", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerJoinedPlayer") } },
             { "_onPlayerLeft", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerLeftPlayer") } },
+            { "_onStationEntered", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onStationEnteredPlayer") } },
+            { "_onStationExited", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onStationExitedPlayer") } },
         };
 
         public System.Tuple<System.Type, string>[] GetMethodCustomArgs(string methodName)
@@ -728,12 +730,16 @@ namespace UdonSharp
                 validMethods = validMethods.Where(e => !(e is OperatorMethodInfo)).ToList();
 
             // Count the params using methods in this pass
+            // todo: this still needs a chunk of work to handle when users don't pass anything for params along with handling default arguments before the params args, 
+            //   but Udon doesn't expose any methods where this matters so it can wait till user methods need to support params and default arguments
             int paramsArgCount = 0, nonParamsArgCount = 0;
             foreach (MethodBase methodInfo in validMethods)
             {
                 ParameterInfo[] methodParameters = methodInfo.GetParameters();
 
-                if (methodParameters.Length > 0 && methodParameters.Last().GetCustomAttributes(typeof(System.ParamArrayAttribute), false).Length > 0)
+                if (methodParameters.Length > 0 &&
+                    (methodParameters.Length > methodArgs.Count || !methodParameters.Last().ParameterType.IsImplicitlyAssignableFrom(methodArgs.Last())) && // Ignore params when the user is passing an array directly in for the params array
+                    methodParameters.Last().HasParamsParameter())
                     paramsArgCount++;
                 else
                     nonParamsArgCount++;
@@ -744,7 +750,7 @@ namespace UdonSharp
             {
                 validMethods = validMethods.Where(e => {
                     ParameterInfo[] parameters = e.GetParameters();
-                    return parameters.Length == 0 || !parameters.Last().HasParamsParameter();
+                    return parameters.Length == 0 || !parameters.Last().HasParamsParameter() || parameters.Last().ParameterType.IsImplicitlyAssignableFrom(methodArgs.Last());
                 }).ToList();
             }
 
@@ -863,7 +869,7 @@ namespace UdonSharp
                 {
                     System.Type argType = i < methodArgs.Count ? methodArgs[i] : null;
 
-                    if (!methodParams[i].HasParamsParameter())
+                    if (!methodParams[i].HasParamsParameter() || methodParams[i].ParameterType.IsImplicitlyAssignableFrom(argType))
                     {
                         totalScore += ScoreMethodParamArgPair(methodParams[i], argType);
                     }

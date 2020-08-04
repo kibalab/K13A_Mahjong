@@ -104,6 +104,8 @@
     <Compile Include="Assets\UdonSharp\Examples\Utilities\BoneFollower.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Utilities\InteractToggle.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Utilities\PlayerModSetter.cs" />
+    <Compile Include="Assets\UdonSharp\Examples\Utilities\Synced\GlobalToggleObject.cs" />
+    <Compile Include="Assets\UdonSharp\Examples\Utilities\Synced\MasterToggleObject.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Utilities\TrackingDataFollower.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\Oculus\Spatializer\Scripts\ONSPAudioSource.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\ApiFileHelper.cs" />
@@ -436,6 +438,9 @@
     </Reference>
     <Reference Include="VRCSDK3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>
     </Reference>
     <Reference Include="VRCSDKBase">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>
@@ -819,9 +824,13 @@
       <Project>{9253B636-7D73-DA67-DFDC-1F4317FE018A}</Project>
       <Name>VRC.Udon.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="VRCSDK.ShaderStripping.csproj">
-      <Project>{E904A13C-84E8-D6AF-4BBD-3ED67634E3F2}</Project>
-      <Name>VRCSDK.ShaderStripping</Name>
+    <ProjectReference Include="VRC.SDKBase.Editor.BuildPipeline.csproj">
+      <Project>{4740F001-1A05-D2E1-8AA9-3DBE3935793B}</Project>
+      <Name>VRC.SDKBase.Editor.BuildPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="VRC.SDKBase.Editor.ShaderStripping.csproj">
+      <Project>{AD41D008-F13C-0C0D-FDBE-D7DD499D9397}</Project>
+      <Name>VRC.SDKBase.Editor.ShaderStripping</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Assertions;
 using VRC.Udon.Common;
@@ -182,7 +183,7 @@ namespace VRC.Udon.Editor.ProgramSources
 
                 Undo.RecordObject(udonBehaviour, "Modify Public Variable");
 
-                if(!publicVariables.TrySetVariableValue(exportedSymbol, variableValue))
+                if(variableValue != null && !publicVariables.TrySetVariableValue(exportedSymbol, variableValue))
                 {
                     if(!publicVariables.TryAddVariable(CreateUdonVariable(exportedSymbol, variableValue, symbolType)))
                     {
@@ -1125,6 +1126,20 @@ namespace VRC.Udon.Editor.ProgramSources
                     if (EditorGUI.EndChangeCheck())
                     {
                         variableValue = valueArray;
+                        dirty = true;
+                    }
+                }
+                else if (variableType == typeof(LayerMask))
+                {
+                    LayerMask maskValue = (LayerMask)variableValue;
+                    GUI.SetNextControlName("NodeField");
+                    EditorGUI.BeginChangeCheck();
+                    EditorGUILayout.LabelField(symbol);
+                    // Using workaround from http://answers.unity.com/answers/1387522/view.html
+                    LayerMask tempMask = EditorGUILayout.MaskField(InternalEditorUtility.LayerMaskToConcatenatedLayersMask(maskValue), InternalEditorUtility.layers);
+                    variableValue = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
+                    if (EditorGUI.EndChangeCheck())
+                    {
                         dirty = true;
                     }
                 }

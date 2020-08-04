@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEditor;
@@ -88,33 +89,12 @@ namespace VRC.Udon.Editor
             EditorSceneManager.sceneOpened += OnSceneOpened;
             EditorSceneManager.sceneSaving += OnSceneSaving;
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
-            EditorApplication.update += UdonEditorManagerUpdate;
         }
 
         #endregion
 
         #region UdonBehaviour and ProgramSource Refresh
-
-        private void UdonEditorManagerUpdate()
-        {
-            if(Application.isPlaying)
-            {
-                return;
-            }
-
-            if(_programSourceRefreshQueue.Count <= 0)
-            {
-                return;
-            }
-
-            if(EditorApplication.timeSinceStartup - _lastProgramRefreshQueueTime < REFRESH_QUEUE_WAIT_PERIOD)
-            {
-                return;
-            }
-
-            RefreshQueuedProgramSources();
-        }
-
+        
         public void RefreshQueuedProgramSources()
         {
             foreach(AbstractUdonProgramSource programSource in _programSourceRefreshQueue)
@@ -280,8 +260,6 @@ namespace VRC.Udon.Editor
                 return;
             }
 
-            RefreshQueuedProgramSources();
-
             for(int index = 0; index < SceneManager.sceneCount; index++)
             {
                 PopulateSceneSerializedProgramAssetReferences(SceneManager.GetSceneAt(index));
@@ -359,6 +337,82 @@ namespace VRC.Udon.Editor
         public Dictionary<string, INodeRegistry> GetNodeRegistries()
         {
             return _udonEditorInterface.GetNodeRegistries();
+        }
+
+        private IReadOnlyDictionary<string, ReadOnlyCollection<KeyValuePair<string, INodeRegistry>>> _topRegistries;
+
+        public IReadOnlyDictionary<string, ReadOnlyCollection<KeyValuePair<string, INodeRegistry>>> GetTopRegistries()
+        {
+            if (_topRegistries != null) return _topRegistries;
+
+            var topRegistries = new Dictionary<string, List<KeyValuePair<string, INodeRegistry>>>()
+            {
+                {"System", new List<KeyValuePair<string, INodeRegistry>>()},
+                {"Udon", new List<KeyValuePair<string, INodeRegistry>>()},
+                {"VRC", new List<KeyValuePair<string, INodeRegistry>>()},
+                {"UnityEngine", new List<KeyValuePair<string, INodeRegistry>>()},
+            };
+
+            // Go through each node registry and put it in the right parent registry
+            foreach (KeyValuePair<string, INodeRegistry> nodeRegistry in GetNodeRegistries())
+            {
+                if (nodeRegistry.Key.StartsWith("System"))
+                {
+                    topRegistries["System"].Add(nodeRegistry);
+                }
+                else if (nodeRegistry.Key.StartsWith("Udon"))
+                {
+                    topRegistries["Udon"].Add(nodeRegistry);
+                }
+                else if (nodeRegistry.Key.StartsWith("VRC"))
+                {
+                    topRegistries["VRC"].Add(nodeRegistry);
+                }
+                else if (nodeRegistry.Key.StartsWith("UnityEngine"))
+                {
+                    topRegistries["UnityEngine"].Add(nodeRegistry);
+                }
+                else
+                {
+                    Debug.Log(nodeRegistry.Key);
+                }
+            }
+
+            // Save result as cached variable
+            _topRegistries = new ReadOnlyDictionary<string, ReadOnlyCollection<KeyValuePair<string, INodeRegistry>>>
+            (
+                topRegistries.ToDictionary(entry => entry.Key, entry => entry.Value.AsReadOnly())
+            );
+            
+            // return cached version
+           return _topRegistries;
+        }
+
+        private Dictionary<string, INodeRegistry> _registryLookup;
+
+        private void CacheRegistryLookup()
+        {
+            _registryLookup = new Dictionary<string, INodeRegistry>();
+
+            foreach (KeyValuePair<string, INodeRegistry> topRegistry in GetNodeRegistries())
+            {
+                // save top-level registry. do we need to do this? probably not
+                _registryLookup.Add(topRegistry.Key, topRegistry.Value);
+
+                foreach (KeyValuePair<string, INodeRegistry> registry in topRegistry.Value.GetNodeRegistries())
+                {
+                    _registryLookup.Add(registry.Key, registry.Value);
+                }
+            }
+        }
+
+        public bool TryGetRegistry(string name, out INodeRegistry registry)
+        {
+            if(_registryLookup == null)
+            {
+                CacheRegistryLookup();
+            }
+            return _registryLookup.TryGetValue(name, out registry);
         }
 
         public IEnumerable<UdonNodeDefinition> GetNodeDefinitions(string baseIdentifier)

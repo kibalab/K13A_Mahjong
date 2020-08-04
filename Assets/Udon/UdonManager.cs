@@ -16,20 +16,20 @@ namespace VRC.Udon
         public UdonBehaviour currentlyExecuting;
         
         private static UdonManager _instance;
-        private static bool _isUdonEnabled = true;
-        private static Dictionary<GameObject, List<UdonBehaviour>> _sceneBehaviours = new Dictionary<GameObject, List<UdonBehaviour>>();
+        private bool _isUdonEnabled = true;
+        private readonly Dictionary<Scene, Dictionary<GameObject, HashSet<UdonBehaviour>>> _sceneUdonBehaviourDirectories = new Dictionary<Scene, Dictionary<GameObject, HashSet<UdonBehaviour>>>();
 
         public static UdonManager Instance
         {
             get
             {
-                if(_instance != null)
+                if (_instance != null)
                 {
                     return _instance;
                 }
 
                 GameObject udonManagerGameObject = new GameObject("UdonManager");
-                if(Application.isPlaying)
+                if (Application.isPlaying)
                 {
                     DontDestroyOnLoad(udonManagerGameObject);
                 }
@@ -45,7 +45,7 @@ namespace VRC.Udon
         {
             get
             {
-                if(_udonClientInterface != null)
+                if (_udonClientInterface != null)
                 {
                     return _udonClientInterface;
                 }
@@ -59,62 +59,89 @@ namespace VRC.Udon
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
 
         private void OnDisable()
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
         }
 
-        private static void OnSceneLoaded(Scene scene, LoadSceneMode _)
+        private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
-            _sceneBehaviours.Clear();
-            
-            if (!_isUdonEnabled)
+            if(loadSceneMode == LoadSceneMode.Single)
+            {
+                _sceneUdonBehaviourDirectories.Clear();
+            }
+
+            Dictionary<GameObject, HashSet<UdonBehaviour>> sceneUdonBehaviourDirectory = new Dictionary<GameObject, HashSet<UdonBehaviour>>();
+            List<Transform> transformsTempList = new List<Transform>();
+            foreach(GameObject rootGameObject in scene.GetRootGameObjects())
+            {
+                rootGameObject.GetComponentsInChildren(true, transformsTempList);
+                foreach(Transform currentTransform in transformsTempList)
+                {
+                    List<UdonBehaviour> currentGameObjectUdonBehaviours = new List<UdonBehaviour>();
+                    GameObject currentGameObject = currentTransform.gameObject;
+                    currentGameObject.GetComponents(currentGameObjectUdonBehaviours);
+
+                    if(currentGameObjectUdonBehaviours.Count > 0)
+                    {
+                        sceneUdonBehaviourDirectory.Add(currentGameObject, new HashSet<UdonBehaviour>(currentGameObjectUdonBehaviours));
+                    }
+                }
+            }
+
+            if(!_isUdonEnabled)
             {
                 VRC.Core.Logger.LogWarning("Udon is disabled globally, Udon components will be removed from the scene.");
-            }
-            
-            GameObject[] sceneRootGameObjects = scene.GetRootGameObjects();
-            List<UdonBehaviour> udonBehavioursWorkingList = new List<UdonBehaviour>();
-            foreach(GameObject rootGameObject in sceneRootGameObjects)
-            {
-                rootGameObject.GetComponentsInChildren(true, udonBehavioursWorkingList);
-                foreach(UdonBehaviour udonBehaviour in udonBehavioursWorkingList)
+                foreach(HashSet<UdonBehaviour> udonBehaviours in sceneUdonBehaviourDirectory.Values)
                 {
-                    if (_isUdonEnabled)
-                    {
-                        if (!_sceneBehaviours.TryGetValue(udonBehaviour.gameObject,
-                            out List<UdonBehaviour> behavioursOnObject))
-                        {
-                            behavioursOnObject = new List<UdonBehaviour>();
-                            _sceneBehaviours.Add(udonBehaviour.gameObject, behavioursOnObject);
-                        }
-                        behavioursOnObject.Add(udonBehaviour);
-                    }
-                    else
+                    foreach(UdonBehaviour udonBehaviour in udonBehaviours)
                     {
                         Destroy(udonBehaviour);
                     }
                 }
+
+                return;
+            }
+
+            _sceneUdonBehaviourDirectories.Add(scene, sceneUdonBehaviourDirectory);
+
+            // Initialize all UdonBehaviours in the scene so their Public Variables are populated.
+            foreach (HashSet<UdonBehaviour> udonBehaviourList in sceneUdonBehaviourDirectory.Values)
+            {
+                foreach (UdonBehaviour udonBehaviour in udonBehaviourList)
+                {
+                    udonBehaviour.InitializeUdonContent();
+                }
+            }
+        }
+
+        private void OnSceneUnloaded(Scene scene)
+        {
+            if(_sceneUdonBehaviourDirectories.ContainsKey(scene))
+            {
+                _sceneUdonBehaviourDirectories.Remove(scene);
             }
         }
 
         public void Awake()
         {
-            if(_instance == null)
+            if (_instance == null)
             {
                 _instance = this;
             }
 
             DebugLogging = Application.isEditor;
 
-            if(this == Instance)
+            if (this == Instance)
             {
                 return;
             }
 
-            if(Application.isPlaying)
+            if (Application.isPlaying)
             {
                 Destroy(this);
             }
@@ -136,7 +163,7 @@ namespace VRC.Udon
         [PublicAPI]
         public static void SetUdonEnabled(bool isEnabled)
         {
-            _isUdonEnabled = isEnabled;
+            _instance._isUdonEnabled = isEnabled;
         }
 
         public IUdonVM ConstructUdonVM()
@@ -175,15 +202,44 @@ namespace VRC.Udon
             return UdonClientInterface.GetWrapper();
         }
 
-        //Run an udon event on all objects in the scene
+        [PublicAPI]
+        public void RegisterUdonBehaviour(UdonBehaviour udonBehaviour)
+        {
+            GameObject udonBehaviourGameObject = udonBehaviour.gameObject;
+            Scene udonBehaviourScene = udonBehaviourGameObject.scene;
+            if(!_sceneUdonBehaviourDirectories.TryGetValue(udonBehaviourScene, out Dictionary<GameObject, HashSet<UdonBehaviour>> sceneUdonBehaviourDirectory))
+            {
+                return;
+            }
+
+            if(!sceneUdonBehaviourDirectory.TryGetValue(udonBehaviourGameObject, out HashSet<UdonBehaviour> gameObjectUdonBehaviours))
+            {
+                gameObjectUdonBehaviours = new HashSet<UdonBehaviour>();
+                sceneUdonBehaviourDirectory.Add(udonBehaviourGameObject, gameObjectUdonBehaviours);
+                return;
+            }
+
+            if(!gameObjectUdonBehaviours.Contains(udonBehaviour))
+            {
+                gameObjectUdonBehaviours.Add(udonBehaviour);
+            }
+        }
+
+        //Run an udon event on all objects
         [PublicAPI]
         public void RunEvent(string eventName, params (string symbolName, object value)[] programVariables)
         {
-            foreach (List<UdonBehaviour> udonBehaviourList in _sceneBehaviours.Values)
+            foreach(Dictionary<GameObject, HashSet<UdonBehaviour>> sceneUdonBehaviourDirectory in _sceneUdonBehaviourDirectories.Values)
             {
-                foreach (UdonBehaviour udonBehaviour in udonBehaviourList)
+                foreach (HashSet<UdonBehaviour> udonBehaviourList in sceneUdonBehaviourDirectory.Values)
                 {
-                    udonBehaviour.RunEvent(eventName, programVariables);    
+                    foreach (UdonBehaviour udonBehaviour in udonBehaviourList)
+                    {
+                        if(udonBehaviour != null)
+                        {
+                            udonBehaviour.RunEvent(eventName, programVariables);
+                        }
+                    }
                 }
             }
         }
@@ -192,12 +248,19 @@ namespace VRC.Udon
         [PublicAPI]
         public void RunEvent(GameObject eventReceiverObject, string eventName, params (string symbolName, object value)[] programVariables)
         {
-            if (_sceneBehaviours.TryGetValue(eventReceiverObject, out List<UdonBehaviour> eventReceiverBehaviourList))
+            if(!_sceneUdonBehaviourDirectories.TryGetValue(eventReceiverObject.scene, out Dictionary<GameObject, HashSet<UdonBehaviour>> sceneUdonBehaviourDirectory))
             {
-                foreach (UdonBehaviour udonBehaviour in eventReceiverBehaviourList)
-                {
-                    udonBehaviour.RunEvent(eventName, programVariables);    
-                }
+                return;
+            }
+
+            if(!sceneUdonBehaviourDirectory.TryGetValue(eventReceiverObject, out HashSet<UdonBehaviour> eventReceiverBehaviourList))
+            {
+                return;
+            }
+
+            foreach(UdonBehaviour udonBehaviour in eventReceiverBehaviourList)
+            {
+                udonBehaviour.RunEvent(eventName, programVariables);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿#if !VRC_CLIENT
 using System.Collections.Generic;
 using UnityEngine;
+using VRC.Udon;
 using VRC.Udon.Common.Attributes;
 using VRC.Udon.Common.Delegates;
 using VRC.Udon.Common.Interfaces;
@@ -64,6 +65,12 @@ namespace VRC.Udon.Wrapper.Modules
             #endif
 
             GameObject clone = Object.Instantiate(original);
+            foreach(UdonBehaviour udonBehaviour in clone.GetComponentsInChildren<UdonBehaviour>())
+            {
+                UdonManager.Instance.RegisterUdonBehaviour(udonBehaviour);
+                udonBehaviour.InitializeUdonContent();
+            }
+
             heap.SetHeapVariable(parameterAddresses[1], clone);
         }
     }

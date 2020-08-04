@@ -71,6 +71,7 @@ namespace VRC.Udon
         private int _debugLevel;
         private bool _hasError;
         private bool _hasDoneStart;
+        private bool _initialized;
         private readonly Dictionary<string, List<uint>> _eventTable = new Dictionary<string, List<uint>>();
         private readonly Dictionary<(string eventName, string symbolName), string> _symbolNameCache = new Dictionary<(string, string), string>();
 
@@ -157,6 +158,8 @@ namespace VRC.Udon
             {
                 HasInteractiveEvents = true;
             }
+
+            _eventTable.Clear();
             foreach(string entryPoint in exportedSymbols)
             {
                 uint address = _program.EntryPoints.GetAddressFromSymbol(entryPoint);
@@ -165,6 +168,7 @@ namespace VRC.Udon
                 {
                     _eventTable.Add(entryPoint, new List<uint>());
                 }
+
                 _eventTable[entryPoint].Add(address);
             }
         }
@@ -242,6 +246,8 @@ namespace VRC.Udon
         public override void Start()
         {
             InitializeUdonContent();
+
+            RunOnInit();
         }
 
         private void Update()
@@ -731,6 +737,11 @@ namespace VRC.Udon
         
         public void InitializeUdonContent()
         {
+            if(_initialized)
+            {
+                return;
+            }
+
             SetupLogging();
 
             UdonManager udonManager = UdonManager.Instance;
@@ -745,22 +756,6 @@ namespace VRC.Udon
             {
                 enabled = false;
                 VRC.Core.Logger.Log($"Could not load the program; the UdonBehaviour on '{gameObject.name}' will not run.", _debugLevel, this);
-
-                if(OnInit != null)
-                {
-                    try
-                    {
-                        OnInit(this, null);
-                    }
-                    catch(Exception exception)
-                    {
-                        VRC.Core.Logger.LogError(
-                            $"An exception '{exception.Message}' occurred during initialization; the UdonBehaviour on '{gameObject.name}' will not run. Exception:\n{exception}",
-                            _debugLevel,
-                            this
-                        );
-                    }
-                }
 
                 return;
             }
@@ -798,21 +793,28 @@ namespace VRC.Udon
             _isNetworkReady = true;
             #endif
 
-            if(OnInit != null)
+            _initialized = true;
+        }
+
+        private void RunOnInit()
+        {
+            if(OnInit == null)
             {
-                try
-                {
-                    OnInit(this, _program);
-                }
-                catch(Exception exception)
-                {
-                    enabled = false;
-                    VRC.Core.Logger.LogError(
-                        $"An exception '{exception.Message}' occurred during initialization; the UdonBehaviour on '{gameObject.name}' will not run. Exception:\n{exception}",
-                        _debugLevel,
-                        this
-                    );
-                }
+                return;
+            }
+
+            try
+            {
+                OnInit(this, _program);
+            }
+            catch(Exception exception)
+            {
+                enabled = false;
+                VRC.Core.Logger.LogError(
+                    $"An exception '{exception.Message}' occurred during initialization; the UdonBehaviour on '{gameObject.name}' will not run. Exception:\n{exception}",
+                    _debugLevel,
+                    this
+                );
             }
         }
 
