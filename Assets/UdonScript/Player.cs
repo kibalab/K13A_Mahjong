@@ -99,6 +99,10 @@ public class Player : UdonSharpBehaviour
 
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo, bool isByRinshan)
     {
+        PlayerStatus.IsFirstTsumo = isFristTsumo;
+        PlayerStatus.IsLastTsumo = isLastTsumo;
+        PlayerStatus.IsByRinshan = isByRinshan;
+
         UIContext.Clear();
         AgariContext.Clear();
 

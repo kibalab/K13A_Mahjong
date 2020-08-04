@@ -13,6 +13,9 @@ public class PlayerStatus : UdonSharpBehaviour
     public string RoundWind; // 현재 판의 방위
     public bool IsFirstOrder;
     public int KkanCount;
+    public bool IsFirstTsumo;
+    public bool IsLastTsumo;
+    public bool IsByRinshan;
 
     // 계산 중에 정함
 

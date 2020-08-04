@@ -27,9 +27,7 @@ public class ScoreCalculator : UdonSharpBehaviour
         AgariContext agariContext,
         Card[] sealedCards,
         Card[] openedCards,
-        object[] ctxs,
-        bool isLastTsumo,
-        bool isByRinshan)
+        object[] ctxs)
     {
         int[] hanList = new int[0];
         var maxHan = 0;
@@ -55,11 +53,11 @@ public class ScoreCalculator : UdonSharpBehaviour
                 // 이페코
                 AddScore_OneSetOfIdenticalSequences(playerStatus, ctx);
                 // 해저로월
-                AddScore_LastTileFromTheWall(playerStatus, isLastTsumo);
+                AddScore_LastTileFromTheWall(playerStatus);
                 // 자패
                 AddScore_WordCards(playerStatus, ctx);
                 // 영상개화
-                AddScore_DeadWallDraw(playerStatus, isByRinshan);
+                AddScore_DeadWallDraw(playerStatus);
                 // 도라
                 AddScore_Dora(playerStatus, sealedCards, openedCards);
                 // 탕야오
@@ -249,9 +247,9 @@ public class ScoreCalculator : UdonSharpBehaviour
         }
     }
 
-    void AddScore_LastTileFromTheWall(PlayerStatus playerStatus, bool isLastTsumo)
+    void AddScore_LastTileFromTheWall(PlayerStatus playerStatus)
     {
-        if (isLastTsumo)
+        if (playerStatus.IsLastTsumo)
         {
             playerStatus.AddHan("LastTileFromTheWall", 1);
         }
@@ -320,9 +318,9 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     // 영상개화
-    void AddScore_DeadWallDraw(PlayerStatus playerStatus, bool isByRinshan)
+    void AddScore_DeadWallDraw(PlayerStatus playerStatus)
     {
-        if (isByRinshan)
+        if (playerStatus.IsByRinshan)
         {
             playerStatus.AddHan("DeadWallDraw", 1);
         }
