@@ -37,7 +37,7 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_OneSetOfIdenticalSequences(playerStatus, ctx);
                 // 해저로월
                 AddScore_LastTileFromTheWall(playerStatus, isLastTsumo);
-                // 자패 (덜만듬)
+                // 자패
                 AddScore_WordCards(playerStatus, ctx);
                 // 영상개화
                 AddScore_DeadWallDraw(playerStatus, isByRinshan);
