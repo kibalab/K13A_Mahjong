@@ -226,6 +226,11 @@ public class Player : UdonSharpBehaviour
         SortPosition();
     }
 
+    public void AddKkanCount()
+    {
+        ++PlayerStatus.KkanCount;
+    }
+
     public void OpenCards(Card[] openTargetCards, int shapeType)
     {
         PlayerStatus.IsMenzen = false;

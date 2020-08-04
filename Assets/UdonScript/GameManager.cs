@@ -235,6 +235,7 @@ public class GameManager : UdonSharpBehaviour
                 currentPlayer.AddOpenKkan();
             }
 
+            currentPlayer.AddKkanCount();
             ChangeGameState(State_WaitForDiscard);
         }
         else if (eventType == "Skip")
