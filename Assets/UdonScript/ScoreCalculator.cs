@@ -25,6 +25,10 @@ public class ScoreCalculator : UdonSharpBehaviour
             playerStatus.InitializeHanFu();
             playerStatus.Fu = 20; // 기본 20부
 
+
+            // 나중에 문전 한정인 친구들 조건 밖으로 빼내서 미리 검사하자
+
+
             // ---- 1판역 ----
             {
                 // 리치
@@ -67,6 +71,12 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_AllTerminalsAndHonors(playerStatus, ctx);
                 // 삼깡쯔
                 AddScore_ThreeQuads(playerStatus);
+            }
+
+            // ---- 3판역 ----
+            {
+                // 이배구
+                AddScore_TwoSetOfIdenticalSequences(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -130,6 +140,12 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_AllTerminalsAndHonors(playerStatus, ctx);
                 // 삼깡쯔
                 AddScore_ThreeQuads(playerStatus);
+            }
+
+            // ---- 3판역 ----
+            {
+                // 이배구
+                AddScore_TwoSetOfIdenticalSequences(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -352,7 +368,7 @@ public class ScoreCalculator : UdonSharpBehaviour
         for (var targetIndex = 0; targetIndex < chiCount; ++targetIndex)
         {
             var targetNumber = startNumbers[targetIndex];
-            var sameChiCount = 0;
+            var sameChiCount = 1;
 
             for (var i = 0; i < chiCount; ++i)
             {
@@ -512,7 +528,7 @@ public class ScoreCalculator : UdonSharpBehaviour
         for (var targetIndex = 0; targetIndex < ponCount; ++targetIndex)
         {
             var targetNumber = startNumbers[targetIndex];
-            var sameChiCount = 0;
+            var samePonCount = 1;
 
             for (var i = 0; i < ponCount; ++i)
             {
@@ -520,12 +536,12 @@ public class ScoreCalculator : UdonSharpBehaviour
                 if (targetIndex == i) { continue; }
                 if (startNumbers[i] == targetNumber)
                 {
-                    ++sameChiCount;
+                    ++samePonCount;
                 }
             }
 
             // 3개 있으면 삼색동각
-            if (sameChiCount == 3)
+            if (samePonCount == 3)
             {
                 playerStatus.AddHan("ThreeColorTriplets", 2);
                 return;
@@ -604,6 +620,58 @@ public class ScoreCalculator : UdonSharpBehaviour
         {
             playerStatus.AddHan("ThreeQuads", 2);
         }
+    }
+
+    void AddScore_TwoSetOfIdenticalSequences(PlayerStatus playerStatus, object[] ctx)
+    {
+        if (!playerStatus.IsMenzen)
+        {
+            return;
+        }
+
+        // 이배구
+        var chiCount = Ctx.ReadChiCount(ctx);
+        if (chiCount != 4)
+        {
+            return;
+        }
+
+        var chiList = Ctx.ReadChiList(ctx);
+
+        // 만(1,2,3) 만(3,4,5) 통(1,2,3) 통(3,4,5)가 있다고 하자
+        // chiList에는 이렇게 들어가있을 것임
+        // chiList = [0, 2, 9, 11]
+        var startNumbers = new int[chiCount];
+        for (var i = 0; i < chiCount; ++i)
+        {
+            startNumbers[i] = chiList[i] % 9;
+        }
+        // 9 나머지 연산을 하면 이렇게 된다
+        // startNumbers = [0, 2, 0, 2]
+
+        // 어느 대상을 잡고 돌아도, 같은게 2개 있을 것이다
+        for (var targetIndex = 0; targetIndex < chiCount; ++targetIndex)
+        {
+            var targetNumber = startNumbers[targetIndex];
+            var sameChiCount = 0;
+
+            for (var i = 0; i < chiCount; ++i)
+            {
+                // 현재 비교대상과 같은 인덱스면 벗어남
+                if (targetIndex == i) { continue; }
+                if (startNumbers[i] == targetNumber)
+                {
+                    ++sameChiCount;
+                }
+            }
+
+            if (sameChiCount != 2)
+            {
+                return;
+            }
+        }
+
+        playerStatus.AddHan("TwoSetOfIdenticalSequences", 3);
     }
 
     bool IsWhiteGreenRed(int globalOrder)
