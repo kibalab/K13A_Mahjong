@@ -27,6 +27,7 @@ public class Card : UdonSharpBehaviour
     [SerializeField] private BoxCollider BoxColider;
     [SerializeField] private LogViewer LogViewer;
     [SerializeField] private EventQueue EventQueue;
+    [SerializeField] private AudioQueue AudioQueue;
 
     private bool isSpriteInitialized = false;
     private bool isDoraMaterialSetted = false;
@@ -111,6 +112,10 @@ public class Card : UdonSharpBehaviour
             isDoraMaterialSetted = true;
         }
 
+        if(Position != transform.position)
+        {
+            AudioQueue.AddQueue("CardTabSound");
+        }
         transform.SetPositionAndRotation(Position, Rotation);
     }
 
