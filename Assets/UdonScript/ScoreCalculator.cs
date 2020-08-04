@@ -79,6 +79,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_TwoSetOfIdenticalSequences(playerStatus, ctx);
                 // 순전대요구
                 AddScore_TerminalInEachSet(playerStatus, ctx);
+                // 혼일색
+                AddScore_HalfFlush(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -150,6 +152,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_TwoSetOfIdenticalSequences(playerStatus, ctx);
                 // 순전대요구
                 AddScore_TerminalInEachSet(playerStatus, ctx);
+                // 혼일색
+                AddScore_HalfFlush(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -720,7 +724,54 @@ public class ScoreCalculator : UdonSharpBehaviour
 
     void AddScore_HalfFlush(PlayerStatus playerStatus, object[] ctx)
     {
-        // 음 어떻게 하지...
+        // 만삭통의 첫 번째 GlobalOrder를 type으로 활용하자
+        var cardType = -1;
+        var wordStartGlobalOrder = HandUtil.GetWordsStartGlobalOrder();
+
+        var ponCount = Ctx.ReadPonCount(ctx);
+        if (ponCount > 0)
+        {
+            var ponList = Ctx.ReadPonList(ctx);
+            cardType = ponList[0] % 9;
+
+            for (var i = 0; i < ponCount; ++i)
+            {
+                var globalOrder = ponList[i];
+                if ((cardType != globalOrder % 9) && globalOrder < wordStartGlobalOrder)
+                {
+                    return;
+                }
+            }
+        }
+
+        var chiCount = Ctx.ReadChiCount(ctx);
+        if (chiCount > 0)
+        {
+            var chiList = Ctx.ReadChiList(ctx);
+            if (cardType == -1)
+            {
+                cardType = chiList[0] % 9;
+            }
+
+            for (var i = 0; i < ponCount; ++i)
+            {
+                var globalOrder = chiList[i];
+                if ((cardType != globalOrder % 9) && globalOrder < wordStartGlobalOrder)
+                {
+                    return;
+                }
+            }
+        }
+
+        var head = GetHeadGlobalOrder(ctx);
+        var headColorIndex = head % 9;
+        if (headColorIndex != cardType && headColorIndex < wordStartGlobalOrder)
+        {
+            return;
+        }
+
+        var han = playerStatus.IsMenzen ? 3 : 2;
+        playerStatus.AddHan("HalfFlush", han);
     }
 
     bool IsWhiteGreenRed(int globalOrder)
