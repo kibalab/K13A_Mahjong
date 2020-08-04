@@ -77,6 +77,8 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 // 이배구
                 AddScore_TwoSetOfIdenticalSequences(playerStatus, ctx);
+                // 순전대요구
+                AddScore_TerminalInEachSet(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -146,6 +148,8 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 // 이배구
                 AddScore_TwoSetOfIdenticalSequences(playerStatus, ctx);
+                // 순전대요구
+                AddScore_TerminalInEachSet(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -672,6 +676,45 @@ public class ScoreCalculator : UdonSharpBehaviour
         }
 
         playerStatus.AddHan("TwoSetOfIdenticalSequences", 3);
+    }
+
+    void AddScore_TerminalInEachSet(PlayerStatus playerStatus, object[] ctx)
+    {
+        // 순전대요구
+        var ponList = Ctx.ReadPonList(ctx);
+        var ponCount = Ctx.ReadPonCount(ctx);
+
+        // 모든 커쯔가 요구패
+        for (var i = 0; i < ponCount; ++i)
+        {
+            if (!HandUtil.IsNoduhai(ponList[i]))
+            {
+                return;
+            }
+        }
+
+        var chiCount = Ctx.ReadChiCount(ctx);
+        var chiList = Ctx.ReadChiList(ctx);
+
+        // 모든 슌쯔에 노두패가 하나 들어감
+        for (var i = 0; i < chiCount; ++i)
+        {
+            var isStartsWithOne = chiList[i] % 9 == 0;
+            var isEndsWithNine = chiList[i] % 9 == 6;
+            if (!isStartsWithOne && !isEndsWithNine)
+            {
+                return;
+            }
+        }
+
+        // 머리도 노두패
+        var head = GetHeadGlobalOrder(ctx);
+        if (!HandUtil.IsNoduhai(head))
+        {
+            return;
+        }
+
+        playerStatus.AddHan("TerminalInEachSet", 3);
     }
 
     bool IsWhiteGreenRed(int globalOrder)
