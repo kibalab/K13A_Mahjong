@@ -53,6 +53,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_ThreeColorStraight(playerStatus, ctx);
                 // 일기통관
                 AddScore_Straight(playerStatus, ctx);
+                // 혼전대요구
+                AddScore_TerminalOrHonorInEachSet(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -102,6 +104,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_ThreeColorStraight(playerStatus, ctx);
                 // 일기통관
                 AddScore_Straight(playerStatus, ctx);
+                // 혼전대요구
+                AddScore_TerminalOrHonorInEachSet(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -366,9 +370,49 @@ public class ScoreCalculator : UdonSharpBehaviour
         {
             if (chiList[i] + 3 == chiList[i + 1] && chiList[i + 1]+3 == chiList[i + 2])
             {
-                playerStatus.AddHan("Straight", 2);
+                var han = playerStatus.IsMenzen ? 2 : 1;
+                playerStatus.AddHan("Straight", han);
+                return;
             }
         }
+    }
+
+    void AddScore_TerminalOrHonorInEachSet(PlayerStatus playerStatus, object[] ctx)
+    {
+        // 혼전대요구
+        var ponList = Ctx.ReadPonList(ctx);
+        var ponCount = Ctx.ReadPonCount(ctx);
+
+        // 모든 커쯔가 요구패
+        for (var i = 0; i < ponCount; ++i)
+        {
+            if (!HandUtil.IsYaojuhai(ponList[i]))
+            {
+                return;
+            }
+        }
+
+        var chiCount = Ctx.ReadChiCount(ctx);
+        var chiList = Ctx.ReadChiList(ctx);
+
+        // 모든 슌쯔가 요구패
+        for (var i = 0; i < chiCount; ++i)
+        {
+            if (!HandUtil.IsYaojuhai(chiList[i]))
+            {
+                return;
+            }
+        }
+
+        // 머리도 요구패
+        var head = GetHeadGlobalOrder(ctx);
+        if (!HandUtil.IsYaojuhai(head))
+        {
+            return;
+        }
+
+        var han = playerStatus.IsMenzen ? 2 : 1;
+        playerStatus.AddHan("TerminalOrHonorInEachSet", han);
     }
 
     bool IsWhiteGreenRed(int globalOrder)
