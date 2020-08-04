@@ -59,6 +59,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_AllTripletHand(playerStatus, ctx);
                 // 삼암각
                 AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
+                // 삼색동각
+                AddScore_ThreeColorTriplets(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -114,6 +116,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_AllTripletHand(playerStatus, ctx);
                 // 삼암각
                 AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
+                // 삼색동각
+                AddScore_ThreeColorTriplets(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -464,6 +468,54 @@ public class ScoreCalculator : UdonSharpBehaviour
         if (openedPonCount <= 1)
         {
             playerStatus.AddHan("AllTripletHand", 2);
+        }
+    }
+
+    void AddScore_ThreeColorTriplets(PlayerStatus playerStatus, object[] ctx)
+    {
+        var ponCount = Ctx.ReadPonCount(ctx);
+        var ponList = Ctx.ReadPonList(ctx);
+
+        if (ponCount < 3)
+        {
+            return;
+        }
+
+        // 만(1,1,1) 만(3,3,3) 통(1,1,1) 삭(1,1,1)이 있다고 하자
+        // ponList에는 이렇게 들어가있을 것임
+        // ponList = [0, 2, 9, 18]
+        var startNumbers = new int[ponCount];
+        for (var i = 0; i < ponCount; ++i)
+        {
+            startNumbers[i] = ponList[i] % 9;
+        }
+        // 9 나머지 연산을 하면 이렇게 된다
+        // startNumbers = [0, 2, 0, 0]
+
+        // 같은 숫자가 3개인지 알아보기 위해
+        // 1. 타겟 숫자를 찾고
+        // 2. 해당 숫자를 제외한 배열을 돌면서 갯수를 센다
+        for (var targetIndex = 0; targetIndex < ponCount; ++targetIndex)
+        {
+            var targetNumber = startNumbers[targetIndex];
+            var sameChiCount = 0;
+
+            for (var i = 0; i < ponCount; ++i)
+            {
+                // 현재 비교대상과 같은 인덱스면 벗어남
+                if (targetIndex == i) { continue; }
+                if (startNumbers[i] == targetNumber)
+                {
+                    ++sameChiCount;
+                }
+            }
+
+            // 3개 있으면 삼색동각
+            if (sameChiCount == 3)
+            {
+                playerStatus.AddHan("ThreeColorTriplets", 2);
+                return;
+            }
         }
     }
 
