@@ -7,6 +7,21 @@ public class ScoreCalculator : UdonSharpBehaviour
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public CalculatingContextHandler Ctx;
 
+    // 유국 처리할 때 쓰자
+    public bool IsNagashiMangan(int[] stashedCards)
+    {
+        var startGlobalOrder = HandUtil.GetManStartGlobalOrder();
+        var endGlobalOrder = HandUtil.GetWordsEndGlobalOrder();
+        for (var globalOrder = startGlobalOrder; globalOrder <= endGlobalOrder; ++globalOrder)
+        {
+            if (!HandUtil.IsYaojuhai(globalOrder) && stashedCards[globalOrder] > 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void CalculateTsumo(
         PlayerStatus playerStatus,
         AgariContext agariContext,
