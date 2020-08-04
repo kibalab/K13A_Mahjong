@@ -14,47 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 5b76fbf61dd712847aac59b1ee67a1d2,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export doraMaterial\r\n\r\n    __refl_const_intnl_udonTypeID:
-    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
-    \   doraMaterial: %UnityEngineMaterial, null\r\n    __0_this_intnl_UnityEngineTransform:
-    %UnityEngineTransform, this\r\n    __0_spriteRenderer_SpriteRenderer: %UnityEngineSpriteRenderer,
-    null\r\n    __0_spriteName_String: %SystemString, null\r\n    __0_spriteGameObject_Transform:
-    %UnityEngineTransform, null\r\n    __0_const_intnl_SystemObject: %SystemObject,
-    null\r\n    __0_const_intnl_UnityEngineTransform: %UnityEngineTransform, null\r\n
-    \   __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_SystemUInt32:
-    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_returnValSymbol_Sprite:
-    %UnityEngineSprite, null\r\n    __0_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer,
-    null\r\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
-    CardSprites : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
-    public Material doraMaterial;\r\n        \r\n         # public Sprite FindSprite(string
-    spriteName)\r\n    .export FindSprite\r\n        \r\n    FindSprite:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # var spriteGameObject = transform.Find(spriteName);\r\n        PUSH,
-    __0_this_intnl_UnityEngineTransform\r\n        PUSH, __0_spriteName_String\r\n
-    \       PUSH, __0_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__Find__SystemString__UnityEngineTransform\"\r\n
-    \       PUSH, __0_intnl_UnityEngineTransform\r\n        PUSH, __0_spriteGameObject_Transform\r\n
-    \       COPY\r\n        \r\n         # if (spriteGameObject == null)\r\n        PUSH,
-    __0_spriteGameObject_Transform\r\n        PUSH, __0_const_intnl_UnityEngineTransform\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000094\r\n
-    \       \r\n         # {\r\n        \r\n         # return null;\r\n        PUSH,
-    __0_const_intnl_SystemObject\r\n        PUSH, __0_intnl_returnValSymbol_Sprite\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \        # var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();\r\n
-    \       PUSH, __0_spriteGameObject_Transform\r\n        PUSH, __0_const_intnl_SystemType\r\n
-    \       PUSH, __0_intnl_UnityEngineSpriteRenderer\r\n        EXTERN, \"UnityEngineSpriteRenderer.__GetComponent__T\"\r\n
-    \       PUSH, __0_intnl_UnityEngineSpriteRenderer\r\n        PUSH, __0_spriteRenderer_SpriteRenderer\r\n
-    \       COPY\r\n        \r\n         # return spriteRenderer.sprite;\r\n        PUSH,
-    __0_spriteRenderer_SpriteRenderer\r\n        PUSH, __0_intnl_returnValSymbol_Sprite\r\n
-    \       EXTERN, \"UnityEngineSpriteRenderer.__get_sprite__UnityEngineSprite\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n    .export doraMaterial\n\n    __refl_const_intnl_udonTypeID:
+    %SystemInt64, null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n
+    \   doraMaterial: %UnityEngineMaterial, null\n    __0_this_intnl_UnityEngineTransform:
+    %UnityEngineTransform, this\n    __0_spriteRenderer_SpriteRenderer: %UnityEngineSpriteRenderer,
+    null\n    __0_spriteName_String: %SystemString, null\n    __0_spriteGameObject_Transform:
+    %UnityEngineTransform, null\n    __0_const_intnl_SystemObject: %SystemObject,
+    null\n    __0_const_intnl_UnityEngineTransform: %UnityEngineTransform, null\n
+    \   __0_const_intnl_SystemType: %SystemType, null\n    __0_const_intnl_SystemUInt32:
+    %SystemUInt32, null\n    __0_intnl_SystemBoolean: %SystemBoolean, null\n    __0_intnl_returnValSymbol_Sprite:
+    %UnityEngineSprite, null\n    __0_intnl_UnityEngineSpriteRenderer: %UnityEngineSpriteRenderer,
+    null\n    __0_intnl_UnityEngineTransform: %UnityEngineTransform, null\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\n\n.data_end\n\n        \n         # using UdonSharp;\n        \n
+    \        # using UnityEngine;\n        \n         # using VRC.SDKBase;\n        \n
+    \        # using VRC.Udon;\n        \n         # public class CardSprites : UdonSharpBehaviour\n.code_start\n
+    \       \n         # [SerializeField] public Material doraMaterial;\n        \n
+    \        # public Sprite FindSprite(string spriteName)\n    .export FindSprite\n
+    \       \n    FindSprite:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # var spriteGameObject = transform.Find(spriteName);\n
+    \       PUSH, __0_this_intnl_UnityEngineTransform\n        PUSH, __0_spriteName_String\n
+    \       PUSH, __0_intnl_UnityEngineTransform\n        EXTERN, \"UnityEngineTransform.__Find__SystemString__UnityEngineTransform\"\n
+    \       PUSH, __0_intnl_UnityEngineTransform\n        PUSH, __0_spriteGameObject_Transform\n
+    \       COPY\n        \n         # if (spriteGameObject == null)\n        PUSH,
+    __0_spriteGameObject_Transform\n        PUSH, __0_const_intnl_UnityEngineTransform\n
+    \       PUSH, __0_intnl_SystemBoolean\n        EXTERN, \"UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\n
+    \       PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000094\n        \n
+    \        # {\n        \n         # return null;\n        PUSH, __0_const_intnl_SystemObject\n
+    \       PUSH, __0_intnl_returnValSymbol_Sprite\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n         # var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();\n
+    \       PUSH, __0_spriteGameObject_Transform\n        PUSH, __0_const_intnl_SystemType\n
+    \       PUSH, __0_intnl_UnityEngineSpriteRenderer\n        EXTERN, \"UnityEngineSpriteRenderer.__GetComponent__T\"\n
+    \       PUSH, __0_intnl_UnityEngineSpriteRenderer\n        PUSH, __0_spriteRenderer_SpriteRenderer\n
+    \       COPY\n        \n         # return spriteRenderer.sprite;\n        PUSH,
+    __0_spriteRenderer_SpriteRenderer\n        PUSH, __0_intnl_returnValSymbol_Sprite\n
+    \       EXTERN, \"UnityEngineSpriteRenderer.__get_sprite__UnityEngineSprite\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 81cc7d9e97902f54a8dd8473e59bdea8, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

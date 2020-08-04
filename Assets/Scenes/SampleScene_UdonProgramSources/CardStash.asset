@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 2469cb5ff42875c4a8378d5c17a237d5,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
-    null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
-    CardStash : UdonSharpBehaviour\r\n.code_start\r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n\n    __refl_const_intnl_udonTypeID: %SystemInt64,
+    null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\n\n.data_end\n\n        \n         # using UdonSharp;\n        \n
+    \        # using UnityEngine;\n        \n         # using VRC.SDKBase;\n        \n
+    \        # using VRC.Udon;\n        \n         # public class CardStash : UdonSharpBehaviour\n.code_start\n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: f24f9dbe348891b4795574f15793b56d, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

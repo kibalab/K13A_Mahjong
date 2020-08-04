@@ -14,418 +14,392 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 2f7148184bce6c8468ea6f082d1aaa04,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export Type\r\n    .export CardNumber\r\n
-    \   .export SpriteNamePostfix\r\n    .export Position\r\n    .export Rotation\r\n
-    \   .export IsColliderActive\r\n    .export IsDora\r\n    .export IsRinShan\r\n
-    \   .export YamaIndex\r\n    .export PlayerIndex\r\n    .export IsDiscardedForRiichi\r\n
-    \   .export GlobalOrder\r\n    .export HandUtil\r\n    .export CardSprites\r\n
-    \   .export SpriteRenderer\r\n    .export BoxColider\r\n    .export LogViewer\r\n
-    \   .export EventQueue\r\n    .export AudioQueue\r\n    .sync Type, none\r\n    .sync
-    CardNumber, none\r\n    .sync SpriteNamePostfix, none\r\n    .sync Position, none\r\n
-    \   .sync Rotation, none\r\n    .sync IsColliderActive, none\r\n    .sync IsDora,
-    none\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
-    %SystemString, null\r\n    IsColliderActive: %SystemBoolean, null\r\n    IsDiscardedForRiichi:
-    %SystemBoolean, null\r\n    IsDora: %SystemBoolean, null\r\n    IsRinShan: %SystemBoolean,
-    null\r\n    BoxColider: %UnityEngineBoxCollider, null\r\n    CardNumber: %SystemInt32,
-    null\r\n    GlobalOrder: %SystemInt32, null\r\n    PlayerIndex: %SystemInt32,
-    null\r\n    YamaIndex: %SystemInt32, null\r\n    Rotation: %UnityEngineQuaternion,
-    null\r\n    SpriteRenderer: %UnityEngineSpriteRenderer, null\r\n    SpriteNamePostfix:
-    %SystemString, null\r\n    Type: %SystemString, null\r\n    AudioQueue: %VRCUdonUdonBehaviour,
-    null\r\n    CardSprites: %VRCUdonUdonBehaviour, null\r\n    EventQueue: %VRCUdonUdonBehaviour,
-    null\r\n    HandUtil: %VRCUdonUdonBehaviour, null\r\n    LogViewer: %VRCUdonUdonBehaviour,
-    null\r\n    Position: %UnityEngineVector3, null\r\n    isDoraMaterialSetted: %SystemBoolean,
-    null\r\n    isSpriteInitialized: %SystemBoolean, null\r\n    __0_this_intnl_UnityEngineTransform:
-    %UnityEngineTransform, this\r\n    __0_this_intnl_Card: %VRCUdonUdonBehaviour,
-    this\r\n    __0_isRedDora_Boolean: %SystemBoolean, null\r\n    __0_t_Boolean:
-    %SystemBoolean, null\r\n    __0_cardNumber_Int32: %SystemInt32, null\r\n    __0_playerIndex_Int32:
-    %SystemInt32, null\r\n    __0_rotation_Quaternion: %UnityEngineQuaternion, null\r\n
-    \   __0_sprite_Sprite: %UnityEngineSprite, null\r\n    __0_funcName_String: %SystemString,
-    null\r\n    __0_spriteName_String: %SystemString, null\r\n    __0_type_String:
-    %SystemString, null\r\n    __1_funcName_String: %SystemString, null\r\n    __0_position_Vector3:
-    %UnityEngineVector3, null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean,
-    null\r\n    __1_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_const_intnl_UnityEngineBoxCollider:
-    %UnityEngineBoxCollider, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
-    null\r\n    __1_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
-    null\r\n    __0_const_intnl_SystemObject: %SystemObject, null\r\n    __0_const_intnl_UnityEngineSpriteRenderer:
-    %UnityEngineSpriteRenderer, null\r\n    __0_const_intnl_SystemString: %SystemString,
-    null\r\n    __1_const_intnl_SystemString: %SystemString, null\r\n    __10_const_intnl_SystemString:
-    %SystemString, null\r\n    __11_const_intnl_SystemString: %SystemString, null\r\n
-    \   __12_const_intnl_SystemString: %SystemString, null\r\n    __13_const_intnl_SystemString:
-    %SystemString, null\r\n    __14_const_intnl_SystemString: %SystemString, null\r\n
-    \   __15_const_intnl_SystemString: %SystemString, null\r\n    __16_const_intnl_SystemString:
-    %SystemString, null\r\n    __17_const_intnl_SystemString: %SystemString, null\r\n
-    \   __18_const_intnl_SystemString: %SystemString, null\r\n    __19_const_intnl_SystemString:
-    %SystemString, null\r\n    __2_const_intnl_SystemString: %SystemString, null\r\n
-    \   __20_const_intnl_SystemString: %SystemString, null\r\n    __21_const_intnl_SystemString:
-    %SystemString, null\r\n    __22_const_intnl_SystemString: %SystemString, null\r\n
-    \   __23_const_intnl_SystemString: %SystemString, null\r\n    __24_const_intnl_SystemString:
-    %SystemString, null\r\n    __25_const_intnl_SystemString: %SystemString, null\r\n
-    \   __26_const_intnl_SystemString: %SystemString, null\r\n    __27_const_intnl_SystemString:
-    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
-    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __5_const_intnl_SystemString:
-    %SystemString, null\r\n    __6_const_intnl_SystemString: %SystemString, null\r\n
-    \   __7_const_intnl_SystemString: %SystemString, null\r\n    __8_const_intnl_SystemString:
-    %SystemString, null\r\n    __9_const_intnl_SystemString: %SystemString, null\r\n
-    \   __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver: %VRCUdonUdonBehaviour,
-    null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32:
-    %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n
-    \   __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null\r\n    __0_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __10_intnl_SystemBoolean: %SystemBoolean, null\r\n    __11_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __12_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __13_intnl_SystemBoolean: %SystemBoolean, null\r\n    __14_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __15_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __16_intnl_SystemBoolean: %SystemBoolean, null\r\n    __17_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __18_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __19_intnl_SystemBoolean: %SystemBoolean, null\r\n    __2_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __20_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __21_intnl_SystemBoolean: %SystemBoolean, null\r\n    __22_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __23_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __24_intnl_SystemBoolean: %SystemBoolean, null\r\n    __25_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __3_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __4_intnl_SystemBoolean: %SystemBoolean, null\r\n    __5_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __6_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __7_intnl_SystemBoolean: %SystemBoolean, null\r\n    __8_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __9_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __2_intnl_SystemInt32: %SystemInt32, null\r\n    __3_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __0_intnl_UnityEngineMaterial: %UnityEngineMaterial,
-    null\r\n    __1_intnl_UnityEngineMaterial: %UnityEngineMaterial, null\r\n    __0_intnl_SystemObject:
-    %SystemObject, null\r\n    __1_intnl_SystemObject: %SystemObject, null\r\n    __2_intnl_SystemObject:
-    %SystemObject, null\r\n    __0_intnl_UnityEngineSprite: %UnityEngineSprite, null\r\n
-    \   __0_intnl_interpolatedStr_String: %SystemString, null\r\n    __0_intnl_returnValSymbol_String:
-    %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_returnValSymbol_String:
-    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __2_intnl_SystemString:
-    %SystemString, null\r\n    __3_intnl_SystemString: %SystemString, null\r\n    __4_intnl_SystemString:
-    %SystemString, null\r\n    __5_intnl_SystemString: %SystemString, null\r\n    __6_intnl_SystemString:
-    %SystemString, null\r\n    __7_intnl_SystemString: %SystemString, null\r\n    __8_intnl_SystemString:
-    %SystemString, null\r\n    __9_intnl_SystemString: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\r\n    __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.Udon.Common.Interfaces;\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # using UnityEngine.SocialPlatforms;\r\n        \r\n         #
-    public class Card : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         #
-    [UdonSynced(UdonSyncMode.None)] public string Type = \"None\";\r\n        \r\n
-    \        # [UdonSynced(UdonSyncMode.None)] public int CardNumber = -1;\r\n        \r\n
-    \        # [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = \"None\";\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public Vector3 Position;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public Quaternion Rotation;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsColliderActive;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsDora;\r\n
-    \       \r\n         # public bool IsRinShan;\r\n        \r\n         # public
-    int YamaIndex;\r\n        \r\n         # public int PlayerIndex;\r\n        \r\n
-    \        # public bool IsDiscardedForRiichi;\r\n        \r\n         # public
-    int GlobalOrder;\r\n        \r\n         # [SerializeField] private HandUtil HandUtil;\r\n
-    \       \r\n         # [SerializeField] private CardSprites CardSprites;\r\n        \r\n
-    \        # [SerializeField] private SpriteRenderer SpriteRenderer;\r\n        \r\n
-    \        # [SerializeField] private BoxCollider BoxColider;\r\n        \r\n         #
-    [SerializeField] private LogViewer LogViewer;\r\n        \r\n         # [SerializeField]
-    private EventQueue EventQueue;\r\n        \r\n         # [SerializeField] private
-    AudioQueue AudioQueue;\r\n        \r\n         # private bool isSpriteInitialized
-    = false;\r\n        \r\n         # private bool isDoraMaterialSetted = false;\r\n
-    \       \r\n         # public override void Interact()\r\n    .export _interact\r\n
-    \       \r\n    _interact:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # RequestCallFunctionToOwner(nameof(_Interact));\r\n
-    \       PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_funcName_String\r\n
-    \       COPY\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000910\r\n        \r\n         # RequestCallFunctionToOwner(nameof(_playTabSound));\r\n
-    \       PUSH, __1_const_intnl_SystemString\r\n        PUSH, __0_funcName_String\r\n
-    \       COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000910\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \       \r\n         # public void _playTabSound()\r\n    .export _playTabSound\r\n
-    \       \r\n    _playTabSound:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (AudioQueue != null)\r\n
-    \       PUSH, AudioQueue\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000D4\r\n
-    \       \r\n         # {\r\n        \r\n         # AudioQueue.AddQueue(\"CardTabSound\");\r\n
-    \       PUSH, AudioQueue\r\n        PUSH, __3_const_intnl_SystemString\r\n        PUSH,
-    __2_const_intnl_SystemString\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, AudioQueue\r\n        PUSH, __4_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void _Interact()\r\n    .export _Interact\r\n        \r\n    _Interact:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (IsDiscardedForRiichi)\r\n        PUSH, IsDiscardedForRiichi\r\n
-    \       JUMP_IF_FALSE, 0x0000019C\r\n        \r\n         # {\r\n        \r\n
-    \        # EventQueue.SetRiichiEvent(YamaIndex, PlayerIndex);\r\n        PUSH,
-    EventQueue\r\n        PUSH, __5_const_intnl_SystemString\r\n        PUSH, YamaIndex\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, EventQueue\r\n        PUSH, __6_const_intnl_SystemString\r\n        PUSH,
-    PlayerIndex\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, YamaIndex\r\n        PUSH, __0_intnl_SystemInt32\r\n        COPY
-    # Copy-on-write symbol value dirtied\r\n        PUSH, PlayerIndex\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        COPY # Copy-on-write symbol value dirtied\r\n
-    \       PUSH, EventQueue\r\n        PUSH, __7_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # IsDiscardedForRiichi = false;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
-    \       PUSH, IsDiscardedForRiichi\r\n        COPY\r\n        JUMP, 0x0000021C\r\n
-    \       \r\n         # else\r\n        \r\n         # {\r\n        \r\n         #
-    EventQueue.SetDiscardEvent(YamaIndex, PlayerIndex);\r\n        PUSH, EventQueue\r\n
-    \       PUSH, __8_const_intnl_SystemString\r\n        PUSH, YamaIndex\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, EventQueue\r\n        PUSH, __9_const_intnl_SystemString\r\n        PUSH,
-    PlayerIndex\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, YamaIndex\r\n        PUSH, __0_intnl_SystemInt32\r\n        COPY
-    # Copy-on-write symbol value dirtied\r\n        PUSH, PlayerIndex\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        COPY # Copy-on-write symbol value dirtied\r\n
-    \       PUSH, EventQueue\r\n        PUSH, __10_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void Initialize_Master(string type, int cardNumber, bool isRedDora)\r\n
-    \   .export Initialize_Master\r\n        \r\n    Initialize_Master:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # Type = type;\r\n        PUSH, __0_type_String\r\n        PUSH, Type\r\n
-    \       COPY\r\n        \r\n         # CardNumber = cardNumber;\r\n        PUSH,
-    __0_cardNumber_Int32\r\n        PUSH, CardNumber\r\n        COPY\r\n        \r\n
-    \        # IsDora = isRedDora;\r\n        PUSH, __0_isRedDora_Boolean\r\n        PUSH,
-    IsDora\r\n        COPY\r\n        \r\n         # GlobalOrder = HandUtil.GetGlobalOrder(type,
-    cardNumber);\r\n        PUSH, HandUtil\r\n        PUSH, __11_const_intnl_SystemString\r\n
-    \       PUSH, __0_type_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, HandUtil\r\n        PUSH, __12_const_intnl_SystemString\r\n        PUSH,
-    __0_cardNumber_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, HandUtil\r\n        PUSH, __13_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, HandUtil\r\n        PUSH, __14_const_intnl_SystemString\r\n        PUSH,
-    __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
-    __2_intnl_SystemInt32\r\n        PUSH, GlobalOrder\r\n        COPY\r\n        \r\n
-    \        # SpriteNamePostfix = isRedDora ? \"\uB3C4\uB77C\" : \"\";\r\n        PUSH,
-    __0_isRedDora_Boolean\r\n        JUMP_IF_FALSE, 0x00000344\r\n        PUSH, __15_const_intnl_SystemString\r\n
-    \       PUSH, SpriteNamePostfix\r\n        COPY\r\n        JUMP, 0x00000358\r\n
-    \       PUSH, __16_const_intnl_SystemString\r\n        PUSH, SpriteNamePostfix\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \       \r\n         # public void SetAsDora()\r\n    .export SetAsDora\r\n        \r\n
-    \   SetAsDora:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # IsDora = true;\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
-    \       PUSH, IsDora\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void SetOwnership(int playerIndex)\r\n
-    \   .export SetOwnership\r\n        \r\n    SetOwnership:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    PlayerIndex = playerIndex;\r\n        PUSH, __0_playerIndex_Int32\r\n        PUSH,
-    PlayerIndex\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void SetColliderActivate(bool t)\r\n
-    \   .export SetColliderActivate\r\n        \r\n    SetColliderActivate:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # IsColliderActive = t;\r\n        PUSH, __0_t_Boolean\r\n        PUSH,
-    IsColliderActive\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void SetPosition(Vector3 position, Quaternion
-    rotation)\r\n    .export SetPosition\r\n        \r\n    SetPosition:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # Position = position;\r\n        PUSH, __0_position_Vector3\r\n        PUSH,
-    Position\r\n        COPY\r\n        \r\n         # Rotation = rotation;\r\n        PUSH,
-    __0_rotation_Quaternion\r\n        PUSH, Rotation\r\n        COPY\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public string
-    GetCardSpriteName()\r\n    .export GetCardSpriteName\r\n        \r\n    GetCardSpriteName:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # switch (Type)\r\n        \r\n         # case \"\uB9CC\":\r\n
-    \       PUSH, Type\r\n        PUSH, __17_const_intnl_SystemString\r\n        PUSH,
-    __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000480\r\n
-    \       JUMP, 0x000004F8\r\n        \r\n         # case \"\uC0AD\":\r\n        PUSH,
-    Type\r\n        PUSH, __18_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004B8\r\n
-    \       JUMP, 0x000004F8\r\n        \r\n         # case \"\uD1B5\":\r\n        PUSH,
-    Type\r\n        PUSH, __19_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000004F0\r\n
-    \       JUMP, 0x000004F8\r\n        \r\n         # default: // \uB3D9\uC11C\uB0A8\uBD81\uBC31\uBC1C\uC911\r\n
-    \       JUMP, 0x00000564\r\n        PUSH, CardNumber\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, Type\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, SpriteNamePostfix\r\n        PUSH,
-    __0_intnl_returnValSymbol_String\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
-    return Type;\r\n        PUSH, Type\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # private void
-    Update()\r\n    .export _update\r\n        \r\n    _update:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    if (!isSpriteInitialized && IsCardSpriteInitializeReady())\r\n        PUSH, isSpriteInitialized\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000628\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000C08\r\n        PUSH, __4_intnl_SystemBoolean\r\n        PUSH, __0_intnl_returnValSymbol_Boolean\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000648\r\n        \r\n         # {\r\n        \r\n         # InitializeSprite();\r\n
-    \       PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000824\r\n
-    \       \r\n         # if (BoxColider != null)\r\n        PUSH, BoxColider\r\n
-    \       PUSH, __0_const_intnl_UnityEngineBoxCollider\r\n        PUSH, __7_intnl_SystemBoolean\r\n
-    \       EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000690\r\n
-    \       \r\n         # {\r\n        \r\n         # BoxColider.enabled = IsColliderActive;\r\n
-    \       PUSH, BoxColider\r\n        PUSH, IsColliderActive\r\n        EXTERN,
-    \"UnityEngineBoxCollider.__set_enabled__SystemBoolean__SystemVoid\"\r\n        \r\n
-    \        # if (SpriteRenderer != null && IsDora && !isDoraMaterialSetted)\r\n
-    \       PUSH, SpriteRenderer\r\n        PUSH, __0_const_intnl_UnityEngineSpriteRenderer\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000708\r\n        PUSH, __9_intnl_SystemBoolean\r\n        PUSH, IsDora\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __9_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000778\r\n        PUSH, isDoraMaterialSetted\r\n        PUSH, __12_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __12_intnl_SystemBoolean\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __8_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x000007E8\r\n        \r\n         # {\r\n        \r\n         # SpriteRenderer.material
-    = CardSprites.doraMaterial;\r\n        PUSH, CardSprites\r\n        PUSH, __20_const_intnl_SystemString\r\n
-    \       PUSH, __1_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __1_intnl_UnityEngineMaterial\r\n
-    \       COPY\r\n        PUSH, SpriteRenderer\r\n        PUSH, __1_intnl_UnityEngineMaterial\r\n
-    \       EXTERN, \"UnityEngineSpriteRenderer.__set_material__UnityEngineMaterial__SystemVoid\"\r\n
-    \       \r\n         # isDoraMaterialSetted = true;\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
-    \       PUSH, isDoraMaterialSetted\r\n        COPY\r\n        \r\n         # transform.SetPositionAndRotation(Position,
-    Rotation);\r\n        PUSH, __0_this_intnl_UnityEngineTransform\r\n        PUSH,
-    Position\r\n        PUSH, Rotation\r\n        EXTERN, \"UnityEngineTransform.__SetPositionAndRotation__UnityEngineVector3_UnityEngineQuaternion__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void InitializeSprite()\r\n    InitializeSprite:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    var spriteName = GetCardSpriteName();\r\n        PUSH, __4_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000448\r\n        PUSH, __0_intnl_returnValSymbol_String\r\n
-    \       PUSH, __0_spriteName_String\r\n        COPY\r\n        \r\n         #
-    var sprite = CardSprites.FindSprite(spriteName);\r\n        PUSH, CardSprites\r\n
-    \       PUSH, __21_const_intnl_SystemString\r\n        PUSH, __0_spriteName_String\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, CardSprites\r\n        PUSH, __22_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, CardSprites\r\n        PUSH, __23_const_intnl_SystemString\r\n        PUSH,
-    __2_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __2_intnl_SystemObject\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n
-    \       COPY\r\n        PUSH, __0_intnl_UnityEngineSprite\r\n        PUSH, __0_sprite_Sprite\r\n
-    \       COPY\r\n        \r\n         # SpriteRenderer.sprite = sprite;\r\n        PUSH,
-    SpriteRenderer\r\n        PUSH, __0_sprite_Sprite\r\n        EXTERN, \"UnityEngineSpriteRenderer.__set_sprite__UnityEngineSprite__SystemVoid\"\r\n
-    \       \r\n         # isSpriteInitialized = true;\r\n        PUSH, __1_const_intnl_SystemBoolean\r\n
-    \       PUSH, isSpriteInitialized\r\n        COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # void RequestCallFunctionToOwner(string funcName)\r\n
-    \   RequestCallFunctionToOwner:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (Networking.LocalPlayer
-    == null)\r\n        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN,
-    \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n        PUSH,
-    __0_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000970\r\n
-    \       \r\n         # {\r\n        \r\n         # SendCustomEvent(funcName);\r\n
-    \       PUSH, __0_this_intnl_Card\r\n        PUSH, __0_funcName_String\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x00000990\r\n        \r\n         # else\r\n        \r\n         #
-    {\r\n        \r\n         # SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);\r\n
-    \       PUSH, __0_this_intnl_Card\r\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, __0_funcName_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void RequestCallFunctionToAll(string funcName)\r\n    RequestCallFunctionToAll:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (Networking.LocalPlayer == null)\r\n        PUSH,
-    __1_intnl_VRCSDKBaseVRCPlayerApi\r\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\r\n
-    \       PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\r\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000A0C\r\n
-    \       \r\n         # {\r\n        \r\n         # SendCustomEvent(funcName);\r\n
-    \       PUSH, __0_this_intnl_Card\r\n        PUSH, __1_funcName_String\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       JUMP, 0x00000A2C\r\n        \r\n         # else\r\n        \r\n         #
-    {\r\n        \r\n         # SendCustomNetworkEvent(NetworkEventTarget.All, funcName);\r\n
-    \       PUSH, __0_this_intnl_Card\r\n        PUSH, __1_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\r\n
-    \       PUSH, __1_funcName_String\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public override string ToString()\r\n    .export ToString\r\n        \r\n
-    \   ToString:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n
-    \        # {\r\n        \r\n         # return $\"({Type}, {CardNumber}, {GlobalOrder})\";\r\n
-    \       PUSH, __24_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    Type\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __25_const_intnl_SystemString\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __3_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, CardNumber\r\n        PUSH, __4_intnl_SystemString\r\n        EXTERN,
-    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __5_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __5_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __25_const_intnl_SystemString\r\n        PUSH, __6_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __6_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, GlobalOrder\r\n        PUSH, __7_intnl_SystemString\r\n        EXTERN,
-    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __7_intnl_SystemString\r\n        PUSH, __8_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __8_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __26_const_intnl_SystemString\r\n        PUSH, __9_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __9_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __1_intnl_returnValSymbol_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # bool IsCardSpriteInitializeReady()\r\n
-    \   IsCardSpriteInitializeReady:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # return SpriteRenderer != null\r\n
-    \       PUSH, SpriteRenderer\r\n        PUSH, __0_const_intnl_UnityEngineSpriteRenderer\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        PUSH, __18_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000CA0\r\n        \r\n         # && Type != \"None\"\r\n        PUSH, Type\r\n
-    \       PUSH, __27_const_intnl_SystemString\r\n        PUSH, __20_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        PUSH, __20_intnl_SystemBoolean\r\n
-    \       PUSH, __21_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __21_intnl_SystemBoolean\r\n        PUSH, __18_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __18_intnl_SystemBoolean\r\n        PUSH, __17_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __17_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000D30\r\n        \r\n         # && CardNumber != -1\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __3_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, CardNumber\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH,
-    __22_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        PUSH, __22_intnl_SystemBoolean\r\n
-    \       PUSH, __23_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __23_intnl_SystemBoolean\r\n        PUSH, __17_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __17_intnl_SystemBoolean\r\n        PUSH, __16_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000DA8\r\n        \r\n         # && SpriteNamePostfix != \"None\";\r\n        PUSH,
-    SpriteNamePostfix\r\n        PUSH, __27_const_intnl_SystemString\r\n        PUSH,
-    __24_intnl_SystemBoolean\r\n        EXTERN, \"SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean\"\r\n
-    \       PUSH, __16_intnl_SystemBoolean\r\n        PUSH, __24_intnl_SystemBoolean\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        PUSH, __16_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __16_intnl_SystemBoolean\r\n        PUSH, __0_intnl_returnValSymbol_Boolean\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n    .export Type\n    .export CardNumber\n    .export
+    SpriteNamePostfix\n    .export Position\n    .export Rotation\n    .export IsColliderActive\n
+    \   .export IsDora\n    .export IsRinShan\n    .export YamaIndex\n    .export
+    PlayerIndex\n    .export IsDiscardedForRiichi\n    .export GlobalOrder\n    .export
+    HandUtil\n    .export CardSprites\n    .export SpriteRenderer\n    .export BoxColider\n
+    \   .export LogViewer\n    .export EventQueue\n    .export AudioQueue\n    .sync
+    Type, none\n    .sync CardNumber, none\n    .sync SpriteNamePostfix, none\n    .sync
+    Position, none\n    .sync Rotation, none\n    .sync IsColliderActive, none\n    .sync
+    IsDora, none\n\n    __refl_const_intnl_udonTypeID: %SystemInt64, null\n    __refl_const_intnl_udonTypeName:
+    %SystemString, null\n    IsColliderActive: %SystemBoolean, null\n    IsDiscardedForRiichi:
+    %SystemBoolean, null\n    IsDora: %SystemBoolean, null\n    IsRinShan: %SystemBoolean,
+    null\n    BoxColider: %UnityEngineBoxCollider, null\n    CardNumber: %SystemInt32,
+    null\n    GlobalOrder: %SystemInt32, null\n    PlayerIndex: %SystemInt32, null\n
+    \   YamaIndex: %SystemInt32, null\n    Rotation: %UnityEngineQuaternion, null\n
+    \   SpriteRenderer: %UnityEngineSpriteRenderer, null\n    SpriteNamePostfix: %SystemString,
+    null\n    Type: %SystemString, null\n    AudioQueue: %VRCUdonUdonBehaviour, null\n
+    \   CardSprites: %VRCUdonUdonBehaviour, null\n    EventQueue: %VRCUdonUdonBehaviour,
+    null\n    HandUtil: %VRCUdonUdonBehaviour, null\n    LogViewer: %VRCUdonUdonBehaviour,
+    null\n    Position: %UnityEngineVector3, null\n    isDoraMaterialSetted: %SystemBoolean,
+    null\n    isSpriteInitialized: %SystemBoolean, null\n    __0_this_intnl_UnityEngineTransform:
+    %UnityEngineTransform, this\n    __0_this_intnl_Card: %VRCUdonUdonBehaviour, this\n
+    \   __0_isRedDora_Boolean: %SystemBoolean, null\n    __0_t_Boolean: %SystemBoolean,
+    null\n    __0_cardNumber_Int32: %SystemInt32, null\n    __0_playerIndex_Int32:
+    %SystemInt32, null\n    __0_rotation_Quaternion: %UnityEngineQuaternion, null\n
+    \   __0_sprite_Sprite: %UnityEngineSprite, null\n    __0_funcName_String: %SystemString,
+    null\n    __0_spriteName_String: %SystemString, null\n    __0_type_String: %SystemString,
+    null\n    __1_funcName_String: %SystemString, null\n    __0_position_Vector3:
+    %UnityEngineVector3, null\n    __0_const_intnl_SystemBoolean: %SystemBoolean,
+    null\n    __1_const_intnl_SystemBoolean: %SystemBoolean, null\n    __0_const_intnl_UnityEngineBoxCollider:
+    %UnityEngineBoxCollider, null\n    __0_const_intnl_SystemInt32: %SystemInt32,
+    null\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
+    null\n    __1_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget,
+    null\n    __0_const_intnl_SystemObject: %SystemObject, null\n    __0_const_intnl_UnityEngineSpriteRenderer:
+    %UnityEngineSpriteRenderer, null\n    __0_const_intnl_SystemString: %SystemString,
+    null\n    __1_const_intnl_SystemString: %SystemString, null\n    __10_const_intnl_SystemString:
+    %SystemString, null\n    __11_const_intnl_SystemString: %SystemString, null\n
+    \   __12_const_intnl_SystemString: %SystemString, null\n    __13_const_intnl_SystemString:
+    %SystemString, null\n    __14_const_intnl_SystemString: %SystemString, null\n
+    \   __15_const_intnl_SystemString: %SystemString, null\n    __16_const_intnl_SystemString:
+    %SystemString, null\n    __17_const_intnl_SystemString: %SystemString, null\n
+    \   __18_const_intnl_SystemString: %SystemString, null\n    __19_const_intnl_SystemString:
+    %SystemString, null\n    __2_const_intnl_SystemString: %SystemString, null\n    __20_const_intnl_SystemString:
+    %SystemString, null\n    __21_const_intnl_SystemString: %SystemString, null\n
+    \   __22_const_intnl_SystemString: %SystemString, null\n    __23_const_intnl_SystemString:
+    %SystemString, null\n    __24_const_intnl_SystemString: %SystemString, null\n
+    \   __25_const_intnl_SystemString: %SystemString, null\n    __26_const_intnl_SystemString:
+    %SystemString, null\n    __27_const_intnl_SystemString: %SystemString, null\n
+    \   __3_const_intnl_SystemString: %SystemString, null\n    __4_const_intnl_SystemString:
+    %SystemString, null\n    __5_const_intnl_SystemString: %SystemString, null\n    __6_const_intnl_SystemString:
+    %SystemString, null\n    __7_const_intnl_SystemString: %SystemString, null\n    __8_const_intnl_SystemString:
+    %SystemString, null\n    __9_const_intnl_SystemString: %SystemString, null\n    __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver:
+    %VRCUdonUdonBehaviour, null\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
+    null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __4_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null\n    __0_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __1_intnl_SystemBoolean: %SystemBoolean, null\n    __10_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __11_intnl_SystemBoolean: %SystemBoolean, null\n    __12_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __13_intnl_SystemBoolean: %SystemBoolean, null\n    __14_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __15_intnl_SystemBoolean: %SystemBoolean, null\n    __16_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __17_intnl_SystemBoolean: %SystemBoolean, null\n    __18_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __19_intnl_SystemBoolean: %SystemBoolean, null\n    __2_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __20_intnl_SystemBoolean: %SystemBoolean, null\n    __21_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __22_intnl_SystemBoolean: %SystemBoolean, null\n    __23_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __24_intnl_SystemBoolean: %SystemBoolean, null\n    __25_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __3_intnl_SystemBoolean: %SystemBoolean, null\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __5_intnl_SystemBoolean: %SystemBoolean, null\n    __6_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __7_intnl_SystemBoolean: %SystemBoolean, null\n    __8_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __9_intnl_SystemBoolean: %SystemBoolean, null\n    __0_intnl_SystemInt32:
+    %SystemInt32, null\n    __1_intnl_SystemInt32: %SystemInt32, null\n    __2_intnl_SystemInt32:
+    %SystemInt32, null\n    __3_intnl_SystemInt32: %SystemInt32, null\n    __0_intnl_UnityEngineMaterial:
+    %UnityEngineMaterial, null\n    __1_intnl_UnityEngineMaterial: %UnityEngineMaterial,
+    null\n    __0_intnl_SystemObject: %SystemObject, null\n    __1_intnl_SystemObject:
+    %SystemObject, null\n    __2_intnl_SystemObject: %SystemObject, null\n    __0_intnl_UnityEngineSprite:
+    %UnityEngineSprite, null\n    __0_intnl_interpolatedStr_String: %SystemString,
+    null\n    __0_intnl_returnValSymbol_String: %SystemString, null\n    __0_intnl_SystemString:
+    %SystemString, null\n    __1_intnl_returnValSymbol_String: %SystemString, null\n
+    \   __1_intnl_SystemString: %SystemString, null\n    __2_intnl_SystemString: %SystemString,
+    null\n    __3_intnl_SystemString: %SystemString, null\n    __4_intnl_SystemString:
+    %SystemString, null\n    __5_intnl_SystemString: %SystemString, null\n    __6_intnl_SystemString:
+    %SystemString, null\n    __7_intnl_SystemString: %SystemString, null\n    __8_intnl_SystemString:
+    %SystemString, null\n    __9_intnl_SystemString: %SystemString, null\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\n    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
+    null\n    __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null\n\n.data_end\n\n
+    \       \n         # using UnityEngine;\n        \n         # using VRC.Udon.Common.Interfaces;\n
+    \       \n         # using UdonSharp;\n        \n         # using VRC.SDKBase;\n
+    \       \n         # using UnityEngine.SocialPlatforms;\n        \n         #
+    public class Card : UdonSharpBehaviour\n.code_start\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public string Type = \"None\";\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public int CardNumber = -1;\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public string SpriteNamePostfix = \"None\";\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public Vector3 Position;\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public Quaternion Rotation;\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public bool IsColliderActive;\n        \n         # [UdonSynced(UdonSyncMode.None)]
+    public bool IsDora;\n        \n         # public bool IsRinShan;\n        \n         #
+    public int YamaIndex;\n        \n         # public int PlayerIndex;\n        \n
+    \        # public bool IsDiscardedForRiichi;\n        \n         # public int
+    GlobalOrder;\n        \n         # [SerializeField] private HandUtil HandUtil;\n
+    \       \n         # [SerializeField] private CardSprites CardSprites;\n        \n
+    \        # [SerializeField] private SpriteRenderer SpriteRenderer;\n        \n
+    \        # [SerializeField] private BoxCollider BoxColider;\n        \n         #
+    [SerializeField] private LogViewer LogViewer;\n        \n         # [SerializeField]
+    private EventQueue EventQueue;\n        \n         # [SerializeField] private
+    AudioQueue AudioQueue;\n        \n         # private bool isSpriteInitialized
+    = false;\n        \n         # private bool isDoraMaterialSetted = false;\n        \n
+    \        # public override void Interact()\n    .export _interact\n        \n
+    \   _interact:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
+    \        # {\n        \n         # RequestCallFunctionToOwner(nameof(_Interact));\n
+    \       PUSH, __0_const_intnl_SystemString\n        PUSH, __0_funcName_String\n
+    \       COPY\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x00000910\n        \n         # RequestCallFunctionToOwner(nameof(_playTabSound));\n
+    \       PUSH, __1_const_intnl_SystemString\n        PUSH, __0_funcName_String\n
+    \       COPY\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x00000910\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void _playTabSound()\n    .export _playTabSound\n        \n    _playTabSound:\n
+    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
+    \       \n         # if (AudioQueue != null)\n        PUSH, AudioQueue\n        PUSH,
+    __0_const_intnl_VRCUdonCommonInterfacesIUdonEventReceiver\n        PUSH, __0_intnl_SystemBoolean\n
+    \       EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\n
+    \       PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000D4\n        \n
+    \        # {\n        \n         # AudioQueue.AddQueue(\"CardTabSound\");\n        PUSH,
+    AudioQueue\n        PUSH, __3_const_intnl_SystemString\n        PUSH, __2_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, AudioQueue\n        PUSH, __4_const_intnl_SystemString\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void _Interact()\n    .export _Interact\n        \n    _Interact:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # if (IsDiscardedForRiichi)\n        PUSH, IsDiscardedForRiichi\n        JUMP_IF_FALSE,
+    0x0000019C\n        \n         # {\n        \n         # EventQueue.SetRiichiEvent(YamaIndex,
+    PlayerIndex);\n        PUSH, EventQueue\n        PUSH, __5_const_intnl_SystemString\n
+    \       PUSH, YamaIndex\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, EventQueue\n        PUSH, __6_const_intnl_SystemString\n        PUSH,
+    PlayerIndex\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, YamaIndex\n        PUSH, __0_intnl_SystemInt32\n        COPY # Copy-on-write
+    symbol value dirtied\n        PUSH, PlayerIndex\n        PUSH, __1_intnl_SystemInt32\n
+    \       COPY # Copy-on-write symbol value dirtied\n        PUSH, EventQueue\n
+    \       PUSH, __7_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       \n         # IsDiscardedForRiichi = false;\n        PUSH, __0_const_intnl_SystemBoolean\n
+    \       PUSH, IsDiscardedForRiichi\n        COPY\n        JUMP, 0x0000021C\n        \n
+    \        # else\n        \n         # {\n        \n         # EventQueue.SetDiscardEvent(YamaIndex,
+    PlayerIndex);\n        PUSH, EventQueue\n        PUSH, __8_const_intnl_SystemString\n
+    \       PUSH, YamaIndex\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, EventQueue\n        PUSH, __9_const_intnl_SystemString\n        PUSH,
+    PlayerIndex\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, YamaIndex\n        PUSH, __0_intnl_SystemInt32\n        COPY # Copy-on-write
+    symbol value dirtied\n        PUSH, PlayerIndex\n        PUSH, __1_intnl_SystemInt32\n
+    \       COPY # Copy-on-write symbol value dirtied\n        PUSH, EventQueue\n
+    \       PUSH, __10_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void Initialize_Master(string type, int cardNumber, bool isRedDora)\n    .export
+    Initialize_Master\n        \n    Initialize_Master:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # Type = type;\n        PUSH, __0_type_String\n
+    \       PUSH, Type\n        COPY\n        \n         # CardNumber = cardNumber;\n
+    \       PUSH, __0_cardNumber_Int32\n        PUSH, CardNumber\n        COPY\n        \n
+    \        # IsDora = isRedDora;\n        PUSH, __0_isRedDora_Boolean\n        PUSH,
+    IsDora\n        COPY\n        \n         # GlobalOrder = HandUtil.GetGlobalOrder(type,
+    cardNumber);\n        PUSH, HandUtil\n        PUSH, __11_const_intnl_SystemString\n
+    \       PUSH, __0_type_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, HandUtil\n        PUSH, __12_const_intnl_SystemString\n        PUSH,
+    __0_cardNumber_Int32\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, HandUtil\n        PUSH, __13_const_intnl_SystemString\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, HandUtil\n        PUSH, __14_const_intnl_SystemString\n        PUSH,
+    __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __0_intnl_SystemObject\n        PUSH, __2_intnl_SystemInt32\n        EXTERN,
+    \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\n        PUSH, __2_intnl_SystemInt32\n
+    \       PUSH, GlobalOrder\n        COPY\n        \n         # SpriteNamePostfix
+    = isRedDora ? \"\uB3C4\uB77C\" : \"\";\n        PUSH, __0_isRedDora_Boolean\n
+    \       JUMP_IF_FALSE, 0x00000344\n        PUSH, __15_const_intnl_SystemString\n
+    \       PUSH, SpriteNamePostfix\n        COPY\n        JUMP, 0x00000358\n        PUSH,
+    __16_const_intnl_SystemString\n        PUSH, SpriteNamePostfix\n        COPY\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void SetAsDora()\n    .export SetAsDora\n        \n    SetAsDora:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # IsDora = true;\n        PUSH, __1_const_intnl_SystemBoolean\n        PUSH,
+    IsDora\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n
+    \       \n         # public void SetOwnership(int playerIndex)\n    .export SetOwnership\n
+    \       \n    SetOwnership:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # PlayerIndex = playerIndex;\n        PUSH,
+    __0_playerIndex_Int32\n        PUSH, PlayerIndex\n        COPY\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\n        \n        \n         # public void SetColliderActivate(bool
+    t)\n    .export SetColliderActivate\n        \n    SetColliderActivate:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # IsColliderActive = t;\n        PUSH, __0_t_Boolean\n        PUSH, IsColliderActive\n
+    \       COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n
+    \       \n         # public void SetPosition(Vector3 position, Quaternion rotation)\n
+    \   .export SetPosition\n        \n    SetPosition:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # Position = position;\n        PUSH,
+    __0_position_Vector3\n        PUSH, Position\n        COPY\n        \n         #
+    Rotation = rotation;\n        PUSH, __0_rotation_Quaternion\n        PUSH, Rotation\n
+    \       COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n
+    \       \n         # public string GetCardSpriteName()\n    .export GetCardSpriteName\n
+    \       \n    GetCardSpriteName:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # switch (Type)\n        \n         #
+    case \"\uB9CC\":\n        PUSH, Type\n        PUSH, __17_const_intnl_SystemString\n
+    \       PUSH, __1_intnl_SystemBoolean\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
+    \       PUSH, __1_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000480\n        JUMP,
+    0x000004F8\n        \n         # case \"\uC0AD\":\n        PUSH, Type\n        PUSH,
+    __18_const_intnl_SystemString\n        PUSH, __2_intnl_SystemBoolean\n        EXTERN,
+    \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n        PUSH,
+    __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000004B8\n        JUMP, 0x000004F8\n
+    \       \n         # case \"\uD1B5\":\n        PUSH, Type\n        PUSH, __19_const_intnl_SystemString\n
+    \       PUSH, __3_intnl_SystemBoolean\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
+    \       PUSH, __3_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000004F0\n        JUMP,
+    0x000004F8\n        \n         # default: // \uB3D9\uC11C\uB0A8\uBD81\uBC31\uBC1C\uC911\n
+    \       JUMP, 0x00000564\n        PUSH, CardNumber\n        PUSH, __0_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, Type\n
+    \       PUSH, __0_intnl_SystemString\n        PUSH, __1_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __1_intnl_SystemString\n        PUSH, SpriteNamePostfix\n        PUSH, __0_intnl_returnValSymbol_String\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n         # return
+    Type;\n        PUSH, Type\n        PUSH, __0_intnl_returnValSymbol_String\n        COPY\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # private void Update()\n    .export _update\n        \n
+    \   _update:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
+    \        # {\n        \n         # if (!isSpriteInitialized && IsCardSpriteInitializeReady())\n
+    \       PUSH, isSpriteInitialized\n        PUSH, __5_intnl_SystemBoolean\n        EXTERN,
+    \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n        PUSH,
+    __5_intnl_SystemBoolean\n        PUSH, __4_intnl_SystemBoolean\n        COPY\n
+    \       PUSH, __4_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000628\n        PUSH,
+    __2_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00000C08\n        PUSH, __4_intnl_SystemBoolean\n
+    \       PUSH, __0_intnl_returnValSymbol_Boolean\n        PUSH, __6_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __6_intnl_SystemBoolean\n        PUSH, __4_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __4_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000648\n
+    \       \n         # {\n        \n         # InitializeSprite();\n        PUSH,
+    __3_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00000824\n        \n         #
+    if (BoxColider != null)\n        PUSH, BoxColider\n        PUSH, __0_const_intnl_UnityEngineBoxCollider\n
+    \       PUSH, __7_intnl_SystemBoolean\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\n
+    \       PUSH, __7_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000690\n        \n
+    \        # {\n        \n         # BoxColider.enabled = IsColliderActive;\n        PUSH,
+    BoxColider\n        PUSH, IsColliderActive\n        EXTERN, \"UnityEngineBoxCollider.__set_enabled__SystemBoolean__SystemVoid\"\n
+    \       \n         # if (SpriteRenderer != null && IsDora && !isDoraMaterialSetted)\n
+    \       PUSH, SpriteRenderer\n        PUSH, __0_const_intnl_UnityEngineSpriteRenderer\n
+    \       PUSH, __10_intnl_SystemBoolean\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\n
+    \       PUSH, __10_intnl_SystemBoolean\n        PUSH, __9_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __9_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000708\n
+    \       PUSH, __9_intnl_SystemBoolean\n        PUSH, IsDora\n        PUSH, __11_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __11_intnl_SystemBoolean\n        PUSH, __9_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __9_intnl_SystemBoolean\n        PUSH, __8_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __8_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000778\n
+    \       PUSH, isDoraMaterialSetted\n        PUSH, __12_intnl_SystemBoolean\n        EXTERN,
+    \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n        PUSH,
+    __8_intnl_SystemBoolean\n        PUSH, __12_intnl_SystemBoolean\n        PUSH,
+    __13_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __13_intnl_SystemBoolean\n        PUSH, __8_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __8_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000007E8\n
+    \       \n         # {\n        \n         # SpriteRenderer.material = CardSprites.doraMaterial;\n
+    \       PUSH, CardSprites\n        PUSH, __20_const_intnl_SystemString\n        PUSH,
+    __1_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __1_intnl_SystemObject\n        PUSH, __1_intnl_UnityEngineMaterial\n
+    \       COPY\n        PUSH, SpriteRenderer\n        PUSH, __1_intnl_UnityEngineMaterial\n
+    \       EXTERN, \"UnityEngineSpriteRenderer.__set_material__UnityEngineMaterial__SystemVoid\"\n
+    \       \n         # isDoraMaterialSetted = true;\n        PUSH, __1_const_intnl_SystemBoolean\n
+    \       PUSH, isDoraMaterialSetted\n        COPY\n        \n         # transform.SetPositionAndRotation(Position,
+    Rotation);\n        PUSH, __0_this_intnl_UnityEngineTransform\n        PUSH, Position\n
+    \       PUSH, Rotation\n        EXTERN, \"UnityEngineTransform.__SetPositionAndRotation__UnityEngineVector3_UnityEngineQuaternion__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void InitializeSprite()\n    InitializeSprite:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # var spriteName = GetCardSpriteName();\n
+    \       PUSH, __4_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00000448\n        PUSH,
+    __0_intnl_returnValSymbol_String\n        PUSH, __0_spriteName_String\n        COPY\n
+    \       \n         # var sprite = CardSprites.FindSprite(spriteName);\n        PUSH,
+    CardSprites\n        PUSH, __21_const_intnl_SystemString\n        PUSH, __0_spriteName_String\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, CardSprites\n        PUSH, __22_const_intnl_SystemString\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, CardSprites\n        PUSH, __23_const_intnl_SystemString\n        PUSH,
+    __2_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __2_intnl_SystemObject\n        PUSH, __0_intnl_UnityEngineSprite\n
+    \       COPY\n        PUSH, __0_intnl_UnityEngineSprite\n        PUSH, __0_sprite_Sprite\n
+    \       COPY\n        \n         # SpriteRenderer.sprite = sprite;\n        PUSH,
+    SpriteRenderer\n        PUSH, __0_sprite_Sprite\n        EXTERN, \"UnityEngineSpriteRenderer.__set_sprite__UnityEngineSprite__SystemVoid\"\n
+    \       \n         # isSpriteInitialized = true;\n        PUSH, __1_const_intnl_SystemBoolean\n
+    \       PUSH, isSpriteInitialized\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # void RequestCallFunctionToOwner(string funcName)\n
+    \   RequestCallFunctionToOwner:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # if (Networking.LocalPlayer == null)\n
+    \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\n
+    \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\n
+    \       PUSH, __14_intnl_SystemBoolean\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\n
+    \       PUSH, __14_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000970\n        \n
+    \        # {\n        \n         # SendCustomEvent(funcName);\n        PUSH, __0_this_intnl_Card\n
+    \       PUSH, __0_funcName_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       JUMP, 0x00000990\n        \n         # else\n        \n         # {\n
+    \       \n         # SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);\n
+    \       PUSH, __0_this_intnl_Card\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n
+    \       PUSH, __0_funcName_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void RequestCallFunctionToAll(string funcName)\n    RequestCallFunctionToAll:\n
+    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
+    \       \n         # if (Networking.LocalPlayer == null)\n        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\n
+    \       EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\n
+    \       PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\n
+    \       PUSH, __15_intnl_SystemBoolean\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\n
+    \       PUSH, __15_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000A0C\n        \n
+    \        # {\n        \n         # SendCustomEvent(funcName);\n        PUSH, __0_this_intnl_Card\n
+    \       PUSH, __1_funcName_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       JUMP, 0x00000A2C\n        \n         # else\n        \n         # {\n
+    \       \n         # SendCustomNetworkEvent(NetworkEventTarget.All, funcName);\n
+    \       PUSH, __0_this_intnl_Card\n        PUSH, __1_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n
+    \       PUSH, __1_funcName_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public override string ToString()\n    .export ToString\n        \n    ToString:\n
+    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
+    \       \n         # return $\"({Type}, {CardNumber}, {GlobalOrder})\";\n        PUSH,
+    __24_const_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, Type\n
+    \       PUSH, __2_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __2_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __25_const_intnl_SystemString\n
+    \       PUSH, __3_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __3_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, CardNumber\n        PUSH, __4_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __4_intnl_SystemString\n        PUSH, __5_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __5_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __25_const_intnl_SystemString\n
+    \       PUSH, __6_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __6_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, GlobalOrder\n        PUSH, __7_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __7_intnl_SystemString\n        PUSH, __8_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __8_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __26_const_intnl_SystemString\n
+    \       PUSH, __9_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __9_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __1_intnl_returnValSymbol_String\n
+    \       COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\n        \n        \n         # bool IsCardSpriteInitializeReady()\n
+    \   IsCardSpriteInitializeReady:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # return SpriteRenderer != null\n        PUSH,
+    SpriteRenderer\n        PUSH, __0_const_intnl_UnityEngineSpriteRenderer\n        PUSH,
+    __19_intnl_SystemBoolean\n        EXTERN, \"UnityEngineObject.__op_Inequality__UnityEngineObject_UnityEngineObject__SystemBoolean\"\n
+    \       PUSH, __19_intnl_SystemBoolean\n        PUSH, __18_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __18_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000CA0\n
+    \       \n         # && Type != \"None\"\n        PUSH, Type\n        PUSH, __27_const_intnl_SystemString\n
+    \       PUSH, __20_intnl_SystemBoolean\n        EXTERN, \"SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean\"\n
+    \       PUSH, __18_intnl_SystemBoolean\n        PUSH, __20_intnl_SystemBoolean\n
+    \       PUSH, __21_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __21_intnl_SystemBoolean\n        PUSH, __18_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __18_intnl_SystemBoolean\n        PUSH, __17_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __17_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000D30\n
+    \       \n         # && CardNumber != -1\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __3_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32\"\n
+    \       PUSH, CardNumber\n        PUSH, __3_intnl_SystemInt32\n        PUSH, __22_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __17_intnl_SystemBoolean\n        PUSH, __22_intnl_SystemBoolean\n
+    \       PUSH, __23_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __23_intnl_SystemBoolean\n        PUSH, __17_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __17_intnl_SystemBoolean\n        PUSH, __16_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __16_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000DA8\n
+    \       \n         # && SpriteNamePostfix != \"None\";\n        PUSH, SpriteNamePostfix\n
+    \       PUSH, __27_const_intnl_SystemString\n        PUSH, __24_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemString.__op_Inequality__SystemString_SystemString__SystemBoolean\"\n
+    \       PUSH, __16_intnl_SystemBoolean\n        PUSH, __24_intnl_SystemBoolean\n
+    \       PUSH, __25_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __25_intnl_SystemBoolean\n        PUSH, __16_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __16_intnl_SystemBoolean\n        PUSH, __0_intnl_returnValSymbol_Boolean\n
+    \       COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\n        \n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 67eb4671e6b46bb4d8535ccc23a61798, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

@@ -1,10 +1,9 @@
 using UdonSharp;
 using UnityEngine;
-using VRC.SDKBase;
-using VRC.Udon;
 
 public class Player : UdonSharpBehaviour
 {
+
     private const int FULL_CARD_COUNT = 14;
 
     [SerializeField] public UIManager UiManager;
@@ -18,14 +17,9 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Transform nakiPoints;
     [SerializeField] public Transform nakiShapes;
     [SerializeField] public EventQueue EventQueue;
-    [SerializeField] public PlayerStatus PlayerStatus;
+    [SerializeField] public PlayerStatus playerStatus;
     [SerializeField] public Subtitle Subtitle;
     [SerializeField] public GameObject RiichiBon;
-
-    [SerializeField] public Card testcard1;
-    [SerializeField] public Card testcard2;
-    [SerializeField] public Card testcard3;
-    [SerializeField] public Card testcard4;
 
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
     [UdonSynced(UdonSyncMode.None)] public string PlayerName;
@@ -53,11 +47,11 @@ public class Player : UdonSharpBehaviour
         nakiCount = 0;
         OpenedPonPositions = new Transform[34];
         PlayerIndex = playerIndex;
-        PlayerStatus.Initialize();
+        playerStatus.Initialize();
         Subtitle.SetPlaytime(12.0f);
         NetworkMessage = SerializeRiichi(false);
     }
-
+    
     Transform[] FindPoints()
     {
         //배열의 0~13 은 소유카드 14는 추가카드
@@ -80,8 +74,8 @@ public class Player : UdonSharpBehaviour
 
     public void ActiveRiichiMode()
     {
-        PlayerStatus.IsRiichiMode = true;
-        PlayerStatus.IsOneShotRiichi = true;
+        playerStatus.IsRiichiMode = true;
+        playerStatus.IsOneShotRiichi = true;
         setStashPositionRichMode();
         Debug.Log($"[Player] Request RiichiBon setActive : {true}");
         NetworkMessage = SerializeRiichi(true);
@@ -89,19 +83,19 @@ public class Player : UdonSharpBehaviour
 
     public bool IsRiichiMode()
     {
-        return PlayerStatus.IsRiichiMode;
+        return playerStatus.IsRiichiMode;
     }
 
     public void DeactiveOneShotRiichi()
     {
-        PlayerStatus.IsOneShotRiichi = false;
+        playerStatus.IsOneShotRiichi = false;
     }
 
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo, bool isByRinshan)
     {
-        PlayerStatus.IsFirstTsumo = isFristTsumo;
-        PlayerStatus.IsLastTsumo = isLastTsumo;
-        PlayerStatus.IsByRinshan = isByRinshan;
+        playerStatus.IsFirstTsumo = isFristTsumo;
+        playerStatus.IsLastTsumo = isLastTsumo;
+        playerStatus.IsByRinshan = isByRinshan;
 
         UIContext.Clear();
         AgariContext.Clear();
@@ -114,10 +108,10 @@ public class Player : UdonSharpBehaviour
         newCard.SetOwnership(PlayerIndex);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
 
-        if (!UIContext.IsTsumoable && PlayerStatus.IsRiichiMode)
+        if (!UIContext.IsTsumoable && playerStatus.IsRiichiMode)
         {
             EventQueue.SetAutoDiscardEvent(newCard.YamaIndex, PlayerIndex);
-            PlayerStatus.IsOneShotRiichi = false;
+            playerStatus.IsOneShotRiichi = false;
         }
     }
 
@@ -154,7 +148,7 @@ public class Player : UdonSharpBehaviour
         var point = StashPositions.GetChild(stashedCardIndex++);
         card.SetPosition(point.position, point.rotation);
         card.SetColliderActivate(false);
-        PlayerStatus.IsFirstOrder = false;
+        playerStatus.IsFirstOrder = false;
 
         SortPosition();
     }
@@ -232,12 +226,12 @@ public class Player : UdonSharpBehaviour
 
     public void AddKkanCount()
     {
-        ++PlayerStatus.KkanCount;
+        ++playerStatus.KkanCount;
     }
 
     public void OpenCards(Card[] openTargetCards, int shapeType)
     {
-        PlayerStatus.IsMenzen = false;
+        playerStatus.IsMenzen = false;
 
         var nakiShape = GetNextNakiShape(shapeType);
         SetNakiPosition(openTargetCards, nakiShape);
@@ -343,7 +337,7 @@ public class Player : UdonSharpBehaviour
     public void SetColliderActive(bool active)
     {
         // 리치 중일 때는 조작이 불가능하게 함
-        if (PlayerStatus.IsRiichiMode)
+        if (playerStatus.IsRiichiMode)
         {
             return;
         }
@@ -356,9 +350,11 @@ public class Player : UdonSharpBehaviour
 
     public PlayerStatus CalculateTsumoScore()
     {
-        HandCalculator.RequestTsumoScore(GetArray(Cards), GetArray(OpenendCards), AgariContext, PlayerStatus);
+        var cards = GetArray(Cards);
+        var openedCards = GetArray(OpenendCards);
+        HandCalculator.RequestTsumoScore(cards, openedCards, AgariContext, playerStatus);
 
-        return PlayerStatus;
+        return playerStatus;
     }
 
     public void SetPlayerName(string name)
@@ -368,12 +364,12 @@ public class Player : UdonSharpBehaviour
 
     public void SetWind(string wind)
     {
-        PlayerStatus.Wind = wind;
+        playerStatus.Wind = wind;
     }
 
     public void SetRoundWind(string roundWind)
     {
-        PlayerStatus.RoundWind = roundWind;
+        playerStatus.RoundWind = roundWind;
     }
 
     void SortPosition()

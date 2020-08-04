@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: CardSuffle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: bfa78be604b61844381542484cf89396,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d6ac7cb1900d09646a4ff1aa1cdd4635,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
-    null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using System;\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
-    \       \r\n         # public class CardSuffle : UdonSharpBehaviour\r\n.code_start\r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n\n    __refl_const_intnl_udonTypeID: %SystemInt64,
+    null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\n\n.data_end\n\n        \n         # using System;\n        \n
+    \        # using UdonSharp;\n        \n         # using UnityEngine;\n        \n
+    \        # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n        \n
+    \        # public class CardSuffle : UdonSharpBehaviour\n.code_start\n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c7461da2fb0c3774da86465212021fbc, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
