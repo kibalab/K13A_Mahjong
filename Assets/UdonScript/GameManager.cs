@@ -28,6 +28,7 @@ public class GameManager : UdonSharpBehaviour
     private float pauseQueueTime = 0.0f;
 
     private VRCPlayerApi[] registeredPlayers;
+    private string[] winds;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class GameManager : UdonSharpBehaviour
         TableManager.Initialize();
         EventQueue.Initialize();
         registeredPlayers = new VRCPlayerApi[4];
+        winds = new string[] { "East", "North", "West", "South" };
 
         isRunOnMasterScript = true;
         LogViewer.Log("Master Initalized", 0);
@@ -132,7 +134,7 @@ public class GameManager : UdonSharpBehaviour
                     break;
 
                 case State_EndOfRound:
-                    EndOfGame();
+                    EndOfRound();
                     // 역에 대한 결과를 보여주는 단계
                     // 만들어야 함 (UI 디자인부터 해야...)
                     break;
@@ -167,16 +169,23 @@ public class GameManager : UdonSharpBehaviour
 
     void StartGame()
     {
-        // 등록한 순서를 적당히 섞어서 테이블에 이름을 넣어준다
+        // 등록한 순서를 적당히 섞는다
         registeredPlayers = ShufflePlayers(registeredPlayers);
-        for (var i = 0; i < 4; ++i)
-        {
-            var player = TableManager.GetPlayer(i);
-            player.SetPlayerName(registeredPlayers[i].displayName);
-        }
 
         // 4명 중 아무나 첫 턴으로 설정해준다
-        TableManager.SetTurnOf(Random.Range(0, 4));
+        var firstTurnIndex = Random.Range(0, 4);
+
+        for (var i = 0; i < 4; ++i)
+        {
+            var index = (firstTurnIndex + i) % 4;
+            var player = TableManager.GetPlayer(index);
+            player.SetPlayerName(registeredPlayers[index].displayName);
+            player.SetWind(winds[index]); // 방위 설정
+        }
+
+        TableManager.SetTurnOf(firstTurnIndex);
+        // 첫 판이 동풍전 맞던가... 
+        TableManager.SetRoundWind("East"); 
         TableManager.AddNextCard();
 
         ChangeGameState(State_WaitForDiscard);
@@ -408,7 +417,7 @@ public class GameManager : UdonSharpBehaviour
         return 0;
     }
 
-    void EndOfGame()
+    void EndOfRound()
     {
     
     }

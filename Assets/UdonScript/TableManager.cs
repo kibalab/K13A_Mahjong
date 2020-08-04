@@ -34,6 +34,9 @@ public class TableManager : UdonSharpBehaviour
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
     private int currentDorasCardIndex = 0;
+
+    private string currentRoundWind;
+
     void Start()
     {
         yama = CardPool.GetComponentsInChildren<Card>();
@@ -64,6 +67,16 @@ public class TableManager : UdonSharpBehaviour
         players[currentTurnPlayer].SetColliderActive(false);
         currentTurnPlayer = playerIndex;
         players[playerIndex].SetColliderActive(true);
+    }
+
+    public void SetRoundWind(string roundWind)
+    {
+        currentRoundWind = roundWind;
+        // 계산 편의 상 현재 방위를 플레이어에게 알려준다
+        foreach (var player in players)
+        {
+            player.SetRoundWind(roundWind);
+        }
     }
 
     public Player GetPlayer(int playerIndex)

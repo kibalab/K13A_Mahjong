@@ -16,32 +16,52 @@ public class ScoreCalculator : UdonSharpBehaviour
         bool isLastTsumo,
         bool isByRinshan)
     {
+        int[] hanList = new int[0];
         var maxHan = 0;
         var maxFu = 0;
 
-        foreach(object[] ctx in ctxs)
+        foreach (object[] ctx in ctxs)
         {
-            playerStatus.Han = 0;
+            playerStatus.InitializeHanFu();
             playerStatus.Fu = 20; // 기본 20부
 
-            // 1판역
-            AddScore_Riichi(playerStatus);
-            AddScore_MenzenTsumo(playerStatus);
-            AddScore_Pinfu(playerStatus, agariContext, ctx);
-            AddScore_OneSetOfIdenticalSequences(playerStatus, ctx);
-            AddScore_LastTileFromTheWall(playerStatus, isLastTsumo);
-            AddScore_WordCards(playerStatus, ctx);
-            AddScore_DeadWallDraw(playerStatus, isByRinshan);
-            AddScore_Dora(playerStatus, sealedCards, openedCards);
-
-            if (playerStatus.Han > maxHan)
+            // ---- 1판역 ----
             {
-                maxHan = playerStatus.Han;
+                // 리치
+                AddScore_Riichi(playerStatus);
+                // 쯔모
+                AddScore_MenzenTsumo(playerStatus);
+                // 핑후
+                AddScore_Pinfu(playerStatus, agariContext, ctx);
+                // 이페코
+                AddScore_OneSetOfIdenticalSequences(playerStatus, ctx);
+                // 해저로월
+                AddScore_LastTileFromTheWall(playerStatus, isLastTsumo);
+                // 자패 (덜만듬)
+                AddScore_WordCards(playerStatus, ctx);
+                // 영상개화
+                AddScore_DeadWallDraw(playerStatus, isByRinshan);
+                // 도라
+                AddScore_Dora(playerStatus, sealedCards, openedCards);
+                // 탕야오
+                AddScore_AllSimples(playerStatus, ctx);
+            }
+
+            // ---- 2판역 ----
+            {
+                // 삼색동순
+                AddScore_ThreeColorStraight(playerStatus, ctx);
+            }
+
+            if (playerStatus.TotalHan > maxHan)
+            {
+                hanList = playerStatus.Han;
+                maxHan = playerStatus.TotalHan;
                 maxFu = playerStatus.Fu;
             }
         }
 
-        playerStatus.Han = maxHan;
+        playerStatus.Han = hanList;
         playerStatus.Fu = maxFu;
     }
 
@@ -51,29 +71,44 @@ public class ScoreCalculator : UdonSharpBehaviour
         Card[] openedCards,
         object[] ctxs)
     {
+        int[] hanList = new int[0];
         var maxHan = 0;
         var maxFu = 0;
 
         foreach (object[] ctx in ctxs)
         {
-            playerStatus.Han = 0;
+            playerStatus.InitializeHanFu();
             playerStatus.Fu = 20; // 기본 20부
 
-            // 1판역
-            AddScore_Riichi(playerStatus);
-            AddScore_Pinfu(playerStatus, agariContext, ctx);
-            AddScore_OneSetOfIdenticalSequences(playerStatus, ctx);
-            AddScore_WordCards(playerStatus, ctx);
-            AddScore_Dora(playerStatus, sealedCards, openedCards);
-
-            if (playerStatus.Han > maxHan)
+            // ---- 1판역 ----
             {
-                maxHan = playerStatus.Han;
+                // 리치
+                AddScore_Riichi(playerStatus);
+                // 핑후
+                AddScore_Pinfu(playerStatus, agariContext, ctx);
+                // 이페코
+                AddScore_OneSetOfIdenticalSequences(playerStatus, ctx);
+                // 자패
+                AddScore_WordCards(playerStatus, ctx);
+                // 도라
+                AddScore_Dora(playerStatus, sealedCards, openedCards);
+            }
+
+            // ---- 2판역 ----
+            {
+                // 삼색동순
+                AddScore_ThreeColorStraight(playerStatus, ctx);
+            }
+
+            if (playerStatus.TotalHan > maxHan)
+            {
+                hanList = playerStatus.Han;
+                maxHan = playerStatus.TotalHan;
                 maxFu = playerStatus.Fu;
             }
         }
 
-        playerStatus.Han = maxHan;
+        playerStatus.Han = hanList;
         playerStatus.Fu = maxFu;
     }
 
@@ -81,49 +116,54 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         if (playerStatus.IsMenzen)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("MenzenTsumo", 1);
         }
     }
+
 
     void AddScore_Riichi(PlayerStatus playerStatus)
     {
         // 리치 화료
         if (playerStatus.IsRiichiMode)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("Riichi", 1);
         }
 
         // 일발
         if (playerStatus.IsOneShotRiichi)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("OneShotRiichi", 1);
         }
 
         //더블리치
         if (playerStatus.IsFirstOrder)
         {
-            playerStatus.Han += 2;
+            playerStatus.AddHan("DoubleRiichi", 2);
         }
     }
 
-
-     void AddScore_Pinfu(PlayerStatus playerStatus, AgariContext agariContext, object[] ctx)
+    void AddScore_Pinfu(PlayerStatus playerStatus, AgariContext agariContext, object[] ctx)
     {
         var head = GetHeadGlobalOrder(ctx);
         var ponCount = Ctx.ReadPonCount(ctx);
 
+        // 커쯔가 없어야 한다(편의상 pon으로 표기한 것)
         if (ponCount == 0
+            // 멘젠이어야 한다
             && playerStatus.IsMenzen
+            // 양면대기여야 함
             && !agariContext.IsSingleWaiting
+            // 머리가 역패가 아니어야 함
             && !HandUtil.IsWordCard(head)
+            // 양면대기여야 함
             && agariContext.AgariableCount == 2 
-            && agariContext.AgariableCardGlobalOrders[0] == agariContext.AgariableCardGlobalOrders[0] + 1)
+            // 양면대기인데 슌쯔여야 함 23 있으면 1,4(3칸)을 기다리는 것
+            && agariContext.AgariableCardGlobalOrders[0] == agariContext.AgariableCardGlobalOrders[0] + 3)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("Pinfu", 1);
         }
     }
 
-    // 이페코
     void AddScore_OneSetOfIdenticalSequences(PlayerStatus playerStatus, object[] ctx)
     {
         if (playerStatus.IsMenzen)
@@ -133,7 +173,7 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             if (chiCount > 1 && GetSameChiCount(chiList, chiCount) == 2)
             {
-                playerStatus.Han += 1;
+                playerStatus.AddHan("OneSetOfIdenticalSequences", 1);
             }
         }
     }
@@ -142,15 +182,17 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         if (isLastTsumo)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("LastTileFromTheWall", 1);
         }
     }
 
     void AddScore_AllSimples(PlayerStatus playerStatus, object[] ctx)
     {
+        // 탕야오
         var ponList = Ctx.ReadPonList(ctx);
         var ponCount = Ctx.ReadPonCount(ctx);
 
+        // 모든 커쯔에 요구패 없음
         for (var i = 0; i < ponCount; ++i)
         {
             if (HandUtil.IsYaojuhai(ponList[i]))
@@ -162,6 +204,7 @@ public class ScoreCalculator : UdonSharpBehaviour
         var chiCount = Ctx.ReadChiCount(ctx);
         var chiList = Ctx.ReadChiList(ctx);
 
+        // 모든 슌쯔에 요구패 없음
         for (var i = 0; i < chiCount; ++i)
         {
             if (HandUtil.IsYaojuhai(chiList[i]))
@@ -170,13 +213,14 @@ public class ScoreCalculator : UdonSharpBehaviour
             }
         }
 
+        // 머리가 요구패가 아님
         var head = GetHeadGlobalOrder(ctx);
         if (HandUtil.IsYaojuhai(head))
         {
             return;
         }
 
-        playerStatus.Han += 1;
+        playerStatus.AddHan("AllSimples", 1);
     }
 
     void AddScore_WordCards(PlayerStatus playerStatus, object[] ctx)
@@ -189,17 +233,17 @@ public class ScoreCalculator : UdonSharpBehaviour
             var pon = ponList[i];
             if (IsWhiteGreenRed(pon))
             {
-                playerStatus.Han += 1;
+                playerStatus.AddHan("WhiteGreenRed", 1);
             }
 
             if (IsMyWindWordCard(playerStatus, pon))
             {
-                playerStatus.Han += 1;
+                playerStatus.AddHan("MyWindWord", 1);
             }
 
-            if (IsCurrentWindWordCard("", playerStatus, pon))
+            if (IsCurrentWindWordCard(playerStatus, pon))
             {
-                playerStatus.Han += 1;
+                playerStatus.AddHan("CurrentRoundWind", 1);
             }
         }
     }
@@ -209,7 +253,7 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         if (isByRinshan)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("DeadWallDraw", 1);
         }
     }
 
@@ -219,7 +263,7 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         if (isLastDiscard)
         {
-            playerStatus.Han += 1;
+            playerStatus.AddHan("LastDiscard", 1);
         }
     }
 
@@ -245,13 +289,54 @@ public class ScoreCalculator : UdonSharpBehaviour
             }
         }
 
-        playerStatus.Han += totalDoraCount;
+        playerStatus.AddHan("Dora", totalDoraCount);
     }
 
     //삼색동순
     void AddScore_ThreeColorStraight(PlayerStatus playerStatus, object[] ctx)
     {
-        // 아직 Ctx 쪽을 재대로 이해못해서 TODO
+        var chiCount = Ctx.ReadChiCount(ctx);
+        var chiList = Ctx.ReadChiList(ctx);
+
+        if (chiCount > 3)
+        {
+            // 만(1,2,3) 만(3,4,5) 통(1,2,3) 삭(1,2,3)이 있다고 하자
+            // chiList에는 이렇게 들어가있을 것임
+            // chiList = [0, 2, 9, 18]
+            var startNumbers = new int[chiCount];
+            for (var i = 0; i < chiCount; ++i)
+            {
+                startNumbers[i] = chiList[i] % 9;
+            }
+            // 9 나머지 연산을 하면 이렇게 된다
+            // startNumbers = [0, 2, 0, 0]
+
+            // 같은 숫자가 3개인지 알아보기 위해
+            // 1. 타겟 숫자를 찾고
+            // 2. 해당 숫자를 제외한 배열을 돌면서 갯수를 센다
+            for (var targetIndex = 0; targetIndex < chiCount; ++targetIndex)
+            {
+                var targetNumber = startNumbers[targetIndex];
+                var sameChiCount = 0;
+
+                for (var i = 0; i < chiCount; ++i)
+                {
+                    // 현재 비교대상과 같은 인덱스면 벗어남
+                    if (targetIndex == i) { continue; }
+                    if (startNumbers[i] == targetNumber)
+                    {
+                        ++sameChiCount;
+                    }
+                }
+
+                // 3개 있으면 삼색동순
+                if (sameChiCount == 3)
+                {
+                    playerStatus.AddHan("ThreeColorStraight", 2);
+                    return;
+                }
+            }
+        }
     }
 
     bool IsWhiteGreenRed(int globalOrder)
@@ -264,24 +349,30 @@ public class ScoreCalculator : UdonSharpBehaviour
 
     bool IsMyWindWordCard(PlayerStatus playerStatus, int globalOrder)
     {
-        // 어떻게 할지 좀 고민해봄
-
-        return true;
+        return IsSameDirectionCard(playerStatus.Wind, globalOrder);
     }
 
-    bool IsCurrentWindWordCard(string currentWind, PlayerStatus playerStatus, int globalOrder)
+    bool IsCurrentWindWordCard(PlayerStatus playerStatus, int globalOrder)
     {
-        // 어떻게 할지 좀 고민해봄
-        switch (currentWind)
+        return IsSameDirectionCard(playerStatus.RoundWind, globalOrder);
+    }
+
+    bool IsSameDirectionCard(string wind, int globalOrder)
+    {
+        switch (wind)
         {
             case "East":
-            case "West":
+                return globalOrder == HandUtil.GetWordsStartGlobalOrder() + HandUtil.GetEastCardNumber() - 1;
             case "North":
+                return globalOrder == HandUtil.GetWordsStartGlobalOrder() + HandUtil.GetNorthCardNumber() - 1;
             case "South":
-                break;
+                return globalOrder == HandUtil.GetWordsStartGlobalOrder() + HandUtil.GetSouthCardNumber() - 1;
+            case "West":
+                return globalOrder == HandUtil.GetWordsStartGlobalOrder() + HandUtil.GetWestCardNumber() - 1;
+            // 여긴 들어오면 안되지만..
+            default:
+                return false;
         }
-
-        return true;
     }
 
     int GetSameChiCount(int[] chiList, int chiCount)
