@@ -252,7 +252,14 @@ public class GameManager : UdonSharpBehaviour
         else if (eventType == "Tsumo")
         {
             TableManager.SetSubtitleAllPlayers(currentPlayer.gameObject.name, "쯔모");
-            // 해야 한다...
+
+            var playerStatus = currentPlayer.CalculateTsumoScore();
+
+            var yakuKeyList = playerStatus.YakuKey;
+            var hanList = playerStatus.Han;
+            var fu = playerStatus.Fu;
+            var count = playerStatus.YakuCount;
+            // 해야 한다...,.,.,.,.,.,,
         }
         else if (eventType == "AutoDiscard")
         {

@@ -354,11 +354,11 @@ public class Player : UdonSharpBehaviour
         }
     }
 
-    public void CalculateTsumoScore()
+    public PlayerStatus CalculateTsumoScore()
     {
-        //var ctxs = HandCalculator.FindAll
+        HandCalculator.RequestTsumoScore(GetArray(Cards), GetArray(OpenendCards), AgariContext, PlayerStatus);
 
-        //ScoreCalculator.CalculateTsumo()
+        return PlayerStatus;
     }
 
     public void SetPlayerName(string name)
