@@ -65,6 +65,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_LittleThreeDragons(playerStatus, ctx);
                 // 혼노두
                 AddScore_AllTerminalsAndHonors(playerStatus, ctx);
+                // 삼깡쯔
+                AddScore_ThreeQuads(playerStatus);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -126,6 +128,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_LittleThreeDragons(playerStatus, ctx);
                 // 혼노두
                 AddScore_AllTerminalsAndHonors(playerStatus, ctx);
+                // 삼깡쯔
+                AddScore_ThreeQuads(playerStatus);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -594,6 +598,13 @@ public class ScoreCalculator : UdonSharpBehaviour
         playerStatus.AddHan("AllTerminalsAndHonors", 2);
     }
 
+    void AddScore_ThreeQuads(PlayerStatus playerStatus)
+    {
+        if (playerStatus.KkanCount == 3)
+        {
+            playerStatus.AddHan("ThreeQuads", 2);
+        }
+    }
 
     bool IsWhiteGreenRed(int globalOrder)
     {

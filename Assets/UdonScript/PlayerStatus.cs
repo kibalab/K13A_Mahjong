@@ -12,6 +12,7 @@ public class PlayerStatus : UdonSharpBehaviour
     public string Wind; // 내 방위 
     public string RoundWind; // 현재 판의 방위
     public bool IsFirstOrder;
+    public int KkanCount;
 
     // 계산 중에 정함
 
