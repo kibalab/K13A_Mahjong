@@ -36,7 +36,7 @@ public class HandCalculator : UdonSharpBehaviour
         // 특수역: 치또이츠
         if (pairs.Length == 7)
         {
-            playerStatus.Han = 2;
+            playerStatus.AddHan("ChiToitsu", 2);
             playerStatus.Fu = 25;
             return;
         }

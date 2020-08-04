@@ -357,6 +357,16 @@ public class Player : UdonSharpBehaviour
         PlayerName = name;
     }
 
+    public void SetWind(string wind)
+    {
+        PlayerStatus.Wind = wind;
+    }
+
+    public void SetRoundWind(string roundWind)
+    {
+        PlayerStatus.RoundWind = roundWind;
+    }
+
     void SortPosition()
     {
         Cards.Sort();
