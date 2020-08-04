@@ -51,6 +51,8 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 // 삼색동순
                 AddScore_ThreeColorStraight(playerStatus, ctx);
+                // 일기통관
+                AddScore_Straight(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -98,6 +100,8 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 // 삼색동순
                 AddScore_ThreeColorStraight(playerStatus, ctx);
+                // 일기통관
+                AddScore_Straight(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -298,44 +302,71 @@ public class ScoreCalculator : UdonSharpBehaviour
         var chiCount = Ctx.ReadChiCount(ctx);
         var chiList = Ctx.ReadChiList(ctx);
 
-        if (chiCount > 3)
+        if (chiCount < 3)
         {
-            // 만(1,2,3) 만(3,4,5) 통(1,2,3) 삭(1,2,3)이 있다고 하자
-            // chiList에는 이렇게 들어가있을 것임
-            // chiList = [0, 2, 9, 18]
-            var startNumbers = new int[chiCount];
+            return;
+        }
+
+        // 만(1,2,3) 만(3,4,5) 통(1,2,3) 삭(1,2,3)이 있다고 하자
+        // chiList에는 이렇게 들어가있을 것임
+        // chiList = [0, 2, 9, 18]
+        var startNumbers = new int[chiCount];
+        for (var i = 0; i < chiCount; ++i)
+        {
+            startNumbers[i] = chiList[i] % 9;
+        }
+        // 9 나머지 연산을 하면 이렇게 된다
+        // startNumbers = [0, 2, 0, 0]
+
+        // 같은 숫자가 3개인지 알아보기 위해
+        // 1. 타겟 숫자를 찾고
+        // 2. 해당 숫자를 제외한 배열을 돌면서 갯수를 센다
+        for (var targetIndex = 0; targetIndex < chiCount; ++targetIndex)
+        {
+            var targetNumber = startNumbers[targetIndex];
+            var sameChiCount = 0;
+
             for (var i = 0; i < chiCount; ++i)
             {
-                startNumbers[i] = chiList[i] % 9;
+                // 현재 비교대상과 같은 인덱스면 벗어남
+                if (targetIndex == i) { continue; }
+                if (startNumbers[i] == targetNumber)
+                {
+                    ++sameChiCount;
+                }
             }
-            // 9 나머지 연산을 하면 이렇게 된다
-            // startNumbers = [0, 2, 0, 0]
 
-            // 같은 숫자가 3개인지 알아보기 위해
-            // 1. 타겟 숫자를 찾고
-            // 2. 해당 숫자를 제외한 배열을 돌면서 갯수를 센다
-            for (var targetIndex = 0; targetIndex < chiCount; ++targetIndex)
+            // 3개 있으면 삼색동순
+            if (sameChiCount == 3)
             {
-                var targetNumber = startNumbers[targetIndex];
-                var sameChiCount = 0;
+                var han = playerStatus.IsMenzen ? 2 : 1;
+                playerStatus.AddHan("ThreeColorStraight", han);
+                return;
+            }
+        }
+    }
 
-                for (var i = 0; i < chiCount; ++i)
-                {
-                    // 현재 비교대상과 같은 인덱스면 벗어남
-                    if (targetIndex == i) { continue; }
-                    if (startNumbers[i] == targetNumber)
-                    {
-                        ++sameChiCount;
-                    }
-                }
+    void AddScore_Straight(PlayerStatus playerStatus, object[] ctx) 
+    {
+        // 일기통관
+        var chiCount = Ctx.ReadChiCount(ctx);
+        var chiList = Ctx.ReadChiList(ctx);
 
-                // 3개 있으면 삼색동순
-                if (sameChiCount == 3)
-                {
-                    var han = playerStatus.IsMenzen ? 2 : 1;
-                    playerStatus.AddHan("ThreeColorStraight", han);
-                    return;
-                }
+        if (chiCount < 3)
+        {
+            return;
+        }
+
+        // 만(1,2,3) 만(4,5,6) 통(7,8,9) 삭(1,2,3)이 있다고 하자
+        // chiList에는 이렇게 들어가있을 것임
+        // chiList = [0, 3, 6, 18]
+        // chiList[0] + 3 == chiList[1] && chiList[1] + 3 == chiList[2] 이다
+
+        for (var i = 0; i < chiCount - 2; ++i)
+        {
+            if (chiList[i] + 3 == chiList[i + 1] && chiList[i + 1]+3 == chiList[i + 2])
+            {
+                playerStatus.AddHan("Straight", 2);
             }
         }
     }
