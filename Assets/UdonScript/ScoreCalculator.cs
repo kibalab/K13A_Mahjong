@@ -61,6 +61,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
                 // 삼색동각
                 AddScore_ThreeColorTriplets(playerStatus, ctx);
+                // 소삼원
+                AddScore_LittleThreeDragons(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -118,6 +120,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
                 // 삼색동각
                 AddScore_ThreeColorTriplets(playerStatus, ctx);
+                // 소삼원
+                AddScore_LittleThreeDragons(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -517,6 +521,39 @@ public class ScoreCalculator : UdonSharpBehaviour
                 return;
             }
         }
+    }
+
+    void AddScore_LittleThreeDragons(PlayerStatus playerStatus, object[] ctx)
+    {
+        var ponCount = Ctx.ReadPonCount(ctx);
+        var ponList = Ctx.ReadPonList(ctx);
+
+        if (ponCount < 2)
+        {
+            return;
+        }
+
+        var dragonPonCount = 0;
+        for (var i = 0; i < ponCount; ++i)
+        {
+            if (HandUtil.IsDragonCard(ponList[i]))
+            {
+                ++dragonPonCount;
+            }
+        }
+
+        if (dragonPonCount != 2) 
+        {
+            return;
+        }
+
+        var head = GetHeadGlobalOrder(ctx);
+        if (!HandUtil.IsDragonCard(head))
+        {
+            return;
+        }
+
+        playerStatus.AddHan("LittleThreeDragons", 2);
     }
 
     bool IsWhiteGreenRed(int globalOrder)

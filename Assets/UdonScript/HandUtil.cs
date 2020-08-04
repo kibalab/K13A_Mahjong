@@ -146,6 +146,14 @@ public class HandUtil : UdonSharpBehaviour
         return WORDS_START_GLOBAL_ORDER <= globalOrder && globalOrder <= WORDS_END_GLOBAL_ORDER;
     }
 
+    public bool IsDragonCard(int globalOrder)
+    {
+        var whiteGlobalOrder = WORDS_START_GLOBAL_ORDER + GetWhiteCardNumber() - 1;
+        var redGlobalOrder = WORDS_END_GLOBAL_ORDER;
+
+        return whiteGlobalOrder <= globalOrder && globalOrder <= redGlobalOrder;
+    }
+
     public int GetYaojuhaiTypeCount(int[] tiles)
     {
         return (tiles[MAN_START_GLOBAL_ORDER] > 0 ? 1 : 0)
