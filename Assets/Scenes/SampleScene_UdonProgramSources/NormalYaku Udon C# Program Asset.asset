@@ -14,389 +14,371 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 1a45e88730d4567408da1c6bf27c70ea,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export HandUtil\r\n\r\n    __refl_const_intnl_udonTypeID:
-    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
-    \   HandUtil: %VRCUdonUdonBehaviour, null\r\n    __0_bodies_Int32: %SystemInt32,
-    null\r\n    __0_globalOrder_Int32: %SystemInt32, null\r\n    __0_globalOrder1_Int32:
-    %SystemInt32, null\r\n    __0_globalOrder2_Int32: %SystemInt32, null\r\n    __0_i_Int32:
-    %SystemInt32, null\r\n    __0_pair_Int32: %SystemInt32, null\r\n    __0_globalOrders_Int32Array:
-    %SystemInt32Array, null\r\n    __0_pairs_Int32Array: %SystemInt32Array, null\r\n
-    \   __0_remainsGlobalOrders_Int32Array: %SystemInt32Array, null\r\n    __0_ctx_ObjectArray:
-    %SystemObjectArray, null\r\n    __0_ctxs_ObjectArray: %SystemObjectArray, null\r\n
-    \   __0_agariContext_AgariContext: %VRCUdonUdonBehaviour, null\r\n    __0_Ctx_CalculatingContextHandler:
-    %VRCUdonUdonBehaviour, null\r\n    __1_agariContext_AgariContext: %VRCUdonUdonBehaviour,
-    null\r\n    __2_agariContext_AgariContext: %VRCUdonUdonBehaviour, null\r\n    __0_const_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __1_const_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_const_intnl_SystemInt32: %SystemInt32, null\r\n    __1_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __2_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __3_const_intnl_SystemInt32: %SystemInt32, null\r\n    __4_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __5_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __0_const_intnl_SystemObject: %SystemObject, null\r\n    __0_const_intnl_SystemObjectArray:
-    %SystemObjectArray, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
-    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __10_const_intnl_SystemString:
-    %SystemString, null\r\n    __11_const_intnl_SystemString: %SystemString, null\r\n
-    \   __12_const_intnl_SystemString: %SystemString, null\r\n    __13_const_intnl_SystemString:
-    %SystemString, null\r\n    __14_const_intnl_SystemString: %SystemString, null\r\n
-    \   __15_const_intnl_SystemString: %SystemString, null\r\n    __16_const_intnl_SystemString:
-    %SystemString, null\r\n    __17_const_intnl_SystemString: %SystemString, null\r\n
-    \   __18_const_intnl_SystemString: %SystemString, null\r\n    __19_const_intnl_SystemString:
-    %SystemString, null\r\n    __2_const_intnl_SystemString: %SystemString, null\r\n
-    \   __20_const_intnl_SystemString: %SystemString, null\r\n    __3_const_intnl_SystemString:
-    %SystemString, null\r\n    __4_const_intnl_SystemString: %SystemString, null\r\n
-    \   __5_const_intnl_SystemString: %SystemString, null\r\n    __6_const_intnl_SystemString:
-    %SystemString, null\r\n    __7_const_intnl_SystemString: %SystemString, null\r\n
-    \   __8_const_intnl_SystemString: %SystemString, null\r\n    __9_const_intnl_SystemString:
-    %SystemString, null\r\n    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n    __1_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __0_intnl_returnValSymbol_Boolean:
-    %SystemBoolean, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __1_intnl_SystemBoolean: %SystemBoolean, null\r\n    __10_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __11_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __12_intnl_SystemBoolean: %SystemBoolean, null\r\n    __13_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __14_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __15_intnl_SystemBoolean: %SystemBoolean, null\r\n    __16_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __17_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __18_intnl_SystemBoolean: %SystemBoolean, null\r\n    __19_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __20_intnl_SystemBoolean: %SystemBoolean, null\r\n    __21_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __22_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __23_intnl_SystemBoolean: %SystemBoolean, null\r\n    __24_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __25_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __3_intnl_SystemBoolean: %SystemBoolean, null\r\n    __4_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __5_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __6_intnl_SystemBoolean: %SystemBoolean, null\r\n    __7_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __8_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __9_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32, null\r\n    __10_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __11_intnl_SystemInt32: %SystemInt32, null\r\n    __12_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __13_intnl_SystemInt32: %SystemInt32, null\r\n    __14_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __15_intnl_SystemInt32: %SystemInt32, null\r\n    __2_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __3_intnl_SystemInt32: %SystemInt32, null\r\n    __4_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __5_intnl_SystemInt32: %SystemInt32, null\r\n    __6_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __7_intnl_SystemInt32: %SystemInt32, null\r\n    __8_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __9_intnl_SystemInt32: %SystemInt32, null\r\n    __0_intnl_SystemInt32Array:
-    %SystemInt32Array, null\r\n    __1_intnl_SystemInt32Array: %SystemInt32Array,
-    null\r\n    __0_intnl_SystemObject: %SystemObject, null\r\n    __1_intnl_SystemObject:
-    %SystemObject, null\r\n    __2_intnl_SystemObject: %SystemObject, null\r\n    __3_intnl_SystemObject:
-    %SystemObject, null\r\n    __4_intnl_SystemObject: %SystemObject, null\r\n    __0_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
-    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
-    %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using VRC.SDKBase;\r\n
-    \       \r\n         # using VRC.Udon;\r\n        \r\n         # public class
-    NormalYaku : UdonSharpBehaviour\r\n.code_start\r\n        \r\n         # [SerializeField]
-    public HandUtil HandUtil;\r\n        \r\n         # public bool CheckTenpai(CalculatingContextHandler
-    Ctx, object[] ctxs, AgariContext agariContext, int[] globalOrders)\r\n    .export
-    CheckTenpai\r\n        \r\n    CheckTenpai:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # foreach (object[] ctx in ctxs)\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       COPY\r\n        PUSH, __0_ctxs_ObjectArray\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemObjectArray.__get_Length__SystemInt32\"\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000ECC\r\n
-    \       PUSH, __0_ctxs_ObjectArray\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"SystemObjectArray.__Get__SystemInt32__SystemObject\"\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __0_ctx_ObjectArray\r\n
-    \       COPY\r\n        \r\n         # {\r\n        \r\n         # if (ctx ==
-    null) { continue; }\r\n        PUSH, __0_ctx_ObjectArray\r\n        PUSH, __0_const_intnl_SystemObjectArray\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000D0\r\n
-    \       JUMP, 0x00000EA4\r\n        \r\n         # var remainsGlobalOrders = Ctx.ReadGlobalOrders(ctx);\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __0_const_intnl_SystemString\r\n
-    \       PUSH, __0_ctx_ObjectArray\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __1_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __2_const_intnl_SystemString\r\n
-    \       PUSH, __1_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __1_intnl_SystemObject\r\n        PUSH, __0_intnl_SystemInt32Array\r\n
-    \       COPY\r\n        PUSH, __0_intnl_SystemInt32Array\r\n        PUSH, __0_remainsGlobalOrders_Int32Array\r\n
-    \       COPY\r\n        \r\n         # var pairs = HandUtil.FindPairs(remainsGlobalOrders);\r\n
-    \       PUSH, HandUtil\r\n        PUSH, __3_const_intnl_SystemString\r\n        PUSH,
-    __0_remainsGlobalOrders_Int32Array\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, HandUtil\r\n        PUSH, __4_const_intnl_SystemString\r\n        EXTERN,
-    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, HandUtil\r\n        PUSH, __5_const_intnl_SystemString\r\n        PUSH,
-    __2_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __2_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt32Array\r\n
-    \       COPY\r\n        PUSH, __1_intnl_SystemInt32Array\r\n        PUSH, __0_pairs_Int32Array\r\n
-    \       COPY\r\n        \r\n         # foreach (var pair in pairs)\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __2_intnl_SystemInt32\r\n        COPY\r\n
-    \       PUSH, __0_pairs_Int32Array\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n        PUSH,
-    __2_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH,
-    __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002D4\r\n
-    \       PUSH, __0_pairs_Int32Array\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       PUSH, __0_pair_Int32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       \r\n         # {\r\n        \r\n         # remainsGlobalOrders[pair] -=
-    2;\r\n        PUSH, __0_remainsGlobalOrders_Int32Array\r\n        PUSH, __0_pair_Int32\r\n
-    \       PUSH, __4_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __5_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_remainsGlobalOrders_Int32Array\r\n        PUSH, __0_pair_Int32\r\n
-    \       PUSH, __5_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\r\n
-    \       PUSH, __2_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __2_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000001FC\r\n        \r\n         # var bodies = Ctx.ReadChiCount(ctx)
-    + Ctx.ReadPonCount(ctx);\r\n        PUSH, __0_Ctx_CalculatingContextHandler\r\n
-    \       PUSH, __6_const_intnl_SystemString\r\n        PUSH, __0_ctx_ObjectArray\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __7_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __8_const_intnl_SystemString\r\n
-    \       PUSH, __3_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __3_intnl_SystemObject\r\n        PUSH, __2_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
-    __0_Ctx_CalculatingContextHandler\r\n        PUSH, __9_const_intnl_SystemString\r\n
-    \       PUSH, __0_ctx_ObjectArray\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __10_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_Ctx_CalculatingContextHandler\r\n        PUSH, __11_const_intnl_SystemString\r\n
-    \       PUSH, __4_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __4_intnl_SystemObject\r\n        PUSH, __3_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
-    __2_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemInt32\r\n        PUSH,
-    __4_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __4_intnl_SystemInt32\r\n        PUSH, __0_bodies_Int32\r\n        COPY\r\n
-    \       \r\n         # if (bodies == 4 && pairs.Length == 0)\r\n        PUSH,
-    __0_bodies_Int32\r\n        PUSH, __3_const_intnl_SystemInt32\r\n        PUSH,
-    __3_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000498\r\n        PUSH, __0_pairs_Int32Array\r\n        PUSH, __5_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n        PUSH,
-    __5_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __4_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000634\r\n        \r\n         # {\r\n        \r\n         # for (var i =
-    0; i < remainsGlobalOrders.Length; ++i)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_i_Int32\r\n        COPY\r\n        PUSH, __0_remainsGlobalOrders_Int32Array\r\n
-    \       PUSH, __6_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __6_intnl_SystemInt32\r\n        PUSH,
-    __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000062C\r\n
-    \       \r\n         # {\r\n        \r\n         # if (remainsGlobalOrders[i]
-    > 0)\r\n        PUSH, __0_remainsGlobalOrders_Int32Array\r\n        PUSH, __0_i_Int32\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000604\r\n
-    \       \r\n         # {\r\n        \r\n         # SetSingleWaiting(agariContext,
-    i);\r\n        PUSH, __0_agariContext_AgariContext\r\n        PUSH, __1_agariContext_AgariContext\r\n
-    \       COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_globalOrder_Int32\r\n
-    \       COPY\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000F54\r\n        \r\n         # Debug.Log($\"\uBAB84 \uCE74\uB4DC 1, \uB2E8\uBA74\uB300\uAE30
-    \uD150\uD30C\uC774 GlobalOrder:{i}\");\r\n        PUSH, __12_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    __0_i_Int32\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        EXTERN,
-    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        \r\n         #
-    break;\r\n        JUMP, 0x0000062C\r\n        PUSH, __0_i_Int32\r\n        PUSH,
-    __2_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x000004BC\r\n        JUMP, 0x00000EA4\r\n        \r\n         #
-    else if (bodies == 3 && pairs.Length == 2)\r\n        PUSH, __0_bodies_Int32\r\n
-    \       PUSH, __4_const_intnl_SystemInt32\r\n        PUSH, __7_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x000006E4\r\n        PUSH, __0_pairs_Int32Array\r\n        PUSH, __6_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n        PUSH,
-    __6_intnl_SystemInt32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __8_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __8_intnl_SystemBoolean\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        PUSH, __6_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __6_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000890\r\n        \r\n         # {\r\n        \r\n         # SetDoubleWaiting(agariContext,
-    pairs[0], pairs[1]);\r\n        PUSH, __0_pairs_Int32Array\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_globalOrder1_Int32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_pairs_Int32Array\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_globalOrder2_Int32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_agariContext_AgariContext\r\n        PUSH, __2_agariContext_AgariContext\r\n
-    \       COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000FC8\r\n        \r\n         # Debug.Log($\"\uBAB84 \uBA38\uB9AC 2, \uC591\uBA74\uB300\uAE30
-    \uD150\uD30C\uC774 GlobalOrder:{pairs[0]}, {pairs[1]}\");\r\n        PUSH, __13_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n        PUSH,
-    __0_pairs_Int32Array\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __7_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __7_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __14_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_pairs_Int32Array\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __8_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __3_intnl_SystemString\r\n        PUSH, __4_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        EXTERN,
-    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        JUMP, 0x00000EA4\r\n
-    \       \r\n         # else if (bodies == 3 && pairs.Length == 1)\r\n        PUSH,
-    __0_bodies_Int32\r\n        PUSH, __4_const_intnl_SystemInt32\r\n        PUSH,
-    __11_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        PUSH, __10_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000940\r\n        PUSH, __0_pairs_Int32Array\r\n        PUSH, __7_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\r\n        PUSH,
-    __7_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
-    __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        PUSH, __12_intnl_SystemBoolean\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        PUSH, __10_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __10_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000EA4\r\n        \r\n         # {\r\n        \r\n         # for (var i =
-    0; i < 34 - 1; ++i)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __0_i_Int32\r\n        COPY\r\n        PUSH, __5_const_intnl_SystemInt32\r\n        PUSH,
-    __2_const_intnl_SystemInt32\r\n        PUSH, __8_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n        PUSH,
-    __0_i_Int32\r\n        PUSH, __8_intnl_SystemInt32\r\n        PUSH, __14_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000EA4\r\n
-    \       \r\n         # {\r\n        \r\n         # if (remainsGlobalOrders[i]
-    == 1 && remainsGlobalOrders[i + 1] == 1)\r\n        PUSH, __0_remainsGlobalOrders_Int32Array\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __9_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH, __9_intnl_SystemInt32\r\n
-    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __16_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __16_intnl_SystemBoolean\r\n        PUSH, __15_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000AAC\r\n        PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __10_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_remainsGlobalOrders_Int32Array\r\n        PUSH, __10_intnl_SystemInt32\r\n
-    \       PUSH, __11_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __11_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        PUSH, __17_intnl_SystemBoolean\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __18_intnl_SystemBoolean\r\n        PUSH, __15_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000C2C\r\n        \r\n         # {\r\n        \r\n         # SetDoubleWaiting(agariContext,
-    i, i + 1);\r\n        PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_globalOrder2_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_agariContext_AgariContext\r\n        PUSH, __2_agariContext_AgariContext\r\n
-    \       COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_globalOrder1_Int32\r\n
-    \       COPY\r\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000FC8\r\n        \r\n         # Debug.Log($\"\uBAB83 \uBA38\uB9AC 1 \uCE74\uB4DC
-    2, \uC591\uBA74\uB300\uAE30 \uD150\uD30C\uC774 GlobalOrder:{i}, {i + 1}\");\r\n
-    \       PUSH, __15_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __14_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n        PUSH,
-    __12_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __12_intnl_SystemInt32\r\n        PUSH, __3_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __3_intnl_SystemString\r\n        PUSH, __4_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        EXTERN,
-    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        \r\n         #
-    break;\r\n        JUMP, 0x00000EA4\r\n        \r\n         # if (i > 0 && remainsGlobalOrders[i
-    - 1] == 1 && remainsGlobalOrders[i + 1] == 1)\r\n        PUSH, __0_i_Int32\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __21_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __21_intnl_SystemBoolean\r\n        PUSH, __20_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __20_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000D04\r\n        PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __12_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_remainsGlobalOrders_Int32Array\r\n        PUSH, __12_intnl_SystemInt32\r\n
-    \       PUSH, __13_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __13_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __22_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __20_intnl_SystemBoolean\r\n        PUSH, __22_intnl_SystemBoolean\r\n
-    \       PUSH, __23_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __23_intnl_SystemBoolean\r\n        PUSH, __20_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __20_intnl_SystemBoolean\r\n        PUSH, __19_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000DBC\r\n        PUSH, __0_i_Int32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __14_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_remainsGlobalOrders_Int32Array\r\n        PUSH, __14_intnl_SystemInt32\r\n
-    \       PUSH, __15_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __15_intnl_SystemInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __24_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        PUSH, __24_intnl_SystemBoolean\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __25_intnl_SystemBoolean\r\n        PUSH, __19_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE,
-    0x00000E7C\r\n        \r\n         # {\r\n        \r\n         # SetSingleWaiting(agariContext,
-    i);\r\n        PUSH, __0_agariContext_AgariContext\r\n        PUSH, __1_agariContext_AgariContext\r\n
-    \       COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_globalOrder_Int32\r\n
-    \       COPY\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x00000F54\r\n        \r\n         # Debug.Log($\"\uBAB83 \uBA38\uB9AC 1 \uCE74\uB4DC
-    2, \uB2E8\uBA74\uB300\uAE30 \uD150\uD30C\uC774 GlobalOrder:{i}\");\r\n        PUSH,
-    __16_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_i_Int32\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        EXTERN,
-    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        \r\n         #
-    break;\r\n        JUMP, 0x00000EA4\r\n        PUSH, __0_i_Int32\r\n        PUSH,
-    __2_const_intnl_SystemInt32\r\n        PUSH, __0_i_Int32\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n
-    \       JUMP, 0x00000964\r\n        PUSH, __0_intnl_SystemInt32\r\n        PUSH,
-    __2_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n        JUMP,
-    0x00000034\r\n        \r\n         # return agariContext.AgariableCount != 0;\r\n
-    \       PUSH, __0_agariContext_AgariContext\r\n        PUSH, __17_const_intnl_SystemString\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\r\n
-    \       PUSH, __0_intnl_SystemObject\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_returnValSymbol_Boolean\r\n        EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # void SetSingleWaiting(AgariContext agariContext,
-    int globalOrder)\r\n    SetSingleWaiting:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # agariContext.IsSingleWaiting
-    = true;\r\n        PUSH, __1_agariContext_AgariContext\r\n        PUSH, __18_const_intnl_SystemString\r\n
-    \       PUSH, __0_const_intnl_SystemBoolean\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       \r\n         # agariContext.AddAgariableGlobalOrder(globalOrder);\r\n
-    \       PUSH, __1_agariContext_AgariContext\r\n        PUSH, __19_const_intnl_SystemString\r\n
-    \       PUSH, __0_globalOrder_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __1_agariContext_AgariContext\r\n        PUSH, __20_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void SetDoubleWaiting(AgariContext agariContext, int globalOrder1,
-    int globalOrder2)\r\n    SetDoubleWaiting:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # agariContext.IsSingleWaiting
-    = false;\r\n        PUSH, __2_agariContext_AgariContext\r\n        PUSH, __18_const_intnl_SystemString\r\n
-    \       PUSH, __1_const_intnl_SystemBoolean\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       \r\n         # agariContext.AddAgariableGlobalOrder(globalOrder1);\r\n
-    \       PUSH, __2_agariContext_AgariContext\r\n        PUSH, __19_const_intnl_SystemString\r\n
-    \       PUSH, __0_globalOrder1_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __2_agariContext_AgariContext\r\n        PUSH, __20_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       \r\n         # agariContext.AddAgariableGlobalOrder(globalOrder2);\r\n
-    \       PUSH, __2_agariContext_AgariContext\r\n        PUSH, __19_const_intnl_SystemString\r\n
-    \       PUSH, __0_globalOrder2_Int32\r\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\r\n
-    \       PUSH, __2_agariContext_AgariContext\r\n        PUSH, __20_const_intnl_SystemString\r\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n    .export HandUtil\n\n    __refl_const_intnl_udonTypeID:
+    %SystemInt64, null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n
+    \   HandUtil: %VRCUdonUdonBehaviour, null\n    __0_bodies_Int32: %SystemInt32,
+    null\n    __0_globalOrder_Int32: %SystemInt32, null\n    __0_globalOrder1_Int32:
+    %SystemInt32, null\n    __0_globalOrder2_Int32: %SystemInt32, null\n    __0_i_Int32:
+    %SystemInt32, null\n    __0_pair_Int32: %SystemInt32, null\n    __0_globalOrders_Int32Array:
+    %SystemInt32Array, null\n    __0_pairs_Int32Array: %SystemInt32Array, null\n    __0_remainsGlobalOrders_Int32Array:
+    %SystemInt32Array, null\n    __0_ctx_ObjectArray: %SystemObjectArray, null\n    __0_ctxs_ObjectArray:
+    %SystemObjectArray, null\n    __0_agariContext_AgariContext: %VRCUdonUdonBehaviour,
+    null\n    __0_Ctx_CalculatingContextHandler: %VRCUdonUdonBehaviour, null\n    __1_agariContext_AgariContext:
+    %VRCUdonUdonBehaviour, null\n    __2_agariContext_AgariContext: %VRCUdonUdonBehaviour,
+    null\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\n    __1_const_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __0_const_intnl_SystemInt32: %SystemInt32, null\n    __1_const_intnl_SystemInt32:
+    %SystemInt32, null\n    __2_const_intnl_SystemInt32: %SystemInt32, null\n    __3_const_intnl_SystemInt32:
+    %SystemInt32, null\n    __4_const_intnl_SystemInt32: %SystemInt32, null\n    __5_const_intnl_SystemInt32:
+    %SystemInt32, null\n    __0_const_intnl_SystemObject: %SystemObject, null\n    __0_const_intnl_SystemObjectArray:
+    %SystemObjectArray, null\n    __0_const_intnl_SystemString: %SystemString, null\n
+    \   __1_const_intnl_SystemString: %SystemString, null\n    __10_const_intnl_SystemString:
+    %SystemString, null\n    __11_const_intnl_SystemString: %SystemString, null\n
+    \   __12_const_intnl_SystemString: %SystemString, null\n    __13_const_intnl_SystemString:
+    %SystemString, null\n    __14_const_intnl_SystemString: %SystemString, null\n
+    \   __15_const_intnl_SystemString: %SystemString, null\n    __16_const_intnl_SystemString:
+    %SystemString, null\n    __17_const_intnl_SystemString: %SystemString, null\n
+    \   __18_const_intnl_SystemString: %SystemString, null\n    __19_const_intnl_SystemString:
+    %SystemString, null\n    __2_const_intnl_SystemString: %SystemString, null\n    __20_const_intnl_SystemString:
+    %SystemString, null\n    __3_const_intnl_SystemString: %SystemString, null\n    __4_const_intnl_SystemString:
+    %SystemString, null\n    __5_const_intnl_SystemString: %SystemString, null\n    __6_const_intnl_SystemString:
+    %SystemString, null\n    __7_const_intnl_SystemString: %SystemString, null\n    __8_const_intnl_SystemString:
+    %SystemString, null\n    __9_const_intnl_SystemString: %SystemString, null\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __0_intnl_returnValSymbol_Boolean:
+    %SystemBoolean, null\n    __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __10_intnl_SystemBoolean: %SystemBoolean, null\n    __11_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __12_intnl_SystemBoolean: %SystemBoolean, null\n    __13_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __14_intnl_SystemBoolean: %SystemBoolean, null\n    __15_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __16_intnl_SystemBoolean: %SystemBoolean, null\n    __17_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __18_intnl_SystemBoolean: %SystemBoolean, null\n    __19_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __2_intnl_SystemBoolean: %SystemBoolean, null\n    __20_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __21_intnl_SystemBoolean: %SystemBoolean, null\n    __22_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __23_intnl_SystemBoolean: %SystemBoolean, null\n    __24_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __25_intnl_SystemBoolean: %SystemBoolean, null\n    __3_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __4_intnl_SystemBoolean: %SystemBoolean, null\n    __5_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __6_intnl_SystemBoolean: %SystemBoolean, null\n    __7_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __8_intnl_SystemBoolean: %SystemBoolean, null\n    __9_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __0_intnl_SystemInt32: %SystemInt32, null\n    __1_intnl_SystemInt32:
+    %SystemInt32, null\n    __10_intnl_SystemInt32: %SystemInt32, null\n    __11_intnl_SystemInt32:
+    %SystemInt32, null\n    __12_intnl_SystemInt32: %SystemInt32, null\n    __13_intnl_SystemInt32:
+    %SystemInt32, null\n    __14_intnl_SystemInt32: %SystemInt32, null\n    __15_intnl_SystemInt32:
+    %SystemInt32, null\n    __2_intnl_SystemInt32: %SystemInt32, null\n    __3_intnl_SystemInt32:
+    %SystemInt32, null\n    __4_intnl_SystemInt32: %SystemInt32, null\n    __5_intnl_SystemInt32:
+    %SystemInt32, null\n    __6_intnl_SystemInt32: %SystemInt32, null\n    __7_intnl_SystemInt32:
+    %SystemInt32, null\n    __8_intnl_SystemInt32: %SystemInt32, null\n    __9_intnl_SystemInt32:
+    %SystemInt32, null\n    __0_intnl_SystemInt32Array: %SystemInt32Array, null\n
+    \   __1_intnl_SystemInt32Array: %SystemInt32Array, null\n    __0_intnl_SystemObject:
+    %SystemObject, null\n    __1_intnl_SystemObject: %SystemObject, null\n    __2_intnl_SystemObject:
+    %SystemObject, null\n    __3_intnl_SystemObject: %SystemObject, null\n    __4_intnl_SystemObject:
+    %SystemObject, null\n    __0_intnl_interpolatedStr_String: %SystemString, null\n
+    \   __0_intnl_SystemString: %SystemString, null\n    __1_intnl_SystemString: %SystemString,
+    null\n    __2_intnl_SystemString: %SystemString, null\n    __3_intnl_SystemString:
+    %SystemString, null\n    __4_intnl_SystemString: %SystemString, null\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\n\n.data_end\n\n        \n         # using UdonSharp;\n        \n
+    \        # using UnityEngine;\n        \n         # using VRC.SDKBase;\n        \n
+    \        # using VRC.Udon;\n        \n         # public class NormalYaku : UdonSharpBehaviour\n.code_start\n
+    \       \n         # [SerializeField] public HandUtil HandUtil;\n        \n         #
+    public bool CheckTenpai(CalculatingContextHandler Ctx, object[] ctxs, AgariContext
+    agariContext, int[] globalOrders)\n    .export CheckTenpai\n        \n    CheckTenpai:\n
+    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
+    \       \n         # foreach (object[] ctx in ctxs)\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_SystemInt32\n        COPY\n        PUSH, __0_ctxs_ObjectArray\n
+    \       PUSH, __1_intnl_SystemInt32\n        EXTERN, \"SystemObjectArray.__get_Length__SystemInt32\"\n
+    \       PUSH, __0_intnl_SystemInt32\n        PUSH, __1_intnl_SystemInt32\n        PUSH,
+    __0_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000ECC\n        PUSH,
+    __0_ctxs_ObjectArray\n        PUSH, __0_intnl_SystemInt32\n        PUSH, __0_intnl_SystemObject\n
+    \       EXTERN, \"SystemObjectArray.__Get__SystemInt32__SystemObject\"\n        PUSH,
+    __0_intnl_SystemObject\n        PUSH, __0_ctx_ObjectArray\n        COPY\n        \n
+    \        # {\n        \n         # if (ctx == null) { continue; }\n        PUSH,
+    __0_ctx_ObjectArray\n        PUSH, __0_const_intnl_SystemObjectArray\n        PUSH,
+    __1_intnl_SystemBoolean\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\n
+    \       PUSH, __1_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000D0\n        JUMP,
+    0x00000EA4\n        \n         # var remainsGlobalOrders = Ctx.ReadGlobalOrders(ctx);\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __0_const_intnl_SystemString\n
+    \       PUSH, __0_ctx_ObjectArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __1_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __2_const_intnl_SystemString\n
+    \       PUSH, __1_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __1_intnl_SystemObject\n        PUSH, __0_intnl_SystemInt32Array\n
+    \       COPY\n        PUSH, __0_intnl_SystemInt32Array\n        PUSH, __0_remainsGlobalOrders_Int32Array\n
+    \       COPY\n        \n         # var pairs = HandUtil.FindPairs(remainsGlobalOrders);\n
+    \       PUSH, HandUtil\n        PUSH, __3_const_intnl_SystemString\n        PUSH,
+    __0_remainsGlobalOrders_Int32Array\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, HandUtil\n        PUSH, __4_const_intnl_SystemString\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, HandUtil\n        PUSH, __5_const_intnl_SystemString\n        PUSH,
+    __2_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __2_intnl_SystemObject\n        PUSH, __1_intnl_SystemInt32Array\n
+    \       COPY\n        PUSH, __1_intnl_SystemInt32Array\n        PUSH, __0_pairs_Int32Array\n
+    \       COPY\n        \n         # foreach (var pair in pairs)\n        PUSH,
+    __0_const_intnl_SystemInt32\n        PUSH, __2_intnl_SystemInt32\n        COPY\n
+    \       PUSH, __0_pairs_Int32Array\n        PUSH, __3_intnl_SystemInt32\n        EXTERN,
+    \"SystemInt32Array.__get_Length__SystemInt32\"\n        PUSH, __2_intnl_SystemInt32\n
+    \       PUSH, __3_intnl_SystemInt32\n        PUSH, __2_intnl_SystemBoolean\n        EXTERN,
+    \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
+    __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000002D4\n        PUSH, __0_pairs_Int32Array\n
+    \       PUSH, __2_intnl_SystemInt32\n        PUSH, __0_pair_Int32\n        EXTERN,
+    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        \n         # {\n
+    \       \n         # remainsGlobalOrders[pair] -= 2;\n        PUSH, __0_remainsGlobalOrders_Int32Array\n
+    \       PUSH, __0_pair_Int32\n        PUSH, __4_intnl_SystemInt32\n        EXTERN,
+    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        PUSH, __4_intnl_SystemInt32\n
+    \       PUSH, __1_const_intnl_SystemInt32\n        PUSH, __5_intnl_SystemInt32\n
+    \       EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_remainsGlobalOrders_Int32Array\n        PUSH, __0_pair_Int32\n
+    \       PUSH, __5_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Set__SystemInt32_SystemInt32__SystemVoid\"\n
+    \       PUSH, __2_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __2_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       JUMP, 0x000001FC\n        \n         # var bodies = Ctx.ReadChiCount(ctx)
+    + Ctx.ReadPonCount(ctx);\n        PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH,
+    __6_const_intnl_SystemString\n        PUSH, __0_ctx_ObjectArray\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __7_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __8_const_intnl_SystemString\n
+    \       PUSH, __3_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __3_intnl_SystemObject\n        PUSH, __2_intnl_SystemInt32\n        EXTERN,
+    \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\n        PUSH, __0_Ctx_CalculatingContextHandler\n
+    \       PUSH, __9_const_intnl_SystemString\n        PUSH, __0_ctx_ObjectArray\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __10_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_Ctx_CalculatingContextHandler\n        PUSH, __11_const_intnl_SystemString\n
+    \       PUSH, __4_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __4_intnl_SystemObject\n        PUSH, __3_intnl_SystemInt32\n        EXTERN,
+    \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\n        PUSH, __2_intnl_SystemInt32\n
+    \       PUSH, __3_intnl_SystemInt32\n        PUSH, __4_intnl_SystemInt32\n        EXTERN,
+    \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n        PUSH,
+    __4_intnl_SystemInt32\n        PUSH, __0_bodies_Int32\n        COPY\n        \n
+    \        # if (bodies == 4 && pairs.Length == 0)\n        PUSH, __0_bodies_Int32\n
+    \       PUSH, __3_const_intnl_SystemInt32\n        PUSH, __3_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __3_intnl_SystemBoolean\n        PUSH, __2_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000498\n
+    \       PUSH, __0_pairs_Int32Array\n        PUSH, __5_intnl_SystemInt32\n        EXTERN,
+    \"SystemInt32Array.__get_Length__SystemInt32\"\n        PUSH, __5_intnl_SystemInt32\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __4_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __2_intnl_SystemBoolean\n        PUSH, __4_intnl_SystemBoolean\n
+    \       PUSH, __5_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __5_intnl_SystemBoolean\n        PUSH, __2_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000634\n
+    \       \n         # {\n        \n         # for (var i = 0; i < remainsGlobalOrders.Length;
+    ++i)\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH, __0_i_Int32\n        COPY\n
+    \       PUSH, __0_remainsGlobalOrders_Int32Array\n        PUSH, __6_intnl_SystemInt32\n
+    \       EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\n        PUSH,
+    __0_i_Int32\n        PUSH, __6_intnl_SystemInt32\n        PUSH, __6_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __6_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x0000062C\n        \n
+    \        # {\n        \n         # if (remainsGlobalOrders[i] > 0)\n        PUSH,
+    __0_remainsGlobalOrders_Int32Array\n        PUSH, __0_i_Int32\n        PUSH, __7_intnl_SystemInt32\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        PUSH,
+    __7_intnl_SystemInt32\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
+    __7_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __7_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000604\n        \n
+    \        # {\n        \n         # SetSingleWaiting(agariContext, i);\n        PUSH,
+    __0_agariContext_AgariContext\n        PUSH, __1_agariContext_AgariContext\n        COPY\n
+    \       PUSH, __0_i_Int32\n        PUSH, __0_globalOrder_Int32\n        COPY\n
+    \       PUSH, __0_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00000F54\n        \n
+    \        # Debug.Log($\"\uBAB84 \uCE74\uB4DC 1, \uB2E8\uBA74\uB300\uAE30 \uD150\uD30C\uC774
+    GlobalOrder:{i}\");\n        PUSH, __12_const_intnl_SystemString\n        PUSH,
+    __0_intnl_interpolatedStr_String\n        COPY\n        PUSH, __0_i_Int32\n        PUSH,
+    __0_intnl_SystemString\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __0_intnl_SystemString\n
+    \       PUSH, __1_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __1_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        EXTERN,
+    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\n        \n         # break;\n
+    \       JUMP, 0x0000062C\n        PUSH, __0_i_Int32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_i_Int32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       JUMP, 0x000004BC\n        JUMP, 0x00000EA4\n        \n         # else
+    if (bodies == 3 && pairs.Length == 2)\n        PUSH, __0_bodies_Int32\n        PUSH,
+    __4_const_intnl_SystemInt32\n        PUSH, __7_intnl_SystemBoolean\n        EXTERN,
+    \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
+    __7_intnl_SystemBoolean\n        PUSH, __6_intnl_SystemBoolean\n        COPY\n
+    \       PUSH, __6_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000006E4\n        PUSH,
+    __0_pairs_Int32Array\n        PUSH, __6_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__get_Length__SystemInt32\"\n
+    \       PUSH, __6_intnl_SystemInt32\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, __8_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __6_intnl_SystemBoolean\n        PUSH, __8_intnl_SystemBoolean\n
+    \       PUSH, __9_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __9_intnl_SystemBoolean\n        PUSH, __6_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __6_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000890\n
+    \       \n         # {\n        \n         # SetDoubleWaiting(agariContext, pairs[0],
+    pairs[1]);\n        PUSH, __0_pairs_Int32Array\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __0_globalOrder1_Int32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_pairs_Int32Array\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_globalOrder2_Int32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_agariContext_AgariContext\n        PUSH, __2_agariContext_AgariContext\n
+    \       COPY\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x00000FC8\n        \n         # Debug.Log($\"\uBAB84 \uBA38\uB9AC 2, \uC591\uBA74\uB300\uAE30
+    \uD150\uD30C\uC774 GlobalOrder:{pairs[0]}, {pairs[1]}\");\n        PUSH, __13_const_intnl_SystemString\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        COPY\n        PUSH, __0_pairs_Int32Array\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __7_intnl_SystemInt32\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        PUSH,
+    __7_intnl_SystemInt32\n        PUSH, __0_intnl_SystemString\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __0_intnl_SystemString\n
+    \       PUSH, __1_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __1_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __14_const_intnl_SystemString\n
+    \       PUSH, __2_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __2_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_pairs_Int32Array\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __8_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __8_intnl_SystemInt32\n        PUSH, __3_intnl_SystemString\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __3_intnl_SystemString\n        PUSH, __4_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __4_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\n
+    \       JUMP, 0x00000EA4\n        \n         # else if (bodies == 3 && pairs.Length
+    == 1)\n        PUSH, __0_bodies_Int32\n        PUSH, __4_const_intnl_SystemInt32\n
+    \       PUSH, __11_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __11_intnl_SystemBoolean\n        PUSH, __10_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __10_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000940\n
+    \       PUSH, __0_pairs_Int32Array\n        PUSH, __7_intnl_SystemInt32\n        EXTERN,
+    \"SystemInt32Array.__get_Length__SystemInt32\"\n        PUSH, __7_intnl_SystemInt32\n
+    \       PUSH, __2_const_intnl_SystemInt32\n        PUSH, __12_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __10_intnl_SystemBoolean\n        PUSH, __12_intnl_SystemBoolean\n
+    \       PUSH, __13_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __13_intnl_SystemBoolean\n        PUSH, __10_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __10_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000EA4\n
+    \       \n         # {\n        \n         # for (var i = 0; i < 34 - 1; ++i)\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __0_i_Int32\n        COPY\n
+    \       PUSH, __5_const_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __8_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_i_Int32\n        PUSH, __8_intnl_SystemInt32\n        PUSH,
+    __14_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __14_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000EA4\n        \n
+    \        # {\n        \n         # if (remainsGlobalOrders[i] == 1 && remainsGlobalOrders[i
+    + 1] == 1)\n        PUSH, __0_remainsGlobalOrders_Int32Array\n        PUSH, __0_i_Int32\n
+    \       PUSH, __9_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __9_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __16_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __16_intnl_SystemBoolean\n        PUSH, __15_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __15_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000AAC\n
+    \       PUSH, __0_i_Int32\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
+    __10_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_remainsGlobalOrders_Int32Array\n        PUSH, __10_intnl_SystemInt32\n
+    \       PUSH, __11_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __11_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __17_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __15_intnl_SystemBoolean\n        PUSH, __17_intnl_SystemBoolean\n
+    \       PUSH, __18_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __18_intnl_SystemBoolean\n        PUSH, __15_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __15_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000C2C\n
+    \       \n         # {\n        \n         # SetDoubleWaiting(agariContext, i,
+    i + 1);\n        PUSH, __0_i_Int32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_globalOrder2_Int32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_agariContext_AgariContext\n        PUSH, __2_agariContext_AgariContext\n
+    \       COPY\n        PUSH, __0_i_Int32\n        PUSH, __0_globalOrder1_Int32\n
+    \       COPY\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x00000FC8\n        \n         # Debug.Log($\"\uBAB83 \uBA38\uB9AC 1 \uCE74\uB4DC
+    2, \uC591\uBA74\uB300\uAE30 \uD150\uD30C\uC774 GlobalOrder:{i}, {i + 1}\");\n
+    \       PUSH, __15_const_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_i_Int32\n        PUSH, __0_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __0_intnl_SystemString\n        PUSH, __1_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __1_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __14_const_intnl_SystemString\n
+    \       PUSH, __2_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __2_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_i_Int32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __12_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __12_intnl_SystemInt32\n        PUSH, __3_intnl_SystemString\n        EXTERN,
+    \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __3_intnl_SystemString\n        PUSH, __4_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __4_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\n
+    \       \n         # break;\n        JUMP, 0x00000EA4\n        \n         # if
+    (i > 0 && remainsGlobalOrders[i - 1] == 1 && remainsGlobalOrders[i + 1] == 1)\n
+    \       PUSH, __0_i_Int32\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
+    __21_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __21_intnl_SystemBoolean\n        PUSH, __20_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __20_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000D04\n
+    \       PUSH, __0_i_Int32\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
+    __12_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Subtraction__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_remainsGlobalOrders_Int32Array\n        PUSH, __12_intnl_SystemInt32\n
+    \       PUSH, __13_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __13_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __22_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __20_intnl_SystemBoolean\n        PUSH, __22_intnl_SystemBoolean\n
+    \       PUSH, __23_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __23_intnl_SystemBoolean\n        PUSH, __20_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __20_intnl_SystemBoolean\n        PUSH, __19_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __19_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000DBC\n
+    \       PUSH, __0_i_Int32\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
+    __14_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_remainsGlobalOrders_Int32Array\n        PUSH, __14_intnl_SystemInt32\n
+    \       PUSH, __15_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __15_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __24_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __19_intnl_SystemBoolean\n        PUSH, __24_intnl_SystemBoolean\n
+    \       PUSH, __25_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __25_intnl_SystemBoolean\n        PUSH, __19_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __19_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000E7C\n
+    \       \n         # {\n        \n         # SetSingleWaiting(agariContext, i);\n
+    \       PUSH, __0_agariContext_AgariContext\n        PUSH, __1_agariContext_AgariContext\n
+    \       COPY\n        PUSH, __0_i_Int32\n        PUSH, __0_globalOrder_Int32\n
+    \       COPY\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x00000F54\n        \n         # Debug.Log($\"\uBAB83 \uBA38\uB9AC 1 \uCE74\uB4DC
+    2, \uB2E8\uBA74\uB300\uAE30 \uD150\uD30C\uC774 GlobalOrder:{i}\");\n        PUSH,
+    __16_const_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_i_Int32\n        PUSH, __0_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __0_intnl_SystemString\n        PUSH, __1_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __1_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        EXTERN, \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\n
+    \       \n         # break;\n        JUMP, 0x00000EA4\n        PUSH, __0_i_Int32\n
+    \       PUSH, __2_const_intnl_SystemInt32\n        PUSH, __0_i_Int32\n        EXTERN,
+    \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n        JUMP,
+    0x00000964\n        PUSH, __0_intnl_SystemInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_SystemInt32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
+    \       JUMP, 0x00000034\n        \n         # return agariContext.AgariableCount
+    != 0;\n        PUSH, __0_agariContext_AgariContext\n        PUSH, __17_const_intnl_SystemString\n
+    \       PUSH, __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
+    \       PUSH, __0_intnl_SystemObject\n        PUSH, __1_intnl_SystemInt32\n        EXTERN,
+    \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\n        PUSH, __1_intnl_SystemInt32\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __0_intnl_returnValSymbol_Boolean\n
+    \       EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # void SetSingleWaiting(AgariContext agariContext,
+    int globalOrder)\n    SetSingleWaiting:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # agariContext.IsSingleWaiting = true;\n
+    \       PUSH, __1_agariContext_AgariContext\n        PUSH, __18_const_intnl_SystemString\n
+    \       PUSH, __0_const_intnl_SystemBoolean\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       \n         # agariContext.AddAgariableGlobalOrder(globalOrder);\n        PUSH,
+    __1_agariContext_AgariContext\n        PUSH, __19_const_intnl_SystemString\n        PUSH,
+    __0_globalOrder_Int32\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __1_agariContext_AgariContext\n        PUSH, __20_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void SetDoubleWaiting(AgariContext agariContext, int globalOrder1, int globalOrder2)\n
+    \   SetDoubleWaiting:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # agariContext.IsSingleWaiting = false;\n
+    \       PUSH, __2_agariContext_AgariContext\n        PUSH, __18_const_intnl_SystemString\n
+    \       PUSH, __1_const_intnl_SystemBoolean\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       \n         # agariContext.AddAgariableGlobalOrder(globalOrder1);\n        PUSH,
+    __2_agariContext_AgariContext\n        PUSH, __19_const_intnl_SystemString\n        PUSH,
+    __0_globalOrder1_Int32\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __2_agariContext_AgariContext\n        PUSH, __20_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       \n         # agariContext.AddAgariableGlobalOrder(globalOrder2);\n        PUSH,
+    __2_agariContext_AgariContext\n        PUSH, __19_const_intnl_SystemString\n        PUSH,
+    __0_globalOrder2_Int32\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __2_agariContext_AgariContext\n        PUSH, __20_const_intnl_SystemString\n
+    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: fc2b4cf89885f6840b3c96626db6abe3, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

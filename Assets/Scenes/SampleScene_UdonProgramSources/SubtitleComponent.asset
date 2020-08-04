@@ -14,118 +14,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: fb87120f638123f4195abe85615640cf,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export isShow\r\n    .export id\r\n    .export
-    name\r\n    .export text\r\n    .export playTime\r\n\r\n    __refl_const_intnl_udonTypeID:
-    %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n
-    \   isShow: %SystemBoolean, null\r\n    id: %SystemInt32, null\r\n    playTime:
-    %SystemSingle, null\r\n    name: %SystemString, null\r\n    text: %SystemString,
-    null\r\n    fadeOutPoint: %SystemSingle, null\r\n    UItext: %UnityEngineUIText,
-    null\r\n    __0_this_intnl_UnityEngineTransform: %UnityEngineTransform, this\r\n
-    \   __0_this_intnl_SubtitleComponent: %VRCUdonUdonBehaviour, this\r\n    __0_t_Boolean:
-    %SystemBoolean, null\r\n    __0_showTime_Single: %SystemSingle, null\r\n    __0_name_String:
-    %SystemString, null\r\n    __0_text_String: %SystemString, null\r\n    __0_const_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __0_const_intnl_SystemString: %SystemString, null\r\n    __1_const_intnl_SystemString:
-    %SystemString, null\r\n    __0_const_intnl_SystemType: %SystemType, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32,
-    null\r\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __5_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __2_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_SystemSingle: %SystemSingle, null\r\n    __1_intnl_SystemSingle:
-    %SystemSingle, null\r\n    __2_intnl_SystemSingle: %SystemSingle, null\r\n    __0_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_SystemString:
-    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __0_intnl_returnTarget_UInt32:
-    %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n        \r\n         # using UdonSharp;\r\n
-    \       \r\n         # using UnityEngine;\r\n        \r\n         # using UnityEngine.UI;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
-    \       \r\n         # public class SubtitleComponent : UdonSharpBehaviour\r\n.code_start\r\n
-    \       \r\n         # public bool isShow = false;\r\n        \r\n         # public
-    int id;\r\n        \r\n         # public string name;\r\n        \r\n         #
-    public string text;\r\n        \r\n         # public float playTime = 3.0f;\r\n
-    \       \r\n         # private float fadeOutPoint = 0.5f;\r\n        \r\n         #
-    private Text UItext;\r\n        \r\n         # void Start()\r\n    .export _start\r\n
-    \       \r\n    _start:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # Initializing();\r\n        PUSH,
-    __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000058\r\n        \r\n
-    \        # setActiveText(false);\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
-    \       PUSH, __0_t_Boolean\r\n        COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x0000026C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public void Initializing()\r\n    .export Initializing\r\n
-    \       \r\n    Initializing:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # UItext = GetComponent<Text>();\r\n
-    \       PUSH, __0_this_intnl_SubtitleComponent\r\n        PUSH, __0_const_intnl_SystemType\r\n
-    \       PUSH, UItext\r\n        EXTERN, \"UnityEngineUIText.__GetComponent__T\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void Set(string name, string text, float showTime)\r\n    .export
-    Set\r\n        \r\n    Set:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # this.name = name;\r\n        PUSH,
-    __0_name_String\r\n        PUSH, name\r\n        COPY\r\n        \r\n         #
-    this.text = text;\r\n        PUSH, __0_text_String\r\n        PUSH, text\r\n        COPY\r\n
-    \       \r\n         # this.playTime = showTime;\r\n        PUSH, __0_showTime_Single\r\n
-    \       PUSH, playTime\r\n        COPY\r\n        \r\n         # UpdateOnUI();\r\n
-    \       PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000000FC\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void UpdateOnUI()\r\n    UpdateOnUI:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # transform.SetAsFirstSibling();\r\n
-    \       PUSH, __0_this_intnl_UnityEngineTransform\r\n        EXTERN, \"UnityEngineTransform.__SetAsFirstSibling__SystemVoid\"\r\n
-    \       \r\n         # UItext.text = $\"<color=orange><b>{name}</b></color> :
-    {text}\";\r\n        PUSH, __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    name\r\n        PUSH, __0_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __1_const_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH, text\r\n        PUSH,
-    __2_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, UItext\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\r\n
-    \       \r\n         # Toggle();\r\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x00000200\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # void Toggle()\r\n    Toggle:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # isShow = !isShow;\r\n        PUSH, isShow\r\n        PUSH, isShow\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       \r\n         # setActiveText(isShow);\r\n        PUSH, isShow\r\n        PUSH,
-    __0_t_Boolean\r\n        COPY\r\n        PUSH, isShow\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       COPY # Copy-on-write symbol value dirtied\r\n        PUSH, __4_const_intnl_exitJumpLoc_UInt32\r\n
-    \       JUMP, 0x0000026C\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
-    epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # void setActiveText(bool t)\r\n    setActiveText:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # UItext.enabled = t;\r\n        PUSH, UItext\r\n        PUSH,
-    __0_t_Boolean\r\n        EXTERN, \"UnityEngineUIText.__set_enabled__SystemBoolean__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void Update()\r\n    .export _update\r\n        \r\n    _update:\r\n
-    \       \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         #
-    {\r\n        \r\n         # if (!isShow) return;\r\n        PUSH, isShow\r\n        PUSH,
-    __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000002DC\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
-    playTime -= UnityEngine.Time.deltaTime;\r\n        PUSH, __0_intnl_SystemSingle\r\n
-    \       EXTERN, \"UnityEngineTime.__get_deltaTime__SystemSingle\"\r\n        PUSH,
-    playTime\r\n        PUSH, __0_intnl_SystemSingle\r\n        PUSH, __1_intnl_SystemSingle\r\n
-    \       EXTERN, \"SystemSingle.__op_Subtraction__SystemSingle_SystemSingle__SystemSingle\"\r\n
-    \       PUSH, __1_intnl_SystemSingle\r\n        PUSH, playTime\r\n        COPY\r\n
-    \       \r\n         # if(playTime <= 0)\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, __2_intnl_SystemSingle\r\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n
-    \       PUSH, playTime\r\n        PUSH, __2_intnl_SystemSingle\r\n        PUSH,
-    __2_intnl_SystemBoolean\r\n        EXTERN, \"SystemSingle.__op_LessThanOrEqual__SystemSingle_SystemSingle__SystemBoolean\"\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000378\r\n
-    \       \r\n         # {\r\n        \r\n         # Toggle();\r\n        PUSH,
-    __5_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x00000200\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n    .export isShow\n    .export id\n    .export name\n
+    \   .export text\n    .export playTime\n\n    __refl_const_intnl_udonTypeID: %SystemInt64,
+    null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n    isShow: %SystemBoolean,
+    null\n    id: %SystemInt32, null\n    playTime: %SystemSingle, null\n    name:
+    %SystemString, null\n    text: %SystemString, null\n    fadeOutPoint: %SystemSingle,
+    null\n    UItext: %UnityEngineUIText, null\n    __0_this_intnl_UnityEngineTransform:
+    %UnityEngineTransform, this\n    __0_this_intnl_SubtitleComponent: %VRCUdonUdonBehaviour,
+    this\n    __0_t_Boolean: %SystemBoolean, null\n    __0_showTime_Single: %SystemSingle,
+    null\n    __0_name_String: %SystemString, null\n    __0_text_String: %SystemString,
+    null\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\n    __0_const_intnl_SystemInt32:
+    %SystemInt32, null\n    __0_const_intnl_SystemString: %SystemString, null\n    __1_const_intnl_SystemString:
+    %SystemString, null\n    __0_const_intnl_SystemType: %SystemType, null\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __4_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __5_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __2_intnl_SystemBoolean: %SystemBoolean, null\n    __0_intnl_SystemSingle:
+    %SystemSingle, null\n    __1_intnl_SystemSingle: %SystemSingle, null\n    __2_intnl_SystemSingle:
+    %SystemSingle, null\n    __0_intnl_interpolatedStr_String: %SystemString, null\n
+    \   __0_intnl_SystemString: %SystemString, null\n    __1_intnl_SystemString: %SystemString,
+    null\n    __2_intnl_SystemString: %SystemString, null\n    __0_intnl_returnTarget_UInt32:
+    %SystemUInt32, null\n\n.data_end\n\n        \n         # using UdonSharp;\n        \n
+    \        # using UnityEngine;\n        \n         # using UnityEngine.UI;\n        \n
+    \        # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n        \n
+    \        # public class SubtitleComponent : UdonSharpBehaviour\n.code_start\n
+    \       \n         # public bool isShow = false;\n        \n         # public
+    int id;\n        \n         # public string name;\n        \n         # public
+    string text;\n        \n         # public float playTime = 3.0f;\n        \n         #
+    private float fadeOutPoint = 0.5f;\n        \n         # private Text UItext;\n
+    \       \n         # void Start()\n    .export _start\n        \n    _start:\n
+    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
+    \       \n         # Initializing();\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\n
+    \       JUMP, 0x00000058\n        \n         # setActiveText(false);\n        PUSH,
+    __0_const_intnl_SystemBoolean\n        PUSH, __0_t_Boolean\n        COPY\n        PUSH,
+    __1_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x0000026C\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public void Initializing()\n    .export Initializing\n
+    \       \n    Initializing:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # UItext = GetComponent<Text>();\n
+    \       PUSH, __0_this_intnl_SubtitleComponent\n        PUSH, __0_const_intnl_SystemType\n
+    \       PUSH, UItext\n        EXTERN, \"UnityEngineUIText.__GetComponent__T\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public void Set(string name, string text, float showTime)\n    .export Set\n        \n
+    \   Set:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         #
+    {\n        \n         # this.name = name;\n        PUSH, __0_name_String\n        PUSH,
+    name\n        COPY\n        \n         # this.text = text;\n        PUSH, __0_text_String\n
+    \       PUSH, text\n        COPY\n        \n         # this.playTime = showTime;\n
+    \       PUSH, __0_showTime_Single\n        PUSH, playTime\n        COPY\n        \n
+    \        # UpdateOnUI();\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x000000FC\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void UpdateOnUI()\n    UpdateOnUI:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # transform.SetAsFirstSibling();\n
+    \       PUSH, __0_this_intnl_UnityEngineTransform\n        EXTERN, \"UnityEngineTransform.__SetAsFirstSibling__SystemVoid\"\n
+    \       \n         # UItext.text = $\"<color=orange><b>{name}</b></color> : {text}\";\n
+    \       PUSH, __0_const_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, name\n
+    \       PUSH, __0_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __0_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __1_const_intnl_SystemString\n
+    \       PUSH, __1_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __1_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, text\n
+    \       PUSH, __2_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __2_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, UItext\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       EXTERN, \"UnityEngineUIText.__set_text__SystemString__SystemVoid\"\n        \n
+    \        # Toggle();\n        PUSH, __3_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x00000200\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void Toggle()\n    Toggle:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # isShow = !isShow;\n        PUSH,
+    isShow\n        PUSH, isShow\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       \n         # setActiveText(isShow);\n        PUSH, isShow\n        PUSH,
+    __0_t_Boolean\n        COPY\n        PUSH, isShow\n        PUSH, __0_intnl_SystemBoolean\n
+    \       COPY # Copy-on-write symbol value dirtied\n        PUSH, __4_const_intnl_exitJumpLoc_UInt32\n
+    \       JUMP, 0x0000026C\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # void setActiveText(bool t)\n    setActiveText:\n
+    \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
+    \       \n         # UItext.enabled = t;\n        PUSH, UItext\n        PUSH,
+    __0_t_Boolean\n        EXTERN, \"UnityEngineUIText.__set_enabled__SystemBoolean__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void Update()\n    .export _update\n        \n    _update:\n        \n        PUSH,
+    __0_const_intnl_SystemUInt32\n        \n         # {\n        \n         # if
+    (!isShow) return;\n        PUSH, isShow\n        PUSH, __1_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __1_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000002DC\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\n        \n         # playTime -= UnityEngine.Time.deltaTime;\n
+    \       PUSH, __0_intnl_SystemSingle\n        EXTERN, \"UnityEngineTime.__get_deltaTime__SystemSingle\"\n
+    \       PUSH, playTime\n        PUSH, __0_intnl_SystemSingle\n        PUSH, __1_intnl_SystemSingle\n
+    \       EXTERN, \"SystemSingle.__op_Subtraction__SystemSingle_SystemSingle__SystemSingle\"\n
+    \       PUSH, __1_intnl_SystemSingle\n        PUSH, playTime\n        COPY\n        \n
+    \        # if(playTime <= 0)\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
+    __2_intnl_SystemSingle\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n
+    \       PUSH, playTime\n        PUSH, __2_intnl_SystemSingle\n        PUSH, __2_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemSingle.__op_LessThanOrEqual__SystemSingle_SystemSingle__SystemBoolean\"\n
+    \       PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000378\n        \n
+    \        # {\n        \n         # Toggle();\n        PUSH, __5_const_intnl_exitJumpLoc_UInt32\n
+    \       JUMP, 0x00000200\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 82af53b18dc1fa1408a0cf0e1383244e, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

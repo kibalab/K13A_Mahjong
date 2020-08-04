@@ -15,6 +15,8 @@ public class JoinButton : UdonSharpBehaviour
     private VRCPlayerApi[] registeredPlayers = null;
     private int registeredPlayerCount;
 
+    public bool testMode = false;
+
     public override void Interact()
     {
         // 이건 아무나 부르는 함수
@@ -52,7 +54,7 @@ public class JoinButton : UdonSharpBehaviour
         
 
         // 중복 입장 방지
-        if (!IsAlreadyRegistered(owner) && registeredPlayerCount < 4)
+        if (!IsAlreadyRegistered(owner) && registeredPlayerCount < 4 || testMode)
         {
             registeredPlayers[registeredPlayerCount++] = owner;
             EventQueue.SetRegisterPlayerEvent(owner);

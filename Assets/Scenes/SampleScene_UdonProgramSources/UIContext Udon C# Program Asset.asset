@@ -14,235 +14,222 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: f4e1e652fc0bc8e4fb9d446b0eff4499,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n    .export ChiableCount\r\n    .export ChiableIndex1\r\n
-    \   .export ChiableIndex2\r\n    .export ChiableIndex3\r\n    .export ChiableSprite11\r\n
-    \   .export ChiableSprite12\r\n    .export ChiableSprite21\r\n    .export ChiableSprite22\r\n
-    \   .export ChiableSprite31\r\n    .export ChiableSprite32\r\n    .export IsTsumoable\r\n
-    \   .export IsRonable\r\n    .export IsRiichable\r\n    .export IsChiable\r\n
-    \   .export IsPonable\r\n    .export IsKkanable\r\n    .sync ChiableCount, none\r\n
-    \   .sync ChiableIndex1, none\r\n    .sync ChiableIndex2, none\r\n    .sync ChiableIndex3,
-    none\r\n    .sync ChiableSprite11, none\r\n    .sync ChiableSprite12, none\r\n
-    \   .sync ChiableSprite21, none\r\n    .sync ChiableSprite22, none\r\n    .sync
-    ChiableSprite31, none\r\n    .sync ChiableSprite32, none\r\n    .sync IsTsumoable,
-    none\r\n    .sync IsRonable, none\r\n    .sync IsRiichable, none\r\n    .sync
-    IsChiable, none\r\n    .sync IsPonable, none\r\n    .sync IsKkanable, none\r\n\r\n
-    \   __refl_const_intnl_udonTypeID: %SystemInt64, null\r\n    __refl_const_intnl_udonTypeName:
-    %SystemString, null\r\n    IsChiable: %SystemBoolean, null\r\n    IsKkanable:
-    %SystemBoolean, null\r\n    IsPonable: %SystemBoolean, null\r\n    IsRiichable:
-    %SystemBoolean, null\r\n    IsRonable: %SystemBoolean, null\r\n    IsTsumoable:
-    %SystemBoolean, null\r\n    ChiableCount: %SystemInt32, null\r\n    ChiableSprite11:
-    %SystemString, null\r\n    ChiableSprite12: %SystemString, null\r\n    ChiableSprite21:
-    %SystemString, null\r\n    ChiableSprite22: %SystemString, null\r\n    ChiableSprite31:
-    %SystemString, null\r\n    ChiableSprite32: %SystemString, null\r\n    ChiableIndex1:
-    %UnityEngineVector2, null\r\n    ChiableIndex2: %UnityEngineVector2, null\r\n
-    \   ChiableIndex3: %UnityEngineVector2, null\r\n    __0_slot_Int32: %SystemInt32,
-    null\r\n    __1_slot_Int32: %SystemInt32, null\r\n    __0_yamaIndexes_Int32Array:
-    %SystemInt32Array, null\r\n    __0_spriteNames_StringArray: %SystemStringArray,
-    null\r\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\r\n    __0_const_intnl_SystemInt32:
-    %SystemInt32, null\r\n    __1_const_intnl_SystemInt32: %SystemInt32, null\r\n
-    \   __2_const_intnl_SystemInt32: %SystemInt32, null\r\n    __0_const_intnl_SystemUInt32:
-    %SystemUInt32, null\r\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean,
-    null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __10_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __11_intnl_SystemBoolean: %SystemBoolean, null\r\n    __12_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __13_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __14_intnl_SystemBoolean: %SystemBoolean, null\r\n    __15_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __16_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __17_intnl_SystemBoolean: %SystemBoolean, null\r\n    __18_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __19_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __2_intnl_SystemBoolean: %SystemBoolean, null\r\n    __20_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __3_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __4_intnl_SystemBoolean: %SystemBoolean, null\r\n    __5_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __6_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __7_intnl_SystemBoolean: %SystemBoolean, null\r\n    __8_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __9_intnl_SystemBoolean: %SystemBoolean, null\r\n
-    \   __0_intnl_SystemInt32: %SystemInt32, null\r\n    __1_intnl_SystemInt32: %SystemInt32,
-    null\r\n    __0_intnl_SystemSingle: %SystemSingle, null\r\n    __1_intnl_SystemSingle:
-    %SystemSingle, null\r\n    __0_intnl_returnValSymbol_StringArray: %SystemStringArray,
-    null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
-    \       \r\n         # public class UIContext : UdonSharpBehaviour\r\n.code_start\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public int ChiableCount;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex1;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex2;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex3;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite11;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite12;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite21;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite22;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite31;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite32;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsTsumoable;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsRonable;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsRiichable;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsChiable;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsPonable;\r\n
-    \       \r\n         # [UdonSynced(UdonSyncMode.None)] public bool IsKkanable;\r\n
-    \       \r\n         # public bool IsAnythingActived()\r\n    .export IsAnythingActived\r\n
-    \       \r\n    IsAnythingActived:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # return IsChiable || IsPonable
-    || IsKkanable || IsRiichable || IsRonable || IsTsumoable;\r\n        PUSH, IsChiable\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __5_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000078\r\n
-    \       PUSH, __4_intnl_SystemBoolean\r\n        PUSH, IsPonable\r\n        PUSH,
-    __6_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __6_intnl_SystemBoolean\r\n        PUSH, __4_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __4_intnl_SystemBoolean\r\n        PUSH, __3_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __3_intnl_SystemBoolean\r\n        PUSH, __7_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __7_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000000E8\r\n
-    \       PUSH, __3_intnl_SystemBoolean\r\n        PUSH, IsKkanable\r\n        PUSH,
-    __8_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __8_intnl_SystemBoolean\r\n        PUSH, __3_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __3_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemBoolean\r\n        PUSH, __9_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __9_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000158\r\n
-    \       PUSH, __2_intnl_SystemBoolean\r\n        PUSH, IsRiichable\r\n        PUSH,
-    __10_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __10_intnl_SystemBoolean\r\n        PUSH, __2_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __2_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __1_intnl_SystemBoolean\r\n        PUSH, __11_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __11_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001C8\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        PUSH, IsRonable\r\n        PUSH,
-    __12_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __12_intnl_SystemBoolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __1_intnl_SystemBoolean\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __0_intnl_SystemBoolean\r\n        PUSH, __13_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __13_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000238\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        PUSH, IsTsumoable\r\n        PUSH,
-    __14_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __14_intnl_SystemBoolean\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       COPY\r\n        PUSH, __0_intnl_SystemBoolean\r\n        PUSH, __0_intnl_returnValSymbol_Boolean\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH,
-    __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT,
-    __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n         # public void
-    Clear()\r\n    .export Clear\r\n        \r\n    Clear:\r\n        \r\n        PUSH,
-    __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n         #
-    IsTsumoable = false;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n        PUSH,
-    IsTsumoable\r\n        COPY\r\n        \r\n         # IsRonable = false;\r\n        PUSH,
-    __0_const_intnl_SystemBoolean\r\n        PUSH, IsRonable\r\n        COPY\r\n        \r\n
-    \        # IsRiichable = false;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
-    \       PUSH, IsRiichable\r\n        COPY\r\n        \r\n         # IsChiable
-    = false;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n        PUSH, IsChiable\r\n
-    \       COPY\r\n        \r\n         # IsPonable = false;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n
-    \       PUSH, IsPonable\r\n        COPY\r\n        \r\n         # IsKkanable =
-    false;\r\n        PUSH, __0_const_intnl_SystemBoolean\r\n        PUSH, IsKkanable\r\n
-    \       COPY\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \       \r\n         # public void SetChiable(int slot, int[] yamaIndexes, string[]
-    spriteNames)\r\n    .export SetChiable\r\n        \r\n    SetChiable:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # switch (slot)\r\n        \r\n         # case 0:\r\n        PUSH, __0_slot_Int32\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __15_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __15_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000348\r\n
-    \       JUMP, 0x000003C0\r\n        \r\n         # case 1:\r\n        PUSH, __0_slot_Int32\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __16_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __16_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000380\r\n
-    \       JUMP, 0x00000498\r\n        \r\n         # case 2:\r\n        PUSH, __0_slot_Int32\r\n
-    \       PUSH, __2_const_intnl_SystemInt32\r\n        PUSH, __17_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __17_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000003B8\r\n
-    \       JUMP, 0x00000570\r\n        JUMP, 0x00000648\r\n        PUSH, __0_yamaIndexes_Int32Array\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
-    __0_yamaIndexes_Int32Array\r\n        PUSH, __1_const_intnl_SystemInt32\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n
-    \       PUSH, __0_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemSingle\r\n
-    \       EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n        PUSH,
-    __1_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemSingle\r\n        EXTERN,
-    \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n        PUSH, __0_intnl_SystemSingle\r\n
-    \       PUSH, __1_intnl_SystemSingle\r\n        PUSH, ChiableIndex1\r\n        EXTERN,
-    \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
-    \       PUSH, __0_spriteNames_StringArray\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite11\r\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n
-    \       PUSH, __0_spriteNames_StringArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite12\r\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n
-    \       JUMP, 0x00000648\r\n        PUSH, __0_yamaIndexes_Int32Array\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH, __0_yamaIndexes_Int32Array\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemSingle\r\n        EXTERN,
-    \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __1_intnl_SystemSingle\r\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n
-    \       PUSH, __0_intnl_SystemSingle\r\n        PUSH, __1_intnl_SystemSingle\r\n
-    \       PUSH, ChiableIndex2\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
-    \       PUSH, __0_spriteNames_StringArray\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite21\r\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n
-    \       PUSH, __0_spriteNames_StringArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite22\r\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n
-    \       JUMP, 0x00000648\r\n        \r\n         # ChiableIndex3 = new Vector2(yamaIndexes[0],
-    yamaIndexes[1]);\r\n        PUSH, __0_yamaIndexes_Int32Array\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemInt32\r\n        EXTERN,
-    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH, __0_yamaIndexes_Int32Array\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\r\n        PUSH,
-    __0_intnl_SystemInt32\r\n        PUSH, __0_intnl_SystemSingle\r\n        EXTERN,
-    \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n        PUSH, __1_intnl_SystemInt32\r\n
-    \       PUSH, __1_intnl_SystemSingle\r\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\r\n
-    \       PUSH, __0_intnl_SystemSingle\r\n        PUSH, __1_intnl_SystemSingle\r\n
-    \       PUSH, ChiableIndex3\r\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\r\n
-    \       \r\n         # ChiableSprite31 = spriteNames[0];\r\n        PUSH, __0_spriteNames_StringArray\r\n
-    \       PUSH, __0_const_intnl_SystemInt32\r\n        PUSH, ChiableSprite31\r\n
-    \       EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n        \r\n
-    \        # ChiableSprite32 = spriteNames[1];\r\n        PUSH, __0_spriteNames_StringArray\r\n
-    \       PUSH, __1_const_intnl_SystemInt32\r\n        PUSH, ChiableSprite32\r\n
-    \       EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\r\n        \r\n
-    \        # break;\r\n        JUMP, 0x00000648\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n        \r\n         # public string[] GetCardSpriteNames(int slot)\r\n
-    \   .export GetCardSpriteNames\r\n        \r\n    GetCardSpriteNames:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # switch(slot)\r\n        \r\n         # case 0: return new string[]
-    { ChiableSprite11, ChiableSprite12 };\r\n        PUSH, __1_slot_Int32\r\n        PUSH,
-    __0_const_intnl_SystemInt32\r\n        PUSH, __18_intnl_SystemBoolean\r\n        EXTERN,
-    \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n        PUSH,
-    __18_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000069C\r\n        JUMP,
-    0x00000714\r\n        \r\n         # case 1: return new string[] { ChiableSprite21,
-    ChiableSprite22 };\r\n        PUSH, __1_slot_Int32\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __19_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000006D4\r\n
-    \       JUMP, 0x00000780\r\n        \r\n         # case 2: return new string[]
-    { ChiableSprite31, ChiableSprite32 };\r\n        PUSH, __1_slot_Int32\r\n        PUSH,
-    __2_const_intnl_SystemInt32\r\n        PUSH, __20_intnl_SystemBoolean\r\n        EXTERN,
-    \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\r\n        PUSH,
-    __20_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x0000070C\r\n        JUMP,
-    0x000007EC\r\n        JUMP, 0x00000858\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite11\r\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite12\r\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite21\r\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite22\r\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __2_const_intnl_SystemInt32\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        PUSH, __0_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite31\r\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnValSymbol_StringArray\r\n        PUSH, __1_const_intnl_SystemInt32\r\n
-    \       PUSH, ChiableSprite32\r\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n         #
-    return new string[] { };\r\n        PUSH, __0_const_intnl_SystemInt32\r\n        PUSH,
-    __0_intnl_returnValSymbol_StringArray\r\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n    .export ChiableCount\n    .export ChiableIndex1\n
+    \   .export ChiableIndex2\n    .export ChiableIndex3\n    .export ChiableSprite11\n
+    \   .export ChiableSprite12\n    .export ChiableSprite21\n    .export ChiableSprite22\n
+    \   .export ChiableSprite31\n    .export ChiableSprite32\n    .export IsTsumoable\n
+    \   .export IsRonable\n    .export IsRiichable\n    .export IsChiable\n    .export
+    IsPonable\n    .export IsKkanable\n    .sync ChiableCount, none\n    .sync ChiableIndex1,
+    none\n    .sync ChiableIndex2, none\n    .sync ChiableIndex3, none\n    .sync
+    ChiableSprite11, none\n    .sync ChiableSprite12, none\n    .sync ChiableSprite21,
+    none\n    .sync ChiableSprite22, none\n    .sync ChiableSprite31, none\n    .sync
+    ChiableSprite32, none\n    .sync IsTsumoable, none\n    .sync IsRonable, none\n
+    \   .sync IsRiichable, none\n    .sync IsChiable, none\n    .sync IsPonable, none\n
+    \   .sync IsKkanable, none\n\n    __refl_const_intnl_udonTypeID: %SystemInt64,
+    null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n    IsChiable:
+    %SystemBoolean, null\n    IsKkanable: %SystemBoolean, null\n    IsPonable: %SystemBoolean,
+    null\n    IsRiichable: %SystemBoolean, null\n    IsRonable: %SystemBoolean, null\n
+    \   IsTsumoable: %SystemBoolean, null\n    ChiableCount: %SystemInt32, null\n
+    \   ChiableSprite11: %SystemString, null\n    ChiableSprite12: %SystemString,
+    null\n    ChiableSprite21: %SystemString, null\n    ChiableSprite22: %SystemString,
+    null\n    ChiableSprite31: %SystemString, null\n    ChiableSprite32: %SystemString,
+    null\n    ChiableIndex1: %UnityEngineVector2, null\n    ChiableIndex2: %UnityEngineVector2,
+    null\n    ChiableIndex3: %UnityEngineVector2, null\n    __0_slot_Int32: %SystemInt32,
+    null\n    __1_slot_Int32: %SystemInt32, null\n    __0_yamaIndexes_Int32Array:
+    %SystemInt32Array, null\n    __0_spriteNames_StringArray: %SystemStringArray,
+    null\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\n    __0_const_intnl_SystemInt32:
+    %SystemInt32, null\n    __1_const_intnl_SystemInt32: %SystemInt32, null\n    __2_const_intnl_SystemInt32:
+    %SystemInt32, null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __0_intnl_returnValSymbol_Boolean:
+    %SystemBoolean, null\n    __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __10_intnl_SystemBoolean: %SystemBoolean, null\n    __11_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __12_intnl_SystemBoolean: %SystemBoolean, null\n    __13_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __14_intnl_SystemBoolean: %SystemBoolean, null\n    __15_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __16_intnl_SystemBoolean: %SystemBoolean, null\n    __17_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __18_intnl_SystemBoolean: %SystemBoolean, null\n    __19_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __2_intnl_SystemBoolean: %SystemBoolean, null\n    __20_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __3_intnl_SystemBoolean: %SystemBoolean, null\n    __4_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __5_intnl_SystemBoolean: %SystemBoolean, null\n    __6_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __7_intnl_SystemBoolean: %SystemBoolean, null\n    __8_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __9_intnl_SystemBoolean: %SystemBoolean, null\n    __0_intnl_SystemInt32:
+    %SystemInt32, null\n    __1_intnl_SystemInt32: %SystemInt32, null\n    __0_intnl_SystemSingle:
+    %SystemSingle, null\n    __1_intnl_SystemSingle: %SystemSingle, null\n    __0_intnl_returnValSymbol_StringArray:
+    %SystemStringArray, null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
+    \       \n         # using UdonSharp;\n        \n         # using UnityEngine;\n
+    \       \n         # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n
+    \       \n         # public class UIContext : UdonSharpBehaviour\n.code_start\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public int ChiableCount;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex1;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex2;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex3;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite11;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite12;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite21;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite22;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite31;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public string ChiableSprite32;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public bool IsTsumoable;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public bool IsRonable;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public bool IsRiichable;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public bool IsChiable;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public bool IsPonable;\n
+    \       \n         # [UdonSynced(UdonSyncMode.None)] public bool IsKkanable;\n
+    \       \n         # public bool IsAnythingActived()\n    .export IsAnythingActived\n
+    \       \n    IsAnythingActived:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # return IsChiable || IsPonable ||
+    IsKkanable || IsRiichable || IsRonable || IsTsumoable;\n        PUSH, IsChiable\n
+    \       PUSH, __4_intnl_SystemBoolean\n        COPY\n        PUSH, __4_intnl_SystemBoolean\n
+    \       PUSH, __5_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __5_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000078\n        PUSH,
+    __4_intnl_SystemBoolean\n        PUSH, IsPonable\n        PUSH, __6_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __6_intnl_SystemBoolean\n        PUSH, __4_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __4_intnl_SystemBoolean\n        PUSH, __3_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __3_intnl_SystemBoolean\n        PUSH, __7_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __7_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000E8\n        PUSH,
+    __3_intnl_SystemBoolean\n        PUSH, IsKkanable\n        PUSH, __8_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __8_intnl_SystemBoolean\n        PUSH, __3_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __3_intnl_SystemBoolean\n        PUSH, __2_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __2_intnl_SystemBoolean\n        PUSH, __9_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __9_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000158\n        PUSH,
+    __2_intnl_SystemBoolean\n        PUSH, IsRiichable\n        PUSH, __10_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __10_intnl_SystemBoolean\n        PUSH, __2_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __2_intnl_SystemBoolean\n        PUSH, __1_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __1_intnl_SystemBoolean\n        PUSH, __11_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __11_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000001C8\n        PUSH,
+    __1_intnl_SystemBoolean\n        PUSH, IsRonable\n        PUSH, __12_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __12_intnl_SystemBoolean\n        PUSH, __1_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __1_intnl_SystemBoolean\n        PUSH, __0_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __0_intnl_SystemBoolean\n        PUSH, __13_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __13_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000238\n        PUSH,
+    __0_intnl_SystemBoolean\n        PUSH, IsTsumoable\n        PUSH, __14_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __14_intnl_SystemBoolean\n        PUSH, __0_intnl_SystemBoolean\n
+    \       COPY\n        PUSH, __0_intnl_SystemBoolean\n        PUSH, __0_intnl_returnValSymbol_Boolean\n
+    \       COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH,
+    __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n        JUMP_INDIRECT,
+    __0_intnl_returnTarget_UInt32\n        \n        \n         # public void Clear()\n
+    \   .export Clear\n        \n    Clear:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # IsTsumoable = false;\n        PUSH,
+    __0_const_intnl_SystemBoolean\n        PUSH, IsTsumoable\n        COPY\n        \n
+    \        # IsRonable = false;\n        PUSH, __0_const_intnl_SystemBoolean\n        PUSH,
+    IsRonable\n        COPY\n        \n         # IsRiichable = false;\n        PUSH,
+    __0_const_intnl_SystemBoolean\n        PUSH, IsRiichable\n        COPY\n        \n
+    \        # IsChiable = false;\n        PUSH, __0_const_intnl_SystemBoolean\n        PUSH,
+    IsChiable\n        COPY\n        \n         # IsPonable = false;\n        PUSH,
+    __0_const_intnl_SystemBoolean\n        PUSH, IsPonable\n        COPY\n        \n
+    \        # IsKkanable = false;\n        PUSH, __0_const_intnl_SystemBoolean\n
+    \       PUSH, IsKkanable\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public void SetChiable(int slot, int[] yamaIndexes,
+    string[] spriteNames)\n    .export SetChiable\n        \n    SetChiable:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # switch (slot)\n        \n         # case 0:\n        PUSH, __0_slot_Int32\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __15_intnl_SystemBoolean\n
+    \       EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __15_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000348\n        JUMP,
+    0x000003C0\n        \n         # case 1:\n        PUSH, __0_slot_Int32\n        PUSH,
+    __1_const_intnl_SystemInt32\n        PUSH, __16_intnl_SystemBoolean\n        EXTERN,
+    \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
+    __16_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000380\n        JUMP, 0x00000498\n
+    \       \n         # case 2:\n        PUSH, __0_slot_Int32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __17_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __17_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000003B8\n        JUMP,
+    0x00000570\n        JUMP, 0x00000648\n        PUSH, __0_yamaIndexes_Int32Array\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __0_intnl_SystemInt32\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        PUSH,
+    __0_yamaIndexes_Int32Array\n        PUSH, __1_const_intnl_SystemInt32\n        PUSH,
+    __1_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_intnl_SystemInt32\n        PUSH, __0_intnl_SystemSingle\n        EXTERN,
+    \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n        PUSH, __1_intnl_SystemInt32\n
+    \       PUSH, __1_intnl_SystemSingle\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n
+    \       PUSH, __0_intnl_SystemSingle\n        PUSH, __1_intnl_SystemSingle\n        PUSH,
+    ChiableIndex1\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\n
+    \       PUSH, __0_spriteNames_StringArray\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite11\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n
+    \       PUSH, __0_spriteNames_StringArray\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite12\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n
+    \       JUMP, 0x00000648\n        PUSH, __0_yamaIndexes_Int32Array\n        PUSH,
+    __0_const_intnl_SystemInt32\n        PUSH, __0_intnl_SystemInt32\n        EXTERN,
+    \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        PUSH, __0_yamaIndexes_Int32Array\n
+    \       PUSH, __1_const_intnl_SystemInt32\n        PUSH, __1_intnl_SystemInt32\n
+    \       EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n        PUSH,
+    __0_intnl_SystemInt32\n        PUSH, __0_intnl_SystemSingle\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n
+    \       PUSH, __1_intnl_SystemInt32\n        PUSH, __1_intnl_SystemSingle\n        EXTERN,
+    \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n        PUSH, __0_intnl_SystemSingle\n
+    \       PUSH, __1_intnl_SystemSingle\n        PUSH, ChiableIndex2\n        EXTERN,
+    \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\n
+    \       PUSH, __0_spriteNames_StringArray\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite21\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n
+    \       PUSH, __0_spriteNames_StringArray\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite22\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n
+    \       JUMP, 0x00000648\n        \n         # ChiableIndex3 = new Vector2(yamaIndexes[0],
+    yamaIndexes[1]);\n        PUSH, __0_yamaIndexes_Int32Array\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_yamaIndexes_Int32Array\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, __1_intnl_SystemInt32\n        EXTERN, \"SystemInt32Array.__Get__SystemInt32__SystemInt32\"\n
+    \       PUSH, __0_intnl_SystemInt32\n        PUSH, __0_intnl_SystemSingle\n        EXTERN,
+    \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n        PUSH, __1_intnl_SystemInt32\n
+    \       PUSH, __1_intnl_SystemSingle\n        EXTERN, \"SystemConvert.__ToSingle__SystemInt32__SystemSingle\"\n
+    \       PUSH, __0_intnl_SystemSingle\n        PUSH, __1_intnl_SystemSingle\n        PUSH,
+    ChiableIndex3\n        EXTERN, \"UnityEngineVector2.__ctor__SystemSingle_SystemSingle__UnityEngineVector2\"\n
+    \       \n         # ChiableSprite31 = spriteNames[0];\n        PUSH, __0_spriteNames_StringArray\n
+    \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, ChiableSprite31\n        EXTERN,
+    \"SystemStringArray.__Get__SystemInt32__SystemString\"\n        \n         # ChiableSprite32
+    = spriteNames[1];\n        PUSH, __0_spriteNames_StringArray\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite32\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n
+    \       \n         # break;\n        JUMP, 0x00000648\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public string[] GetCardSpriteNames(int slot)\n
+    \   .export GetCardSpriteNames\n        \n    GetCardSpriteNames:\n        \n
+    \       PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n        \n
+    \        # switch(slot)\n        \n         # case 0: return new string[] { ChiableSprite11,
+    ChiableSprite12 };\n        PUSH, __1_slot_Int32\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __18_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __18_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x0000069C\n        JUMP,
+    0x00000714\n        \n         # case 1: return new string[] { ChiableSprite21,
+    ChiableSprite22 };\n        PUSH, __1_slot_Int32\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, __19_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __19_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000006D4\n        JUMP,
+    0x00000780\n        \n         # case 2: return new string[] { ChiableSprite31,
+    ChiableSprite32 };\n        PUSH, __1_slot_Int32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __20_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __20_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x0000070C\n        JUMP,
+    0x000007EC\n        JUMP, 0x00000858\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite11\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite12\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite21\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite22\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH, __2_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite31\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnValSymbol_StringArray\n        PUSH, __1_const_intnl_SystemInt32\n
+    \       PUSH, ChiableSprite32\n        EXTERN, \"SystemStringArray.__Set__SystemInt32_SystemString__SystemVoid\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n         # return
+    new string[] { };\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH, __0_intnl_returnValSymbol_StringArray\n
+    \       EXTERN, \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: f929d42149d50e143b83b7aea0ffd3e5, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

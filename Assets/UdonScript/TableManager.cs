@@ -58,9 +58,9 @@ public class TableManager : UdonSharpBehaviour
         var nextPlayerIndex = (currentTurnPlayer + 1) % 4;
 
         SetTurnOf(nextPlayerIndex);
-    }
+    } 
 
-    public void SetTurnOf(int playerIndex)
+     public void SetTurnOf(int playerIndex)
     {
         LogViewer.Log($"Turn Changed {currentTurnPlayer} -> {playerIndex}", 1);
 

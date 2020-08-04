@@ -14,131 +14,119 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedUdonProgramAsset: {fileID: 11400000, guid: 1d97d19b5063a94428bda66037ecd305,
     type: 2}
-  udonAssembly: ".data_start\r\n\r\n\r\n    __refl_const_intnl_udonTypeID: %SystemInt64,
-    null\r\n    __refl_const_intnl_udonTypeName: %SystemString, null\r\n    className:
-    %SystemString, null\r\n    testName: %SystemString, null\r\n    __0_cond_Boolean:
-    %SystemBoolean, null\r\n    __1_cond_Boolean: %SystemBoolean, null\r\n    __0_a_Int32:
-    %SystemInt32, null\r\n    __0_b_Int32: %SystemInt32, null\r\n    __0_lineNumber_Int32:
-    %SystemInt32, null\r\n    __1_lineNumber_Int32: %SystemInt32, null\r\n    __2_lineNumber_Int32:
-    %SystemInt32, null\r\n    __3_lineNumber_Int32: %SystemInt32, null\r\n    __0_className_String:
-    %SystemString, null\r\n    __0_errorMsg_String: %SystemString, null\r\n    __0_testName_String:
-    %SystemString, null\r\n    __0_const_intnl_SystemString: %SystemString, null\r\n
-    \   __1_const_intnl_SystemString: %SystemString, null\r\n    __2_const_intnl_SystemString:
-    %SystemString, null\r\n    __3_const_intnl_SystemString: %SystemString, null\r\n
-    \   __4_const_intnl_SystemString: %SystemString, null\r\n    __0_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\r\n
-    \   __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\r\n    __2_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\r\n    __0_intnl_SystemBoolean: %SystemBoolean, null\r\n    __1_intnl_SystemBoolean:
-    %SystemBoolean, null\r\n    __0_intnl_interpolatedStr_String: %SystemString, null\r\n
-    \   __0_intnl_SystemString: %SystemString, null\r\n    __1_intnl_interpolatedStr_String:
-    %SystemString, null\r\n    __1_intnl_SystemString: %SystemString, null\r\n    __10_intnl_SystemString:
-    %SystemString, null\r\n    __11_intnl_SystemString: %SystemString, null\r\n    __12_intnl_SystemString:
-    %SystemString, null\r\n    __2_intnl_SystemString: %SystemString, null\r\n    __3_intnl_SystemString:
-    %SystemString, null\r\n    __4_intnl_SystemString: %SystemString, null\r\n    __5_intnl_SystemString:
-    %SystemString, null\r\n    __6_intnl_SystemString: %SystemString, null\r\n    __7_intnl_SystemString:
-    %SystemString, null\r\n    __8_intnl_SystemString: %SystemString, null\r\n    __9_intnl_SystemString:
-    %SystemString, null\r\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\r\n\r\n.data_end\r\n\r\n
-    \       \r\n         # using UdonSharp;\r\n        \r\n         # using UnityEngine;\r\n
-    \       \r\n         # using VRC.SDKBase;\r\n        \r\n         # using VRC.Udon;\r\n
-    \       \r\n         # public class DebugHelper : UdonSharpBehaviour\r\n.code_start\r\n
-    \       \r\n         # string className;\r\n        \r\n         # string testName;\r\n
-    \       \r\n         # public void SetClassName(string className)\r\n    .export
-    SetClassName\r\n        \r\n    SetClassName:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # this.className = className;\r\n
-    \       PUSH, __0_className_String\r\n        PUSH, className\r\n        COPY\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void SetTestName(string testName)\r\n    .export SetTestName\r\n
-    \       \r\n    SetTestName:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # this.testName = testName;\r\n
-    \       PUSH, __0_testName_String\r\n        PUSH, testName\r\n        COPY\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void Equal(int a, int b, int lineNumber)\r\n    .export Equal\r\n
-    \       \r\n    Equal:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (a != b)\r\n        PUSH,
-    __0_a_Int32\r\n        PUSH, __0_b_Int32\r\n        PUSH, __0_intnl_SystemBoolean\r\n
-    \       EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\r\n
-    \       PUSH, __0_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x000001C4\r\n
-    \       \r\n         # {\r\n        \r\n         # Print($\"\uB450 \uAC12\uC774
-    \uAC19\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. {a} {b}\", lineNumber);\r\n        PUSH,
-    __0_const_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_a_Int32\r\n        PUSH, __0_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __0_intnl_SystemString\r\n        PUSH, __1_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __1_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __1_const_intnl_SystemString\r\n        PUSH, __2_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __2_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __0_b_Int32\r\n        PUSH, __3_intnl_SystemString\r\n        EXTERN,
-    \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __3_intnl_SystemString\r\n        PUSH, __4_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __4_intnl_SystemString\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n        PUSH,
-    __0_errorMsg_String\r\n        COPY\r\n        PUSH, __0_lineNumber_Int32\r\n
-    \       PUSH, __3_lineNumber_Int32\r\n        COPY\r\n        PUSH, __0_intnl_interpolatedStr_String\r\n
-    \       PUSH, __5_intnl_SystemString\r\n        COPY # Copy-on-write symbol value
-    dirtied\r\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000002C0\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # public void IsTrue(bool cond, int lineNumber)\r\n    .export IsTrue\r\n
-    \       \r\n    IsTrue:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (!cond)\r\n        PUSH,
-    __0_cond_Boolean\r\n        PUSH, __1_intnl_SystemBoolean\r\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\r\n
-    \       PUSH, __1_intnl_SystemBoolean\r\n        JUMP_IF_FALSE, 0x00000240\r\n
-    \       \r\n         # {\r\n        \r\n         # Print(\"\uCC38\uC774\uC5B4\uC57C
-    \uD558\uB294\uB370 \uCC38\uC774 \uC544\uB2D9\uB2C8\uB2E4.\", lineNumber);\r\n
-    \       PUSH, __2_const_intnl_SystemString\r\n        PUSH, __0_errorMsg_String\r\n
-    \       COPY\r\n        PUSH, __1_lineNumber_Int32\r\n        PUSH, __3_lineNumber_Int32\r\n
-    \       COPY\r\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\r\n        JUMP,
-    0x000002C0\r\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n
-    \       COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n
-    \       \r\n         # public void IsFalse(bool cond, int lineNumber)\r\n    .export
-    IsFalse\r\n        \r\n    IsFalse:\r\n        \r\n        PUSH, __0_const_intnl_SystemUInt32\r\n
-    \       \r\n         # {\r\n        \r\n         # if (cond)\r\n        PUSH,
-    __1_cond_Boolean\r\n        JUMP_IF_FALSE, 0x000002A4\r\n        \r\n         #
-    {\r\n        \r\n         # Print(\"\uAC70\uC9D3\uC774\uC5B4\uC57C \uD558\uB294\uB370
-    \uAC70\uC9D3\uC774 \uC544\uB2D9\uB2C8\uB2E4.\", lineNumber);\r\n        PUSH,
-    __3_const_intnl_SystemString\r\n        PUSH, __0_errorMsg_String\r\n        COPY\r\n
-    \       PUSH, __2_lineNumber_Int32\r\n        PUSH, __3_lineNumber_Int32\r\n        COPY\r\n
-    \       PUSH, __2_const_intnl_exitJumpLoc_UInt32\r\n        JUMP, 0x000002C0\r\n
-    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\r\n        COPY\r\n
-    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n        \r\n        \r\n
-    \        # void Print(string errorMsg, int lineNumber)\r\n    Print:\r\n        \r\n
-    \       PUSH, __0_const_intnl_SystemUInt32\r\n        \r\n         # {\r\n        \r\n
-    \        # Debug.Log($\"{className} {testName} line:{lineNumber} {errorMsg}\");\r\n
-    \       PUSH, className\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
-    __1_const_intnl_SystemString\r\n        PUSH, __6_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __6_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH, testName\r\n        PUSH,
-    __7_intnl_SystemString\r\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __7_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
-    __4_const_intnl_SystemString\r\n        PUSH, __8_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __8_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        COPY\r\n
-    \       PUSH, __3_lineNumber_Int32\r\n        PUSH, __9_intnl_SystemString\r\n
-    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       PUSH, __9_intnl_SystemString\r\n        PUSH, __10_intnl_SystemString\r\n
-    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n
-    \       PUSH, __10_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
-    __1_const_intnl_SystemString\r\n        PUSH, __11_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __11_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        PUSH,
-    __0_errorMsg_String\r\n        PUSH, __12_intnl_SystemString\r\n        EXTERN,
-    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\r\n        PUSH,
-    __12_intnl_SystemString\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n
-    \       COPY\r\n        PUSH, __1_intnl_interpolatedStr_String\r\n        EXTERN,
-    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\r\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\r\n        COPY\r\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\r\n
-    \       \r\n.code_end\r\n"
+  udonAssembly: ".data_start\n\n\n    __refl_const_intnl_udonTypeID: %SystemInt64,
+    null\n    __refl_const_intnl_udonTypeName: %SystemString, null\n    className:
+    %SystemString, null\n    testName: %SystemString, null\n    __0_cond_Boolean:
+    %SystemBoolean, null\n    __1_cond_Boolean: %SystemBoolean, null\n    __0_a_Int32:
+    %SystemInt32, null\n    __0_b_Int32: %SystemInt32, null\n    __0_lineNumber_Int32:
+    %SystemInt32, null\n    __1_lineNumber_Int32: %SystemInt32, null\n    __2_lineNumber_Int32:
+    %SystemInt32, null\n    __3_lineNumber_Int32: %SystemInt32, null\n    __0_className_String:
+    %SystemString, null\n    __0_errorMsg_String: %SystemString, null\n    __0_testName_String:
+    %SystemString, null\n    __0_const_intnl_SystemString: %SystemString, null\n    __1_const_intnl_SystemString:
+    %SystemString, null\n    __2_const_intnl_SystemString: %SystemString, null\n    __3_const_intnl_SystemString:
+    %SystemString, null\n    __4_const_intnl_SystemString: %SystemString, null\n    __0_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __0_const_intnl_SystemUInt32: %SystemUInt32, null\n    __1_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __2_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __0_intnl_interpolatedStr_String: %SystemString, null\n
+    \   __0_intnl_SystemString: %SystemString, null\n    __1_intnl_interpolatedStr_String:
+    %SystemString, null\n    __1_intnl_SystemString: %SystemString, null\n    __10_intnl_SystemString:
+    %SystemString, null\n    __11_intnl_SystemString: %SystemString, null\n    __12_intnl_SystemString:
+    %SystemString, null\n    __2_intnl_SystemString: %SystemString, null\n    __3_intnl_SystemString:
+    %SystemString, null\n    __4_intnl_SystemString: %SystemString, null\n    __5_intnl_SystemString:
+    %SystemString, null\n    __6_intnl_SystemString: %SystemString, null\n    __7_intnl_SystemString:
+    %SystemString, null\n    __8_intnl_SystemString: %SystemString, null\n    __9_intnl_SystemString:
+    %SystemString, null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
+    \       \n         # using UdonSharp;\n        \n         # using UnityEngine;\n
+    \       \n         # using VRC.SDKBase;\n        \n         # using VRC.Udon;\n
+    \       \n         # public class DebugHelper : UdonSharpBehaviour\n.code_start\n
+    \       \n         # string className;\n        \n         # string testName;\n
+    \       \n         # public void SetClassName(string className)\n    .export SetClassName\n
+    \       \n    SetClassName:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # this.className = className;\n        PUSH,
+    __0_className_String\n        PUSH, className\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public void SetTestName(string testName)\n    .export
+    SetTestName\n        \n    SetTestName:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # this.testName = testName;\n        PUSH,
+    __0_testName_String\n        PUSH, testName\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public void Equal(int a, int b, int lineNumber)\n
+    \   .export Equal\n        \n    Equal:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # if (a != b)\n        PUSH, __0_a_Int32\n
+    \       PUSH, __0_b_Int32\n        PUSH, __0_intnl_SystemBoolean\n        EXTERN,
+    \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
+    __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000001C4\n        \n         #
+    {\n        \n         # Print($\"\uB450 \uAC12\uC774 \uAC19\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.
+    {a} {b}\", lineNumber);\n        PUSH, __0_const_intnl_SystemString\n        PUSH,
+    __0_intnl_interpolatedStr_String\n        COPY\n        PUSH, __0_a_Int32\n        PUSH,
+    __0_intnl_SystemString\n        EXTERN, \"SystemInt32.__ToString__SystemString\"\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __0_intnl_SystemString\n
+    \       PUSH, __1_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __1_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __1_const_intnl_SystemString\n
+    \       PUSH, __2_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __2_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __0_b_Int32\n        PUSH, __3_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, __0_intnl_interpolatedStr_String\n
+    \       PUSH, __3_intnl_SystemString\n        PUSH, __4_intnl_SystemString\n        EXTERN,
+    \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n        PUSH,
+    __4_intnl_SystemString\n        PUSH, __0_intnl_interpolatedStr_String\n        COPY\n
+    \       PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __0_errorMsg_String\n
+    \       COPY\n        PUSH, __0_lineNumber_Int32\n        PUSH, __3_lineNumber_Int32\n
+    \       COPY\n        PUSH, __0_intnl_interpolatedStr_String\n        PUSH, __5_intnl_SystemString\n
+    \       COPY # Copy-on-write symbol value dirtied\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\n
+    \       JUMP, 0x000002C0\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public void IsTrue(bool cond, int lineNumber)\n
+    \   .export IsTrue\n        \n    IsTrue:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # if (!cond)\n        PUSH, __0_cond_Boolean\n
+    \       PUSH, __1_intnl_SystemBoolean\n        EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
+    \       PUSH, __1_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000240\n        \n
+    \        # {\n        \n         # Print(\"\uCC38\uC774\uC5B4\uC57C \uD558\uB294\uB370
+    \uCC38\uC774 \uC544\uB2D9\uB2C8\uB2E4.\", lineNumber);\n        PUSH, __2_const_intnl_SystemString\n
+    \       PUSH, __0_errorMsg_String\n        COPY\n        PUSH, __1_lineNumber_Int32\n
+    \       PUSH, __3_lineNumber_Int32\n        COPY\n        PUSH, __1_const_intnl_exitJumpLoc_UInt32\n
+    \       JUMP, 0x000002C0\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n        \n         # public void IsFalse(bool cond, int lineNumber)\n
+    \   .export IsFalse\n        \n    IsFalse:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # if (cond)\n        PUSH, __1_cond_Boolean\n
+    \       JUMP_IF_FALSE, 0x000002A4\n        \n         # {\n        \n         #
+    Print(\"\uAC70\uC9D3\uC774\uC5B4\uC57C \uD558\uB294\uB370 \uAC70\uC9D3\uC774 \uC544\uB2D9\uB2C8\uB2E4.\",
+    lineNumber);\n        PUSH, __3_const_intnl_SystemString\n        PUSH, __0_errorMsg_String\n
+    \       COPY\n        PUSH, __2_lineNumber_Int32\n        PUSH, __3_lineNumber_Int32\n
+    \       COPY\n        PUSH, __2_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    0x000002C0\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    void Print(string errorMsg, int lineNumber)\n    Print:\n        \n        PUSH,
+    __0_const_intnl_SystemUInt32\n        \n         # {\n        \n         # Debug.Log($\"{className}
+    {testName} line:{lineNumber} {errorMsg}\");\n        PUSH, className\n        PUSH,
+    __1_intnl_interpolatedStr_String\n        COPY\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       PUSH, __1_const_intnl_SystemString\n        PUSH, __6_intnl_SystemString\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __6_intnl_SystemString\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __1_intnl_interpolatedStr_String\n        PUSH, testName\n
+    \       PUSH, __7_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __7_intnl_SystemString\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __1_intnl_interpolatedStr_String\n        PUSH, __4_const_intnl_SystemString\n
+    \       PUSH, __8_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __8_intnl_SystemString\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __3_lineNumber_Int32\n        PUSH, __9_intnl_SystemString\n
+    \       EXTERN, \"SystemInt32.__ToString__SystemString\"\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       PUSH, __9_intnl_SystemString\n        PUSH, __10_intnl_SystemString\n
+    \       EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __10_intnl_SystemString\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __1_intnl_interpolatedStr_String\n        PUSH, __1_const_intnl_SystemString\n
+    \       PUSH, __11_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __11_intnl_SystemString\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __1_intnl_interpolatedStr_String\n        PUSH, __0_errorMsg_String\n
+    \       PUSH, __12_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
+    \       PUSH, __12_intnl_SystemString\n        PUSH, __1_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, __1_intnl_interpolatedStr_String\n        EXTERN,
+    \"UnityEngineDebug.__Log__SystemObject__SystemVoid\"\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       \n.code_end\n"
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 64dd21ebfaf71a54cba9a8f625f9e8a7, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID

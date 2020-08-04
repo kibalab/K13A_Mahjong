@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: PlayerModSetter
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: aef439f478fb967489167a6438f2fe23,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: efa987da487c6c949b759e4a3de6aa74,
     type: 2}
   udonAssembly: ".data_start\n\n    .export jumpHeight\n    .export runSpeed\n    .export
     walkSpeed\n    .export gravity\n    .export useLegacyLocomotion\n\n    __refl_const_intnl_udonTypeID:
