@@ -714,7 +714,13 @@ public class ScoreCalculator : UdonSharpBehaviour
             return;
         }
 
-        playerStatus.AddHan("TerminalInEachSet", 3);
+        var han = playerStatus.IsMenzen ? 3 : 2;
+        playerStatus.AddHan("TerminalInEachSet", han);
+    }
+
+    void AddScore_HalfFlush(PlayerStatus playerStatus, object[] ctx)
+    {
+        // 음 어떻게 하지...
     }
 
     bool IsWhiteGreenRed(int globalOrder)
