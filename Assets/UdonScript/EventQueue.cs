@@ -27,12 +27,12 @@ public class EventQueue : UdonSharpBehaviour
         inputEvent.PlayerIndex = playerIndex;
     }
 
-    public void SetRegistEvent(VRCPlayerApi player)
+    public void SetRegisterPlayerEvent(VRCPlayerApi player)
     {
         var inputEvent = GetNextInputEvent();
 
-        inputEvent.EventType = "Resiger";
-        inputEvent.player = player;
+        inputEvent.EventType = "Register";
+        inputEvent.NewPlayer = player;
     }
 
     public void SetDiscardEvent(int yamaIndex, int playerIndex)

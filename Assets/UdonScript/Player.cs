@@ -28,6 +28,7 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Card testcard4;
 
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
+    [UdonSynced(UdonSyncMode.None)] public string PlayerName;
 
     public int PlayerIndex;
 
@@ -349,6 +350,11 @@ public class Player : UdonSharpBehaviour
         //var ctxs = HandCalculator.FindAll
 
         //ScoreCalculator.CalculateTsumo()
+    }
+
+    public void SetPlayerName(string name)
+    {
+        PlayerName = name;
     }
 
     void SortPosition()
