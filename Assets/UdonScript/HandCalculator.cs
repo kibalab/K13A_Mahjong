@@ -25,7 +25,7 @@ public class HandCalculator : UdonSharpBehaviour
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
 
-    public void RequestTsumoScore(Card[] sealedCards, Card[] openedCards, PlayerStatus playerStatus)
+    public void RequestTsumoScore(Card[] sealedCards, Card[] openedCards, AgariContext agariContext, PlayerStatus playerStatus)
     {
         var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
         var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
@@ -40,6 +40,19 @@ public class HandCalculator : UdonSharpBehaviour
             playerStatus.Fu = 25;
             return;
         }
+
+        // 특수역: 국싸무쌍
+        var count = HandUtil.GetYaojuhaiTypeCount(globalOrders);
+        if (count == 13)
+        {
+            playerStatus.AddHan("Kokushimusou", 9999); // 역만은 판이 어떻게 되지..?
+            playerStatus.Fu = 999; // 역만은 부수가 어떻게 되지...?
+            return;
+        }
+
+        var ctxs = FindAll(globalOrders);
+
+        ScoreCalculator.CalculateTsumo(playerStatus, agariContext, sealedCards, openedCards, ctxs);
     }
 
     public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer)

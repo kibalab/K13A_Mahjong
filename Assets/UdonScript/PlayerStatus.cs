@@ -24,7 +24,7 @@ public class PlayerStatus : UdonSharpBehaviour
     public string[] YakuKey;
     public int[] Han;
     public int TotalHan;
-    public int YakuIndex;
+    public int YakuCount;
 
     // 부수는 별도로 계산하는 것 같으니 배열화 안 함 
     public int Fu;
@@ -44,15 +44,15 @@ public class PlayerStatus : UdonSharpBehaviour
         Han = new int[MAX_YAKU_COUNT];
         TotalHan = 0;
         Fu = 0;
-        YakuIndex = 0;
+        YakuCount = 0;
     }
 
     public void AddHan(string key, int han)
     {
         // key라고 저장하는 이유는, 로컬라이징 할때 써야하기 때문
-        YakuKey[YakuIndex] = key;
-        Han[YakuIndex] = han;
+        YakuKey[YakuCount] = key;
+        Han[YakuCount] = han;
         TotalHan += han;
-        ++YakuIndex;
+        ++YakuCount;
     }
 }
