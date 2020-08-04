@@ -18,7 +18,10 @@ namespace VRC.Udon.Editor.ProgramSources
         protected string udonAssembly = "";
 
         [SerializeField]
-        private string assemblyError = null;
+        protected string assemblyError = null;
+
+        public delegate void AssembleDelegate(bool success, string assembly);
+        public event AssembleDelegate OnAssemble;
 
         protected override void DrawProgramSourceGUI(UdonBehaviour udonBehaviour, ref bool dirty)
         {
@@ -78,13 +81,16 @@ namespace VRC.Udon.Editor.ProgramSources
             {
                 program = UdonEditorManager.Instance.Assemble(udonAssembly);
                 assemblyError = null;
+                OnAssemble?.Invoke(true, udonAssembly);
             }
             catch(Exception e)
             {
                 program = null;
                 assemblyError = e.Message;
                 Debug.LogException(e);
+                OnAssemble?.Invoke(false, assemblyError);
             }
         }
+
     }
 }

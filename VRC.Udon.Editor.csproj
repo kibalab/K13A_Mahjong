@@ -69,22 +69,46 @@
     <Compile Include="Assets\Udon\Editor\ProgramSources\UdonAssemblyProgram\UdonAssemblyProgramAsset.cs" />
     <Compile Include="Assets\Udon\Editor\ProgramSources\UdonAssemblyProgram\UdonAssemblyProgramAssetEditor.cs" />
     <Compile Include="Assets\Udon\Editor\ProgramSources\UdonAssemblyProgram\UdonAssemblyProgramAssetImporter.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\SearchComparer.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonEdgeGUI.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonGraph.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonGraphExtensions.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonGraphGUI.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonGraphProgramAsset.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonGraphProgramAssetEditor.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonGraphWindow.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonNode.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonNodeSearchMenu.cs" />
-    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraph\UdonSubGraphAsset.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UdonGraphProgramAsset.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UdonGraphProgramAssetEditor.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\GraphElementExtension.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonArrayInspector.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonComment.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonGraphElement.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonGroup.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonMinimap.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonNode.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonPort.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonStackNode.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\GraphElements\UdonVariablesBlackboard.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonFocusedSearchWindow.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonFullSearchWindow.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonPortSearchWindow.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonRegistrySearchWindow.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonSearchManager.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonSearchWindowBase.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\Search\UdonVariableTypeWindow.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\TypeExtension.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonGraph.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonGraphElementData.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonGraphStatus.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonGraphViewSettings.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonGraphWindow.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonParameterField.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonParameterProperty.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonProgramSourceView.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\UdonWelcomeView.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\GraphView\VideoPlayerElement.cs" />
+    <Compile Include="Assets\Udon\Editor\ProgramSources\UdonGraphProgram\UI\UdonGraphExtensions.cs" />
     <Compile Include="Assets\Udon\Editor\ProgramSources\UdonProgram\UdonProgramAsset.cs" />
     <Compile Include="Assets\Udon\Editor\ProgramSources\UdonProgram\UdonProgramAssetEditor.cs" />
     <Compile Include="Assets\Udon\Editor\TypeResolvers\UdonBehaviourTypeResolver.cs" />
     <Compile Include="Assets\Udon\Editor\UdonBehaviourEditor.cs" />
     <Compile Include="Assets\Udon\Editor\UdonEditorManager.cs" />
+    <None Include="Assets\Udon\Editor\Resources\UdonSettings.uxml" />
+    <None Include="Assets\Udon\Editor\Resources\UdonGraphNeonStyle.uss" />
+    <None Include="Assets\Udon\Editor\Resources\UdonGraphStyle.uss" />
+    <None Include="Assets\Udon\Editor\Resources\UdonChangelog.uxml" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -384,6 +408,9 @@
     </Reference>
     <Reference Include="VRCSDK3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>
     </Reference>
     <Reference Include="VRCSDKBase">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>

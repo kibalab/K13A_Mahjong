@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using UdonSharpEditor;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using VRC.Udon;
+using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
 using VRC.Udon.Editor.ProgramSources;
 using VRC.Udon.Editor.ProgramSources.Attributes;
@@ -42,6 +45,7 @@ namespace UdonSharp
 
         private bool showProgramUasm = false;
         private bool showExtraOptions = false;
+        private string customEventName = "";
 
         private UdonBehaviour currentBehaviour = null;
 
@@ -111,6 +115,9 @@ namespace UdonSharp
 
             currentBehaviour = udonBehaviour;
 
+            EditorGUI.BeginDisabledGroup(udonBehaviour);
+            if (udonBehaviour)
+                EditorGUI.indentLevel++;
             EditorGUI.BeginChangeCheck();
             MonoScript newSourceCsScript = (MonoScript)EditorGUILayout.ObjectField("Source Script", sourceCsScript, typeof(MonoScript), false);
             if (EditorGUI.EndChangeCheck())
@@ -119,6 +126,9 @@ namespace UdonSharp
                 sourceCsScript = newSourceCsScript;
                 dirty = true;
             }
+            if (udonBehaviour)
+                EditorGUI.indentLevel--;
+            EditorGUI.EndDisabledGroup();
 
             if (sourceCsScript == null)
             {
@@ -214,7 +224,22 @@ namespace UdonSharp
             showExtraOptions = EditorGUILayout.Foldout(showExtraOptions, "Utilities");
             if (showExtraOptions)
             {
+                EditorGUI.BeginDisabledGroup(!EditorApplication.isPlaying);
+
+                if (GUILayout.Button("Send Custom Event"))
+                {
+                    if (currentBehaviour != null)
+                        currentBehaviour.SendCustomEvent(customEventName);
+                }
+
+                customEventName = EditorGUILayout.TextField("Event Name:", customEventName);
+
+                EditorGUI.EndDisabledGroup();
+
                 EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
+
+                EditorGUILayout.Space();
+
                 if (GUILayout.Button("Export to Assembly Asset"))
                 {
                     string savePath = EditorUtility.SaveFilePanelInProject("Assembly asset save location", Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(sourceCsScript)), "asset", "Choose a save location for the assembly asset");
@@ -485,15 +510,25 @@ namespace UdonSharp
 
             currentUserScript = null;
 
-            System.Type variableRootType = fieldDefinition.fieldSymbol.userCsType;
-            while (variableRootType.IsArray)
-                variableRootType = variableRootType.GetElementType();
+            string labelText;
+            System.Type variableType = fieldDefinition.fieldSymbol.userCsType;
 
-            string labelText = "";
-            if (objectFieldValue != null)
-                labelText = $"{objectFieldValue.name} ({variableRootType.Name})";
+            while (variableType.IsArray)
+                variableType = variableType.GetElementType();
+
+            if (objectFieldValue == null)
+            {
+                labelText = $"None ({ObjectNames.NicifyVariableName(variableType.Name)})";
+            }
             else
-                labelText = $"None ({variableRootType.Name})";
+            {
+                UdonBehaviour targetBehaviour = objectFieldValue as UdonBehaviour;
+                UdonSharpProgramAsset targetProgramAsset = targetBehaviour?.programSource as UdonSharpProgramAsset;
+                if (targetProgramAsset?.sourceCsScript?.GetClass() != null)
+                    variableType = targetProgramAsset.sourceCsScript.GetClass();
+
+                labelText = $"{objectFieldValue.name} ({variableType.Name})";
+            }
             
             // Overwrite any content already on the background from drawing the normal object field
             GUI.Box(originalRect, GUIContent.none, clearColorStyle);
@@ -654,6 +689,19 @@ namespace UdonSharp
                             for (int i = 0; i < newLength && i < valueArray.Length; ++i)
                             {
                                 newArray.SetValue(valueArray.GetValue(i), i);
+                            }
+
+                            // Fill the empty elements with the last element's value when expanding the array
+                            if (valueArray.Length > 0 && newLength > valueArray.Length)
+                            {
+                                object lastElementVal = valueArray.GetValue(valueArray.Length - 1);
+                                if (!(lastElementVal is Array)) // We do not want copies of the reference to a jagged array element to be copied
+                                {
+                                    for (int i = valueArray.Length; i < newLength; ++i)
+                                    {
+                                        newArray.SetValue(lastElementVal, i);
+                                    }
+                                }
                             }
 
                             EditorGUI.indentLevel--;
@@ -949,6 +997,127 @@ namespace UdonSharp
             return variableValue;
         }
 
+        private static readonly GUIContent noPublicVariablesLabel = new GUIContent("No public variables");
+
+        new void DrawPublicVariables(UdonBehaviour behaviour, ref bool dirty)
+        {
+            IUdonVariable CreateUdonVariable(string symbolName, object value, System.Type type)
+            {
+                System.Type udonVariableType = typeof(UdonVariable<>).MakeGenericType(type);
+                return (IUdonVariable)Activator.CreateInstance(udonVariableType, symbolName, value);
+            }
+
+            IUdonVariableTable publicVariables = null;
+            if (behaviour)
+                publicVariables = behaviour.publicVariables;
+
+            EditorGUILayout.LabelField("Public Variables", EditorStyles.boldLabel);
+            EditorGUI.indentLevel++;
+
+            if (program?.SymbolTable == null)
+            {
+                EditorGUILayout.LabelField(noPublicVariablesLabel);
+                EditorGUI.indentLevel--;
+                return;
+            }
+            
+            IUdonSymbolTable symbolTable = program.SymbolTable;
+
+            // todo: This will be removed with serialization update which has handling for updating variables on compile instead which is more reliable.
+            string[] exportedSymbolNames = symbolTable.GetExportedSymbols(); 
+
+            if (publicVariables != null)
+            {
+                foreach (string variableSymbol in publicVariables.VariableSymbols.ToArray())
+                {
+                    if (!exportedSymbolNames.Contains(variableSymbol))
+                        publicVariables.RemoveVariable(variableSymbol);
+                }
+            }
+            // End remove block
+
+            if (exportedSymbolNames.Length == 0)
+            {
+                EditorGUILayout.LabelField(noPublicVariablesLabel);
+                EditorGUI.indentLevel--;
+                return;
+            }
+
+            // Check if all fields are marked HideInInspector
+            Dictionary<string, FieldDefinition> fields = (behaviour?.programSource as UdonSharpProgramAsset)?.fieldDefinitions;
+
+            if (fields != null)
+            {
+                int hiddenCount = 0;
+                foreach (string exportedSymbol in exportedSymbolNames)
+                {
+                    FieldDefinition fieldDef;
+                    if (!fields.TryGetValue(exportedSymbol, out fieldDef))
+                        continue;
+
+                    if (fieldDef.GetAttribute<HideInInspector>() != null)
+                        hiddenCount++;
+                }
+
+                if (hiddenCount >= exportedSymbolNames.Length)
+                {
+                    EditorGUILayout.LabelField(noPublicVariablesLabel);
+                    EditorGUI.indentLevel--;
+                    return;
+                }
+            }
+
+            foreach (string exportedSymbol in exportedSymbolNames)
+            {
+                System.Type symbolType = symbolTable.GetSymbolType(exportedSymbol);
+                if (publicVariables == null)
+                {
+                    DrawPublicVariableField(exportedSymbol, GetPublicVariableDefaultValue(exportedSymbol, null), symbolType, ref dirty, false);
+                    continue;
+                }
+
+                // todo: This can be removed with serialization changes as well since the type change will be handled once by the compile fixer
+                if (!publicVariables.TryGetVariableType(exportedSymbol, out System.Type declaredType) || declaredType != symbolType)
+                {
+                    publicVariables.RemoveVariable(exportedSymbol);
+                    if (!publicVariables.TryAddVariable(CreateUdonVariable(exportedSymbol, GetPublicVariableDefaultValue(exportedSymbol, null), symbolType)))
+                    {
+                        EditorGUILayout.LabelField($"Error drawing field for symbol '{exportedSymbol}'");
+                        continue;
+                    }
+                    dirty = true;
+                }
+
+                // This can also be removed
+                if (!publicVariables.TryGetVariableValue(exportedSymbol, out object variableValue))
+                {
+                    variableValue = GetPublicVariableDefaultValue(exportedSymbol, null);
+                    dirty = true;
+                }
+
+                variableValue = DrawPublicVariableField(exportedSymbol, variableValue, symbolType, ref dirty, true);
+                if (!dirty)
+                    continue;
+
+                Undo.RecordObject(behaviour, "Modify variable");
+
+                if (!publicVariables.TrySetVariableValue(exportedSymbol, variableValue))
+                {
+                    if (!publicVariables.TryAddVariable(CreateUdonVariable(exportedSymbol, variableValue, symbolType)))
+                    {
+                        Debug.LogError($"Failed to set public variable '{exportedSymbol}' value.");
+                    }
+                }
+
+                EditorSceneManager.MarkSceneDirty(behaviour.gameObject.scene);
+
+                if (PrefabUtility.IsPartOfPrefabInstance(behaviour))
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(behaviour);
+            }
+
+            EditorGUI.indentLevel--;
+        }
+
         protected override void OnBeforeSerialize()
         {
             UnitySerializationUtility.SerializeUnityObject(this, ref serializationData);
@@ -965,5 +1134,33 @@ namespace UdonSharp
     [CustomEditor(typeof(UdonSharpProgramAsset))]
     public class UdonSharpProgramAssetEditor : UdonAssemblyProgramAssetEditor
     {
+        // Allow people to drag program assets onto objects in the scene and automatically create a corresponding UdonBehaviour with everything set up
+        // https://forum.unity.com/threads/drag-and-drop-scriptable-object-to-scene.546975/#post-4534333
+        void OnSceneDrag(SceneView sceneView)
+        {
+            Event e = Event.current;
+            GameObject gameObject = HandleUtility.PickGameObject(e.mousePosition, false);
+
+            if (e.type == EventType.DragUpdated)
+            {
+                if (gameObject)
+                    DragAndDrop.visualMode = DragAndDropVisualMode.Link;
+                else
+                    DragAndDrop.visualMode = DragAndDropVisualMode.Rejected;
+
+                e.Use();
+            }
+            else if (e.type == EventType.DragPerform)
+            {
+                DragAndDrop.AcceptDrag();
+                e.Use();
+                
+                if (gameObject)
+                {
+                    UdonBehaviour component = Undo.AddComponent<UdonBehaviour>(gameObject);
+                    component.programSource = target as UdonSharpProgramAsset;
+                }
+            }
+        }
     }
 }

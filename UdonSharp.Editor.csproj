@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\UdonSharp\Editor\BuildUtilities\UdonSharpBuildChecks.cs" />
     <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpBehaviourEditor.cs" />
     <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpSettings.cs" />
     <Compile Include="Assets\UdonSharp\Editor\Editors\UdonTypeExposureTree.cs" />
@@ -355,6 +356,9 @@
     </Reference>
     <Reference Include="System.Collections.Immutable">
       <HintPath>E:/Unity/K13A_majong/Assets/UdonSharp/Plugins/System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -720,13 +724,13 @@
       <Project>{9253B636-7D73-DA67-DFDC-1F4317FE018A}</Project>
       <Name>VRC.Udon.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
-      <Name>UdonSharp.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
       <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
+      <Name>UdonSharp.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
