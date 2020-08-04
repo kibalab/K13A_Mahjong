@@ -85,7 +85,7 @@ public class GameManager : UdonSharpBehaviour
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
         if (testMode)
         {
-            LogViewer.Log("TestMode ON v1.7", 0);
+            LogViewer.Log("TestMode ON v1.9", 0);
             TableManager.AddNextCard();
             ChangeGameState(State_WaitForDiscard);
             LogViewer.Log("TestMode GameStart", 0);
@@ -252,14 +252,7 @@ public class GameManager : UdonSharpBehaviour
         else if (eventType == "Tsumo")
         {
             TableManager.SetSubtitleAllPlayers(currentPlayer.gameObject.name, "쯔모");
-
-            var playerStatus = currentPlayer.CalculateTsumoScore();
-
-            var yakuKeyList = playerStatus.YakuKey;
-            var hanList = playerStatus.Han;
-            var fu = playerStatus.Fu;
-            var count = playerStatus.YakuCount;
-            // 해야 한다...,.,.,.,.,.,,
+            // 해야 한다...
         }
         else if (eventType == "AutoDiscard")
         {
