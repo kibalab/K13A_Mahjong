@@ -12,7 +12,7 @@ public class InputEvent : UdonSharpBehaviour
     public int DiscardedCardYamaIndex;
     public Vector2 ChiIndex;
     public string DrawReason;
-    public VRCPlayerApi player;
+    public VRCPlayerApi NewPlayer;
 
     public void Clear()
     {
@@ -21,5 +21,6 @@ public class InputEvent : UdonSharpBehaviour
         PlayerIndex = -1;
         ChiIndex = Vector2.zero;
         DrawReason = "";
+        NewPlayer = null;
     }
 }

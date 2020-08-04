@@ -27,6 +27,8 @@ public class GameManager : UdonSharpBehaviour
     private Card waitingNakiCard;
     private float pauseQueueTime = 0.0f;
 
+    private VRCPlayerApi[] registeredPlayers;
+
     void Start()
     {
         // 로컬 테스트 환경일 때 
@@ -69,6 +71,7 @@ public class GameManager : UdonSharpBehaviour
         ChangeGameState(State_WaitForStart);
         TableManager.Initialize();
         EventQueue.Initialize();
+        registeredPlayers = new VRCPlayerApi[4];
 
         isRunOnMasterScript = true;
         LogViewer.Log("Master Initalized", 0);
@@ -148,21 +151,37 @@ public class GameManager : UdonSharpBehaviour
     void WaitForStart(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
-        var player = inputEvent.player;
+        var player = inputEvent.NewPlayer;
         if (eventType == "Register")
         {
-            ++registeredPlayerCount;
+            LogViewer.Log($"[GameManager] Registering Player : {player.displayName}", 0);
+
+            registeredPlayers[registeredPlayerCount++] = player;
         }
-        LogViewer.Log($"[GameManager] Registering Player : {player.displayName}", 0);
+        
         if (registeredPlayerCount == 4 || testMode)
         {
-            // 4명 중 아무나 첫 턴으로 설정해준다
-            TableManager.SetTurnOf(Random.Range(0, 4));
-            TableManager.AddNextCard();
-
-            ChangeGameState(State_WaitForDiscard);
+            StartGame();
         }
     }
+
+    void StartGame()
+    {
+        // 등록한 순서를 적당히 섞어서 테이블에 이름을 넣어준다
+        registeredPlayers = ShufflePlayers(registeredPlayers);
+        for (var i = 0; i < 4; ++i)
+        {
+            var player = TableManager.GetPlayer(i);
+            player.SetPlayerName(registeredPlayers[i].displayName);
+        }
+
+        // 4명 중 아무나 첫 턴으로 설정해준다
+        TableManager.SetTurnOf(Random.Range(0, 4));
+        TableManager.AddNextCard();
+
+        ChangeGameState(State_WaitForDiscard);
+    }
+
 
     void WaitForPlayerAction(InputEvent inputEvent)
     {
@@ -425,5 +444,23 @@ public class GameManager : UdonSharpBehaviour
         if (isNetworkReady) { return true; }
         isNetworkReady = Networking.IsObjectReady(gameObject) && TableManager.IsReady();
         return isNetworkReady;
+    }
+
+    public VRCPlayerApi[] ShufflePlayers(VRCPlayerApi[] players)
+    {
+        var shuffled = new VRCPlayerApi[4];
+        var yetShuffledCount = 4 - 1;
+        var shuffledIndex = 0;
+
+        while (yetShuffledCount >= 0)
+        {
+            var picked = Random.Range(0, yetShuffledCount + 1);
+            shuffled[shuffledIndex] = players[picked];
+            players[picked] = players[yetShuffledCount];
+
+            yetShuffledCount--;
+            shuffledIndex++;
+        }
+        return shuffled;
     }
 }
