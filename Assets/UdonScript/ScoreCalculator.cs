@@ -55,6 +55,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_Straight(playerStatus, ctx);
                 // 혼전대요구
                 AddScore_TerminalOrHonorInEachSet(playerStatus, ctx);
+                // 또이또이
+                AddScore_AllTripletHand(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -106,6 +108,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_Straight(playerStatus, ctx);
                 // 혼전대요구
                 AddScore_TerminalOrHonorInEachSet(playerStatus, ctx);
+                // 또이또이
+                AddScore_AllTripletHand(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -413,6 +417,15 @@ public class ScoreCalculator : UdonSharpBehaviour
 
         var han = playerStatus.IsMenzen ? 2 : 1;
         playerStatus.AddHan("TerminalOrHonorInEachSet", han);
+    }
+
+    void AddScore_AllTripletHand(PlayerStatus playerStatus, object[] ctx)
+    {
+        var ponCount = Ctx.ReadPonCount(ctx);
+        if (ponCount == 4)
+        {
+            playerStatus.AddHan("AllTripletHand", 2);
+        }
     }
 
     bool IsWhiteGreenRed(int globalOrder)
