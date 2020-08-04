@@ -12,6 +12,7 @@ public class InputEvent : UdonSharpBehaviour
     public int DiscardedCardYamaIndex;
     public Vector2 ChiIndex;
     public string DrawReason;
+    public VRCPlayerApi player;
 
     public void Clear()
     {

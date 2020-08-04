@@ -77,9 +77,11 @@
     <Compile Include="Assets\UdonScript\HandCalculator.cs" />
     <Compile Include="Assets\UdonScript\HandUtil.cs" />
     <Compile Include="Assets\UdonScript\InputEvent.cs" />
+    <Compile Include="Assets\UdonScript\JoinButton.cs" />
     <Compile Include="Assets\UdonScript\KList.cs" />
     <Compile Include="Assets\UdonScript\Kokushimusou.cs" />
     <Compile Include="Assets\UdonScript\LogViewer.cs" />
+    <Compile Include="Assets\UdonScript\MenuUI.cs" />
     <Compile Include="Assets\UdonScript\NakiInput.cs" />
     <Compile Include="Assets\UdonScript\NormalYaku.cs" />
     <Compile Include="Assets\UdonScript\Player.cs" />

@@ -148,11 +148,12 @@ public class GameManager : UdonSharpBehaviour
     void WaitForStart(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
+        var player = inputEvent.player;
         if (eventType == "Register")
         {
             ++registeredPlayerCount;
         }
-
+        LogViewer.Log($"[GameManager] Registering Player : {player.displayName}", 0);
         if (registeredPlayerCount == 4 || testMode)
         {
             // 4명 중 아무나 첫 턴으로 설정해준다
