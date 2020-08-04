@@ -1,6 +1,7 @@
 
 using UdonSharp;
 using UnityEngine;
+using VRC.SDKBase;
 
 public class EventQueue : UdonSharpBehaviour
 {
@@ -24,6 +25,14 @@ public class EventQueue : UdonSharpBehaviour
 
         inputEvent.EventType = uiName;
         inputEvent.PlayerIndex = playerIndex;
+    }
+
+    public void SetRegistEvent(VRCPlayerApi player)
+    {
+        var inputEvent = GetNextInputEvent();
+
+        inputEvent.EventType = "Resiger";
+        inputEvent.player = player;
     }
 
     public void SetDiscardEvent(int yamaIndex, int playerIndex)

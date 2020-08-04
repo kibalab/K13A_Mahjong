@@ -13,9 +13,11 @@ public class AudioQueue : UdonSharpBehaviour
 
     public void AddQueue(string clip)
     {
-        setClip(clip);
-        audioSource.Play();
-        //KList.Add(clip);
+        if (KList.Count() > 2)
+        {
+            return;
+        }
+        KList.Add(clip);
     }
 
     public void ClearQueue()
@@ -59,7 +61,6 @@ public class AudioQueue : UdonSharpBehaviour
 
     private void Update()
     {
-        /*
         if (audioSource.isPlaying || KList.Count() == 0)
         {
             return;
@@ -67,6 +68,5 @@ public class AudioQueue : UdonSharpBehaviour
         var clip = KList.RemoveAt(0).ToString();
         setClip(clip);
         audioSource.Play();
-        */
     }
 }

@@ -13,6 +13,7 @@ public class UIManager : UdonSharpBehaviour
     [SerializeField] public UIContext UIContext;
     [SerializeField] public GameObject UICanvas;
     [SerializeField] public CardSprites CardSprites;
+    [SerializeField] public AudioQueue AudioQueue;
 
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
@@ -40,7 +41,7 @@ public class UIManager : UdonSharpBehaviour
             if (UIContext.IsRiichable) ActiveButton("Rich");
             if (UIContext.IsTsumoable) ActiveButton("Tsumo");
             if (UIContext.IsRonable) ActiveButton("Ron");
-            if (UIContext.IsAnythingActived()) ActiveButton("Skip");
+            if (UIContext.IsAnythingActived()) { ActiveButton("Skip"); ActiveButton("UIOpenSound"); }
             else { DisableButtonAll(); }
         }
     }
@@ -78,6 +79,7 @@ public class UIManager : UdonSharpBehaviour
     {
         var tr = UICanvas.transform.Find(uiName);
         if (tr == null) { Debug.Log($"{uiName} not exists."); }
+        //AudioQueue.AddQueue("UIOpenSound");
         UICanvas.SetActive(true);
         tr.gameObject.SetActive(true);
     }

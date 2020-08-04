@@ -91,6 +91,8 @@
 				sampler2D _MainTex;
 				float4 _MainTex_ST;
 
+
+
 				struct vertexInput
 				{
 					float4 vertex: POSITION;
@@ -105,6 +107,7 @@
 
 				vertexOutput vert(vertexInput v)
 				{
+
 					vertexOutput o;
 					o.pos = UnityObjectToClipPos(v.vertex);
 					o.texcoord.xy = (v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw);
@@ -118,5 +121,6 @@
 
 				ENDCG
 			}
+
 		}
 }

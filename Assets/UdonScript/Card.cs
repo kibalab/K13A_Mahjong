@@ -35,6 +35,15 @@ public class Card : UdonSharpBehaviour
     public override void Interact()
     {
         RequestCallFunctionToOwner(nameof(_Interact));
+        RequestCallFunctionToOwner(nameof(_playTabSound));
+    }
+
+    public void _playTabSound()
+    {
+        if (AudioQueue != null)
+        {
+            AudioQueue.AddQueue("CardTabSound");
+        }
     }
 
     public void _Interact()
@@ -112,10 +121,6 @@ public class Card : UdonSharpBehaviour
             isDoraMaterialSetted = true;
         }
 
-        if(Position != transform.position)
-        {
-            AudioQueue.AddQueue("CardTabSound");
-        }
         transform.SetPositionAndRotation(Position, Rotation);
     }
 
@@ -136,6 +141,18 @@ public class Card : UdonSharpBehaviour
         else
         {
             SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
+        }
+    }
+
+    void RequestCallFunctionToAll(string funcName)
+    {
+        if (Networking.LocalPlayer == null)
+        {
+            SendCustomEvent(funcName);
+        }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.All, funcName);
         }
     }
 
