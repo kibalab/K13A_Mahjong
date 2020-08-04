@@ -332,7 +332,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 // 3개 있으면 삼색동순
                 if (sameChiCount == 3)
                 {
-                    playerStatus.AddHan("ThreeColorStraight", 2);
+                    var han = playerStatus.IsMenzen ? 2 : 1;
+                    playerStatus.AddHan("ThreeColorStraight", han);
                     return;
                 }
             }
