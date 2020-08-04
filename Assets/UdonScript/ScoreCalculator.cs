@@ -57,6 +57,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_TerminalOrHonorInEachSet(playerStatus, ctx);
                 // 또이또이
                 AddScore_AllTripletHand(playerStatus, ctx);
+                // 삼암각
+                AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -110,6 +112,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_TerminalOrHonorInEachSet(playerStatus, ctx);
                 // 또이또이
                 AddScore_AllTripletHand(playerStatus, ctx);
+                // 삼암각
+                AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -423,6 +427,41 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         var ponCount = Ctx.ReadPonCount(ctx);
         if (ponCount == 4)
+        {
+            playerStatus.AddHan("AllTripletHand", 2);
+        }
+    }
+    
+    void AddScore_ThreeClosedTriplets(PlayerStatus playerStatus, object[] ctx, Card[] openedCards)
+    {
+        var ponCount = Ctx.ReadPonCount(ctx);
+        if (ponCount < 3)
+        {
+            return;
+        }
+
+        var ponList = Ctx.ReadPonList(ctx);
+        var openedPonCount = 0;
+        for (var i = 0; i < ponCount; ++i)
+        {
+            var isOpenedPon = false;
+
+            foreach(var card in openedCards)
+            {
+                if (card.GlobalOrder == ponList[i])
+                {
+                    isOpenedPon = true;
+                    break;
+                }
+            }
+
+            if (isOpenedPon)
+            {
+                ++openedPonCount;
+            }
+        }
+
+        if (openedPonCount <= 1)
         {
             playerStatus.AddHan("AllTripletHand", 2);
         }
