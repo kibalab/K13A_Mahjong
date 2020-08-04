@@ -63,6 +63,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_ThreeColorTriplets(playerStatus, ctx);
                 // 소삼원
                 AddScore_LittleThreeDragons(playerStatus, ctx);
+                // 혼노두
+                AddScore_AllTerminalsAndHonors(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -122,6 +124,8 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_ThreeColorTriplets(playerStatus, ctx);
                 // 소삼원
                 AddScore_LittleThreeDragons(playerStatus, ctx);
+                // 혼노두
+                AddScore_AllTerminalsAndHonors(playerStatus, ctx);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -411,10 +415,12 @@ public class ScoreCalculator : UdonSharpBehaviour
         var chiCount = Ctx.ReadChiCount(ctx);
         var chiList = Ctx.ReadChiList(ctx);
 
-        // 모든 슌쯔가 요구패
+        // 모든 슌쯔에 요구패가 하나 들어감
         for (var i = 0; i < chiCount; ++i)
         {
-            if (!HandUtil.IsYaojuhai(chiList[i]))
+            var isStartsWithOne = chiList[i] % 9 == 0;
+            var isEndsWithNine = chiList[i] % 9 == 6;
+            if (!isStartsWithOne && !isEndsWithNine)
             {
                 return;
             }
@@ -555,6 +561,39 @@ public class ScoreCalculator : UdonSharpBehaviour
 
         playerStatus.AddHan("LittleThreeDragons", 2);
     }
+
+    void AddScore_AllTerminalsAndHonors(PlayerStatus playerStatus, object[] ctx)
+    {
+        // 혼노두
+        // 혼노두는 모두 커쯔임
+        var chiCount = Ctx.ReadChiCount(ctx);
+        if (chiCount > 0)
+        {
+            return;
+        }
+
+        var ponList = Ctx.ReadPonList(ctx);
+        var ponCount = Ctx.ReadPonCount(ctx);
+
+        // 모든 커쯔가 요구패
+        for (var i = 0; i < ponCount; ++i)
+        {
+            if (!HandUtil.IsYaojuhai(ponList[i]))
+            {
+                return;
+            }
+        }
+
+        // 머리도 요구패
+        var head = GetHeadGlobalOrder(ctx);
+        if (!HandUtil.IsYaojuhai(head))
+        {
+            return;
+        }
+
+        playerStatus.AddHan("AllTerminalsAndHonors", 2);
+    }
+
 
     bool IsWhiteGreenRed(int globalOrder)
     {
