@@ -306,10 +306,10 @@ public class HandCalculator : UdonSharpBehaviour
         var maxChiPonCount = 0;
         var localGlobalOrders = Clone(globalOrders);
 
-        var manCtxs = Find(localGlobalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder(), true);
-        var pinCtxs = Find(localGlobalOrders, HandUtil.GetPinStartGlobalOrder(), HandUtil.GetPinEndGlobalOrder(), true);
-        var souCtxs = Find(localGlobalOrders, HandUtil.GetSouStartGlobalOrder(), HandUtil.GetSouEndGlobalOrder(), true);
-        var wordCtxs = Find(localGlobalOrders, HandUtil.GetWordsStartGlobalOrder(), HandUtil.GetWordsEndGlobalOrder(), true);
+        var manCtxs = Find(localGlobalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder());
+        var pinCtxs = Find(localGlobalOrders, HandUtil.GetPinStartGlobalOrder(), HandUtil.GetPinEndGlobalOrder());
+        var souCtxs = Find(localGlobalOrders, HandUtil.GetSouStartGlobalOrder(), HandUtil.GetSouEndGlobalOrder());
+        var wordCtxs = Find(localGlobalOrders, HandUtil.GetWordsStartGlobalOrder(), HandUtil.GetWordsEndGlobalOrder());
 
         // 111222333의 경우, 123/123/123과 111/222/333이 있을 수 있다
         // 따라서 (만의 슌커쯔)x(삭의 슌커쯔)x(통의 슌커쯔)가 경우의 수가 된다
@@ -324,6 +324,15 @@ public class HandCalculator : UdonSharpBehaviour
                     {
                         var ctx = Ctx.AddContextAll(manCtx, pinCtx, souCtx, wordCtx);
                         if (ctx == null) { continue; }
+
+                        var newGlobalOrders = Clone(globalOrders);
+                        var globalOrdersFromChiPon = Ctx.GetGlobalOrdersFromChiPon(ctx);
+                        for (var i = 0; i < 34; ++i)
+                        {
+                            newGlobalOrders[i] -= globalOrdersFromChiPon[i];
+                        }
+
+                        Ctx.ApplyGlobalOrders(ctx, newGlobalOrders);
 
                         var chiPonCount = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
                         if (maxChiPonCount <= chiPonCount)
@@ -350,7 +359,7 @@ public class HandCalculator : UdonSharpBehaviour
     // context[3]: object[int[3]] pons
     // context[4]: int ponCount
 
-    object[] Find(int[] originalGlobalOrders, int startOrder, int endOrder, bool startWithNull)
+    object[] Find(int[] originalGlobalOrders, int startOrder, int endOrder)
     {
         // 한개도 안 되면 리턴하지 말기
         var maxChiPonCount = 1;
@@ -445,7 +454,10 @@ public class HandCalculator : UdonSharpBehaviour
             }
         }
 
-        if (startWithNull) { Result.Insert(0, null); }
+        if (Result.Count() == 0)
+        {
+            Result.Insert(0, null);
+        }
 
         return Result.Clone();
     }
@@ -488,7 +500,7 @@ public class HandCalculator : UdonSharpBehaviour
         };
 
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
-        var manCtxs = Find(globalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder(), false);
+        var manCtxs = Find(globalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder());
 
         DebugHelper.Equal(manCtxs.Length, 1, 1);
 
@@ -515,7 +527,7 @@ public class HandCalculator : UdonSharpBehaviour
       };
 
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
-        var manCtxs = Find(globalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder(), false);
+        var manCtxs = Find(globalOrders, HandUtil.GetManStartGlobalOrder(), HandUtil.GetManEndGlobalOrder());
 
         DebugHelper.Equal(manCtxs.Length, 2, 1);
 
@@ -770,6 +782,40 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 8, 4);
     }
 
+    void Test_Tenpai3()
+    {
+        DebugHelper.SetTestName("Test_Tenpai3");
+
+        var testSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 5),
+                    TEST__SetTestData(TestComponents[1], "만", 6),
+                    TEST__SetTestData(TestComponents[2], "만", 7),
+
+                    TEST__SetTestData(TestComponents[3], "만", 7),
+                    TEST__SetTestData(TestComponents[4], "만", 8),
+                    TEST__SetTestData(TestComponents[5], "만", 9),
+
+                    TEST__SetTestData(TestComponents[6], "통", 2),
+                    TEST__SetTestData(TestComponents[7], "통", 3),
+                    TEST__SetTestData(TestComponents[8], "통", 4),
+
+                    TEST__SetTestData(TestComponents[9], "통", 9),
+
+                    TEST__SetTestData(TestComponents[10], "삭", 7),
+                    TEST__SetTestData(TestComponents[11], "삭", 8),
+                    TEST__SetTestData(TestComponents[12], "삭", 9),
+        };
+
+        AgariContextForTest.Clear();
+
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+
+        DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
+        DebugHelper.IsTrue(AgariContextForTest.IsSingleWaiting, 2);
+        DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 17, 3);
+    }
+
     public void Start()
     {
         if (DebugHelper != null && Networking.LocalPlayer == null && AgariContextForTest != null)
@@ -790,6 +836,7 @@ public class HandCalculator : UdonSharpBehaviour
 
             Test_Tenpai1();
             Test_Tenpai2();
+            Test_Tenpai3();
         }
     }
 

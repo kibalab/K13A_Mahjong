@@ -43,6 +43,35 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         return newContext;
     }
 
+    public void ApplyGlobalOrders(object[] ctx, int[] globalOrders)
+    {
+        ctx[GLOBALORDERS] = Clone(globalOrders);
+    }
+
+    public int[] GetGlobalOrdersFromChiPon(object[] ctx)
+    {
+        var globalOrders = new int[34];
+
+        var chis = ReadChiList(ctx);
+        for (var i = 0; i < ReadChiCount(ctx); ++i)
+        {
+            var chiStartGlobalOrder = chis[i];
+
+            globalOrders[chiStartGlobalOrder] += 1;
+            globalOrders[chiStartGlobalOrder + 1] += 1;
+            globalOrders[chiStartGlobalOrder + 2] += 1;
+        }
+        var pons = ReadPonList(ctx);
+        for (var i = 0; i < ReadPonCount(ctx); ++i)
+        {
+            var ponStartGlobalOrder = pons[i];
+
+            globalOrders[ponStartGlobalOrder] += 3;
+        }
+
+        return globalOrders;
+    }
+
     public object[] AddContextAll(object[] ctx1, object[] ctx2, object[] ctx3, object[] ctx4)
     {
         var added1 = AddContext(ctx1, ctx2);
@@ -57,14 +86,16 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         if (ctx1 == null && ctx2 == null) { return null; }
 
         var context = CreateContext(new int[34]);
-        var newGlobalOrders = ReadGlobalOrders(context);
-        var ctx1GlobalOrders = ReadGlobalOrders(ctx1);
-        var ctx2GlobalOrders = ReadGlobalOrders(ctx2);
 
-        for (var i = 0; i < 34; ++i)
-        {
-            newGlobalOrders[i] = ctx1GlobalOrders[i] + ctx2GlobalOrders[i];
-        }
+        // NOTE) 글로벌오더는 여기서 합치지 않는다
+        //var newGlobalOrders = ReadGlobalOrders(context);
+        //var ctx1GlobalOrders = ReadGlobalOrders(ctx1);
+        //var ctx2GlobalOrders = ReadGlobalOrders(ctx2);
+        //for (var i = 0; i < 34; ++i)
+        //{
+        //    newGlobalOrders[i] = ctx1GlobalOrders[i] + ctx2GlobalOrders[i];
+        //}
+
         var ctx1Chis = ReadChiList(ctx1);
         for (var i = 0; i < ReadChiCount(ctx1); ++i)
         {
