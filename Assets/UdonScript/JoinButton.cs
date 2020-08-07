@@ -58,6 +58,7 @@ public class JoinButton : UdonSharpBehaviour
         {
             registeredPlayers[registeredPlayerCount++] = owner;
             EventQueue.SetRegisterPlayerEvent(owner);
+            LogViewer.Log($"[JoinButton] Send Request", 0);
         }
         else
         {

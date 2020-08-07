@@ -28,7 +28,8 @@ MonoBehaviour:
     %SystemInt32, null\n    __2_const_intnl_SystemInt32: %SystemInt32, null\n    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget:
     %VRCUdonCommonInterfacesNetworkEventTarget, null\n    __0_const_intnl_SystemObject:
     %SystemObject, null\n    __0_const_intnl_SystemString: %SystemString, null\n    __1_const_intnl_SystemString:
-    %SystemString, null\n    __2_const_intnl_SystemString: %SystemString, null\n    __3_const_intnl_SystemString:
+    %SystemString, null\n    __10_const_intnl_SystemString: %SystemString, null\n
+    \   __2_const_intnl_SystemString: %SystemString, null\n    __3_const_intnl_SystemString:
     %SystemString, null\n    __4_const_intnl_SystemString: %SystemString, null\n    __5_const_intnl_SystemString:
     %SystemString, null\n    __6_const_intnl_SystemString: %SystemString, null\n    __7_const_intnl_SystemString:
     %SystemString, null\n    __8_const_intnl_SystemString: %SystemString, null\n    __9_const_intnl_SystemString:
@@ -133,7 +134,7 @@ MonoBehaviour:
     \       COPY\n        \n         # if (!IsAlreadyRegistered(owner) && registeredPlayerCount
     < 4 || testMode)\n        PUSH, __0_owner_VRCPlayerApi\n        PUSH, __0_player_VRCPlayerApi\n
     \       COPY\n        PUSH, __0_const_intnl_exitJumpLoc_UInt32\n        JUMP,
-    0x0000060C\n        PUSH, __0_intnl_returnValSymbol_Boolean\n        PUSH, __4_intnl_SystemBoolean\n
+    0x0000068C\n        PUSH, __0_intnl_returnValSymbol_Boolean\n        PUSH, __4_intnl_SystemBoolean\n
     \       EXTERN, \"SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean\"\n
     \       PUSH, __4_intnl_SystemBoolean\n        PUSH, __3_intnl_SystemBoolean\n
     \       COPY\n        PUSH, __3_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000003DC\n
@@ -149,7 +150,7 @@ MonoBehaviour:
     __2_intnl_SystemBoolean\n        PUSH, testMode\n        PUSH, __8_intnl_SystemBoolean\n
     \       EXTERN, \"SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean\"\n
     \       PUSH, __8_intnl_SystemBoolean\n        PUSH, __2_intnl_SystemBoolean\n
-    \       COPY\n        PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000004F0\n
+    \       COPY\n        PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000570\n
     \       \n         # {\n        \n         # registeredPlayers[registeredPlayerCount++]
     = owner;\n        PUSH, registeredPlayerCount\n        PUSH, __0_intnl_SystemInt32\n
     \       COPY\n        PUSH, registeredPlayerCount\n        PUSH, __0_const_intnl_SystemInt32\n
@@ -161,15 +162,24 @@ MonoBehaviour:
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, EventQueue\n        PUSH, __7_const_intnl_SystemString\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       JUMP, 0x000005F0\n        \n         # else\n        \n         # {\n
+    \       \n         # LogViewer.Log($\"[JoinButton] Send Request\", 0);\n        PUSH,
+    __8_const_intnl_SystemString\n        PUSH, __2_intnl_interpolatedStr_String\n
+    \       COPY\n        PUSH, LogViewer\n        PUSH, __1_const_intnl_SystemString\n
+    \       PUSH, __2_intnl_interpolatedStr_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, LogViewer\n        PUSH, __2_const_intnl_SystemString\n        PUSH,
+    __1_const_intnl_SystemInt32\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, __2_intnl_interpolatedStr_String\n        PUSH, __6_intnl_SystemString\n
+    \       COPY # Copy-on-write symbol value dirtied\n        PUSH, LogViewer\n        PUSH,
+    __3_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       JUMP, 0x00000670\n        \n         # else\n        \n         # {\n
     \       \n         # LogViewer.Log($\"[JoinButton] {owner.displayName} is Already
-    Registered Player\", 0);\n        PUSH, __8_const_intnl_SystemString\n        PUSH,
+    Registered Player\", 0);\n        PUSH, __9_const_intnl_SystemString\n        PUSH,
     __2_intnl_interpolatedStr_String\n        COPY\n        PUSH, __0_owner_VRCPlayerApi\n
     \       PUSH, __6_intnl_SystemString\n        EXTERN, \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\n
     \       PUSH, __2_intnl_interpolatedStr_String\n        PUSH, __6_intnl_SystemString\n
     \       PUSH, __7_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
     \       PUSH, __7_intnl_SystemString\n        PUSH, __2_intnl_interpolatedStr_String\n
-    \       COPY\n        PUSH, __2_intnl_interpolatedStr_String\n        PUSH, __9_const_intnl_SystemString\n
+    \       COPY\n        PUSH, __2_intnl_interpolatedStr_String\n        PUSH, __10_const_intnl_SystemString\n
     \       PUSH, __8_intnl_SystemString\n        EXTERN, \"SystemString.__op_Addition__SystemString_SystemString__SystemString\"\n
     \       PUSH, __8_intnl_SystemString\n        PUSH, __2_intnl_interpolatedStr_String\n
     \       COPY\n        PUSH, LogViewer\n        PUSH, __1_const_intnl_SystemString\n
@@ -187,7 +197,7 @@ MonoBehaviour:
     \       PUSH, __0_i_Int32\n        COPY\n        PUSH, __0_i_Int32\n        PUSH,
     registeredPlayerCount\n        PUSH, __9_intnl_SystemBoolean\n        EXTERN,
     \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
-    __9_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000720\n        \n         #
+    __9_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000007A0\n        \n         #
     {\n        \n         # if (registeredPlayers[i].displayName == player.displayName)\n
     \       PUSH, registeredPlayers\n        PUSH, __0_i_Int32\n        PUSH, __6_intnl_VRCSDKBaseVRCPlayerApi\n
     \       EXTERN, \"VRCSDKBaseVRCPlayerApiArray.__Get__SystemInt32__VRCSDKBaseVRCPlayerApi\"\n
@@ -197,13 +207,13 @@ MonoBehaviour:
     \"VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString\"\n        PUSH, __10_intnl_SystemString\n
     \       PUSH, __11_intnl_SystemString\n        PUSH, __10_intnl_SystemBoolean\n
     \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
-    \       PUSH, __10_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000006F8\n        \n
+    \       PUSH, __10_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000778\n        \n
     \        # {\n        \n         # return true;\n        PUSH, __0_const_intnl_SystemBoolean\n
     \       PUSH, __0_intnl_returnValSymbol_Boolean\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       PUSH, __0_i_Int32\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
     __0_i_Int32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
-    \       JUMP, 0x00000620\n        \n         # return false;\n        PUSH, __1_const_intnl_SystemBoolean\n
+    \       JUMP, 0x000006A0\n        \n         # return false;\n        PUSH, __1_const_intnl_SystemBoolean\n
     \       PUSH, __0_intnl_returnValSymbol_Boolean\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
     #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
@@ -1373,311 +1383,367 @@ MonoBehaviour:
       lineChar: 23
       spanCodeSection: SetRegisterPlayerEvent(
     - startInstruction: 1200
-      endInstruction: 1263
+      endInstruction: 1255
       startSourceChar: 1798
-      endSourceChar: 1826
+      endSourceChar: 1819
       line: 59
       lineChar: 46
-      spanCodeSection: "owner);\r\n        }\r\n        "
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1826
-      endSourceChar: 1840
-      line: 61
-      lineChar: 8
-      spanCodeSection: "else\r\n        "
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1840
-      endSourceChar: 1855
-      line: 62
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1855
-      endSourceChar: 1855
-      line: 63
+      spanCodeSection: "owner);\r\n            "
+    - startInstruction: 1256
+      endInstruction: 1255
+      startSourceChar: 1819
+      endSourceChar: 1819
+      line: 60
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1855
-      endSourceChar: 1855
-      line: 63
+    - startInstruction: 1256
+      endInstruction: 1255
+      startSourceChar: 1819
+      endSourceChar: 1819
+      line: 60
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1855
-      endSourceChar: 1855
-      line: 63
+    - startInstruction: 1256
+      endInstruction: 1255
+      startSourceChar: 1819
+      endSourceChar: 1819
+      line: 60
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1855
-      endSourceChar: 1865
-      line: 63
+    - startInstruction: 1256
+      endInstruction: 1255
+      startSourceChar: 1819
+      endSourceChar: 1829
+      line: 60
       lineChar: 12
       spanCodeSection: LogViewer.
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1865
-      endSourceChar: 1869
-      line: 63
+    - startInstruction: 1256
+      endInstruction: 1255
+      startSourceChar: 1829
+      endSourceChar: 1833
+      line: 60
       lineChar: 22
       spanCodeSection: Log(
-    - startInstruction: 1264
-      endInstruction: 1263
-      startSourceChar: 1869
-      endSourceChar: 1871
-      line: 63
+    - startInstruction: 1256
+      endInstruction: 1255
+      startSourceChar: 1833
+      endSourceChar: 1835
+      line: 60
       lineChar: 26
       spanCodeSection: $"
-    - startInstruction: 1264
-      endInstruction: 1283
-      startSourceChar: 1871
-      endSourceChar: 1884
-      line: 63
+    - startInstruction: 1256
+      endInstruction: 1275
+      startSourceChar: 1835
+      endSourceChar: 1863
+      line: 60
       lineChar: 28
-      spanCodeSection: '[JoinButton] '
-    - startInstruction: 1284
-      endInstruction: 1283
-      startSourceChar: 1884
-      endSourceChar: 1885
-      line: 63
-      lineChar: 41
-      spanCodeSection: '{'
-    - startInstruction: 1284
-      endInstruction: 1283
-      startSourceChar: 1885
-      endSourceChar: 1885
-      line: 63
-      lineChar: 42
-      spanCodeSection: 
-    - startInstruction: 1284
-      endInstruction: 1283
-      startSourceChar: 1885
-      endSourceChar: 1891
-      line: 63
-      lineChar: 42
-      spanCodeSection: owner.
-    - startInstruction: 1284
-      endInstruction: 1359
-      startSourceChar: 1891
-      endSourceChar: 1903
-      line: 63
-      lineChar: 48
-      spanCodeSection: displayName}
-    - startInstruction: 1360
-      endInstruction: 1411
-      startSourceChar: 1903
-      endSourceChar: 1935
-      line: 63
-      lineChar: 60
-      spanCodeSection: ' is Already Registered Player", '
-    - startInstruction: 1412
-      endInstruction: 1539
-      startSourceChar: 1935
-      endSourceChar: 1964
-      line: 63
-      lineChar: 92
-      spanCodeSection: "0);\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 1540
-      endInstruction: 1539
-      startSourceChar: 1964
-      endSourceChar: 1989
-      line: 67
-      lineChar: 4
-      spanCodeSection: bool IsAlreadyRegistered(
-    - startInstruction: 1540
-      endInstruction: 1547
-      startSourceChar: 1989
-      endSourceChar: 2015
-      line: 67
-      lineChar: 29
-      spanCodeSection: "VRCPlayerApi player)\r\n    "
-    - startInstruction: 1548
-      endInstruction: 1547
-      startSourceChar: 2015
-      endSourceChar: 2026
-      line: 68
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 1548
-      endInstruction: 1547
-      startSourceChar: 2026
-      endSourceChar: 2030
-      line: 69
+      spanCodeSection: '[JoinButton] Send Request", '
+    - startInstruction: 1276
+      endInstruction: 1391
+      startSourceChar: 1863
+      endSourceChar: 1887
+      line: 60
+      lineChar: 56
+      spanCodeSection: "0);\r\n        }\r\n        "
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1887
+      endSourceChar: 1901
+      line: 62
       lineChar: 8
-      spanCodeSection: for(
-    - startInstruction: 1548
-      endInstruction: 1547
-      startSourceChar: 2030
-      endSourceChar: 2030
-      line: 69
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 1548
-      endInstruction: 1547
-      startSourceChar: 2030
-      endSourceChar: 2036
-      line: 69
-      lineChar: 12
-      spanCodeSection: 'var i '
-    - startInstruction: 1548
-      endInstruction: 1547
-      startSourceChar: 2036
-      endSourceChar: 2038
-      line: 69
-      lineChar: 18
-      spanCodeSection: '= '
-    - startInstruction: 1548
-      endInstruction: 1567
-      startSourceChar: 2038
-      endSourceChar: 2041
-      line: 69
-      lineChar: 20
-      spanCodeSection: '0; '
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 2041
-      endSourceChar: 2041
-      line: 69
-      lineChar: 23
-      spanCodeSection: 
-    - startInstruction: 1568
-      endInstruction: 1567
-      startSourceChar: 2041
-      endSourceChar: 2045
-      line: 69
-      lineChar: 23
-      spanCodeSection: 'i < '
-    - startInstruction: 1568
-      endInstruction: 1615
-      startSourceChar: 2045
-      endSourceChar: 2082
-      line: 69
-      lineChar: 27
-      spanCodeSection: "registeredPlayerCount; ++i)\r\n        "
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2082
-      endSourceChar: 2097
-      line: 70
+      spanCodeSection: "else\r\n        "
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1901
+      endSourceChar: 1916
+      line: 63
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2097
-      endSourceChar: 2101
-      line: 71
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1916
+      endSourceChar: 1916
+      line: 64
       lineChar: 12
-      spanCodeSection: if (
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2101
-      endSourceChar: 2101
-      line: 71
-      lineChar: 16
       spanCodeSection: 
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2101
-      endSourceChar: 2101
-      line: 71
-      lineChar: 16
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1916
+      endSourceChar: 1916
+      line: 64
+      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2101
-      endSourceChar: 2101
-      line: 71
-      lineChar: 16
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1916
+      endSourceChar: 1916
+      line: 64
+      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2101
-      endSourceChar: 2119
-      line: 71
-      lineChar: 16
-      spanCodeSection: registeredPlayers[
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2119
-      endSourceChar: 2119
-      line: 71
-      lineChar: 34
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1916
+      endSourceChar: 1926
+      line: 64
+      lineChar: 12
+      spanCodeSection: LogViewer.
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1926
+      endSourceChar: 1930
+      line: 64
+      lineChar: 22
+      spanCodeSection: Log(
+    - startInstruction: 1392
+      endInstruction: 1391
+      startSourceChar: 1930
+      endSourceChar: 1932
+      line: 64
+      lineChar: 26
+      spanCodeSection: $"
+    - startInstruction: 1392
+      endInstruction: 1411
+      startSourceChar: 1932
+      endSourceChar: 1945
+      line: 64
+      lineChar: 28
+      spanCodeSection: '[JoinButton] '
+    - startInstruction: 1412
+      endInstruction: 1411
+      startSourceChar: 1945
+      endSourceChar: 1946
+      line: 64
+      lineChar: 41
+      spanCodeSection: '{'
+    - startInstruction: 1412
+      endInstruction: 1411
+      startSourceChar: 1946
+      endSourceChar: 1946
+      line: 64
+      lineChar: 42
       spanCodeSection: 
-    - startInstruction: 1616
-      endInstruction: 1615
-      startSourceChar: 2119
-      endSourceChar: 2122
-      line: 71
-      lineChar: 34
-      spanCodeSection: i].
-    - startInstruction: 1616
-      endInstruction: 1671
-      startSourceChar: 2122
-      endSourceChar: 2137
-      line: 71
-      lineChar: 37
-      spanCodeSection: 'displayName == '
-    - startInstruction: 1672
-      endInstruction: 1671
-      startSourceChar: 2137
-      endSourceChar: 2137
-      line: 71
-      lineChar: 52
+    - startInstruction: 1412
+      endInstruction: 1411
+      startSourceChar: 1946
+      endSourceChar: 1952
+      line: 64
+      lineChar: 42
+      spanCodeSection: owner.
+    - startInstruction: 1412
+      endInstruction: 1487
+      startSourceChar: 1952
+      endSourceChar: 1964
+      line: 64
+      lineChar: 48
+      spanCodeSection: displayName}
+    - startInstruction: 1488
+      endInstruction: 1539
+      startSourceChar: 1964
+      endSourceChar: 1996
+      line: 64
+      lineChar: 60
+      spanCodeSection: ' is Already Registered Player", '
+    - startInstruction: 1540
+      endInstruction: 1667
+      startSourceChar: 1996
+      endSourceChar: 2025
+      line: 64
+      lineChar: 92
+      spanCodeSection: "0);\r\n        }\r\n    }\r\n\r\n    "
+    - startInstruction: 1668
+      endInstruction: 1667
+      startSourceChar: 2025
+      endSourceChar: 2050
+      line: 68
+      lineChar: 4
+      spanCodeSection: bool IsAlreadyRegistered(
+    - startInstruction: 1668
+      endInstruction: 1675
+      startSourceChar: 2050
+      endSourceChar: 2076
+      line: 68
+      lineChar: 29
+      spanCodeSection: "VRCPlayerApi player)\r\n    "
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 2076
+      endSourceChar: 2087
+      line: 69
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 2087
+      endSourceChar: 2091
+      line: 70
+      lineChar: 8
+      spanCodeSection: for(
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 2091
+      endSourceChar: 2091
+      line: 70
+      lineChar: 12
       spanCodeSection: 
-    - startInstruction: 1672
-      endInstruction: 1671
-      startSourceChar: 2137
-      endSourceChar: 2144
-      line: 71
-      lineChar: 52
-      spanCodeSection: player.
-    - startInstruction: 1672
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 2091
+      endSourceChar: 2097
+      line: 70
+      lineChar: 12
+      spanCodeSection: 'var i '
+    - startInstruction: 1676
+      endInstruction: 1675
+      startSourceChar: 2097
+      endSourceChar: 2099
+      line: 70
+      lineChar: 18
+      spanCodeSection: '= '
+    - startInstruction: 1676
+      endInstruction: 1695
+      startSourceChar: 2099
+      endSourceChar: 2102
+      line: 70
+      lineChar: 20
+      spanCodeSection: '0; '
+    - startInstruction: 1696
+      endInstruction: 1695
+      startSourceChar: 2102
+      endSourceChar: 2102
+      line: 70
+      lineChar: 23
+      spanCodeSection: 
+    - startInstruction: 1696
+      endInstruction: 1695
+      startSourceChar: 2102
+      endSourceChar: 2106
+      line: 70
+      lineChar: 23
+      spanCodeSection: 'i < '
+    - startInstruction: 1696
       endInstruction: 1743
-      startSourceChar: 2144
-      endSourceChar: 2170
-      line: 71
-      lineChar: 59
-      spanCodeSection: "displayName)\r\n            "
+      startSourceChar: 2106
+      endSourceChar: 2143
+      line: 70
+      lineChar: 27
+      spanCodeSection: "registeredPlayerCount; ++i)\r\n        "
     - startInstruction: 1744
       endInstruction: 1743
-      startSourceChar: 2170
-      endSourceChar: 2189
+      startSourceChar: 2143
+      endSourceChar: 2158
+      line: 71
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 2158
+      endSourceChar: 2162
       line: 72
       lineChar: 12
-      spanCodeSection: "{\r\n                "
+      spanCodeSection: if (
     - startInstruction: 1744
       endInstruction: 1743
-      startSourceChar: 2189
-      endSourceChar: 2196
+      startSourceChar: 2162
+      endSourceChar: 2162
+      line: 72
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 2162
+      endSourceChar: 2162
+      line: 72
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 2162
+      endSourceChar: 2162
+      line: 72
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 2162
+      endSourceChar: 2180
+      line: 72
+      lineChar: 16
+      spanCodeSection: registeredPlayers[
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 2180
+      endSourceChar: 2180
+      line: 72
+      lineChar: 34
+      spanCodeSection: 
+    - startInstruction: 1744
+      endInstruction: 1743
+      startSourceChar: 2180
+      endSourceChar: 2183
+      line: 72
+      lineChar: 34
+      spanCodeSection: i].
+    - startInstruction: 1744
+      endInstruction: 1799
+      startSourceChar: 2183
+      endSourceChar: 2198
+      line: 72
+      lineChar: 37
+      spanCodeSection: 'displayName == '
+    - startInstruction: 1800
+      endInstruction: 1799
+      startSourceChar: 2198
+      endSourceChar: 2198
+      line: 72
+      lineChar: 52
+      spanCodeSection: 
+    - startInstruction: 1800
+      endInstruction: 1799
+      startSourceChar: 2198
+      endSourceChar: 2205
+      line: 72
+      lineChar: 52
+      spanCodeSection: player.
+    - startInstruction: 1800
+      endInstruction: 1871
+      startSourceChar: 2205
+      endSourceChar: 2231
+      line: 72
+      lineChar: 59
+      spanCodeSection: "displayName)\r\n            "
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2231
+      endSourceChar: 2250
       line: 73
+      lineChar: 12
+      spanCodeSection: "{\r\n                "
+    - startInstruction: 1872
+      endInstruction: 1871
+      startSourceChar: 2250
+      endSourceChar: 2257
+      line: 74
       lineChar: 16
       spanCodeSection: 'return '
-    - startInstruction: 1744
-      endInstruction: 1823
-      startSourceChar: 2196
-      endSourceChar: 2237
-      line: 73
+    - startInstruction: 1872
+      endInstruction: 1951
+      startSourceChar: 2257
+      endSourceChar: 2298
+      line: 74
       lineChar: 23
       spanCodeSection: "true;\r\n            }\r\n        }\r\n        "
-    - startInstruction: 1824
-      endInstruction: 1823
-      startSourceChar: 2237
-      endSourceChar: 2244
-      line: 76
+    - startInstruction: 1952
+      endInstruction: 1951
+      startSourceChar: 2298
+      endSourceChar: 2305
+      line: 77
       lineChar: 8
       spanCodeSection: 'return '
-    - startInstruction: 1824
-      endInstruction: 1824
-      startSourceChar: 2244
-      endSourceChar: 2244
-      line: 76
+    - startInstruction: 1952
+      endInstruction: 1952
+      startSourceChar: 2305
+      endSourceChar: 2305
+      line: 77
       lineChar: 15
       spanCodeSection: 
   hasInteractEvent: 1
