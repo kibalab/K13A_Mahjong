@@ -74,7 +74,7 @@ public class GameManager : UdonSharpBehaviour
         TableManager.Initialize();
         EventQueue.Initialize();
         registeredPlayers = new VRCPlayerApi[4];
-        winds = new string[] { "East", "North", "West", "South" };
+        winds = new string[] { "East", "South", "West", "North" };
 
         isRunOnMasterScript = true;
         LogViewer.Log("Master Initalized", 0);

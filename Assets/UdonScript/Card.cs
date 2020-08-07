@@ -35,7 +35,7 @@ public class Card : UdonSharpBehaviour
     public override void Interact()
     {
         RequestCallFunctionToOwner(nameof(_Interact));
-        RequestCallFunctionToOwner(nameof(_playTabSound));
+        RequestCallFunctionToAll(nameof(_playTabSound));
     }
 
     public void _playTabSound()
