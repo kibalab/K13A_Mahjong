@@ -814,6 +814,10 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
         DebugHelper.IsTrue(AgariContextForTest.IsSingleWaiting, 2);
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 17, 3);
+
+        TEST__SetTestData(TestComponents[13], "통", 9);
+
+        DebugHelper.IsTrue(AgariContextForTest.IsAgariable(TestComponents[13]), 4);
     }
 
     public void Start()
