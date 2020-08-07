@@ -11,6 +11,7 @@ public class GameManager : UdonSharpBehaviour
     [SerializeField] public TableManager TableManager;
     [SerializeField] public LogViewer LogViewer;
     [SerializeField] public bool testMode;
+    [SerializeField] public JoinStatus JoinStatus;
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -156,11 +157,27 @@ public class GameManager : UdonSharpBehaviour
         var player = inputEvent.NewPlayer;
         if (eventType == "Register")
         {
-            LogViewer.Log($"[GameManager] Registering Player : {player.displayName}", 0);
-
             registeredPlayers[registeredPlayerCount++] = player;
+            LogViewer.Log($"[GameManager] Registering Player : {player.displayName}", 0);
         }
+
+        LogViewer.Log($"[GameManager] registeredPlayersCount : {registeredPlayerCount}", 1);
+        var joinedNetworkMessage = "";
+        foreach (VRCPlayerApi p in registeredPlayers)
+        {
+            if(p == null)
+            {
+                LogViewer.Log("[GameManager] registeredPlayers stack is null", 1);
+            }
+            else
+            {
+                joinedNetworkMessage += $"{p.displayName}[Joined],";
+            }
+        }
+        LogViewer.Log($"[GameManager] Send JoinStatus Data : {joinedNetworkMessage}", 1);
+        JoinStatus.setNetworkMessage(joinedNetworkMessage);
         
+
         if (registeredPlayerCount == 4 || testMode)
         {
             StartGame();
