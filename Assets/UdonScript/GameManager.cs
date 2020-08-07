@@ -163,20 +163,14 @@ public class GameManager : UdonSharpBehaviour
 
         LogViewer.Log($"[GameManager] registeredPlayersCount : {registeredPlayerCount}", 1);
         var joinedNetworkMessage = "";
-        foreach (VRCPlayerApi p in registeredPlayers)
+        for (var i = 0; i < registeredPlayerCount; ++i)
         {
-            if(p == null)
-            {
-                LogViewer.Log("[GameManager] registeredPlayers stack is null", 1);
-            }
-            else
-            {
-                joinedNetworkMessage += $"{p.displayName}[Joined],";
-            }
+            var p = registeredPlayers[i];
+            joinedNetworkMessage += $"{p.displayName}[Joined],";
         }
+
         LogViewer.Log($"[GameManager] Send JoinStatus Data : {joinedNetworkMessage}", 1);
         JoinStatus.setNetworkMessage(joinedNetworkMessage);
-        
 
         if (registeredPlayerCount == 4 || testMode)
         {
