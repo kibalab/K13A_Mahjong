@@ -67,11 +67,11 @@ public class JoinStatus : UdonSharpBehaviour
 
             resetJoinIcon();
             joinList.text = "";
-            for(int i=1; i<splited.Length; i++)
+            for(int i=1, k=0; i < splited.Length; i++)
             {
                 LogViewer.Log($"[JoinStatus] ListCount : {i}", 1);
                 joinList.text += $"{splited[i]}\n";  
-                joinIcons[i-1].color = Color.white;
+                joinIcons[k++].color = Color.white;
                 joinCount.text = (4 - i) > 0 ? $"{4 - i} Player Left" : "Player is All Ready";
             }
         }

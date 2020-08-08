@@ -437,7 +437,7 @@ public class GameManager : UdonSharpBehaviour
 
     void EndOfRound()
     {
-    
+        
     }
 
     void ChangeGameState(string state)

@@ -1,5 +1,7 @@
 using UdonSharp;
 using UnityEngine;
+using VRC.SDKBase;
+using VRC.Udon.Common.Interfaces;
 
 public class Player : UdonSharpBehaviour
 {
@@ -20,6 +22,7 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public PlayerStatus playerStatus;
     [SerializeField] public Subtitle Subtitle;
     [SerializeField] public GameObject RiichiBon;
+    [SerializeField] public TableViewer TableViewer;
 
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
     [UdonSynced(UdonSyncMode.None)] public string PlayerName;
@@ -50,6 +53,7 @@ public class Player : UdonSharpBehaviour
         playerStatus.Initialize();
         Subtitle.SetPlaytime(12.0f);
         NetworkMessage = SerializeRiichi(false);
+
     }
     
     Transform[] FindPoints()
@@ -68,7 +72,12 @@ public class Player : UdonSharpBehaviour
 
     string SerializeRiichi(bool riichiMode)
     {
-        var serializedString = $"{messageNumber++},{riichiMode}";
+        var serializedString = $"{messageNumber++},Riichi,{riichiMode}";
+        return serializedString;
+    }
+    string SerializePlayerName(string playerName)
+    {
+        var serializedString = $"{messageNumber++},Name,{playerName}";
         return serializedString;
     }
 
@@ -360,11 +369,18 @@ public class Player : UdonSharpBehaviour
     public void SetPlayerName(string name)
     {
         PlayerName = name;
+        NetworkMessage = SerializePlayerName(name);
+    }
+
+    public void _SetPlayerName(string name)
+    {
+        TableViewer.setPlayerName(name, PlayerIndex);
     }
 
     public void SetWind(string wind)
     {
         playerStatus.Wind = wind;
+        TableViewer.setWInd(PlayerIndex, wind);
     }
 
     public void SetRoundWind(string roundWind)
@@ -380,6 +396,17 @@ public class Player : UdonSharpBehaviour
             var card = (Card)Cards.At(k);
             var cardPoint = cardPoints[k];
             card.SetPosition(cardPoint.position, cardPoint.rotation);
+        }
+    }
+    void RequestCallFunctionToAll(string funcName)
+    {
+        if (Networking.LocalPlayer == null)
+        {
+            SendCustomEvent(funcName);
+        }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.All, funcName);
         }
     }
 
@@ -411,8 +438,17 @@ public class Player : UdonSharpBehaviour
         {
             lastMessageNumber = networkMessageNumber;
 
-            Debug.Log($"[Player] RiichiBon setActive : {splited[1]}");
-            RiichiBon.SetActive(bool.Parse(splited[1]));
+            switch (splited[1])
+            {
+                case "Riichi":
+                    Debug.Log($"[Player] RiichiBon setActive : {splited[2]}");
+                    RiichiBon.SetActive(bool.Parse(splited[2]));
+                    break;
+                case "Name":
+                    _SetPlayerName(splited[2]);
+                    break;
+            }
+            
 
         }
     }

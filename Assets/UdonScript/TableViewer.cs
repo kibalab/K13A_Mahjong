@@ -11,35 +11,24 @@ public class TableViewer : UdonSharpBehaviour
 
     public Text roundText;
     public Image[] windTexts;
+    public Text[] namePlates;
 
 
-    public void setRound(int round)
+    public void setWInd(int playerIndex, string wind)
     {
-        
-        switch(round){
-            case 0:
-                windTexts[0].sprite = CardSprites.FindSprite("µ¿");
-                windTexts[1].sprite = CardSprites.FindSprite("³²");
-                windTexts[2].sprite = CardSprites.FindSprite("¼­");
-                windTexts[3].sprite = CardSprites.FindSprite("ºÏ");
+        switch (wind)
+        {
+            case "East":
+                windTexts[playerIndex].sprite = CardSprites.FindSprite("µ¿");
                 break;
-            case 1:
-                windTexts[0].sprite = CardSprites.FindSprite("³²");
-                windTexts[1].sprite = CardSprites.FindSprite("¼­");
-                windTexts[2].sprite = CardSprites.FindSprite("ºÏ");
-                windTexts[3].sprite = CardSprites.FindSprite("µ¿");
+            case "South":
+                windTexts[playerIndex].sprite = CardSprites.FindSprite("³²");
                 break;
-            case 2:
-                windTexts[0].sprite = CardSprites.FindSprite("¼­");
-                windTexts[1].sprite = CardSprites.FindSprite("ºÏ");
-                windTexts[2].sprite = CardSprites.FindSprite("µ¿");
-                windTexts[3].sprite = CardSprites.FindSprite("³²");
+            case "West":
+                windTexts[playerIndex].sprite = CardSprites.FindSprite("¼­");
                 break;
-            case 3:
-                windTexts[0].sprite = CardSprites.FindSprite("ºÏ");
-                windTexts[1].sprite = CardSprites.FindSprite("µ¿");
-                windTexts[2].sprite = CardSprites.FindSprite("³²");
-                windTexts[3].sprite = CardSprites.FindSprite("¼­");
+            case "North":
+                windTexts[playerIndex].sprite = CardSprites.FindSprite("ºÏ");
                 break;
         }
 
@@ -74,5 +63,10 @@ public class TableViewer : UdonSharpBehaviour
                 windTexts[3].color = Color.red;
                 break;
         }
+    }
+
+    public void setPlayerName(string name, int wind)
+    {
+        namePlates[wind].text = name;
     }
 }

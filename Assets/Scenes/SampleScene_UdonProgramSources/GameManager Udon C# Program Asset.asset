@@ -403,7 +403,7 @@ MonoBehaviour:
     __4_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       \n         # registeredPlayers = new VRCPlayerApi[4];\n        PUSH, __2_const_intnl_SystemInt32\n
     \       PUSH, registeredPlayers\n        EXTERN, \"VRCSDKBaseVRCPlayerApiArray.__ctor__SystemInt32__VRCSDKBaseVRCPlayerApiArray\"\n
-    \       \n         # winds = new string[] { \"East\", \"North\", \"West\", \"South\"
+    \       \n         # winds = new string[] { \"East\", \"South\", \"West\", \"North\"
     };\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH, winds\n        EXTERN,
     \"SystemStringArray.__ctor__SystemInt32__SystemStringArray\"\n        PUSH, winds\n
     \       PUSH, __0_const_intnl_SystemInt32\n        PUSH, __5_const_intnl_SystemString\n
@@ -3159,7 +3159,7 @@ MonoBehaviour:
       endSourceChar: 2345
       line: 76
       lineChar: 39
-      spanCodeSection: '"North", '
+      spanCodeSection: '"South", '
     - startInstruction: 1428
       endInstruction: 1459
       startSourceChar: 2345
@@ -3173,7 +3173,7 @@ MonoBehaviour:
       endSourceChar: 2375
       line: 76
       lineChar: 56
-      spanCodeSection: "\"South\" };\r\n\r\n        "
+      spanCodeSection: "\"North\" };\r\n\r\n        "
     - startInstruction: 1492
       endInstruction: 1491
       startSourceChar: 2375
@@ -9380,28 +9380,28 @@ MonoBehaviour:
     - startInstruction: 15100
       endInstruction: 15119
       startSourceChar: 14239
-      endSourceChar: 14261
+      endSourceChar: 14265
       line: 438
       lineChar: 4
-      spanCodeSection: "{\r\n    \r\n    }\r\n\r\n    "
+      spanCodeSection: "{\r\n        \r\n    }\r\n\r\n    "
     - startInstruction: 15120
       endInstruction: 15119
-      startSourceChar: 14261
-      endSourceChar: 14282
+      startSourceChar: 14265
+      endSourceChar: 14286
       line: 442
       lineChar: 4
       spanCodeSection: void ChangeGameState(
     - startInstruction: 15120
       endInstruction: 15127
-      startSourceChar: 14282
-      endSourceChar: 14301
+      startSourceChar: 14286
+      endSourceChar: 14305
       line: 442
       lineChar: 25
       spanCodeSection: "string state)\r\n    "
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14301
-      endSourceChar: 14359
+      startSourceChar: 14305
+      endSourceChar: 14363
       line: 443
       lineChar: 4
       spanCodeSection: "{\r\n        // state \uBC14\uB014 \uB54C \uB85C\uADF8 \uB744\uC6CC\uC8FC\uB824\uACE0
@@ -9409,121 +9409,121 @@ MonoBehaviour:
         \       "
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14359
-      endSourceChar: 14359
+      startSourceChar: 14363
+      endSourceChar: 14363
       line: 445
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14359
-      endSourceChar: 14359
+      startSourceChar: 14363
+      endSourceChar: 14363
       line: 445
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14359
-      endSourceChar: 14359
+      startSourceChar: 14363
+      endSourceChar: 14363
       line: 445
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14359
-      endSourceChar: 14365
+      startSourceChar: 14363
+      endSourceChar: 14369
       line: 445
       lineChar: 8
       spanCodeSection: Debug.
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14365
-      endSourceChar: 14369
+      startSourceChar: 14369
+      endSourceChar: 14373
       line: 445
       lineChar: 14
       spanCodeSection: Log(
     - startInstruction: 15128
       endInstruction: 15127
-      startSourceChar: 14369
-      endSourceChar: 14371
+      startSourceChar: 14373
+      endSourceChar: 14375
       line: 445
       lineChar: 18
       spanCodeSection: $"
     - startInstruction: 15128
       endInstruction: 15147
-      startSourceChar: 14371
-      endSourceChar: 14383
+      startSourceChar: 14375
+      endSourceChar: 14387
       line: 445
       lineChar: 20
       spanCodeSection: 'GameState = '
     - startInstruction: 15148
       endInstruction: 15147
-      startSourceChar: 14383
-      endSourceChar: 14384
+      startSourceChar: 14387
+      endSourceChar: 14388
       line: 445
       lineChar: 32
       spanCodeSection: '{'
     - startInstruction: 15148
       endInstruction: 15215
-      startSourceChar: 14384
-      endSourceChar: 14405
+      startSourceChar: 14388
+      endSourceChar: 14409
       line: 445
       lineChar: 33
       spanCodeSection: "state}\");\r\n\r\n        "
     - startInstruction: 15216
       endInstruction: 15215
-      startSourceChar: 14405
-      endSourceChar: 14405
+      startSourceChar: 14409
+      endSourceChar: 14409
       line: 447
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15216
       endInstruction: 15215
-      startSourceChar: 14405
-      endSourceChar: 14405
+      startSourceChar: 14409
+      endSourceChar: 14409
       line: 447
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15216
       endInstruction: 15215
-      startSourceChar: 14405
-      endSourceChar: 14417
+      startSourceChar: 14409
+      endSourceChar: 14421
       line: 447
       lineChar: 8
       spanCodeSection: 'gameState = '
     - startInstruction: 15216
       endInstruction: 15235
-      startSourceChar: 14417
-      endSourceChar: 14473
+      startSourceChar: 14421
+      endSourceChar: 14477
       line: 447
       lineChar: 20
       spanCodeSection: "state;\r\n\r\n        // State\uAC00 \uBC14\uB014 \uB54C \uCD08\uAE30
         \uB3D9\uC791\uC744 \uC5EC\uAE30\uC5D0 \uC815\uC758\r\n        "
     - startInstruction: 15236
       endInstruction: 15235
-      startSourceChar: 14473
-      endSourceChar: 14481
+      startSourceChar: 14477
+      endSourceChar: 14485
       line: 450
       lineChar: 8
       spanCodeSection: switch (
     - startInstruction: 15236
       endInstruction: 15235
-      startSourceChar: 14481
-      endSourceChar: 14516
+      startSourceChar: 14485
+      endSourceChar: 14520
       line: 450
       lineChar: 16
       spanCodeSection: "gameState)\r\n        {\r\n            "
     - startInstruction: 15236
       endInstruction: 15235
-      startSourceChar: 14516
-      endSourceChar: 14521
+      startSourceChar: 14520
+      endSourceChar: 14525
       line: 452
       lineChar: 12
       spanCodeSection: 'case '
     - startInstruction: 15236
       endInstruction: 15299
-      startSourceChar: 14521
-      endSourceChar: 14615
+      startSourceChar: 14525
+      endSourceChar: 14619
       line: 452
       lineChar: 17
       spanCodeSection: "State_EndOfRound:\r\n                // 5\uCD08\uB3D9\uC548
@@ -9531,855 +9531,855 @@ MonoBehaviour:
         \uD558\uC790 (\uC2DC\uAC04\uC740 \uBC14\uB014 \uC218 \uC788\uC74C)\r\n                "
     - startInstruction: 15300
       endInstruction: 15299
-      startSourceChar: 14615
-      endSourceChar: 14615
+      startSourceChar: 14619
+      endSourceChar: 14619
       line: 454
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 15300
       endInstruction: 15299
-      startSourceChar: 14615
-      endSourceChar: 14615
+      startSourceChar: 14619
+      endSourceChar: 14619
       line: 454
       lineChar: 16
       spanCodeSection: 
     - startInstruction: 15300
       endInstruction: 15299
-      startSourceChar: 14615
-      endSourceChar: 14632
+      startSourceChar: 14619
+      endSourceChar: 14636
       line: 454
       lineChar: 16
       spanCodeSection: 'pauseQueueTime = '
     - startInstruction: 15300
       endInstruction: 15319
-      startSourceChar: 14632
-      endSourceChar: 14653
+      startSourceChar: 14636
+      endSourceChar: 14657
       line: 454
       lineChar: 33
       spanCodeSection: "5f;\r\n                "
     - startInstruction: 15320
       endInstruction: 15347
-      startSourceChar: 14653
-      endSourceChar: 14685
+      startSourceChar: 14657
+      endSourceChar: 14689
       line: 455
       lineChar: 16
       spanCodeSection: "break;\r\n        }\r\n    }\r\n\r\n    "
     - startInstruction: 15348
       endInstruction: 15347
-      startSourceChar: 14685
-      endSourceChar: 14702
+      startSourceChar: 14689
+      endSourceChar: 14706
       line: 459
       lineChar: 4
       spanCodeSection: bool IsNakiInput(
     - startInstruction: 15348
       endInstruction: 15355
-      startSourceChar: 14702
-      endSourceChar: 14730
+      startSourceChar: 14706
+      endSourceChar: 14734
       line: 459
       lineChar: 21
       spanCodeSection: "InputEvent inputEvent)\r\n    "
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14730
-      endSourceChar: 14741
+      startSourceChar: 14734
+      endSourceChar: 14745
       line: 460
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14741
-      endSourceChar: 14741
+      startSourceChar: 14745
+      endSourceChar: 14745
       line: 461
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14741
-      endSourceChar: 14741
+      startSourceChar: 14745
+      endSourceChar: 14745
       line: 461
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14741
-      endSourceChar: 14755
+      startSourceChar: 14745
+      endSourceChar: 14759
       line: 461
       lineChar: 8
       spanCodeSection: 'var eventType '
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14755
-      endSourceChar: 14757
+      startSourceChar: 14759
+      endSourceChar: 14761
       line: 461
       lineChar: 22
       spanCodeSection: '= '
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14757
-      endSourceChar: 14757
+      startSourceChar: 14761
+      endSourceChar: 14761
       line: 461
       lineChar: 24
       spanCodeSection: 
     - startInstruction: 15356
       endInstruction: 15355
-      startSourceChar: 14757
-      endSourceChar: 14768
+      startSourceChar: 14761
+      endSourceChar: 14772
       line: 461
       lineChar: 24
       spanCodeSection: inputEvent.
     - startInstruction: 15356
       endInstruction: 15427
-      startSourceChar: 14768
-      endSourceChar: 14788
+      startSourceChar: 14772
+      endSourceChar: 14792
       line: 461
       lineChar: 35
       spanCodeSection: "EventType;\r\n        "
     - startInstruction: 15428
       endInstruction: 15427
-      startSourceChar: 14788
-      endSourceChar: 14795
+      startSourceChar: 14792
+      endSourceChar: 14799
       line: 462
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 15428
       endInstruction: 15427
-      startSourceChar: 14795
-      endSourceChar: 14795
+      startSourceChar: 14799
+      endSourceChar: 14799
       line: 462
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15428
       endInstruction: 15427
-      startSourceChar: 14795
-      endSourceChar: 14795
+      startSourceChar: 14799
+      endSourceChar: 14799
       line: 462
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15428
       endInstruction: 15427
-      startSourceChar: 14795
-      endSourceChar: 14795
+      startSourceChar: 14799
+      endSourceChar: 14799
       line: 462
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15428
       endInstruction: 15427
-      startSourceChar: 14795
-      endSourceChar: 14795
+      startSourceChar: 14799
+      endSourceChar: 14799
       line: 462
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15428
       endInstruction: 15427
-      startSourceChar: 14795
-      endSourceChar: 14808
+      startSourceChar: 14799
+      endSourceChar: 14812
       line: 462
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 15428
       endInstruction: 15519
-      startSourceChar: 14808
-      endSourceChar: 14830
+      startSourceChar: 14812
+      endSourceChar: 14834
       line: 462
       lineChar: 28
       spanCodeSection: "\"Chi\"\r\n            || "
     - startInstruction: 15520
       endInstruction: 15519
-      startSourceChar: 14830
-      endSourceChar: 14830
+      startSourceChar: 14834
+      endSourceChar: 14834
       line: 463
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15520
       endInstruction: 15519
-      startSourceChar: 14830
-      endSourceChar: 14843
+      startSourceChar: 14834
+      endSourceChar: 14847
       line: 463
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 15520
       endInstruction: 15663
-      startSourceChar: 14843
-      endSourceChar: 14865
+      startSourceChar: 14847
+      endSourceChar: 14869
       line: 463
       lineChar: 28
       spanCodeSection: "\"Pon\"\r\n            || "
     - startInstruction: 15664
       endInstruction: 15663
-      startSourceChar: 14865
-      endSourceChar: 14865
+      startSourceChar: 14869
+      endSourceChar: 14869
       line: 464
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15664
       endInstruction: 15663
-      startSourceChar: 14865
-      endSourceChar: 14878
+      startSourceChar: 14869
+      endSourceChar: 14882
       line: 464
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 15664
       endInstruction: 15807
-      startSourceChar: 14878
-      endSourceChar: 14901
+      startSourceChar: 14882
+      endSourceChar: 14905
       line: 464
       lineChar: 28
       spanCodeSection: "\"Kkan\"\r\n            || "
     - startInstruction: 15808
       endInstruction: 15807
-      startSourceChar: 14901
-      endSourceChar: 14901
+      startSourceChar: 14905
+      endSourceChar: 14905
       line: 465
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 15808
       endInstruction: 15807
-      startSourceChar: 14901
-      endSourceChar: 14914
+      startSourceChar: 14905
+      endSourceChar: 14918
       line: 465
       lineChar: 15
       spanCodeSection: 'eventType == '
     - startInstruction: 15808
       endInstruction: 15951
-      startSourceChar: 14914
-      endSourceChar: 14935
+      startSourceChar: 14918
+      endSourceChar: 14939
       line: 465
       lineChar: 28
       spanCodeSection: "\"Ron\";\r\n    }\r\n\r\n    "
     - startInstruction: 15952
       endInstruction: 15959
-      startSourceChar: 14935
-      endSourceChar: 14955
+      startSourceChar: 14939
+      endSourceChar: 14959
       line: 468
       lineChar: 4
       spanCodeSection: "bool IsReady()\r\n    "
     - startInstruction: 15960
       endInstruction: 15959
-      startSourceChar: 14955
-      endSourceChar: 14966
+      startSourceChar: 14959
+      endSourceChar: 14970
       line: 469
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 15960
       endInstruction: 15959
-      startSourceChar: 14966
-      endSourceChar: 14970
+      startSourceChar: 14970
+      endSourceChar: 14974
       line: 470
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 15960
       endInstruction: 15975
-      startSourceChar: 14970
-      endSourceChar: 14986
+      startSourceChar: 14974
+      endSourceChar: 14990
       line: 470
       lineChar: 12
       spanCodeSection: 'isNetworkReady) '
     - startInstruction: 15976
       endInstruction: 15975
-      startSourceChar: 14986
-      endSourceChar: 14988
+      startSourceChar: 14990
+      endSourceChar: 14992
       line: 470
       lineChar: 28
       spanCodeSection: '{ '
     - startInstruction: 15976
       endInstruction: 15975
-      startSourceChar: 14988
-      endSourceChar: 14995
+      startSourceChar: 14992
+      endSourceChar: 14999
       line: 470
       lineChar: 30
       spanCodeSection: 'return '
     - startInstruction: 15976
       endInstruction: 16015
-      startSourceChar: 14995
-      endSourceChar: 15012
+      startSourceChar: 14999
+      endSourceChar: 15016
       line: 470
       lineChar: 37
       spanCodeSection: "true; }\r\n        "
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15012
-      endSourceChar: 15012
+      startSourceChar: 15016
+      endSourceChar: 15016
       line: 471
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15012
-      endSourceChar: 15012
+      startSourceChar: 15016
+      endSourceChar: 15016
       line: 471
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15012
-      endSourceChar: 15029
+      startSourceChar: 15016
+      endSourceChar: 15033
       line: 471
       lineChar: 8
       spanCodeSection: 'isNetworkReady = '
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15029
-      endSourceChar: 15029
+      startSourceChar: 15033
+      endSourceChar: 15033
       line: 471
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15029
-      endSourceChar: 15029
+      startSourceChar: 15033
+      endSourceChar: 15033
       line: 471
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15029
-      endSourceChar: 15029
+      startSourceChar: 15033
+      endSourceChar: 15033
       line: 471
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15029
-      endSourceChar: 15040
+      startSourceChar: 15033
+      endSourceChar: 15044
       line: 471
       lineChar: 25
       spanCodeSection: Networking.
     - startInstruction: 16016
       endInstruction: 16015
-      startSourceChar: 15040
-      endSourceChar: 15054
+      startSourceChar: 15044
+      endSourceChar: 15058
       line: 471
       lineChar: 36
       spanCodeSection: IsObjectReady(
     - startInstruction: 16016
       endInstruction: 16075
-      startSourceChar: 15054
-      endSourceChar: 15069
+      startSourceChar: 15058
+      endSourceChar: 15073
       line: 471
       lineChar: 50
       spanCodeSection: 'gameObject) && '
     - startInstruction: 16076
       endInstruction: 16075
-      startSourceChar: 15069
-      endSourceChar: 15069
+      startSourceChar: 15073
+      endSourceChar: 15073
       line: 471
       lineChar: 65
       spanCodeSection: 
     - startInstruction: 16076
       endInstruction: 16075
-      startSourceChar: 15069
-      endSourceChar: 15069
+      startSourceChar: 15073
+      endSourceChar: 15073
       line: 471
       lineChar: 65
       spanCodeSection: 
     - startInstruction: 16076
       endInstruction: 16075
-      startSourceChar: 15069
-      endSourceChar: 15082
+      startSourceChar: 15073
+      endSourceChar: 15086
       line: 471
       lineChar: 65
       spanCodeSection: TableManager.
     - startInstruction: 16076
       endInstruction: 16227
-      startSourceChar: 15082
-      endSourceChar: 15102
+      startSourceChar: 15086
+      endSourceChar: 15106
       line: 471
       lineChar: 78
       spanCodeSection: "IsReady();\r\n        "
     - startInstruction: 16228
       endInstruction: 16227
-      startSourceChar: 15102
-      endSourceChar: 15109
+      startSourceChar: 15106
+      endSourceChar: 15113
       line: 472
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 16228
       endInstruction: 16287
-      startSourceChar: 15109
-      endSourceChar: 15139
+      startSourceChar: 15113
+      endSourceChar: 15143
       line: 472
       lineChar: 15
       spanCodeSection: "isNetworkReady;\r\n    }\r\n\r\n    "
     - startInstruction: 16288
       endInstruction: 16287
-      startSourceChar: 15139
-      endSourceChar: 15176
+      startSourceChar: 15143
+      endSourceChar: 15180
       line: 475
       lineChar: 4
       spanCodeSection: public VRCPlayerApi[] ShufflePlayers(
     - startInstruction: 16288
       endInstruction: 16295
-      startSourceChar: 15176
-      endSourceChar: 15205
+      startSourceChar: 15180
+      endSourceChar: 15209
       line: 475
       lineChar: 41
       spanCodeSection: "VRCPlayerApi[] players)\r\n    "
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15205
-      endSourceChar: 15216
+      startSourceChar: 15209
+      endSourceChar: 15220
       line: 476
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15216
-      endSourceChar: 15216
+      startSourceChar: 15220
+      endSourceChar: 15220
       line: 477
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15216
-      endSourceChar: 15216
+      startSourceChar: 15220
+      endSourceChar: 15220
       line: 477
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15216
-      endSourceChar: 15229
+      startSourceChar: 15220
+      endSourceChar: 15233
       line: 477
       lineChar: 8
       spanCodeSection: 'var shuffled '
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15229
-      endSourceChar: 15231
+      startSourceChar: 15233
+      endSourceChar: 15235
       line: 477
       lineChar: 21
       spanCodeSection: '= '
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15231
-      endSourceChar: 15235
+      startSourceChar: 15235
+      endSourceChar: 15239
       line: 477
       lineChar: 23
       spanCodeSection: 'new '
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15235
-      endSourceChar: 15235
+      startSourceChar: 15239
+      endSourceChar: 15239
       line: 477
       lineChar: 27
       spanCodeSection: 
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15235
-      endSourceChar: 15247
+      startSourceChar: 15239
+      endSourceChar: 15251
       line: 477
       lineChar: 27
       spanCodeSection: VRCPlayerApi
     - startInstruction: 16296
       endInstruction: 16295
-      startSourceChar: 15247
-      endSourceChar: 15248
+      startSourceChar: 15251
+      endSourceChar: 15252
       line: 477
       lineChar: 39
       spanCodeSection: '['
     - startInstruction: 16296
       endInstruction: 16339
-      startSourceChar: 15248
-      endSourceChar: 15261
+      startSourceChar: 15252
+      endSourceChar: 15265
       line: 477
       lineChar: 40
       spanCodeSection: "4];\r\n        "
     - startInstruction: 16340
       endInstruction: 16339
-      startSourceChar: 15261
-      endSourceChar: 15261
+      startSourceChar: 15265
+      endSourceChar: 15265
       line: 478
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16340
       endInstruction: 16339
-      startSourceChar: 15261
-      endSourceChar: 15261
+      startSourceChar: 15265
+      endSourceChar: 15265
       line: 478
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16340
       endInstruction: 16339
-      startSourceChar: 15261
-      endSourceChar: 15282
+      startSourceChar: 15265
+      endSourceChar: 15286
       line: 478
       lineChar: 8
       spanCodeSection: 'var yetShuffledCount '
     - startInstruction: 16340
       endInstruction: 16339
-      startSourceChar: 15282
-      endSourceChar: 15284
+      startSourceChar: 15286
+      endSourceChar: 15288
       line: 478
       lineChar: 29
       spanCodeSection: '= '
     - startInstruction: 16340
       endInstruction: 16339
-      startSourceChar: 15284
-      endSourceChar: 15284
+      startSourceChar: 15288
+      endSourceChar: 15288
       line: 478
       lineChar: 31
       spanCodeSection: 
     - startInstruction: 16340
       endInstruction: 16339
-      startSourceChar: 15284
-      endSourceChar: 15288
+      startSourceChar: 15288
+      endSourceChar: 15292
       line: 478
       lineChar: 31
       spanCodeSection: '4 - '
     - startInstruction: 16340
       endInstruction: 16391
-      startSourceChar: 15288
-      endSourceChar: 15300
+      startSourceChar: 15292
+      endSourceChar: 15304
       line: 478
       lineChar: 35
       spanCodeSection: "1;\r\n        "
     - startInstruction: 16392
       endInstruction: 16391
-      startSourceChar: 15300
-      endSourceChar: 15300
+      startSourceChar: 15304
+      endSourceChar: 15304
       line: 479
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16392
       endInstruction: 16391
-      startSourceChar: 15300
-      endSourceChar: 15300
+      startSourceChar: 15304
+      endSourceChar: 15304
       line: 479
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 16392
       endInstruction: 16391
-      startSourceChar: 15300
-      endSourceChar: 15318
+      startSourceChar: 15304
+      endSourceChar: 15322
       line: 479
       lineChar: 8
       spanCodeSection: 'var shuffledIndex '
     - startInstruction: 16392
       endInstruction: 16391
-      startSourceChar: 15318
-      endSourceChar: 15320
+      startSourceChar: 15322
+      endSourceChar: 15324
       line: 479
       lineChar: 26
       spanCodeSection: '= '
     - startInstruction: 16392
       endInstruction: 16411
-      startSourceChar: 15320
-      endSourceChar: 15334
+      startSourceChar: 15324
+      endSourceChar: 15338
       line: 479
       lineChar: 28
       spanCodeSection: "0;\r\n\r\n        "
     - startInstruction: 16412
       endInstruction: 16411
-      startSourceChar: 15334
-      endSourceChar: 15341
+      startSourceChar: 15338
+      endSourceChar: 15345
       line: 481
       lineChar: 8
       spanCodeSection: while (
     - startInstruction: 16412
       endInstruction: 16411
-      startSourceChar: 15341
-      endSourceChar: 15341
+      startSourceChar: 15345
+      endSourceChar: 15345
       line: 481
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 16412
       endInstruction: 16411
-      startSourceChar: 15341
-      endSourceChar: 15361
+      startSourceChar: 15345
+      endSourceChar: 15365
       line: 481
       lineChar: 15
       spanCodeSection: 'yetShuffledCount >= '
     - startInstruction: 16412
       endInstruction: 16459
-      startSourceChar: 15361
-      endSourceChar: 15373
+      startSourceChar: 15365
+      endSourceChar: 15377
       line: 481
       lineChar: 35
       spanCodeSection: "0)\r\n        "
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15373
-      endSourceChar: 15388
+      startSourceChar: 15377
+      endSourceChar: 15392
       line: 482
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15388
-      endSourceChar: 15388
+      startSourceChar: 15392
+      endSourceChar: 15392
       line: 483
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15388
-      endSourceChar: 15388
+      startSourceChar: 15392
+      endSourceChar: 15392
       line: 483
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15388
-      endSourceChar: 15399
+      startSourceChar: 15392
+      endSourceChar: 15403
       line: 483
       lineChar: 12
       spanCodeSection: 'var picked '
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15399
-      endSourceChar: 15401
+      startSourceChar: 15403
+      endSourceChar: 15405
       line: 483
       lineChar: 23
       spanCodeSection: '= '
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15401
-      endSourceChar: 15401
+      startSourceChar: 15405
+      endSourceChar: 15405
       line: 483
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15401
-      endSourceChar: 15401
+      startSourceChar: 15405
+      endSourceChar: 15405
       line: 483
       lineChar: 25
       spanCodeSection: 
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15401
-      endSourceChar: 15408
+      startSourceChar: 15405
+      endSourceChar: 15412
       line: 483
       lineChar: 25
       spanCodeSection: Random.
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15408
-      endSourceChar: 15414
+      startSourceChar: 15412
+      endSourceChar: 15418
       line: 483
       lineChar: 32
       spanCodeSection: Range(
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15414
-      endSourceChar: 15417
+      startSourceChar: 15418
+      endSourceChar: 15421
       line: 483
       lineChar: 38
       spanCodeSection: '0, '
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15417
-      endSourceChar: 15417
+      startSourceChar: 15421
+      endSourceChar: 15421
       line: 483
       lineChar: 41
       spanCodeSection: 
     - startInstruction: 16460
       endInstruction: 16459
-      startSourceChar: 15417
-      endSourceChar: 15436
+      startSourceChar: 15421
+      endSourceChar: 15440
       line: 483
       lineChar: 41
       spanCodeSection: 'yetShuffledCount + '
     - startInstruction: 16460
       endInstruction: 16543
-      startSourceChar: 15436
-      endSourceChar: 15453
+      startSourceChar: 15440
+      endSourceChar: 15457
       line: 483
       lineChar: 60
       spanCodeSection: "1);\r\n            "
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15453
-      endSourceChar: 15453
+      startSourceChar: 15457
+      endSourceChar: 15457
       line: 484
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15453
-      endSourceChar: 15453
+      startSourceChar: 15457
+      endSourceChar: 15457
       line: 484
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15453
-      endSourceChar: 15453
+      startSourceChar: 15457
+      endSourceChar: 15457
       line: 484
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15453
-      endSourceChar: 15462
+      startSourceChar: 15457
+      endSourceChar: 15466
       line: 484
       lineChar: 12
       spanCodeSection: shuffled[
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15462
-      endSourceChar: 15462
+      startSourceChar: 15466
+      endSourceChar: 15466
       line: 484
       lineChar: 21
       spanCodeSection: 
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15462
-      endSourceChar: 15479
+      startSourceChar: 15466
+      endSourceChar: 15483
       line: 484
       lineChar: 21
       spanCodeSection: 'shuffledIndex] = '
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15479
-      endSourceChar: 15479
+      startSourceChar: 15483
+      endSourceChar: 15483
       line: 484
       lineChar: 38
       spanCodeSection: 
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15479
-      endSourceChar: 15487
+      startSourceChar: 15483
+      endSourceChar: 15491
       line: 484
       lineChar: 38
       spanCodeSection: players[
     - startInstruction: 16544
       endInstruction: 16543
-      startSourceChar: 15487
-      endSourceChar: 15487
+      startSourceChar: 15491
+      endSourceChar: 15491
       line: 484
       lineChar: 46
       spanCodeSection: 
     - startInstruction: 16544
       endInstruction: 16607
-      startSourceChar: 15487
-      endSourceChar: 15509
+      startSourceChar: 15491
+      endSourceChar: 15513
       line: 484
       lineChar: 46
       spanCodeSection: "picked];\r\n            "
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15509
-      endSourceChar: 15509
+      startSourceChar: 15513
+      endSourceChar: 15513
       line: 485
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15509
-      endSourceChar: 15509
+      startSourceChar: 15513
+      endSourceChar: 15513
       line: 485
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15509
-      endSourceChar: 15509
+      startSourceChar: 15513
+      endSourceChar: 15513
       line: 485
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15509
-      endSourceChar: 15517
+      startSourceChar: 15513
+      endSourceChar: 15521
       line: 485
       lineChar: 12
       spanCodeSection: players[
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15517
-      endSourceChar: 15517
+      startSourceChar: 15521
+      endSourceChar: 15521
       line: 485
       lineChar: 20
       spanCodeSection: 
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15517
-      endSourceChar: 15527
+      startSourceChar: 15521
+      endSourceChar: 15531
       line: 485
       lineChar: 20
       spanCodeSection: 'picked] = '
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15527
-      endSourceChar: 15527
+      startSourceChar: 15531
+      endSourceChar: 15531
       line: 485
       lineChar: 30
       spanCodeSection: 
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15527
-      endSourceChar: 15535
+      startSourceChar: 15531
+      endSourceChar: 15539
       line: 485
       lineChar: 30
       spanCodeSection: players[
     - startInstruction: 16608
       endInstruction: 16607
-      startSourceChar: 15535
-      endSourceChar: 15535
+      startSourceChar: 15539
+      endSourceChar: 15539
       line: 485
       lineChar: 38
       spanCodeSection: 
     - startInstruction: 16608
       endInstruction: 16671
-      startSourceChar: 15535
-      endSourceChar: 15569
+      startSourceChar: 15539
+      endSourceChar: 15573
       line: 485
       lineChar: 38
       spanCodeSection: "yetShuffledCount];\r\n\r\n            "
     - startInstruction: 16672
       endInstruction: 16671
-      startSourceChar: 15569
-      endSourceChar: 15569
+      startSourceChar: 15573
+      endSourceChar: 15573
       line: 487
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16672
       endInstruction: 16671
-      startSourceChar: 15569
-      endSourceChar: 15569
+      startSourceChar: 15573
+      endSourceChar: 15573
       line: 487
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16672
       endInstruction: 16723
-      startSourceChar: 15569
-      endSourceChar: 15602
+      startSourceChar: 15573
+      endSourceChar: 15606
       line: 487
       lineChar: 12
       spanCodeSection: "yetShuffledCount--;\r\n            "
     - startInstruction: 16724
       endInstruction: 16723
-      startSourceChar: 15602
-      endSourceChar: 15602
+      startSourceChar: 15606
+      endSourceChar: 15606
       line: 488
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16724
       endInstruction: 16723
-      startSourceChar: 15602
-      endSourceChar: 15602
+      startSourceChar: 15606
+      endSourceChar: 15606
       line: 488
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 16724
       endInstruction: 16783
-      startSourceChar: 15602
-      endSourceChar: 15639
+      startSourceChar: 15606
+      endSourceChar: 15643
       line: 488
       lineChar: 12
       spanCodeSection: "shuffledIndex++;\r\n        }\r\n        "
     - startInstruction: 16784
       endInstruction: 16783
-      startSourceChar: 15639
-      endSourceChar: 15646
+      startSourceChar: 15643
+      endSourceChar: 15650
       line: 490
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 16784
       endInstruction: 16784
-      startSourceChar: 15646
-      endSourceChar: 15646
+      startSourceChar: 15650
+      endSourceChar: 15650
       line: 490
       lineChar: 15
       spanCodeSection: 
