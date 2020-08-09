@@ -366,6 +366,15 @@ public class Player : UdonSharpBehaviour
         return playerStatus;
     }
 
+    public PlayerStatus CalculateRonScore()
+    {
+        var cards = GetArray(Cards);
+        var openedCards = GetArray(OpenendCards);
+        HandCalculator.RequestRonScore(cards, openedCards, AgariContext, playerStatus);
+
+        return playerStatus;
+    }
+
     public void SetPlayerName(string name)
     {
         PlayerName = name;
