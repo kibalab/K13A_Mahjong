@@ -106,6 +106,17 @@ public class GameManager : UdonSharpBehaviour
             if (inputEvent.EventType == "Draw") // 유국
             {
                 Debug.Log($"DrawReason: {inputEvent.DrawReason}");
+
+                switch (inputEvent.DrawReason)
+                {
+                    case "ByFourKKan":
+                    case "ByYamaExhausted":
+                        // 텐파이 상태의 사람들, 아닌 사람들 체크해서 나눠주기
+                        // 유국만관 체크하기
+                        // 그다음 뭐 하지?
+                        break;
+                }
+
                 // 뭔가 더 처리를 해야 하는데 나중에 함
             }
             
@@ -142,6 +153,11 @@ public class GameManager : UdonSharpBehaviour
                     break;
             }
         }
+    }
+
+    void Draw(InputEvent inputEvent)
+    {
+
     }
 
     void WaitForStart(InputEvent inputEvent)
