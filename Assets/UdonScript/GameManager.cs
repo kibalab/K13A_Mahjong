@@ -37,11 +37,7 @@ public class GameManager : UdonSharpBehaviour
         if (Networking.LocalPlayer == null)
         {
             Initialize_Master();
-
-            if (testMode)
-            {
-                ActiveTestMode();
-            }
+            ActiveTestMode();
         }
     }
 
@@ -84,13 +80,10 @@ public class GameManager : UdonSharpBehaviour
     {
         // 원래 4명 다 모여야 카드를 배분하지만
         // 유니티에서 혼자 테스트할 용도로 카드 주고 버리기 대기하게 함
-        if (testMode)
-        {
-            LogViewer.Log("TestMode ON v1.9", 0);
-            TableManager.AddNextCard();
-            ChangeGameState(State_WaitForDiscard);
-            LogViewer.Log("TestMode GameStart", 0);
-        }
+        LogViewer.Log("TestMode ON v1.9", 0);
+        TableManager.AddNextCard();
+        ChangeGameState(State_WaitForDiscard);
+        LogViewer.Log("TestMode GameStart", 0);
     }
 
     void Update()
