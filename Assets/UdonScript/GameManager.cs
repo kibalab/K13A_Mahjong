@@ -195,7 +195,6 @@ public class GameManager : UdonSharpBehaviour
         ChangeGameState(State_WaitForDiscard);
     }
 
-
     void WaitForPlayerAction(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
@@ -258,11 +257,12 @@ public class GameManager : UdonSharpBehaviour
             TableManager.SetSubtitleAllPlayers(currentPlayer.gameObject.name, "쯔모");
             var playerStatus = currentPlayer.CalculateTsumoScore();
 
+            // 해야 한다...
             var yakuKeyList = playerStatus.YakuKey;
             var hanList = playerStatus.Han;
             var fu = playerStatus.Fu;
             var count = playerStatus.YakuCount;
-            // 해야 한다...
+            ChangeGameState(State_EndOfRound);
         }
         else if (eventType == "AutoDiscard")
         {
@@ -361,6 +361,7 @@ public class GameManager : UdonSharpBehaviour
                     // 0:오른쪽. 1:반대편, 2:왼쪽, 3:안깡
                     nakiPlayer.OpenCards(chiCards, 2); 
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
+                    ChangeGameState(State_WaitForDiscard);
                     break;
                 }
 
@@ -377,6 +378,7 @@ public class GameManager : UdonSharpBehaviour
 
                     nakiPlayer.OpenCards_Pon(ponCards, getPlayerDirection(TableManager.currentTurnPlayer,nakiPlayer.PlayerIndex));
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
+                    ChangeGameState(State_WaitForDiscard);
                     break; 
                 }
 
@@ -395,12 +397,21 @@ public class GameManager : UdonSharpBehaviour
                     nakiPlayer.OpenCards(kkanCards, getPlayerDirection(TableManager.currentTurnPlayer, nakiPlayer.PlayerIndex));
                     TableManager.SetTurnOf(inputEvent.PlayerIndex);
                     TableManager.AddNextRinShanCard();
+                    ChangeGameState(State_WaitForDiscard);
                     break;
                 }
 
             case "Ron":
                 {
-                    // 해야한다..
+                    TableManager.SetSubtitleAllPlayers(nakiPlayer.gameObject.name, "쯔모");
+                    var playerStatus = nakiPlayer.CalculateRonScore();
+
+                    // 해야 한다...
+                    var yakuKeyList = playerStatus.YakuKey;
+                    var hanList = playerStatus.Han;
+                    var fu = playerStatus.Fu;
+                    var count = playerStatus.YakuCount;
+                    ChangeGameState(State_EndOfRound);
                     break;
                 }
         }
@@ -409,7 +420,6 @@ public class GameManager : UdonSharpBehaviour
         waitingNakiCard = null;
         TableManager.DisableOneShotRiichiAll(); // 누군가 울면 일발이 깨진다 
         TableManager.DisableUIAll();
-        ChangeGameState(State_WaitForDiscard);
     }
 
     int getPlayerDirection(int currentPlayerIndex, int targetPlayerIndex)

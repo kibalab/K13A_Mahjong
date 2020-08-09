@@ -189,7 +189,6 @@ public class ScoreCalculator : UdonSharpBehaviour
         }
     }
 
-
     void AddScore_Riichi(PlayerStatus playerStatus)
     {
         // 리치 화료

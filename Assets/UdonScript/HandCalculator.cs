@@ -25,20 +25,16 @@ public class HandCalculator : UdonSharpBehaviour
 
     // NOTE) 슌쯔, 커쯔를 영어로 쓰기가 귀찮고 길어서 Chi, Pon으로 줄여서 씀
 
-    public void RequestTsumoScore(Card[] sealedCards, Card[] openedCards, AgariContext agariContext, PlayerStatus playerStatus)
+    bool IsSpecialYaku(int[] globalOrders, PlayerStatus playerStatus)
     {
-        var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
-        var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
-
-        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
         var pairs = HandUtil.FindPairs(globalOrders);
-        
+
         // 특수역: 치또이츠
         if (pairs.Length == 7)
         {
             playerStatus.AddHan("ChiToitsu", 2);
             playerStatus.Fu = 25;
-            return;
+            return true;
         }
 
         // 특수역: 국싸무쌍
@@ -47,12 +43,40 @@ public class HandCalculator : UdonSharpBehaviour
         {
             playerStatus.AddHan("Kokushimusou", 9999); // 역만은 판이 어떻게 되지..?
             playerStatus.Fu = 999; // 역만은 부수가 어떻게 되지...?
+            return true;
+        }
+
+        return false;
+    }
+
+    public void RequestTsumoScore(Card[] sealedCards, Card[] openedCards, AgariContext agariContext, PlayerStatus playerStatus)
+    {
+        var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
+        var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
+        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
+
+        if (IsSpecialYaku(globalOrders, playerStatus))
+        {
             return;
         }
 
         var ctxs = FindAll(globalOrders);
-
         ScoreCalculator.CalculateTsumo(playerStatus, agariContext, sealedCards, openedCards, ctxs);
+    }
+
+    public void RequestRonScore(Card[] sealedCards, Card[] openedCards, AgariContext agariContext, PlayerStatus playerStatus)
+    {
+        var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
+        var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
+        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
+
+        if (IsSpecialYaku(globalOrders, playerStatus))
+        {
+            return;
+        }
+
+        var ctxs = FindAll(globalOrders);
+        ScoreCalculator.CalculateRon(playerStatus, agariContext, sealedCards, openedCards, ctxs);
     }
 
     public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer)
