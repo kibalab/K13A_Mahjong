@@ -44,41 +44,43 @@ MonoBehaviour:
     \   __0_cards_CardArray: %UnityEngineComponentArray, null\n    __0_openedCards_CardArray:
     %UnityEngineComponentArray, null\n    __0_openTargetCards_CardArray: %UnityEngineComponentArray,
     null\n    __0_pickedCards_CardArray: %UnityEngineComponentArray, null\n    __1_cards_CardArray:
-    %UnityEngineComponentArray, null\n    __1_openTargetCards_CardArray: %UnityEngineComponentArray,
-    null\n    __2_openTargetCards_CardArray: %UnityEngineComponentArray, null\n    __0_nakiShape_GameObject:
-    %UnityEngineGameObject, null\n    __0_count_Int32: %SystemInt32, null\n    __0_CurrentLine_Int32:
-    %SystemInt32, null\n    __0_globalOrder_Int32: %SystemInt32, null\n    __0_i_Int32:
-    %SystemInt32, null\n    __0_index_Int32: %SystemInt32, null\n    __0_k_Int32:
-    %SystemInt32, null\n    __0_l_Int32: %SystemInt32, null\n    __0_networkMessageNumber_Int32:
-    %SystemInt32, null\n    __0_playerIndex_Int32: %SystemInt32, null\n    __0_ponGlobalOrder_Int32:
-    %SystemInt32, null\n    __0_shapeType_Int32: %SystemInt32, null\n    __1_i_Int32:
-    %SystemInt32, null\n    __1_index_Int32: %SystemInt32, null\n    __1_shapeType_Int32:
-    %SystemInt32, null\n    __2_i_Int32: %SystemInt32, null\n    __2_shapeType_Int32:
-    %SystemInt32, null\n    __3_i_Int32: %SystemInt32, null\n    __0_objs_ObjectArray:
-    %SystemObjectArray, null\n    __0_debugStr_String: %SystemString, null\n    __0_funcName_String:
-    %SystemString, null\n    __0_name_String: %SystemString, null\n    __0_playerName_String:
-    %SystemString, null\n    __0_roundWind_String: %SystemString, null\n    __0_serializedString_String:
-    %SystemString, null\n    __0_wind_String: %SystemString, null\n    __1_name_String:
-    %SystemString, null\n    __1_serializedString_String: %SystemString, null\n    __0_splited_StringArray:
-    %SystemStringArray, null\n    __0_cardPoint_Transform: %UnityEngineTransform,
-    null\n    __0_nakiCardPosition_Transform: %UnityEngineTransform, null\n    __0_nakiPoint_Transform:
-    %UnityEngineTransform, null\n    __0_nakiShape_Transform: %UnityEngineTransform,
-    null\n    __0_point_Transform: %UnityEngineTransform, null\n    __0_pointTransform_Transform:
-    %UnityEngineTransform, null\n    __0_tr_Transform: %UnityEngineTransform, null\n
-    \   __1_nakiCardPosition_Transform: %UnityEngineTransform, null\n    __1_nakiShape_Transform:
-    %UnityEngineTransform, null\n    __1_point_Transform: %UnityEngineTransform, null\n
-    \   __2_nakiShape_Transform: %UnityEngineTransform, null\n    __3_nakiShape_Transform:
-    %UnityEngineTransform, null\n    __0_cardPoints_TransformArray: %UnityEngineTransformArray,
-    null\n    __0_positions_TransformArray: %UnityEngineTransformArray, null\n    __0_card_Card:
-    %VRCUdonUdonBehaviour, null\n    __0_list_KList: %VRCUdonUdonBehaviour, null\n
-    \   __0_newCard_Card: %VRCUdonUdonBehaviour, null\n    __0_pickedCard_Card: %VRCUdonUdonBehaviour,
-    null\n    __1_card_Card: %VRCUdonUdonBehaviour, null\n    __1_newCard_Card: %VRCUdonUdonBehaviour,
-    null\n    __2_card_Card: %VRCUdonUdonBehaviour, null\n    __3_card_Card: %VRCUdonUdonBehaviour,
-    null\n    __4_card_Card: %VRCUdonUdonBehaviour, null\n    __5_card_Card: %VRCUdonUdonBehaviour,
-    null\n    __6_card_Card: %VRCUdonUdonBehaviour, null\n    __7_card_Card: %VRCUdonUdonBehaviour,
-    null\n    __8_card_Card: %VRCUdonUdonBehaviour, null\n    __9_card_Card: %VRCUdonUdonBehaviour,
-    null\n    __0_const_intnl_SystemBoolean: %SystemBoolean, null\n    __1_const_intnl_SystemBoolean:
-    %SystemBoolean, null\n    __0_const_intnl_SystemChar: %SystemChar, null\n    __0_const_intnl_SystemCharArray:
+    %UnityEngineComponentArray, null\n    __1_openedCards_CardArray: %UnityEngineComponentArray,
+    null\n    __1_openTargetCards_CardArray: %UnityEngineComponentArray, null\n    __2_cards_CardArray:
+    %UnityEngineComponentArray, null\n    __2_openTargetCards_CardArray: %UnityEngineComponentArray,
+    null\n    __0_nakiShape_GameObject: %UnityEngineGameObject, null\n    __0_count_Int32:
+    %SystemInt32, null\n    __0_CurrentLine_Int32: %SystemInt32, null\n    __0_globalOrder_Int32:
+    %SystemInt32, null\n    __0_i_Int32: %SystemInt32, null\n    __0_index_Int32:
+    %SystemInt32, null\n    __0_k_Int32: %SystemInt32, null\n    __0_l_Int32: %SystemInt32,
+    null\n    __0_networkMessageNumber_Int32: %SystemInt32, null\n    __0_playerIndex_Int32:
+    %SystemInt32, null\n    __0_ponGlobalOrder_Int32: %SystemInt32, null\n    __0_shapeType_Int32:
+    %SystemInt32, null\n    __1_i_Int32: %SystemInt32, null\n    __1_index_Int32:
+    %SystemInt32, null\n    __1_shapeType_Int32: %SystemInt32, null\n    __2_i_Int32:
+    %SystemInt32, null\n    __2_shapeType_Int32: %SystemInt32, null\n    __3_i_Int32:
+    %SystemInt32, null\n    __0_objs_ObjectArray: %SystemObjectArray, null\n    __0_debugStr_String:
+    %SystemString, null\n    __0_funcName_String: %SystemString, null\n    __0_name_String:
+    %SystemString, null\n    __0_playerName_String: %SystemString, null\n    __0_roundWind_String:
+    %SystemString, null\n    __0_serializedString_String: %SystemString, null\n    __0_wind_String:
+    %SystemString, null\n    __1_name_String: %SystemString, null\n    __1_serializedString_String:
+    %SystemString, null\n    __0_splited_StringArray: %SystemStringArray, null\n    __0_cardPoint_Transform:
+    %UnityEngineTransform, null\n    __0_nakiCardPosition_Transform: %UnityEngineTransform,
+    null\n    __0_nakiPoint_Transform: %UnityEngineTransform, null\n    __0_nakiShape_Transform:
+    %UnityEngineTransform, null\n    __0_point_Transform: %UnityEngineTransform, null\n
+    \   __0_pointTransform_Transform: %UnityEngineTransform, null\n    __0_tr_Transform:
+    %UnityEngineTransform, null\n    __1_nakiCardPosition_Transform: %UnityEngineTransform,
+    null\n    __1_nakiShape_Transform: %UnityEngineTransform, null\n    __1_point_Transform:
+    %UnityEngineTransform, null\n    __2_nakiShape_Transform: %UnityEngineTransform,
+    null\n    __3_nakiShape_Transform: %UnityEngineTransform, null\n    __0_cardPoints_TransformArray:
+    %UnityEngineTransformArray, null\n    __0_positions_TransformArray: %UnityEngineTransformArray,
+    null\n    __0_card_Card: %VRCUdonUdonBehaviour, null\n    __0_list_KList: %VRCUdonUdonBehaviour,
+    null\n    __0_newCard_Card: %VRCUdonUdonBehaviour, null\n    __0_pickedCard_Card:
+    %VRCUdonUdonBehaviour, null\n    __1_card_Card: %VRCUdonUdonBehaviour, null\n
+    \   __1_newCard_Card: %VRCUdonUdonBehaviour, null\n    __2_card_Card: %VRCUdonUdonBehaviour,
+    null\n    __3_card_Card: %VRCUdonUdonBehaviour, null\n    __4_card_Card: %VRCUdonUdonBehaviour,
+    null\n    __5_card_Card: %VRCUdonUdonBehaviour, null\n    __6_card_Card: %VRCUdonUdonBehaviour,
+    null\n    __7_card_Card: %VRCUdonUdonBehaviour, null\n    __8_card_Card: %VRCUdonUdonBehaviour,
+    null\n    __9_card_Card: %VRCUdonUdonBehaviour, null\n    __0_const_intnl_SystemBoolean:
+    %SystemBoolean, null\n    __1_const_intnl_SystemBoolean: %SystemBoolean, null\n
+    \   __0_const_intnl_SystemChar: %SystemChar, null\n    __0_const_intnl_SystemCharArray:
     %SystemCharArray, null\n    __0_const_intnl_SystemInt32: %SystemInt32, null\n
     \   __1_const_intnl_SystemInt32: %SystemInt32, null\n    __2_const_intnl_SystemInt32:
     %SystemInt32, null\n    __3_const_intnl_SystemInt32: %SystemInt32, null\n    __4_const_intnl_SystemInt32:
@@ -94,20 +96,24 @@ MonoBehaviour:
     \   __103_const_intnl_SystemString: %SystemString, null\n    __104_const_intnl_SystemString:
     %SystemString, null\n    __105_const_intnl_SystemString: %SystemString, null\n
     \   __106_const_intnl_SystemString: %SystemString, null\n    __107_const_intnl_SystemString:
-    %SystemString, null\n    __11_const_intnl_SystemString: %SystemString, null\n
-    \   __12_const_intnl_SystemString: %SystemString, null\n    __13_const_intnl_SystemString:
-    %SystemString, null\n    __14_const_intnl_SystemString: %SystemString, null\n
-    \   __15_const_intnl_SystemString: %SystemString, null\n    __16_const_intnl_SystemString:
-    %SystemString, null\n    __17_const_intnl_SystemString: %SystemString, null\n
-    \   __18_const_intnl_SystemString: %SystemString, null\n    __19_const_intnl_SystemString:
-    %SystemString, null\n    __2_const_intnl_SystemString: %SystemString, null\n    __20_const_intnl_SystemString:
-    %SystemString, null\n    __21_const_intnl_SystemString: %SystemString, null\n
-    \   __22_const_intnl_SystemString: %SystemString, null\n    __23_const_intnl_SystemString:
-    %SystemString, null\n    __24_const_intnl_SystemString: %SystemString, null\n
-    \   __25_const_intnl_SystemString: %SystemString, null\n    __26_const_intnl_SystemString:
-    %SystemString, null\n    __27_const_intnl_SystemString: %SystemString, null\n
-    \   __28_const_intnl_SystemString: %SystemString, null\n    __29_const_intnl_SystemString:
-    %SystemString, null\n    __3_const_intnl_SystemString: %SystemString, null\n    __30_const_intnl_SystemString:
+    %SystemString, null\n    __108_const_intnl_SystemString: %SystemString, null\n
+    \   __109_const_intnl_SystemString: %SystemString, null\n    __11_const_intnl_SystemString:
+    %SystemString, null\n    __110_const_intnl_SystemString: %SystemString, null\n
+    \   __111_const_intnl_SystemString: %SystemString, null\n    __112_const_intnl_SystemString:
+    %SystemString, null\n    __12_const_intnl_SystemString: %SystemString, null\n
+    \   __13_const_intnl_SystemString: %SystemString, null\n    __14_const_intnl_SystemString:
+    %SystemString, null\n    __15_const_intnl_SystemString: %SystemString, null\n
+    \   __16_const_intnl_SystemString: %SystemString, null\n    __17_const_intnl_SystemString:
+    %SystemString, null\n    __18_const_intnl_SystemString: %SystemString, null\n
+    \   __19_const_intnl_SystemString: %SystemString, null\n    __2_const_intnl_SystemString:
+    %SystemString, null\n    __20_const_intnl_SystemString: %SystemString, null\n
+    \   __21_const_intnl_SystemString: %SystemString, null\n    __22_const_intnl_SystemString:
+    %SystemString, null\n    __23_const_intnl_SystemString: %SystemString, null\n
+    \   __24_const_intnl_SystemString: %SystemString, null\n    __25_const_intnl_SystemString:
+    %SystemString, null\n    __26_const_intnl_SystemString: %SystemString, null\n
+    \   __27_const_intnl_SystemString: %SystemString, null\n    __28_const_intnl_SystemString:
+    %SystemString, null\n    __29_const_intnl_SystemString: %SystemString, null\n
+    \   __3_const_intnl_SystemString: %SystemString, null\n    __30_const_intnl_SystemString:
     %SystemString, null\n    __31_const_intnl_SystemString: %SystemString, null\n
     \   __32_const_intnl_SystemString: %SystemString, null\n    __33_const_intnl_SystemString:
     %SystemString, null\n    __34_const_intnl_SystemString: %SystemString, null\n
@@ -171,15 +177,16 @@ MonoBehaviour:
     %SystemUInt32, null\n    __23_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
     \   __24_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __25_const_intnl_exitJumpLoc_UInt32:
     %SystemUInt32, null\n    __26_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
-    \   __27_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __3_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\n    __4_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
-    \   __5_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __6_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\n    __7_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
-    \   __8_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __9_const_intnl_exitJumpLoc_UInt32:
-    %SystemUInt32, null\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi,
-    null\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null\n    __0_intnl_SystemBoolean:
-    %SystemBoolean, null\n    __1_intnl_returnValSymbol_Boolean: %SystemBoolean, null\n
-    \   __1_intnl_SystemBoolean: %SystemBoolean, null\n    __10_intnl_SystemBoolean:
+    \   __27_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __28_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __29_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __3_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __4_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __5_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __6_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __7_const_intnl_exitJumpLoc_UInt32:
+    %SystemUInt32, null\n    __8_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n
+    \   __9_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null\n    __0_const_intnl_VRCSDKBaseVRCPlayerApi:
+    %VRCSDKBaseVRCPlayerApi, null\n    __0_intnl_returnValSymbol_Boolean: %SystemBoolean,
+    null\n    __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_returnValSymbol_Boolean:
+    %SystemBoolean, null\n    __1_intnl_SystemBoolean: %SystemBoolean, null\n    __10_intnl_SystemBoolean:
     %SystemBoolean, null\n    __11_intnl_SystemBoolean: %SystemBoolean, null\n    __12_intnl_SystemBoolean:
     %SystemBoolean, null\n    __13_intnl_SystemBoolean: %SystemBoolean, null\n    __14_intnl_SystemBoolean:
     %SystemBoolean, null\n    __15_intnl_SystemBoolean: %SystemBoolean, null\n    __16_intnl_SystemBoolean:
@@ -307,12 +314,16 @@ MonoBehaviour:
     %VRCUdonUdonBehaviour, null\n    __0_intnl_returnValSymbol_PlayerStatus: %VRCUdonUdonBehaviour,
     null\n    __0_intnl_UIContext: %VRCUdonUdonBehaviour, null\n    __1_intnl_AgariContext:
     %VRCUdonUdonBehaviour, null\n    __1_intnl_Card: %VRCUdonUdonBehaviour, null\n
-    \   __1_intnl_KList: %VRCUdonUdonBehaviour, null\n    __1_intnl_UIContext: %VRCUdonUdonBehaviour,
-    null\n    __2_intnl_AgariContext: %VRCUdonUdonBehaviour, null\n    __2_intnl_Card:
-    %VRCUdonUdonBehaviour, null\n    __2_intnl_KList: %VRCUdonUdonBehaviour, null\n
-    \   __3_intnl_AgariContext: %VRCUdonUdonBehaviour, null\n    __3_intnl_Card: %VRCUdonUdonBehaviour,
-    null\n    __3_intnl_KList: %VRCUdonUdonBehaviour, null\n    __4_intnl_Card: %VRCUdonUdonBehaviour,
-    null\n    __4_intnl_KList: %VRCUdonUdonBehaviour, null\n    __5_intnl_Card: %VRCUdonUdonBehaviour,
+    \   __1_intnl_KList: %VRCUdonUdonBehaviour, null\n    __1_intnl_PlayerStatus:
+    %VRCUdonUdonBehaviour, null\n    __1_intnl_returnValSymbol_PlayerStatus: %VRCUdonUdonBehaviour,
+    null\n    __1_intnl_UIContext: %VRCUdonUdonBehaviour, null\n    __10_intnl_KList:
+    %VRCUdonUdonBehaviour, null\n    __11_intnl_KList: %VRCUdonUdonBehaviour, null\n
+    \   __2_intnl_AgariContext: %VRCUdonUdonBehaviour, null\n    __2_intnl_Card: %VRCUdonUdonBehaviour,
+    null\n    __2_intnl_KList: %VRCUdonUdonBehaviour, null\n    __3_intnl_AgariContext:
+    %VRCUdonUdonBehaviour, null\n    __3_intnl_Card: %VRCUdonUdonBehaviour, null\n
+    \   __3_intnl_KList: %VRCUdonUdonBehaviour, null\n    __4_intnl_AgariContext:
+    %VRCUdonUdonBehaviour, null\n    __4_intnl_Card: %VRCUdonUdonBehaviour, null\n
+    \   __4_intnl_KList: %VRCUdonUdonBehaviour, null\n    __5_intnl_Card: %VRCUdonUdonBehaviour,
     null\n    __5_intnl_KList: %VRCUdonUdonBehaviour, null\n    __6_intnl_Card: %VRCUdonUdonBehaviour,
     null\n    __6_intnl_KList: %VRCUdonUdonBehaviour, null\n    __7_intnl_Card: %VRCUdonUdonBehaviour,
     null\n    __7_intnl_KList: %VRCUdonUdonBehaviour, null\n    __8_intnl_Card: %VRCUdonUdonBehaviour,
@@ -514,11 +525,11 @@ MonoBehaviour:
     AgariContext);\n        PUSH, Cards\n        PUSH, __0_list_KList\n        COPY\n
     \       PUSH, Cards\n        PUSH, __0_intnl_KList\n        COPY # Copy-on-write
     symbol value dirtied\n        PUSH, __4_const_intnl_exitJumpLoc_UInt32\n        JUMP,
-    0x00003800\n        PUSH, OpenendCards\n        PUSH, __0_list_KList\n        COPY\n
+    0x0000399C\n        PUSH, OpenendCards\n        PUSH, __0_list_KList\n        COPY\n
     \       PUSH, __1_intnl_returnValSymbol_CardArray\n        PUSH, __0_intnl_CardArray\n
     \       COPY # Copy-on-write symbol value dirtied\n        PUSH, OpenendCards\n
     \       PUSH, __1_intnl_KList\n        COPY # Copy-on-write symbol value dirtied\n
-    \       PUSH, __5_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00003800\n        PUSH,
+    \       PUSH, __5_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x0000399C\n        PUSH,
     HandCalculator\n        PUSH, __12_const_intnl_SystemString\n        PUSH, __0_intnl_CardArray\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, HandCalculator\n        PUSH, __13_const_intnl_SystemString\n        PUSH,
@@ -615,7 +626,7 @@ MonoBehaviour:
     UIContext);\n        PUSH, Cards\n        PUSH, __0_list_KList\n        COPY\n
     \       PUSH, Cards\n        PUSH, __2_intnl_KList\n        COPY # Copy-on-write
     symbol value dirtied\n        PUSH, __6_const_intnl_exitJumpLoc_UInt32\n        JUMP,
-    0x00003800\n        PUSH, HandCalculator\n        PUSH, __34_const_intnl_SystemString\n
+    0x0000399C\n        PUSH, HandCalculator\n        PUSH, __34_const_intnl_SystemString\n
     \       PUSH, __1_intnl_returnValSymbol_CardArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, HandCalculator\n        PUSH, __35_const_intnl_SystemString\n        PUSH,
     AgariContext\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
@@ -634,7 +645,7 @@ MonoBehaviour:
     \       \n         # {\n        \n         # var isAnkkanable = HandCalculator.IsAnKkanable(GetArray(Cards));\n
     \       PUSH, Cards\n        PUSH, __0_list_KList\n        COPY\n        PUSH,
     Cards\n        PUSH, __3_intnl_KList\n        COPY # Copy-on-write symbol value
-    dirtied\n        PUSH, __7_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00003800\n
+    dirtied\n        PUSH, __7_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x0000399C\n
     \       PUSH, HandCalculator\n        PUSH, __38_const_intnl_SystemString\n        PUSH,
     __1_intnl_returnValSymbol_CardArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, __1_intnl_returnValSymbol_CardArray\n        PUSH, __3_intnl_CardArray\n
@@ -649,7 +660,7 @@ MonoBehaviour:
     GetArray(OpenendCards));\n        PUSH, OpenendCards\n        PUSH, __0_list_KList\n
     \       COPY\n        PUSH, OpenendCards\n        PUSH, __4_intnl_KList\n        COPY
     # Copy-on-write symbol value dirtied\n        PUSH, __8_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003800\n        PUSH, HandCalculator\n        PUSH, __41_const_intnl_SystemString\n
+    \       JUMP, 0x0000399C\n        PUSH, HandCalculator\n        PUSH, __41_const_intnl_SystemString\n
     \       PUSH, __1_newCard_Card\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, HandCalculator\n        PUSH, __42_const_intnl_SystemString\n        PUSH,
     __1_intnl_returnValSymbol_CardArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
@@ -747,7 +758,7 @@ MonoBehaviour:
     \       PUSH, __58_const_intnl_SystemString\n        PUSH, __0_const_intnl_SystemBoolean\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       \n         # SortPosition();\n        PUSH, __10_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003538\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x000036D4\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # public void setStashPositionRichMode()\n    .export
     setStashPositionRichMode\n        \n    setStashPositionRichMode:\n        \n
@@ -879,7 +890,7 @@ MonoBehaviour:
     OpenedPonPositions\n        PUSH, __0_ponGlobalOrder_Int32\n        PUSH, __1_nakiShape_Transform\n
     \       EXTERN, \"UnityEngineTransformArray.__Set__SystemInt32_UnityEngineTransform__SystemVoid\"\n
     \       \n         # SortPosition();\n        PUSH, __13_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003538\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x000036D4\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # public void ActiveRiichiCreateCardColliders()\n
     \   .export ActiveRiichiCreateCardColliders\n        \n    ActiveRiichiCreateCardColliders:\n
@@ -990,7 +1001,7 @@ MonoBehaviour:
     \       PUSH, __5_card_Card\n        PUSH, __27_const_intnl_SystemString\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       \n         # SortPosition();\n        PUSH, __15_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003538\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x000036D4\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # public void AddKkanCount()\n    .export AddKkanCount\n
     \       \n    AddKkanCount:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
@@ -1026,7 +1037,7 @@ MonoBehaviour:
     \"UnityEngineTransform.__get_gameObject__UnityEngineGameObject\"\n        PUSH,
     __0_intnl_UnityEngineGameObject\n        EXTERN, \"UnityEngineObject.__Destroy__UnityEngineObject__SystemVoid\"\n
     \       \n         # SortPosition();\n        PUSH, __18_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003538\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x000036D4\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # Transform GetNextNakiShape(int shapeType)\n    GetNextNakiShape:\n
     \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
@@ -1132,7 +1143,7 @@ MonoBehaviour:
     \       \n         # foreach(var card in GetArray(Cards))\n        PUSH, Cards\n
     \       PUSH, __0_list_KList\n        COPY\n        PUSH, Cards\n        PUSH,
     __5_intnl_KList\n        COPY # Copy-on-write symbol value dirtied\n        PUSH,
-    __20_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00003800\n        PUSH, __1_const_intnl_SystemInt32\n
+    __20_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x0000399C\n        PUSH, __1_const_intnl_SystemInt32\n
     \       PUSH, __44_intnl_SystemInt32\n        COPY\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
     \       PUSH, __45_intnl_SystemInt32\n        EXTERN, \"UnityEngineComponentArray.__get_Length__SystemInt32\"\n
     \       PUSH, __44_intnl_SystemInt32\n        PUSH, __45_intnl_SystemInt32\n        PUSH,
@@ -1176,7 +1187,7 @@ MonoBehaviour:
     \       \n         # {\n        \n         # return HandCalculator.GetAnkkanableAll(GetArray(Cards));\n
     \       PUSH, Cards\n        PUSH, __0_list_KList\n        COPY\n        PUSH,
     Cards\n        PUSH, __6_intnl_KList\n        COPY # Copy-on-write symbol value
-    dirtied\n        PUSH, __21_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00003800\n
+    dirtied\n        PUSH, __21_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x0000399C\n
     \       PUSH, HandCalculator\n        PUSH, __74_const_intnl_SystemString\n        PUSH,
     __1_intnl_returnValSymbol_CardArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, __1_intnl_returnValSymbol_CardArray\n        PUSH, __7_intnl_CardArray\n
@@ -1198,7 +1209,7 @@ MonoBehaviour:
     AgariContext, card, isDiscardedByLeftPlayer);\n        PUSH, Cards\n        PUSH,
     __0_list_KList\n        COPY\n        PUSH, Cards\n        PUSH, __7_intnl_KList\n
     \       COPY # Copy-on-write symbol value dirtied\n        PUSH, __22_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003800\n        PUSH, HandCalculator\n        PUSH, __77_const_intnl_SystemString\n
+    \       JUMP, 0x0000399C\n        PUSH, HandCalculator\n        PUSH, __77_const_intnl_SystemString\n
     \       PUSH, __1_intnl_returnValSymbol_CardArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, HandCalculator\n        PUSH, __78_const_intnl_SystemString\n        PUSH,
     UIContext\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
@@ -1298,7 +1309,7 @@ MonoBehaviour:
     \       PUSH, __2_i_Int32\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
     __2_i_Int32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
     \       JUMP, 0x00002D98\n        \n         # SortPosition();\n        PUSH,
-    __23_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00003538\n        PUSH, __0_intnl_returnTarget_UInt32
+    __23_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x000036D4\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # public void SetColliderActive(bool active)\n    .export
     SetColliderActive\n        \n    SetColliderActive:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
@@ -1339,12 +1350,12 @@ MonoBehaviour:
     cards = GetArray(Cards);\n        PUSH, Cards\n        PUSH, __0_list_KList\n
     \       COPY\n        PUSH, Cards\n        PUSH, __8_intnl_KList\n        COPY
     # Copy-on-write symbol value dirtied\n        PUSH, __24_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003800\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
+    \       JUMP, 0x0000399C\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
     \       PUSH, __0_cards_CardArray\n        COPY\n        \n         # var openedCards
     = GetArray(OpenendCards);\n        PUSH, OpenendCards\n        PUSH, __0_list_KList\n
     \       COPY\n        PUSH, OpenendCards\n        PUSH, __9_intnl_KList\n        COPY
     # Copy-on-write symbol value dirtied\n        PUSH, __25_const_intnl_exitJumpLoc_UInt32\n
-    \       JUMP, 0x00003800\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
+    \       JUMP, 0x0000399C\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
     \       PUSH, __0_openedCards_CardArray\n        COPY\n        \n         # HandCalculator.RequestTsumoScore(cards,
     openedCards, AgariContext, playerStatus);\n        PUSH, HandCalculator\n        PUSH,
     __89_const_intnl_SystemString\n        PUSH, __0_cards_CardArray\n        EXTERN,
@@ -1364,52 +1375,82 @@ MonoBehaviour:
     #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
+    public PlayerStatus CalculateRonScore()\n    .export CalculateRonScore\n        \n
+    \   CalculateRonScore:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
+    \       \n         # {\n        \n         # var cards = GetArray(Cards);\n        PUSH,
+    Cards\n        PUSH, __0_list_KList\n        COPY\n        PUSH, Cards\n        PUSH,
+    __10_intnl_KList\n        COPY # Copy-on-write symbol value dirtied\n        PUSH,
+    __26_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x0000399C\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
+    \       PUSH, __1_cards_CardArray\n        COPY\n        \n         # var openedCards
+    = GetArray(OpenendCards);\n        PUSH, OpenendCards\n        PUSH, __0_list_KList\n
+    \       COPY\n        PUSH, OpenendCards\n        PUSH, __11_intnl_KList\n        COPY
+    # Copy-on-write symbol value dirtied\n        PUSH, __27_const_intnl_exitJumpLoc_UInt32\n
+    \       JUMP, 0x0000399C\n        PUSH, __1_intnl_returnValSymbol_CardArray\n
+    \       PUSH, __1_openedCards_CardArray\n        COPY\n        \n         # HandCalculator.RequestRonScore(cards,
+    openedCards, AgariContext, playerStatus);\n        PUSH, HandCalculator\n        PUSH,
+    __94_const_intnl_SystemString\n        PUSH, __1_cards_CardArray\n        EXTERN,
+    \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, HandCalculator\n        PUSH, __95_const_intnl_SystemString\n        PUSH,
+    __1_openedCards_CardArray\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, HandCalculator\n        PUSH, __96_const_intnl_SystemString\n        PUSH,
+    AgariContext\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, HandCalculator\n        PUSH, __97_const_intnl_SystemString\n        PUSH,
+    playerStatus\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
+    \       PUSH, AgariContext\n        PUSH, __4_intnl_AgariContext\n        COPY
+    # Copy-on-write symbol value dirtied\n        PUSH, playerStatus\n        PUSH,
+    __1_intnl_PlayerStatus\n        COPY # Copy-on-write symbol value dirtied\n        PUSH,
+    HandCalculator\n        PUSH, __98_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       \n         # return playerStatus;\n        PUSH, playerStatus\n        PUSH,
+    __1_intnl_returnValSymbol_PlayerStatus\n        COPY\n        PUSH, __0_intnl_returnTarget_UInt32
+    #Explicit return sequence\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
+    \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
+    \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
     public void SetPlayerName(string name)\n    .export SetPlayerName\n        \n
     \   SetPlayerName:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
     \        # {\n        \n         # PlayerName = name;\n        PUSH, __0_name_String\n
     \       PUSH, PlayerName\n        COPY\n        \n         # NetworkMessage =
     SerializePlayerName(name);\n        PUSH, __0_name_String\n        PUSH, __0_playerName_String\n
-    \       COPY\n        PUSH, __26_const_intnl_exitJumpLoc_UInt32\n        JUMP,
+    \       COPY\n        PUSH, __28_const_intnl_exitJumpLoc_UInt32\n        JUMP,
     0x000003F0\n        PUSH, __1_intnl_returnValSymbol_String\n        PUSH, NetworkMessage\n
     \       COPY\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n
     \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n
     \       \n         # public void _SetPlayerName(string name)\n    .export _SetPlayerName\n
     \       \n    _SetPlayerName:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
     \       \n         # {\n        \n         # TableViewer.setPlayerName(name, PlayerIndex);\n
-    \       PUSH, TableViewer\n        PUSH, __94_const_intnl_SystemString\n        PUSH,
+    \       PUSH, TableViewer\n        PUSH, __99_const_intnl_SystemString\n        PUSH,
     __1_name_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, TableViewer\n        PUSH, __95_const_intnl_SystemString\n        PUSH,
+    \       PUSH, TableViewer\n        PUSH, __100_const_intnl_SystemString\n        PUSH,
     PlayerIndex\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, PlayerIndex\n        PUSH, __53_intnl_SystemInt32\n        COPY
     # Copy-on-write symbol value dirtied\n        PUSH, TableViewer\n        PUSH,
-    __96_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    __101_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
     public void SetWind(string wind)\n    .export SetWind\n        \n    SetWind:\n
     \       \n        PUSH, __0_const_intnl_SystemUInt32\n        \n         # {\n
     \       \n         # playerStatus.Wind = wind;\n        PUSH, playerStatus\n        PUSH,
-    __97_const_intnl_SystemString\n        PUSH, __0_wind_String\n        EXTERN,
+    __102_const_intnl_SystemString\n        PUSH, __0_wind_String\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       \n         # TableViewer.setWInd(PlayerIndex, wind);\n        PUSH, TableViewer\n
     \       PUSH, __23_const_intnl_SystemString\n        PUSH, PlayerIndex\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, TableViewer\n        PUSH, __98_const_intnl_SystemString\n        PUSH,
+    \       PUSH, TableViewer\n        PUSH, __103_const_intnl_SystemString\n        PUSH,
     __0_wind_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, PlayerIndex\n        PUSH, __54_intnl_SystemInt32\n        COPY
     # Copy-on-write symbol value dirtied\n        PUSH, TableViewer\n        PUSH,
-    __99_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    __104_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
     public void SetRoundWind(string roundWind)\n    .export SetRoundWind\n        \n
     \   SetRoundWind:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
     \        # {\n        \n         # playerStatus.RoundWind = roundWind;\n        PUSH,
-    playerStatus\n        PUSH, __100_const_intnl_SystemString\n        PUSH, __0_roundWind_String\n
+    playerStatus\n        PUSH, __105_const_intnl_SystemString\n        PUSH, __0_roundWind_String\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
     \       PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n        COPY\n
     \       JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n        \n         #
     void SortPosition()\n    SortPosition:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
     \       \n         # {\n        \n         # Cards.Sort();\n        PUSH, Cards\n
-    \       PUSH, __101_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
+    \       PUSH, __106_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       \n         # for (var k = 0; k < Cards.Count(); ++k)\n        PUSH, __1_const_intnl_SystemInt32\n
     \       PUSH, __0_k_Int32\n        COPY\n        PUSH, Cards\n        PUSH, __32_const_intnl_SystemString\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
@@ -1419,13 +1460,13 @@ MonoBehaviour:
     \       EXTERN, \"SystemConvert.__ToInt32__SystemObject__SystemInt32\"\n        PUSH,
     __0_k_Int32\n        PUSH, __55_intnl_SystemInt32\n        PUSH, __29_intnl_SystemBoolean\n
     \       EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n
-    \       PUSH, __29_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003748\n        \n
+    \       PUSH, __29_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000038E4\n        \n
     \        # {\n        \n         # var card = (Card)Cards.At(k);\n        PUSH,
-    Cards\n        PUSH, __102_const_intnl_SystemString\n        PUSH, __0_k_Int32\n
+    Cards\n        PUSH, __107_const_intnl_SystemString\n        PUSH, __0_k_Int32\n
     \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, Cards\n        PUSH, __103_const_intnl_SystemString\n        EXTERN,
+    \       PUSH, Cards\n        PUSH, __108_const_intnl_SystemString\n        EXTERN,
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       PUSH, Cards\n        PUSH, __104_const_intnl_SystemString\n        PUSH,
+    \       PUSH, Cards\n        PUSH, __109_const_intnl_SystemString\n        PUSH,
     __34_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
     \       PUSH, __34_intnl_SystemObject\n        PUSH, __8_intnl_Card\n        COPY\n
     \       PUSH, __8_intnl_Card\n        PUSH, __9_card_Card\n        COPY\n        \n
@@ -1445,7 +1486,7 @@ MonoBehaviour:
     \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
     \       PUSH, __0_k_Int32\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
     __0_k_Int32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
-    \       JUMP, 0x00003564\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
+    \       JUMP, 0x00003700\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
     epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # void RequestCallFunctionToAll(string funcName)\n
     \   RequestCallFunctionToAll:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
@@ -1453,10 +1494,10 @@ MonoBehaviour:
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\n        EXTERN, \"VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi\"\n
     \       PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi\n        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi\n
     \       PUSH, __30_intnl_SystemBoolean\n        EXTERN, \"SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean\"\n
-    \       PUSH, __30_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000037C4\n        \n
+    \       PUSH, __30_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003960\n        \n
     \        # {\n        \n         # SendCustomEvent(funcName);\n        PUSH, __0_this_intnl_Player\n
     \       PUSH, __0_funcName_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       JUMP, 0x000037E4\n        \n         # else\n        \n         # {\n
+    \       JUMP, 0x00003980\n        \n         # else\n        \n         # {\n
     \       \n         # SendCustomNetworkEvent(NetworkEventTarget.All, funcName);\n
     \       PUSH, __0_this_intnl_Player\n        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget\n
     \       PUSH, __0_funcName_String\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid\"\n
@@ -1473,21 +1514,21 @@ MonoBehaviour:
     __0_objs_ObjectArray\n        PUSH, __56_intnl_SystemInt32\n        EXTERN, \"SystemObjectArray.__get_Length__SystemInt32\"\n
     \       PUSH, __56_intnl_SystemInt32\n        PUSH, __9_intnl_CardArray\n        EXTERN,
     \"UnityEngineComponentArray.__ctor__SystemInt32__UnityEngineComponentArray\"\n
-    \       PUSH, __9_intnl_CardArray\n        PUSH, __1_cards_CardArray\n        COPY\n
+    \       PUSH, __9_intnl_CardArray\n        PUSH, __2_cards_CardArray\n        COPY\n
     \       \n         # for (var i = 0; i < objs.Length; ++i)\n        PUSH, __1_const_intnl_SystemInt32\n
     \       PUSH, __3_i_Int32\n        COPY\n        PUSH, __0_objs_ObjectArray\n
     \       PUSH, __57_intnl_SystemInt32\n        EXTERN, \"SystemObjectArray.__get_Length__SystemInt32\"\n
     \       PUSH, __3_i_Int32\n        PUSH, __57_intnl_SystemInt32\n        PUSH,
     __31_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\n
-    \       PUSH, __31_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x0000397C\n        \n
+    \       PUSH, __31_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003B18\n        \n
     \        # {\n        \n         # cards[i] = (Card)objs[i];\n        PUSH, __0_objs_ObjectArray\n
     \       PUSH, __3_i_Int32\n        PUSH, __36_intnl_SystemObject\n        EXTERN,
     \"SystemObjectArray.__Get__SystemInt32__SystemObject\"\n        PUSH, __36_intnl_SystemObject\n
-    \       PUSH, __9_intnl_Card\n        COPY\n        PUSH, __1_cards_CardArray\n
+    \       PUSH, __9_intnl_Card\n        COPY\n        PUSH, __2_cards_CardArray\n
     \       PUSH, __3_i_Int32\n        PUSH, __9_intnl_Card\n        EXTERN, \"UnityEngineComponentArray.__Set__SystemInt32_UnityEngineComponent__SystemVoid\"\n
     \       PUSH, __3_i_Int32\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
     __3_i_Int32\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\n
-    \       JUMP, 0x000038B8\n        \n         # return cards;\n        PUSH, __1_cards_CardArray\n
+    \       JUMP, 0x00003A54\n        \n         # return cards;\n        PUSH, __2_cards_CardArray\n
     \       PUSH, __1_intnl_returnValSymbol_CardArray\n        COPY\n        PUSH,
     __0_intnl_returnTarget_UInt32 #Explicit return sequence\n        COPY\n        JUMP_INDIRECT,
     __0_intnl_returnTarget_UInt32\n        PUSH, __0_intnl_returnTarget_UInt32 #Function
@@ -1497,7 +1538,7 @@ MonoBehaviour:
     \        # {\n        \n         # if (string.IsNullOrEmpty(NetworkMessage))\n
     \       PUSH, NetworkMessage\n        PUSH, __32_intnl_SystemBoolean\n        EXTERN,
     \"SystemString.__IsNullOrEmpty__SystemString__SystemBoolean\"\n        PUSH, __32_intnl_SystemBoolean\n
-    \       JUMP_IF_FALSE, 0x000039FC\n        \n         # {\n        \n         #
+    \       JUMP_IF_FALSE, 0x00003B98\n        \n         # {\n        \n         #
     return;\n        PUSH, __0_intnl_returnTarget_UInt32 #Explicit return sequence\n
     \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n
     \        # var splited = NetworkMessage.Split(',');\n        PUSH, __0_const_intnl_SystemCharArray\n
@@ -1515,21 +1556,21 @@ MonoBehaviour:
     \       \n         # if (lastMessageNumber != networkMessageNumber)\n        PUSH,
     lastMessageNumber\n        PUSH, __0_networkMessageNumber_Int32\n        PUSH,
     __33_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean\"\n
-    \       PUSH, __33_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003C80\n        \n
+    \       PUSH, __33_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003E1C\n        \n
     \        # {\n        \n         # lastMessageNumber = networkMessageNumber;\n
     \       PUSH, __0_networkMessageNumber_Int32\n        PUSH, lastMessageNumber\n
     \       COPY\n        \n         # switch (splited[1])\n        PUSH, __0_splited_StringArray\n
     \       PUSH, __3_const_intnl_SystemInt32\n        PUSH, __21_intnl_SystemString\n
     \       EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n        \n
     \        # case \"Riichi\":\n        PUSH, __21_intnl_SystemString\n        PUSH,
-    __105_const_intnl_SystemString\n        PUSH, __34_intnl_SystemBoolean\n        EXTERN,
+    __110_const_intnl_SystemString\n        PUSH, __34_intnl_SystemBoolean\n        EXTERN,
     \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n        PUSH,
-    __34_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003B38\n        JUMP, 0x00003B78\n
+    __34_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003CD4\n        JUMP, 0x00003D14\n
     \       \n         # case \"Name\":\n        PUSH, __21_intnl_SystemString\n        PUSH,
-    __106_const_intnl_SystemString\n        PUSH, __35_intnl_SystemBoolean\n        EXTERN,
+    __111_const_intnl_SystemString\n        PUSH, __35_intnl_SystemBoolean\n        EXTERN,
     \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n        PUSH,
-    __35_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003B70\n        JUMP, 0x00003C48\n
-    \       JUMP, 0x00003C80\n        PUSH, __107_const_intnl_SystemString\n        PUSH,
+    __35_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00003D0C\n        JUMP, 0x00003DE4\n
+    \       JUMP, 0x00003E1C\n        PUSH, __112_const_intnl_SystemString\n        PUSH,
     __5_intnl_interpolatedStr_String\n        COPY\n        PUSH, __0_splited_StringArray\n
     \       PUSH, __7_const_intnl_SystemInt32\n        PUSH, __22_intnl_SystemString\n
     \       EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n        PUSH,
@@ -1543,11 +1584,11 @@ MonoBehaviour:
     __24_intnl_SystemString\n        PUSH, __36_intnl_SystemBoolean\n        EXTERN,
     \"SystemBoolean.__Parse__SystemString__SystemBoolean\"\n        PUSH, RiichiBon\n
     \       PUSH, __36_intnl_SystemBoolean\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\n
-    \       JUMP, 0x00003C80\n        \n         # _SetPlayerName(splited[2]);\n        PUSH,
+    \       JUMP, 0x00003E1C\n        \n         # _SetPlayerName(splited[2]);\n        PUSH,
     __0_splited_StringArray\n        PUSH, __7_const_intnl_SystemInt32\n        PUSH,
     __1_name_String\n        EXTERN, \"SystemStringArray.__Get__SystemInt32__SystemString\"\n
-    \       PUSH, __27_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x000033CC\n
-    \       \n         # break;\n        JUMP, 0x00003C80\n        PUSH, __0_intnl_returnTarget_UInt32
+    \       PUSH, __29_const_intnl_exitJumpLoc_UInt32\n        JUMP, 0x00003568\n
+    \       \n         # break;\n        JUMP, 0x00003E1C\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n.code_end\n"
   assemblyError: 
@@ -10074,1562 +10115,1751 @@ MonoBehaviour:
       lineChar: 15
       spanCodeSection: "playerStatus;\r\n    }\r\n\r\n    "
     - startInstruction: 13148
-      endInstruction: 13147
+      endInstruction: 13155
       startSourceChar: 10687
-      endSourceChar: 10713
+      endSourceChar: 10732
       line: 368
       lineChar: 4
-      spanCodeSection: public void SetPlayerName(
-    - startInstruction: 13148
-      endInstruction: 13155
-      startSourceChar: 10713
-      endSourceChar: 10731
-      line: 368
-      lineChar: 30
-      spanCodeSection: "string name)\r\n    "
+      spanCodeSection: "public PlayerStatus CalculateRonScore()\r\n    "
     - startInstruction: 13156
       endInstruction: 13155
-      startSourceChar: 10731
-      endSourceChar: 10742
+      startSourceChar: 10732
+      endSourceChar: 10743
       line: 369
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 13156
       endInstruction: 13155
-      startSourceChar: 10742
-      endSourceChar: 10742
+      startSourceChar: 10743
+      endSourceChar: 10743
       line: 370
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 13156
       endInstruction: 13155
-      startSourceChar: 10742
-      endSourceChar: 10742
+      startSourceChar: 10743
+      endSourceChar: 10743
       line: 370
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 13156
       endInstruction: 13155
-      startSourceChar: 10742
+      startSourceChar: 10743
+      endSourceChar: 10753
+      line: 370
+      lineChar: 8
+      spanCodeSection: 'var cards '
+    - startInstruction: 13156
+      endInstruction: 13155
+      startSourceChar: 10753
       endSourceChar: 10755
       line: 370
+      lineChar: 18
+      spanCodeSection: '= '
+    - startInstruction: 13156
+      endInstruction: 13155
+      startSourceChar: 10755
+      endSourceChar: 10755
+      line: 370
+      lineChar: 20
+      spanCodeSection: 
+    - startInstruction: 13156
+      endInstruction: 13155
+      startSourceChar: 10755
+      endSourceChar: 10764
+      line: 370
+      lineChar: 20
+      spanCodeSection: GetArray(
+    - startInstruction: 13156
+      endInstruction: 13231
+      startSourceChar: 10764
+      endSourceChar: 10781
+      line: 370
+      lineChar: 29
+      spanCodeSection: "Cards);\r\n        "
+    - startInstruction: 13232
+      endInstruction: 13231
+      startSourceChar: 10781
+      endSourceChar: 10781
+      line: 371
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13232
+      endInstruction: 13231
+      startSourceChar: 10781
+      endSourceChar: 10781
+      line: 371
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13232
+      endInstruction: 13231
+      startSourceChar: 10781
+      endSourceChar: 10797
+      line: 371
+      lineChar: 8
+      spanCodeSection: 'var openedCards '
+    - startInstruction: 13232
+      endInstruction: 13231
+      startSourceChar: 10797
+      endSourceChar: 10799
+      line: 371
+      lineChar: 24
+      spanCodeSection: '= '
+    - startInstruction: 13232
+      endInstruction: 13231
+      startSourceChar: 10799
+      endSourceChar: 10799
+      line: 371
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 13232
+      endInstruction: 13231
+      startSourceChar: 10799
+      endSourceChar: 10808
+      line: 371
+      lineChar: 26
+      spanCodeSection: GetArray(
+    - startInstruction: 13232
+      endInstruction: 13307
+      startSourceChar: 10808
+      endSourceChar: 10832
+      line: 371
+      lineChar: 35
+      spanCodeSection: "OpenendCards);\r\n        "
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10832
+      endSourceChar: 10832
+      line: 372
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10832
+      endSourceChar: 10832
+      line: 372
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10832
+      endSourceChar: 10832
+      line: 372
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10832
+      endSourceChar: 10847
+      line: 372
+      lineChar: 8
+      spanCodeSection: HandCalculator.
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10847
+      endSourceChar: 10863
+      line: 372
+      lineChar: 23
+      spanCodeSection: RequestRonScore(
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10863
+      endSourceChar: 10870
+      line: 372
+      lineChar: 39
+      spanCodeSection: 'cards, '
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10870
+      endSourceChar: 10883
+      line: 372
+      lineChar: 46
+      spanCodeSection: 'openedCards, '
+    - startInstruction: 13308
+      endInstruction: 13307
+      startSourceChar: 10883
+      endSourceChar: 10897
+      line: 372
+      lineChar: 59
+      spanCodeSection: 'AgariContext, '
+    - startInstruction: 13308
+      endInstruction: 13499
+      startSourceChar: 10897
+      endSourceChar: 10923
+      line: 372
+      lineChar: 73
+      spanCodeSection: "playerStatus);\r\n\r\n        "
+    - startInstruction: 13500
+      endInstruction: 13499
+      startSourceChar: 10923
+      endSourceChar: 10930
+      line: 374
+      lineChar: 8
+      spanCodeSection: 'return '
+    - startInstruction: 13500
+      endInstruction: 13559
+      startSourceChar: 10930
+      endSourceChar: 10958
+      line: 374
+      lineChar: 15
+      spanCodeSection: "playerStatus;\r\n    }\r\n\r\n    "
+    - startInstruction: 13560
+      endInstruction: 13559
+      startSourceChar: 10958
+      endSourceChar: 10984
+      line: 377
+      lineChar: 4
+      spanCodeSection: public void SetPlayerName(
+    - startInstruction: 13560
+      endInstruction: 13567
+      startSourceChar: 10984
+      endSourceChar: 11002
+      line: 377
+      lineChar: 30
+      spanCodeSection: "string name)\r\n    "
+    - startInstruction: 13568
+      endInstruction: 13567
+      startSourceChar: 11002
+      endSourceChar: 11013
+      line: 378
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 13568
+      endInstruction: 13567
+      startSourceChar: 11013
+      endSourceChar: 11013
+      line: 379
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13568
+      endInstruction: 13567
+      startSourceChar: 11013
+      endSourceChar: 11013
+      line: 379
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 13568
+      endInstruction: 13567
+      startSourceChar: 11013
+      endSourceChar: 11026
+      line: 379
       lineChar: 8
       spanCodeSection: 'PlayerName = '
-    - startInstruction: 13156
-      endInstruction: 13175
-      startSourceChar: 10755
-      endSourceChar: 10770
-      line: 370
+    - startInstruction: 13568
+      endInstruction: 13587
+      startSourceChar: 11026
+      endSourceChar: 11041
+      line: 379
       lineChar: 21
       spanCodeSection: "name;\r\n        "
-    - startInstruction: 13176
-      endInstruction: 13175
-      startSourceChar: 10770
-      endSourceChar: 10770
-      line: 371
+    - startInstruction: 13588
+      endInstruction: 13587
+      startSourceChar: 11041
+      endSourceChar: 11041
+      line: 380
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13176
-      endInstruction: 13175
-      startSourceChar: 10770
-      endSourceChar: 10770
-      line: 371
+    - startInstruction: 13588
+      endInstruction: 13587
+      startSourceChar: 11041
+      endSourceChar: 11041
+      line: 380
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13176
-      endInstruction: 13175
-      startSourceChar: 10770
-      endSourceChar: 10787
-      line: 371
+    - startInstruction: 13588
+      endInstruction: 13587
+      startSourceChar: 11041
+      endSourceChar: 11058
+      line: 380
       lineChar: 8
       spanCodeSection: 'NetworkMessage = '
-    - startInstruction: 13176
-      endInstruction: 13175
-      startSourceChar: 10787
-      endSourceChar: 10787
-      line: 371
+    - startInstruction: 13588
+      endInstruction: 13587
+      startSourceChar: 11058
+      endSourceChar: 11058
+      line: 380
       lineChar: 25
       spanCodeSection: 
-    - startInstruction: 13176
-      endInstruction: 13175
-      startSourceChar: 10787
-      endSourceChar: 10807
-      line: 371
+    - startInstruction: 13588
+      endInstruction: 13587
+      startSourceChar: 11058
+      endSourceChar: 11078
+      line: 380
       lineChar: 25
       spanCodeSection: SerializePlayerName(
-    - startInstruction: 13176
-      endInstruction: 13251
-      startSourceChar: 10807
-      endSourceChar: 10828
-      line: 371
+    - startInstruction: 13588
+      endInstruction: 13663
+      startSourceChar: 11078
+      endSourceChar: 11099
+      line: 380
       lineChar: 45
       spanCodeSection: "name);\r\n    }\r\n\r\n    "
-    - startInstruction: 13252
-      endInstruction: 13251
-      startSourceChar: 10828
-      endSourceChar: 10855
-      line: 374
+    - startInstruction: 13664
+      endInstruction: 13663
+      startSourceChar: 11099
+      endSourceChar: 11126
+      line: 383
       lineChar: 4
       spanCodeSection: public void _SetPlayerName(
-    - startInstruction: 13252
-      endInstruction: 13259
-      startSourceChar: 10855
-      endSourceChar: 10873
-      line: 374
+    - startInstruction: 13664
+      endInstruction: 13671
+      startSourceChar: 11126
+      endSourceChar: 11144
+      line: 383
       lineChar: 31
       spanCodeSection: "string name)\r\n    "
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10873
-      endSourceChar: 10884
-      line: 375
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11144
+      endSourceChar: 11155
+      line: 384
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10884
-      endSourceChar: 10884
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11155
+      endSourceChar: 11155
+      line: 385
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10884
-      endSourceChar: 10884
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11155
+      endSourceChar: 11155
+      line: 385
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10884
-      endSourceChar: 10884
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11155
+      endSourceChar: 11155
+      line: 385
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10884
-      endSourceChar: 10896
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11155
+      endSourceChar: 11167
+      line: 385
       lineChar: 8
       spanCodeSection: TableViewer.
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10896
-      endSourceChar: 10910
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11167
+      endSourceChar: 11181
+      line: 385
       lineChar: 20
       spanCodeSection: setPlayerName(
-    - startInstruction: 13260
-      endInstruction: 13259
-      startSourceChar: 10910
-      endSourceChar: 10916
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13671
+      startSourceChar: 11181
+      endSourceChar: 11187
+      line: 385
       lineChar: 34
       spanCodeSection: 'name, '
-    - startInstruction: 13260
-      endInstruction: 13387
-      startSourceChar: 10916
-      endSourceChar: 10944
-      line: 376
+    - startInstruction: 13672
+      endInstruction: 13799
+      startSourceChar: 11187
+      endSourceChar: 11215
+      line: 385
       lineChar: 40
       spanCodeSection: "PlayerIndex);\r\n    }\r\n\r\n    "
-    - startInstruction: 13388
-      endInstruction: 13387
-      startSourceChar: 10944
-      endSourceChar: 10964
-      line: 379
+    - startInstruction: 13800
+      endInstruction: 13799
+      startSourceChar: 11215
+      endSourceChar: 11235
+      line: 388
       lineChar: 4
       spanCodeSection: public void SetWind(
-    - startInstruction: 13388
-      endInstruction: 13395
-      startSourceChar: 10964
-      endSourceChar: 10982
-      line: 379
+    - startInstruction: 13800
+      endInstruction: 13807
+      startSourceChar: 11235
+      endSourceChar: 11253
+      line: 388
       lineChar: 24
       spanCodeSection: "string wind)\r\n    "
-    - startInstruction: 13396
-      endInstruction: 13395
-      startSourceChar: 10982
-      endSourceChar: 10993
-      line: 380
+    - startInstruction: 13808
+      endInstruction: 13807
+      startSourceChar: 11253
+      endSourceChar: 11264
+      line: 389
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 13396
-      endInstruction: 13395
-      startSourceChar: 10993
-      endSourceChar: 10993
-      line: 381
+    - startInstruction: 13808
+      endInstruction: 13807
+      startSourceChar: 11264
+      endSourceChar: 11264
+      line: 390
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13396
-      endInstruction: 13395
-      startSourceChar: 10993
-      endSourceChar: 10993
-      line: 381
+    - startInstruction: 13808
+      endInstruction: 13807
+      startSourceChar: 11264
+      endSourceChar: 11264
+      line: 390
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13396
-      endInstruction: 13395
-      startSourceChar: 10993
-      endSourceChar: 10993
-      line: 381
+    - startInstruction: 13808
+      endInstruction: 13807
+      startSourceChar: 11264
+      endSourceChar: 11264
+      line: 390
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13396
-      endInstruction: 13395
-      startSourceChar: 10993
-      endSourceChar: 11006
-      line: 381
+    - startInstruction: 13808
+      endInstruction: 13807
+      startSourceChar: 11264
+      endSourceChar: 11277
+      line: 390
       lineChar: 8
       spanCodeSection: playerStatus.
-    - startInstruction: 13396
-      endInstruction: 13395
-      startSourceChar: 11006
-      endSourceChar: 11013
-      line: 381
+    - startInstruction: 13808
+      endInstruction: 13807
+      startSourceChar: 11277
+      endSourceChar: 11284
+      line: 390
       lineChar: 21
       spanCodeSection: 'Wind = '
-    - startInstruction: 13396
-      endInstruction: 13427
-      startSourceChar: 11013
-      endSourceChar: 11028
-      line: 381
+    - startInstruction: 13808
+      endInstruction: 13839
+      startSourceChar: 11284
+      endSourceChar: 11299
+      line: 390
       lineChar: 28
       spanCodeSection: "wind;\r\n        "
-    - startInstruction: 13428
-      endInstruction: 13427
-      startSourceChar: 11028
-      endSourceChar: 11028
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13839
+      startSourceChar: 11299
+      endSourceChar: 11299
+      line: 391
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13428
-      endInstruction: 13427
-      startSourceChar: 11028
-      endSourceChar: 11028
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13839
+      startSourceChar: 11299
+      endSourceChar: 11299
+      line: 391
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13428
-      endInstruction: 13427
-      startSourceChar: 11028
-      endSourceChar: 11028
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13839
+      startSourceChar: 11299
+      endSourceChar: 11299
+      line: 391
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13428
-      endInstruction: 13427
-      startSourceChar: 11028
-      endSourceChar: 11040
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13839
+      startSourceChar: 11299
+      endSourceChar: 11311
+      line: 391
       lineChar: 8
       spanCodeSection: TableViewer.
-    - startInstruction: 13428
-      endInstruction: 13427
-      startSourceChar: 11040
-      endSourceChar: 11048
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13839
+      startSourceChar: 11311
+      endSourceChar: 11319
+      line: 391
       lineChar: 20
       spanCodeSection: setWInd(
-    - startInstruction: 13428
-      endInstruction: 13427
-      startSourceChar: 11048
-      endSourceChar: 11061
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13839
+      startSourceChar: 11319
+      endSourceChar: 11332
+      line: 391
       lineChar: 28
       spanCodeSection: 'PlayerIndex, '
-    - startInstruction: 13428
-      endInstruction: 13555
-      startSourceChar: 11061
-      endSourceChar: 11082
-      line: 382
+    - startInstruction: 13840
+      endInstruction: 13967
+      startSourceChar: 11332
+      endSourceChar: 11353
+      line: 391
       lineChar: 41
       spanCodeSection: "wind);\r\n    }\r\n\r\n    "
-    - startInstruction: 13556
-      endInstruction: 13555
-      startSourceChar: 11082
-      endSourceChar: 11107
-      line: 385
+    - startInstruction: 13968
+      endInstruction: 13967
+      startSourceChar: 11353
+      endSourceChar: 11378
+      line: 394
       lineChar: 4
       spanCodeSection: public void SetRoundWind(
-    - startInstruction: 13556
-      endInstruction: 13563
-      startSourceChar: 11107
-      endSourceChar: 11130
-      line: 385
+    - startInstruction: 13968
+      endInstruction: 13975
+      startSourceChar: 11378
+      endSourceChar: 11401
+      line: 394
       lineChar: 29
       spanCodeSection: "string roundWind)\r\n    "
-    - startInstruction: 13564
-      endInstruction: 13563
-      startSourceChar: 11130
-      endSourceChar: 11141
-      line: 386
+    - startInstruction: 13976
+      endInstruction: 13975
+      startSourceChar: 11401
+      endSourceChar: 11412
+      line: 395
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 13564
-      endInstruction: 13563
-      startSourceChar: 11141
-      endSourceChar: 11141
-      line: 387
+    - startInstruction: 13976
+      endInstruction: 13975
+      startSourceChar: 11412
+      endSourceChar: 11412
+      line: 396
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13564
-      endInstruction: 13563
-      startSourceChar: 11141
-      endSourceChar: 11141
-      line: 387
+    - startInstruction: 13976
+      endInstruction: 13975
+      startSourceChar: 11412
+      endSourceChar: 11412
+      line: 396
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13564
-      endInstruction: 13563
-      startSourceChar: 11141
-      endSourceChar: 11141
-      line: 387
+    - startInstruction: 13976
+      endInstruction: 13975
+      startSourceChar: 11412
+      endSourceChar: 11412
+      line: 396
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13564
-      endInstruction: 13563
-      startSourceChar: 11141
-      endSourceChar: 11154
-      line: 387
+    - startInstruction: 13976
+      endInstruction: 13975
+      startSourceChar: 11412
+      endSourceChar: 11425
+      line: 396
       lineChar: 8
       spanCodeSection: playerStatus.
-    - startInstruction: 13564
-      endInstruction: 13563
-      startSourceChar: 11154
-      endSourceChar: 11166
-      line: 387
+    - startInstruction: 13976
+      endInstruction: 13975
+      startSourceChar: 11425
+      endSourceChar: 11437
+      line: 396
       lineChar: 21
       spanCodeSection: 'RoundWind = '
-    - startInstruction: 13564
-      endInstruction: 13615
-      startSourceChar: 11166
-      endSourceChar: 11191
-      line: 387
+    - startInstruction: 13976
+      endInstruction: 14027
+      startSourceChar: 11437
+      endSourceChar: 11462
+      line: 396
       lineChar: 33
       spanCodeSection: "roundWind;\r\n    }\r\n\r\n    "
-    - startInstruction: 13616
-      endInstruction: 13623
-      startSourceChar: 11191
-      endSourceChar: 11216
-      line: 390
+    - startInstruction: 14028
+      endInstruction: 14035
+      startSourceChar: 11462
+      endSourceChar: 11487
+      line: 399
       lineChar: 4
       spanCodeSection: "void SortPosition()\r\n    "
-    - startInstruction: 13624
-      endInstruction: 13623
-      startSourceChar: 11216
-      endSourceChar: 11227
-      line: 391
+    - startInstruction: 14036
+      endInstruction: 14035
+      startSourceChar: 11487
+      endSourceChar: 11498
+      line: 400
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 13624
-      endInstruction: 13623
-      startSourceChar: 11227
-      endSourceChar: 11227
-      line: 392
+    - startInstruction: 14036
+      endInstruction: 14035
+      startSourceChar: 11498
+      endSourceChar: 11498
+      line: 401
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13624
-      endInstruction: 13623
-      startSourceChar: 11227
-      endSourceChar: 11227
-      line: 392
+    - startInstruction: 14036
+      endInstruction: 14035
+      startSourceChar: 11498
+      endSourceChar: 11498
+      line: 401
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13624
-      endInstruction: 13623
-      startSourceChar: 11227
-      endSourceChar: 11227
-      line: 392
+    - startInstruction: 14036
+      endInstruction: 14035
+      startSourceChar: 11498
+      endSourceChar: 11498
+      line: 401
       lineChar: 8
       spanCodeSection: 
-    - startInstruction: 13624
-      endInstruction: 13623
-      startSourceChar: 11227
-      endSourceChar: 11233
-      line: 392
+    - startInstruction: 14036
+      endInstruction: 14035
+      startSourceChar: 11498
+      endSourceChar: 11504
+      line: 401
       lineChar: 8
       spanCodeSection: Cards.
-    - startInstruction: 13624
-      endInstruction: 13647
-      startSourceChar: 11233
-      endSourceChar: 11250
-      line: 392
+    - startInstruction: 14036
+      endInstruction: 14059
+      startSourceChar: 11504
+      endSourceChar: 11521
+      line: 401
       lineChar: 14
       spanCodeSection: "Sort();\r\n        "
-    - startInstruction: 13648
-      endInstruction: 13647
-      startSourceChar: 11250
-      endSourceChar: 11255
-      line: 393
+    - startInstruction: 14060
+      endInstruction: 14059
+      startSourceChar: 11521
+      endSourceChar: 11526
+      line: 402
       lineChar: 8
       spanCodeSection: for (
-    - startInstruction: 13648
-      endInstruction: 13647
-      startSourceChar: 11255
-      endSourceChar: 11255
-      line: 393
+    - startInstruction: 14060
+      endInstruction: 14059
+      startSourceChar: 11526
+      endSourceChar: 11526
+      line: 402
       lineChar: 13
       spanCodeSection: 
-    - startInstruction: 13648
-      endInstruction: 13647
-      startSourceChar: 11255
-      endSourceChar: 11261
-      line: 393
+    - startInstruction: 14060
+      endInstruction: 14059
+      startSourceChar: 11526
+      endSourceChar: 11532
+      line: 402
       lineChar: 13
       spanCodeSection: 'var k '
-    - startInstruction: 13648
-      endInstruction: 13647
-      startSourceChar: 11261
-      endSourceChar: 11263
-      line: 393
+    - startInstruction: 14060
+      endInstruction: 14059
+      startSourceChar: 11532
+      endSourceChar: 11534
+      line: 402
       lineChar: 19
       spanCodeSection: '= '
-    - startInstruction: 13648
-      endInstruction: 13667
-      startSourceChar: 11263
-      endSourceChar: 11266
-      line: 393
+    - startInstruction: 14060
+      endInstruction: 14079
+      startSourceChar: 11534
+      endSourceChar: 11537
+      line: 402
       lineChar: 21
       spanCodeSection: '0; '
-    - startInstruction: 13668
-      endInstruction: 13667
-      startSourceChar: 11266
-      endSourceChar: 11266
-      line: 393
+    - startInstruction: 14080
+      endInstruction: 14079
+      startSourceChar: 11537
+      endSourceChar: 11537
+      line: 402
       lineChar: 24
       spanCodeSection: 
-    - startInstruction: 13668
-      endInstruction: 13667
-      startSourceChar: 11266
-      endSourceChar: 11270
-      line: 393
+    - startInstruction: 14080
+      endInstruction: 14079
+      startSourceChar: 11537
+      endSourceChar: 11541
+      line: 402
       lineChar: 24
       spanCodeSection: 'k < '
-    - startInstruction: 13668
-      endInstruction: 13667
-      startSourceChar: 11270
-      endSourceChar: 11270
-      line: 393
+    - startInstruction: 14080
+      endInstruction: 14079
+      startSourceChar: 11541
+      endSourceChar: 11541
+      line: 402
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 13668
-      endInstruction: 13667
-      startSourceChar: 11270
-      endSourceChar: 11270
-      line: 393
+    - startInstruction: 14080
+      endInstruction: 14079
+      startSourceChar: 11541
+      endSourceChar: 11541
+      line: 402
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 13668
-      endInstruction: 13667
-      startSourceChar: 11270
-      endSourceChar: 11276
-      line: 393
+    - startInstruction: 14080
+      endInstruction: 14079
+      startSourceChar: 11541
+      endSourceChar: 11547
+      line: 402
       lineChar: 28
       spanCodeSection: Cards.
-    - startInstruction: 13668
-      endInstruction: 13795
-      startSourceChar: 11276
-      endSourceChar: 11299
-      line: 393
+    - startInstruction: 14080
+      endInstruction: 14207
+      startSourceChar: 11547
+      endSourceChar: 11570
+      line: 402
       lineChar: 34
       spanCodeSection: "Count(); ++k)\r\n        "
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11299
-      endSourceChar: 11314
-      line: 394
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11314
-      endSourceChar: 11314
-      line: 395
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11314
-      endSourceChar: 11314
-      line: 395
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11314
-      endSourceChar: 11323
-      line: 395
-      lineChar: 12
-      spanCodeSection: 'var card '
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11323
-      endSourceChar: 11325
-      line: 395
-      lineChar: 21
-      spanCodeSection: '= '
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11325
-      endSourceChar: 11331
-      line: 395
-      lineChar: 23
-      spanCodeSection: (Card)
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11331
-      endSourceChar: 11331
-      line: 395
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11331
-      endSourceChar: 11331
-      line: 395
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11331
-      endSourceChar: 11337
-      line: 395
-      lineChar: 29
-      spanCodeSection: Cards.
-    - startInstruction: 13796
-      endInstruction: 13795
-      startSourceChar: 11337
-      endSourceChar: 11340
-      line: 395
-      lineChar: 35
-      spanCodeSection: At(
-    - startInstruction: 13796
-      endInstruction: 13923
-      startSourceChar: 11340
-      endSourceChar: 11357
-      line: 395
-      lineChar: 38
-      spanCodeSection: "k);\r\n            "
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11357
-      endSourceChar: 11357
-      line: 396
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11357
-      endSourceChar: 11357
-      line: 396
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11357
-      endSourceChar: 11371
-      line: 396
-      lineChar: 12
-      spanCodeSection: 'var cardPoint '
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11371
-      endSourceChar: 11373
-      line: 396
-      lineChar: 26
-      spanCodeSection: '= '
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11373
-      endSourceChar: 11373
-      line: 396
-      lineChar: 28
-      spanCodeSection: 
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11373
-      endSourceChar: 11384
-      line: 396
-      lineChar: 28
-      spanCodeSection: cardPoints[
-    - startInstruction: 13924
-      endInstruction: 13923
-      startSourceChar: 11384
-      endSourceChar: 11384
-      line: 396
-      lineChar: 39
-      spanCodeSection: 
-    - startInstruction: 13924
-      endInstruction: 13975
-      startSourceChar: 11384
-      endSourceChar: 11401
-      line: 396
-      lineChar: 39
-      spanCodeSection: "k];\r\n            "
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11401
-      endSourceChar: 11401
-      line: 397
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11401
-      endSourceChar: 11401
-      line: 397
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11401
-      endSourceChar: 11401
-      line: 397
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11401
-      endSourceChar: 11406
-      line: 397
-      lineChar: 12
-      spanCodeSection: card.
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11406
-      endSourceChar: 11418
-      line: 397
-      lineChar: 17
-      spanCodeSection: SetPosition(
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11418
-      endSourceChar: 11418
-      line: 397
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 13976
-      endInstruction: 13975
-      startSourceChar: 11418
-      endSourceChar: 11428
-      line: 397
-      lineChar: 29
-      spanCodeSection: cardPoint.
-    - startInstruction: 13976
-      endInstruction: 13999
-      startSourceChar: 11428
-      endSourceChar: 11438
-      line: 397
-      lineChar: 39
-      spanCodeSection: 'position, '
-    - startInstruction: 14000
-      endInstruction: 13999
-      startSourceChar: 11438
-      endSourceChar: 11438
-      line: 397
-      lineChar: 49
-      spanCodeSection: 
-    - startInstruction: 14000
-      endInstruction: 13999
-      startSourceChar: 11438
-      endSourceChar: 11448
-      line: 397
-      lineChar: 49
-      spanCodeSection: cardPoint.
-    - startInstruction: 14000
-      endInstruction: 14171
-      startSourceChar: 11448
-      endSourceChar: 11482
-      line: 397
-      lineChar: 59
-      spanCodeSection: "rotation);\r\n        }\r\n    }\r\n    "
-    - startInstruction: 14172
-      endInstruction: 14171
-      startSourceChar: 11482
-      endSourceChar: 11512
-      line: 400
-      lineChar: 4
-      spanCodeSection: void RequestCallFunctionToAll(
-    - startInstruction: 14172
-      endInstruction: 14179
-      startSourceChar: 11512
-      endSourceChar: 11534
-      line: 400
-      lineChar: 34
-      spanCodeSection: "string funcName)\r\n    "
-    - startInstruction: 14180
-      endInstruction: 14179
-      startSourceChar: 11534
-      endSourceChar: 11545
-      line: 401
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 14180
-      endInstruction: 14179
-      startSourceChar: 11545
-      endSourceChar: 11549
-      line: 402
-      lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 14180
-      endInstruction: 14179
-      startSourceChar: 11549
-      endSourceChar: 11549
-      line: 402
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14180
-      endInstruction: 14179
-      startSourceChar: 11549
-      endSourceChar: 11549
-      line: 402
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14180
-      endInstruction: 14179
-      startSourceChar: 11549
-      endSourceChar: 11560
-      line: 402
-      lineChar: 12
-      spanCodeSection: Networking.
-    - startInstruction: 14180
-      endInstruction: 14195
-      startSourceChar: 11560
-      endSourceChar: 11575
-      line: 402
-      lineChar: 23
-      spanCodeSection: 'LocalPlayer == '
-    - startInstruction: 14196
-      endInstruction: 14243
-      startSourceChar: 11575
-      endSourceChar: 11590
-      line: 402
-      lineChar: 38
-      spanCodeSection: "null)\r\n        "
-    - startInstruction: 14244
-      endInstruction: 14243
-      startSourceChar: 11590
-      endSourceChar: 11605
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11570
+      endSourceChar: 11585
       line: 403
       lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 14244
-      endInstruction: 14243
-      startSourceChar: 11605
-      endSourceChar: 11605
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11585
+      endSourceChar: 11585
       line: 404
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 14244
-      endInstruction: 14243
-      startSourceChar: 11605
-      endSourceChar: 11605
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11585
+      endSourceChar: 11585
       line: 404
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 14244
-      endInstruction: 14243
-      startSourceChar: 11605
-      endSourceChar: 11621
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11585
+      endSourceChar: 11594
       line: 404
       lineChar: 12
-      spanCodeSection: SendCustomEvent(
-    - startInstruction: 14244
-      endInstruction: 14275
-      startSourceChar: 11621
-      endSourceChar: 11652
+      spanCodeSection: 'var card '
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11594
+      endSourceChar: 11596
       line: 404
-      lineChar: 28
-      spanCodeSection: "funcName);\r\n        }\r\n        "
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11652
-      endSourceChar: 11666
-      line: 406
-      lineChar: 8
-      spanCodeSection: "else\r\n        "
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11666
-      endSourceChar: 11681
-      line: 407
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11681
-      endSourceChar: 11681
-      line: 408
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11681
-      endSourceChar: 11681
-      line: 408
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11681
-      endSourceChar: 11704
-      line: 408
-      lineChar: 12
-      spanCodeSection: SendCustomNetworkEvent(
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11704
-      endSourceChar: 11704
-      line: 408
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11704
-      endSourceChar: 11723
-      line: 408
-      lineChar: 35
-      spanCodeSection: NetworkEventTarget.
-    - startInstruction: 14276
-      endInstruction: 14275
-      startSourceChar: 11723
-      endSourceChar: 11728
-      line: 408
-      lineChar: 54
-      spanCodeSection: 'All, '
-    - startInstruction: 14276
-      endInstruction: 14327
-      startSourceChar: 11728
-      endSourceChar: 11764
-      line: 408
-      lineChar: 59
-      spanCodeSection: "funcName);\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 14328
-      endInstruction: 14327
-      startSourceChar: 11764
-      endSourceChar: 11780
-      line: 412
-      lineChar: 4
-      spanCodeSection: Card[] GetArray(
-    - startInstruction: 14328
-      endInstruction: 14335
-      startSourceChar: 11780
-      endSourceChar: 11797
-      line: 412
-      lineChar: 20
-      spanCodeSection: "KList list)\r\n    "
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11797
-      endSourceChar: 11808
-      line: 413
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11808
-      endSourceChar: 11808
-      line: 414
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11808
-      endSourceChar: 11808
-      line: 414
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11808
-      endSourceChar: 11817
-      line: 414
-      lineChar: 8
-      spanCodeSection: 'var objs '
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11817
-      endSourceChar: 11819
-      line: 414
-      lineChar: 17
-      spanCodeSection: '= '
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11819
-      endSourceChar: 11819
-      line: 414
-      lineChar: 19
-      spanCodeSection: 
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11819
-      endSourceChar: 11819
-      line: 414
-      lineChar: 19
-      spanCodeSection: 
-    - startInstruction: 14336
-      endInstruction: 14335
-      startSourceChar: 11819
-      endSourceChar: 11824
-      line: 414
-      lineChar: 19
-      spanCodeSection: list.
-    - startInstruction: 14336
-      endInstruction: 14431
-      startSourceChar: 11824
-      endSourceChar: 11842
-      line: 414
-      lineChar: 24
-      spanCodeSection: "Clone();\r\n        "
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11842
-      endSourceChar: 11842
-      line: 415
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11842
-      endSourceChar: 11842
-      line: 415
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11842
-      endSourceChar: 11852
-      line: 415
-      lineChar: 8
-      spanCodeSection: 'var cards '
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11852
-      endSourceChar: 11854
-      line: 415
-      lineChar: 18
-      spanCodeSection: '= '
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11854
-      endSourceChar: 11858
-      line: 415
-      lineChar: 20
-      spanCodeSection: 'new '
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11858
-      endSourceChar: 11858
-      line: 415
-      lineChar: 24
-      spanCodeSection: 
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11858
-      endSourceChar: 11862
-      line: 415
-      lineChar: 24
-      spanCodeSection: Card
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11862
-      endSourceChar: 11863
-      line: 415
-      lineChar: 28
-      spanCodeSection: '['
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11863
-      endSourceChar: 11863
-      line: 415
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 14432
-      endInstruction: 14431
-      startSourceChar: 11863
-      endSourceChar: 11868
-      line: 415
-      lineChar: 29
-      spanCodeSection: objs.
-    - startInstruction: 14432
-      endInstruction: 14499
-      startSourceChar: 11868
-      endSourceChar: 11888
-      line: 415
-      lineChar: 34
-      spanCodeSection: "Length];\r\n\r\n        "
-    - startInstruction: 14500
-      endInstruction: 14499
-      startSourceChar: 11888
-      endSourceChar: 11893
-      line: 417
-      lineChar: 8
-      spanCodeSection: for (
-    - startInstruction: 14500
-      endInstruction: 14499
-      startSourceChar: 11893
-      endSourceChar: 11893
-      line: 417
-      lineChar: 13
-      spanCodeSection: 
-    - startInstruction: 14500
-      endInstruction: 14499
-      startSourceChar: 11893
-      endSourceChar: 11899
-      line: 417
-      lineChar: 13
-      spanCodeSection: 'var i '
-    - startInstruction: 14500
-      endInstruction: 14499
-      startSourceChar: 11899
-      endSourceChar: 11901
-      line: 417
-      lineChar: 19
-      spanCodeSection: '= '
-    - startInstruction: 14500
-      endInstruction: 14519
-      startSourceChar: 11901
-      endSourceChar: 11904
-      line: 417
       lineChar: 21
-      spanCodeSection: '0; '
-    - startInstruction: 14520
-      endInstruction: 14519
-      startSourceChar: 11904
-      endSourceChar: 11904
-      line: 417
-      lineChar: 24
+      spanCodeSection: '= '
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11596
+      endSourceChar: 11602
+      line: 404
+      lineChar: 23
+      spanCodeSection: (Card)
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11602
+      endSourceChar: 11602
+      line: 404
+      lineChar: 29
       spanCodeSection: 
-    - startInstruction: 14520
-      endInstruction: 14519
-      startSourceChar: 11904
-      endSourceChar: 11908
-      line: 417
-      lineChar: 24
-      spanCodeSection: 'i < '
-    - startInstruction: 14520
-      endInstruction: 14519
-      startSourceChar: 11908
-      endSourceChar: 11908
-      line: 417
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11602
+      endSourceChar: 11602
+      line: 404
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11602
+      endSourceChar: 11608
+      line: 404
+      lineChar: 29
+      spanCodeSection: Cards.
+    - startInstruction: 14208
+      endInstruction: 14207
+      startSourceChar: 11608
+      endSourceChar: 11611
+      line: 404
+      lineChar: 35
+      spanCodeSection: At(
+    - startInstruction: 14208
+      endInstruction: 14335
+      startSourceChar: 11611
+      endSourceChar: 11628
+      line: 404
+      lineChar: 38
+      spanCodeSection: "k);\r\n            "
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11628
+      endSourceChar: 11628
+      line: 405
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11628
+      endSourceChar: 11628
+      line: 405
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11628
+      endSourceChar: 11642
+      line: 405
+      lineChar: 12
+      spanCodeSection: 'var cardPoint '
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11642
+      endSourceChar: 11644
+      line: 405
+      lineChar: 26
+      spanCodeSection: '= '
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11644
+      endSourceChar: 11644
+      line: 405
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 14520
-      endInstruction: 14519
-      startSourceChar: 11908
-      endSourceChar: 11913
-      line: 417
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11644
+      endSourceChar: 11655
+      line: 405
       lineChar: 28
-      spanCodeSection: objs.
-    - startInstruction: 14520
+      spanCodeSection: cardPoints[
+    - startInstruction: 14336
+      endInstruction: 14335
+      startSourceChar: 11655
+      endSourceChar: 11655
+      line: 405
+      lineChar: 39
+      spanCodeSection: 
+    - startInstruction: 14336
+      endInstruction: 14387
+      startSourceChar: 11655
+      endSourceChar: 11672
+      line: 405
+      lineChar: 39
+      spanCodeSection: "k];\r\n            "
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11672
+      endSourceChar: 11672
+      line: 406
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11672
+      endSourceChar: 11672
+      line: 406
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11672
+      endSourceChar: 11672
+      line: 406
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11672
+      endSourceChar: 11677
+      line: 406
+      lineChar: 12
+      spanCodeSection: card.
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11677
+      endSourceChar: 11689
+      line: 406
+      lineChar: 17
+      spanCodeSection: SetPosition(
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11689
+      endSourceChar: 11689
+      line: 406
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 14388
+      endInstruction: 14387
+      startSourceChar: 11689
+      endSourceChar: 11699
+      line: 406
+      lineChar: 29
+      spanCodeSection: cardPoint.
+    - startInstruction: 14388
+      endInstruction: 14411
+      startSourceChar: 11699
+      endSourceChar: 11709
+      line: 406
+      lineChar: 39
+      spanCodeSection: 'position, '
+    - startInstruction: 14412
+      endInstruction: 14411
+      startSourceChar: 11709
+      endSourceChar: 11709
+      line: 406
+      lineChar: 49
+      spanCodeSection: 
+    - startInstruction: 14412
+      endInstruction: 14411
+      startSourceChar: 11709
+      endSourceChar: 11719
+      line: 406
+      lineChar: 49
+      spanCodeSection: cardPoint.
+    - startInstruction: 14412
+      endInstruction: 14583
+      startSourceChar: 11719
+      endSourceChar: 11753
+      line: 406
+      lineChar: 59
+      spanCodeSection: "rotation);\r\n        }\r\n    }\r\n    "
+    - startInstruction: 14584
+      endInstruction: 14583
+      startSourceChar: 11753
+      endSourceChar: 11783
+      line: 409
+      lineChar: 4
+      spanCodeSection: void RequestCallFunctionToAll(
+    - startInstruction: 14584
       endInstruction: 14591
-      startSourceChar: 11913
-      endSourceChar: 11935
-      line: 417
-      lineChar: 33
-      spanCodeSection: "Length; ++i)\r\n        "
+      startSourceChar: 11783
+      endSourceChar: 11805
+      line: 409
+      lineChar: 34
+      spanCodeSection: "string funcName)\r\n    "
     - startInstruction: 14592
       endInstruction: 14591
-      startSourceChar: 11935
-      endSourceChar: 12031
-      line: 418
+      startSourceChar: 11805
+      endSourceChar: 11816
+      line: 410
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 14592
+      endInstruction: 14591
+      startSourceChar: 11816
+      endSourceChar: 11820
+      line: 411
+      lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 14592
+      endInstruction: 14591
+      startSourceChar: 11820
+      endSourceChar: 11820
+      line: 411
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14592
+      endInstruction: 14591
+      startSourceChar: 11820
+      endSourceChar: 11820
+      line: 411
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14592
+      endInstruction: 14591
+      startSourceChar: 11820
+      endSourceChar: 11831
+      line: 411
+      lineChar: 12
+      spanCodeSection: Networking.
+    - startInstruction: 14592
+      endInstruction: 14607
+      startSourceChar: 11831
+      endSourceChar: 11846
+      line: 411
+      lineChar: 23
+      spanCodeSection: 'LocalPlayer == '
+    - startInstruction: 14608
+      endInstruction: 14655
+      startSourceChar: 11846
+      endSourceChar: 11861
+      line: 411
+      lineChar: 38
+      spanCodeSection: "null)\r\n        "
+    - startInstruction: 14656
+      endInstruction: 14655
+      startSourceChar: 11861
+      endSourceChar: 11876
+      line: 412
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 14656
+      endInstruction: 14655
+      startSourceChar: 11876
+      endSourceChar: 11876
+      line: 413
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14656
+      endInstruction: 14655
+      startSourceChar: 11876
+      endSourceChar: 11876
+      line: 413
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14656
+      endInstruction: 14655
+      startSourceChar: 11876
+      endSourceChar: 11892
+      line: 413
+      lineChar: 12
+      spanCodeSection: SendCustomEvent(
+    - startInstruction: 14656
+      endInstruction: 14687
+      startSourceChar: 11892
+      endSourceChar: 11923
+      line: 413
+      lineChar: 28
+      spanCodeSection: "funcName);\r\n        }\r\n        "
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11923
+      endSourceChar: 11937
+      line: 415
+      lineChar: 8
+      spanCodeSection: "else\r\n        "
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11937
+      endSourceChar: 11952
+      line: 416
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11952
+      endSourceChar: 11952
+      line: 417
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11952
+      endSourceChar: 11952
+      line: 417
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11952
+      endSourceChar: 11975
+      line: 417
+      lineChar: 12
+      spanCodeSection: SendCustomNetworkEvent(
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11975
+      endSourceChar: 11975
+      line: 417
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11975
+      endSourceChar: 11994
+      line: 417
+      lineChar: 35
+      spanCodeSection: NetworkEventTarget.
+    - startInstruction: 14688
+      endInstruction: 14687
+      startSourceChar: 11994
+      endSourceChar: 11999
+      line: 417
+      lineChar: 54
+      spanCodeSection: 'All, '
+    - startInstruction: 14688
+      endInstruction: 14739
+      startSourceChar: 11999
+      endSourceChar: 12035
+      line: 417
+      lineChar: 59
+      spanCodeSection: "funcName);\r\n        }\r\n    }\r\n\r\n    "
+    - startInstruction: 14740
+      endInstruction: 14739
+      startSourceChar: 12035
+      endSourceChar: 12051
+      line: 421
+      lineChar: 4
+      spanCodeSection: Card[] GetArray(
+    - startInstruction: 14740
+      endInstruction: 14747
+      startSourceChar: 12051
+      endSourceChar: 12068
+      line: 421
+      lineChar: 20
+      spanCodeSection: "KList list)\r\n    "
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12068
+      endSourceChar: 12079
+      line: 422
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12079
+      endSourceChar: 12079
+      line: 423
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12079
+      endSourceChar: 12079
+      line: 423
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12079
+      endSourceChar: 12088
+      line: 423
+      lineChar: 8
+      spanCodeSection: 'var objs '
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12088
+      endSourceChar: 12090
+      line: 423
+      lineChar: 17
+      spanCodeSection: '= '
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12090
+      endSourceChar: 12090
+      line: 423
+      lineChar: 19
+      spanCodeSection: 
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12090
+      endSourceChar: 12090
+      line: 423
+      lineChar: 19
+      spanCodeSection: 
+    - startInstruction: 14748
+      endInstruction: 14747
+      startSourceChar: 12090
+      endSourceChar: 12095
+      line: 423
+      lineChar: 19
+      spanCodeSection: list.
+    - startInstruction: 14748
+      endInstruction: 14843
+      startSourceChar: 12095
+      endSourceChar: 12113
+      line: 423
+      lineChar: 24
+      spanCodeSection: "Clone();\r\n        "
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12113
+      endSourceChar: 12113
+      line: 424
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12113
+      endSourceChar: 12113
+      line: 424
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12113
+      endSourceChar: 12123
+      line: 424
+      lineChar: 8
+      spanCodeSection: 'var cards '
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12123
+      endSourceChar: 12125
+      line: 424
+      lineChar: 18
+      spanCodeSection: '= '
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12125
+      endSourceChar: 12129
+      line: 424
+      lineChar: 20
+      spanCodeSection: 'new '
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12129
+      endSourceChar: 12129
+      line: 424
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12129
+      endSourceChar: 12133
+      line: 424
+      lineChar: 24
+      spanCodeSection: Card
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12133
+      endSourceChar: 12134
+      line: 424
+      lineChar: 28
+      spanCodeSection: '['
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12134
+      endSourceChar: 12134
+      line: 424
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 14844
+      endInstruction: 14843
+      startSourceChar: 12134
+      endSourceChar: 12139
+      line: 424
+      lineChar: 29
+      spanCodeSection: objs.
+    - startInstruction: 14844
+      endInstruction: 14911
+      startSourceChar: 12139
+      endSourceChar: 12159
+      line: 424
+      lineChar: 34
+      spanCodeSection: "Length];\r\n\r\n        "
+    - startInstruction: 14912
+      endInstruction: 14911
+      startSourceChar: 12159
+      endSourceChar: 12164
+      line: 426
+      lineChar: 8
+      spanCodeSection: for (
+    - startInstruction: 14912
+      endInstruction: 14911
+      startSourceChar: 12164
+      endSourceChar: 12164
+      line: 426
+      lineChar: 13
+      spanCodeSection: 
+    - startInstruction: 14912
+      endInstruction: 14911
+      startSourceChar: 12164
+      endSourceChar: 12170
+      line: 426
+      lineChar: 13
+      spanCodeSection: 'var i '
+    - startInstruction: 14912
+      endInstruction: 14911
+      startSourceChar: 12170
+      endSourceChar: 12172
+      line: 426
+      lineChar: 19
+      spanCodeSection: '= '
+    - startInstruction: 14912
+      endInstruction: 14931
+      startSourceChar: 12172
+      endSourceChar: 12175
+      line: 426
+      lineChar: 21
+      spanCodeSection: '0; '
+    - startInstruction: 14932
+      endInstruction: 14931
+      startSourceChar: 12175
+      endSourceChar: 12175
+      line: 426
+      lineChar: 24
+      spanCodeSection: 
+    - startInstruction: 14932
+      endInstruction: 14931
+      startSourceChar: 12175
+      endSourceChar: 12179
+      line: 426
+      lineChar: 24
+      spanCodeSection: 'i < '
+    - startInstruction: 14932
+      endInstruction: 14931
+      startSourceChar: 12179
+      endSourceChar: 12179
+      line: 426
+      lineChar: 28
+      spanCodeSection: 
+    - startInstruction: 14932
+      endInstruction: 14931
+      startSourceChar: 12179
+      endSourceChar: 12184
+      line: 426
+      lineChar: 28
+      spanCodeSection: objs.
+    - startInstruction: 14932
+      endInstruction: 15003
+      startSourceChar: 12184
+      endSourceChar: 12206
+      line: 426
+      lineChar: 33
+      spanCodeSection: "Length; ++i)\r\n        "
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12206
+      endSourceChar: 12302
+      line: 427
       lineChar: 8
       spanCodeSection: "{\r\n            // \uC774\uB807\uAC8C \uD558\uB098\uD558\uB098
         \uBC14\uAFD4\uC8FC\uC9C0 \uC54A\uC73C\uBA74 \uC560\uB7EC\uB0A8\r\n            //
         \uADF8\uB798\uC11C Card \uC804\uC6A9 KList\uB97C \uB9CC\uB4E4\uAE4C \uC0DD\uAC01\uC911\r\n
         \           "
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12031
-      endSourceChar: 12031
-      line: 421
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12031
-      endSourceChar: 12031
-      line: 421
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12031
-      endSourceChar: 12031
-      line: 421
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12031
-      endSourceChar: 12037
-      line: 421
-      lineChar: 12
-      spanCodeSection: cards[
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12037
-      endSourceChar: 12037
-      line: 421
-      lineChar: 18
-      spanCodeSection: 
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12037
-      endSourceChar: 12042
-      line: 421
-      lineChar: 18
-      spanCodeSection: 'i] = '
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12042
-      endSourceChar: 12048
-      line: 421
-      lineChar: 23
-      spanCodeSection: (Card)
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12048
-      endSourceChar: 12048
-      line: 421
-      lineChar: 29
-      spanCodeSection: 
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12048
-      endSourceChar: 12053
-      line: 421
-      lineChar: 29
-      spanCodeSection: objs[
-    - startInstruction: 14592
-      endInstruction: 14591
-      startSourceChar: 12053
-      endSourceChar: 12053
-      line: 421
-      lineChar: 34
-      spanCodeSection: 
-    - startInstruction: 14592
-      endInstruction: 14715
-      startSourceChar: 12053
-      endSourceChar: 12077
-      line: 421
-      lineChar: 34
-      spanCodeSection: "i];\r\n        }\r\n        "
-    - startInstruction: 14716
-      endInstruction: 14715
-      startSourceChar: 12077
-      endSourceChar: 12084
-      line: 423
-      lineChar: 8
-      spanCodeSection: 'return '
-    - startInstruction: 14716
-      endInstruction: 14775
-      startSourceChar: 12084
-      endSourceChar: 12105
-      line: 423
-      lineChar: 15
-      spanCodeSection: "cards;\r\n    }\r\n\r\n    "
-    - startInstruction: 14776
-      endInstruction: 14783
-      startSourceChar: 12105
-      endSourceChar: 12132
-      line: 426
-      lineChar: 4
-      spanCodeSection: "private void Update()\r\n    "
-    - startInstruction: 14784
-      endInstruction: 14783
-      startSourceChar: 12132
-      endSourceChar: 12143
-      line: 427
-      lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 14784
-      endInstruction: 14783
-      startSourceChar: 12143
-      endSourceChar: 12147
-      line: 428
-      lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 14784
-      endInstruction: 14783
-      startSourceChar: 12147
-      endSourceChar: 12147
-      line: 428
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14784
-      endInstruction: 14783
-      startSourceChar: 12147
-      endSourceChar: 12147
-      line: 428
-      lineChar: 12
-      spanCodeSection: 
-    - startInstruction: 14784
-      endInstruction: 14783
-      startSourceChar: 12147
-      endSourceChar: 12154
-      line: 428
-      lineChar: 12
-      spanCodeSection: string.
-    - startInstruction: 14784
-      endInstruction: 14783
-      startSourceChar: 12154
-      endSourceChar: 12168
-      line: 428
-      lineChar: 19
-      spanCodeSection: IsNullOrEmpty(
-    - startInstruction: 14784
-      endInstruction: 14823
-      startSourceChar: 12168
-      endSourceChar: 12194
-      line: 428
-      lineChar: 33
-      spanCodeSection: "NetworkMessage))\r\n        "
-    - startInstruction: 14824
-      endInstruction: 14823
-      startSourceChar: 12194
-      endSourceChar: 12209
-      line: 429
-      lineChar: 8
-      spanCodeSection: "{\r\n            "
-    - startInstruction: 14824
-      endInstruction: 14843
-      startSourceChar: 12209
-      endSourceChar: 12239
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12302
+      endSourceChar: 12302
       line: 430
       lineChar: 12
-      spanCodeSection: "return;\r\n        }\r\n\r\n        "
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12239
-      endSourceChar: 12239
-      line: 433
-      lineChar: 8
       spanCodeSection: 
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12239
-      endSourceChar: 12239
-      line: 433
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12239
-      endSourceChar: 12251
-      line: 433
-      lineChar: 8
-      spanCodeSection: 'var splited '
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12251
-      endSourceChar: 12253
-      line: 433
-      lineChar: 20
-      spanCodeSection: '= '
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12253
-      endSourceChar: 12253
-      line: 433
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12253
-      endSourceChar: 12253
-      line: 433
-      lineChar: 22
-      spanCodeSection: 
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12253
-      endSourceChar: 12268
-      line: 433
-      lineChar: 22
-      spanCodeSection: NetworkMessage.
-    - startInstruction: 14844
-      endInstruction: 14843
-      startSourceChar: 12268
-      endSourceChar: 12274
-      line: 433
-      lineChar: 37
-      spanCodeSection: Split(
-    - startInstruction: 14844
-      endInstruction: 14927
-      startSourceChar: 12274
-      endSourceChar: 12289
-      line: 433
-      lineChar: 43
-      spanCodeSection: "',');\r\n        "
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12289
-      endSourceChar: 12289
-      line: 434
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12289
-      endSourceChar: 12289
-      line: 434
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12289
-      endSourceChar: 12314
-      line: 434
-      lineChar: 8
-      spanCodeSection: 'var networkMessageNumber '
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12314
-      endSourceChar: 12316
-      line: 434
-      lineChar: 33
-      spanCodeSection: '= '
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12316
-      endSourceChar: 12316
-      line: 434
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12316
-      endSourceChar: 12316
-      line: 434
-      lineChar: 35
-      spanCodeSection: 
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12316
-      endSourceChar: 12320
-      line: 434
-      lineChar: 35
-      spanCodeSection: int.
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12320
-      endSourceChar: 12326
-      line: 434
-      lineChar: 39
-      spanCodeSection: Parse(
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12326
-      endSourceChar: 12326
-      line: 434
-      lineChar: 45
-      spanCodeSection: 
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12326
-      endSourceChar: 12334
-      line: 434
-      lineChar: 45
-      spanCodeSection: splited[
-    - startInstruction: 14928
-      endInstruction: 14927
-      startSourceChar: 12334
-      endSourceChar: 12334
-      line: 434
-      lineChar: 53
-      spanCodeSection: 
-    - startInstruction: 14928
-      endInstruction: 15003
-      startSourceChar: 12334
-      endSourceChar: 12350
-      line: 434
-      lineChar: 53
-      spanCodeSection: "0]);\r\n\r\n        "
     - startInstruction: 15004
       endInstruction: 15003
-      startSourceChar: 12350
-      endSourceChar: 12354
-      line: 436
-      lineChar: 8
-      spanCodeSection: if (
-    - startInstruction: 15004
-      endInstruction: 15003
-      startSourceChar: 12354
-      endSourceChar: 12354
-      line: 436
+      startSourceChar: 12302
+      endSourceChar: 12302
+      line: 430
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 15004
       endInstruction: 15003
-      startSourceChar: 12354
-      endSourceChar: 12375
-      line: 436
+      startSourceChar: 12302
+      endSourceChar: 12302
+      line: 430
       lineChar: 12
-      spanCodeSection: 'lastMessageNumber != '
+      spanCodeSection: 
     - startInstruction: 15004
-      endInstruction: 15051
-      startSourceChar: 12375
-      endSourceChar: 12406
+      endInstruction: 15003
+      startSourceChar: 12302
+      endSourceChar: 12308
+      line: 430
+      lineChar: 12
+      spanCodeSection: cards[
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12308
+      endSourceChar: 12308
+      line: 430
+      lineChar: 18
+      spanCodeSection: 
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12308
+      endSourceChar: 12313
+      line: 430
+      lineChar: 18
+      spanCodeSection: 'i] = '
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12313
+      endSourceChar: 12319
+      line: 430
+      lineChar: 23
+      spanCodeSection: (Card)
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12319
+      endSourceChar: 12319
+      line: 430
+      lineChar: 29
+      spanCodeSection: 
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12319
+      endSourceChar: 12324
+      line: 430
+      lineChar: 29
+      spanCodeSection: objs[
+    - startInstruction: 15004
+      endInstruction: 15003
+      startSourceChar: 12324
+      endSourceChar: 12324
+      line: 430
+      lineChar: 34
+      spanCodeSection: 
+    - startInstruction: 15004
+      endInstruction: 15127
+      startSourceChar: 12324
+      endSourceChar: 12348
+      line: 430
+      lineChar: 34
+      spanCodeSection: "i];\r\n        }\r\n        "
+    - startInstruction: 15128
+      endInstruction: 15127
+      startSourceChar: 12348
+      endSourceChar: 12355
+      line: 432
+      lineChar: 8
+      spanCodeSection: 'return '
+    - startInstruction: 15128
+      endInstruction: 15187
+      startSourceChar: 12355
+      endSourceChar: 12376
+      line: 432
+      lineChar: 15
+      spanCodeSection: "cards;\r\n    }\r\n\r\n    "
+    - startInstruction: 15188
+      endInstruction: 15195
+      startSourceChar: 12376
+      endSourceChar: 12403
+      line: 435
+      lineChar: 4
+      spanCodeSection: "private void Update()\r\n    "
+    - startInstruction: 15196
+      endInstruction: 15195
+      startSourceChar: 12403
+      endSourceChar: 12414
       line: 436
-      lineChar: 33
-      spanCodeSection: "networkMessageNumber)\r\n        "
-    - startInstruction: 15052
-      endInstruction: 15051
-      startSourceChar: 12406
-      endSourceChar: 12421
+      lineChar: 4
+      spanCodeSection: "{\r\n        "
+    - startInstruction: 15196
+      endInstruction: 15195
+      startSourceChar: 12414
+      endSourceChar: 12418
       line: 437
       lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 15196
+      endInstruction: 15195
+      startSourceChar: 12418
+      endSourceChar: 12418
+      line: 437
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 15196
+      endInstruction: 15195
+      startSourceChar: 12418
+      endSourceChar: 12418
+      line: 437
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 15196
+      endInstruction: 15195
+      startSourceChar: 12418
+      endSourceChar: 12425
+      line: 437
+      lineChar: 12
+      spanCodeSection: string.
+    - startInstruction: 15196
+      endInstruction: 15195
+      startSourceChar: 12425
+      endSourceChar: 12439
+      line: 437
+      lineChar: 19
+      spanCodeSection: IsNullOrEmpty(
+    - startInstruction: 15196
+      endInstruction: 15235
+      startSourceChar: 12439
+      endSourceChar: 12465
+      line: 437
+      lineChar: 33
+      spanCodeSection: "NetworkMessage))\r\n        "
+    - startInstruction: 15236
+      endInstruction: 15235
+      startSourceChar: 12465
+      endSourceChar: 12480
+      line: 438
+      lineChar: 8
       spanCodeSection: "{\r\n            "
-    - startInstruction: 15052
-      endInstruction: 15051
-      startSourceChar: 12421
-      endSourceChar: 12421
-      line: 438
+    - startInstruction: 15236
+      endInstruction: 15255
+      startSourceChar: 12480
+      endSourceChar: 12510
+      line: 439
+      lineChar: 12
+      spanCodeSection: "return;\r\n        }\r\n\r\n        "
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12510
+      endSourceChar: 12510
+      line: 442
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12510
+      endSourceChar: 12510
+      line: 442
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12510
+      endSourceChar: 12522
+      line: 442
+      lineChar: 8
+      spanCodeSection: 'var splited '
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12522
+      endSourceChar: 12524
+      line: 442
+      lineChar: 20
+      spanCodeSection: '= '
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12524
+      endSourceChar: 12524
+      line: 442
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12524
+      endSourceChar: 12524
+      line: 442
+      lineChar: 22
+      spanCodeSection: 
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12524
+      endSourceChar: 12539
+      line: 442
+      lineChar: 22
+      spanCodeSection: NetworkMessage.
+    - startInstruction: 15256
+      endInstruction: 15255
+      startSourceChar: 12539
+      endSourceChar: 12545
+      line: 442
+      lineChar: 37
+      spanCodeSection: Split(
+    - startInstruction: 15256
+      endInstruction: 15339
+      startSourceChar: 12545
+      endSourceChar: 12560
+      line: 442
+      lineChar: 43
+      spanCodeSection: "',');\r\n        "
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12560
+      endSourceChar: 12560
+      line: 443
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12560
+      endSourceChar: 12560
+      line: 443
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12560
+      endSourceChar: 12585
+      line: 443
+      lineChar: 8
+      spanCodeSection: 'var networkMessageNumber '
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12585
+      endSourceChar: 12587
+      line: 443
+      lineChar: 33
+      spanCodeSection: '= '
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12587
+      endSourceChar: 12587
+      line: 443
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12587
+      endSourceChar: 12587
+      line: 443
+      lineChar: 35
+      spanCodeSection: 
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12587
+      endSourceChar: 12591
+      line: 443
+      lineChar: 35
+      spanCodeSection: int.
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12591
+      endSourceChar: 12597
+      line: 443
+      lineChar: 39
+      spanCodeSection: Parse(
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12597
+      endSourceChar: 12597
+      line: 443
+      lineChar: 45
+      spanCodeSection: 
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12597
+      endSourceChar: 12605
+      line: 443
+      lineChar: 45
+      spanCodeSection: splited[
+    - startInstruction: 15340
+      endInstruction: 15339
+      startSourceChar: 12605
+      endSourceChar: 12605
+      line: 443
+      lineChar: 53
+      spanCodeSection: 
+    - startInstruction: 15340
+      endInstruction: 15415
+      startSourceChar: 12605
+      endSourceChar: 12621
+      line: 443
+      lineChar: 53
+      spanCodeSection: "0]);\r\n\r\n        "
+    - startInstruction: 15416
+      endInstruction: 15415
+      startSourceChar: 12621
+      endSourceChar: 12625
+      line: 445
+      lineChar: 8
+      spanCodeSection: if (
+    - startInstruction: 15416
+      endInstruction: 15415
+      startSourceChar: 12625
+      endSourceChar: 12625
+      line: 445
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 15052
-      endInstruction: 15051
-      startSourceChar: 12421
-      endSourceChar: 12421
-      line: 438
+    - startInstruction: 15416
+      endInstruction: 15415
+      startSourceChar: 12625
+      endSourceChar: 12646
+      line: 445
+      lineChar: 12
+      spanCodeSection: 'lastMessageNumber != '
+    - startInstruction: 15416
+      endInstruction: 15463
+      startSourceChar: 12646
+      endSourceChar: 12677
+      line: 445
+      lineChar: 33
+      spanCodeSection: "networkMessageNumber)\r\n        "
+    - startInstruction: 15464
+      endInstruction: 15463
+      startSourceChar: 12677
+      endSourceChar: 12692
+      line: 446
+      lineChar: 8
+      spanCodeSection: "{\r\n            "
+    - startInstruction: 15464
+      endInstruction: 15463
+      startSourceChar: 12692
+      endSourceChar: 12692
+      line: 447
       lineChar: 12
       spanCodeSection: 
-    - startInstruction: 15052
-      endInstruction: 15051
-      startSourceChar: 12421
-      endSourceChar: 12441
-      line: 438
+    - startInstruction: 15464
+      endInstruction: 15463
+      startSourceChar: 12692
+      endSourceChar: 12692
+      line: 447
+      lineChar: 12
+      spanCodeSection: 
+    - startInstruction: 15464
+      endInstruction: 15463
+      startSourceChar: 12692
+      endSourceChar: 12712
+      line: 447
       lineChar: 12
       spanCodeSection: 'lastMessageNumber = '
-    - startInstruction: 15052
-      endInstruction: 15071
-      startSourceChar: 12441
-      endSourceChar: 12478
-      line: 438
+    - startInstruction: 15464
+      endInstruction: 15483
+      startSourceChar: 12712
+      endSourceChar: 12749
+      line: 447
       lineChar: 32
       spanCodeSection: "networkMessageNumber;\r\n\r\n            "
-    - startInstruction: 15072
-      endInstruction: 15071
-      startSourceChar: 12478
-      endSourceChar: 12486
-      line: 440
+    - startInstruction: 15484
+      endInstruction: 15483
+      startSourceChar: 12749
+      endSourceChar: 12757
+      line: 449
       lineChar: 12
       spanCodeSection: switch (
-    - startInstruction: 15072
-      endInstruction: 15071
-      startSourceChar: 12486
-      endSourceChar: 12486
-      line: 440
+    - startInstruction: 15484
+      endInstruction: 15483
+      startSourceChar: 12757
+      endSourceChar: 12757
+      line: 449
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 15072
-      endInstruction: 15071
-      startSourceChar: 12486
-      endSourceChar: 12494
-      line: 440
+    - startInstruction: 15484
+      endInstruction: 15483
+      startSourceChar: 12757
+      endSourceChar: 12765
+      line: 449
       lineChar: 20
       spanCodeSection: splited[
-    - startInstruction: 15072
-      endInstruction: 15071
-      startSourceChar: 12494
-      endSourceChar: 12494
-      line: 440
+    - startInstruction: 15484
+      endInstruction: 15483
+      startSourceChar: 12765
+      endSourceChar: 12765
+      line: 449
       lineChar: 28
       spanCodeSection: 
-    - startInstruction: 15072
-      endInstruction: 15103
-      startSourceChar: 12494
-      endSourceChar: 12530
-      line: 440
+    - startInstruction: 15484
+      endInstruction: 15515
+      startSourceChar: 12765
+      endSourceChar: 12801
+      line: 449
       lineChar: 28
       spanCodeSection: "1])\r\n            {\r\n                "
-    - startInstruction: 15104
-      endInstruction: 15103
-      startSourceChar: 12530
-      endSourceChar: 12535
-      line: 442
+    - startInstruction: 15516
+      endInstruction: 15515
+      startSourceChar: 12801
+      endSourceChar: 12806
+      line: 451
       lineChar: 16
       spanCodeSection: 'case '
-    - startInstruction: 15104
-      endInstruction: 15159
-      startSourceChar: 12535
-      endSourceChar: 12736
-      line: 442
+    - startInstruction: 15516
+      endInstruction: 15571
+      startSourceChar: 12806
+      endSourceChar: 13007
+      line: 451
       lineChar: 21
       spanCodeSection: "\"Riichi\":\r\n                    Debug.Log($\"[Player] RiichiBon
         setActive : {splited[2]}\");\r\n                    RiichiBon.SetActive(bool.Parse(splited[2]));\r\n
         \                   break;\r\n                "
-    - startInstruction: 15160
-      endInstruction: 15159
-      startSourceChar: 12736
-      endSourceChar: 12741
-      line: 446
+    - startInstruction: 15572
+      endInstruction: 15571
+      startSourceChar: 13007
+      endSourceChar: 13012
+      line: 455
       lineChar: 16
       spanCodeSection: 'case '
-    - startInstruction: 15160
-      endInstruction: 15431
-      startSourceChar: 12741
-      endSourceChar: 12770
-      line: 446
+    - startInstruction: 15572
+      endInstruction: 15843
+      startSourceChar: 13012
+      endSourceChar: 13041
+      line: 455
       lineChar: 21
       spanCodeSection: "\"Name\":\r\n                    "
-    - startInstruction: 15432
-      endInstruction: 15431
-      startSourceChar: 12770
-      endSourceChar: 12770
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15843
+      startSourceChar: 13041
+      endSourceChar: 13041
+      line: 456
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 15432
-      endInstruction: 15431
-      startSourceChar: 12770
-      endSourceChar: 12770
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15843
+      startSourceChar: 13041
+      endSourceChar: 13041
+      line: 456
       lineChar: 20
       spanCodeSection: 
-    - startInstruction: 15432
-      endInstruction: 15431
-      startSourceChar: 12770
-      endSourceChar: 12785
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15843
+      startSourceChar: 13041
+      endSourceChar: 13056
+      line: 456
       lineChar: 20
       spanCodeSection: _SetPlayerName(
-    - startInstruction: 15432
-      endInstruction: 15431
-      startSourceChar: 12785
-      endSourceChar: 12785
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15843
+      startSourceChar: 13056
+      endSourceChar: 13056
+      line: 456
       lineChar: 35
       spanCodeSection: 
-    - startInstruction: 15432
-      endInstruction: 15431
-      startSourceChar: 12785
-      endSourceChar: 12793
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15843
+      startSourceChar: 13056
+      endSourceChar: 13064
+      line: 456
       lineChar: 35
       spanCodeSection: splited[
-    - startInstruction: 15432
-      endInstruction: 15431
-      startSourceChar: 12793
-      endSourceChar: 12793
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15843
+      startSourceChar: 13064
+      endSourceChar: 13064
+      line: 456
       lineChar: 43
       spanCodeSection: 
-    - startInstruction: 15432
-      endInstruction: 15479
-      startSourceChar: 12793
-      endSourceChar: 12819
-      line: 447
+    - startInstruction: 15844
+      endInstruction: 15891
+      startSourceChar: 13064
+      endSourceChar: 13090
+      line: 456
       lineChar: 43
       spanCodeSection: "2]);\r\n                    "
-    - startInstruction: 15480
-      endInstruction: 15480
-      startSourceChar: 12819
-      endSourceChar: 12819
-      line: 448
+    - startInstruction: 15892
+      endInstruction: 15892
+      startSourceChar: 13090
+      endSourceChar: 13090
+      line: 457
       lineChar: 20
       spanCodeSection: 
   hasInteractEvent: 0

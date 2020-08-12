@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: JoinStatus
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 726a82c6e8b4ce84f91e49ff273d96fd,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: b0cdd2bf15d13fe41b7b100acea4400c,
     type: 2}
   udonAssembly: ".data_start\n\n    .export NetworkMessage\n    .export server\n    .export
     joinList\n    .export joinCount\n    .export joinIcons\n    .export gameManager\n
