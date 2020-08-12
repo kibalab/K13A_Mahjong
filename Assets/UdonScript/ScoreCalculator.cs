@@ -35,6 +35,9 @@ public class ScoreCalculator : UdonSharpBehaviour
 
         foreach (object[] ctx in ctxs)
         {
+            var pairs = HandUtil.FindPairs(Ctx.ReadGlobalOrders(ctx));
+            if (pairs.Length == 0) { continue; }
+
             playerStatus.InitializeHanFu();
             playerStatus.Fu = 20; // 기본 20부
 
@@ -120,6 +123,9 @@ public class ScoreCalculator : UdonSharpBehaviour
 
         foreach (object[] ctx in ctxs)
         {
+            var pairs = HandUtil.FindPairs(Ctx.ReadGlobalOrders(ctx));
+            if (pairs.Length == 0) { continue; }
+
             playerStatus.InitializeHanFu();
             playerStatus.Fu = 20; // 기본 20부
 
@@ -357,7 +363,10 @@ public class ScoreCalculator : UdonSharpBehaviour
             }
         }
 
-        playerStatus.AddHan("Dora", totalDoraCount);
+        if (totalDoraCount > 0)
+        {
+            playerStatus.AddHan("Dora", totalDoraCount);
+        }
     }
 
     //삼색동순
