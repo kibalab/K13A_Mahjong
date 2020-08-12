@@ -8,6 +8,7 @@ public class HandCalculator : UdonSharpBehaviour
 {
     [SerializeField] public DebugHelper DebugHelper;
     [SerializeField] public AgariContext AgariContextForTest;
+    [SerializeField] public PlayerStatus PlayerStatusForTest;
 
     public Card[] TestComponents;
 
@@ -420,16 +421,6 @@ public class HandCalculator : UdonSharpBehaviour
                         }
 
                         isChanged = true;
-
-                        // 123 456에서 123이 제거된 경우, 123의 남은 갯수는 000임
-                        // 456부터 세는 것과 동치이기 때문에 스킵함
-
-                        // 1233 456일때 234를 제거한 경우 234의 남은 갯수는 010임
-                        // 이 경우는 다른 경우를 검사해보아야 함 (실제로 최적해는 123,3,456이다)
-                        if (Ctx.IsRemainsChiCountEqual(context, i))
-                        {
-                            break;
-                        }
                     }
                 }
             }
@@ -844,6 +835,83 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.IsTrue(AgariContextForTest.IsAgariable(TestComponents[13]), 4);
     }
 
+    void Test_Tsumo1()
+    {
+        // 여기는 함수랑 이름 똑같게
+        DebugHelper.SetTestName("Test_Tsumo1");
+
+        // 텐파이 상태로 만들고 시작합니다
+        // 왜냐하면 패가 하나씩 오기 때문에 무조건 텐파이 상태를 거쳐서
+        // 텐파이 여부를 판단한 후 그걸 바탕으로 화료를 결정하기 때문
+        var testSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 5),
+                    TEST__SetTestData(TestComponents[1], "만", 6),
+                    TEST__SetTestData(TestComponents[2], "만", 7),
+
+                    TEST__SetTestData(TestComponents[3], "통", 4),
+                    TEST__SetTestData(TestComponents[4], "통", 5),
+                    TEST__SetTestData(TestComponents[5], "통", 6),
+
+                    TEST__SetTestData(TestComponents[6], "삭", 2),
+                    TEST__SetTestData(TestComponents[7], "삭", 2),
+                    TEST__SetTestData(TestComponents[8], "삭", 2),
+
+                    TEST__SetTestData(TestComponents[9], "삭", 6),
+                    TEST__SetTestData(TestComponents[10], "삭", 7),
+                    TEST__SetTestData(TestComponents[11], "삭", 8),
+
+                    TEST__SetTestData(TestComponents[12], "통", 3),
+        };
+
+        // 글로벌오더로 전환
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+
+        // 쓰기 전에 Clear
+        AgariContextForTest.Clear();
+        // IsTenpai를 부르는 순간 AgariContext에 값이 할당됨
+        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+
+        // isTenpai값이 아니면 아래와 같은 메세지가 뜹니다
+        // "Test_Tsumo1의 1번 라인이 참이어야 하는데 참이 아닙니다"
+        // 내부 구현은 한번 보면 이해하실듯
+        DebugHelper.IsTrue(isTenpai, 1); // 맨뒤에 1은 라인번호
+
+        // 새로받은 카드 할당
+        TEST__SetTestData(TestComponents[13], "통", 3);
+
+        // 화료 가능한지 체크
+        var isAgariable = AgariContextForTest.IsAgariable(TestComponents[13]);
+        // 화료 맞는지 디버깅 라인 체크
+        DebugHelper.IsTrue(isAgariable, 2);
+
+        Debug.Log("length"+TestComponents.Length);
+
+        PlayerStatusForTest.Initialize(); // 쓰기 전 초기화
+        PlayerStatusForTest.IsRiichiMode = true; // 테스트로 리치라고 쳐줌
+        PlayerStatusForTest.IsOneShotRiichi = false; // 일발리치 아님
+        PlayerStatusForTest.IsFirstOrder= false; // 더블리치는 아님
+        // 쯔모 계산 요청
+        RequestTsumoScore(TestComponents, new Card[] { }, AgariContextForTest, PlayerStatusForTest);
+
+        var count = PlayerStatusForTest.YakuCount; // 총 역 갯수
+        var yaku = PlayerStatusForTest.YakuKey; // string[] 배열 역 key가 들어있음
+        var han = PlayerStatusForTest.Han; // int[] 역마다 판 적혀있음
+        var fu = PlayerStatusForTest.Fu; // 총 부수
+
+        for(var i=0; i<count; ++i)
+        {
+            Debug.Log($"{yaku[i]} {han[i]}");
+        }
+
+        // 이런 식으로 맞는 결과를 써줌
+        DebugHelper.IsTrue(count == 2, 3); // 역 1개
+        DebugHelper.IsTrue(yaku[0] == "Riichi", 4); // 리치 
+        DebugHelper.IsTrue(han[0] == 1, 5); // 1판
+        DebugHelper.IsTrue(yaku[1] == "AllSimples", 6); // 탕야오
+        DebugHelper.IsTrue(han[1] == 1, 7); // 1판
+    }
+
     public void Start()
     {
         if (DebugHelper != null && Networking.LocalPlayer == null && AgariContextForTest != null)
@@ -865,6 +933,8 @@ public class HandCalculator : UdonSharpBehaviour
             Test_Tenpai1();
             Test_Tenpai2();
             Test_Tenpai3();
+
+            Test_Tsumo1();
         }
     }
 
