@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: JoinButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: f4c2aefe1f0a3bc43ba323cc62fba96d,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 11c6e8e9eb964794ea930a5f85fcf300,
     type: 2}
   udonAssembly: ".data_start\n\n    .export EventQueue\n    .export LogViewer\n    .export
     gameManager\n    .export testMode\n\n    __refl_const_intnl_udonTypeID: %SystemInt64,

@@ -99,6 +99,34 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_HalfFlush(playerStatus, ctx);
             }
 
+            // 4판역은 없음
+            // 3판 70부 이상, 4판 40부 이상은 만관
+
+            // ---- 5판역(확정 만관) ----
+            {
+                //인화는 쯔모로 화료할수없는 역
+                //유국만관
+                AddScore_Terminal(playerStatus, ctx);
+            }
+
+            // ---- 6판역(확정 하네만) ----
+            {
+                //청일색
+                AddScore_ClearFlush(playerStatus, ctx);
+            }
+
+            // 7판역 (하네만)
+            // 8~10판역 (배만)
+            // 11~12판역 (삼배만)
+
+            // 13판 이상의 역으로 화료할 경우 역만
+            // 판수의 총합으로 13판을 넘을경우 카조에역만
+
+            // ---- 13판역(확정 역만) ----
+            {
+                AddScore_ClearFlush(playerStatus, ctx);
+            }
+
             if (playerStatus.TotalHan > maxHan)
             {
                 hanList = playerStatus.Han;
@@ -174,6 +202,32 @@ public class ScoreCalculator : UdonSharpBehaviour
                 // 혼일색
                 AddScore_HalfFlush(playerStatus, ctx);
             }
+
+            // 4판역은 없음
+            // 3판 70부 이상, 4판 40부 이상은 만관
+
+            // ---- 5판역(확정 만관) ----
+            {
+                //인화
+                AddScore_HandOfMan(playerStatus);
+                //유국만관
+                AddScore_Terminal(playerStatus, ctx);
+            }
+
+            // ---- 6판역(확정 하네만) ----
+            {
+                //청일색
+                AddScore_ClearFlush(playerStatus, ctx);
+            }
+
+            // 7판역 (하네만)
+            // 8~10판역 (배만)
+            // 11~12판역 (삼배만)
+
+            // 13판 이상의 역으로 화료할 경우 역만
+            // 판수의 총합으로 13판을 넘을경우 카조에역만
+
+
 
             if (playerStatus.TotalHan > maxHan)
             {
@@ -795,6 +849,192 @@ public class ScoreCalculator : UdonSharpBehaviour
         playerStatus.AddHan("HalfFlush", han);
     }
 
+    //인화
+    void AddScore_HandOfMan(PlayerStatus playerStatus)
+    {
+        if (!playerStatus.IsFirstTsumo)
+        {
+            return;
+        }
+        var han = 5;
+        playerStatus.AddHan("HandOfMan", han);
+    }
+    
+    //유국만관
+    //이건 유국시 따로 계산해야할 필요가 있음
+    void AddScore_Terminal(PlayerStatus playerStatus, object[] ctx)
+    {
+        if (!playerStatus.IsMenzen)
+        {
+            return;
+        }
+        var globalOrders = Ctx.ReadPonList(ctx);
+        foreach(var globalOrder in globalOrders)
+        {
+            if(
+                globalOrder != HandUtil.GetManEndGlobalOrder() && 
+                globalOrder != HandUtil.GetPinEndGlobalOrder() &&
+                globalOrder != HandUtil.GetSouEndGlobalOrder() &&
+                !IsWhiteGreenRed(globalOrder)
+                )
+            {
+                return;
+            }
+        }
+        var han = 5;
+        playerStatus.AddHan("Terminal", han);
+    }
+
+    //청일색
+    void AddScore_ClearFlush(PlayerStatus playerStatus, object[] ctx)
+    {
+        var globalOrders = Ctx.ReadGlobalOrders(ctx);
+        var type = "";
+        foreach(var globalOrder in globalOrders)
+        {
+            if (IsWhiteGreenRed(globalOrder))
+            {
+                return;
+            }
+            var nextType = Ctx.GobalOrderToType(globalOrder);
+
+            if(type == "")
+            {
+                type = nextType;
+            }else if(type != nextType)
+            {
+                return;
+            }
+        }
+        var han = 6;
+        playerStatus.AddHan("ClearFlush", han);
+    }
+
+    //천화
+    void AddScore_HeavenlyHan(PlayerStatus playerStatus)
+    {
+        if (!playerStatus.IsFirstOrder || IsCurrentWind(playerStatus))
+        {
+            return;
+        }
+        var han = 13;
+        playerStatus.AddHan("HeavenlyHan", han);
+    }
+
+    //지화
+    void AddScore_EarthlyHan(PlayerStatus playerStatus)
+    {
+        if (!playerStatus.IsFirstTsumo || IsNextWind(playerStatus))
+        {
+            return;
+        }
+        var han = 13;
+        playerStatus.AddHan("EarthlyHan", han);
+    }
+
+    //사암각
+    void AddScore_FourClosedTriplets(PlayerStatus playerStatus, object[] ctx)
+    {
+        if (!playerStatus.IsMenzen)
+        {
+            return;
+        }
+        if (Ctx.ReadPonCount(ctx) != 4)
+        {
+            return;
+        }
+        var han = 13;
+        playerStatus.AddHan("FourClosedTriplets", han);
+    }
+
+    //구련보등
+    void AddScore_NineGates(PlayerStatus playerStatus, object[] ctx)
+    {
+        if (!playerStatus.IsMenzen)
+        {
+            return;
+        }
+        var globalOrders = Ctx.ReadGlobalOrders(ctx);
+        
+        var firstType = new int[] { 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 8 };
+        var lastType = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 8, 8 };
+
+        var isNineGates = false;
+        for(int i=0; i<19; i+= 9)
+        {
+            for (int j=0; i<14; j++)
+            {
+                if(firstType[j] != globalOrders[j])
+                {
+                    isNineGates = false;
+                    break;
+                }
+                else
+                {
+                    isNineGates = true;
+                }
+            }
+            for (int j = 0; i < 14; j++)
+            {
+                if (lastType[j] != globalOrders[j])
+                {
+                    isNineGates = false;
+
+                    if(i == 18)
+                    {
+                        return;
+                    }
+                    break;
+                }
+                else
+                {
+                    isNineGates = true;
+                }
+            }
+        }
+
+        var han = 13;
+        playerStatus.AddHan("NineGates", han);
+    }
+
+    //녹일색
+    void AddScore_AllGreen(PlayerStatus playerStatus, object[] ctx)
+    {
+        var globalOrders = Ctx.ReadGlobalOrders(ctx);
+        var type = "삭";
+        foreach (var globalOrder in globalOrders)
+        {
+            if(globalOrder == 18 || globalOrder == 22 || globalOrder == 24 || globalOrder == 25)
+            {
+                return;
+            }
+
+            var nextType = Ctx.GobalOrderToType(globalOrder);
+
+            if (type != nextType)
+            {
+                return;
+            }
+        }
+        var han = 13;
+        playerStatus.AddHan("AllGreen", han);
+    }
+
+    //자일색
+    void AddScore_AllHonors(PlayerStatus playerStatus, object[] ctx)
+    {
+        var globalOrders = Ctx.ReadGlobalOrders(ctx);
+        foreach (var globalOrder in globalOrders)
+        {
+            if (globalOrder < 27)
+            {
+                return;
+            }
+        }
+        var han = 13;
+        playerStatus.AddHan("AllHonors", han);
+    }
+
     bool IsWhiteGreenRed(int globalOrder)
     {
         var white = HandUtil.GetWordsStartGlobalOrder() + HandUtil.GetWhiteCardNumber() - 1;
@@ -811,6 +1051,31 @@ public class ScoreCalculator : UdonSharpBehaviour
     bool IsCurrentWindWordCard(PlayerStatus playerStatus, int globalOrder)
     {
         return IsSameDirectionCard(playerStatus.RoundWind, globalOrder);
+    }
+
+    bool IsCurrentWind(PlayerStatus playerStatus)
+    {
+        return playerStatus.RoundWind == playerStatus.Wind;
+    }
+
+    bool IsNextWind(PlayerStatus playerStatus)
+    {
+        string[] winds = new string[] { "East", "South", "West", "North", "East" };
+        for(var i=0; i<5; i++)
+        {
+            if(winds[i] == playerStatus.RoundWind)
+            {
+                if(winds[i + 1] != playerStatus.Wind)
+                {
+                    return false;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        return true;
     }
 
     bool IsSameDirectionCard(string wind, int globalOrder)
