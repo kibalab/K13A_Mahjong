@@ -16,6 +16,7 @@ public class TableViewer : UdonSharpBehaviour
 
     public void setWInd(int playerIndex, string wind)
     {
+        /*
         switch (wind)
         {
             case "East":
@@ -31,6 +32,7 @@ public class TableViewer : UdonSharpBehaviour
                 windTexts[playerIndex].sprite = CardSprites.FindSprite("ºÏ");
                 break;
         }
+        */
 
     }
 

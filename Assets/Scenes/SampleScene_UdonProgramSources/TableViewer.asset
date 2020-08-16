@@ -23,25 +23,16 @@ MonoBehaviour:
     null\n    __0_wind_Int32: %SystemInt32, null\n    __0_name_String: %SystemString,
     null\n    __0_wind_String: %SystemString, null\n    __0_const_intnl_SystemInt32:
     %SystemInt32, null\n    __1_const_intnl_SystemInt32: %SystemInt32, null\n    __2_const_intnl_SystemInt32:
-    %SystemInt32, null\n    __3_const_intnl_SystemInt32: %SystemInt32, null\n    __0_const_intnl_SystemString:
-    %SystemString, null\n    __1_const_intnl_SystemString: %SystemString, null\n    __2_const_intnl_SystemString:
-    %SystemString, null\n    __3_const_intnl_SystemString: %SystemString, null\n    __4_const_intnl_SystemString:
-    %SystemString, null\n    __5_const_intnl_SystemString: %SystemString, null\n    __6_const_intnl_SystemString:
-    %SystemString, null\n    __7_const_intnl_SystemString: %SystemString, null\n    __0_const_intnl_SystemUInt32:
+    %SystemInt32, null\n    __3_const_intnl_SystemInt32: %SystemInt32, null\n    __0_const_intnl_SystemUInt32:
     %SystemUInt32, null\n    __0_intnl_SystemBoolean: %SystemBoolean, null\n    __1_intnl_SystemBoolean:
     %SystemBoolean, null\n    __2_intnl_SystemBoolean: %SystemBoolean, null\n    __3_intnl_SystemBoolean:
-    %SystemBoolean, null\n    __4_intnl_SystemBoolean: %SystemBoolean, null\n    __5_intnl_SystemBoolean:
-    %SystemBoolean, null\n    __6_intnl_SystemBoolean: %SystemBoolean, null\n    __7_intnl_SystemBoolean:
     %SystemBoolean, null\n    __0_intnl_UnityEngineColor: %UnityEngineColor, null\n
     \   __1_intnl_UnityEngineColor: %UnityEngineColor, null\n    __2_intnl_UnityEngineColor:
     %UnityEngineColor, null\n    __3_intnl_UnityEngineColor: %UnityEngineColor, null\n
     \   __0_intnl_UnityEngineUIImage: %UnityEngineUIImage, null\n    __1_intnl_UnityEngineUIImage:
     %UnityEngineUIImage, null\n    __2_intnl_UnityEngineUIImage: %UnityEngineUIImage,
-    null\n    __3_intnl_UnityEngineUIImage: %UnityEngineUIImage, null\n    __4_intnl_UnityEngineUIImage:
-    %UnityEngineUIImage, null\n    __0_intnl_UnityEngineUIImageArray: %UnityEngineUIImageArray,
-    null\n    __0_intnl_SystemObject: %SystemObject, null\n    __0_intnl_UnityEngineSprite:
-    %UnityEngineSprite, null\n    __0_intnl_UnityEngineUIText: %UnityEngineUIText,
-    null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
+    null\n    __3_intnl_UnityEngineUIImage: %UnityEngineUIImage, null\n    __0_intnl_UnityEngineUIText:
+    %UnityEngineUIText, null\n    __0_intnl_returnTarget_UInt32: %SystemUInt32, null\n\n.data_end\n\n
     \       \n         # using UdonSharp;\n        \n         # using UnityEngine;\n
     \       \n         # using UnityEngine.UI;\n        \n         # using VRC.SDKBase;\n
     \       \n         # using VRC.Udon;\n        \n         # public class TableViewer
@@ -50,176 +41,110 @@ MonoBehaviour:
     windTexts;\n        \n         # public Text[] namePlates;\n        \n         #
     public void setWInd(int playerIndex, string wind)\n    .export setWInd\n        \n
     \   setWInd:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
-    \        # {\n        \n         # switch (wind)\n        \n         # case \"East\":\n
-    \       PUSH, __0_wind_String\n        PUSH, __0_const_intnl_SystemString\n        PUSH,
-    __0_intnl_SystemBoolean\n        EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
-    \       PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000040\n        JUMP,
-    0x000000F0\n        \n         # case \"South\":\n        PUSH, __0_wind_String\n
-    \       PUSH, __1_const_intnl_SystemString\n        PUSH, __1_intnl_SystemBoolean\n
-    \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
-    \       PUSH, __1_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000078\n        JUMP,
-    0x000001B0\n        \n         # case \"West\":\n        PUSH, __0_wind_String\n
-    \       PUSH, __2_const_intnl_SystemString\n        PUSH, __2_intnl_SystemBoolean\n
-    \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
-    \       PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000B0\n        JUMP,
-    0x00000270\n        \n         # case \"North\":\n        PUSH, __0_wind_String\n
-    \       PUSH, __3_const_intnl_SystemString\n        PUSH, __3_intnl_SystemBoolean\n
-    \       EXTERN, \"SystemString.__op_Equality__SystemString_SystemString__SystemBoolean\"\n
-    \       PUSH, __3_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000E8\n        JUMP,
-    0x00000330\n        JUMP, 0x000003F0\n        PUSH, windTexts\n        PUSH, __0_playerIndex_Int32\n
-    \       PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, CardSprites\n        PUSH, __5_const_intnl_SystemString\n        PUSH,
-    __4_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __0_intnl_UnityEngineUIImageArray\n        COPY
-    # Copy-on-write symbol value dirtied\n        PUSH, CardSprites\n        PUSH,
-    __6_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       PUSH, CardSprites\n        PUSH, __7_const_intnl_SystemString\n        PUSH,
-    __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
-    \       PUSH, __0_intnl_SystemObject\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       COPY\n        PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       EXTERN, \"UnityEngineUIImage.__set_sprite__UnityEngineSprite__SystemVoid\"\n
-    \       JUMP, 0x000003F0\n        PUSH, windTexts\n        PUSH, __0_playerIndex_Int32\n
-    \       PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, CardSprites\n        PUSH, __5_const_intnl_SystemString\n        PUSH,
-    __4_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __0_intnl_UnityEngineUIImageArray\n        COPY
-    # Copy-on-write symbol value dirtied\n        PUSH, CardSprites\n        PUSH,
-    __6_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       PUSH, CardSprites\n        PUSH, __7_const_intnl_SystemString\n        PUSH,
-    __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
-    \       PUSH, __0_intnl_SystemObject\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       COPY\n        PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       EXTERN, \"UnityEngineUIImage.__set_sprite__UnityEngineSprite__SystemVoid\"\n
-    \       JUMP, 0x000003F0\n        PUSH, windTexts\n        PUSH, __0_playerIndex_Int32\n
-    \       PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, CardSprites\n        PUSH, __5_const_intnl_SystemString\n        PUSH,
-    __4_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __0_intnl_UnityEngineUIImageArray\n        COPY
-    # Copy-on-write symbol value dirtied\n        PUSH, CardSprites\n        PUSH,
-    __6_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       PUSH, CardSprites\n        PUSH, __7_const_intnl_SystemString\n        PUSH,
-    __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
-    \       PUSH, __0_intnl_SystemObject\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       COPY\n        PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       EXTERN, \"UnityEngineUIImage.__set_sprite__UnityEngineSprite__SystemVoid\"\n
-    \       JUMP, 0x000003F0\n        \n         # windTexts[playerIndex].sprite =
-    CardSprites.FindSprite(\"\uFFFD\uFFFD\");\n        PUSH, windTexts\n        PUSH,
-    __0_playerIndex_Int32\n        PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN,
-    \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n        PUSH,
-    CardSprites\n        PUSH, __5_const_intnl_SystemString\n        PUSH, __4_const_intnl_SystemString\n
-    \       EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __0_intnl_UnityEngineUIImageArray\n        COPY
-    # Copy-on-write symbol value dirtied\n        PUSH, CardSprites\n        PUSH,
-    __6_const_intnl_SystemString\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid\"\n
-    \       PUSH, CardSprites\n        PUSH, __7_const_intnl_SystemString\n        PUSH,
-    __0_intnl_SystemObject\n        EXTERN, \"VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject\"\n
-    \       PUSH, __0_intnl_SystemObject\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       COPY\n        PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineSprite\n
-    \       EXTERN, \"UnityEngineUIImage.__set_sprite__UnityEngineSprite__SystemVoid\"\n
-    \       \n         # break;\n        JUMP, 0x000003F0\n        PUSH, __0_intnl_returnTarget_UInt32
-    #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
-    \       \n        \n         # public void setChin(int chin)\n    .export setChin\n
-    \       \n    setChin:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n
-    \       \n         # {\n        \n         # switch (chin)\n        \n         #
-    case 0:\n        PUSH, __0_chin_Int32\n        PUSH, __0_const_intnl_SystemInt32\n
-    \       PUSH, __4_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
-    \       PUSH, __4_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000444\n        JUMP,
-    0x000004F4\n        \n         # case 1:\n        PUSH, __0_chin_Int32\n        PUSH,
-    __1_const_intnl_SystemInt32\n        PUSH, __5_intnl_SystemBoolean\n        EXTERN,
+    \        # {\n        PUSH, __0_intnl_returnTarget_UInt32 #Function epilogue\n
+    \       COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n        \n
+    \       \n         # public void setChin(int chin)\n    .export setChin\n        \n
+    \   setChin:\n        \n        PUSH, __0_const_intnl_SystemUInt32\n        \n
+    \        # {\n        \n         # switch (chin)\n        \n         # case 0:\n
+    \       PUSH, __0_chin_Int32\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
+    __0_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __0_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x0000005C\n        JUMP,
+    0x0000010C\n        \n         # case 1:\n        PUSH, __0_chin_Int32\n        PUSH,
+    __1_const_intnl_SystemInt32\n        PUSH, __1_intnl_SystemBoolean\n        EXTERN,
     \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
-    __5_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x0000047C\n        JUMP, 0x0000061C\n
+    __1_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000094\n        JUMP, 0x00000234\n
     \       \n         # case 2:\n        PUSH, __0_chin_Int32\n        PUSH, __2_const_intnl_SystemInt32\n
-    \       PUSH, __6_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
-    \       PUSH, __6_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000004B4\n        JUMP,
-    0x00000744\n        \n         # case 3:\n        PUSH, __0_chin_Int32\n        PUSH,
-    __3_const_intnl_SystemInt32\n        PUSH, __7_intnl_SystemBoolean\n        EXTERN,
+    \       PUSH, __2_intnl_SystemBoolean\n        EXTERN, \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n
+    \       PUSH, __2_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000000CC\n        JUMP,
+    0x0000035C\n        \n         # case 3:\n        PUSH, __0_chin_Int32\n        PUSH,
+    __3_const_intnl_SystemInt32\n        PUSH, __3_intnl_SystemBoolean\n        EXTERN,
     \"SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean\"\n        PUSH,
-    __7_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x000004EC\n        JUMP, 0x0000086C\n
-    \       JUMP, 0x00000994\n        PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    __3_intnl_SystemBoolean\n        JUMP_IF_FALSE, 0x00000104\n        JUMP, 0x00000484\n
+    \       JUMP, 0x000005AC\n        PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
     \       PUSH, __0_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_red__UnityEngineColor\"\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
     \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
     \       PUSH, windTexts\n        PUSH, __1_const_intnl_SystemInt32\n        PUSH,
-    __2_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
-    __3_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
-    __4_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __4_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       JUMP, 0x00000994\n        PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __0_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __1_const_intnl_SystemInt32\n        PUSH,
-    __2_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_red__UnityEngineColor\"\n
-    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
-    __3_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
-    __4_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __4_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       JUMP, 0x00000994\n        PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __0_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __1_const_intnl_SystemInt32\n        PUSH,
-    __2_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
-    __3_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_red__UnityEngineColor\"\n
-    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       PUSH, windTexts\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
-    __4_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
-    \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __4_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
-    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       JUMP, 0x00000994\n        \n         # windTexts[0].color = Color.white;\n
-    \       PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
     __1_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
+    __2_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
+    __3_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       JUMP, 0x000005AC\n        PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
     \       PUSH, __0_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __1_const_intnl_SystemInt32\n        PUSH,
+    __1_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_red__UnityEngineColor\"\n
+    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
+    __2_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
+    __3_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       JUMP, 0x000005AC\n        PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __0_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __1_const_intnl_SystemInt32\n        PUSH,
+    __1_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __2_const_intnl_SystemInt32\n        PUSH,
+    __2_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_red__UnityEngineColor\"\n
+    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       PUSH, windTexts\n        PUSH, __3_const_intnl_SystemInt32\n        PUSH,
+    __3_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
+    \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
+    \       JUMP, 0x000005AC\n        \n         # windTexts[0].color = Color.white;\n
+    \       PUSH, windTexts\n        PUSH, __0_const_intnl_SystemInt32\n        PUSH,
+    __0_intnl_UnityEngineUIImage\n        EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
+    \       PUSH, __0_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
+    \       PUSH, __0_intnl_UnityEngineUIImage\n        PUSH, __0_intnl_UnityEngineColor\n
     \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
     \       \n         # windTexts[1].color = Color.white;\n        PUSH, windTexts\n
-    \       PUSH, __1_const_intnl_SystemInt32\n        PUSH, __2_intnl_UnityEngineUIImage\n
+    \       PUSH, __1_const_intnl_SystemInt32\n        PUSH, __1_intnl_UnityEngineUIImage\n
     \       EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
     \       PUSH, __1_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
+    \       PUSH, __1_intnl_UnityEngineUIImage\n        PUSH, __1_intnl_UnityEngineColor\n
     \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
     \       \n         # windTexts[2].color = Color.white;\n        PUSH, windTexts\n
-    \       PUSH, __2_const_intnl_SystemInt32\n        PUSH, __3_intnl_UnityEngineUIImage\n
+    \       PUSH, __2_const_intnl_SystemInt32\n        PUSH, __2_intnl_UnityEngineUIImage\n
     \       EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
     \       PUSH, __2_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_white__UnityEngineColor\"\n
-    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
+    \       PUSH, __2_intnl_UnityEngineUIImage\n        PUSH, __2_intnl_UnityEngineColor\n
     \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
     \       \n         # windTexts[3].color = Color.red;\n        PUSH, windTexts\n
-    \       PUSH, __3_const_intnl_SystemInt32\n        PUSH, __4_intnl_UnityEngineUIImage\n
+    \       PUSH, __3_const_intnl_SystemInt32\n        PUSH, __3_intnl_UnityEngineUIImage\n
     \       EXTERN, \"UnityEngineUIImageArray.__Get__SystemInt32__UnityEngineUIImage\"\n
     \       PUSH, __3_intnl_UnityEngineColor\n        EXTERN, \"UnityEngineColor.__get_red__UnityEngineColor\"\n
-    \       PUSH, __4_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
+    \       PUSH, __3_intnl_UnityEngineUIImage\n        PUSH, __3_intnl_UnityEngineColor\n
     \       EXTERN, \"UnityEngineUIImage.__set_color__UnityEngineColor__SystemVoid\"\n
-    \       \n         # break;\n        JUMP, 0x00000994\n        PUSH, __0_intnl_returnTarget_UInt32
+    \       \n         # break;\n        JUMP, 0x000005AC\n        PUSH, __0_intnl_returnTarget_UInt32
     #Function epilogue\n        COPY\n        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32\n
     \       \n        \n         # public void setPlayerName(string name, int wind)\n
     \   .export setPlayerName\n        \n    setPlayerName:\n        \n        PUSH,
@@ -510,690 +435,525 @@ MonoBehaviour:
       lineChar: 41
       spanCodeSection: "string wind)\r\n    "
     - startInstruction: 8
-      endInstruction: 7
+      endInstruction: 27
       startSourceChar: 344
-      endSourceChar: 355
+      endSourceChar: 949
       line: 17
       lineChar: 4
-      spanCodeSection: "{\r\n        "
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 355
-      endSourceChar: 363
-      line: 18
-      lineChar: 8
-      spanCodeSection: switch (
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 363
-      endSourceChar: 393
-      line: 18
-      lineChar: 16
-      spanCodeSection: "wind)\r\n        {\r\n            "
-    - startInstruction: 8
-      endInstruction: 7
-      startSourceChar: 393
-      endSourceChar: 398
-      line: 20
-      lineChar: 12
-      spanCodeSection: 'case '
-    - startInstruction: 8
-      endInstruction: 63
-      startSourceChar: 398
-      endSourceChar: 522
-      line: 20
-      lineChar: 17
-      spanCodeSection: "\"East\":\r\n                windTexts[playerIndex].sprite
+      spanCodeSection: "{\r\n        /*\r\n        switch (wind)\r\n        {\r\n
+        \           case \"East\":\r\n                windTexts[playerIndex].sprite
         = CardSprites.FindSprite(\"\uFFFD\uFFFD\");\r\n                break;\r\n
-        \           "
-    - startInstruction: 64
-      endInstruction: 63
-      startSourceChar: 522
-      endSourceChar: 527
-      line: 23
-      lineChar: 12
-      spanCodeSection: 'case '
-    - startInstruction: 64
-      endInstruction: 119
-      startSourceChar: 527
-      endSourceChar: 652
-      line: 23
-      lineChar: 17
-      spanCodeSection: "\"South\":\r\n                windTexts[playerIndex].sprite
+        \           case \"South\":\r\n                windTexts[playerIndex].sprite
         = CardSprites.FindSprite(\"\uFFFD\uFFFD\");\r\n                break;\r\n
-        \           "
-    - startInstruction: 120
-      endInstruction: 119
-      startSourceChar: 652
-      endSourceChar: 657
-      line: 26
-      lineChar: 12
-      spanCodeSection: 'case '
-    - startInstruction: 120
-      endInstruction: 175
-      startSourceChar: 657
-      endSourceChar: 781
-      line: 26
-      lineChar: 17
-      spanCodeSection: "\"West\":\r\n                windTexts[playerIndex].sprite
+        \           case \"West\":\r\n                windTexts[playerIndex].sprite
         = CardSprites.FindSprite(\"\uFFFD\uFFFD\");\r\n                break;\r\n
-        \           "
-    - startInstruction: 176
-      endInstruction: 175
-      startSourceChar: 781
-      endSourceChar: 786
-      line: 29
-      lineChar: 12
-      spanCodeSection: 'case '
-    - startInstruction: 176
-      endInstruction: 815
-      startSourceChar: 786
-      endSourceChar: 812
-      line: 29
-      lineChar: 17
-      spanCodeSection: "\"North\":\r\n                "
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 812
-      endSourceChar: 812
-      line: 30
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 812
-      endSourceChar: 812
-      line: 30
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 812
-      endSourceChar: 812
-      line: 30
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 812
-      endSourceChar: 812
-      line: 30
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 812
-      endSourceChar: 822
-      line: 30
-      lineChar: 16
-      spanCodeSection: windTexts[
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 822
-      endSourceChar: 822
-      line: 30
-      lineChar: 26
-      spanCodeSection: 
-    - startInstruction: 816
-      endInstruction: 815
-      startSourceChar: 822
-      endSourceChar: 835
-      line: 30
-      lineChar: 26
-      spanCodeSection: playerIndex].
-    - startInstruction: 816
-      endInstruction: 847
-      startSourceChar: 835
-      endSourceChar: 844
-      line: 30
-      lineChar: 39
-      spanCodeSection: 'sprite = '
-    - startInstruction: 848
-      endInstruction: 847
-      startSourceChar: 844
-      endSourceChar: 844
-      line: 30
-      lineChar: 48
-      spanCodeSection: 
-    - startInstruction: 848
-      endInstruction: 847
-      startSourceChar: 844
-      endSourceChar: 844
-      line: 30
-      lineChar: 48
-      spanCodeSection: 
-    - startInstruction: 848
-      endInstruction: 847
-      startSourceChar: 844
-      endSourceChar: 856
-      line: 30
-      lineChar: 48
-      spanCodeSection: CardSprites.
-    - startInstruction: 848
-      endInstruction: 847
-      startSourceChar: 856
-      endSourceChar: 867
-      line: 30
-      lineChar: 60
-      spanCodeSection: FindSprite(
-    - startInstruction: 848
-      endInstruction: 999
-      startSourceChar: 867
-      endSourceChar: 891
-      line: 30
-      lineChar: 71
-      spanCodeSection: "\"\uFFFD\uFFFD\");\r\n                "
-    - startInstruction: 1000
-      endInstruction: 1027
-      startSourceChar: 891
-      endSourceChar: 925
-      line: 31
-      lineChar: 16
-      spanCodeSection: "break;\r\n        }\r\n\r\n    }\r\n\r\n    "
-    - startInstruction: 1028
-      endInstruction: 1027
-      startSourceChar: 925
-      endSourceChar: 945
-      line: 36
+        \           case \"North\":\r\n                windTexts[playerIndex].sprite
+        = CardSprites.FindSprite(\"\uFFFD\uFFFD\");\r\n                break;\r\n
+        \       }\r\n        */\r\n\r\n    }\r\n\r\n    "
+    - startInstruction: 28
+      endInstruction: 27
+      startSourceChar: 949
+      endSourceChar: 969
+      line: 38
       lineChar: 4
       spanCodeSection: public void setChin(
-    - startInstruction: 1028
-      endInstruction: 1035
-      startSourceChar: 945
-      endSourceChar: 960
-      line: 36
+    - startInstruction: 28
+      endInstruction: 35
+      startSourceChar: 969
+      endSourceChar: 984
+      line: 38
       lineChar: 24
       spanCodeSection: "int chin)\r\n    "
-    - startInstruction: 1036
-      endInstruction: 1035
-      startSourceChar: 960
-      endSourceChar: 971
-      line: 37
+    - startInstruction: 36
+      endInstruction: 35
+      startSourceChar: 984
+      endSourceChar: 995
+      line: 39
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 1036
-      endInstruction: 1035
-      startSourceChar: 971
-      endSourceChar: 979
-      line: 38
+    - startInstruction: 36
+      endInstruction: 35
+      startSourceChar: 995
+      endSourceChar: 1003
+      line: 40
       lineChar: 8
       spanCodeSection: switch (
-    - startInstruction: 1036
-      endInstruction: 1035
-      startSourceChar: 979
-      endSourceChar: 1009
-      line: 38
+    - startInstruction: 36
+      endInstruction: 35
+      startSourceChar: 1003
+      endSourceChar: 1033
+      line: 40
       lineChar: 16
       spanCodeSection: "chin)\r\n        {\r\n            "
-    - startInstruction: 1036
-      endInstruction: 1035
-      startSourceChar: 1009
-      endSourceChar: 1014
-      line: 40
+    - startInstruction: 36
+      endInstruction: 35
+      startSourceChar: 1033
+      endSourceChar: 1038
+      line: 42
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 1036
-      endInstruction: 1091
-      startSourceChar: 1014
-      endSourceChar: 1257
-      line: 40
+    - startInstruction: 36
+      endInstruction: 91
+      startSourceChar: 1038
+      endSourceChar: 1281
+      line: 42
       lineChar: 17
       spanCodeSection: "0:\r\n                windTexts[0].color = Color.red;\r\n
         \               windTexts[1].color = Color.white; \r\n                windTexts[2].color
         = Color.white;\r\n                windTexts[3].color = Color.white;\r\n                break;\r\n
         \           "
-    - startInstruction: 1092
-      endInstruction: 1091
-      startSourceChar: 1257
-      endSourceChar: 1262
-      line: 46
+    - startInstruction: 92
+      endInstruction: 91
+      startSourceChar: 1281
+      endSourceChar: 1286
+      line: 48
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 1092
-      endInstruction: 1147
-      startSourceChar: 1262
-      endSourceChar: 1504
-      line: 46
+    - startInstruction: 92
+      endInstruction: 147
+      startSourceChar: 1286
+      endSourceChar: 1528
+      line: 48
       lineChar: 17
       spanCodeSection: "1:\r\n                windTexts[0].color = Color.white;\r\n
         \               windTexts[1].color = Color.red;\r\n                windTexts[2].color
         = Color.white;\r\n                windTexts[3].color = Color.white;\r\n                break;\r\n
         \           "
-    - startInstruction: 1148
-      endInstruction: 1147
-      startSourceChar: 1504
-      endSourceChar: 1509
-      line: 52
+    - startInstruction: 148
+      endInstruction: 147
+      startSourceChar: 1528
+      endSourceChar: 1533
+      line: 54
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 1148
-      endInstruction: 1203
-      startSourceChar: 1509
-      endSourceChar: 1751
-      line: 52
+    - startInstruction: 148
+      endInstruction: 203
+      startSourceChar: 1533
+      endSourceChar: 1775
+      line: 54
       lineChar: 17
       spanCodeSection: "2:\r\n                windTexts[0].color = Color.white;\r\n
         \               windTexts[1].color = Color.white;\r\n                windTexts[2].color
         = Color.red;\r\n                windTexts[3].color = Color.white;\r\n                break;\r\n
         \           "
-    - startInstruction: 1204
-      endInstruction: 1203
-      startSourceChar: 1751
-      endSourceChar: 1756
-      line: 58
+    - startInstruction: 204
+      endInstruction: 203
+      startSourceChar: 1775
+      endSourceChar: 1780
+      line: 60
       lineChar: 12
       spanCodeSection: 'case '
-    - startInstruction: 1204
-      endInstruction: 2155
-      startSourceChar: 1756
-      endSourceChar: 1776
-      line: 58
+    - startInstruction: 204
+      endInstruction: 1155
+      startSourceChar: 1780
+      endSourceChar: 1800
+      line: 60
       lineChar: 17
       spanCodeSection: "3:\r\n                "
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1776
-      endSourceChar: 1776
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1800
+      endSourceChar: 1800
+      line: 61
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1776
-      endSourceChar: 1776
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1800
+      endSourceChar: 1800
+      line: 61
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1776
-      endSourceChar: 1776
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1800
+      endSourceChar: 1800
+      line: 61
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1776
-      endSourceChar: 1776
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1800
+      endSourceChar: 1800
+      line: 61
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1776
-      endSourceChar: 1786
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1800
+      endSourceChar: 1810
+      line: 61
       lineChar: 16
       spanCodeSection: windTexts[
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1786
-      endSourceChar: 1786
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1810
+      endSourceChar: 1810
+      line: 61
       lineChar: 26
       spanCodeSection: 
-    - startInstruction: 2156
-      endInstruction: 2155
-      startSourceChar: 1786
-      endSourceChar: 1789
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1155
+      startSourceChar: 1810
+      endSourceChar: 1813
+      line: 61
       lineChar: 26
       spanCodeSection: 0].
-    - startInstruction: 2156
-      endInstruction: 2187
-      startSourceChar: 1789
-      endSourceChar: 1797
-      line: 59
+    - startInstruction: 1156
+      endInstruction: 1187
+      startSourceChar: 1813
+      endSourceChar: 1821
+      line: 61
       lineChar: 29
       spanCodeSection: 'color = '
-    - startInstruction: 2188
-      endInstruction: 2187
-      startSourceChar: 1797
-      endSourceChar: 1797
-      line: 59
+    - startInstruction: 1188
+      endInstruction: 1187
+      startSourceChar: 1821
+      endSourceChar: 1821
+      line: 61
       lineChar: 37
       spanCodeSection: 
-    - startInstruction: 2188
-      endInstruction: 2187
-      startSourceChar: 1797
-      endSourceChar: 1803
-      line: 59
+    - startInstruction: 1188
+      endInstruction: 1187
+      startSourceChar: 1821
+      endSourceChar: 1827
+      line: 61
       lineChar: 37
       spanCodeSection: Color.
-    - startInstruction: 2188
-      endInstruction: 2227
-      startSourceChar: 1803
-      endSourceChar: 1827
-      line: 59
+    - startInstruction: 1188
+      endInstruction: 1227
+      startSourceChar: 1827
+      endSourceChar: 1851
+      line: 61
       lineChar: 43
       spanCodeSection: "white;\r\n                "
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1827
-      endSourceChar: 1827
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1851
+      endSourceChar: 1851
+      line: 62
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1827
-      endSourceChar: 1827
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1851
+      endSourceChar: 1851
+      line: 62
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1827
-      endSourceChar: 1827
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1851
+      endSourceChar: 1851
+      line: 62
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1827
-      endSourceChar: 1827
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1851
+      endSourceChar: 1851
+      line: 62
       lineChar: 16
       spanCodeSection: 
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1827
-      endSourceChar: 1837
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1851
+      endSourceChar: 1861
+      line: 62
       lineChar: 16
       spanCodeSection: windTexts[
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1837
-      endSourceChar: 1837
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1861
+      endSourceChar: 1861
+      line: 62
       lineChar: 26
       spanCodeSection: 
-    - startInstruction: 2228
-      endInstruction: 2227
-      startSourceChar: 1837
-      endSourceChar: 1840
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1227
+      startSourceChar: 1861
+      endSourceChar: 1864
+      line: 62
       lineChar: 26
       spanCodeSection: 1].
-    - startInstruction: 2228
-      endInstruction: 2259
-      startSourceChar: 1840
-      endSourceChar: 1848
-      line: 60
+    - startInstruction: 1228
+      endInstruction: 1259
+      startSourceChar: 1864
+      endSourceChar: 1872
+      line: 62
       lineChar: 29
       spanCodeSection: 'color = '
-    - startInstruction: 2260
-      endInstruction: 2259
-      startSourceChar: 1848
-      endSourceChar: 1848
-      line: 60
+    - startInstruction: 1260
+      endInstruction: 1259
+      startSourceChar: 1872
+      endSourceChar: 1872
+      line: 62
       lineChar: 37
       spanCodeSection: 
-    - startInstruction: 2260
-      endInstruction: 2259
-      startSourceChar: 1848
-      endSourceChar: 1854
-      line: 60
+    - startInstruction: 1260
+      endInstruction: 1259
+      startSourceChar: 1872
+      endSourceChar: 1878
+      line: 62
       lineChar: 37
       spanCodeSection: Color.
-    - startInstruction: 2260
-      endInstruction: 2299
-      startSourceChar: 1854
-      endSourceChar: 1878
-      line: 60
+    - startInstruction: 1260
+      endInstruction: 1299
+      startSourceChar: 1878
+      endSourceChar: 1902
+      line: 62
       lineChar: 43
       spanCodeSection: "white;\r\n                "
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1878
-      endSourceChar: 1878
-      line: 61
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1878
-      endSourceChar: 1878
-      line: 61
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1878
-      endSourceChar: 1878
-      line: 61
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1878
-      endSourceChar: 1878
-      line: 61
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1878
-      endSourceChar: 1888
-      line: 61
-      lineChar: 16
-      spanCodeSection: windTexts[
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1888
-      endSourceChar: 1888
-      line: 61
-      lineChar: 26
-      spanCodeSection: 
-    - startInstruction: 2300
-      endInstruction: 2299
-      startSourceChar: 1888
-      endSourceChar: 1891
-      line: 61
-      lineChar: 26
-      spanCodeSection: 2].
-    - startInstruction: 2300
-      endInstruction: 2331
-      startSourceChar: 1891
-      endSourceChar: 1899
-      line: 61
-      lineChar: 29
-      spanCodeSection: 'color = '
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 1899
-      endSourceChar: 1899
-      line: 61
-      lineChar: 37
-      spanCodeSection: 
-    - startInstruction: 2332
-      endInstruction: 2331
-      startSourceChar: 1899
-      endSourceChar: 1905
-      line: 61
-      lineChar: 37
-      spanCodeSection: Color.
-    - startInstruction: 2332
-      endInstruction: 2371
-      startSourceChar: 1905
-      endSourceChar: 1929
-      line: 61
-      lineChar: 43
-      spanCodeSection: "white;\r\n                "
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1929
-      endSourceChar: 1929
-      line: 62
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1929
-      endSourceChar: 1929
-      line: 62
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1929
-      endSourceChar: 1929
-      line: 62
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1929
-      endSourceChar: 1929
-      line: 62
-      lineChar: 16
-      spanCodeSection: 
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1929
-      endSourceChar: 1939
-      line: 62
-      lineChar: 16
-      spanCodeSection: windTexts[
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1939
-      endSourceChar: 1939
-      line: 62
-      lineChar: 26
-      spanCodeSection: 
-    - startInstruction: 2372
-      endInstruction: 2371
-      startSourceChar: 1939
-      endSourceChar: 1942
-      line: 62
-      lineChar: 26
-      spanCodeSection: 3].
-    - startInstruction: 2372
-      endInstruction: 2403
-      startSourceChar: 1942
-      endSourceChar: 1950
-      line: 62
-      lineChar: 29
-      spanCodeSection: 'color = '
-    - startInstruction: 2404
-      endInstruction: 2403
-      startSourceChar: 1950
-      endSourceChar: 1950
-      line: 62
-      lineChar: 37
-      spanCodeSection: 
-    - startInstruction: 2404
-      endInstruction: 2403
-      startSourceChar: 1950
-      endSourceChar: 1956
-      line: 62
-      lineChar: 37
-      spanCodeSection: Color.
-    - startInstruction: 2404
-      endInstruction: 2443
-      startSourceChar: 1956
-      endSourceChar: 1978
-      line: 62
-      lineChar: 43
-      spanCodeSection: "red;\r\n                "
-    - startInstruction: 2444
-      endInstruction: 2471
-      startSourceChar: 1978
-      endSourceChar: 2010
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1902
+      endSourceChar: 1902
       line: 63
       lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1902
+      endSourceChar: 1902
+      line: 63
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1902
+      endSourceChar: 1902
+      line: 63
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1902
+      endSourceChar: 1902
+      line: 63
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1902
+      endSourceChar: 1912
+      line: 63
+      lineChar: 16
+      spanCodeSection: windTexts[
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1912
+      endSourceChar: 1912
+      line: 63
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 1300
+      endInstruction: 1299
+      startSourceChar: 1912
+      endSourceChar: 1915
+      line: 63
+      lineChar: 26
+      spanCodeSection: 2].
+    - startInstruction: 1300
+      endInstruction: 1331
+      startSourceChar: 1915
+      endSourceChar: 1923
+      line: 63
+      lineChar: 29
+      spanCodeSection: 'color = '
+    - startInstruction: 1332
+      endInstruction: 1331
+      startSourceChar: 1923
+      endSourceChar: 1923
+      line: 63
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 1332
+      endInstruction: 1331
+      startSourceChar: 1923
+      endSourceChar: 1929
+      line: 63
+      lineChar: 37
+      spanCodeSection: Color.
+    - startInstruction: 1332
+      endInstruction: 1371
+      startSourceChar: 1929
+      endSourceChar: 1953
+      line: 63
+      lineChar: 43
+      spanCodeSection: "white;\r\n                "
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1953
+      endSourceChar: 1953
+      line: 64
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1953
+      endSourceChar: 1953
+      line: 64
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1953
+      endSourceChar: 1953
+      line: 64
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1953
+      endSourceChar: 1953
+      line: 64
+      lineChar: 16
+      spanCodeSection: 
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1953
+      endSourceChar: 1963
+      line: 64
+      lineChar: 16
+      spanCodeSection: windTexts[
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1963
+      endSourceChar: 1963
+      line: 64
+      lineChar: 26
+      spanCodeSection: 
+    - startInstruction: 1372
+      endInstruction: 1371
+      startSourceChar: 1963
+      endSourceChar: 1966
+      line: 64
+      lineChar: 26
+      spanCodeSection: 3].
+    - startInstruction: 1372
+      endInstruction: 1403
+      startSourceChar: 1966
+      endSourceChar: 1974
+      line: 64
+      lineChar: 29
+      spanCodeSection: 'color = '
+    - startInstruction: 1404
+      endInstruction: 1403
+      startSourceChar: 1974
+      endSourceChar: 1974
+      line: 64
+      lineChar: 37
+      spanCodeSection: 
+    - startInstruction: 1404
+      endInstruction: 1403
+      startSourceChar: 1974
+      endSourceChar: 1980
+      line: 64
+      lineChar: 37
+      spanCodeSection: Color.
+    - startInstruction: 1404
+      endInstruction: 1443
+      startSourceChar: 1980
+      endSourceChar: 2002
+      line: 64
+      lineChar: 43
+      spanCodeSection: "red;\r\n                "
+    - startInstruction: 1444
+      endInstruction: 1471
+      startSourceChar: 2002
+      endSourceChar: 2034
+      line: 65
+      lineChar: 16
       spanCodeSection: "break;\r\n        }\r\n    }\r\n\r\n    "
-    - startInstruction: 2472
-      endInstruction: 2471
-      startSourceChar: 2010
-      endSourceChar: 2036
-      line: 67
+    - startInstruction: 1472
+      endInstruction: 1471
+      startSourceChar: 2034
+      endSourceChar: 2060
+      line: 69
       lineChar: 4
       spanCodeSection: public void setPlayerName(
-    - startInstruction: 2472
-      endInstruction: 2471
-      startSourceChar: 2036
-      endSourceChar: 2049
-      line: 67
+    - startInstruction: 1472
+      endInstruction: 1471
+      startSourceChar: 2060
+      endSourceChar: 2073
+      line: 69
       lineChar: 30
       spanCodeSection: 'string name, '
-    - startInstruction: 2472
-      endInstruction: 2479
-      startSourceChar: 2049
-      endSourceChar: 2064
-      line: 67
+    - startInstruction: 1472
+      endInstruction: 1479
+      startSourceChar: 2073
+      endSourceChar: 2088
+      line: 69
       lineChar: 43
       spanCodeSection: "int wind)\r\n    "
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2064
-      endSourceChar: 2075
-      line: 68
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2088
+      endSourceChar: 2099
+      line: 70
       lineChar: 4
       spanCodeSection: "{\r\n        "
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2075
-      endSourceChar: 2075
-      line: 69
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2075
-      endSourceChar: 2075
-      line: 69
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2075
-      endSourceChar: 2075
-      line: 69
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2075
-      endSourceChar: 2075
-      line: 69
-      lineChar: 8
-      spanCodeSection: 
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2075
-      endSourceChar: 2086
-      line: 69
-      lineChar: 8
-      spanCodeSection: namePlates[
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2086
-      endSourceChar: 2086
-      line: 69
-      lineChar: 19
-      spanCodeSection: 
-    - startInstruction: 2480
-      endInstruction: 2479
-      startSourceChar: 2086
-      endSourceChar: 2092
-      line: 69
-      lineChar: 19
-      spanCodeSection: wind].
-    - startInstruction: 2480
-      endInstruction: 2511
-      startSourceChar: 2092
-      endSourceChar: 2099
-      line: 69
-      lineChar: 25
-      spanCodeSection: 'text = '
-    - startInstruction: 2512
-      endInstruction: 2512
+    - startInstruction: 1480
+      endInstruction: 1479
       startSourceChar: 2099
       endSourceChar: 2099
-      line: 69
+      line: 71
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2099
+      endSourceChar: 2099
+      line: 71
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2099
+      endSourceChar: 2099
+      line: 71
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2099
+      endSourceChar: 2099
+      line: 71
+      lineChar: 8
+      spanCodeSection: 
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2099
+      endSourceChar: 2110
+      line: 71
+      lineChar: 8
+      spanCodeSection: namePlates[
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2110
+      endSourceChar: 2110
+      line: 71
+      lineChar: 19
+      spanCodeSection: 
+    - startInstruction: 1480
+      endInstruction: 1479
+      startSourceChar: 2110
+      endSourceChar: 2116
+      line: 71
+      lineChar: 19
+      spanCodeSection: wind].
+    - startInstruction: 1480
+      endInstruction: 1511
+      startSourceChar: 2116
+      endSourceChar: 2123
+      line: 71
+      lineChar: 25
+      spanCodeSection: 'text = '
+    - startInstruction: 1512
+      endInstruction: 1512
+      startSourceChar: 2123
+      endSourceChar: 2123
+      line: 71
       lineChar: 32
       spanCodeSection: 
   hasInteractEvent: 0
