@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: Subtitle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: b00ea14fa24fd5b4fb185353b4683732,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: cae843d75406f874ebb0f63bc89ee702,
     type: 2}
   udonAssembly: ".data_start\n\n    .export NetworkMessage\n    .export playtime\n
     \   .export components\n    .sync NetworkMessage, none\n    .sync playtime, none\n\n

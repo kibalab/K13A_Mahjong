@@ -344,7 +344,7 @@ public class CalculatingContextHandler : UdonSharpBehaviour
         }
     }
 
-    string GobalOrderToType(int globalORder)
+    public string GobalOrderToType(int globalORder)
     {
         if (MAN_START_INDEX <= globalORder && globalORder <= MAN_END_INDEX) return "만";
         if (PIN_START_INDEX <= globalORder && globalORder <= PIN_END_INDEX) return "통";
