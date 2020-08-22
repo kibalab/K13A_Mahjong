@@ -941,7 +941,7 @@ public class HandCalculator : UdonSharpBehaviour
                     TEST__SetTestData(TestComponents[10], "삭", 8),
                     TEST__SetTestData(TestComponents[11], "삭", 8),
 
-                    TEST__SetTestData(TestComponents[12], "발", 5),
+                    TEST__SetTestData(TestComponents[12], "발", 6),
         };
 
 
@@ -959,7 +959,7 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.IsTrue(isTenpai, 1); // 맨뒤에 1은 라인번호
 
         // 새로받은 카드 할당
-        TEST__SetTestData(TestComponents[13], "발", 5);
+        TEST__SetTestData(TestComponents[13], "발", 6);
 
         // 화료 가능한지 체크
         var isAgariable = AgariContextForTest.IsAgariable(TestComponents[13]);
