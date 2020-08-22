@@ -125,6 +125,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 13판역(확정 역만) ----
             {
                 AddScore_ClearFlush(playerStatus, ctx);
+                AddScore_AllGreen(playerStatus, openedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -227,7 +228,11 @@ public class ScoreCalculator : UdonSharpBehaviour
             // 13판 이상의 역으로 화료할 경우 역만
             // 판수의 총합으로 13판을 넘을경우 카조에역만
 
-
+            // ---- 13판역(확정 역만) ----
+            {
+                AddScore_ClearFlush(playerStatus, ctx);
+                AddScore_AllGreen(playerStatus, open);
+            }
 
             if (playerStatus.TotalHan > maxHan)
             {
@@ -889,6 +894,13 @@ public class ScoreCalculator : UdonSharpBehaviour
     void AddScore_ClearFlush(PlayerStatus playerStatus, object[] ctx)
     {
         var globalOrders = Ctx.ReadGlobalOrders(ctx);
+
+        Debug.Log("ClearFlush GlobalOrders");
+        foreach (int i in globalOrders)
+        {
+            Debug.Log(i);
+        }
+        Debug.Log("#####################");
         var type = "";
         foreach(var globalOrder in globalOrders)
         {
@@ -998,18 +1010,18 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //녹일색
-    void AddScore_AllGreen(PlayerStatus playerStatus, object[] ctx)
+    void AddScore_AllGreen(PlayerStatus playerStatus, Card[] openCards)
     {
-        var globalOrders = Ctx.ReadGlobalOrders(ctx);
         var type = "삭";
-        foreach (var globalOrder in globalOrders)
+        foreach (var card in openCards)
         {
-            if(globalOrder == 18 || globalOrder == 22 || globalOrder == 24 || globalOrder == 25)
+            var globalOrder = card.GlobalOrder;
+            var nextType = card.Type;
+
+            if (globalOrder == 18 || globalOrder == 22 || globalOrder == 24 || globalOrder == 25)
             {
                 return;
             }
-
-            var nextType = Ctx.GobalOrderToType(globalOrder);
 
             if (type != nextType)
             {
