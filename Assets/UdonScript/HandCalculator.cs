@@ -907,7 +907,7 @@ public class HandCalculator : UdonSharpBehaviour
         }
 
         // 이런 식으로 맞는 결과를 써줌
-        DebugHelper.IsTrue(count == 1, 3); // 역 1개
+        DebugHelper.IsTrue(count == 2, 3); // 역 1개
         DebugHelper.IsTrue(yaku[0] == "Riichi", 4); // 리치 
         DebugHelper.IsTrue(han[0] == 1, 5); // 1판
         DebugHelper.IsTrue(yaku[1] == "AllSimples", 6); // 탕야오
@@ -1070,6 +1070,163 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.IsTrue(yaku[1] == "ClearFlush", 6); // 탕야오
         DebugHelper.IsTrue(han[1] == 6, 7); // 1판
     }
+
+    void Test_Tsumo4()
+    {
+        // 여기는 함수랑 이름 똑같게
+        DebugHelper.SetTestName("Test_Tsumo4");
+
+        // 텐파이 상태로 만들고 시작합니다
+        // 왜냐하면 패가 하나씩 오기 때문에 무조건 텐파이 상태를 거쳐서
+        // 텐파이 여부를 판단한 후 그걸 바탕으로 화료를 결정하기 때문
+        var testSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[0], "동", 1),
+                    TEST__SetTestData(TestComponents[1], "동", 1),
+                    TEST__SetTestData(TestComponents[2], "동", 1),
+                    
+                    TEST__SetTestData(TestComponents[3], "만", 1),
+                    TEST__SetTestData(TestComponents[4], "민", 2),
+                    TEST__SetTestData(TestComponents[5], "만", 3),
+
+                    TEST__SetTestData(TestComponents[6], "만", 5),
+                    TEST__SetTestData(TestComponents[7], "만", 5),
+
+                    TEST__SetTestData(TestComponents[8], "만", 7),
+                    TEST__SetTestData(TestComponents[9], "만", 8),
+
+                    TEST__SetTestData(TestComponents[10], "북", 4),
+                    TEST__SetTestData(TestComponents[11], "북", 4),
+                    TEST__SetTestData(TestComponents[12], "북", 4),
+        };
+
+
+        // 글로벌오더로 전환
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+
+        // 쓰기 전에 Clear
+        AgariContextForTest.Clear();
+        // IsTenpai를 부르는 순간 AgariContext에 값이 할당됨
+        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+
+        // isTenpai값이 아니면 아래와 같은 메세지가 뜹니다
+        // "Test_Tsumo1의 1번 라인이 참이어야 하는데 참이 아닙니다"
+        // 내부 구현은 한번 보면 이해하실듯
+        DebugHelper.IsTrue(isTenpai, 1); // 맨뒤에 1은 라인번호
+
+        // 새로받은 카드 할당
+        TEST__SetTestData(TestComponents[13], "만", 6);
+
+        // 화료 가능한지 체크
+        var isAgariable = AgariContextForTest.IsAgariable(TestComponents[13]);
+        // 화료 맞는지 디버깅 라인 체크
+        DebugHelper.IsTrue(isAgariable, 2);
+
+        Debug.Log("length" + TestComponents.Length);
+
+        PlayerStatusForTest.Initialize(); // 쓰기 전 초기화
+        PlayerStatusForTest.IsRiichiMode = true; // 테스트로 리치라고 쳐줌
+        PlayerStatusForTest.IsOneShotRiichi = false; // 일발리치 아님
+        PlayerStatusForTest.IsFirstOrder = false; // 더블리치는 아님
+        // 쯔모 계산 요청
+        RequestTsumoScore(TestComponents, new Card[] { }, AgariContextForTest, PlayerStatusForTest);
+
+        var count = PlayerStatusForTest.YakuCount; // 총 역 갯수
+        var yaku = PlayerStatusForTest.YakuKey; // string[] 배열 역 key가 들어있음
+        var han = PlayerStatusForTest.Han; // int[] 역마다 판 적혀있음
+        var fu = PlayerStatusForTest.Fu; // 총 부수
+
+        for (var i = 0; i < count; ++i)
+        {
+            Debug.Log($"{yaku[i]} {han[i]}");
+        }
+
+        // 이런 식으로 맞는 결과를 써줌
+        DebugHelper.IsTrue(count == 2, 3); // 역 1개
+        DebugHelper.IsTrue(yaku[0] == "Riichi", 4); // 리치 
+        DebugHelper.IsTrue(han[0] == 1, 5); // 1판
+        DebugHelper.IsTrue(yaku[1] == "HalfFlush", 6); // 탕야오
+        DebugHelper.IsTrue(han[1] == 6, 7); // 1판
+    }
+
+    void Test_Tsumo5()
+    {
+        // 여기는 함수랑 이름 똑같게
+        DebugHelper.SetTestName("Test_Tsumo5");
+
+        // 텐파이 상태로 만들고 시작합니다
+        // 왜냐하면 패가 하나씩 오기 때문에 무조건 텐파이 상태를 거쳐서
+        // 텐파이 여부를 판단한 후 그걸 바탕으로 화료를 결정하기 때문
+        var testSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 1),
+                    TEST__SetTestData(TestComponents[1], "만", 1),
+                    TEST__SetTestData(TestComponents[2], "만", 1),
+
+                    TEST__SetTestData(TestComponents[3], "만", 2),
+                    TEST__SetTestData(TestComponents[4], "만", 3),
+                    TEST__SetTestData(TestComponents[5], "만", 4),
+
+                    TEST__SetTestData(TestComponents[6], "만", 5),
+                    TEST__SetTestData(TestComponents[7], "만", 6),
+
+                    TEST__SetTestData(TestComponents[8], "만", 7),
+                    TEST__SetTestData(TestComponents[9], "만", 8),
+
+                    TEST__SetTestData(TestComponents[10], "만", 9),
+                    TEST__SetTestData(TestComponents[11], "만", 9),
+                    TEST__SetTestData(TestComponents[12], "만", 9),
+        };
+
+
+        // 글로벌오더로 전환
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+
+        // 쓰기 전에 Clear
+        AgariContextForTest.Clear();
+        // IsTenpai를 부르는 순간 AgariContext에 값이 할당됨
+        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+
+        // isTenpai값이 아니면 아래와 같은 메세지가 뜹니다
+        // "Test_Tsumo1의 1번 라인이 참이어야 하는데 참이 아닙니다"
+        // 내부 구현은 한번 보면 이해하실듯
+        DebugHelper.IsTrue(isTenpai, 1); // 맨뒤에 1은 라인번호
+
+        // 새로받은 카드 할당
+        TEST__SetTestData(TestComponents[13], "만", 8);
+
+        // 화료 가능한지 체크
+        var isAgariable = AgariContextForTest.IsAgariable(TestComponents[13]);
+        // 화료 맞는지 디버깅 라인 체크
+        DebugHelper.IsTrue(isAgariable, 2);
+
+        Debug.Log("length" + TestComponents.Length);
+
+        PlayerStatusForTest.Initialize(); // 쓰기 전 초기화
+        PlayerStatusForTest.IsRiichiMode = true; // 테스트로 리치라고 쳐줌
+        PlayerStatusForTest.IsOneShotRiichi = false; // 일발리치 아님
+        PlayerStatusForTest.IsMenzen = true; // 멘젠
+        PlayerStatusForTest.IsFirstOrder = false; // 더블리치는 아님
+        // 쯔모 계산 요청
+        RequestTsumoScore(TestComponents, new Card[] { }, AgariContextForTest, PlayerStatusForTest);
+
+        var count = PlayerStatusForTest.YakuCount; // 총 역 갯수
+        var yaku = PlayerStatusForTest.YakuKey; // string[] 배열 역 key가 들어있음
+        var han = PlayerStatusForTest.Han; // int[] 역마다 판 적혀있음
+        var fu = PlayerStatusForTest.Fu; // 총 부수
+
+        for (var i = 0; i < count; ++i)
+        {
+            Debug.Log($"{yaku[i]} {han[i]}");
+        }
+
+        // 이런 식으로 맞는 결과를 써줌
+        DebugHelper.IsTrue(count == 2, 3); // 역 1개
+        DebugHelper.IsTrue(yaku[0] == "Riichi", 4); // 리치 
+        DebugHelper.IsTrue(han[0] == 1, 5); // 1판
+        DebugHelper.IsTrue(yaku[1] == "NineGates", 6); // 탕야오
+        DebugHelper.IsTrue(han[1] == 13, 7); // 1판
+    }
     public void Start()
     {
         if (DebugHelper != null && Networking.LocalPlayer == null && AgariContextForTest != null)
@@ -1095,6 +1252,8 @@ public class HandCalculator : UdonSharpBehaviour
             Test_Tsumo1();
             Test_Tsumo2();
             Test_Tsumo3();
+            Test_Tsumo4();
+            Test_Tsumo5();
         }
     }
 

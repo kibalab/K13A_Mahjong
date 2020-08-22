@@ -127,6 +127,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 13판역(확정 역만) ----
             {
                 AddScore_AllGreen(playerStatus, sealedCards, openedCards);
+                AddScore_NineGates(playerStatus, sealedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -232,6 +233,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 13판역(확정 역만) ----
             {
                 AddScore_AllGreen(playerStatus, sealedCards, openedCards);
+                AddScore_NineGates(playerStatus, sealedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -974,51 +976,45 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //구련보등
-    void AddScore_NineGates(PlayerStatus playerStatus, object[] ctx)
+    void AddScore_NineGates(PlayerStatus playerStatus, Card[] sealedCards)
     {
+
         if (!playerStatus.IsMenzen)
         {
             return;
         }
-        var globalOrders = Ctx.ReadGlobalOrders(ctx);
-        
-        var firstType = new int[] { 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 8 };
-        var lastType = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 8, 8 };
+        var pattern = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 8 };
 
-        var isNineGates = false;
-        for(int i=0; i<19; i+= 9)
+        var i = 0;
+        var irregularCount = 0;
+        foreach (var card in sealedCards)
         {
-            for (int j=0; i<14; j++)
+            if(pattern.Length - 1 == i)
             {
-                if(firstType[j] != globalOrders[j])
+                if(card.Type != sealedCards[0].Type)
                 {
-                    isNineGates = false;
-                    break;
+                    return;
                 }
                 else
                 {
-                    isNineGates = true;
+                    break;
                 }
             }
-            for (int j = 0; i < 14; j++)
+            Debug.Log($"[ScoreCalculator/NineGates] {card.ToString()}, {pattern[i]}");
+            if (card.GlobalOrder % 9 != pattern[i])
             {
-                if (lastType[j] != globalOrders[j])
+                irregularCount++;
+                if (irregularCount > 1 || sealedCards[0].Type != card.Type)
                 {
-                    isNineGates = false;
-
-                    if(i == 18)
-                    {
-                        return;
-                    }
-                    break;
+                    return;
                 }
-                else
-                {
-                    isNineGates = true;
-                }
+            }
+            else
+            {
+                i++;
             }
         }
-
+        
         var han = 13;
         playerStatus.AddHan("NineGates", han);
     }
