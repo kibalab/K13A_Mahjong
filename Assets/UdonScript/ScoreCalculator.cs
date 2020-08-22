@@ -33,6 +33,8 @@ public class ScoreCalculator : UdonSharpBehaviour
         var maxHan = 0;
         var maxFu = 0;
 
+        Debug.Log($"openedCards Lenght : {openedCards.Length}");
+
         foreach (object[] ctx in ctxs)
         {
             var pairs = HandUtil.FindPairs(Ctx.ReadGlobalOrders(ctx));
@@ -78,7 +80,7 @@ public class ScoreCalculator : UdonSharpBehaviour
                 // 또이또이
                 AddScore_AllTripletHand(playerStatus, ctx);
                 // 삼암각
-                AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
+                AddScore_ThreeClosedTriplets(playerStatus, ctx, sealedCards);
                 // 삼색동각
                 AddScore_ThreeColorTriplets(playerStatus, ctx);
                 // 소삼원
@@ -112,7 +114,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 6판역(확정 하네만) ----
             {
                 //청일색
-                AddScore_ClearFlush(playerStatus, ctx);
+                AddScore_ClearFlush(playerStatus, sealedCards);
             }
 
             // 7판역 (하네만)
@@ -124,8 +126,8 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             // ---- 13판역(확정 역만) ----
             {
-                AddScore_ClearFlush(playerStatus, ctx);
-                AddScore_AllGreen(playerStatus, openedCards);
+                AddScore_ClearFlush(playerStatus, sealedCards);
+                AddScore_AllGreen(playerStatus, sealedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -183,7 +185,7 @@ public class ScoreCalculator : UdonSharpBehaviour
                 // 또이또이
                 AddScore_AllTripletHand(playerStatus, ctx);
                 // 삼암각
-                AddScore_ThreeClosedTriplets(playerStatus, ctx, openedCards);
+                AddScore_ThreeClosedTriplets(playerStatus, ctx, sealedCards);
                 // 삼색동각
                 AddScore_ThreeColorTriplets(playerStatus, ctx);
                 // 소삼원
@@ -218,7 +220,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 6판역(확정 하네만) ----
             {
                 //청일색
-                AddScore_ClearFlush(playerStatus, ctx);
+                AddScore_ClearFlush(playerStatus, sealedCards);
             }
 
             // 7판역 (하네만)
@@ -230,8 +232,8 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             // ---- 13판역(확정 역만) ----
             {
-                AddScore_ClearFlush(playerStatus, ctx);
-                AddScore_AllGreen(playerStatus, open);
+                AddScore_ClearFlush(playerStatus, sealedCards);
+                AddScore_AllGreen(playerStatus, sealedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -891,24 +893,20 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //청일색
-    void AddScore_ClearFlush(PlayerStatus playerStatus, object[] ctx)
+    void AddScore_ClearFlush(PlayerStatus playerStatus, Card[] sealedCards)
     {
-        var globalOrders = Ctx.ReadGlobalOrders(ctx);
 
-        Debug.Log("ClearFlush GlobalOrders");
-        foreach (int i in globalOrders)
-        {
-            Debug.Log(i);
-        }
-        Debug.Log("#####################");
+
         var type = "";
-        foreach(var globalOrder in globalOrders)
+        foreach(var card in sealedCards)
         {
+            var globalOrder = card.GlobalOrder;
+            var nextType = card.Type;
+
             if (IsWhiteGreenRed(globalOrder))
             {
                 return;
             }
-            var nextType = Ctx.GobalOrderToType(globalOrder);
 
             if(type == "")
             {
@@ -1010,20 +1008,14 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //녹일색
-    void AddScore_AllGreen(PlayerStatus playerStatus, Card[] openCards)
+    void AddScore_AllGreen(PlayerStatus playerStatus, Card[] sealedCards)
     {
-        var type = "삭";
-        foreach (var card in openCards)
+        Debug.Log($"AllGreen");
+        foreach (var card in sealedCards)
         {
             var globalOrder = card.GlobalOrder;
-            var nextType = card.Type;
 
-            if (globalOrder == 18 || globalOrder == 22 || globalOrder == 24 || globalOrder == 25)
-            {
-                return;
-            }
-
-            if (type != nextType)
+            if (globalOrder != 19 && globalOrder != 20 && globalOrder != 21 && globalOrder != 23 && globalOrder != 25 && globalOrder != 32)
             {
                 return;
             }
