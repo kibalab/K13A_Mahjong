@@ -114,7 +114,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 6판역(확정 하네만) ----
             {
                 //청일색
-                AddScore_ClearFlush(playerStatus, sealedCards);
+                AddScore_ClearFlush(playerStatus, sealedCards, openedCards);
             }
 
             // 7판역 (하네만)
@@ -126,8 +126,7 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             // ---- 13판역(확정 역만) ----
             {
-                AddScore_ClearFlush(playerStatus, sealedCards);
-                AddScore_AllGreen(playerStatus, sealedCards);
+                AddScore_AllGreen(playerStatus, sealedCards, openedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -220,7 +219,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             // ---- 6판역(확정 하네만) ----
             {
                 //청일색
-                AddScore_ClearFlush(playerStatus, sealedCards);
+                AddScore_ClearFlush(playerStatus, sealedCards, openedCards);
             }
 
             // 7판역 (하네만)
@@ -232,8 +231,7 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             // ---- 13판역(확정 역만) ----
             {
-                AddScore_ClearFlush(playerStatus, sealedCards);
-                AddScore_AllGreen(playerStatus, sealedCards);
+                AddScore_AllGreen(playerStatus, sealedCards, openedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -893,9 +891,8 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //청일색
-    void AddScore_ClearFlush(PlayerStatus playerStatus, Card[] sealedCards)
+    void AddScore_ClearFlush(PlayerStatus playerStatus, Card[] sealedCards, Card[] openedCards)
     {
-
 
         var type = "";
         foreach(var card in sealedCards)
@@ -912,6 +909,25 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 type = nextType;
             }else if(type != nextType)
+            {
+                return;
+            }
+        }
+        foreach (var card in openedCards)
+        {
+            var globalOrder = card.GlobalOrder;
+            var nextType = card.Type;
+
+            if (IsWhiteGreenRed(globalOrder))
+            {
+                return;
+            }
+
+            if (type == "")
+            {
+                type = nextType;
+            }
+            else if (type != nextType)
             {
                 return;
             }
@@ -1008,10 +1024,18 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //녹일색
-    void AddScore_AllGreen(PlayerStatus playerStatus, Card[] sealedCards)
+    void AddScore_AllGreen(PlayerStatus playerStatus, Card[] sealedCards, Card[] openedCards)
     {
-        Debug.Log($"AllGreen");
         foreach (var card in sealedCards)
+        {
+            var globalOrder = card.GlobalOrder;
+
+            if (globalOrder != 19 && globalOrder != 20 && globalOrder != 21 && globalOrder != 23 && globalOrder != 25 && globalOrder != 32)
+            {
+                return;
+            }
+        }
+        foreach (var card in openedCards)
         {
             var globalOrder = card.GlobalOrder;
 
