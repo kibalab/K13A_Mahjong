@@ -41,6 +41,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 0.58, y: 1.38}
+        m_Offset: {x: 0, y: 1.1}
+    - _MatCap:
+        m_Texture: {fileID: 2800000, guid: b5b4ae21bc7e7e048a017f177d9944bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatCapDiffuse:
+        m_Texture: {fileID: 2800000, guid: 3adbeca4eea740b43b7e65751f8241d3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatCapReflect:
+        m_Texture: {fileID: 2800000, guid: d424bbe42bb326e4aad392c43ab40136, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -63,6 +75,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
+    - _MatCapReflectMultiply: 0
     - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -74,6 +87,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.63676953, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.63529414, b: 0, a: 1}
     - _EmissionColor: {r: 1, g: 0.5779841, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

@@ -128,6 +128,8 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 AddScore_AllGreen(playerStatus, sealedCards, openedCards);
                 AddScore_NineGates(playerStatus, sealedCards);
+                Debug.Log("[ScoreCalculator] Check before AllHonors");
+                AddScore_AllHonors(playerStatus, sealedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -234,6 +236,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             {
                 AddScore_AllGreen(playerStatus, sealedCards, openedCards);
                 AddScore_NineGates(playerStatus, sealedCards);
+                AddScore_AllHonors(playerStatus, sealedCards);
             }
 
             if (playerStatus.TotalHan > maxHan)
@@ -1000,7 +1003,7 @@ public class ScoreCalculator : UdonSharpBehaviour
                     break;
                 }
             }
-            Debug.Log($"[ScoreCalculator/NineGates] {card.ToString()}, {pattern[i]}");
+            //Debug.Log($"[ScoreCalculator/NineGates] {card.ToString()}, {pattern[i]}");
             if (card.GlobalOrder % 9 != pattern[i])
             {
                 irregularCount++;
@@ -1045,11 +1048,16 @@ public class ScoreCalculator : UdonSharpBehaviour
     }
 
     //자일색
-    void AddScore_AllHonors(PlayerStatus playerStatus, object[] ctx)
+    void AddScore_AllHonors(PlayerStatus playerStatus, Card[] sealedCards)
     {
-        var globalOrders = Ctx.ReadGlobalOrders(ctx);
-        foreach (var globalOrder in globalOrders)
+        foreach (var card in sealedCards)
         {
+            Debug.Log($"[ScoreCalculator/AllHornors] {card.ToString()}");
+        }
+        foreach (var card in sealedCards)
+        {
+            var globalOrder = card.GlobalOrder;
+            Debug.Log($"[ScoreCalculator/AllHornors] {card.ToString()}");
             if (globalOrder < 27)
             {
                 return;
