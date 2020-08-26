@@ -132,6 +132,12 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_AllHonors(playerStatus, sealedCards);
             }
 
+            // 특수역 (치또이츠)
+            // 치또이츠는 부수를 25로 고정하기 때문에 맨 마지막에 알아본다
+            {
+                AddScore_ChiToitsu(playerStatus, ctx);
+            }
+
             if (playerStatus.TotalHan > maxHan)
             {
                 hanList = playerStatus.Han;
@@ -239,6 +245,12 @@ public class ScoreCalculator : UdonSharpBehaviour
                 AddScore_AllHonors(playerStatus, sealedCards);
             }
 
+            // 특수역 (치또이츠)
+            // 치또이츠는 부수를 25로 고정하기 때문에 맨 마지막에 알아본다
+            {
+                AddScore_ChiToitsu(playerStatus, ctx);
+            }
+
             if (playerStatus.TotalHan > maxHan)
             {
                 hanList = playerStatus.Han;
@@ -249,6 +261,16 @@ public class ScoreCalculator : UdonSharpBehaviour
 
         playerStatus.Han = hanList;
         playerStatus.Fu = maxFu;
+    }
+
+    void AddScore_ChiToitsu(PlayerStatus playerStatus, object[] ctx)
+    {
+        var pairs = HandUtil.FindPairs(Ctx.ReadGlobalOrders(ctx));
+        if (pairs.Length == 7)
+        {
+            playerStatus.AddHan("ChiToitsu", 2);
+            playerStatus.Fu = 25;
+        }
     }
 
     void AddScore_MenzenTsumo(PlayerStatus playerStatus)

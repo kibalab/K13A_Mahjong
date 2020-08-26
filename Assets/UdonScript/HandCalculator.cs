@@ -30,14 +30,6 @@ public class HandCalculator : UdonSharpBehaviour
     {
         var pairs = HandUtil.FindPairs(globalOrders);
 
-        // 특수역: 치또이츠
-        if (pairs.Length == 7)
-        {
-            playerStatus.AddHan("ChiToitsu", 2);
-            playerStatus.Fu = 25;
-            return true;
-        }
-
         // 특수역: 국싸무쌍
         var count = HandUtil.GetYaojuhaiTypeCount(globalOrders);
         if (count == 13)
