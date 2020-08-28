@@ -126,10 +126,19 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             // ---- 13판역(확정 역만) ----
             {
+                AddScore_HeavenlyHan(playerStatus);
+                AddScore_EarthlyHan(playerStatus);
+                AddScore_FourClosedTriplets(playerStatus, ctx);
+
                 AddScore_AllGreen(playerStatus, sealedCards, openedCards);
                 AddScore_NineGates(playerStatus, sealedCards);
-                Debug.Log("[ScoreCalculator] Check before AllHonors");
                 AddScore_AllHonors(playerStatus, sealedCards);
+                AddScore_AllTerminals(playerStatus, sealedCards);
+                AllScore_BigThreeDragons(playerStatus, ctx);
+                AllScore_LittleFourWinds(playerStatus, ctx);
+                AllScore_BigFourWinds(playerStatus, ctx);
+                AllScore_FourWinds(playerStatus, ctx);
+                AllScore_FourQuads(playerStatus, ctx);
             }
 
             // 특수역 (치또이츠)
@@ -240,9 +249,17 @@ public class ScoreCalculator : UdonSharpBehaviour
 
             // ---- 13판역(확정 역만) ----
             {
+                AddScore_FourClosedTriplets(playerStatus, ctx);
+
                 AddScore_AllGreen(playerStatus, sealedCards, openedCards);
                 AddScore_NineGates(playerStatus, sealedCards);
                 AddScore_AllHonors(playerStatus, sealedCards);
+                AddScore_AllTerminals(playerStatus, sealedCards);
+                AllScore_BigThreeDragons(playerStatus, ctx);
+                AllScore_LittleFourWinds(playerStatus, ctx);
+                AllScore_BigFourWinds(playerStatus, ctx);
+                AllScore_FourWinds(playerStatus, ctx);
+                AllScore_FourQuads(playerStatus, ctx);
             }
 
             // 특수역 (치또이츠)
@@ -1087,6 +1104,143 @@ public class ScoreCalculator : UdonSharpBehaviour
         }
         var han = 13;
         playerStatus.AddHan("AllHonors", han);
+    }
+
+    //청노두
+    void AddScore_AllTerminals(PlayerStatus playerStatus, Card[] sealedCards)
+    {
+        foreach(var card in sealedCards)
+        {
+            if (!HandUtil.IsNoduhai(card.GlobalOrder))
+            {
+                return;
+            }
+        }
+
+        var han = 13;
+        playerStatus.AddHan("AllTerminals", han);
+    }
+
+    //대삼원
+    void AllScore_BigThreeDragons(PlayerStatus playerStatus, object[] ctx)
+    {
+        var chiCount = Ctx.ReadChiCount(ctx);
+        if (chiCount > 0)
+        {
+            return;
+        }
+
+        var ponList = Ctx.ReadPonList(ctx);
+
+        var dragonsCount = 0;
+        foreach (int globalOrder in ponList)
+        {
+            if (IsWhiteGreenRed(globalOrder))
+            {
+                dragonsCount++;
+            }
+        }
+        if(dragonsCount != 3)
+        {
+            return;
+        }
+
+        var han = 13;
+        playerStatus.AddHan("BigThreeDragons", han);
+    }
+
+    //소사희
+    void AllScore_LittleFourWinds(PlayerStatus playerStatus, object[] ctx)
+    {
+        var ponList = Ctx.ReadPonList(ctx);
+
+        var WindCount = 0;
+        foreach (int globalOrder in ponList)
+        {
+            if (globalOrder >= HandUtil.GetWordsStartGlobalOrder() && !IsWhiteGreenRed(globalOrder))
+            {
+                WindCount++;
+            }
+        }
+
+        if (WindCount != 3)
+        {
+            return;
+        }
+
+        var head = GetHeadGlobalOrder(ctx);
+        if (head <= HandUtil.GetWordsStartGlobalOrder() || IsWhiteGreenRed(head))
+        {
+            return;
+        }
+
+        var han = 13;
+        playerStatus.AddHan("LittleFourWinds", han);
+    }
+
+    //소사희
+    void AllScore_BigFourWinds(PlayerStatus playerStatus, object[] ctx)
+    {
+        var ponList = Ctx.ReadPonList(ctx);
+
+        var WindCount = 0;
+        foreach (int globalOrder in ponList)
+        {
+            if (globalOrder >= HandUtil.GetWordsStartGlobalOrder() && !IsWhiteGreenRed(globalOrder))
+            {
+                WindCount++;
+            }
+        }
+
+        if (WindCount != 4)
+        {
+            return;
+        }
+
+        var han = 13;
+        playerStatus.AddHan("BigFourWinds", han);
+    }
+
+    //대사희
+    void AllScore_FourWinds(PlayerStatus playerStatus, object[] ctx)
+    {
+        var ponList = Ctx.ReadPonList(ctx);
+
+        var WindCount = 0;
+        foreach (int globalOrder in ponList)
+        {
+            if (globalOrder >= HandUtil.GetWordsStartGlobalOrder() && IsWhiteGreenRed(globalOrder))
+            {
+                WindCount++;
+            }
+        }
+
+
+        var head = GetHeadGlobalOrder(ctx);
+        if (head >= HandUtil.GetWordsStartGlobalOrder() && IsWhiteGreenRed(head))
+        {
+            WindCount++;
+        }
+
+        if (WindCount != 4)
+        {
+            return;
+        }
+
+        var han = 13;
+        playerStatus.AddHan("FourWinds", han);
+    }
+
+    //사깡즈
+    void AllScore_FourQuads(PlayerStatus playerStatus, object[] ctx)
+    {
+        if (playerStatus.KkanCount != 4)
+        {
+            return;
+        }
+
+        var han = 13;
+        playerStatus.AddHan("FourQuads", han);
     }
 
     bool IsWhiteGreenRed(int globalOrder)
