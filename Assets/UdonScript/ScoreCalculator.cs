@@ -1091,12 +1091,7 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         foreach (var card in sealedCards)
         {
-            Debug.Log($"[ScoreCalculator/AllHornors] {card.ToString()}");
-        }
-        foreach (var card in sealedCards)
-        {
             var globalOrder = card.GlobalOrder;
-            Debug.Log($"[ScoreCalculator/AllHornors] {card.ToString()}");
             if (globalOrder < 27)
             {
                 return;
