@@ -829,6 +829,41 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.IsTrue(AgariContextForTest.IsAgariable(TestComponents[13]), 4);
     }
 
+    void Test_Tenpai4()
+    {
+        DebugHelper.SetTestName("Test_Tenpai4");
+
+        var testSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 2),
+                    TEST__SetTestData(TestComponents[1], "만", 2),
+                    TEST__SetTestData(TestComponents[2], "만", 3),
+
+                    TEST__SetTestData(TestComponents[3], "만", 4),
+                    TEST__SetTestData(TestComponents[4], "만", 4),
+                    TEST__SetTestData(TestComponents[5], "통", 1),
+
+                    TEST__SetTestData(TestComponents[6], "통", 1),
+                    TEST__SetTestData(TestComponents[7], "통", 2),
+                    TEST__SetTestData(TestComponents[8], "통", 2),
+
+                    TEST__SetTestData(TestComponents[9], "통", 5),
+                    TEST__SetTestData(TestComponents[10], "통", 5),
+
+                    TEST__SetTestData(TestComponents[11], "삭", 8),
+                    TEST__SetTestData(TestComponents[12], "삭", 8),
+        };
+
+        AgariContextForTest.Clear();
+
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+
+        DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
+        DebugHelper.IsFalse(AgariContextForTest.IsSingleWaiting, 2);
+        DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 5, 3);
+        DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[1], 7, 4);
+    }
+
     void Test_Tsumo1()
     {
         // 여기는 함수랑 이름 똑같게
@@ -1291,6 +1326,70 @@ public class HandCalculator : UdonSharpBehaviour
         DebugHelper.IsTrue(yaku[1] == "AllTerminals", 6);
         DebugHelper.IsTrue(han[1] == 13, 7);
     }
+
+    void Test_Tsumo8()
+    {
+        DebugHelper.SetTestName("Test_Tsumo8");
+
+        var testSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[0], "만", 2),
+                    TEST__SetTestData(TestComponents[1], "만", 2),
+                    TEST__SetTestData(TestComponents[2], "만", 3),
+
+                    TEST__SetTestData(TestComponents[3], "만", 4),
+                    TEST__SetTestData(TestComponents[4], "만", 4),
+                    TEST__SetTestData(TestComponents[5], "통", 1),
+
+                    TEST__SetTestData(TestComponents[6], "통", 1),
+                    TEST__SetTestData(TestComponents[7], "통", 2),
+                    TEST__SetTestData(TestComponents[8], "통", 2),
+
+                    TEST__SetTestData(TestComponents[9], "통", 5),
+                    TEST__SetTestData(TestComponents[10], "통", 5),
+
+                    TEST__SetTestData(TestComponents[11], "삭", 8),
+                    TEST__SetTestData(TestComponents[12], "삭", 8),
+        };
+
+
+        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+
+        AgariContextForTest.Clear();
+        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+
+        DebugHelper.IsTrue(isTenpai, 1);
+
+        TEST__SetTestData(TestComponents[13], "만", 3);
+
+        var isAgariable = AgariContextForTest.IsAgariable(TestComponents[13]);
+        DebugHelper.IsTrue(isAgariable, 2);
+
+        Debug.Log("length" + TestComponents.Length);
+
+        PlayerStatusForTest.Initialize();
+        PlayerStatusForTest.IsRiichiMode = true;
+        PlayerStatusForTest.IsOneShotRiichi = false;
+        PlayerStatusForTest.IsFirstOrder = false;
+
+        RequestTsumoScore(TestComponents, new Card[] { }, AgariContextForTest, PlayerStatusForTest);
+
+        var count = PlayerStatusForTest.YakuCount;
+        var yaku = PlayerStatusForTest.YakuKey;
+        var han = PlayerStatusForTest.Han;
+        var fu = PlayerStatusForTest.Fu;
+
+        for (var i = 0; i < count; ++i)
+        {
+            Debug.Log($"{yaku[i]} {han[i]}");
+        }
+
+        DebugHelper.IsTrue(count == 2, 3);
+        DebugHelper.IsTrue(yaku[0] == "Riichi", 4);
+        DebugHelper.IsTrue(han[0] == 1, 5);
+        DebugHelper.IsTrue(yaku[1] == "AllTerminals", 6);
+        DebugHelper.IsTrue(han[1] == 13, 7);
+    }
     public void Start()
     {
         if (DebugHelper != null && Networking.LocalPlayer == null && AgariContextForTest != null)
@@ -1312,6 +1411,7 @@ public class HandCalculator : UdonSharpBehaviour
             Test_Tenpai1();
             Test_Tenpai2();
             Test_Tenpai3();
+            Test_Tenpai4();
 
             Test_Tsumo1();
             Test_Tsumo2();
@@ -1320,6 +1420,7 @@ public class HandCalculator : UdonSharpBehaviour
             Test_Tsumo5();
             Test_Tsumo6();
             Test_Tsumo7();
+            Test_Tsumo8();
         }
     }
 

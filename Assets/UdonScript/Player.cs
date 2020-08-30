@@ -44,6 +44,7 @@ public class Player : UdonSharpBehaviour
 
     public void Initialize(int playerIndex)
     {
+        Cards.Clear();
         cardPoints = FindPoints();
         stashedCards = new int[34];
         stashedCardIndex = 0;

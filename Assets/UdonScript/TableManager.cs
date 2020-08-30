@@ -212,6 +212,17 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
+    public void resetTable()
+    {
+        //다음라운드로 전환을 위한 테이블 전체 초기화
+        currentTurnPlayer = 0;
+        currentCardIndex = 0;
+        currentRinShanCardIndex = 0;
+        currentDorasCardIndex = 0;
+        Initialize();
+        AddNextCard();
+    }
+
     public void Initialize()
     {
         InitializeYama();
