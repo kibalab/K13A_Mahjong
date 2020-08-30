@@ -465,7 +465,8 @@ public class GameManager : UdonSharpBehaviour
 
     void EndOfRound()
     {
-        
+        //지금은 끝나면 바로 초기화하게 해뒀지만 나중엔 버튼을 누르면 초기화 하게 해야함
+        TableManager.resetTable();
     }
 
     void ChangeGameState(string state)
