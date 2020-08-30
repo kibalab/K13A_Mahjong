@@ -12,6 +12,7 @@ public class GameManager : UdonSharpBehaviour
     [SerializeField] public LogViewer LogViewer;
     [SerializeField] public bool testMode;
     [SerializeField] public JoinStatus JoinStatus;
+    [SerializeField] public ResultViewer ResultViewer;
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -278,6 +279,9 @@ public class GameManager : UdonSharpBehaviour
             var hanList = playerStatus.Han;
             var fu = playerStatus.Fu;
             var count = playerStatus.YakuCount;
+
+            ResultViewer.setResult("쯔모", currentPlayer.PlayerName, count, yakuKeyList, hanList, fu);
+
             ChangeGameState(State_EndOfRound);
         }
         else if (eventType == "AutoDiscard")
@@ -419,7 +423,7 @@ public class GameManager : UdonSharpBehaviour
 
             case "Ron":
                 {
-                    TableManager.SetSubtitleAllPlayers(nakiPlayer.gameObject.name, "쯔모");
+                    TableManager.SetSubtitleAllPlayers(nakiPlayer.gameObject.name, "론!");
                     var playerStatus = nakiPlayer.CalculateRonScore();
 
                     // 해야 한다...
@@ -427,6 +431,9 @@ public class GameManager : UdonSharpBehaviour
                     var hanList = playerStatus.Han;
                     var fu = playerStatus.Fu;
                     var count = playerStatus.YakuCount;
+
+                    ResultViewer.setResult("론", nakiPlayer.PlayerName, count, yakuKeyList, hanList, fu);
+
                     ChangeGameState(State_EndOfRound);
                     break;
                 }
