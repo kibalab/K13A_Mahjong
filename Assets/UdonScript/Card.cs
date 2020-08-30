@@ -38,6 +38,24 @@ public class Card : UdonSharpBehaviour
         RequestCallFunctionToAll(nameof(_playTabSound));
     }
 
+    public void resetCard()
+    {
+        /*Type = "None";
+        CardNumber = -1;
+        SpriteNamePostfix = "None";
+        IsColliderActive = true;
+        IsDora = false;*/
+        Position = new Vector3(0, 0, 0);
+        Rotation = new Quaternion(0, 0, 0, 0);
+        IsRinShan = false;
+        YamaIndex = -1;
+        PlayerIndex = -1;
+        IsDiscardedForRiichi = false;
+        GlobalOrder = -1;
+        isSpriteInitialized = false;
+        isDoraMaterialSetted = false;
+    }
+
     public void _playTabSound()
     {
         if (AudioQueue != null)
@@ -61,6 +79,7 @@ public class Card : UdonSharpBehaviour
 
     public void Initialize_Master(string type, int cardNumber, bool isRedDora)
     {
+        resetCard();
         Type = type;
         CardNumber = cardNumber;
         IsDora = isRedDora;

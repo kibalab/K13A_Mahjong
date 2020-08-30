@@ -275,7 +275,7 @@ public class ScoreCalculator : UdonSharpBehaviour
                 maxFu = playerStatus.Fu;
             }
         }
-
+        Debug.Log($"[GameManager] Ron Status Fu : {playerStatus.TotalHan}");
         playerStatus.Han = hanList;
         playerStatus.Fu = maxFu;
     }

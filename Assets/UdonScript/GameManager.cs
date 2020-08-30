@@ -280,6 +280,8 @@ public class GameManager : UdonSharpBehaviour
             var fu = playerStatus.Fu;
             var count = playerStatus.YakuCount;
 
+            Debug.Log($"[GameManager] Tsumo Status \nYaku : {yakuKeyList.ToString()}, \nHan : {hanList.ToString()}, \nFu : {fu}");
+
             ResultViewer.setResult("쯔모", currentPlayer.PlayerName, count, yakuKeyList, hanList, fu);
 
             ChangeGameState(State_EndOfRound);
