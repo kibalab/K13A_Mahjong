@@ -110,17 +110,7 @@ public class Player : UdonSharpBehaviour
         UIContext.Clear();
         AgariContext.Clear();
 
-        var str = "Sealed : ";
-        foreach (Card card in GetArray(Cards))
-        {
-            str += $"{card.ToString()}, ";
-        }
-        str += "\nOpenned : ";
-        foreach (Card card in GetArray(OpenendCards))
-        {
-            str += $"{card.ToString()}, ";
-        }
-        Debug.Log(str);
+        
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
         UIContext.IsTsumoable = AgariContext.IsAgariable(newCard);
 
