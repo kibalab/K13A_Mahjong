@@ -109,10 +109,9 @@ public class Player : UdonSharpBehaviour
 
         UIContext.Clear();
         AgariContext.Clear();
-
         
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
-        UIContext.IsTsumoable = AgariContext.IsAgariable(newCard);
+        UIContext.IsTsumoable = AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null);
 
         Cards.Add(newCard);
 
@@ -315,9 +314,15 @@ public class Player : UdonSharpBehaviour
 
     public void CheckNakiable(Card card, bool isDiscardedByLeftPlayer)
     {
-        UIContext.Clear();
+        // 자기가 버린 패로는 울 수 없다
+        if (stashedCards[card.GlobalOrder] == 0)
+        {
+            UIContext.Clear();
 
-        HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
+            HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
+
+            UIContext.IsRonable = AgariContext.IsAgariable(card) && !IsYakuNashi(null, card);
+        }
     }
 
     public bool IsUIActived()
@@ -428,10 +433,13 @@ public class Player : UdonSharpBehaviour
         }
     }
 
-    Card[] GetArray(KList list)
+    Card[] GetArray(KList list, Card addCard = null)
     {
         var objs = list.Clone();
-        var cards = new Card[objs.Length];
+        var cardLength = objs.Length;
+        var addCardLength = addCard != null ? 1 : 0;
+
+        var cards = new Card[cardLength + addCardLength];
 
         for (var i = 0; i < objs.Length; ++i)
         {
@@ -439,7 +447,26 @@ public class Player : UdonSharpBehaviour
             // 그래서 Card 전용 KList를 만들까 생각중
             cards[i] = (Card)objs[i];
         }
+
+        if (addCard != null)
+        {
+            cards[cards.Length - 1] = addCard;
+        }
+
         return cards;
+    }
+
+    bool IsYakuNashi(Card tsumoCard, Card nakiCard)
+    {
+        // 야쿠나시 검사는 13장일 때 함
+        if (Cards.Count() + OpenendCards.Count() != 13) { Debug.Log("IsYakuNashi를 카드 추가 후 부른 듯"); }
+
+        HandCalculator.RequestTsumoScore(
+            GetArray(Cards, tsumoCard),
+            GetArray(OpenendCards, nakiCard),
+            AgariContext,
+            playerStatus);
+        return playerStatus.TotalHan == 0;
     }
 
     private void Update()
