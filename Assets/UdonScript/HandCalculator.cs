@@ -283,6 +283,20 @@ public class HandCalculator : UdonSharpBehaviour
 
     public void CheckTenpai(Card[] sealedCards, Card[] openedCards, AgariContext agariContext)
     {
+        {
+            var str = "[HandCalculator]\nSealed : ";
+            foreach (Card card in sealedCards)
+            {
+                str += $"{card.ToString()}, ";
+            }
+            str += "\nOpenned : ";
+            foreach (Card card in openedCards)
+            {
+                str += $"{card.ToString()}, ";
+            }
+            Debug.Log(str);
+        }
+
         var sealedGlobalOrders = HandUtil.GetGlobalOrders(sealedCards);
         var openedGlobalOrders = HandUtil.GetGlobalOrders(openedCards);
 
