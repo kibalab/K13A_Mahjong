@@ -110,7 +110,7 @@ public class Player : UdonSharpBehaviour
         UIContext.Clear();
         AgariContext.Clear();
         
-        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
         UIContext.IsTsumoable = AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null);
 
         Cards.Add(newCard);
@@ -163,7 +163,7 @@ public class Player : UdonSharpBehaviour
 
         SortPosition();
 
-        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
     }
 
     public void setStashPositionRichMode()
@@ -202,7 +202,7 @@ public class Player : UdonSharpBehaviour
         OpenedPonPositions[ponGlobalOrder] = nakiShape;
 
         SortPosition();
-        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
     }
 
     public void ActiveRiichiCreateCardColliders()
@@ -256,7 +256,7 @@ public class Player : UdonSharpBehaviour
         Destroy(nakiShape.gameObject);
 
         SortPosition();
-        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
     }
 
     Transform GetNextNakiShape(int shapeType)
@@ -277,8 +277,8 @@ public class Player : UdonSharpBehaviour
             if (Contains(card))
             {
                 Cards.RemoveAt(Cards.IndexOf(card));
-                OpenendCards.Add(card);
             }
+            OpenendCards.Add(card);
 
             var nakiCardPosition = nakiShape.GetChild(index).transform;
             openTargetCards[index].SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);

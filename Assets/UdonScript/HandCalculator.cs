@@ -281,7 +281,7 @@ public class HandCalculator : UdonSharpBehaviour
         return Fit_Card(riichiableCards, riichiableCount);
     }
 
-    public void CheckTenpai(Card[] sealedCards, Card[] openedCards, AgariContext agariContext)
+    public void CheckTenpai(Card[] sealedCards, Card[] openedCards, AgariContext agariContext, UIContext uIContext)
     {
         {
             var str = "[HandCalculator]\nSealed : ";
@@ -303,6 +303,8 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
         IsTenpai(agariContext, globalOrders);
+
+        //uIContext.SetAgarible(agariContext.AgariableCardGlobalOrders);
     }
 
     bool IsTenpai(AgariContext agariContext, int[] globalOrders)
