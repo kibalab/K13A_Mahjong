@@ -433,24 +433,27 @@ public class Player : UdonSharpBehaviour
         }
     }
 
-    Card[] GetArray(KList list, Card addCard = null)
+    Card[] GetArrayWithAdditionalCard(KList list, Card addCard = null)
+    {
+        var arr = GetArray(list);
+        var cards = new Card[arr.Length + 1];
+
+        cards[cards.Length - 1] = addCard;
+
+        return cards;
+    }
+
+    Card[] GetArray(KList list)
     {
         var objs = list.Clone();
         var cardLength = objs.Length;
-        var addCardLength = addCard != null ? 1 : 0;
-
-        var cards = new Card[cardLength + addCardLength];
+        var cards = new Card[cardLength];
 
         for (var i = 0; i < objs.Length; ++i)
         {
             // 이렇게 하나하나 바꿔주지 않으면 애러남
             // 그래서 Card 전용 KList를 만들까 생각중
             cards[i] = (Card)objs[i];
-        }
-
-        if (addCard != null)
-        {
-            cards[cards.Length - 1] = addCard;
         }
 
         return cards;
@@ -462,8 +465,8 @@ public class Player : UdonSharpBehaviour
         if (Cards.Count() + OpenendCards.Count() != 13) { Debug.Log("IsYakuNashi를 카드 추가 후 부른 듯"); }
 
         HandCalculator.RequestTsumoScore(
-            GetArray(Cards, tsumoCard),
-            GetArray(OpenendCards, nakiCard),
+            GetArrayWithAdditionalCard(Cards, tsumoCard),
+            GetArrayWithAdditionalCard(OpenendCards, nakiCard),
             AgariContext,
             playerStatus);
         return playerStatus.TotalHan == 0;
