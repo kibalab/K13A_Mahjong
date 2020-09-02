@@ -110,6 +110,17 @@ public class Player : UdonSharpBehaviour
         UIContext.Clear();
         AgariContext.Clear();
 
+        var str = "Sealed : ";
+        foreach (Card card in GetArray(Cards))
+        {
+            str += $"{card.ToString()}, ";
+        }
+        str += "\nOpenned : ";
+        foreach (Card card in GetArray(OpenendCards))
+        {
+            str += $"{card.ToString()}, ";
+        }
+        Debug.Log(str);
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
         UIContext.IsTsumoable = AgariContext.IsAgariable(newCard);
 
@@ -144,6 +155,7 @@ public class Player : UdonSharpBehaviour
 
     public void Discard(Card card)
     {
+        AgariContext.Clear();
         if (Contains(card))
         {
             Cards.RemoveAt(Cards.IndexOf(card));
@@ -161,6 +173,8 @@ public class Player : UdonSharpBehaviour
         playerStatus.IsFirstOrder = false;
 
         SortPosition();
+
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
     }
 
     public void setStashPositionRichMode()
@@ -190,6 +204,7 @@ public class Player : UdonSharpBehaviour
 
     public void OpenCards_Pon(Card[] openTargetCards, int shapeType)
     {
+        AgariContext.Clear();
         var nakiShape = GetNextNakiShape(shapeType);
         SetNakiPosition(openTargetCards, nakiShape);
 
@@ -198,6 +213,7 @@ public class Player : UdonSharpBehaviour
         OpenedPonPositions[ponGlobalOrder] = nakiShape;
 
         SortPosition();
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
     }
 
     public void ActiveRiichiCreateCardColliders()
@@ -241,6 +257,7 @@ public class Player : UdonSharpBehaviour
 
     public void OpenCards(Card[] openTargetCards, int shapeType)
     {
+        AgariContext.Clear();
         playerStatus.IsMenzen = false;
 
         var nakiShape = GetNextNakiShape(shapeType);
@@ -250,6 +267,7 @@ public class Player : UdonSharpBehaviour
         Destroy(nakiShape.gameObject);
 
         SortPosition();
+        HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext);
     }
 
     Transform GetNextNakiShape(int shapeType)

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class ResultViewer : UdonSharpBehaviour
     public Text[] resultYaku;
     public Text hanText;
     public Text fuText;
+    public Text pointText;
     public Image pointLevel;
     public Image[] pointLevels;
 
@@ -46,8 +48,36 @@ public class ResultViewer : UdonSharpBehaviour
         hanText.text = $"{hanTotal}판";
         fuText.text = $"{fu}부";
 
+        pointText.text = $"{(int)(mathPow(2, hanTotal + 2) * fu)} 점(임시)";
+
         setPointLevel(hanTotal, fu);
     }
+
+    double pointCalculator(int han, int fu)
+    {
+        var point = han + fu * 0.001;
+
+        if (point <= 3.6 || point >= 4 && point <= 4.3)
+        {
+            return mathPow(2, han + 2) * fu;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+
+    private double mathPow(double x, double n)
+    {
+        double val = 1;
+        for (int i = 1; i <= n; i++)
+        {
+            val = x * val;
+        }
+        return val;
+    }
+
 
     public void setPointLevel(int han, int fu)
     {

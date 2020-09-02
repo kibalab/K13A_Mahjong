@@ -13,6 +13,8 @@ public class TableViewer : UdonSharpBehaviour
     public Image[] windTexts;
     public Text[] namePlates;
 
+    public GameObject endDisplay;
+
 
     public void setWInd(int playerIndex, string wind)
     {
@@ -34,6 +36,21 @@ public class TableViewer : UdonSharpBehaviour
         }
         */
 
+    }
+
+    public void activeDisplay(string type, bool active)
+    {
+        var display = endDisplay.transform.Find(type);
+
+        display.gameObject.SetActive(active);
+    }
+
+    public void hideDisplay()
+    {
+        for (var i = 0; i < endDisplay.transform.childCount; i++)
+        {
+            endDisplay.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
     public void setChin(int chin)

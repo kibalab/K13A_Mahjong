@@ -16,6 +16,7 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public Material normalMaterial;
     [SerializeField] public LogViewer LogViewer;
     [SerializeField] public GameObject DoraViewer;
+    [SerializeField] public TableViewer TableViewer;
 
     [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
@@ -215,6 +216,7 @@ public class TableManager : UdonSharpBehaviour
     public void resetTable()
     {
         //다음라운드로 전환을 위한 테이블 전체 초기화
+        TableViewer.hideDisplay();
         currentTurnPlayer = 0;
         currentCardIndex = 0;
         currentRinShanCardIndex = 0;

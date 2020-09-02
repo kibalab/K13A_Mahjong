@@ -107,6 +107,7 @@ public class GameManager : UdonSharpBehaviour
             if (inputEvent.EventType == "Draw") // 유국
             {
                 Debug.Log($"DrawReason: {inputEvent.DrawReason}");
+                TableManager.TableViewer.activeDisplay("Draw", true);
 
                 switch (inputEvent.DrawReason)
                 {
@@ -272,6 +273,7 @@ public class GameManager : UdonSharpBehaviour
         else if (eventType == "Tsumo")
         {
             TableManager.SetSubtitleAllPlayers(currentPlayer.gameObject.name, "쯔모");
+            TableManager.TableViewer.activeDisplay("Tsumo", true);
             var playerStatus = currentPlayer.CalculateTsumoScore();
 
             // 해야 한다...
@@ -426,6 +428,7 @@ public class GameManager : UdonSharpBehaviour
             case "Ron":
                 {
                     TableManager.SetSubtitleAllPlayers(nakiPlayer.gameObject.name, "론!");
+                    TableManager.TableViewer.activeDisplay("Ron", true);
                     var playerStatus = nakiPlayer.CalculateRonScore();
 
                     // 해야 한다...
@@ -466,7 +469,7 @@ public class GameManager : UdonSharpBehaviour
     void EndOfRound()
     {
         //지금은 끝나면 바로 초기화하게 해뒀지만 나중엔 버튼을 누르면 초기화 하게 해야함
-        TableManager.resetTable();
+        //TableManager.resetTable();
     }
 
     void ChangeGameState(string state)
