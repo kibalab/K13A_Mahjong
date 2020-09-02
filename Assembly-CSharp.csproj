@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Shaders\VLS\LightShafts.cs" />
+    <Compile Include="Assets\Shaders\VLS\LightShafts.Resources.cs" />
+    <Compile Include="Assets\Shaders\VLS\LightShafts.Utils.cs" />
     <Compile Include="Assets\UdonScript\AgariContext.cs" />
     <Compile Include="Assets\UdonScript\AudioQueue.cs" />
     <Compile Include="Assets\UdonScript\CalculatingContextHandler.cs" />
@@ -149,15 +152,21 @@
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Skybox.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient_Transpaent.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Add.shader" />
+    <None Include="Assets\Shaders\VLS\SamplePositions.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient_Cutout.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Video-RealtimeEmissiveGamma.shader" />
+    <None Include="Assets\Shaders\VLS\Shared.cginc" />
     <None Include="Assets\UdonSharp\version.txt" />
+    <None Include="Assets\Shaders\VLS\Coord.shader" />
     <None Include="Assets\VRCSDK\Dependencies\VRChat\Resources\awsconfig.xml" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-ToonLit.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedMappedSpecular.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Diffuse.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\VRChat-Sprites-Diffuse.shader" />
     <None Include="Assets\Shaders\outline.shader" />
+    <None Include="Assets\Shaders\VLS\InterpolateAlongRays.shader" />
+    <None Include="Assets\Shaders\VLS\DepthBreaks.shader" />
+    <None Include="Assets\Shaders\ClassicNoise3D.cginc" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-MatCapLit.shader" />
     <None Include="Assets\VRCSDK\version.txt" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mirror.shader" />
@@ -171,10 +180,14 @@
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Multiply.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedDiffuse.shader" />
+    <None Include="Assets\Shaders\VLS\Raymarch.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Flat_Transpaent.shader" />
+    <None Include="Assets\Shaders\VLS\FinalInterpolation.shader" />
+    <None Include="Assets\Shaders\VLS\Depth.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-StandardLite.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedSpecular.shader" />
+    <None Include="Assets\Shaders\VLS\ColorFilter.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -18,6 +18,9 @@ public class UIContext : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public string ChiableSprite31;
     [UdonSynced(UdonSyncMode.None)] public string ChiableSprite32;
 
+    [UdonSynced(UdonSyncMode.None)] public string AgariableCards;
+    [UdonSynced(UdonSyncMode.None)] public int AgariableMessageIndex;
+
     [UdonSynced(UdonSyncMode.None)] public bool IsTsumoable;
     [UdonSynced(UdonSyncMode.None)] public bool IsRonable;
     [UdonSynced(UdonSyncMode.None)] public bool IsRiichable;
@@ -38,6 +41,20 @@ public class UIContext : UdonSharpBehaviour
         IsChiable = false;
         IsPonable = false;
         IsKkanable = false;
+    }
+
+    public void SetAgarible(string[] cards)
+    {
+        AgariableMessageIndex = (AgariableMessageIndex + 1) / 2;
+        var str = "";
+        for (var i = 0; i < cards.Length; i++)
+        {
+            str += cards[i];
+            if (i != cards.Length - 1)
+            {
+                str += ",";
+            }
+        }
     }
 
     public void SetChiable(int slot, int[] yamaIndexes, string[] spriteNames)

@@ -156,6 +156,31 @@ public class HandUtil : UdonSharpBehaviour
         return whiteGlobalOrder <= globalOrder && globalOrder <= redGlobalOrder;
     }
 
+    public string GetName(int globalOrder)
+    {
+        var typeNumber = globalOrder / 10;
+
+        var name = "";
+        switch (typeNumber)
+        {
+            case 0 :
+                name = "만";
+                break;
+            case 1:
+                name = "삭";
+                break;
+            case 2:
+                name = "통";
+                break;
+            default:
+                var typeNames = new string[] { "동", "남", "서", "북", "백", "발", "중" };
+                typeNumber -= WORDS_START_GLOBAL_ORDER;
+                name = typeNames[typeNumber];
+                break;
+        }
+        return name += (globalOrder % 10).ToString();
+    }
+
     public int GetYaojuhaiTypeCount(int[] tiles)
     {
         return (tiles[MAN_START_GLOBAL_ORDER] > 0 ? 1 : 0)
