@@ -836,32 +836,34 @@ public class HandCalculator : UdonSharpBehaviour
         var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 2),
-                    TEST__SetTestData(TestComponents[1], "만", 2),
-                    TEST__SetTestData(TestComponents[2], "만", 3),
+                    TEST__SetTestData(TestComponents[1], "만", 3),
+                    TEST__SetTestData(TestComponents[2], "만", 4),
 
-                    TEST__SetTestData(TestComponents[3], "만", 4),
-                    TEST__SetTestData(TestComponents[4], "만", 4),
-                    TEST__SetTestData(TestComponents[5], "통", 1),
+                    TEST__SetTestData(TestComponents[3], "남", 2),
+                    TEST__SetTestData(TestComponents[4], "통", 2),
+                    TEST__SetTestData(TestComponents[5], "통", 3),
 
-                    TEST__SetTestData(TestComponents[6], "통", 1),
-                    TEST__SetTestData(TestComponents[7], "통", 2),
-                    TEST__SetTestData(TestComponents[8], "통", 2),
+                    TEST__SetTestData(TestComponents[6], "통", 4)
+        };
 
-                    TEST__SetTestData(TestComponents[9], "통", 5),
-                    TEST__SetTestData(TestComponents[10], "통", 5),
-
-                    TEST__SetTestData(TestComponents[11], "삭", 8),
-                    TEST__SetTestData(TestComponents[12], "삭", 8),
+        var testOpennedSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[7], "백", 5),
+                    TEST__SetTestData(TestComponents[9], "백", 5),
+                    TEST__SetTestData(TestComponents[10], "서", 3),
+                    TEST__SetTestData(TestComponents[12], "서", 3)
         };
 
         AgariContextForTest.Clear();
 
-        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+        var sealedGlobalOrders = HandUtil.GetGlobalOrders(testSet);
+        var openedGlobalOrders = HandUtil.GetGlobalOrders(testOpennedSet);
+
+        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
         DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
-        DebugHelper.IsFalse(AgariContextForTest.IsSingleWaiting, 2);
-        DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 5, 3);
-        DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[1], 7, 4);
+        DebugHelper.IsTrue(AgariContextForTest.IsSingleWaiting, 2);
+        DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 3, 3);
     }
 
     void Test_Tsumo1()
@@ -1334,33 +1336,39 @@ public class HandCalculator : UdonSharpBehaviour
         var testSet = new Card[]
         {
                     TEST__SetTestData(TestComponents[0], "만", 2),
-                    TEST__SetTestData(TestComponents[1], "만", 2),
-                    TEST__SetTestData(TestComponents[2], "만", 3),
+                    TEST__SetTestData(TestComponents[1], "만", 3),
+                    TEST__SetTestData(TestComponents[2], "만", 4),
 
-                    TEST__SetTestData(TestComponents[3], "만", 4),
-                    TEST__SetTestData(TestComponents[4], "만", 4),
-                    TEST__SetTestData(TestComponents[5], "통", 1),
+                    TEST__SetTestData(TestComponents[3], "남", 2),
+                    TEST__SetTestData(TestComponents[4], "통", 2),
+                    TEST__SetTestData(TestComponents[5], "통", 3),
 
-                    TEST__SetTestData(TestComponents[6], "통", 1),
-                    TEST__SetTestData(TestComponents[7], "통", 2),
-                    TEST__SetTestData(TestComponents[8], "통", 2),
-
-                    TEST__SetTestData(TestComponents[9], "통", 5),
-                    TEST__SetTestData(TestComponents[10], "통", 5),
-
-                    TEST__SetTestData(TestComponents[11], "삭", 8),
-                    TEST__SetTestData(TestComponents[12], "삭", 8),
+                    TEST__SetTestData(TestComponents[6], "통", 4)
         };
 
+        var testOpennedSet = new Card[]
+        {
+                    TEST__SetTestData(TestComponents[7], "백", 5),
+                    TEST__SetTestData(TestComponents[8], "백", 5),
 
-        var globalOrders = HandUtil.GetGlobalOrders(testSet);
+                    TEST__SetTestData(TestComponents[9], "백", 5),
+                    TEST__SetTestData(TestComponents[10], "서", 3),
+
+                    TEST__SetTestData(TestComponents[11], "서", 3),
+                    TEST__SetTestData(TestComponents[12], "서", 3),
+        };
+
+        var sealedGlobalOrders = HandUtil.GetGlobalOrders(testSet);
+        var openedGlobalOrders = HandUtil.GetGlobalOrders(testOpennedSet);
+
+        var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
         AgariContextForTest.Clear();
         var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
         DebugHelper.IsTrue(isTenpai, 1);
 
-        TEST__SetTestData(TestComponents[13], "만", 3);
+        TEST__SetTestData(TestComponents[13], "남", 2);
 
         var isAgariable = AgariContextForTest.IsAgariable(TestComponents[13]);
         DebugHelper.IsTrue(isAgariable, 2);
@@ -1372,7 +1380,7 @@ public class HandCalculator : UdonSharpBehaviour
         PlayerStatusForTest.IsOneShotRiichi = false;
         PlayerStatusForTest.IsFirstOrder = false;
 
-        RequestTsumoScore(TestComponents, new Card[] { }, AgariContextForTest, PlayerStatusForTest);
+        RequestTsumoScore(testSet, testOpennedSet, AgariContextForTest, PlayerStatusForTest);
 
         var count = PlayerStatusForTest.YakuCount;
         var yaku = PlayerStatusForTest.YakuKey;
