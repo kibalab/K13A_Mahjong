@@ -111,14 +111,22 @@ public class Player : UdonSharpBehaviour
         AgariContext.Clear();
         
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
-        UIContext.IsTsumoable = AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null);
+
+        if (playerStatus.isAutoAgariMode && AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null))
+        {
+            EventQueue.SetUIEvent("Tsumo", PlayerIndex);
+        }
+        else
+        {
+            UIContext.IsTsumoable = AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null);
+        }
 
         Cards.Add(newCard);
 
         newCard.SetOwnership(PlayerIndex);
         newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
 
-        if (!UIContext.IsTsumoable && playerStatus.IsRiichiMode)
+        if (!UIContext.IsTsumoable && playerStatus.IsRiichiMode || playerStatus.isAutoDiscardMode)
         {
             EventQueue.SetAutoDiscardEvent(newCard.YamaIndex, PlayerIndex);
             playerStatus.IsOneShotRiichi = false;
@@ -319,9 +327,17 @@ public class Player : UdonSharpBehaviour
         {
             UIContext.Clear();
 
-            HandCalculator.RequestNakiable(GetArray(Cards), UIContext, AgariContext, card, isDiscardedByLeftPlayer);
+            HandCalculator.RequestNakiable(GetArray(Cards), playerStatus, UIContext, AgariContext, card, isDiscardedByLeftPlayer);
 
-            UIContext.IsRonable = AgariContext.IsAgariable(card) && !IsYakuNashi(null, card);
+            if (playerStatus.isAutoAgariMode && AgariContext.IsAgariable(card) && !IsYakuNashi(null, card))
+            {
+                UIContext.Clear();
+                EventQueue.SetUIEvent("Tsumo", PlayerIndex);
+            }
+            else
+            {
+                UIContext.IsRonable = AgariContext.IsAgariable(card) && !IsYakuNashi(null, card);
+            }
         }
     }
 
@@ -413,6 +429,10 @@ public class Player : UdonSharpBehaviour
 
     void SortPosition()
     {
+        if (playerStatus.isNoSortMode)
+        {
+            return;
+        }
         Cards.Sort();
         for (var k = 0; k < Cards.Count(); ++k)
         {

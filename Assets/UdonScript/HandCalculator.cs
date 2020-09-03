@@ -73,14 +73,17 @@ public class HandCalculator : UdonSharpBehaviour
         ScoreCalculator.CalculateRon(playerStatus, agariContext, sealedCards, openedCards, ctxs);
     }
 
-    public void RequestNakiable(Card[] cards, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer)
+    public void RequestNakiable(Card[] cards, PlayerStatus playerStatus, UIContext uiContext, AgariContext agariContext, Card discardedCard, bool isDiscardedByLeftPlayer)
     {
         var chiableList = GetChiableAll(cards, discardedCard);
         var isChiable = chiableList.Length > 0 && isDiscardedByLeftPlayer;
 
-        uiContext.IsChiable = isChiable;
-        uiContext.IsPonable = IsPonable(cards, discardedCard);
-        uiContext.IsKkanable = IsKkanable(cards, discardedCard);
+        if (!playerStatus.isNoNakiMode)
+        {
+            uiContext.IsChiable = isChiable;
+            uiContext.IsPonable = IsPonable(cards, discardedCard);
+            uiContext.IsKkanable = IsKkanable(cards, discardedCard);
+        }
 
         if (isChiable)
         {

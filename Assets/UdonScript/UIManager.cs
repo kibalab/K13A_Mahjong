@@ -44,7 +44,7 @@ public class UIManager : UdonSharpBehaviour
                 foreach(var card in cards)
                 {
                     var image = StatsUI.transform.GetChild(i++).GetChild(0).GetChild(0).GetComponent<Image>();
-                    image.sprite = CardSprites.FindSprite(card);
+                    //image.sprite = CardSprites.FindSprite(card);
                 }
 
                 AgariableMessageIndex = UIContext.AgariableMessageIndex;
@@ -173,6 +173,11 @@ public class UIManager : UdonSharpBehaviour
     public void _ClickTsumo() { SetUIEvent("Tsumo"); }
     public void _ClickSkip() { SetUIEvent("Skip"); }
     public void _ClickRich() { SetUIEvent("Rich"); }
+
+    public void _ClickTsumoCut() { SetUIEvent("TsumoCut"); }
+    public void _ClickAutoAgari() { SetUIEvent("AutoAgari"); }
+    public void _ClickNoNaki() { SetUIEvent("NoNaki"); }
+    public void _ClickNoSort() { SetUIEvent("NoSort"); }
 
     void SetUIEvent(string eventName)
     {

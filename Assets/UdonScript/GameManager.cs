@@ -121,7 +121,35 @@ public class GameManager : UdonSharpBehaviour
 
                 // 뭔가 더 처리를 해야 하는데 나중에 함
             }
-            
+
+            var requestPlayer = TableManager.GetPlayer(inputEvent.PlayerIndex);
+
+            switch (inputEvent.EventType)
+            {
+                case "TsumoCut":
+                    {
+                        requestPlayer.playerStatus.isAutoDiscardMode = !requestPlayer.playerStatus.isAutoDiscardMode;
+                        break;
+                    }
+
+                case "AutoAgari":
+                    {
+                        requestPlayer.playerStatus.isAutoAgariMode = !requestPlayer.playerStatus.isAutoAgariMode;
+                        break;
+                    }
+
+                case "NoNaki":
+                    {
+                        requestPlayer.playerStatus.isNoNakiMode = !requestPlayer.playerStatus.isNoNakiMode;
+                        break;
+                    }
+                case "NoSort":
+                    {
+                        requestPlayer.playerStatus.isNoSortMode = !requestPlayer.playerStatus.isNoSortMode;
+                        break;
+                    }
+            }
+
             // 액션 이전의 UI를 전부 disable함
             // 안 해주면 이전 UI가 남아있다
             TableManager.DisableUIAll();
