@@ -62,393 +62,393 @@ MonoBehaviour:
     - startInstruction: 0
       endInstruction: -1
       startSourceChar: 0
-      endSourceChar: 2
+      endSourceChar: 0
       line: 0
-      lineChar: 0
-      spanCodeSection: "\r\n"
-    - startInstruction: 0
-      endInstruction: -1
-      startSourceChar: 2
-      endSourceChar: 2
-      line: 1
       lineChar: 0
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 2
-      endSourceChar: 8
-      line: 1
+      startSourceChar: 0
+      endSourceChar: 0
+      line: 0
+      lineChar: 0
+      spanCodeSection: 
+    - startInstruction: 0
+      endInstruction: -1
+      startSourceChar: 0
+      endSourceChar: 6
+      line: 0
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 8
-      endSourceChar: 20
-      line: 1
+      startSourceChar: 6
+      endSourceChar: 18
+      line: 0
       lineChar: 6
       spanCodeSection: "UdonSharp;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 20
-      endSourceChar: 26
-      line: 2
+      startSourceChar: 18
+      endSourceChar: 24
+      line: 1
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 26
-      endSourceChar: 40
-      line: 2
+      startSourceChar: 24
+      endSourceChar: 38
+      line: 1
       lineChar: 6
       spanCodeSection: "UnityEngine;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 40
-      endSourceChar: 46
-      line: 3
+      startSourceChar: 38
+      endSourceChar: 44
+      line: 2
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 46
-      line: 3
+      startSourceChar: 44
+      endSourceChar: 44
+      line: 2
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 46
-      endSourceChar: 50
-      line: 3
+      startSourceChar: 44
+      endSourceChar: 48
+      line: 2
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 50
-      endSourceChar: 60
-      line: 3
+      startSourceChar: 48
+      endSourceChar: 58
+      line: 2
       lineChar: 10
       spanCodeSection: "SDKBase;\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 60
-      endSourceChar: 66
-      line: 4
+      startSourceChar: 58
+      endSourceChar: 64
+      line: 3
       lineChar: 0
       spanCodeSection: 'using '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 66
-      endSourceChar: 66
-      line: 4
+      startSourceChar: 64
+      endSourceChar: 64
+      line: 3
       lineChar: 6
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 66
-      endSourceChar: 70
-      line: 4
+      startSourceChar: 64
+      endSourceChar: 68
+      line: 3
       lineChar: 6
       spanCodeSection: VRC.
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 70
-      endSourceChar: 79
-      line: 4
+      startSourceChar: 68
+      endSourceChar: 77
+      line: 3
       lineChar: 10
       spanCodeSection: "Udon;\r\n\r\n"
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 79
-      endSourceChar: 104
-      line: 6
+      startSourceChar: 77
+      endSourceChar: 102
+      line: 5
       lineChar: 0
       spanCodeSection: 'public class CardSprites '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 104
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 102
+      endSourceChar: 104
+      line: 5
       lineChar: 25
       spanCodeSection: ': '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 106
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 104
+      line: 5
       lineChar: 27
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 106
-      endSourceChar: 133
-      line: 6
+      startSourceChar: 104
+      endSourceChar: 131
+      line: 5
       lineChar: 27
       spanCodeSection: "UdonSharpBehaviour\r\n{\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 133
-      endSourceChar: 134
-      line: 8
+      startSourceChar: 131
+      endSourceChar: 132
+      line: 7
       lineChar: 4
       spanCodeSection: '['
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 134
-      endSourceChar: 134
-      line: 8
+      startSourceChar: 132
+      endSourceChar: 132
+      line: 7
       lineChar: 5
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 134
-      endSourceChar: 157
-      line: 8
+      startSourceChar: 132
+      endSourceChar: 155
+      line: 7
       lineChar: 5
       spanCodeSection: 'SerializeField] public '
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 157
-      endSourceChar: 157
-      line: 8
+      startSourceChar: 155
+      endSourceChar: 155
+      line: 7
       lineChar: 28
       spanCodeSection: 
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 157
-      endSourceChar: 185
-      line: 8
+      startSourceChar: 155
+      endSourceChar: 183
+      line: 7
       lineChar: 28
       spanCodeSection: "Material doraMaterial;\r\n    "
     - startInstruction: 0
       endInstruction: -1
-      startSourceChar: 185
-      endSourceChar: 210
-      line: 9
+      startSourceChar: 183
+      endSourceChar: 208
+      line: 8
       lineChar: 4
       spanCodeSection: public Sprite FindSprite(
     - startInstruction: 0
       endInstruction: 7
-      startSourceChar: 210
-      endSourceChar: 234
-      line: 9
+      startSourceChar: 208
+      endSourceChar: 232
+      line: 8
       lineChar: 29
       spanCodeSection: "string spriteName)\r\n    "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 234
-      endSourceChar: 245
-      line: 10
+      startSourceChar: 232
+      endSourceChar: 243
+      line: 9
       lineChar: 4
       spanCodeSection: "{\r\n        "
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 245
-      endSourceChar: 245
-      line: 11
+      startSourceChar: 243
+      endSourceChar: 243
+      line: 10
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 245
-      endSourceChar: 245
-      line: 11
+      startSourceChar: 243
+      endSourceChar: 243
+      line: 10
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 245
-      endSourceChar: 266
-      line: 11
+      startSourceChar: 243
+      endSourceChar: 264
+      line: 10
       lineChar: 8
       spanCodeSection: 'var spriteGameObject '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 266
-      endSourceChar: 268
-      line: 11
+      startSourceChar: 264
+      endSourceChar: 266
+      line: 10
       lineChar: 29
       spanCodeSection: '= '
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 268
-      endSourceChar: 268
-      line: 11
+      startSourceChar: 266
+      endSourceChar: 266
+      line: 10
       lineChar: 31
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 268
-      endSourceChar: 268
-      line: 11
+      startSourceChar: 266
+      endSourceChar: 266
+      line: 10
       lineChar: 31
       spanCodeSection: 
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 268
-      endSourceChar: 278
-      line: 11
+      startSourceChar: 266
+      endSourceChar: 276
+      line: 10
       lineChar: 31
       spanCodeSection: transform.
     - startInstruction: 8
       endInstruction: 7
-      startSourceChar: 278
-      endSourceChar: 283
-      line: 11
+      startSourceChar: 276
+      endSourceChar: 281
+      line: 10
       lineChar: 41
       spanCodeSection: Find(
     - startInstruction: 8
       endInstruction: 59
-      startSourceChar: 283
-      endSourceChar: 305
-      line: 11
+      startSourceChar: 281
+      endSourceChar: 303
+      line: 10
       lineChar: 46
       spanCodeSection: "spriteName);\r\n        "
     - startInstruction: 60
       endInstruction: 59
-      startSourceChar: 305
-      endSourceChar: 309
-      line: 12
+      startSourceChar: 303
+      endSourceChar: 307
+      line: 11
       lineChar: 8
       spanCodeSection: if (
     - startInstruction: 60
       endInstruction: 59
-      startSourceChar: 309
-      endSourceChar: 309
-      line: 12
+      startSourceChar: 307
+      endSourceChar: 307
+      line: 11
       lineChar: 12
       spanCodeSection: 
     - startInstruction: 60
       endInstruction: 59
-      startSourceChar: 309
-      endSourceChar: 329
-      line: 12
+      startSourceChar: 307
+      endSourceChar: 327
+      line: 11
       lineChar: 12
       spanCodeSection: 'spriteGameObject == '
     - startInstruction: 60
       endInstruction: 107
-      startSourceChar: 329
-      endSourceChar: 344
-      line: 12
+      startSourceChar: 327
+      endSourceChar: 342
+      line: 11
       lineChar: 32
       spanCodeSection: "null)\r\n        "
     - startInstruction: 108
       endInstruction: 107
-      startSourceChar: 344
-      endSourceChar: 359
-      line: 13
+      startSourceChar: 342
+      endSourceChar: 357
+      line: 12
       lineChar: 8
       spanCodeSection: "{\r\n            "
     - startInstruction: 108
       endInstruction: 107
-      startSourceChar: 359
-      endSourceChar: 366
-      line: 14
+      startSourceChar: 357
+      endSourceChar: 364
+      line: 13
       lineChar: 12
       spanCodeSection: 'return '
     - startInstruction: 108
       endInstruction: 147
-      startSourceChar: 366
-      endSourceChar: 402
-      line: 14
+      startSourceChar: 364
+      endSourceChar: 392
+      line: 13
       lineChar: 19
-      spanCodeSection: "null;\r\n        }\r\n        \r\n        "
+      spanCodeSection: "null;\r\n        }\r\n\r\n        "
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 402
-      endSourceChar: 402
-      line: 17
+      startSourceChar: 392
+      endSourceChar: 392
+      line: 16
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 402
-      endSourceChar: 402
-      line: 17
+      startSourceChar: 392
+      endSourceChar: 392
+      line: 16
       lineChar: 8
       spanCodeSection: 
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 402
-      endSourceChar: 421
-      line: 17
+      startSourceChar: 392
+      endSourceChar: 411
+      line: 16
       lineChar: 8
       spanCodeSection: 'var spriteRenderer '
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 421
-      endSourceChar: 423
-      line: 17
+      startSourceChar: 411
+      endSourceChar: 413
+      line: 16
       lineChar: 27
       spanCodeSection: '= '
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 423
-      endSourceChar: 423
-      line: 17
+      startSourceChar: 413
+      endSourceChar: 413
+      line: 16
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 423
-      endSourceChar: 423
-      line: 17
+      startSourceChar: 413
+      endSourceChar: 413
+      line: 16
       lineChar: 29
       spanCodeSection: 
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 423
-      endSourceChar: 440
-      line: 17
+      startSourceChar: 413
+      endSourceChar: 430
+      line: 16
       lineChar: 29
       spanCodeSection: spriteGameObject.
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 440
-      endSourceChar: 452
-      line: 17
+      startSourceChar: 430
+      endSourceChar: 442
+      line: 16
       lineChar: 46
       spanCodeSection: GetComponent
     - startInstruction: 148
       endInstruction: 147
-      startSourceChar: 452
-      endSourceChar: 453
-      line: 17
+      startSourceChar: 442
+      endSourceChar: 443
+      line: 16
       lineChar: 58
       spanCodeSection: <
     - startInstruction: 148
       endInstruction: 199
-      startSourceChar: 453
-      endSourceChar: 481
-      line: 17
+      startSourceChar: 443
+      endSourceChar: 471
+      line: 16
       lineChar: 59
       spanCodeSection: "SpriteRenderer>();\r\n        "
     - startInstruction: 200
       endInstruction: 199
-      startSourceChar: 481
-      endSourceChar: 488
-      line: 18
+      startSourceChar: 471
+      endSourceChar: 478
+      line: 17
       lineChar: 8
       spanCodeSection: 'return '
     - startInstruction: 200
       endInstruction: 199
-      startSourceChar: 488
-      endSourceChar: 488
-      line: 18
+      startSourceChar: 478
+      endSourceChar: 478
+      line: 17
       lineChar: 15
       spanCodeSection: 
     - startInstruction: 200
       endInstruction: 199
-      startSourceChar: 488
-      endSourceChar: 503
-      line: 18
+      startSourceChar: 478
+      endSourceChar: 493
+      line: 17
       lineChar: 15
       spanCodeSection: spriteRenderer.
     - startInstruction: 200
       endInstruction: 200
-      startSourceChar: 503
-      endSourceChar: 503
-      line: 18
+      startSourceChar: 493
+      endSourceChar: 493
+      line: 17
       lineChar: 30
       spanCodeSection: 
   hasInteractEvent: 0

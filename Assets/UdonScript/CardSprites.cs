@@ -1,4 +1,3 @@
-
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -14,7 +13,7 @@ public class CardSprites : UdonSharpBehaviour
         {
             return null;
         }
-        
+
         var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
         return spriteRenderer.sprite;
     }

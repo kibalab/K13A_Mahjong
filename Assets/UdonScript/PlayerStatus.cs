@@ -5,6 +5,12 @@ public class PlayerStatus : UdonSharpBehaviour
     // 16개 이상의 역이 날 수 있나?
     const int MAX_YAKU_COUNT = 16;
 
+    // 자동플레이 옵션
+    public bool isAutoDiscardMode;
+    public bool isAutoAgariMode;
+    public bool isNoNakiMode; 
+    public bool isNoSortMode;
+
     // 밖에서 정해줌
     public bool IsRiichiMode;
     public bool IsOneShotRiichi;
@@ -34,6 +40,10 @@ public class PlayerStatus : UdonSharpBehaviour
         IsRiichiMode = false;
         IsMenzen = false;
         IsFirstOrder = true;
+        isAutoDiscardMode = false;
+        isAutoAgariMode = false;
+        isNoNakiMode = false;
+        isNoSortMode = false;
 
         InitializeHanFu();
     }
