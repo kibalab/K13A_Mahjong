@@ -429,11 +429,10 @@ public class Player : UdonSharpBehaviour
 
     void SortPosition()
     {
-        if (playerStatus.isNoSortMode)
+        if (!playerStatus.isNoSortMode)
         {
-            return;
+            Cards.Sort();
         }
-        Cards.Sort();
         for (var k = 0; k < Cards.Count(); ++k)
         {
             var card = (Card)Cards.At(k);

@@ -177,7 +177,7 @@ public class UIManager : UdonSharpBehaviour
     public void _ClickTsumoCut() { SetUIEvent("TsumoCut"); }
     public void _ClickAutoAgari() { SetUIEvent("AutoAgari"); }
     public void _ClickNoNaki() { SetUIEvent("NoNaki"); }
-    public void _ClickNoSort() { SetUIEvent("NoSort"); }
+    public void _ClickNotSort() { SetUIEvent("NotSort"); }
 
     void SetUIEvent(string eventName)
     {

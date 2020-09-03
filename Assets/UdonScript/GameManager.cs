@@ -143,7 +143,7 @@ public class GameManager : UdonSharpBehaviour
                         requestPlayer.playerStatus.isNoNakiMode = !requestPlayer.playerStatus.isNoNakiMode;
                         break;
                     }
-                case "NoSort":
+                case "NotSort":
                     {
                         requestPlayer.playerStatus.isNoSortMode = !requestPlayer.playerStatus.isNoSortMode;
                         break;
