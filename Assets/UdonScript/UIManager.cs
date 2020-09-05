@@ -65,6 +65,59 @@ public class UIManager : UdonSharpBehaviour
         }
     }
 
+    public void setAgariableViewer(string[] cardNames, string[] cardStats)
+    {
+        if(Networking.LocalPlayer != null)
+        {
+            if (Networking.IsMaster)
+            {
+                //µø±‚»≠∏¶ ¿ß«ÿ ∏∏µÈæÓµ– ∞¯∞£
+            }
+        }
+
+        for(var i = 0; i < cardNames.Length; i++)
+        {
+            var plate = StatsUI.transform.Find(i.ToString());
+            var Img = plate.GetChild(0).GetChild(0).GetComponent<Image>();
+            var txt = plate.GetChild(1).GetComponent<Text>();
+            
+            Img.sprite = CardSprites.FindSprite(cardNames[i]);
+            txt.text = cardStats[i];
+        }
+        
+    }
+
+    public void setShantenStats(int needCardCount)
+    {
+        var txt = StatsUI.transform.Find("Shanten").GetComponent<Text>();
+
+        var str = "";
+        switch (needCardCount)
+        {
+            case 0:
+                str = "<color=red>≈Ÿ∆ƒ¿Ã</color>";
+                break;
+            case 1:
+                str = "<color=red>¿Ãºß≈Ÿ</color>";
+                break;
+            case 2:
+                str = "<color=orange>∑Æºß≈Ÿ</color>";
+                break;
+            case 3:
+                str = "<color=yellow>ªÍºß≈Ÿ</color>";
+                break;
+            case 4:
+                str = "<color=blue>Ω∫ºß≈Ÿ</color>";
+                break;
+            case 5:
+                str = "<color=green>øÏºß≈Ÿ</color>";
+                break;
+        }
+
+        txt.text = str;
+    }
+
+
     void OpenChiSelect()
     {
         var count = UIContext.ChiableCount;
