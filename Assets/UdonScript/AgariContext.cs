@@ -8,7 +8,7 @@ public class AgariContext : UdonSharpBehaviour
 
     public bool IsSingleWaiting;
 
-    public bool IsAgariable(Card card)
+    public bool IsAgariab(Card card)
     {
         return IsAgariableGlobalOrder(card.GlobalOrder);
     }
