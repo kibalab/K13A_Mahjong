@@ -34,15 +34,17 @@ public class ScoreCalculator : UdonSharpBehaviour
         var maxFu = 0;
 
         Debug.Log($"openedCards Lenght : {openedCards.Length}");
-
+        
         foreach (object[] ctx in ctxs)
         {
-            var pairs = HandUtil.FindPairs(Ctx.ReadGlobalOrders(ctx));
+            var globalOrders = HandUtil.GetGlobalOrders(sealedCards);
+            var pairs = HandUtil.FindPairs(globalOrders);
             if (pairs.Length == 0) { continue; }
 
             playerStatus.InitializeHanFu();
             playerStatus.Fu = 20; // 기본 20부
 
+            
 
             // 나중에 문전 한정인 친구들 조건 밖으로 빼내서 미리 검사하자
 
