@@ -361,7 +361,6 @@ namespace VRCSDK2
         {
             UnityEditor.EditorUtility.ClearProgressBar();
             UnityEditor.EditorPrefs.DeleteKey("currentBuildingAssetBundlePath");
-            UnityEditor.EditorPrefs.DeleteKey("externalPluginPath");
         }
     }
 #endif

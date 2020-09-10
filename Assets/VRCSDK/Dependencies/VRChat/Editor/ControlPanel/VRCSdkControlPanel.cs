@@ -30,14 +30,14 @@ public partial class VRCSdkControlPanel : EditorWindow
         Repaint();
     }
 
-    static GUIStyle titleGuiStyle;
-    static GUIStyle boxGuiStyle;
-    static GUIStyle infoGuiStyle;
-    static GUIStyle listButtonStyleEven;
-    static GUIStyle listButtonStyleOdd;
-    static GUIStyle listButtonStyleSelected;
-    static GUIStyle scrollViewSeparatorStyle;
-    static GUIStyle searchBarStyle;
+    public static GUIStyle titleGuiStyle;
+    public static GUIStyle boxGuiStyle;
+    public static GUIStyle infoGuiStyle;
+    public static GUIStyle listButtonStyleEven;
+    public static GUIStyle listButtonStyleOdd;
+    public static GUIStyle listButtonStyleSelected;
+    public static GUIStyle scrollViewSeparatorStyle;
+    public static GUIStyle searchBarStyle;
 
     void InitializeStyles()
     {
@@ -148,7 +148,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         AccountDestroy();
     }
 
-    const int SdkWindowWidth = 518;
+    public const int SdkWindowWidth = 518;
 
     void OnGUI()
     {
@@ -203,7 +203,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         switch (showPanel)
         {
             case 1:
-                ShowBuilder();
+                ShowBuilders();
                 break;
             case 2:
                 ShowContent();
@@ -242,6 +242,5 @@ public partial class VRCSdkControlPanel : EditorWindow
     static void DidReloadScripts()
     {
         RefreshApiUrlSetting();
-        DetectPostProcessingPackage();
     }
 }

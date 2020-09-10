@@ -6,6 +6,7 @@ namespace VRCSDK2.Validation.Performance
 
         Overall,
 
+        DownloadSize,
         PolyCount,
         AABB,
         SkinnedMeshCount,

@@ -27,12 +27,10 @@ namespace VRCSDK2
         protected string uploadTitle;
 
         protected string uploadVrcPath;
-        protected string uploadPluginPath;
         protected string uploadUnityPackagePath;
 
         protected string cloudFrontAssetUrl;
         protected string cloudFrontImageUrl;
-        protected string cloudFrontPluginUrl;
         protected string cloudFrontUnityPackageUrl;
 
         protected CameraImageCapture imageCapture;
@@ -232,18 +230,6 @@ namespace VRCSDK2
                 System.IO.File.Delete(uploadVrcPath);
 
             System.IO.File.Copy(abPath, uploadVrcPath);
-        }
-
-        protected void PreparePluginPathForS3(string pluginPath, string blueprintId, int version, AssetVersion assetVersion)
-        {
-            uploadPluginPath = Application.temporaryCachePath + "/" + blueprintId + "_" + version.ToString() + "_" + Application.unityVersion + "_" + assetVersion.ApiVersion + "_" + VRC.Tools.Platform + "_" + API.GetServerEnvironmentForApiUrl() + ".dll";
-            uploadPluginPath.Trim();
-            uploadPluginPath.Replace(' ', '_');
-
-            if (System.IO.File.Exists(uploadPluginPath))
-                System.IO.File.Delete(uploadPluginPath);
-
-            System.IO.File.Copy(pluginPath, uploadPluginPath);
         }
 
         protected IEnumerator UploadFile(string filename, string existingFileUrl, string friendlyFilename, string fileType, Action<string> onSuccess)

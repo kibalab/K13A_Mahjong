@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using VRC.Udon.ClientBindings;
 using VRC.Udon.ClientBindings.Interfaces;
 using VRC.Udon.Common.Interfaces;
+using Object = UnityEngine.Object;
 
 namespace VRC.Udon
 {
@@ -192,9 +193,19 @@ namespace VRC.Udon
             UdonClientInterface.FilterBlacklisted(ref objectToFilter);
         }
 
+        public bool IsBlacklisted(Object objectToCheck)
+        {
+            return UdonClientInterface.IsBlacklisted(objectToCheck);
+        }
+
         public void ClearBlacklist()
         {
             UdonClientInterface.ClearBlacklist();
+        }
+
+        public bool IsBlacklisted<T>(T objectToCheck)
+        {
+            return UdonClientInterface.IsBlacklisted(objectToCheck);
         }
 
         public IUdonWrapper GetWrapper()
@@ -243,7 +254,7 @@ namespace VRC.Udon
                 }
             }
         }
-        
+
         //Run an udon event on a specific gameObject
         [PublicAPI]
         public void RunEvent(GameObject eventReceiverObject, string eventName, params (string symbolName, object value)[] programVariables)

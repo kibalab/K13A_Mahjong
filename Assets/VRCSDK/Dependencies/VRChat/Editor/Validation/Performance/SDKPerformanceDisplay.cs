@@ -120,7 +120,7 @@ namespace VRCSDK2.Validation.Performance
                         case PerformanceRating.Excellent:
                         {
                             displayLevel = PerformanceInfoDisplayLevel.Verbose;
-                            text = string.Format("Bounding box (AABB) size: {0}", perfStats.aabb.size.ToString());
+                            text = string.Format("Bounding box (AABB) size: {0}", perfStats.aabb.GetValueOrDefault().size.ToString());
                             break;
                         }
                         case PerformanceRating.Good:
@@ -130,7 +130,7 @@ namespace VRCSDK2.Validation.Performance
                             displayLevel = PerformanceInfoDisplayLevel.Warning;
                             text = string.Format(
                                 "Bounding box (AABB) size: {0} (Recommended: {1})",
-                                perfStats.aabb.size.ToString(),
+                                perfStats.aabb.GetValueOrDefault().size.ToString(),
                                 AvatarPerformanceStats.GetStatLevelForRating(PerformanceRating.Excellent).aabb.size.ToString());
 
                             break;
@@ -140,7 +140,7 @@ namespace VRCSDK2.Validation.Performance
                             displayLevel = PerformanceInfoDisplayLevel.Warning;
                             text = string.Format(
                                 "This avatar's bounding box (AABB) is too large on at least one axis. Current size: {0}, Maximum size: {1}",
-                                perfStats.aabb.size.ToString(),
+                                perfStats.aabb.GetValueOrDefault().size.ToString(),
                                 AvatarPerformanceStats.GetStatLevelForRating(PerformanceRating.Poor).aabb.size.ToString());
 
                             break;

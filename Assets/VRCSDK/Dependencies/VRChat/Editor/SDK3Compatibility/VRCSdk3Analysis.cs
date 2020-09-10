@@ -49,7 +49,13 @@ public class VRCSdk3Analysis
         string assembly = version.ToString();
         PluginImporter importer = AssetImporter.GetAtPath("Assets/VRCSDK/Plugins/" + assembly + ".dll") as PluginImporter;
         if (importer == false)
-            return false;
+        {
+            //Handle Avatar Dll Split
+            importer = AssetImporter.GetAtPath("Assets/VRCSDK/Plugins/" + assembly + "A.dll") as PluginImporter;
+            if (importer == false)
+                return false;
+        }
+
         return importer.GetCompatibleWithAnyPlatform();
     }
 

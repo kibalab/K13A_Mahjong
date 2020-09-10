@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using VRC.SDK3.Editor;
+using VRC.SDKBase.Editor;
 
 [CustomEditor(typeof(VRCSDK2.VRC_AvatarDescriptor))]
 public class AvatarDescriptorEditor : Editor
@@ -32,7 +34,7 @@ public class AvatarDescriptorEditor : Editor
         if(VRCSdkControlPanel.window != null)
         { 
             if( GUILayout.Button( "Select this avatar in the SDK control panel" ) )
-                VRCSdkControlPanel.SelectAvatar(avatarDescriptor);
+                VRCSdkControlPanelAvatarBuilder.SelectAvatar(avatarDescriptor);
         }
 
         avatarDescriptor.ViewPosition = EditorGUILayout.Vector3Field("View Position", avatarDescriptor.ViewPosition);

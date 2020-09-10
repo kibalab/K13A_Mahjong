@@ -1,9 +1,11 @@
-﻿using UdonSharp;
+﻿using System;
+using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
+
 
 public class GameManager : UdonSharpBehaviour
 {
@@ -40,6 +42,7 @@ public class GameManager : UdonSharpBehaviour
             Initialize_Master();
             ActiveTestMode();
         }
+
     }
 
     public override void OnPlayerJoined(VRCPlayerApi player)
@@ -223,7 +226,7 @@ public class GameManager : UdonSharpBehaviour
         registeredPlayers = ShufflePlayers(registeredPlayers);
 
         // 4명 중 아무나 첫 턴으로 설정해준다
-        var firstTurnIndex = Random.Range(0, 4);
+        var firstTurnIndex = UnityEngine.Random.Range(0, 4);
 
         for (var i = 0; i < 4; ++i)
         {
@@ -541,7 +544,7 @@ public class GameManager : UdonSharpBehaviour
 
         while (yetShuffledCount >= 0)
         {
-            var picked = Random.Range(0, yetShuffledCount + 1);
+            var picked = UnityEngine.Random.Range(0, yetShuffledCount + 1);
             shuffled[shuffledIndex] = players[picked];
             players[picked] = players[yetShuffledCount];
 

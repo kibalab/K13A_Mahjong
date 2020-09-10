@@ -54,7 +54,7 @@ namespace VRC.Udon.Editor.ProgramSources
                     dirty = true;
                     Undo.RecordObject(this, "Edit Assembly Program Code");
                     udonAssembly = newAssembly;
-                    UdonEditorManager.Instance.QueueProgramSourceRefresh(this);
+                    UdonEditorManager.Instance.QueueAndRefreshProgram(this);
                 }
             }
         }

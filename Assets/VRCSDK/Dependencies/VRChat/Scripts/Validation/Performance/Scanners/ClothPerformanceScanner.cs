@@ -41,8 +41,8 @@ namespace VRCSDK2.Validation.Performance.Scanners
                 totalClothVertices += clothVertices.Length;
             }
 
-            perfStats.clothCount += clothBuffer.Count;
-            perfStats.clothMaxVertices += totalClothVertices;
+            perfStats.clothCount = clothBuffer.Count;
+            perfStats.clothMaxVertices = totalClothVertices;
         }
     }
 }

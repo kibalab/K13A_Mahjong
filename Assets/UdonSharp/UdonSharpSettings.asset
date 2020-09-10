@@ -15,9 +15,13 @@ MonoBehaviour:
   autoCompileOnModify: 1
   compileAllScripts: 1
   waitForFocus: 0
+  disableUploadCompile: 0
   newScriptTemplateOverride: {fileID: 0}
   scanningDirectoryBlacklist: []
+  defaultBehaviourInterfaceType: 
   buildDebugInfo: 1
   includeInlineCode: 1
-  listenForVRCExceptions: 0
-  shouldForceCompile: 1
+  listenForVRCExceptions: 1
+  shouldForceCompile: 0
+  watcherMode: 1
+  logWatcherMatchStrings: []

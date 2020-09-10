@@ -363,6 +363,12 @@
     <Reference Include="VRCSDK3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
     </Reference>
+    <Reference Include="VRCSDK3Base-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base.dll</HintPath>
+    </Reference>
     <Reference Include="VRCSDKBase-Editor">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>
     </Reference>
@@ -738,6 +744,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
+      <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
+      <Name>VRC.Udon.Serialization.OdinSerializer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

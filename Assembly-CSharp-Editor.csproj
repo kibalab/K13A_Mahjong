@@ -92,16 +92,18 @@
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components\VRCSceneDescriptorEditor.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components3\VRC_PickupEditor3.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components3\VRC_SpatialAudioSourceEditor3.cs" />
-    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components3\VRCAvatarDescriptorEditor3.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components3\VRCDestructibleUdonEditor.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components3\VRCPlayerStationEditor3.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\Components3\VRCSceneDescriptorEditor3.cs" />
+    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\IVRCSdkControlPanelBuilder.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanel.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelAccount.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelBuilder.cs" />
+    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelBuilderAttribute.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelContent.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelHelp.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelSettings.cs" />
+    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ControlPanel\VRCSdkControlPanelWorldBuilder.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\EnvConfig.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\HDRColorFixerUtility.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\SDK3Compatibility\VRCSdk3Analysis.cs" />
@@ -426,6 +428,12 @@
     </Reference>
     <Reference Include="VRCSDK3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base.dll</HintPath>
     </Reference>
     <Reference Include="VRCSDKBase-Editor">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>

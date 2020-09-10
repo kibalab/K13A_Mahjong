@@ -796,7 +796,8 @@ namespace VRC.Udon
             _initialized = true;
         }
 
-        private void RunOnInit()
+        [PublicAPI]
+        public void RunOnInit()
         {
             if(OnInit == null)
             {

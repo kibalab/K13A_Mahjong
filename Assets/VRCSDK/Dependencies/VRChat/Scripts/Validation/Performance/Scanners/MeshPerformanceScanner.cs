@@ -168,7 +168,7 @@ namespace VRCSDK2.Validation.Performance.Scanners
             perfStats.aabb = bounds;
         }
 
-        private void AnalyzeSkinnedMeshRenderers(IEnumerable<Renderer> renderers, AvatarPerformanceStats perfStats)
+        private static void AnalyzeSkinnedMeshRenderers(IEnumerable<Renderer> renderers, AvatarPerformanceStats perfStats)
         {
             Profiler.BeginSample("AnalyzeSkinnedMeshRenderers");
             int count = 0;
@@ -219,9 +219,9 @@ namespace VRCSDK2.Validation.Performance.Scanners
             transformIgnoreBuffer.Clear();
             Profiler.EndSample();
 
-            perfStats.skinnedMeshCount += count;
-            perfStats.materialCount += materialSlots;
-            perfStats.boneCount += skinnedBoneCount;
+            perfStats.skinnedMeshCount = count;
+            perfStats.boneCount = skinnedBoneCount;
+            perfStats.materialCount = perfStats.materialCount.GetValueOrDefault() + materialSlots;
         }
 
         private static void AnalyzeMeshRenderers(IEnumerable<Renderer> renderers, AvatarPerformanceStats perfStats)
@@ -259,8 +259,8 @@ namespace VRCSDK2.Validation.Performance.Scanners
 
             Profiler.EndSample();
 
-            perfStats.meshCount += count;
-            perfStats.materialCount += materialSlots;
+            perfStats.meshCount = count;
+            perfStats.materialCount = perfStats.materialCount.GetValueOrDefault() + materialSlots;
         }
     }
 }
