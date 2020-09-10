@@ -25,8 +25,8 @@ namespace VRCSDK2.Validation.Performance.Scanners
             }
 
             int numTrailRenderers = trailRendererBuffer.Count;
-            perfStats.trailRendererCount += numTrailRenderers;
-            perfStats.materialCount += numTrailRenderers;
+            perfStats.trailRendererCount = numTrailRenderers;
+            perfStats.materialCount = perfStats.materialCount.GetValueOrDefault() + numTrailRenderers;
         }
     }
 }

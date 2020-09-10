@@ -173,14 +173,7 @@ public class EnvConfig
 
     public static bool ConfigureSettings()
     {
-        if (CheckForFirstInit())
-        {
-#if VRC_SDK_VRCSDK2
-            VRC.AssetExporter.CleanupTmpFiles();
-#elif VRC_SDK_VRCSDK3
-                VRC.SDK3.Editor.AssetExporter.CleanupTmpFiles();
-#endif
-        }
+        CheckForFirstInit();
 
         if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isUpdating)
             return false;
@@ -467,7 +460,7 @@ public class EnvConfig
 
 #if ENV_SET_INCLUDED_SHADERS && VRC_CLIENT
         SerializedProperty alwaysIncluded = graphicsManager.FindProperty("m_AlwaysIncludedShaders");
-        alwaysIncluded.arraySize = 0;   // clear GraphicsSettings->Always Included Shaders - these cause a +5s app startup time increase on Quest.  
+        alwaysIncluded.arraySize = 0;   // clear GraphicsSettings->Always Included Shaders - these cause a +5s app startup time increase on Quest.
                                         // include Shader objects as resources instead
 
 #if ENV_SEARCH_FOR_SHADERS
@@ -587,7 +580,7 @@ public class EnvConfig
         FogSettings fogSettings = new FogSettings(fogStripping, keepLinear, keepExp, keepExp2);
         return fogSettings;
     }
-    
+
     public static void SetFogSettings(FogSettings fogSettings)
     {
         VRC.Core.Logger.Log("Force-enabling Fog", VRC.Core.DebugLevel.All);
@@ -615,16 +608,16 @@ public class EnvConfig
         var config = AudioSettings.GetConfiguration();
         config.dspBufferSize = 0; // use default
         config.speakerMode = AudioSpeakerMode.Stereo; // use default
-        config.sampleRate = 0; // use default
+        config.sampleRate = 48000; // forcing 48k seems to avoid sample rate conversion problems
         if (EditorUserBuildSettings.selectedBuildTargetGroup == BuildTargetGroup.Android)
         {
             config.numRealVoices = 24;
-            config.numVirtualVoices = 24;
+            config.numVirtualVoices = 32;
         }
         else
         {
             config.numRealVoices = 32;
-            config.numVirtualVoices = 63;
+            config.numVirtualVoices = 64;
         }
         AudioSettings.Reset(config);
     }
@@ -752,12 +745,12 @@ public class EnvConfig
             Automatic,
             Custom
         }
-        
+
         public readonly FogStrippingMode fogStrippingMode;
         public readonly bool keepLinear;
         public readonly bool keepExp;
         public readonly bool keepExp2;
-        
+
         public FogSettings(FogStrippingMode fogStrippingMode)
         {
             this.fogStrippingMode = fogStrippingMode;

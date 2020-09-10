@@ -959,7 +959,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
             if (graphProgramAsset is AbstractUdonProgramSource udonProgramSource)
             {
-                UdonEditorManager.Instance.QueueProgramSourceRefresh(udonProgramSource);
+                UdonEditorManager.Instance.QueueAndRefreshProgram(udonProgramSource);
             }
         }
 

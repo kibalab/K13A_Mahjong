@@ -114,6 +114,7 @@
     <Compile Include="Assets\UdonSharp\Examples\Utilities\Synced\MasterToggleObject.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Utilities\TrackingDataFollower.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\Oculus\Spatializer\Scripts\ONSPAudioSource.cs" />
+    <Compile Include="Assets\VRCSDK\Dependencies\Oculus\Spatializer\Scripts\ONSPSettings.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\ApiFileHelper.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\AudioManagerSettings.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\CommunityLabsConstants.cs" />
@@ -123,7 +124,6 @@
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\RuntimeBlueprintCreation.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\RuntimeWorldCreation.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\SceneSaver.cs" />
-    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\AvatarValidation.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\Performance\AvatarPerformance.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\Performance\AvatarPerformanceCategory.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\Performance\Filters\AbstractPerformanceFilter.cs" />
@@ -189,6 +189,7 @@
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-StandardLite.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedSpecular.shader" />
     <None Include="Assets\Shaders\VLS\ColorFilter.shader" />
+    <None Include="Assets\Shaders\Board.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -455,6 +456,12 @@
     </Reference>
     <Reference Include="VRCSDK3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base.dll</HintPath>
     </Reference>
     <Reference Include="VRCSDKBase-Editor">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>

@@ -25,8 +25,8 @@ namespace VRCSDK2.Validation.Performance.Scanners
             }
 
             int numLineRenderers = lineRendererBuffer.Count;
-            perfStats.lineRendererCount += numLineRenderers;
-            perfStats.materialCount += numLineRenderers;
+            perfStats.lineRendererCount = numLineRenderers;
+            perfStats.materialCount = perfStats.materialCount.GetValueOrDefault() + numLineRenderers;
         }
     }
 }

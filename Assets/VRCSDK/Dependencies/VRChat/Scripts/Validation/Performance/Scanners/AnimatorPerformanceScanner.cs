@@ -25,6 +25,7 @@ namespace VRCSDK2.Validation.Performance.Scanners
                 animatorBuffer.RemoveAll(c => shouldIgnoreComponent(c));
             }
 
+            // ReSharper disable once UselessBinaryOperation
             animatorCount += animatorBuffer.Count;
 
             // Animations
@@ -37,7 +38,7 @@ namespace VRCSDK2.Validation.Performance.Scanners
 
             animatorCount += animationBuffer.Count;
 
-            perfStats.animatorCount += animatorCount;
+            perfStats.animatorCount = animatorCount;
         }
     }
 }

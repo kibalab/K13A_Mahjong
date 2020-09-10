@@ -183,7 +183,7 @@ namespace VRC.Udon.Editor.ProgramSources
 
                 Undo.RecordObject(udonBehaviour, "Modify Public Variable");
 
-                if(variableValue != null && !publicVariables.TrySetVariableValue(exportedSymbol, variableValue))
+                if(!publicVariables.TrySetVariableValue(exportedSymbol, variableValue))
                 {
                     if(!publicVariables.TryAddVariable(CreateUdonVariable(exportedSymbol, variableValue, symbolType)))
                     {

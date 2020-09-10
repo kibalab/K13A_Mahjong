@@ -108,7 +108,7 @@ namespace VRCSDK2.Validation.Performance.Scanners
             perfStats.particleMaxMeshPolyCount = particleTotalMaxMeshPolyCount > int.MaxValue ? int.MaxValue : (int)particleTotalMaxMeshPolyCount;
             perfStats.particleTrailsEnabled = particleTrailsEnabled;
             perfStats.particleCollisionEnabled = particleCollisionEnabled;
-            perfStats.materialCount += materialSlots;
+            perfStats.materialCount = perfStats.materialCount.GetValueOrDefault() + materialSlots;
         }
     }
 }

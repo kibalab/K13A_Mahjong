@@ -64,9 +64,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\UdonSharp\Editor\BuildUtilities\UdonSharpBuildChecks.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\BuildUtilities\UdonSharpBuildCompile.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Editors\GrabNodeDefinitions.cs" />
     <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpBehaviourEditor.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpComponentExtensions.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpGUI.cs" />
     <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpSettings.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Editors\UdonSharpUndo.cs" />
     <Compile Include="Assets\UdonSharp\Editor\Editors\UdonTypeExposureTree.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Formatter.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Formatters\UdonSharpBehaviourFormatterEmitter.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\ProxySerializationPolicy.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\ArraySerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\DefaultSerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\JaggedArraySerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\SystemObjectSerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\UdonSharpBaseBehaviourSerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\UdonSharpBehaviourSerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\Serializers\UnityObjectSerializer.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\StorageInterfaces\StorageInterface.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\StorageInterfaces\UdonHeapStorageInterface.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\StorageInterfaces\UdonVariableStorageInterface.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\Serialization\TypeSerializationMetadata.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpAssemblyBuilder.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpAssetCompileWatcher.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpASTVisitor.cs" />
@@ -75,6 +95,8 @@
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpClassVisitor.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpCompilationModule.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpCompiler.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\UdonSharpEditorCache.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\UdonSharpEditorManager.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpEditorUtility.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpExpressionCapture.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpFieldVisitor.cs" />
@@ -83,12 +105,13 @@
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpLabelTable.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpMethod.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpMethodVisitor.cs" />
-    <Compile Include="Assets\UdonSharp\Editor\UdonSharpNamespaceVisitor.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpOperatorMethodInfo.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpProgramAsset.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\UdonSharpProgramAssetPostprocessor.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpResolverContext.cs" />
-    <Compile Include="Assets\UdonSharp\Editor\UdonSharpRuntimeExceptionWatcher.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\UdonSharpRuntimeLogWatcher.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpSymbolTable.cs" />
+    <Compile Include="Assets\UdonSharp\Editor\UdonSharpSyntaxWalker.cs" />
     <Compile Include="Assets\UdonSharp\Editor\UdonSharpUtils.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

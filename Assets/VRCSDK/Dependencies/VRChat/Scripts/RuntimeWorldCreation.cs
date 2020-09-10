@@ -134,7 +134,7 @@ namespace VRCSDK2
                 (c) =>
                 {
                     VRC.Core.Logger.Log("<color=magenta>World record not found, creating a new world.</color>", DebugLevel.All);
-                    worldRecord = new ApiWorld { capacity = 8 };
+                    worldRecord = new ApiWorld { capacity = 16 };
                     pipelineManager.completedSDKPipeline = false;
                     worldRecord.id = pipelineManager.blueprintId;
                     GetUserUploadInformationAndSetupUI(model.id);
@@ -360,10 +360,6 @@ namespace VRCSDK2
 
             string abPath = UnityEditor.EditorPrefs.GetString("currentBuildingAssetBundlePath");
 
-            string pluginPath = "";
-            if (APIUser.CurrentUser.hasScriptingAccess)
-                pluginPath = UnityEditor.EditorPrefs.GetString("externalPluginPath");
-
 
             string unityPackagePath = UnityEditor.EditorPrefs.GetString("VRC_exportedUnityPackagePath");
 
@@ -386,16 +382,6 @@ namespace VRCSDK2
             string blueprintId = worldRecord.id;
             int version = Mathf.Max(1, worldRecord.version + 1);
             PrepareVRCPathForS3(abPath, blueprintId, version, ApiWorld.VERSION);
-
-            if (!string.IsNullOrEmpty(pluginPath) && System.IO.File.Exists(pluginPath))
-            {
-                VRC.Core.Logger.Log("Found plugin path. Preparing to upload!", DebugLevel.All);
-                PreparePluginPathForS3(pluginPath, blueprintId, version, ApiWorld.VERSION);
-            }
-            else
-            {
-                VRC.Core.Logger.Log("Did not find plugin path. No upload occuring!", DebugLevel.All);
-            }
 
             if (!string.IsNullOrEmpty(unityPackagePath) && System.IO.File.Exists(unityPackagePath))
             {
@@ -433,17 +419,6 @@ namespace VRCSDK2
                     delegate (string fileUrl)
                     {
                         cloudFrontUnityPackageUrl = fileUrl;
-                    }
-                ));
-            }
-
-            // upload plugin
-            if (!string.IsNullOrEmpty(uploadPluginPath))
-            {
-                yield return StartCoroutine(UploadFile(uploadPluginPath, isUpdate ? worldRecord.pluginUrl : "", GetFriendlyWorldFileName("Plugin"), "Plugin",
-                    delegate (string fileUrl)
-                    {
-                        cloudFrontPluginUrl = fileUrl;
                     }
                 ));
             }
@@ -596,7 +571,6 @@ namespace VRCSDK2
                 imageUrl = cloudFrontImageUrl,
                 assetUrl = cloudFrontAssetUrl,
                 unityPackageUrl = cloudFrontUnityPackageUrl,
-                pluginUrl = cloudFrontPluginUrl,
                 description = blueprintDescription.text,
                 tags = BuildTags(),
                 releaseStatus = (releasePublic.isOn) ? ("public") : ("private"),
@@ -604,9 +578,6 @@ namespace VRCSDK2
                 occupants = 0,
                 shouldAddToAuthor = true
             };
-
-            if (APIUser.CurrentUser.hasScriptingAccess && UnityEditor.EditorPrefs.HasKey("pluginNamespace"))
-                world.scriptNamespace = UnityEditor.EditorPrefs.GetString("pluginNamespace");
 
             if (APIUser.CurrentUser.hasSuperPowers)
                 world.isCurated = contentFeatured.isOn || contentSDKExample.isOn;
@@ -637,13 +608,10 @@ namespace VRCSDK2
             worldRecord.description = blueprintDescription.text;
             worldRecord.capacity = System.Convert.ToInt16(worldCapacity.text);
             worldRecord.assetUrl = cloudFrontAssetUrl;
-            worldRecord.pluginUrl = cloudFrontPluginUrl;
             worldRecord.tags = BuildTags();
             worldRecord.releaseStatus = (releasePublic.isOn) ? ("public") : ("private");
             worldRecord.unityPackageUrl = cloudFrontUnityPackageUrl;
             worldRecord.isCurated = contentFeatured.isOn || contentSDKExample.isOn;
-            if (UnityEditor.EditorPrefs.HasKey("pluginNamespace"))
-                worldRecord.scriptNamespace = UnityEditor.EditorPrefs.GetString("pluginNamespace");
 
             if (shouldUpdateImageToggle.isOn)
             {
@@ -707,7 +675,6 @@ namespace VRCSDK2
         {
             UnityEditor.EditorUtility.ClearProgressBar();
             UnityEditor.EditorPrefs.DeleteKey("currentBuildingAssetBundlePath");
-            UnityEditor.EditorPrefs.DeleteKey("externalPluginPath");
         }
     }
 #endif

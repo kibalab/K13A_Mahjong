@@ -204,8 +204,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                
                 if (_graphAsset != null && _graphAsset is AbstractUdonProgramSource udonProgramSource)
                 {
-                    UdonEditorManager.Instance.QueueProgramSourceRefresh(udonProgramSource);
-                    UdonEditorManager.Instance.RefreshQueuedProgramSources();
+                    UdonEditorManager.Instance.QueueAndRefreshProgram(udonProgramSource);
                 }
                 
             })

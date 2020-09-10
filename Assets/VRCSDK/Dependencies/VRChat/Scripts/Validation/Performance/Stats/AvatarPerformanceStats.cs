@@ -13,30 +13,31 @@ namespace VRCSDK2.Validation.Performance.Stats
 
         public string avatarName;
 
-        public int polyCount;
-        public Bounds aabb;
-        public int skinnedMeshCount;
-        public int meshCount;
-        public int materialCount;
-        public int animatorCount;
-        public int boneCount;
-        public int lightCount;
-        public int particleSystemCount;
-        public int particleTotalCount;
-        public int particleMaxMeshPolyCount;
-        public bool particleTrailsEnabled;
-        public bool particleCollisionEnabled;
-        public int trailRendererCount;
-        public int lineRendererCount;
-        public int dynamicBoneComponentCount;
-        public int dynamicBoneSimulatedBoneCount;
-        public int dynamicBoneColliderCount;
-        public int dynamicBoneCollisionCheckCount; // number of collider simulated bones excluding the root multiplied by the number of colliders
-        public int clothCount;
-        public int clothMaxVertices;
-        public int physicsColliderCount;
-        public int physicsRigidbodyCount;
-        public int audioSourceCount;
+        public int? polyCount;
+        public Bounds? aabb;
+        public int? skinnedMeshCount;
+        public int? meshCount;
+        public int? materialCount;
+        public int? animatorCount;
+        public int? boneCount;
+        public int? lightCount;
+        public int? particleSystemCount;
+        public int? particleTotalCount;
+        public int? particleMaxMeshPolyCount;
+        public bool? particleTrailsEnabled;
+        public bool? particleCollisionEnabled;
+        public int? trailRendererCount;
+        public int? lineRendererCount;
+        public int? dynamicBoneComponentCount;
+        public int? dynamicBoneSimulatedBoneCount;
+        public int? dynamicBoneColliderCount;
+        public int? dynamicBoneCollisionCheckCount; // number of collider simulated bones excluding the root multiplied by the number of colliders
+        public int? clothCount;
+        public int? clothMaxVertices;
+        public int? physicsColliderCount;
+        public int? physicsRigidbodyCount;
+        public int? audioSourceCount;
+        public float? downloadSize;
 
         #endregion
 
@@ -69,6 +70,7 @@ namespace VRCSDK2.Validation.Performance.Stats
             {AvatarPerformanceCategory.PhysicsColliderCount, "Physics Colliders"},
             {AvatarPerformanceCategory.PhysicsRigidbodyCount, "Physics Rigidbodies"},
             {AvatarPerformanceCategory.AudioSourceCount, "Audio Sources"},
+            {AvatarPerformanceCategory.DownloadSize, "Download Size"},
         };
 
         private static readonly Dictionary<PerformanceRating, string> _performanceRatingDisplayNames = new Dictionary<PerformanceRating, string>
@@ -123,30 +125,31 @@ namespace VRCSDK2.Validation.Performance.Stats
         public void Reset()
         {
             avatarName = null;
-            polyCount = 0;
-            aabb = new Bounds(Vector3.zero, Vector3.zero);
-            skinnedMeshCount = 0;
-            meshCount = 0;
-            materialCount = 0;
-            animatorCount = 0;
-            boneCount = 0;
-            lightCount = 0;
-            particleSystemCount = 0;
-            particleTotalCount = 0;
-            particleMaxMeshPolyCount = 0;
-            particleTrailsEnabled = false;
-            particleCollisionEnabled = false;
-            trailRendererCount = 0;
-            lineRendererCount = 0;
-            dynamicBoneComponentCount = 0;
-            dynamicBoneSimulatedBoneCount = 0;
-            dynamicBoneColliderCount = 0;
-            dynamicBoneCollisionCheckCount = 0;
-            clothCount = 0;
-            clothMaxVertices = 0;
-            physicsColliderCount = 0;
-            physicsRigidbodyCount = 0;
-            audioSourceCount = 0;
+            polyCount = null;
+            aabb = null;
+            skinnedMeshCount = null;
+            meshCount = null;
+            materialCount = null;
+            animatorCount = null;
+            boneCount = null;
+            lightCount = null;
+            particleSystemCount = null;
+            particleTotalCount = null;
+            particleMaxMeshPolyCount = null;
+            particleTrailsEnabled = null;
+            particleCollisionEnabled = null;
+            trailRendererCount = null;
+            lineRendererCount = null;
+            dynamicBoneComponentCount = null;
+            dynamicBoneSimulatedBoneCount = null;
+            dynamicBoneColliderCount = null;
+            dynamicBoneCollisionCheckCount = null;
+            clothCount = null;
+            clothMaxVertices = null;
+            physicsColliderCount = null;
+            physicsRigidbodyCount = null;
+            audioSourceCount = null;
+            downloadSize = null;
 
             for(int i = 0; i < (int)AvatarPerformanceCategory.AvatarPerformanceCategoryCount; i++)
             {
@@ -253,52 +256,121 @@ namespace VRCSDK2.Validation.Performance.Stats
 
                     return maxRating;
                 }
-
                 case AvatarPerformanceCategory.PolyCount:
-                    return CalculatePerformanceRating((x, y) => x.polyCount - y.polyCount);
+                {
+                    if(!polyCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.polyCount.GetValueOrDefault() - y.polyCount);
+                }
                 case AvatarPerformanceCategory.AABB:
                 {
+                    if(!aabb.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
+
                     return CalculatePerformanceRating(
                         (x, y) =>
                             ApproxLessOrEqual(y.aabb.extents.x, 0.0f) || // -1 extents means "no AABB limit"
                             (
-                                ApproxLessOrEqual(x.aabb.extents.x, y.aabb.extents.x) &&
-                                ApproxLessOrEqual(x.aabb.extents.y, y.aabb.extents.y) &&
-                                ApproxLessOrEqual(x.aabb.extents.z, y.aabb.extents.z))
+                                ApproxLessOrEqual(x.aabb.GetValueOrDefault().extents.x, y.aabb.extents.x) &&
+                                ApproxLessOrEqual(x.aabb.GetValueOrDefault().extents.y, y.aabb.extents.y) &&
+                                ApproxLessOrEqual(x.aabb.GetValueOrDefault().extents.z, y.aabb.extents.z))
                                 ? -1
                                 : 1
                     );
                 }
-
                 case AvatarPerformanceCategory.SkinnedMeshCount:
-                    return CalculatePerformanceRating((x, y) => x.skinnedMeshCount - y.skinnedMeshCount);
+                {
+                    if(!skinnedMeshCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.skinnedMeshCount.GetValueOrDefault() - y.skinnedMeshCount);
+                }
                 case AvatarPerformanceCategory.MeshCount:
-                    return CalculatePerformanceRating((x, y) => x.meshCount - y.meshCount);
+                {
+                    if(!meshCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.meshCount.GetValueOrDefault() - y.meshCount);
+                }
                 case AvatarPerformanceCategory.MaterialCount:
-                    return CalculatePerformanceRating((x, y) => x.materialCount - y.materialCount);
+                {
+                    if(!materialCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.materialCount.GetValueOrDefault() - y.materialCount);
+                }
                 case AvatarPerformanceCategory.AnimatorCount:
-                    return CalculatePerformanceRating((x, y) => x.animatorCount - y.animatorCount);
+                {
+                    if(!animatorCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.animatorCount.GetValueOrDefault() - y.animatorCount);
+                }
                 case AvatarPerformanceCategory.BoneCount:
-                    return CalculatePerformanceRating((x, y) => x.boneCount - y.boneCount);
+                {
+                    if(!boneCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.boneCount.GetValueOrDefault() - y.boneCount);
+                }
                 case AvatarPerformanceCategory.LightCount:
-                    return CalculatePerformanceRating((x, y) => x.lightCount - y.lightCount);
+                {
+                    if(!lightCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.lightCount.GetValueOrDefault() - y.lightCount);
+                }
                 case AvatarPerformanceCategory.ParticleSystemCount:
-                    return CalculatePerformanceRating((x, y) => x.particleSystemCount - y.particleSystemCount);
+                {
+                    if(!particleSystemCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.particleSystemCount.GetValueOrDefault() - y.particleSystemCount);
+                }
                 case AvatarPerformanceCategory.ParticleTotalCount:
-                    return CalculatePerformanceRating((x, y) => x.particleTotalCount - y.particleTotalCount);
+                {
+                    if(!particleTotalCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.particleTotalCount.GetValueOrDefault() - y.particleTotalCount);
+                }
                 case AvatarPerformanceCategory.ParticleMaxMeshPolyCount:
-                    return CalculatePerformanceRating((x, y) => x.particleMaxMeshPolyCount - y.particleMaxMeshPolyCount);
+                {
+                    if(!particleMaxMeshPolyCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.particleMaxMeshPolyCount.GetValueOrDefault() - y.particleMaxMeshPolyCount);
+                }
                 case AvatarPerformanceCategory.ParticleTrailsEnabled:
+                {
+                    if(!particleTrailsEnabled.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
+
                     return CalculatePerformanceRating(
                         (x, y) =>
                         {
@@ -307,10 +379,16 @@ namespace VRCSDK2.Validation.Performance.Stats
                                 return 0;
                             }
 
-                            return x.particleTrailsEnabled ? 1 : -1;
+                            return x.particleTrailsEnabled.GetValueOrDefault() ? 1 : -1;
                         });
-
+                }
                 case AvatarPerformanceCategory.ParticleCollisionEnabled:
+                {
+                    if(!particleCollisionEnabled.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
+
                     return CalculatePerformanceRating(
                         (x, y) =>
                         {
@@ -319,47 +397,122 @@ namespace VRCSDK2.Validation.Performance.Stats
                                 return 0;
                             }
 
-                            return x.particleCollisionEnabled ? 1 : -1;
+                            return x.particleCollisionEnabled.GetValueOrDefault() ? 1 : -1;
                         });
-
+                }
                 case AvatarPerformanceCategory.TrailRendererCount:
-                    return CalculatePerformanceRating((x, y) => x.trailRendererCount - y.trailRendererCount);
+                {
+                    if(!trailRendererCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.trailRendererCount.GetValueOrDefault() - y.trailRendererCount);
+                }
                 case AvatarPerformanceCategory.LineRendererCount:
-                    return CalculatePerformanceRating((x, y) => x.lineRendererCount - y.lineRendererCount);
+                {
+                    if(!lineRendererCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.lineRendererCount.GetValueOrDefault() - y.lineRendererCount);
+                }
                 case AvatarPerformanceCategory.DynamicBoneComponentCount:
-                    return CalculatePerformanceRating((x, y) => x.dynamicBoneComponentCount - y.dynamicBoneComponentCount);
+                {
+                    if(!dynamicBoneComponentCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.dynamicBoneComponentCount.GetValueOrDefault() - y.dynamicBoneComponentCount);
+                }
                 case AvatarPerformanceCategory.DynamicBoneSimulatedBoneCount:
-                    return CalculatePerformanceRating((x, y) => x.dynamicBoneSimulatedBoneCount - y.dynamicBoneSimulatedBoneCount);
+                {
+                    if(!dynamicBoneSimulatedBoneCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.dynamicBoneSimulatedBoneCount.GetValueOrDefault() - y.dynamicBoneSimulatedBoneCount);
+                }
                 case AvatarPerformanceCategory.DynamicBoneColliderCount:
-                    return CalculatePerformanceRating((x, y) => x.dynamicBoneColliderCount - y.dynamicBoneColliderCount);
+                {
+                    if(!dynamicBoneColliderCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.dynamicBoneColliderCount.GetValueOrDefault() - y.dynamicBoneColliderCount);
+                }
                 case AvatarPerformanceCategory.DynamicBoneCollisionCheckCount:
-                    return CalculatePerformanceRating((x, y) => x.dynamicBoneCollisionCheckCount - y.dynamicBoneCollisionCheckCount);
+                {
+                    if(!dynamicBoneCollisionCheckCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.dynamicBoneCollisionCheckCount.GetValueOrDefault() - y.dynamicBoneCollisionCheckCount);
+                }
                 case AvatarPerformanceCategory.ClothCount:
-                    return CalculatePerformanceRating((x, y) => x.clothCount - y.clothCount);
-
+                {
+                    if(!clothCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
+                    return CalculatePerformanceRating((x, y) => x.clothCount.GetValueOrDefault() - y.clothCount);
+                }
                 case AvatarPerformanceCategory.ClothMaxVertices:
-                    return CalculatePerformanceRating((x, y) => x.clothMaxVertices - y.clothMaxVertices);
-
+                {
+                    if(!clothMaxVertices.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
+                    return CalculatePerformanceRating((x, y) => x.clothMaxVertices.GetValueOrDefault() - y.clothMaxVertices);
+                }
                 case AvatarPerformanceCategory.PhysicsColliderCount:
-                    return CalculatePerformanceRating((x, y) => x.physicsColliderCount - y.physicsColliderCount);
+                {
+                    if(!physicsColliderCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.physicsColliderCount.GetValueOrDefault() - y.physicsColliderCount);
+                }
                 case AvatarPerformanceCategory.PhysicsRigidbodyCount:
-                    return CalculatePerformanceRating((x, y) => x.physicsRigidbodyCount - y.physicsRigidbodyCount);
+                {
+                    if(!physicsRigidbodyCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.physicsRigidbodyCount.GetValueOrDefault() - y.physicsRigidbodyCount);
+                }
                 case AvatarPerformanceCategory.AudioSourceCount:
-                    return CalculatePerformanceRating((x, y) => x.audioSourceCount - y.audioSourceCount);
+                {
+                    if(!audioSourceCount.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
 
+                    return CalculatePerformanceRating((x, y) => x.audioSourceCount.GetValueOrDefault() - y.audioSourceCount);
+                }
+                case AvatarPerformanceCategory.DownloadSize:
+                {
+                    if(!downloadSize.HasValue)
+                    {
+                        return PerformanceRating.None;
+                    }
+
+                    return PerformanceRating.Excellent;
+                }
                 default:
+                {
                     return PerformanceRating.None;
+                }
             }
         }
-
+        
         private PerformanceRating CalculatePerformanceRating(ComparePerformanceStatsDelegate compareFn)
         {
             if(compareFn(this, _performanceStatsLevelSet.excellent) <= 0)
@@ -423,6 +576,10 @@ namespace VRCSDK2.Validation.Performance.Stats
             sb.AppendFormat("Cloth Max Vertices: {0}\n", clothMaxVertices);
             sb.AppendFormat("Physics Collider Count: {0}\n", physicsColliderCount);
             sb.AppendFormat("Physics Rigidbody Count: {0}\n", physicsRigidbodyCount);
+            if(downloadSize > 0)
+            {
+                sb.AppendFormat("Download Size: {0} MB\n", downloadSize);
+            }
 
             return sb.ToString();
         }

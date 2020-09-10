@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using UnityEngine;
 using UnityEditor;
 using VRC.Core;
@@ -11,6 +12,7 @@ public partial class VRCSdkControlPanel : EditorWindow
 
     static List<ApiAvatar> uploadedAvatars = null;
     static List<ApiWorld> uploadedWorlds = null;
+    static List<ApiAvatar> testAvatars = null;
 
     public static Dictionary<string, Texture2D> ImageCache = new Dictionary<string, Texture2D>();
 
@@ -22,6 +24,7 @@ public partial class VRCSdkControlPanel : EditorWindow
     private static string searchString = "";
     private static bool WorldsToggle = true;
     private static bool AvatarsToggle = true;
+    private static bool TestAvatarsToggle = true;
 
     const int SCROLLBAR_RESERVED_REGION_WIDTH = 50;
 
@@ -53,6 +56,8 @@ public partial class VRCSdkControlPanel : EditorWindow
             uploadedWorlds = null;
         if (uploadedAvatars != null)
             uploadedAvatars = null;
+        if (testAvatars != null)
+            testAvatars = null;
         ImageCache.Clear();
     }
 
@@ -71,9 +76,10 @@ public partial class VRCSdkControlPanel : EditorWindow
             fetchingAvatars = EditorCoroutine.Start(() => FetchAvatars());
         if (fetchingWorlds == null)
             fetchingWorlds = EditorCoroutine.Start(() => FetchWorlds());
+        FetchTestAvatars();
     }
 
-    static void FetchAvatars(int offset = 0)
+    private static void FetchAvatars(int offset = 0)
     {
         ApiAvatar.FetchList(
             delegate (IEnumerable<ApiAvatar> obj)
@@ -115,7 +121,34 @@ public partial class VRCSdkControlPanel : EditorWindow
             );
     }
 
-    static void FetchWorlds(int offset = 0)
+    private static void FetchTestAvatars()
+    {
+#if VRC_SDK_VRCSDK3
+        string sdkAvatarFolder = VRC.SDK3.Editor.VRC_SdkBuilder.GetKnownFolderPath(VRC.SDK3.Editor.VRC_SdkBuilder.LocalLowGUID) + "/VRChat/vrchat/Avatars/";
+        string[] sdkavatars = Directory.GetFiles(sdkAvatarFolder);
+        string filename = "";
+        List<ApiAvatar> avatars = new List<ApiAvatar>();
+        foreach(string sdkap in sdkavatars)
+        {
+            if(Path.GetExtension(sdkap) != ".vrca")
+                continue;
+
+            filename = Path.GetFileNameWithoutExtension(sdkap);
+            ApiAvatar sdka = API.FromCacheOrNew<ApiAvatar>("local:sdk_" + filename);
+            sdka.assetUrl = sdkap;
+            sdka.name = filename;
+            sdka.releaseStatus = "public";
+            ApiAvatar.AddLocal(sdka);
+            avatars.Add(sdka);
+        }
+
+        testAvatars = avatars;
+#else
+        testAvatars = new List<ApiAvatar>();
+#endif
+    }
+
+    private static void FetchWorlds(int offset = 0)
     {
         ApiWorld.FetchList(
             delegate (IEnumerable<ApiWorld> obj)
@@ -231,7 +264,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         if (!RemoteConfig.IsInitialized())
             RemoteConfig.Init();
 
-        if (APIUser.IsLoggedInWithCredentials && uploadedWorlds != null && uploadedAvatars != null)
+        if (APIUser.IsLoggedInWithCredentials && uploadedWorlds != null && uploadedAvatars != null && testAvatars != null)
         {
 
             bool expandedLayout = false; // (position.width > MAX_ALL_INFORMATION_WIDTH);    // uncomment for future wide layouts
@@ -534,6 +567,67 @@ public partial class VRCSdkControlPanel : EditorWindow
                 }
             }
 
+            if (testAvatars.Count > 0)
+            {
+                EditorGUILayout.Space();
+
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Test Avatars", EditorStyles.boldLabel, GUILayout.ExpandWidth(false), GUILayout.Width(100));
+                TestAvatarsToggle = EditorGUILayout.Foldout(TestAvatarsToggle, new GUIContent(""));
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.Space();
+
+                if (TestAvatarsToggle)
+                {
+                    List<ApiAvatar> tmpAvatars = new List<ApiAvatar>();
+
+                    if (testAvatars.Count > 0)
+                        tmpAvatars = new List<ApiAvatar>(testAvatars);
+
+                    foreach (ApiAvatar a in tmpAvatars)
+                    {
+                        if (!a.name.ToLowerInvariant().Contains(searchString.ToLowerInvariant()))
+                        {
+                            continue;
+                        }
+
+                        EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+
+                        if (expandedLayout)
+                            EditorGUILayout.BeginHorizontal();
+                        else
+                            EditorGUILayout.BeginVertical();
+
+                        EditorGUILayout.LabelField(a.name, descriptionStyle,
+                            GUILayout.Width(expandedLayout
+                                ? position.width - MAX_ALL_INFORMATION_WIDTH + AVATAR_DESCRIPTION_FIELD_WIDTH
+                                : AVATAR_DESCRIPTION_FIELD_WIDTH));
+
+                        if (GUILayout.Button("Delete", GUILayout.Width(DELETE_AVATAR_BUTTON_WIDTH)))
+                        {
+                            if (EditorUtility.DisplayDialog("Delete " + a.name + "?",
+                                "Are you sure you want to delete " + a.name + "? This cannot be undone.", "Delete",
+                                "Cancel"))
+                            {
+                                API.Delete<ApiAvatar>(a.id);
+                                testAvatars.RemoveAll(avatar => avatar.id == a.id);
+                                File.Delete(a.assetUrl);
+
+                                updatedContent = true;
+                            }
+                        }
+
+                        if (expandedLayout)
+                            EditorGUILayout.EndHorizontal();
+                        else
+                            EditorGUILayout.EndVertical();
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.Space();
+                    }
+                }
+            }
+
             EditorGUILayout.EndScrollView();
             if (!expandedLayout)
             {
@@ -556,12 +650,14 @@ public partial class VRCSdkControlPanel : EditorWindow
         GUILayout.FlexibleSpace();
         GUILayout.BeginVertical();
 
-        if (uploadedWorlds == null || uploadedAvatars == null)
+        if (uploadedWorlds == null || uploadedAvatars == null || testAvatars == null)
         {
             if (uploadedWorlds == null)
                 uploadedWorlds = new List<ApiWorld>();
             if (uploadedAvatars == null)
                 uploadedAvatars = new List<ApiAvatar>();
+            if (testAvatars == null)
+                testAvatars = new List<ApiAvatar>();
 
             EditorCoroutine.Start(FetchUploadedData());
         }

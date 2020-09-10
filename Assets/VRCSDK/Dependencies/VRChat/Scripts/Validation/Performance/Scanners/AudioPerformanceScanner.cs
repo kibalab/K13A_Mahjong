@@ -23,7 +23,7 @@ namespace VRCSDK2.Validation.Performance.Scanners
                 audioSourceBuffer.RemoveAll(c => shouldIgnoreComponent(c));
             }
 
-            perfStats.audioSourceCount += audioSourceBuffer.Count;
+            perfStats.audioSourceCount = audioSourceBuffer.Count;
         }
     }
 }

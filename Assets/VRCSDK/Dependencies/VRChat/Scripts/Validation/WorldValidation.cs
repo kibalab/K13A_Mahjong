@@ -140,7 +140,6 @@ namespace VRCSDK2.Validation
             "RootMotion.FinalIK.Recoil",
             "RootMotion.FinalIK.ShoulderRotator",
             "RootMotion.Dynamics.AnimationBlocker",
-            "RootMotion.Dynamics.BehaviourAnimatedStagger",
             "RootMotion.Dynamics.BehaviourBase",
             "RootMotion.Dynamics.BehaviourFall",
             "RootMotion.Dynamics.BehaviourPuppet",
@@ -281,7 +280,6 @@ namespace VRCSDK2.Validation
             "VRCSDK2.VRC_CombatSystem",
             "VRCSDK2.VRC_DestructibleStandard",
             "VRC_VisualDamage",
-            "VRCSDK2.VRC_MirrorCamera",
             "VRCSDK2.VRC_OscButtonIn",
             "VRCSDK2.VRC_GunStats",
             "VRCSDK2.VRC_JukeBox",
@@ -408,7 +406,8 @@ namespace VRCSDK2.Validation
             "RenderHeads.Media.AVProVideo.UpdateStereoMaterial",
             "AlphaButtonClickMask",
             "EventSystemChecker",
-            "VirtualMarketplaceItem"
+            "VirtualMarketplaceItem",
+            "SDK2UrlLauncher"
         };
 
         static readonly string[] ComponentTypeWhiteListSdk3 = new string[]
@@ -512,7 +511,7 @@ namespace VRCSDK2.Validation
             }
 
             ConfigureWhiteList(config);
-            HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world", ComponentTypeWhiteList);
+            HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world" + config, ComponentTypeWhiteList);
             ValidationUtils.RemoveIllegalComponents(target, whitelist);
 
             AddScanned(target);

@@ -35,6 +35,15 @@ public class ONSPAudioSource : MonoBehaviour
     static int readOnly_NumberOfUsedSpatializedVoices = 9;
 #endif
 
+#if VRC_CLIENT
+    // don't include in SDK, not compatible with Unity's version of spatializer
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoadRuntimeMethod()
+    {
+        OSP_SetGlobalVoiceLimit(ONSPSettings.Instance.voiceLimit);
+    }
+#endif
+
     // Import functions
     public const string strONSPS = "AudioPluginOculusSpatializer";
 
@@ -142,6 +151,7 @@ public class ONSPAudioSource : MonoBehaviour
         }
     }
 
+
     [SerializeField]
 	private bool enableRfl = false;
 	public  bool EnableRfl
@@ -175,9 +185,9 @@ public class ONSPAudioSource : MonoBehaviour
 	/// Awake this instance.
 	/// </summary>
 	void Awake()
-    {
+	{
         Reset();
-    }
+	}
 
 	/// <summary>
 	/// Start this instance.
@@ -199,7 +209,7 @@ public class ONSPAudioSource : MonoBehaviour
     {
 		// We might iterate through multiple sources / game object
 		var source = GetComponent<AudioSource>();
-        
+
         if(source == null)
         {
             enabled = false;
@@ -230,7 +240,7 @@ public class ONSPAudioSource : MonoBehaviour
         }
         else
         {
-            SetParameters(ref source);
+            SetParameters(ref source);	
         }
     }
 
@@ -390,4 +400,7 @@ public class ONSPAudioSource : MonoBehaviour
             RoomReflectionGizmoAS = null;
         }
     }
+    
+    [System.Runtime.InteropServices.DllImport("AudioPluginOculusSpatializer")]
+    private static extern int OSP_SetGlobalVoiceLimit(int VoiceLimit);
 }

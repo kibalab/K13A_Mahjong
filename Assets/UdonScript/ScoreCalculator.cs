@@ -37,7 +37,7 @@ public class ScoreCalculator : UdonSharpBehaviour
         
         foreach (object[] ctx in ctxs)
         {
-            var globalOrders = HandUtil.GetGlobalOrders(sealedCards);
+            var globalOrders = Ctx.ReadGlobalOrders(ctx);
             var pairs = HandUtil.FindPairs(globalOrders);
             if (pairs.Length == 0) { continue; }
 

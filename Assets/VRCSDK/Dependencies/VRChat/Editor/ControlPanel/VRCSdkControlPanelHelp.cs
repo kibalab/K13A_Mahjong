@@ -42,7 +42,7 @@ public partial class VRCSdkControlPanel : EditorWindow
             return;
         }
 
-        Application.OpenURL(kAvatarOptimizationTipsURL);
+        Application.OpenURL(AVATAR_OPTIMIZATION_TIPS_URL);
     }
 
     [MenuItem("VRChat SDK/Help/Avatar Rig Requirements")]
@@ -54,6 +54,6 @@ public partial class VRCSdkControlPanel : EditorWindow
             return;
         }
 
-        Application.OpenURL(kAvatarRigRequirementsURL);
+        Application.OpenURL(AVATAR_RIG_REQUIREMENTS_URL);
     }
 }

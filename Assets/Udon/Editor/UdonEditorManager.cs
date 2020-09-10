@@ -48,12 +48,6 @@ namespace VRC.Udon.Editor
 
         #endregion
 
-        #region Public Properties
-
-        public double ProgramRefreshDelayRemaining => REFRESH_QUEUE_WAIT_PERIOD - (EditorApplication.timeSinceStartup - _lastProgramRefreshQueueTime);
-
-        #endregion
-
         #region Private Constants
 
         private const double REFRESH_QUEUE_WAIT_PERIOD = 5.0;
@@ -65,7 +59,6 @@ namespace VRC.Udon.Editor
         private readonly UdonEditorInterface _udonEditorInterface;
 
         private readonly HashSet<AbstractUdonProgramSource> _programSourceRefreshQueue = new HashSet<AbstractUdonProgramSource>();
-        private double _lastProgramRefreshQueueTime;
 
         #endregion
 
@@ -94,7 +87,13 @@ namespace VRC.Udon.Editor
         #endregion
 
         #region UdonBehaviour and ProgramSource Refresh
-        
+
+        public void QueueAndRefreshProgram(AbstractUdonProgramSource programSource)
+        {
+            QueueProgramSourceRefresh(programSource);
+            RefreshQueuedProgramSources();
+        }
+
         public void RefreshQueuedProgramSources()
         {
             foreach(AbstractUdonProgramSource programSource in _programSourceRefreshQueue)
@@ -145,8 +144,6 @@ namespace VRC.Udon.Editor
             {
                 return;
             }
-
-            _lastProgramRefreshQueueTime = EditorApplication.timeSinceStartup;
 
             if(IsProgramSourceRefreshQueued(programSource))
             {

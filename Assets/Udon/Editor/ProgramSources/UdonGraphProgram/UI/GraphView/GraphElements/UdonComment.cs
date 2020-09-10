@@ -29,13 +29,21 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
             comment._customData.layout = position;
             comment._customData.title = value;
+            
+            comment.UpdateFromData();
+            graph.MarkSceneDirty();
 
             return comment;
         }
 
         public static UdonComment Create(UdonGraphElementData elementData, UdonGraph graph)
         {
-            return new UdonComment(elementData.jsonData, graph);
+            var comment = new UdonComment(elementData.jsonData, graph);
+            
+            comment.UpdateFromData();
+            graph.MarkSceneDirty();
+            
+            return comment;
         }
 
         private UdonComment(string jsonData, UdonGraph graph)
@@ -78,15 +86,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 SetText(evt.newValue);
                 SwitchToEditMode(false);
             });
-
-            graph.MarkSceneDirty();
         }
 
-        // Initialize this Element from its Custom Data
-        public override void OnPersistentDataReady()
+        private void UpdateFromData()
         {
-            base.OnPersistentDataReady();
-
             if(_customData != null)
             {
                 layer = _customData.layer;
@@ -180,7 +183,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         {
             public string uid;
             public Rect layout;
-            public string title;
+            public string title = "Comment";
             public int layer;
             public Color elementTypeColor;
         }

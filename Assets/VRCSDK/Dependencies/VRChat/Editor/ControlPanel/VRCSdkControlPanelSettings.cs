@@ -69,47 +69,8 @@ public partial class VRCSdkControlPanel : EditorWindow
         ShowSdk23CompatibilitySettings();
         EditorGUILayout.Separator();
 
-        EditorGUILayout.BeginVertical(boxGuiStyle);
-        GUILayout.Label("Avatar Options", EditorStyles.boldLabel);
-        bool prevShowPerfDetails = showAvatarPerformanceDetails;
-        bool showPerfDetails = EditorGUILayout.ToggleLeft("Show All Avatar Performance Details", prevShowPerfDetails);
-        if (showPerfDetails != prevShowPerfDetails)
-        {
-            showAvatarPerformanceDetails = showPerfDetails;
-            ResetIssues();
-        }
-        EditorGUILayout.EndVertical();
-
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginVertical(boxGuiStyle);
-        GUILayout.Label("World Options", EditorStyles.boldLabel);
-        EditorGUILayout.BeginHorizontal();
-        int prevLineMode = triggerLineMode;
-        int lineMode = System.Convert.ToInt32(EditorGUILayout.EnumPopup("Trigger Lines", (VRC.SDKBase.VRC_Trigger.EditorTriggerLineMode)triggerLineMode, GUILayout.Width(250)));
-        if (lineMode != prevLineMode)
-        {
-            triggerLineMode = lineMode;
-            foreach (GameObject t in Selection.gameObjects)
-            {
-                EditorUtility.SetDirty(t);
-            }
-        }
-        GUILayout.Space(10);
-        switch ((VRC.SDKBase.VRC_Trigger.EditorTriggerLineMode)triggerLineMode)
-        {
-            case VRC.SDKBase.VRC_Trigger.EditorTriggerLineMode.Enabled:
-                EditorGUILayout.LabelField("Lines shown for all selected triggers", EditorStyles.miniLabel);
-                break;
-            case VRC.SDKBase.VRC_Trigger.EditorTriggerLineMode.Disabled:
-                EditorGUILayout.LabelField("No trigger lines are drawn", EditorStyles.miniLabel);
-                break;
-            case VRC.SDKBase.VRC_Trigger.EditorTriggerLineMode.PerTrigger:
-                EditorGUILayout.LabelField("Toggle lines directly on each trigger component", EditorStyles.miniLabel);
-                break;
-        }
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.EndVertical();
+        ShowSettingsOptionsForBuilders();
+        
 
         // debugging
         if (APIUser.CurrentUser != null && APIUser.CurrentUser.hasSuperPowers)
