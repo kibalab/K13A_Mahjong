@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+﻿#if UNITY_EDITOR && VRC_SDK_VRCSDK2
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
@@ -8,7 +8,7 @@ using System.IO;
 
 namespace VRCSDK2
 {
-    [CustomEditor(typeof(VRC.SDKBase.VRC_YouTubeSync))]
+    [CustomEditor(typeof(VRC_YouTubeSync))]
 	public class VRC_YouTubeSyncEditor : Editor
     {
 		public override void OnInspectorGUI()

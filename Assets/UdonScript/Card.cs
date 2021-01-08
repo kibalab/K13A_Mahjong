@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Card : UdonSharpBehaviour
 {
+
     [UdonSynced(UdonSyncMode.None)] public string Type = "None";
     [UdonSynced(UdonSyncMode.None)] public int CardNumber = -1;
     [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = "None";
@@ -34,8 +35,17 @@ public class Card : UdonSharpBehaviour
 
     public override void Interact()
     {
-        RequestCallFunctionToOwner(nameof(_Interact));
-        RequestCallFunctionToAll(nameof(_playTabSound));
+        LogViewer.Log($"Call Interact() from {ToString()}", 0);
+        RequestCallFunctionToOwner(nameof(l_Interact));
+        RequestCallFunctionToAll(nameof(l_playTabSound));
+    }
+
+    public override void OnPlayerJoined(VRCPlayerApi player)
+    {
+        if (player.isMaster)
+        {
+            Networking.SetOwner(player, gameObject);
+        }
     }
 
     public void resetCard()
@@ -56,7 +66,7 @@ public class Card : UdonSharpBehaviour
         isDoraMaterialSetted = false;
     }
 
-    public void _playTabSound()
+    public void l_playTabSound()
     {
         if (AudioQueue != null)
         {
@@ -64,7 +74,7 @@ public class Card : UdonSharpBehaviour
         }
     }
 
-    public void _Interact()
+    public void l_Interact()
     {
         if (IsDiscardedForRiichi)
         {
@@ -124,6 +134,12 @@ public class Card : UdonSharpBehaviour
 
     private void Update()
     {
+
+        if (!Networking.IsNetworkSettled)
+        {
+            return;
+        }
+
         if (!isSpriteInitialized && IsCardSpriteInitializeReady())
         {
             InitializeSprite();

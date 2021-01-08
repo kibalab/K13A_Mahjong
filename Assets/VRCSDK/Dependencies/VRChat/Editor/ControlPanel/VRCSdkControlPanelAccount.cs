@@ -259,11 +259,11 @@ public partial class VRCSdkControlPanel : EditorWindow
 
     void ShowAccount()
     {
-        if (VRC.Core.RemoteConfig.IsInitialized())
+        if (VRC.Core.ConfigManager.RemoteConfig.IsInitialized())
         {
-            if (VRC.Core.RemoteConfig.HasKey("sdkUnityVersion"))
+            if (VRC.Core.ConfigManager.RemoteConfig.HasKey("sdkUnityVersion"))
             {
-                string sdkUnityVersion = VRC.Core.RemoteConfig.GetString("sdkUnityVersion");
+                string sdkUnityVersion = VRC.Core.ConfigManager.RemoteConfig.GetString("sdkUnityVersion");
                 if (string.IsNullOrEmpty(sdkUnityVersion))
                     EditorGUILayout.LabelField("Could not fetch remote config.");
                 else if (Application.unityVersion != sdkUnityVersion)
@@ -276,7 +276,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         else
         {
             VRC.Core.API.SetOnlineMode(true, "vrchat");
-            VRC.Core.RemoteConfig.Init();
+            VRC.Core.ConfigManager.RemoteConfig.Init();
         }
 
         OnAccountGUI();

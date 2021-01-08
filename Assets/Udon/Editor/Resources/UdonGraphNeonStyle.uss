@@ -21,6 +21,11 @@
 	border-bottom-width:2;
 }
 
+UdonNode #subtitle {
+	text-color:rgb(10,10,10);
+	font-size:12;
+}
+
 UdonGameObjectNode.node #title-label {
 	text-color:#BC00BC;
 }

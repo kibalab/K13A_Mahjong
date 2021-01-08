@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
@@ -41,6 +42,11 @@ namespace UdonSharp.Compiler
 
         private CompilationModule[] modules;
         private bool isEditorBuild = true;
+
+        public delegate void CompileCallback(UdonSharpProgramAsset[] compiledProgramAssets);
+
+        [PublicAPI] public static event CompileCallback beforeCompile;
+        [PublicAPI] public static event CompileCallback afterCompile;
 
         private static int initAssemblyCounter = 0;
 
@@ -78,6 +84,17 @@ namespace UdonSharp.Compiler
                         continue;
 
                     programAssetsAndPaths.Add((programAsset, AssetDatabase.GetAssetPath(programAsset.sourceCsScript)));
+                }
+
+                UdonSharpProgramAsset[] programAssetsToCompile = modules.Select(e => e.programAsset).Where(e => e != null && e.sourceCsScript != null).ToArray();
+
+                try
+                {
+                    beforeCompile?.Invoke(programAssetsToCompile);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"Exception thrown by pre compile listener\n{e}");
                 }
 
                 object syntaxTreeLock = new object();
@@ -134,9 +151,14 @@ namespace UdonSharp.Compiler
 #if UDONSHARP_DEBUG // Single threaded compile
                     List<CompileTaskResult> compileTasks = new List<CompileTaskResult>();
 
-                    foreach (CompilationModule module in modules)
+                    for (int i = 0; i < modules.Length; ++i)
                     {
+                        CompilationModule module = modules[i];
                         var sourceTree = syntaxTreeSourceLookup[module.programAsset];
+                    
+                        EditorUtility.DisplayProgressBar("UdonSharp Compile",
+                                                         $"Compiling scripts ({i}/{modules.Length})...",
+                                                         Mathf.Clamp01((i / ((float)modules.Length + 1f))));
 
                         compileTasks.Add(module.Compile(classDefinitions, sourceTree.Item2, sourceTree.Item1, isEditorBuild));
                     }
@@ -202,9 +224,11 @@ namespace UdonSharp.Compiler
 
                         int processedTaskCount = totalTaskCount - compileTasks.Count;
 
+#if !UDONSHARP_DEBUG
                         EditorUtility.DisplayProgressBar("UdonSharp Compile",
                                                          $"Compiling scripts ({processedTaskCount}/{totalTaskCount})...",
                                                          Mathf.Clamp01((processedTaskCount / ((float)totalTaskCount + 1f))));
+#endif
                     }
 
                     if (totalErrorCount == 0)
@@ -219,7 +243,7 @@ namespace UdonSharp.Compiler
                         foreach (CompilationModule module in modules)
                         {
                             module.programAsset.ApplyProgram();
-                            UdonSharpEditorCache.Instance.UpdateSourceHash(module.programAsset);
+                            UdonSharpEditorCache.Instance.UpdateSourceHash(module.programAsset, syntaxTreeSourceLookup[module.programAsset].Item1);
                         }
 
                         EditorUtility.DisplayProgressBar("UdonSharp Compile", "Post Build Scene Fixup", 1f);
@@ -234,6 +258,15 @@ namespace UdonSharp.Compiler
                     {
                         UdonSharpEditorCache.Instance.ClearSourceHash(module.programAsset);
                     }
+                }
+
+                try
+                {
+                    afterCompile?.Invoke(programAssetsToCompile);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"Exception thrown by post compile listener\n{e}");
                 }
             }
             finally
@@ -351,6 +384,14 @@ namespace UdonSharp.Compiler
             }
 
             int fieldInitializerErrorCount = RunFieldInitalizers(compiledModules);
+
+            if (fieldInitializerErrorCount > 0)
+            {
+                foreach (CompilationModule module in compiledModules)
+                {
+                    module.programAsset.compileErrors.Add("Initializer error on an UdonSharpBehaviour, see output log for details.");
+                }
+            }
 
             foreach (CompilationModule module in compiledModules)
             {
@@ -490,22 +531,27 @@ namespace UdonSharp.Compiler
                         if (variable.Initializer != null)
                         {
                             string name = variable.Identifier.ToString();
-                            if (isConst)
-                            {
-                                _class.Members.Add(new CodeSnippetTypeMember($"const {typeQualifiedName} {name} {variable.Initializer};"));
-                            }
-                            else
-                            {
-                                method.Statements.Add(new CodeSnippetStatement($"{typeQualifiedName} {name} {variable.Initializer};"));
-                            }
 
                             if (UdonSharpUtils.IsUserJaggedArray(fieldDef.fieldSymbol.userCsType))
                             {
+                                if (fieldDef != null)
+                                    typeQualifiedName = GetFullTypeQualifiedName(fieldDef.fieldSymbol.userCsType);
+
+                                if (isConst)
+                                    _class.Members.Add(new CodeSnippetTypeMember($"const {typeQualifiedName} {name} {variable.Initializer};"));
+                                else
+                                    method.Statements.Add(new CodeSnippetStatement($"{typeQualifiedName} {name} {variable.Initializer};"));
+
                                 method.Statements.Add(new CodeSnippetStatement(
                                     "heapSetMethod.MakeGenericMethod(typeof(" + GetFullTypeQualifiedName(fieldDef.fieldSymbol.userCsType) + ")).Invoke(null, new object[] { program, " + name + ", \"" + variable.Identifier + "\"});"));
                             }
                             else
                             {
+                                if (isConst)
+                                    _class.Members.Add(new CodeSnippetTypeMember($"const {typeQualifiedName} {name} {variable.Initializer};"));
+                                else
+                                    method.Statements.Add(new CodeSnippetStatement($"{typeQualifiedName} {name} {variable.Initializer};"));
+
                                 method.Statements.Add(new CodeSnippetStatement(
                                     $"program.Heap.SetHeapVariable(program.SymbolTable.GetAddressFromSymbol(\"{variable.Identifier}\"), {name});"));
                             }
@@ -534,11 +580,25 @@ namespace UdonSharp.Compiler
             for (int i = 0; i < assemblies.Length; i++)
             {
                 if (!assemblies[i].IsDynamic && assemblies[i].Location.Length > 0)
-                    references.Add(MetadataReference.CreateFromFile(assemblies[i].Location));
+                {
+                    PortableExecutableReference executableReference = null;
+
+                    try
+                    {
+                        executableReference = MetadataReference.CreateFromFile(assemblies[i].Location);
+                    }
+                    catch (System.Exception e)
+                    {
+                        Debug.LogError($"Unable to locate assembly {assemblies[i].Location} Exception: {e}");
+                    }
+
+                    if (executableReference != null)
+                        references.Add(executableReference);
+                }
             }
 
             CSharpCompilation compilation = CSharpCompilation.Create(
-                $"init{initAssemblyCounter++}",
+                $"UdonSharpInitAssembly{initAssemblyCounter++}",
                 syntaxTrees: initializerTrees,
                 references: references,
                 options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));

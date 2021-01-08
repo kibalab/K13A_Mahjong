@@ -83,7 +83,10 @@ namespace UdonSharp
                         char[] eventName = eventNameStr.ToCharArray();
                         eventName[0] = char.ToLowerInvariant(eventName[0]);
 
-                        builtinEventLookup.Add(eventNameStr, "_" + new string(eventName));
+                        if (!builtinEventLookup.ContainsKey(eventNameStr))
+                            builtinEventLookup.Add(eventNameStr, "_" + new string(eventName));
+                        else
+                            Debug.LogWarning($"Duplicate event node {nodeDefinition.fullName} found");
                     }
                 }
 
@@ -146,7 +149,7 @@ namespace UdonSharp
             { "_onPlayerLeft", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerLeftPlayer") } },
             { "_onStationEntered", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onStationEnteredPlayer") } },
             { "_onStationExited", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onStationExitedPlayer") } },
-#if UDON_BETA_SDK
+#if UDON_BETA_SDK || true
             { "_onOwnershipRequest", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onOwnershipRequestRequester"), new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onOwnershipRequestNewOwner") } },
             { "_onPlayerTriggerEnter", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerTriggerEnterPlayer") } },
             { "_onPlayerTriggerExit", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerTriggerExitPlayer") } },
@@ -155,6 +158,7 @@ namespace UdonSharp
             { "_onPlayerCollisionExit", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerCollisionExitPlayer") } },
             { "_onPlayerCollisionStay", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerCollisionStayPlayer") } },
             { "_onPlayerParticleCollision", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDKBase.VRCPlayerApi), "onPlayerParticleCollisionPlayer") } },
+            { "_onVideoError", new System.Tuple<System.Type, string>[] { new System.Tuple<System.Type, string>(typeof(VRC.SDK3.Components.Video.VideoError), "onVideoErrorVideoError") } },
 #endif
         };
 
@@ -313,45 +317,6 @@ namespace UdonSharp
             return null;
         }
 
-        private static Dictionary<System.Type, System.Type> inheritedTypeMap = null;
-        private readonly static object inheritedTypeMapLock = new object();
-
-        private Dictionary<System.Type, System.Type> GetInheritedTypeMap()
-        {
-            if (inheritedTypeMap != null)
-                return inheritedTypeMap;
-
-            lock (inheritedTypeMapLock)
-            {
-                if (inheritedTypeMap != null)
-                    return inheritedTypeMap;
-
-                inheritedTypeMap = new Dictionary<System.Type, System.Type>();
-
-                IEnumerable<System.Type> typeList = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "VRCSDK3").GetTypes().Where(t => t != null && t.Namespace != null && t.Namespace.StartsWith("VRC.SDK3.Components"));
-
-                foreach (System.Type childType in typeList)
-                {
-                    if (childType.BaseType != null && childType.BaseType.Namespace.StartsWith("VRC.SDKBase"))
-                    {
-                        inheritedTypeMap.Add(childType.BaseType, childType);
-                    }
-                }
-            }
-
-            return inheritedTypeMap;
-        }
-
-        public System.Type RemapBaseType(System.Type type)
-        {
-            var typeMap = GetInheritedTypeMap();
-
-            if (typeMap.ContainsKey(type))
-                return typeMap[type];
-
-            return type;
-        }
-
         public string SanitizeTypeName(string typeName)
         {
             return typeName.Replace(",", "")
@@ -371,7 +336,7 @@ namespace UdonSharp
         public string GetUdonTypeName(System.Type externType, bool skipBaseTypeRemap = false)
         {
             if (!skipBaseTypeRemap)
-                externType = RemapBaseType(externType);
+                externType = UdonSharpUtils.RemapBaseType(externType);
 
             string externTypeName = externType.GetNameWithoutGenericArity();
             while (externType.IsArray || externType.IsByRef)
@@ -439,7 +404,7 @@ namespace UdonSharp
                 methodSourceType = genericArguments.First();
             }
 
-            methodSourceType = RemapBaseType(methodSourceType);
+            methodSourceType = UdonSharpUtils.RemapBaseType(methodSourceType);
 
             bool isUdonSharpBehaviour = false;
 
@@ -500,7 +465,7 @@ namespace UdonSharp
 
         public string GetUdonFieldAccessorName(FieldInfo externField, FieldAccessorType accessorType, bool validate = true)
         {
-            System.Type fieldType = RemapBaseType(externField.DeclaringType);
+            System.Type fieldType = UdonSharpUtils.RemapBaseType(externField.DeclaringType);
 
             string functionNamespace = SanitizeTypeName(fieldType.FullName).Replace("VRCUdonUdonBehaviour", "VRCUdonCommonInterfacesIUdonEventReceiver");
             string methodName = $"__{(accessorType == FieldAccessorType.Get ? "get" : "set")}_{externField.Name.Trim('_')}";

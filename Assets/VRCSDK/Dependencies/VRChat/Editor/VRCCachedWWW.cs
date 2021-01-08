@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public static class VRCCachedWWW {
     public const float DefaultCacheTimeHours = 24 * 7;
@@ -14,7 +16,10 @@ public static class VRCCachedWWW {
             foreach (string fileName in System.IO.Directory.GetFiles(cacheDir))
             {
                 if (GetAge(fileName) > cacheLimitHours)
-                    System.IO.File.Delete(fileName);
+                {
+                    Debug.Log($"Deleting {fileName}");
+                    System.IO.File.Delete(fileName);   
+                }
             }
         }
     }
@@ -27,7 +32,7 @@ public static class VRCCachedWWW {
         }
     }
 
-    public static IEnumerator Get(string url, System.Action<WWW> onDone, float cacheLimitHours = DefaultCacheTimeHours)
+    public static IEnumerator Get(string url, System.Action<Texture2D> onDone, float cacheLimitHours = DefaultCacheTimeHours)
     {
         string cacheDir = CacheDir;
         if (!System.IO.Directory.Exists(cacheDir))
@@ -35,56 +40,48 @@ public static class VRCCachedWWW {
 
         string hash = CreateHash(url);
         string cache = cacheDir + "/www_" + hash;
-        string location = url;
-        bool useCache = false;
 
-        if (System.IO.File.Exists(cache))
+        if (File.Exists(cache))
         {
+            // Use cached file if it exists
+            
             if (GetAge(cache) > cacheLimitHours)
-                System.IO.File.Delete(cache);
+                File.Delete(cache);
             else
             {
-                location = "file://" + cache;
-                useCache = true;
+                var texture = new Texture2D(2, 2);
+                if (texture.LoadImage(File.ReadAllBytes(cache)))
+                {
+                    // load texture from disk and exit if we successfully read it
+                    texture.Apply();
+                    onDone(texture);
+                    yield break;   
+                }
             }
         }
-                
-        while (true)
+        
+        else
         {
-            WWW target = new WWW(location);
-            target.threadPriority = ThreadPriority.Low;
-
-            while (!target.isDone)
-                yield return null;
-
-            if (!useCache)
+            // No cached file, load it from url
+            using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url))
             {
-                if (System.IO.File.Exists(cache))
-                    System.IO.File.Delete(cache);
-
-                if (string.IsNullOrEmpty(target.error))
-                    System.IO.File.WriteAllBytes(cache, target.bytes);
-
-                onDone(target);
-                break;
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(target.error))
+                // Wait until request and download are complete
+                yield return uwr.SendWebRequest();
+                while (!uwr.isDone || !uwr.downloadHandler.isDone)
                 {
-                    onDone(target);
-                    break;
+                    yield return null;
                 }
-                else
-                {
-                    if (System.IO.File.Exists(cache))
-                        System.IO.File.Delete(cache);
 
-                    location = url;
-                    useCache = false;
-                }
-            }
+                var texture = DownloadHandlerTexture.GetContent(uwr);
+            
+                if(string.IsNullOrEmpty(uwr.error))
+                    File.WriteAllBytes(cache, uwr.downloadHandler.data);
+                
+                onDone(texture);
+                yield break;
+            }   
         }
+        
     }
 
     private static string CreateHash(string _string)

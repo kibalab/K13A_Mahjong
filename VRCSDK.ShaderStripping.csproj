@@ -63,7 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\ShaderStripping\StripPostProcessing.cs" />
+    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Editor\ShaderStripping\StripPostProcessing.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unitys/2018.4.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -352,6 +352,21 @@
     <Reference Include="librsync.net">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/librsync/librsync.net.dll</HintPath>
     </Reference>
+    <Reference Include="Collections.Pooled">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/Collections.Pooled.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -363,6 +378,15 @@
     </Reference>
     <Reference Include="VRCSDK3">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDK3Base">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDK3Base.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCSDKBase-Editor">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase-Editor.dll</HintPath>
     </Reference>
     <Reference Include="VRCSDKBase">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Plugins/VRCSDKBase.dll</HintPath>

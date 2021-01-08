@@ -191,11 +191,18 @@ namespace VRCSDK2
                             {
                                 HasExceededPublishLimit = true;
                             }
-                            SetupUI(hasSufficientTrustLevelToPublishToCommunityLabs, HasExceededPublishLimit);
+
+                            if(Application.isPlaying)
+                            {
+                                SetupUI(hasSufficientTrustLevelToPublishToCommunityLabs, HasExceededPublishLimit);
+                            }
                         },
                         (c) =>
                         {
-                            SetupUI(hasSufficientTrustLevelToPublishToCommunityLabs, HasExceededPublishLimit);
+                            if(Application.isPlaying)
+                            {
+                                SetupUI(hasSufficientTrustLevelToPublishToCommunityLabs, HasExceededPublishLimit);
+                            }
                         }
                     );
                 }
@@ -252,12 +259,9 @@ namespace VRCSDK2
                     {
                         contentFeatured.isOn = worldRecord.tags.Contains("content_featured");
                         contentSDKExample.isOn = worldRecord.tags.Contains("content_sdk_example");
-#if COMMUNITY_LABS_SDK
-                        releasePublic.gameObject.SetActive(false);
-#else
+
                         releasePublic.isOn = worldRecord.releaseStatus == "public";
                         releasePublic.gameObject.SetActive(true);
-#endif
                     }
 
                     // "show in worlds menu"
@@ -307,12 +311,8 @@ namespace VRCSDK2
                 }
                 else
                 {
-#if COMMUNITY_LABS_SDK
-                    releasePublic.gameObject.SetActive(false);
-#else
                     releasePublic.gameObject.SetActive(true);
                     releasePublic.isOn = false;
-#endif
                 }
             }
 
@@ -480,6 +480,8 @@ namespace VRCSDK2
                     tags.Add("content_featured");
                 if (contentSDKExample.isOn)
                     tags.Add("content_sdk_example");
+                if(releasePublic.isOn)
+                    tags.Add("admin_approved");
             }
 
             // "show in worlds menu"

@@ -86,8 +86,6 @@ public class SyncVideoStreamEditor : Editor
         EditorGUILayout.PropertyField(searchRoot);
         SerializedProperty maxQual = serializedObject.FindProperty("MaxStreamQuality");
         EditorGUILayout.PropertyField(maxQual);
-        SerializedProperty texFmt = serializedObject.FindProperty("videoTextureFormat");
-        EditorGUILayout.PropertyField(texFmt);
         SerializedProperty autoStart = serializedObject.FindProperty("AutoStart");
         EditorGUILayout.PropertyField(autoStart);
 

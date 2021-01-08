@@ -28,7 +28,7 @@ public class TableViewer : UdonSharpBehaviour
                 windTexts[playerIndex].sprite = CardSprites.FindSprite("³²");
                 break;
             case "West":
-                windTexts[playerIndex].sprite = CardSprites.FindSprite("¼­");
+                windTexts[playerIndex].sprite = CardSprites.FindSprite("¼­");  
                 break;
             case "North":
                 windTexts[playerIndex].sprite = CardSprites.FindSprite("ºÏ");

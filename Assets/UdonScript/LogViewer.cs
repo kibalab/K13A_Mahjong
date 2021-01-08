@@ -10,6 +10,8 @@ public class LogViewer : UdonSharpBehaviour
 {
     public Text debugText1;
     public Text debugText2;
+
+    int lineCount1 = 0, lineCount2 = 0;
     public void Log(string str, int logViewer)
     {
         str = AddTimestamp(str);
@@ -17,12 +19,14 @@ public class LogViewer : UdonSharpBehaviour
         switch (logViewer)
         {
             case 0:
-                debugText1.text += "\n" + str;
+                debugText1.text += $"\n{str}";
                 Debug.Log("[LogViewer1] " + str);
+                lineCount1++;
                 break;
             case 1:
-                debugText2.text += "\n" + str;
+                debugText2.text += $"\n{str}";
                 Debug.Log("[LogViewer2] " + str);
+                lineCount2++;
                 break;
         }
 
@@ -36,11 +40,11 @@ public class LogViewer : UdonSharpBehaviour
         switch (logViewer)
         {
             case 0:
-                debugText1.text += "\n<color=red>" + str + "</color>";
+                debugText1.text += $"\n<color=red>{str}</color>";
                 debuglog("[LogViewer1 Error] " + str);
                 break;
             case 1:
-                debugText2.text += "\n<color=red>" + str + "</color>";
+                debugText2.text += $"\n<color=red>{str}</color>";
                 debuglog("[LogViewer2 Error] " + str);
                 break;
         }
@@ -50,7 +54,7 @@ public class LogViewer : UdonSharpBehaviour
     string AddTimestamp(string str)
     {
         var dateTime = DateTime.Now.ToString("HH:mm:ss");
-        return $"[{dateTime}]: {str}";
+        return $"[<color=green>{dateTime}</color>] {str}";
     }
 
     void debuglog(string str)
@@ -64,14 +68,19 @@ public class LogViewer : UdonSharpBehaviour
 
     void DeleteOldLog()
     {
-        if (debugText1.text.Length > 3000)
+
+        if (lineCount1 > 24)
         {
-            debugText1.text = debugText1.text.Substring(1500);
+            var text = debugText1.text;
+            debugText1.text = text.Substring(text.IndexOf('\n') + 1, text.Length - text.IndexOf('\n') - 1);
+            lineCount1--;
         }
 
-        if (debugText2.text.Length > 3000)
+        if (lineCount2 > 24)
         {
-            debugText2.text = debugText2.text.Substring(1500);
+            var text = debugText2.text;
+            debugText2.text = text.Substring(text.IndexOf('\n') + 1, text.Length - text.IndexOf('\n') - 1);
+            lineCount2--;
         }
     }
 }

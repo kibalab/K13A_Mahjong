@@ -133,6 +133,7 @@ namespace VRC.Udon.Editor.ProgramSources
             IUdonSymbolTable symbolTable = program.SymbolTable;
             string[] exportedSymbolNames = symbolTable.GetExportedSymbols();
 
+            // Remove non-exported public variables
             if(publicVariables != null)
             {
                 foreach(string publicVariableSymbol in publicVariables.VariableSymbols.ToArray())
@@ -240,7 +241,6 @@ namespace VRC.Udon.Editor.ProgramSources
             using(new EditorGUI.DisabledScope(!enabled))
             {
                 // ReSharper disable RedundantNameQualifier
-                EditorGUILayout.BeginHorizontal();
                 if(!variableType.IsInstanceOfType(variableValue))
                 {
                     if(variableType.IsValueType)
@@ -253,6 +253,7 @@ namespace VRC.Udon.Editor.ProgramSources
                     }
                 }
 
+                EditorGUILayout.BeginHorizontal();
                 if(typeof(UnityEngine.Object).IsAssignableFrom(variableType))
                 {
                     UnityEngine.Object unityEngineObjectValue = (UnityEngine.Object)variableValue;
@@ -287,9 +288,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(string[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     string[] valueArray = (string[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -301,21 +299,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -326,8 +328,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : "");
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -347,9 +350,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(float[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     float[] valueArray = (float[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -361,21 +361,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -386,8 +390,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : 0);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -407,9 +412,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(int[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     int[] valueArray = (int[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -421,21 +423,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -446,8 +452,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : 0);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -467,10 +474,7 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(bool[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
-                    bool[] valueArray = (bool[])variableValue;
+                   bool[] valueArray = (bool[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
                     if(_arrayStates.ContainsKey(symbol))
@@ -481,21 +485,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -503,11 +511,12 @@ namespace VRC.Udon.Editor.ProgramSources
                                 GUI.SetNextControlName("NodeField");
                                 valueArray[i] = EditorGUILayout.Toggle(
                                     $"{i}:",
-                                    valueArray.Length > i && valueArray[i]);
+                                    valueArray.Length > i ? valueArray[i] : false);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -527,9 +536,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(Vector2[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     Vector2[] valueArray = (Vector2[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -541,21 +547,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -566,8 +576,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : Vector2.zero);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -587,9 +598,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(Vector3[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     Vector3[] valueArray = (Vector3[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -601,21 +609,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -626,8 +638,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : Vector3.zero);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -647,9 +660,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(Vector4[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     Vector4[] valueArray = (Vector4[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -661,21 +671,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -686,8 +700,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : Vector4.zero);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -708,9 +723,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(Quaternion[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     Quaternion[] valueArray = (Quaternion[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -722,21 +734,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -749,8 +765,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                 valueArray[i] = new Quaternion(vector4.x, vector4.y, vector4.z, vector4.w);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -770,9 +787,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(Color[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     Color[] valueArray = (Color[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -784,21 +798,25 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -809,8 +827,9 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray.Length > i ? valueArray[i] : Color.white);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -830,9 +849,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 }
                 else if(variableType == typeof(Color32[]))
                 {
-                    EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
-                    EditorGUILayout.BeginVertical();
                     Color32[] valueArray = (Color32[])variableValue;
                     GUI.SetNextControlName("NodeField");
                     bool showArray = false;
@@ -844,33 +860,38 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
+                    EditorGUILayout.BeginVertical();
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    EditorGUI.BeginChangeCheck();
+                    // Show Foldout Header
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
+                    // Save foldout state
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
-
+                    
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
                             {
                                 GUI.SetNextControlName("NodeField");
-                                valueArray[i] = (Color32)EditorGUILayout.ColorField(
+                                valueArray[i] = EditorGUILayout.ColorField(
                                     $"{i}:",
                                     valueArray.Length > i ? valueArray[i] : (Color32)Color.white);
                             }
                         }
-                    }
 
+                        EditorGUI.indentLevel--;
+                    }
                     EditorGUILayout.EndVertical();
                     if(EditorGUI.EndChangeCheck())
                     {
@@ -902,7 +923,6 @@ namespace VRC.Udon.Editor.ProgramSources
                 else if(variableType == typeof(ParticleSystem.MinMaxCurve[]))
                 {
                     EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
                     EditorGUILayout.BeginVertical();
                     ParticleSystem.MinMaxCurve[] valueArray = (ParticleSystem.MinMaxCurve[])variableValue;
                     GUI.SetNextControlName("NodeField");
@@ -915,21 +935,22 @@ namespace VRC.Udon.Editor.ProgramSources
                     {
                         _arrayStates.Add(symbol, false);
                     }
-
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    
+                    showArray = EditorGUILayout.Foldout(showArray, symbol, true);
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
 
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -947,8 +968,11 @@ namespace VRC.Udon.Editor.ProgramSources
                                 EditorGUI.indentLevel--;
                                 EditorGUILayout.EndVertical();
                                 valueArray[i] = new ParticleSystem.MinMaxCurve(multiplier, minCurve, maxCurve);
+                                EditorGUILayout.Space();
                             }
                         }
+
+                        EditorGUI.indentLevel--;
                     }
 
                     EditorGUILayout.EndVertical();
@@ -987,20 +1011,20 @@ namespace VRC.Udon.Editor.ProgramSources
                         _arrayStates.Add(symbol, false);
                     }
 
-                    EditorGUILayout.BeginHorizontal();
-                    showArray = EditorGUILayout.Foldout(showArray, GUIContent.none);
+                    showArray = EditorGUILayout.Foldout(showArray, symbol);
                     _arrayStates[symbol] = showArray;
-
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
-
-                    newSize = newSize >= 0 ? newSize : 0;
-                    Array.Resize(ref valueArray, newSize);
-                    EditorGUILayout.EndHorizontal();
 
                     if(showArray)
                     {
+                        EditorGUI.indentLevel++;
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1
+                        );
+                        EditorGUILayout.Space();
+                        newSize = newSize >= 0 ? newSize : 0;
+                        Array.Resize(ref valueArray, newSize);
+                        
                         if(valueArray != null && valueArray.Length > 0)
                         {
                             for(int i = 0; i < valueArray.Length; i++)
@@ -1011,6 +1035,8 @@ namespace VRC.Udon.Editor.ProgramSources
                                     valueArray[i]);
                             }
                         }
+
+                        EditorGUI.indentLevel--;
                     }
 
                     EditorGUILayout.EndVertical();
@@ -1032,30 +1058,45 @@ namespace VRC.Udon.Editor.ProgramSources
                     Assert.IsNotNull(elementType);
 
                     EditorGUI.BeginChangeCheck();
-                    EditorGUILayout.LabelField(symbol);
                     EditorGUILayout.BeginVertical();
-
+                    GUI.SetNextControlName("NodeField");
+                    
+                    bool showArray = false;
+                    if (_arrayStates.ContainsKey(symbol))
+                        showArray = _arrayStates[symbol];
+                    else
+                        _arrayStates.Add(symbol, false);
+                    showArray = EditorGUILayout.Foldout( showArray, symbol, true );
+                    _arrayStates[symbol] = showArray;
+                    
                     if(variableValue == null)
                     {
                         variableValue = Array.CreateInstance(elementType, 0);
                     }
 
                     UnityEngine.Object[] valueArray = (UnityEngine.Object[])variableValue;
-                    GUI.SetNextControlName("NodeField");
-                    int newSize = EditorGUILayout.IntField(
-                        "size:",
-                        valueArray.Length > 0 ? valueArray.Length : 1);
 
-                    Array.Resize(ref valueArray, newSize);
-                    Assert.IsNotNull(valueArray);
-
-                    if(valueArray.Length > 0)
+                    if (showArray)
                     {
-                        for(int i = 0; i < valueArray.Length; i++)
+                        EditorGUI.indentLevel++;
+                        
+                        int newSize = EditorGUILayout.IntField(
+                            "size:",
+                            valueArray.Length > 0 ? valueArray.Length : 1);
+
+                        Array.Resize(ref valueArray, newSize);
+                        Assert.IsNotNull(valueArray);
+
+                        if(valueArray.Length > 0)
                         {
-                            GUI.SetNextControlName("NodeField");
-                            valueArray[i] = EditorGUILayout.ObjectField($"{i}:", valueArray.Length > i ? valueArray[i] : null, variableType.GetElementType(), true);
+                            for(int i = 0; i < valueArray.Length; i++)
+                            {
+                                GUI.SetNextControlName("NodeField");
+                                valueArray[i] = EditorGUILayout.ObjectField($"{i}:", valueArray.Length > i ? valueArray[i] : null, variableType.GetElementType(), true);
+                            }
                         }
+                        
+                        EditorGUI.indentLevel--;
                     }
 
                     EditorGUILayout.EndVertical();
@@ -1066,18 +1107,6 @@ namespace VRC.Udon.Editor.ProgramSources
 
                         variableValue = destinationArray;
 
-                        dirty = true;
-                    }
-                }
-                else if (variableType == typeof(VRC.SDKBase.VRCUrl))
-                {
-                    if(variableValue == null)
-                        variableValue = new VRC.SDKBase.VRCUrl();
-                    VRC.SDKBase.VRCUrl url = (VRC.SDKBase.VRCUrl)variableValue;
-                    EditorGUI.BeginChangeCheck();
-                    url.Set( EditorGUILayout.TextField(symbol, url.Get() ) );
-                    if (EditorGUI.EndChangeCheck())
-                    {
                         dirty = true;
                     }
                 }
@@ -1092,7 +1121,7 @@ namespace VRC.Udon.Editor.ProgramSources
                         showArray = _arrayStates[symbol];
                     else
                         _arrayStates.Add(symbol, false);
-                    showArray = EditorGUILayout.Foldout( showArray, symbol );
+                    showArray = EditorGUILayout.Foldout( showArray, symbol, true );
                     _arrayStates[symbol] = showArray;
 
                     VRC.SDKBase.VRCUrl[] valueArray = (VRC.SDKBase.VRCUrl[])variableValue;
@@ -1100,6 +1129,7 @@ namespace VRC.Udon.Editor.ProgramSources
                     if (showArray)
                     {
                         EditorGUI.indentLevel++;
+                        EditorGUILayout.Space();
                         int newSize = EditorGUILayout.IntField(
                             "size:",
                             valueArray != null && valueArray.Length > 0 ? valueArray.Length : 1);
@@ -1112,11 +1142,12 @@ namespace VRC.Udon.Editor.ProgramSources
                             {
                                 GUI.SetNextControlName("NodeField");
                                 if (valueArray[i] == null)
-                                    valueArray[i] = new VRC.SDKBase.VRCUrl();
+                                    valueArray[i] = new VRC.SDKBase.VRCUrl("");
 
-                                valueArray[i].Set( EditorGUILayout.TextField(
-                                    $"{i}:",
-                                    valueArray.Length > i ? valueArray[i].Get() : "") );
+                                valueArray[i] = new VRC.SDKBase.VRCUrl(
+                                    EditorGUILayout.TextField(
+                                        $"{i}:",
+                                        valueArray.Length > i ? valueArray[i].Get() : ""));
                             }
                         }
                         EditorGUI.indentLevel--;

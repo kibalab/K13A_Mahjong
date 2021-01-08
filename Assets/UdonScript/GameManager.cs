@@ -50,6 +50,8 @@ public class GameManager : UdonSharpBehaviour
         // Master가 처음 들어왔을 때
         if (Networking.IsMaster && player.playerId == Networking.LocalPlayer.playerId)
         {
+            Networking.SetOwner(player, gameObject);
+
             Initialize_Master();
             if (testMode)
             {
@@ -92,6 +94,8 @@ public class GameManager : UdonSharpBehaviour
 
     void Update()
     {
+        if (!Networking.IsNetworkSettled) { return; }
+
         if (!IsReady()) { return; }
 
         if (!isRunOnMasterScript) { return; }
@@ -364,6 +368,11 @@ public class GameManager : UdonSharpBehaviour
                 ChangeGameState(State_WaitForNaki);
             }
 
+            if(TableManager.currentDorasCardIndex >= 4)
+            {
+                ChangeGameState(State_WaitForNaki);
+            }
+
         }
     }
 
@@ -500,7 +509,8 @@ public class GameManager : UdonSharpBehaviour
     void EndOfRound()
     {
         //지금은 끝나면 바로 초기화하게 해뒀지만 나중엔 버튼을 누르면 초기화 하게 해야함
-        //TableManager.resetTable();
+        TableManager.resetTable();
+        ChangeGameState(State_WaitForDiscard);
     }
 
     void ChangeGameState(string state)

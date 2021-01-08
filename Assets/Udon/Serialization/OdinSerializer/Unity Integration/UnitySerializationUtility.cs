@@ -34,6 +34,8 @@ namespace VRC.Udon.Serialization.OdinSerializer
     using UnityEngine.Assertions;
     using System.Runtime.Serialization;
 
+#pragma warning disable 0618 // Obsolete Methods // VRC
+    
 #if PREFAB_DEBUG && !SIRENIX_INTERNAL
 #warning "Prefab serialization debugging is enabled outside of Sirenix internal. Are you sure this is right?"
 #endif

@@ -17,7 +17,16 @@ namespace UdonSharpEditor
             if (udonBehaviour)
                 Undo.DestroyObjectImmediate(udonBehaviour);
 
-            Undo.DestroyObjectImmediate(behaviour);
+            UdonSharpEditorUtility.SetIgnoreEvents(true);
+
+            try
+            {
+                Undo.DestroyObjectImmediate(behaviour);
+            }
+            finally
+            {
+                UdonSharpEditorUtility.SetIgnoreEvents(false);
+            }
         }
 
         /// <summary>
@@ -58,7 +67,7 @@ namespace UdonSharpEditor
             proxyComponent.enabled = false;
 
             UdonSharpEditorUtility.SetBackingUdonBehaviour(proxyComponent, udonBehaviour);
-            UdonSharpEditorUtility.CopyUdonToProxy(proxyComponent, ProxySerializationPolicy.AllWithUndo);
+            UdonSharpEditorUtility.CopyUdonToProxy(proxyComponent, ProxySerializationPolicy.AllWithCreateUndo);
 
             if (EditorApplication.isPlaying)
                 udonBehaviour.InitializeUdonContent();

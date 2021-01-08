@@ -2,11 +2,23 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace VRCSDK2.Validation
 {
     public static class WorldValidation
     {
+        private static readonly Lazy<int> _debugLevel = new Lazy<int>(InitializeLogging);
+        private static int DebugLevel => _debugLevel.Value;
+        private static int InitializeLogging()
+        {
+            int hashCode = typeof(WorldValidation).GetHashCode();
+            VRC.Core.Logger.DescribeDebugLevel(hashCode, "WorldValidation", VRC.Core.Logger.Color.red);
+            VRC.Core.Logger.AddDebugLevel(hashCode);
+            return hashCode;
+        }
+
         static string[] ComponentTypeWhiteList = null;
         public enum WhiteListConfiguration
         {
@@ -422,6 +434,10 @@ namespace VRCSDK2.Validation
             "VRC.SDK3.Components.VRCSceneDescriptor",
             "VRC.SDK3.Components.VRCStation",
             "VRC.SDK3.Components.VRCUiShape",
+            "VRC.SDK3.Video.Components.VRCUnityVideoPlayer",
+            "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoPlayer",
+            "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoScreen",
+            "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoSpeaker",
             "VRC.Udon.UdonBehaviour",
             "UnityEngine.Animations.AimConstraint",
             "UnityEngine.Animations.LookAtConstraint",
@@ -430,6 +446,40 @@ namespace VRCSDK2.Validation
             "UnityEngine.Animations.RotationConstraint",
             "UnityEngine.Animations.ScaleConstraint",
             "UnityEngine.ParticleSystemForceField",
+            "Cinemachine.Cinemachine3rdPersonAim",
+            "Cinemachine.CinemachineBlendListCamera",
+            "Cinemachine.CinemachineBrain",
+            "Cinemachine.CinemachineCameraOffset",
+            "Cinemachine.CinemachineClearShot",
+            "Cinemachine.CinemachineCollider",
+            "Cinemachine.CinemachineConfiner",
+            "Cinemachine.CinemachineDollyCart",
+            "Cinemachine.CinemachineExternalCamera",
+            "Cinemachine.CinemachineFollowZoom",
+            "Cinemachine.CinemachineFreeLook",
+            "Cinemachine.CinemachineMixingCamera",
+            "Cinemachine.CinemachinePath",
+            "Cinemachine.CinemachinePipeline",
+            "Cinemachine.CinemachinePixelPerfect",
+            "Cinemachine.CinemachineRecomposer",
+            "Cinemachine.CinemachineSmoothPath",
+            "Cinemachine.CinemachineStateDrivenCamera",
+            "Cinemachine.CinemachineStoryboard",
+            "Cinemachine.CinemachineTargetGroup",
+            "Cinemachine.CinemachineVirtualCamera",
+            "Cinemachine.Cinemachine3rdPersonFollow",
+            "Cinemachine.CinemachineBasicMultiChannelPerlin",
+            "Cinemachine.CinemachineComposer",
+            "Cinemachine.CinemachineFramingTransposer",
+            "Cinemachine.CinemachineGroupComposer",
+            "Cinemachine.CinemachineHardLockToTarget",
+            "Cinemachine.CinemachineHardLookAt",
+            "Cinemachine.CinemachineOrbitalTransposer",
+            "Cinemachine.CinemachinePOV",
+            "Cinemachine.CinemachineSameAsFollowTarget",
+            "Cinemachine.CinemachineTrackedDolly",
+            "Cinemachine.CinemachineTransposer",
+            "Cinemachine.CinemachineCore"
         };
 
         public static readonly string[] ShaderWhiteList = new string[]
@@ -483,6 +533,7 @@ namespace VRCSDK2.Validation
             foreach(GameObject target in targets)
             {
                 ValidationUtils.RemoveIllegalComponents(target, whitelist, retry, true);
+                SecurityScan(target);
                 AddScanned(target);
             }
         }
@@ -513,6 +564,7 @@ namespace VRCSDK2.Validation
             ConfigureWhiteList(config);
             HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world" + config, ComponentTypeWhiteList);
             ValidationUtils.RemoveIllegalComponents(target, whitelist);
+            SecurityScan(target);
 
             AddScanned(target);
         }
@@ -527,6 +579,34 @@ namespace VRCSDK2.Validation
         public static IEnumerable<Shader> FindIllegalShaders(GameObject target)
         {
             return ShaderValidation.FindIllegalShaders(target, ShaderWhiteList);
+        }
+
+        private static void SecurityScan(GameObject target)
+        {
+            PlayableDirector[] playabledirectors = target.GetComponentsInChildren<PlayableDirector>(true);
+            foreach (PlayableDirector playableDirector in playabledirectors)
+                StripPlayableDirectorWithPrefabs(playableDirector);
+        }
+
+        private static void StripPlayableDirectorWithPrefabs(PlayableDirector playableDirector)
+        {
+            if (!(playableDirector.playableAsset is UnityEngine.Timeline.TimelineAsset timelineAsset))
+                return;
+            IEnumerable<TrackAsset> tracks = timelineAsset.GetOutputTracks();
+            foreach (TrackAsset track in tracks)
+            {
+                if (!(track is ControlTrack))
+                    continue;
+                IEnumerable<TimelineClip> clips = track.GetClips();
+                foreach (TimelineClip clip in clips)
+                {
+                    if (clip.asset is ControlPlayableAsset controlPlayableAsset && controlPlayableAsset.prefabGameObject != null)
+                    {
+                        UnityEngine.Object.Destroy(playableDirector);
+                        VRC.Core.Logger.LogWarning("PlayableDirector containing prefab removed", DebugLevel, playableDirector.gameObject);
+                    }
+                }
+            }
         }
     }
 }

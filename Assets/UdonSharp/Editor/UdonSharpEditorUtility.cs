@@ -12,6 +12,7 @@ using UnityEngine.Profiling;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 using VRC.Udon.Editor.ProgramSources;
+using VRC.Udon.EditorBindings;
 
 namespace UdonSharpEditor
 {
@@ -36,17 +37,36 @@ namespace UdonSharpEditor
 
             newProgramAsset = AssetDatabase.LoadAssetAtPath<UdonAssemblyProgramAsset>(savePath);
 
-            FieldInfo assemblyField = typeof(UdonAssemblyProgramAsset).GetField("udonAssembly", BindingFlags.NonPublic | BindingFlags.Instance);
             udonSharpProgramAsset.CompileCsProgram();
 
-            assemblyField.SetValue(newProgramAsset, assemblyField.GetValue(udonSharpProgramAsset));
+            string programAssembly = UdonSharpEditorCache.Instance.GetUASMStr(udonSharpProgramAsset);
 
-            MethodInfo assembleMethod = typeof(UdonAssemblyProgramAsset).GetMethod("AssembleProgram", BindingFlags.NonPublic | BindingFlags.Instance);
-            assembleMethod.Invoke(newProgramAsset, new object[] { });
+            FieldInfo assemblyField = typeof(UdonAssemblyProgramAsset).GetField("udonAssembly", BindingFlags.NonPublic | BindingFlags.Instance);
+            assemblyField.SetValue(newProgramAsset, programAssembly);
+
+            IUdonProgram program = null;
+
+            try
+            {
+                UdonSharp.HeapFactory heapFactory = new UdonSharp.HeapFactory();
+
+                UdonEditorInterface editorInterface = new UdonEditorInterface(null, heapFactory, null, null, null, null, null, null, null);
+                heapFactory.FactoryHeapSize = udonSharpProgramAsset.GetSerializedUdonProgramAsset().RetrieveProgram().Heap.GetHeapCapacity();
+
+                program = editorInterface.Assemble(programAssembly);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError(e);
+
+                return null;
+            }
+
+            FieldInfo assemblyProgramField = typeof(UdonProgramAsset).GetField("program", BindingFlags.NonPublic | BindingFlags.Instance);
+            assemblyProgramField.SetValue(newProgramAsset, program);
 
             IUdonProgram uSharpProgram = udonSharpProgramAsset.GetRealProgram();
-            FieldInfo assemblyProgramGetter = typeof(UdonProgramAsset).GetField("program", BindingFlags.NonPublic | BindingFlags.Instance);
-            IUdonProgram assemblyProgram = (IUdonProgram)assemblyProgramGetter.GetValue(newProgramAsset);
+            IUdonProgram assemblyProgram = (IUdonProgram)assemblyProgramField.GetValue(newProgramAsset);
 
             if (uSharpProgram == null || assemblyProgram == null)
                 return null;
@@ -132,23 +152,32 @@ namespace UdonSharpEditor
             return ConvertToUdonBehavioursInternal(components, true, false);
         }
 
-        static Dictionary<MonoScript, UdonSharpProgramAsset> _programAssetLookup;
-        private static UdonSharpProgramAsset GetUdonSharpProgramAsset(MonoScript programScript)
+        static internal Dictionary<MonoScript, UdonSharpProgramAsset> _programAssetLookup;
+        static internal Dictionary<System.Type, UdonSharpProgramAsset> _programAssetTypeLookup;
+        private static void InitTypeLookups()
         {
             if (_programAssetLookup == null)
             {
                 _programAssetLookup = new Dictionary<MonoScript, UdonSharpProgramAsset>();
+                _programAssetTypeLookup = new Dictionary<System.Type, UdonSharpProgramAsset>();
 
                 UdonSharpProgramAsset[] udonSharpProgramAssets = UdonSharpProgramAsset.GetAllUdonSharpPrograms();
 
                 foreach (UdonSharpProgramAsset programAsset in udonSharpProgramAssets)
                 {
-                    if (programAsset && programAsset.sourceCsScript != null && !_programAssetLookup.ContainsKey(programScript))
+                    if (programAsset && programAsset.sourceCsScript != null && !_programAssetLookup.ContainsKey(programAsset.sourceCsScript))
                     {
                         _programAssetLookup.Add(programAsset.sourceCsScript, programAsset);
+                        if (programAsset.sourceCsScript.GetClass() != null)
+                            _programAssetTypeLookup.Add(programAsset.sourceCsScript.GetClass(), programAsset);
                     }
                 }
             }
+        }
+
+        private static UdonSharpProgramAsset GetUdonSharpProgramAsset(MonoScript programScript)
+        {
+            InitTypeLookups();
 
             _programAssetLookup.TryGetValue(programScript, out UdonSharpProgramAsset foundProgramAsset);
 
@@ -164,6 +193,16 @@ namespace UdonSharpEditor
         public static UdonSharpProgramAsset GetUdonSharpProgramAsset(UdonSharpBehaviour udonSharpBehaviour)
         {
             return GetUdonSharpProgramAsset(MonoScript.FromMonoBehaviour(udonSharpBehaviour));
+        }
+
+        [PublicAPI]
+        public static UdonSharpProgramAsset GetUdonSharpProgramAsset(System.Type type)
+        {
+            InitTypeLookups();
+
+            _programAssetTypeLookup.TryGetValue(type, out UdonSharpProgramAsset foundProgramAsset);
+
+            return foundProgramAsset;
         }
 
         private static readonly FieldInfo _backingBehaviourField = typeof(UdonSharpBehaviour).GetField("_backingUdonBehaviour", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -223,7 +262,16 @@ namespace UdonSharpEditor
                 {
                     CopyUdonToProxy(proxyBehaviour, proxySerializationPolicy);
 
-                    proxyBehaviour.enabled = false;
+                    SetIgnoreEvents(true);
+
+                    try
+                    {
+                        proxyBehaviour.enabled = false;
+                    }
+                    finally
+                    {
+                        SetIgnoreEvents(false);
+                    }
 
                     return proxyBehaviour;
                 }
@@ -234,7 +282,7 @@ namespace UdonSharpEditor
             }
 
             UdonSharpBehaviour[] behaviours = udonBehaviour.GetComponents<UdonSharpBehaviour>();
-
+            
             foreach (UdonSharpBehaviour udonSharpBehaviour in behaviours)
             {
                 IUdonBehaviour backingBehaviour = GetBackingUdonBehaviour(udonSharpBehaviour);
@@ -244,7 +292,16 @@ namespace UdonSharpEditor
 
                     CopyUdonToProxy(udonSharpBehaviour, proxySerializationPolicy);
 
-                    udonSharpBehaviour.enabled = false;
+                    SetIgnoreEvents(true);
+
+                    try
+                    {
+                        udonSharpBehaviour.enabled = false;
+                    }
+                    finally
+                    {
+                        SetIgnoreEvents(false);
+                    }
 
                     return udonSharpBehaviour;
                 }
@@ -292,6 +349,20 @@ namespace UdonSharpEditor
             return ((UdonSharpProgramAsset)udonBehaviour.programSource).sourceCsScript.GetClass();
         }
 
+        static FieldInfo _skipEventsField = null;
+
+        /// <summary>
+        /// Used to disable sending events to UdonSharpBehaviours for OnEnable, OnDisable, and OnDestroy since they are not always in a valid state to be recognized as proxies during these events.
+        /// </summary>
+        /// <param name="ignore"></param>
+        internal static void SetIgnoreEvents(bool ignore)
+        {
+            if (_skipEventsField == null)
+                _skipEventsField = typeof(UdonSharpBehaviour).GetField("_skipEvents", BindingFlags.Static | BindingFlags.NonPublic);
+
+            _skipEventsField.SetValue(null, ignore);
+        }
+
         /// <summary>
         /// Gets the C# version of an UdonSharpBehaviour that proxies an UdonBehaviour with the program asset for the matching UdonSharpBehaviour type
         /// </summary>
@@ -323,13 +394,22 @@ namespace UdonSharpEditor
             if (scriptType == null)
                 return null;
 
-            proxyBehaviour = (UdonSharpBehaviour)udonBehaviour.gameObject.AddComponent(scriptType);
-            proxyBehaviour.hideFlags = HideFlags.DontSaveInBuild |
+            SetIgnoreEvents(true);
+
+            try
+            {
+                proxyBehaviour = (UdonSharpBehaviour)udonBehaviour.gameObject.AddComponent(scriptType);
+                proxyBehaviour.hideFlags = HideFlags.DontSaveInBuild |
 #if !UDONSHARP_DEBUG
                                        HideFlags.HideInInspector |
 #endif
                                        HideFlags.DontSaveInEditor;
-            proxyBehaviour.enabled = false;
+                proxyBehaviour.enabled = false;
+            }
+            finally
+            {
+                SetIgnoreEvents(false);
+            }
 
             SetBackingUdonBehaviour(proxyBehaviour, udonBehaviour);
 
@@ -441,12 +521,22 @@ namespace UdonSharpEditor
             if (backingBehaviour)
             {
                 _proxyBehaviourLookup.Remove(backingBehaviour);
-                Object.DestroyImmediate(backingBehaviour);
+
+                SetIgnoreEvents(true);
+
+                try
+                {
+                    Object.DestroyImmediate(backingBehaviour);
+                }
+                finally
+                {
+                    SetIgnoreEvents(false);
+                }
             }
         }
 
         #region Internal utilities
-        internal static void CollectSharpUdonBehaviourReferencesInternal(object rootObject, HashSet<UdonSharpBehaviour> gatheredSet, HashSet<object> visitedSet = null)
+        internal static void CollectUdonSharpBehaviourReferencesInternal(object rootObject, HashSet<UdonSharpBehaviour> gatheredSet, HashSet<object> visitedSet = null)
         {
             if (gatheredSet == null)
                 gatheredSet = new HashSet<UdonSharpBehaviour>();
@@ -480,7 +570,7 @@ namespace UdonSharpEditor
             {
                 foreach (object arrayElement in (System.Array)rootObject)
                 {
-                    CollectSharpUdonBehaviourReferencesInternal(arrayElement, gatheredSet, visitedSet);
+                    CollectUdonSharpBehaviourReferencesInternal(arrayElement, gatheredSet, visitedSet);
                 }
             }
             else
@@ -491,7 +581,7 @@ namespace UdonSharpEditor
                 {
                     object fieldValue = fieldInfo.GetValue(rootObject);
 
-                    CollectSharpUdonBehaviourReferencesInternal(fieldValue, gatheredSet, visitedSet);
+                    CollectUdonSharpBehaviourReferencesInternal(fieldValue, gatheredSet, visitedSet);
                 }
             }
         }
@@ -511,7 +601,7 @@ namespace UdonSharpEditor
                 {
                     HashSet<UdonSharpBehaviour> referencedBehaviours = new HashSet<UdonSharpBehaviour>();
 
-                    CollectSharpUdonBehaviourReferencesInternal(targetObject, referencedBehaviours);
+                    CollectUdonSharpBehaviourReferencesInternal(targetObject, referencedBehaviours);
 
                     if (referencedBehaviours.Count > 1)
                     {
@@ -569,23 +659,35 @@ namespace UdonSharpEditor
 
                         string assetPath = Path.Combine(scriptDirectory, $"{scriptFileName}.asset").Replace('\\', '/');
 
-                        if (AssetDatabase.LoadAssetAtPath<UdonSharpProgramAsset>(assetPath) != null)
+                        if (EditorUtility.DisplayDialog("No linked program asset", $"There was no UdonSharpProgramAsset found for '{behaviourScript.GetClass()}', do you want to create one?", "Ok", "Cancel"))
                         {
-                            if (!EditorUtility.DisplayDialog("Existing file found", $"Asset file {assetPath} already exists, do you want to overwrite it?", "Ok", "Cancel"))
-                                continue;
+                            if (AssetDatabase.LoadAssetAtPath<UdonSharpProgramAsset>(assetPath) != null)
+                            {
+                                if (!EditorUtility.DisplayDialog("Existing file found", $"Asset file {assetPath} already exists, do you want to overwrite it?", "Ok", "Cancel"))
+                                    continue;
+                            }
                         }
+                        else
+                            continue;
 
                         programAsset = ScriptableObject.CreateInstance<UdonSharpProgramAsset>();
                         programAsset.sourceCsScript = behaviourScript;
+                        AssetDatabase.CreateAsset(programAsset, assetPath);
+                        AssetDatabase.SaveAssets();
+
+                        UdonSharpProgramAsset.ClearProgramAssetCache();
+
                         programAsset.CompileCsProgram();
 
-                        AssetDatabase.CreateAsset(programAsset, assetPath);
                         AssetDatabase.SaveAssets();
 
                         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
                     }
                     else
+                    {
+                        Debug.LogWarning($"Could not convert U# behaviour '{behaviourScript.GetClass()}' on '{targetObject.gameObject}' because it does not have a corresponding UdonSharpProgramAsset");
                         continue;
+                    }
                 }
 
                 GameObject targetGameObject = targetObject.gameObject;
@@ -607,7 +709,7 @@ namespace UdonSharpEditor
                 try
                 {
                     if (convertChildren)
-                        UdonSharpEditorUtility.CopyProxyToUdon(targetObject, shouldUndo ? ProxySerializationPolicy.AllWithUndo : ProxySerializationPolicy.Default);
+                        UdonSharpEditorUtility.CopyProxyToUdon(targetObject, shouldUndo ? ProxySerializationPolicy.AllWithCreateUndo : ProxySerializationPolicy.All);
                     else
                         UdonSharpEditorUtility.CopyProxyToUdon(targetObject, ProxySerializationPolicy.RootOnly);
                 }
@@ -622,27 +724,42 @@ namespace UdonSharpEditor
 
                 UdonSharpBehaviour newProxy;
 
-                if (shouldUndo)
-                    newProxy = (UdonSharpBehaviour)Undo.AddComponent(targetObject.gameObject, behaviourType);
-                else
-                    newProxy = (UdonSharpBehaviour)targetObject.gameObject.AddComponent(behaviourType);
+                SetIgnoreEvents(true);
 
-                UdonSharpEditorUtility.SetBackingUdonBehaviour(newProxy, udonBehaviour);
+                try
+                {
+                    if (shouldUndo)
+                        newProxy = (UdonSharpBehaviour)Undo.AddComponent(targetObject.gameObject, behaviourType);
+                    else
+                        newProxy = (UdonSharpBehaviour)targetObject.gameObject.AddComponent(behaviourType);
 
-                UdonSharpEditorUtility.CopyUdonToProxy(newProxy);
-                
-                if (shouldUndo)
-                    Undo.DestroyObjectImmediate(targetObject);
-                else
-                    Object.DestroyImmediate(targetObject);
+                    UdonSharpEditorUtility.SetBackingUdonBehaviour(newProxy, udonBehaviour);
+                    try
+                    {
+                        UdonSharpEditorUtility.CopyUdonToProxy(newProxy);
+                    }
+                    catch (System.Exception e)
+                    {
+                        Debug.LogError(e);
+                    }
 
-                newProxy.hideFlags = HideFlags.DontSaveInBuild |
+                    if (shouldUndo)
+                        Undo.DestroyObjectImmediate(targetObject);
+                    else
+                        Object.DestroyImmediate(targetObject);
+
+                    newProxy.hideFlags = HideFlags.DontSaveInBuild |
 #if !UDONSHARP_DEBUG
                                      HideFlags.HideInInspector |
 #endif
                                      HideFlags.DontSaveInEditor;
 
-                newProxy.enabled = false;
+                    newProxy.enabled = false;
+                }
+                finally
+                {
+                    SetIgnoreEvents(false);
+                }
 
                 createdComponents.Add(udonBehaviour);
             }

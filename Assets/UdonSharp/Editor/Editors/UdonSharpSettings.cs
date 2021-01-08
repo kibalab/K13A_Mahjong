@@ -65,7 +65,7 @@ public class <TemplateClassName> : UdonSharpBehaviour
         // Debug settings
         public bool buildDebugInfo = true;
         public bool includeInlineCode = true;
-        public bool listenForVRCExceptions = false;
+        public bool listenForVRCExceptions = true;
 
         public bool shouldForceCompile = false;
 
@@ -85,8 +85,6 @@ public class <TemplateClassName> : UdonSharpBehaviour
             UdonSharpSettings settings = AssetDatabase.LoadAssetAtPath<UdonSharpSettings>(SettingsSavePath);
             if (settings == null)
             {
-                Debug.LogWarning("Settings null!");
-
                 settings = ScriptableObject.CreateInstance<UdonSharpSettings>();
                 AssetDatabase.CreateAsset(settings, SettingsSavePath);
                 AssetDatabase.SaveAssets();

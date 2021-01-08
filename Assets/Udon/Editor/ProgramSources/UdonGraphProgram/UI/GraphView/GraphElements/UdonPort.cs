@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 using VRC.Udon.Graph;
 using VRC.Udon.Serialization;
 using EditorUI = UnityEditor.Experimental.UIElements;
@@ -56,15 +58,24 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
         private void SetupPort()
         {
             this.AddManipulator(m_EdgeConnector);
+
+            tooltip = UdonGraphExtensions.FriendlyTypeName(portType);
+            
             if (portType == null || direction == Direction.Output)
             {
                 return;
             }
-            tooltip = UdonGraphExtensions.FriendlyTypeName(portType);
-            var field = GetTheRightField(portType);
+
+            var value = TryGetValueObject(out object result);
+            var field = UdonFieldFactory.CreateField(
+                portType,
+                result,
+                newValue => SetNewValue(newValue)
+            );
+            
             if(field != null)
             {
-                Add(field);
+                SetupField(field);
             }
             
             if (_udonNodeData.fullName.StartsWith("Const"))
@@ -110,37 +121,10 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             return _inputField;
         }
 
-        // Convenience wrapper for field types that don't need special initialization
-        private VisualElement SetupField<TField, TType>() where TField : VisualElement, INotifyValueChanged<TType>, new()
+       private void SetupField(VisualElement field)
         {
-            var field = new TField();
-            return SetupField<TField, TType>(field);
-        }
-
-        // Works for any TextValueField types, needs to know fieldType and object type
-        private VisualElement SetupField<TField, TType>(TField field) where TField : VisualElement, INotifyValueChanged<TType>
-        {
-            field.AddToClassList("portField");
-            if (TryGetValueObject(out object result))
-            {
-                try
-                {
-                    field.value = (TType)(result as object);
-                }
-                catch (Exception e)
-                {
-                    // Quietly catch this and continue
-                }
-            }
-
-            // Delay text inputs
-            if(typeof(TField).IsAssignableFrom(typeof(TextField)))
-            {
-                (field as TextField).isDelayed = true;
-            }
-
-            // Don't update color fields right away, breaks the UI
-            if(typeof(TField).IsAssignableFrom(typeof(EditorUI.ColorField)))
+            // Delay color fields so they don't break UI
+            if(portType.IsAssignableFrom(typeof(EditorUI.ColorField)))
             {
                 _waitToReserialize = true;
             }
@@ -148,7 +132,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             // Custom Event fields need their event names sanitized after input and their connectors removed
             if (_udonNodeData.fullName.CompareTo("Event_Custom") == 0)
             {
-                var tfield = field as TextField;
+                var tfield = (TextField)field;
                 tfield.OnValueChanged((e) =>
                 {
                     string newValue = e.newValue.SanitizeVariableName();
@@ -157,80 +141,25 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 });
                 RemoveConnector();
             }
-            else
-            {
-                field.OnValueChanged((e) => SetNewValue(e.newValue));
-            }
-            _inputField = field;
 
             // Add label, shown when input is connected. Not shown by default
-            var friendlyName = UdonGraphExtensions.FriendlyTypeName(typeof(TType)).FriendlyNameify();
+            var friendlyName = UdonGraphExtensions.FriendlyTypeName(portType).FriendlyNameify();
             var label = new EngineUI.Label(friendlyName);
             _inputFieldTypeLabel = label;
-
-            return _inputField;
+            field.AddToClassList("portField");
+            
+            _inputField = field;
+            Add(_inputField);
         }
-
+        
         private void RemoveConnector()
         {
             this.Q("connector")?.RemoveFromHierarchy();
             this.Q(null, "connectorText")?.RemoveFromHierarchy();
         }
 
-        private VisualElement GetTheRightField(Type portType)
-        {
-            // Handle normal input fields
-            if (portType == typeof(Bounds))
-                return SetupField<EditorUI.BoundsField, Bounds>();
-            else if (portType == typeof(Color))
-                return SetupField<EditorUI.ColorField, Color>();
-            else if (portType == typeof(AnimationCurve))
-                return SetupField<EditorUI.CurveField, AnimationCurve>();
-            else if (portType == typeof(double))
-                return SetupField<EditorUI.DoubleField, double>();
-            else if (portType == typeof(float))
-                return SetupField<EditorUI.FloatField, float>();
-            else if (portType == typeof(Gradient))
-                return SetupField<EditorUI.GradientField, Gradient>();
-            else if (portType == typeof(int))
-                return SetupField<EditorUI.IntegerField, int>();
-            else if (portType == typeof(long))
-                return SetupField<EditorUI.LongField, long>();
-            else if (portType == typeof(Rect))
-                return SetupField<EditorUI.RectField, Rect>();
-            else if (portType == typeof(RectInt))
-                return SetupField<EditorUI.RectIntField, RectInt>();
-            else if (portType == typeof(string))
-                return SetupField<TextField, string>();
-            else if (portType == typeof(char))
-                return SetupCharField();
-            else if (portType == typeof(Vector2))
-                return SetupField<EditorUI.Vector2Field, Vector2>();
-            else if (portType == typeof(Vector3))
-                return SetupField<EditorUI.Vector3Field, Vector3>();
-            else if (portType == typeof(Vector4))
-                return SetupField<EditorUI.Vector4Field, Vector4>();
-            else if (portType == typeof(Vector2Int))
-                return SetupField<EditorUI.Vector2IntField, Vector2Int>();
-            else if (portType == typeof(Vector3Int))
-                return SetupField<EditorUI.Vector3IntField, Vector3Int>();
-            else if (portType == typeof(bool))
-                return SetupField<EngineUI.Toggle, bool>();
-            else if (portType != null && portType.IsEnum)
-                return SetupField<EditorUI.EnumField, Enum>(new EditorUI.EnumField(portType.GetEnumValues().GetValue(0) as Enum));
-            else if (portType != null && portType.IsArray)
-            {
-                _editArrayButton = new Button(()=>EditArray(portType.GetElementType()))
-                {
-                    text = "Edit",
-                    name = "array-editor",
-                };
-                return _editArrayButton;
-            }
-            else return null;
-        }
-
-        private Button _editArrayButton;
+#pragma warning disable 0649 // variable never assigned
+        private EngineUI.Button _editArrayButton;
         private void EditArray(Type elementType)
         {
             // Update Values when 'Save' is clicked
@@ -437,7 +366,13 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             // For Get and Set variable nodes, reach into the actual value of the linked variable
             if (_udonNodeData.fullName.Contains("et_Variable"))
             {
-                container = _udonNodeData.nodeValues[1];
+                string targetVariableUid = (string)_udonNodeData.nodeValues[0].Deserialize();
+                if (targetVariableUid == null) return false;
+                
+                var data = _udonNodeData.GetGraph().FindNode(targetVariableUid);
+                if (data == null) return false;
+                
+                container = data.nodeValues[0];
             }
             else
             {
@@ -460,7 +395,25 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         private void SetNewValue(object newValue)
         {
-            _udonNodeData.nodeValues[_nodeValueIndex] = SerializableObjectContainer.Serialize(newValue, portType);
+            var container = SerializableObjectContainer.Serialize(newValue, portType);
+            
+            if (_udonNodeData.fullName.Contains("Set_Variable"))
+            {
+                // Variables need to be traced back to their actual data points
+                string targetVariableUid = (string)_udonNodeData.nodeValues[0].Deserialize();
+                if (targetVariableUid == null) return;
+                
+                var data = _udonNodeData.GetGraph().FindNode(targetVariableUid);
+                if (data == null) return;
+                
+                data.nodeValues[0] = container;
+            }
+            else
+            {
+                // regular value setting
+                _udonNodeData.nodeValues[_nodeValueIndex] = container;   
+            }
+            
             if (!_waitToReserialize)
             {
                 SendReserializeEvent();

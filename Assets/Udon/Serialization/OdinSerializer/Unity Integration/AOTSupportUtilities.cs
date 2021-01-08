@@ -352,9 +352,7 @@ namespace VRC.Udon.Serialization.OdinSerializer.Editor
                 pluginImporter.SetCompatibleWithAnyPlatform(true);
 
                 // Disable for all standalones
-                pluginImporter.SetCompatibleWithPlatform(BuildTarget.StandaloneLinux, false);
                 pluginImporter.SetCompatibleWithPlatform(BuildTarget.StandaloneLinux64, false);
-                pluginImporter.SetCompatibleWithPlatform(BuildTarget.StandaloneLinuxUniversal, false);
 
                 // StandaloneOSXUniversal (<= 2017.2) / StandaloneOSX (>= 2017.3)
                 pluginImporter.SetCompatibleWithPlatform((BuildTarget)2, false);

@@ -4,12 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using System.Collections.Specialized;
-using System.Diagnostics;
 using System.IO;
-using VRC.Core.BestHTTP;
-using VRC.Core.BestHTTP.Authentication;
-using VRC.Core.BestHTTP.JSON;
 using Debug = UnityEngine.Debug;
 using System.Text.RegularExpressions;
 
@@ -105,11 +100,11 @@ namespace VRC.Core
             VRC.Core.Logger.Log("UploadFile: filename: " + filename + ", file id: " +
                       (!string.IsNullOrEmpty(existingFileId) ? existingFileId : "<new>") + ", name: " + friendlyName, DebugLevel.All);
 
-            // init remote config 
-            if (!RemoteConfig.IsInitialized())
+            // init remote config
+            if (!ConfigManager.RemoteConfig.IsInitialized())
             {
                 bool done = false;
-                RemoteConfig.Init(
+                ConfigManager.RemoteConfig.Init(
                     delegate () { done = true; },
                     delegate () { done = true; }
                 );
@@ -117,7 +112,7 @@ namespace VRC.Core
                 while (!done)
                     yield return null;
 
-                if (!RemoteConfig.IsInitialized())
+                if (!ConfigManager.RemoteConfig.IsInitialized())
                 {
                     Error(onError, null, "Failed to fetch configuration.");
                     yield break;
@@ -126,7 +121,7 @@ namespace VRC.Core
 
             // configure delta compression
             {
-                EnableDeltaCompression = RemoteConfig.GetBool("sdkEnableDeltaCompression", false);
+                EnableDeltaCompression = ConfigManager.RemoteConfig.GetBool("sdkEnableDeltaCompression", false);
             }
 
             // validate input file
@@ -558,7 +553,7 @@ namespace VRC.Core
                         errorStr = error;
                         wait = false;
                     },
-                    delegate (int downloaded, int length)
+                    delegate (long downloaded, long length)
                     {
                         Progress(onProgress, apiFile, "Preparing file for upload...", "Downloading previous version signature", Tools.DivideSafe(downloaded, length));
                     }
@@ -1167,7 +1162,7 @@ namespace VRC.Core
             }
             else
             {
-                // not a unitypackage 
+                // not a unitypackage
 
                 // straight stream copy
                 try
@@ -1990,7 +1985,7 @@ namespace VRC.Core
                     break;
                 }
 
-                // wait for next poll 
+                // wait for next poll
                 while (Time.realtimeSinceStartup - startTime < waitDelay)
                 {
                     if (CheckCancelled(cancelQuery, onCancelFunc, apiFile))

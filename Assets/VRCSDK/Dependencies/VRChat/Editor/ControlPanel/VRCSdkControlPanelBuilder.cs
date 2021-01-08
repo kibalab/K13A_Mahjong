@@ -217,9 +217,9 @@ public partial class VRCSdkControlPanel : EditorWindow
         GUILayout.FlexibleSpace();
         GUILayout.BeginVertical();
         
-        if (VRC.Core.RemoteConfig.IsInitialized())
+        if (VRC.Core.ConfigManager.RemoteConfig.IsInitialized())
         {
-            string sdkUnityVersion = VRC.Core.RemoteConfig.GetString("sdkUnityVersion");
+            string sdkUnityVersion = VRC.Core.ConfigManager.RemoteConfig.GetString("sdkUnityVersion");
             if (Application.unityVersion != sdkUnityVersion)
             {
                 OnGUIWarning(null, "You are not using the recommended Unity version for the VRChat SDK. Content built with this version may not work correctly. Please use Unity " + sdkUnityVersion,
@@ -619,13 +619,13 @@ public partial class VRCSdkControlPanel : EditorWindow
 
     public static void ShowContentPublishPermissionsDialog()
     {
-        if (!VRC.Core.RemoteConfig.IsInitialized())
+        if (!VRC.Core.ConfigManager.RemoteConfig.IsInitialized())
         {
-            VRC.Core.RemoteConfig.Init(() => ShowContentPublishPermissionsDialog());
+            VRC.Core.ConfigManager.RemoteConfig.Init(() => ShowContentPublishPermissionsDialog());
             return;
         }
 
-        string message = VRC.Core.RemoteConfig.GetString("sdkNotAllowedToPublishMessage");
+        string message = VRC.Core.ConfigManager.RemoteConfig.GetString("sdkNotAllowedToPublishMessage");
         int result = UnityEditor.EditorUtility.DisplayDialogComplex("VRChat SDK", message, "Developer FAQ", "VRChat Discord", "OK");
         if (result == 0)
         {

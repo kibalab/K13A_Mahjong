@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_20;UNITY_2018_4;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UDON;VRC_SDK_VRCSDK3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_20;UNITY_2018_4;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UDON;VRC_SDK_VRCSDK3;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -96,6 +96,7 @@
     <Compile Include="Assets\UdonScript\SubtitleComponent.cs" />
     <Compile Include="Assets\UdonScript\TableManager.cs" />
     <Compile Include="Assets\UdonScript\TableViewer.cs" />
+    <Compile Include="Assets\UdonScript\UdonSerializer.cs" />
     <Compile Include="Assets\UdonScript\UdonSharpAttribute.cs" />
     <Compile Include="Assets\UdonScript\UIButton.cs" />
     <Compile Include="Assets\UdonScript\UIContext.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\UdonSharp\Examples\Utilities\Synced\GlobalToggleObject.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Utilities\Synced\MasterToggleObject.cs" />
     <Compile Include="Assets\UdonSharp\Examples\Utilities\TrackingDataFollower.cs" />
+    <Compile Include="Assets\UdonSharp\Examples\Utilities\WorldAudioSettings.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\Oculus\Spatializer\Scripts\ONSPAudioSource.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\Oculus\Spatializer\Scripts\ONSPSettings.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\ApiFileHelper.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\ShaderValidation.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\ValidationUtils.cs" />
     <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\WorldValidation.cs" />
+    <Compile Include="Assets\VRCSDK\Dependencies\VRChat\Scripts\Validation\WorldValidation\UnityEventFilter.cs" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Skybox.shader" />
     <None Include="Assets\Shaders\CurissShader\EmissionScroll\EmissionScroll_Gradient_Transpaent.shader" />
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-Particle-Add.shader" />
@@ -190,6 +193,9 @@
     <None Include="Assets\VRCSDK\Sample Assets\Shaders\Mobile\VRChat-Mobile-BumpedSpecular.shader" />
     <None Include="Assets\Shaders\VLS\ColorFilter.shader" />
     <None Include="Assets\Shaders\Board.shader" />
+    <Reference Include="Cinemachine">
+      <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -198,6 +204,15 @@
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Unity/K13A_majong/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -424,6 +439,9 @@
     <Reference Include="VRC.Udon.Wrapper">
       <HintPath>E:/Unity/K13A_majong/Assets/Udon/External/VRC.Udon.Wrapper.dll</HintPath>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>E:/Unity/K13A_majong/Assets/UdonSharp/Plugins/0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/AWSSDK/AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
@@ -444,6 +462,21 @@
     </Reference>
     <Reference Include="librsync.net">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/librsync/librsync.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Collections.Pooled">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/Collections.Pooled.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/Managed/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>E:/Unity/K13A_majong/Assets/VRCSDK/Dependencies/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
@@ -844,6 +877,10 @@
       <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>
       <Name>VRC.Udon</Name>
     </ProjectReference>
+    <ProjectReference Include="VRC.SDKBase.Editor.ShaderStripping.csproj">
+      <Project>{AD41D008-F13C-0C0D-FDBE-D7DD499D9397}</Project>
+      <Name>VRC.SDKBase.Editor.ShaderStripping</Name>
+    </ProjectReference>
     <ProjectReference Include="VRC.Udon.Editor.csproj">
       <Project>{9253B636-7D73-DA67-DFDC-1F4317FE018A}</Project>
       <Name>VRC.Udon.Editor</Name>
@@ -852,9 +889,9 @@
       <Project>{4740F001-1A05-D2E1-8AA9-3DBE3935793B}</Project>
       <Name>VRC.SDKBase.Editor.BuildPipeline</Name>
     </ProjectReference>
-    <ProjectReference Include="VRC.SDKBase.Editor.ShaderStripping.csproj">
-      <Project>{AD41D008-F13C-0C0D-FDBE-D7DD499D9397}</Project>
-      <Name>VRC.SDKBase.Editor.ShaderStripping</Name>
+    <ProjectReference Include="VRC.Udon.Editor.UPMImporter.csproj">
+      <Project>{9762FD49-E70D-8E84-4874-822FD7AF0B61}</Project>
+      <Name>VRC.Udon.Editor.UPMImporter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

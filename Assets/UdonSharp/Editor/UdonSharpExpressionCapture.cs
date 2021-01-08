@@ -486,24 +486,70 @@ namespace UdonSharp.Compiler
                 SymbolDefinition arraySymbol = accessValue.symbol;
                 System.Type elementType = null;
 
+                System.Type arraySymbolType = arraySymbol.symbolCsType;
+
                 string getIndexerUdonName;
-                if (arraySymbol.symbolCsType == typeof(string))
+                if (arraySymbolType == typeof(string))
                 {
-                    getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbol.symbolCsType.GetMethods(BindingFlags.Public | BindingFlags.Instance).Where(e => e.Name == "get_Chars").First());
+                    // udon-workaround: This is where support for Udon's string indexer would go, IF IT HAD ONE
+                    //getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbol.symbolCsType.GetMethods(BindingFlags.Public | BindingFlags.Instance).Where(e => e.Name == "get_Chars").First());
+                    
                     elementType = typeof(char);
+
+                    SymbolDefinition substringStrSymbol;
+                    using (ExpressionCaptureScope substringScope = new ExpressionCaptureScope(visitorContext, null))
+                    {
+                        substringScope.SetToLocalSymbol(arraySymbol);
+                        substringScope.ResolveAccessToken(nameof(string.Substring));
+
+                        substringStrSymbol = substringScope.Invoke(new SymbolDefinition[] { arrayIndexerIndexValue.symbol, visitorContext.topTable.CreateConstSymbol(typeof(int), 1) });
+                    }
+
+                    SymbolDefinition subStrCharArrSymbol;
+
+                    using (ExpressionCaptureScope charArrScope = new ExpressionCaptureScope(visitorContext, null))
+                    {
+                        charArrScope.SetToLocalSymbol(substringStrSymbol);
+                        charArrScope.ResolveAccessToken(nameof(string.ToCharArray));
+
+                        subStrCharArrSymbol = charArrScope.Invoke(new SymbolDefinition[] { });
+                    }
+
+                    getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(typeof(char[]).GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "Get"));
+                    visitorContext.uasmBuilder.AddPush(subStrCharArrSymbol);
+                    visitorContext.uasmBuilder.AddPush(visitorContext.topTable.CreateConstSymbol(typeof(int), 0)); // 0 index
+                }
+                else if (arraySymbolType == typeof(Vector2) ||
+                         arraySymbolType == typeof(Vector3) ||
+                         arraySymbolType == typeof(Vector4) ||
+                         arraySymbolType == typeof(Matrix4x4))
+                {
+                    elementType = typeof(float);
+
+                    getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbolType.GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "get_Item" && e.GetParameters().Length == 1));
+
+                    visitorContext.uasmBuilder.AddPush(arraySymbol);
+                    visitorContext.uasmBuilder.AddPush(arrayIndexerIndexValue.symbol);
                 }
                 else
                 {
-                    getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbol.symbolCsType.GetMethods(BindingFlags.Public | BindingFlags.Instance).Where(e => e.Name == "Get").First());
+                    // udon-workaround: VRC scans UnityEngine.Object arrays in their respective methods, so those methods are useless since they get disproportionately expensive the larger the array is.
+                    // Instead use the object[] indexer for these objects since it does not get scanned
+                    if (arraySymbolType.GetElementType() == typeof(UnityEngine.Object) || arraySymbolType.GetElementType().IsSubclassOf(typeof(UnityEngine.Object)))
+                        getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(typeof(object[]).GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "Get"));
+                    else
+                        getIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbolType.GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "Get"));
+
                     elementType = arraySymbol.userCsType.GetElementType();
+
+                    visitorContext.uasmBuilder.AddPush(arraySymbol);
+                    visitorContext.uasmBuilder.AddPush(arrayIndexerIndexValue.symbol);
                 }
 
                 arrayBacktraceValue = accessValue;
 
                 outSymbol = AllocateOutputSymbol(elementType);
 
-                visitorContext.uasmBuilder.AddPush(arraySymbol);
-                visitorContext.uasmBuilder.AddPush(arrayIndexerIndexValue.symbol);
                 visitorContext.uasmBuilder.AddPush(outSymbol);
                 visitorContext.uasmBuilder.AddExternCall(getIndexerUdonName);
             }
@@ -599,7 +645,25 @@ namespace UdonSharp.Compiler
             else if (captureArchetype == ExpressionCaptureArchetype.ArrayIndexer)
             {
                 SymbolDefinition arraySymbol = accessValue.symbol;
-                string setIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbol.symbolCsType.GetMethods(BindingFlags.Public | BindingFlags.Instance).Where(e => e.Name == "Set").First());
+                string setIndexerUdonName;
+                System.Type arraySymbolType = arraySymbol.symbolCsType;
+
+                if (arraySymbolType == typeof(Vector2) ||
+                    arraySymbolType == typeof(Vector3) ||
+                    arraySymbolType == typeof(Vector4) ||
+                    arraySymbolType == typeof(Matrix4x4))
+                {
+                    setIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbol.symbolCsType.GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "set_Item" && e.GetParameters().Length == 2));
+                }
+                else
+                {
+                    // udon-workaround: VRC scans UnityEngine.Object arrays in their respective methods, so those methods are useless since they get disproportionately expensive the larger the array is.
+                    // Instead use the object[] indexer for these objects since it does not get scanned
+                    if (arraySymbolType.GetElementType() == typeof(UnityEngine.Object) || arraySymbolType.GetElementType().IsSubclassOf(typeof(UnityEngine.Object)))
+                        setIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(typeof(object[]).GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "Set"));
+                    else
+                        setIndexerUdonName = visitorContext.resolverContext.GetUdonMethodName(arraySymbolType.GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "Set"));
+                }
 
                 visitorContext.uasmBuilder.AddPush(arraySymbol);
                 visitorContext.uasmBuilder.AddPush(arrayIndexerIndexValue.symbol);
@@ -648,6 +712,52 @@ namespace UdonSharp.Compiler
             requestedDestination.MarkDirty();
 
             return requestedDestination;
+        }
+
+        /// <summary>
+        /// Creates a const object array that is populated with each value of an enum which can be used for integer casts
+        /// </summary>
+        /// <param name="enumType"></param>
+        /// <returns></returns>
+        SymbolDefinition GetEnumArrayForType(System.Type enumType)
+        {
+            if (visitorContext.enumCastSymbols == null) // Lazy init since this will relatively never be used
+                visitorContext.enumCastSymbols = new Dictionary<System.Type, SymbolDefinition>();
+
+            SymbolDefinition enumArraySymbol;
+            if (visitorContext.enumCastSymbols.TryGetValue(enumType, out enumArraySymbol))
+                return enumArraySymbol;
+
+            int maxEnumVal = 0;
+            foreach (var enumVal in System.Enum.GetValues(enumType))
+                maxEnumVal = (int)enumVal > maxEnumVal ? (int)enumVal : maxEnumVal;
+
+            // After a survey of what enums are exposed by Udon, it doesn't seem like anything goes above this limit. The only things I see that go past this are some System.Reflection enums which are unlikely to ever be exposed.
+            if (maxEnumVal > 2048)
+                throw new System.NotSupportedException($"Cannot cast integer to enum {enumType.Name} because target enum has too many potential states({maxEnumVal}) to contain in an UdonBehaviour reasonably");
+
+            // Find the most significant bit of this enum so we can generate all combinations <= it
+            int mostSignificantBit = 0;
+            int currentEnumVal = maxEnumVal;
+
+            while (currentEnumVal > 0)
+            {
+                currentEnumVal >>= 1;
+                ++mostSignificantBit;
+            }
+
+            int enumValCount = (1 << mostSignificantBit) - 1;
+
+            object[] enumConstArr = new object[enumValCount];
+
+            for (int i = 0; i < enumConstArr.Length; ++i)
+                enumConstArr[i] = System.Enum.ToObject(enumType, i);
+
+            enumArraySymbol = visitorContext.topTable.CreateConstSymbol(typeof(object[]), enumConstArr);
+
+            visitorContext.enumCastSymbols.Add(enumType, enumArraySymbol);
+
+            return enumArraySymbol;
         }
 
         // There's probably a better place for this function...
@@ -786,6 +896,25 @@ namespace UdonSharp.Compiler
                     visitorContext.uasmBuilder.AddPush(sourceSymbol);
                     visitorContext.uasmBuilder.AddPush(castOutput);
                     visitorContext.uasmBuilder.AddExternCall(visitorContext.resolverContext.GetUdonMethodName(foundConversion));
+
+                    return castOutput;
+                }
+
+                // udon-workaround: Int to enum cast
+                if (UdonSharpUtils.IsIntegerType(sourceSymbol.symbolCsType) && targetType.IsEnum)
+                {
+                    SymbolDefinition enumArraySymbol = GetEnumArrayForType(targetType);
+
+                    SymbolDefinition indexSymbol = CastSymbolToType(sourceSymbol, typeof(int), true);
+                    
+                    SymbolDefinition castOutput = requestedDestination != null ? requestedDestination : visitorContext.topTable.CreateUnnamedSymbol(targetType, SymbolDeclTypeFlags.Internal);
+
+                    string objArrayGetMethod = visitorContext.resolverContext.GetUdonMethodName(typeof(object[]).GetMethods(BindingFlags.Public | BindingFlags.Instance).First(e => e.Name == "Get"));
+
+                    visitorContext.uasmBuilder.AddPush(enumArraySymbol);
+                    visitorContext.uasmBuilder.AddPush(indexSymbol);
+                    visitorContext.uasmBuilder.AddPush(castOutput);
+                    visitorContext.uasmBuilder.AddExternCall(objArrayGetMethod);
 
                     return castOutput;
                 }
@@ -1331,36 +1460,59 @@ namespace UdonSharp.Compiler
 
         private SymbolDefinition InvokeExtern(SymbolDefinition[] invokeParams)
         {
+            // We use void as a placeholder for a null constant value getting passed in, if null is passed in and the target type is a reference type then we assume they are compatible
+            List<System.Type> typeList = invokeParams.Select(e =>
+            {
+                if (e.declarationType.HasFlag(SymbolDeclTypeFlags.Constant) &&
+                    e.symbolCsType == typeof(object) &&
+                    e.symbolDefaultValue == null)
+                    return typeof(void);
+
+                return e.symbolCsType;
+            }).ToList();
+
             // Find valid overrides
-            MethodBase targetMethod = visitorContext.resolverContext.FindBestOverloadFunction(captureMethods, invokeParams.Select(e => e.symbolCsType).ToList());
+            MethodBase targetMethod = visitorContext.resolverContext.FindBestOverloadFunction(captureMethods, typeList);
 
             if (targetMethod == null)
             {
-                targetMethod = visitorContext.resolverContext.FindBestOverloadFunction(captureMethods, invokeParams.Select(e => e.symbolCsType).ToList(), false);
-                if (targetMethod != null)
+                targetMethod = visitorContext.resolverContext.FindBestOverloadFunction(captureMethods, typeList, false);
+
+                if (targetMethod != null &&
+                    targetMethod.ReflectedType == typeof(VRC.Udon.UdonBehaviour) &&
+                    targetMethod.Name.StartsWith("GetComponent") &&
+                    ((MethodInfo)targetMethod).ReturnType.IsGenericParameter)
                 {
-                    throw new System.Exception($"Method is not exposed to Udon: {targetMethod}, Udon signature: {visitorContext.resolverContext.GetUdonMethodName(targetMethod, false)}");
-                }
-
-                string udonFilteredMethods = "";
-
-                udonFilteredMethods = string.Join("\n", captureMethods
-                    .Select(e => new System.Tuple<MethodBase, string>(e, visitorContext.resolverContext.GetUdonMethodName(e, false)))
-                    .Where(e => !visitorContext.resolverContext.IsValidUdonMethod(e.Item2))
-                    .Select(e => e.Item1));
-
-                if (udonFilteredMethods.Length > 0)
-                {
-                    throw new System.Exception($"Could not find valid method that exists in Udon.\nList of applicable methods that do not exist:\n{udonFilteredMethods}");
+                    // Uhh just skip the else stuff, this fixes GetComponent(s) on UdonBehaviour variables.
                 }
                 else
                 {
-                    throw new System.Exception("Could not find valid method for given parameters!");
+                    if (targetMethod != null)
+                    {
+                        throw new System.Exception($"Method is not exposed to Udon: {targetMethod}, Udon signature: {visitorContext.resolverContext.GetUdonMethodName(targetMethod, false)}");
+                    }
+
+                    string udonFilteredMethods = "";
+
+                    udonFilteredMethods = string.Join("\n", captureMethods
+                        .Select(e => new System.Tuple<MethodBase, string>(e, visitorContext.resolverContext.GetUdonMethodName(e, false)))
+                        .Where(e => !visitorContext.resolverContext.IsValidUdonMethod(e.Item2))
+                        .Select(e => e.Item1));
+
+                    if (udonFilteredMethods.Length > 0)
+                    {
+                        throw new System.Exception($"Could not find valid method that exists in Udon.\nList of applicable methods that do not exist:\n{udonFilteredMethods}");
+                    }
+                    else
+                    {
+                        throw new System.Exception("Could not find valid method for given parameters!");
+                    }
                 }
             }
 
             SymbolDefinition[] expandedParams = GetExpandedInvokeParams(targetMethod, invokeParams);
-            bool isUserTypeGetComponent = targetMethod.Name.StartsWith("GetComponent") && genericTypeArguments != null && genericTypeArguments.First().IsSubclassOf(typeof(UdonSharpBehaviour));
+            bool isGetComponent = targetMethod.Name.StartsWith("GetComponent") && genericTypeArguments != null;
+            bool isUserTypeGetComponent = isGetComponent && genericTypeArguments.First().IsSubclassOf(typeof(UdonSharpBehaviour));
 
             // Now make the needed symbol definitions and run the invoke
             if (!targetMethod.IsStatic && !(targetMethod is ConstructorInfo)/* && targetMethod.Name != "Instantiate"*/) // Constructors don't take an instance argument, but are still classified as an instance method
@@ -1375,8 +1527,23 @@ namespace UdonSharp.Compiler
                         visitorContext.uasmBuilder.AddPush(transformComponentGetScope.ExecuteGet());
                     }
                 }
-                else
+                else if (isGetComponent && !isUserTypeGetComponent)
                 {
+                    // udon-workaround: Works around a bug in Udon's GetComponent methods that require a variable with the **StrongBox** type of Transform or GameObject, instead of the actual variable type
+                    // This means that if the strongbox of the variable for the object we're getting changes, then GetComponent will start failing
+
+                    MethodInfo getTransformMethod = typeof(Component).GetProperty("transform", BindingFlags.Public | BindingFlags.Instance).GetGetMethod();
+
+                    SymbolDefinition outputTransformComponent = visitorContext.topTable.CreateUnnamedSymbol(typeof(Transform), SymbolDeclTypeFlags.Internal);
+
+                    visitorContext.uasmBuilder.AddPush(accessSymbol);
+                    visitorContext.uasmBuilder.AddPush(outputTransformComponent);
+                    visitorContext.uasmBuilder.AddExternCall(visitorContext.resolverContext.GetUdonMethodName(getTransformMethod), "GetComponent strongbox mismatch fix");
+
+                    visitorContext.uasmBuilder.AddPush(outputTransformComponent);
+                }
+                else
+                { 
                     visitorContext.uasmBuilder.AddPush(accessSymbol);
                 }
             }
@@ -1601,6 +1768,12 @@ namespace UdonSharp.Compiler
             {
                 SymbolDefinition arraySymbol = accessValue.symbol;
 
+                if (arraySymbol.symbolCsType == typeof(Vector2) ||
+                    arraySymbol.symbolCsType == typeof(Vector3) ||
+                    arraySymbol.symbolCsType == typeof(Vector4) ||
+                    arraySymbol.symbolCsType == typeof(Matrix4x4))
+                    return typeof(float);
+
                 if (!arraySymbol.symbolCsType.IsArray)
                     throw new System.Exception("Type is not an array type");
 
@@ -1819,11 +1992,9 @@ namespace UdonSharp.Compiler
         private bool HandleLocalUdonBehaviourPropertyLookup(string localUdonPropertyName)
         {
             PropertyInfo[] foundProperties = typeof(Component).GetProperties(BindingFlags.Instance | BindingFlags.Public).Where(e => e.Name == localUdonPropertyName).ToArray();
-
+            
             if (localUdonPropertyName == "enabled")
-            {
-                throw new System.NotSupportedException("Udon does not expose the `enabled` property on UdonBehaviours try using gameObject.active instead and find my post on the canny complaining about it");
-            }
+                foundProperties = typeof(VRC.Udon.Common.Interfaces.IUdonEventReceiver).GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Where(e => e.Name == localUdonPropertyName).ToArray();
 
             if (foundProperties.Length == 0)
                 return false;
@@ -2007,6 +2178,14 @@ namespace UdonSharp.Compiler
 
             PropertyInfo[] foundProperties = currentReturnType.GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(e => e.Name == propertyToken).ToArray();
 
+            if (propertyToken == "enabled" &&
+                (currentReturnType == typeof(VRC.Udon.UdonBehaviour) ||
+                 currentReturnType == typeof(UdonSharpBehaviour) ||
+                 currentReturnType.IsSubclassOf(typeof(UdonSharpBehaviour))))
+            {
+                foundProperties = typeof(VRC.Udon.Common.Interfaces.IUdonEventReceiver).GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Where(e => e.Name == propertyToken).ToArray();
+            }
+
             if (foundProperties.Length == 0)
                 return false;
 
@@ -2169,7 +2348,12 @@ namespace UdonSharp.Compiler
 
             System.Type returnType = GetReturnType(true);
 
-            if (!returnType.IsArray/* && returnType != typeof(string)*/) // Uncomment the check for string when VRC has added the actual indexer function to Udon. 
+            if (!returnType.IsArray && 
+                returnType != typeof(string) && // We have hacky handling for strings now
+                returnType != typeof(Vector2) &&
+                returnType != typeof(Vector3) &&
+                returnType != typeof(Vector4) &&
+                returnType != typeof(Matrix4x4))
                 throw new System.Exception("Can only run array indexers on array types");
 
             SymbolDefinition cowIndexerSymbol = indexerValue.symbol;
