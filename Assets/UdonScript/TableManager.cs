@@ -12,7 +12,6 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public HandCalculator HandCalculator;
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public EventQueue EventQueue;
-    [SerializeField] public GameObject StashTables;
     [SerializeField] public Material normalMaterial;
     [SerializeField] public LogViewer LogViewer;
     [SerializeField] public GameObject DoraViewer;
@@ -23,7 +22,10 @@ public class TableManager : UdonSharpBehaviour
 
     public string lastedDoraSpriteName = "";
 
-    
+    public bool randomCard = true;
+
+    public int currentDorasCardIndex = 0;
+
     private int messageNumber = 0; // 마스터 전용
     private int lastMessageNumber = -1; // 모든 유저용
     private Card[] yama;
@@ -32,7 +34,7 @@ public class TableManager : UdonSharpBehaviour
     private Player[] players;
     private int currentCardIndex = 0;
     private int currentRinShanCardIndex = 0;
-    private int currentDorasCardIndex = 0;
+    
 
     private string currentRoundWind;
 
@@ -304,7 +306,10 @@ public class TableManager : UdonSharpBehaviour
             yama[index++].Initialize_Master("중", 7, false);
         }
 
-        yama = ShuffleCards(yama);
+        if (randomCard)
+        {
+            yama = ShuffleCards(yama);
+        } 
 
         for (var i = 0; i < yama.Length; ++i)
         {
@@ -406,6 +411,16 @@ public class TableManager : UdonSharpBehaviour
 
     private void Update()
     {
+        var player = GetCurrentTurnPlayer();
+        if (player.UIContext.IsAnythingActived())
+        {
+            player.SetColliderActive(false);
+        }
+        else
+        {
+            player.SetColliderActive(true);
+        }
+
         if (string.IsNullOrEmpty(NetworkMessage))
         {
             return;

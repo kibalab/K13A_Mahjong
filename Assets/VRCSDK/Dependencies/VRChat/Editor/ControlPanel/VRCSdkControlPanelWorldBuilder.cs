@@ -9,8 +9,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using VRC.SDK3.Editor;
 #if VRC_SDK_VRCSDK3
-using VRC.SDK3.Editor;
-using VRC.SDK3.Components;    
+using VRC.SDK3.Components;
 #endif
 using VRC.SDKBase.Editor;
 using VRC.SDKBase.Editor.BuildPipeline;
@@ -477,12 +476,8 @@ namespace VRC.SDKBase.Editor
         {
             CheckUploadChanges(scene);
 
-#if !VRC_SDK_VRCSDK2 && !VRC_SDK_VRCSDK3
+#if !VRC_SDK_VRCSDK3
         bool isSdk3Scene = false;
-#elif VRC_SDK_VRCSDK2 && !VRC_SDK_VRCSDK3
-        bool isSdk3Scene = false;
-#elif !VRC_SDK_VRCSDK2 && VRC_SDK_VRCSDK3
-            bool isSdk3Scene = true; //Do we actually use this variable anywhere?
 #else
         bool isSdk3Scene = scene as VRCSceneDescriptor != null;
 #endif
@@ -647,8 +642,8 @@ namespace VRC.SDKBase.Editor
 #if VRC_SDK_VRCSDK2
                     bool allowedType = (t.GetComponent<VRCSDK2.VRC_ObjectSync>()
                         || t.GetComponent<VRCSDK2.VRC_SyncAnimation>()
-                        || t.GetComponent<VRC_SyncVideoPlayer>()
-                        || t.GetComponent<VRC_SyncVideoStream>());
+                        || t.GetComponent<VRCSDK2.VRC_SyncVideoPlayer>()
+                        || t.GetComponent<VRCSDK2.VRC_SyncVideoStream>());
                     if (t.name != go.transform.name || allowedType) continue;
 #else
                         if (t.name != go.transform.name) continue;

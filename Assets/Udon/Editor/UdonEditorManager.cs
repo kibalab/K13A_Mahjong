@@ -369,6 +369,10 @@ namespace VRC.Udon.Editor
                 {
                     topRegistries["UnityEngine"].Add(nodeRegistry);
                 }
+                else if (nodeRegistry.Key.StartsWith("Cinemachine"))
+                {
+                    topRegistries["UnityEngine"].Add(nodeRegistry);
+                }
                 else
                 {
                     Debug.Log(nodeRegistry.Key);

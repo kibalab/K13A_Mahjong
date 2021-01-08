@@ -89,7 +89,6 @@ public class VRCSdk3Analysis
     //        importer.SetCompatibleWithEditor(active);
     //        importer.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, active);
     //        importer.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, active);
-    //        importer.SetCompatibleWithPlatform(BuildTarget.StandaloneLinux, active);
     //        importer.SetCompatibleWithPlatform(BuildTarget.StandaloneLinux64, active);
     //        importer.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, active);
     //        importer.SetCompatibleWithPlatform(BuildTarget.Android, active);

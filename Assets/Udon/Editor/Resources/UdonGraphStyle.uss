@@ -330,16 +330,32 @@ UdonPort EnumField {
 	min-width:65;
 }
 
+UdonNode #title-container {
+	flex:1;
+}
+
 UdonNode Label#title-label {
 	flex:1;
-	margin-left:35;
+	margin-left:5;
 	margin-right:6;
-	text-alignment:middle-center;
+	margin-bottom: 3;
+	margin-top:0;
+	text-alignment:middle-left;
 	text-color:rgb(255,255,255);
 	font-size:16;
 }
 
+UdonNode #subtitle {
+	margin-left:5;
+	margin-right:6;
+	margin-top:2;
+	margin-bottom: 0;
+	text-color:rgb(150,150,150);
+	font-size:10;
+}
+
 UdonNode #title {
+	height:40;
 	background-color:rgb(10,10,10);
 }
 
@@ -582,4 +598,29 @@ width:300;
 	padding-bottom:10;
 	padding-left:10;
 	-unity-word-wrap: true;
+}
+
+.UdonValueField {
+	min-height: 15;
+	margin-left: 4;
+	margin-top:2;
+	margin-right:4;
+	margin-bottom: 2;
+	padding-left:3;
+	padding-top:1;
+	padding-right:3;
+	padding-bottom: 2;
+	color: #B4B4B4;
+	selection-color: rgb(0.239, 0.502, 0.875);
+	cursor: text;
+	overflow: hidden;
+	background-image: resource("TextBoxBG");
+	-unity-slice-top: 3;
+	-unity-slice-right: 3;
+	-unity-slice-bottom: 3;
+	-unity-slice-left: 3;
+}
+
+.UdonValueField:focus {
+	background-image: resource("TextBoxBGFocused");
 }

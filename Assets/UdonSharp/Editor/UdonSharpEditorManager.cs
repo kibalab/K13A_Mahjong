@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,17 +22,22 @@ namespace UdonSharpEditor
     {
         static UdonSharpEditorManager()
         {
-            EditorSceneManager.sceneOpened += EditorSceneManager_sceneOpened;
+            EditorSceneManager.sceneOpened += OnSceneOpened;
             EditorApplication.update += OnEditorUpdate;
             EditorApplication.playModeStateChanged += OnChangePlayMode;
             AssemblyReloadEvents.afterAssemblyReload += RunPostAssemblyBuildRefresh;
         }
 
-        private static void EditorSceneManager_sceneOpened(Scene scene, OpenSceneMode mode)
-        {
-            List<UdonBehaviour> udonBehaviours = GetAllUdonBehaviours();
+        static bool _skipSceneOpen = false;
 
-            RunAllUpdates(udonBehaviours);
+        private static void OnSceneOpened(Scene scene, OpenSceneMode mode)
+        {
+            if (!_skipSceneOpen)
+            {
+                List<UdonBehaviour> udonBehaviours = GetAllUdonBehaviours();
+
+                RunAllUpdates(udonBehaviours);
+            }
         }
 
         internal static void RunPostBuildSceneFixup()
@@ -47,6 +53,277 @@ namespace UdonSharpEditor
         static void RunPostAssemblyBuildRefresh()
         {
             UdonSharpProgramAsset.CompileAllCsPrograms();
+            InjectUnityEventInterceptors();
+        }
+
+        static void InjectUnityEventInterceptors()
+        {
+            List<System.Type> udonSharpBehaviourTypes = new List<Type>();
+
+            foreach (Assembly assembly in UdonSharpUtils.GetLoadedEditorAssemblies())
+            {
+                foreach (System.Type type in assembly.GetTypes())
+                {
+                    if (type != typeof(UdonSharpBehaviour) && type.IsSubclassOf(typeof(UdonSharpBehaviour)))
+                        udonSharpBehaviourTypes.Add(type);
+                }
+            }
+
+            const string harmonyID = "UdonSharp.Editor.EventPatch";
+            Harmony harmony = new Harmony(harmonyID);
+            harmony.UnpatchAll(harmonyID);
+
+            MethodInfo injectedEvent = typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.EventInterceptor), BindingFlags.Static | BindingFlags.Public);
+            HarmonyMethod injectedMethod = new HarmonyMethod(injectedEvent);
+
+            void InjectEvent(System.Type behaviourType, string eventName)
+            {
+                const BindingFlags eventBindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly;
+
+                MethodInfo eventInfo = behaviourType.GetMethods(eventBindingFlags).FirstOrDefault(e => e.Name == eventName && e.ReturnType == typeof(void));
+
+                try
+                {
+                    if (eventInfo != null) harmony.Patch(eventInfo, injectedMethod);
+                }
+                catch (System.Exception)
+                {
+                    Debug.LogWarning($"Failed to patch event {eventInfo} on {behaviourType}");
+                }
+            }
+
+            foreach (System.Type udonSharpBehaviourType in udonSharpBehaviourTypes)
+            {
+                // Trigger events
+                InjectEvent(udonSharpBehaviourType, "OnTriggerEnter");
+                InjectEvent(udonSharpBehaviourType, "OnTriggerExit");
+                InjectEvent(udonSharpBehaviourType, "OnTriggerStay");
+                InjectEvent(udonSharpBehaviourType, "OnTriggerEnter2D");
+                InjectEvent(udonSharpBehaviourType, "OnTriggerExit2D");
+                InjectEvent(udonSharpBehaviourType, "OnTriggerStay2D");
+
+                // Collision events
+                InjectEvent(udonSharpBehaviourType, "OnCollisionEnter");
+                InjectEvent(udonSharpBehaviourType, "OnCollisionExit");
+                InjectEvent(udonSharpBehaviourType, "OnCollisionStay");
+                InjectEvent(udonSharpBehaviourType, "OnCollisionEnter2D");
+                InjectEvent(udonSharpBehaviourType, "OnCollisionExit2D");
+                InjectEvent(udonSharpBehaviourType, "OnCollisionStay2D");
+
+                // Controller
+                InjectEvent(udonSharpBehaviourType, "OnControllerColliderHit");
+
+                // Animator events
+                InjectEvent(udonSharpBehaviourType, "OnAnimatorIK");
+                InjectEvent(udonSharpBehaviourType, "OnAnimatorMove");
+
+                // Mouse events
+                InjectEvent(udonSharpBehaviourType, "OnMouseDown");
+                InjectEvent(udonSharpBehaviourType, "OnMouseDrag");
+                InjectEvent(udonSharpBehaviourType, "OnMouseEnter");
+                InjectEvent(udonSharpBehaviourType, "OnMouseExit");
+                InjectEvent(udonSharpBehaviourType, "OnMouseOver");
+                InjectEvent(udonSharpBehaviourType, "OnMouseUp");
+                InjectEvent(udonSharpBehaviourType, "OnMouseUpAsButton");
+
+                // Particle events
+                InjectEvent(udonSharpBehaviourType, "OnParticleCollision");
+                InjectEvent(udonSharpBehaviourType, "OnParticleSystemStopped");
+                InjectEvent(udonSharpBehaviourType, "OnParticleTrigger");
+                InjectEvent(udonSharpBehaviourType, "OnParticleUpdateJobScheduled");
+
+                // Rendering events
+                InjectEvent(udonSharpBehaviourType, "OnPostRender");
+                InjectEvent(udonSharpBehaviourType, "OnPreCull");
+                InjectEvent(udonSharpBehaviourType, "OnPreRender");
+                InjectEvent(udonSharpBehaviourType, "OnRenderImage");
+                InjectEvent(udonSharpBehaviourType, "OnRenderObject");
+                InjectEvent(udonSharpBehaviourType, "OnWillRenderObject");
+
+                // Joint events
+                InjectEvent(udonSharpBehaviourType, "OnJointBreak");
+                InjectEvent(udonSharpBehaviourType, "OnJointBreak2D");
+
+                // Audio
+                InjectEvent(udonSharpBehaviourType, "OnAudioFilterRead");
+                
+                // Transforms
+                InjectEvent(udonSharpBehaviourType, "OnTransformChildrenChanged");
+                InjectEvent(udonSharpBehaviourType, "OnTransformParentChanged");
+
+                // Object state, OnDisable and OnDestroy will get called regardless of the enabled state of the component, include OnEnable for consistency
+                InjectEvent(udonSharpBehaviourType, "OnEnable");
+                InjectEvent(udonSharpBehaviourType, "OnDisable");
+                InjectEvent(udonSharpBehaviourType, "OnDestroy");
+            }
+
+            // Add method for checking if events need to be skipped
+            InjectedMethods.shouldSkipEventsMethod = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), typeof(UdonSharpBehaviour).GetMethod("ShouldSkipEvents", BindingFlags.Static | BindingFlags.NonPublic));
+
+            // Patch GUI object field drawer
+            MethodInfo doObjectFieldMethod = typeof(EditorGUI).GetMethods(BindingFlags.Static | BindingFlags.NonPublic).FirstOrDefault(e => e.Name == "DoObjectField" && e.GetParameters().Length == 9);
+
+            HarmonyMethod objectFieldProxy = new HarmonyMethod(typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.DoObjectFieldProxy)));
+            harmony.Patch(doObjectFieldMethod, objectFieldProxy);
+
+            System.Type validatorDelegateType = typeof(EditorGUI).GetNestedType("ObjectFieldValidator", BindingFlags.Static | BindingFlags.NonPublic);
+            InjectedMethods.validationDelegate = Delegate.CreateDelegate(validatorDelegateType, typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.ValidateObjectReference)));
+
+            InjectedMethods.objectValidatorMethod = typeof(EditorGUI).GetMethod("ValidateObjectReferenceValue", BindingFlags.NonPublic | BindingFlags.Static);
+
+            MethodInfo crossSceneRefCheckMethod = typeof(EditorGUI).GetMethod("CheckForCrossSceneReferencing", BindingFlags.NonPublic | BindingFlags.Static);
+            InjectedMethods.crossSceneRefCheckMethod = (Func<UnityEngine.Object, UnityEngine.Object, bool>)Delegate.CreateDelegate(typeof(Func<UnityEngine.Object, UnityEngine.Object, bool>), crossSceneRefCheckMethod);
+
+            // Patch post BuildAssetBundles fixup function
+            MethodInfo buildAssetbundlesMethod = typeof(BuildPipeline).GetMethods(BindingFlags.NonPublic | BindingFlags.Static).First(e => e.Name == "BuildAssetBundles" && e.GetParameters().Length == 5);
+
+            MethodInfo postBuildMethod = typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.PostBuildAssetBundles), BindingFlags.Public | BindingFlags.Static);
+            HarmonyMethod postBuildHarmonyMethod = new HarmonyMethod(postBuildMethod);
+
+            MethodInfo preBuildMethod = typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.PreBuildAssetBundles), BindingFlags.Public | BindingFlags.Static);
+            HarmonyMethod preBuildHarmonyMethod = new HarmonyMethod(preBuildMethod);
+
+            harmony.Patch(buildAssetbundlesMethod, preBuildHarmonyMethod, postBuildHarmonyMethod);
+        }
+
+        static class InjectedMethods
+        {
+            public static Delegate validationDelegate;
+            public static MethodInfo objectValidatorMethod;
+            public static Func<UnityEngine.Object, UnityEngine.Object, bool> crossSceneRefCheckMethod;
+            public static Func<bool> shouldSkipEventsMethod;
+
+            public static bool EventInterceptor(UdonSharpBehaviour __instance)
+            {
+                if (UdonSharpEditorUtility.IsProxyBehaviour(__instance) || shouldSkipEventsMethod())
+                    return false;
+
+                return true;
+            }
+
+            public static UnityEngine.Object ValidateObjectReference(UnityEngine.Object[] references, System.Type objType, SerializedProperty property, Enum options = null)
+            {
+                if (references.Length == 0)
+                    return null;
+
+                if (property != null)
+                {
+                    if (references[0] != null)
+                    {
+                        if (EditorSceneManager.preventCrossSceneReferences && crossSceneRefCheckMethod(references[0], property.serializedObject.targetObject))
+                            return null;
+
+                        if (references[0] is GameObject gameObject)
+                        {
+                            references = gameObject.GetComponents<UdonSharpBehaviour>();
+                        }
+
+                        foreach (UnityEngine.Object reference in references)
+                        {
+                            System.Type refType = reference.GetType();
+
+                            if (objType.IsAssignableFrom(reference.GetType()))
+                            {
+                                return reference;
+                            }
+                            else if (reference is UdonBehaviour udonBehaviour && UdonSharpEditorUtility.IsUdonSharpBehaviour(udonBehaviour))
+                            {
+                                UdonSharpBehaviour proxy = UdonSharpEditorUtility.GetProxyBehaviour(udonBehaviour);
+
+                                if (proxy && objType.IsAssignableFrom(proxy.GetType()))
+                                    return proxy;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (objType == typeof(UdonSharpBehaviour) ||
+                        objType.IsSubclassOf(typeof(UdonSharpBehaviour)))
+                    {
+                        foreach (UnityEngine.Object reference in references)
+                        {
+                            System.Type refType = reference.GetType();
+
+                            if (objType.IsAssignableFrom(refType))
+                            {
+                                return reference;
+                            }
+                            else if (reference is GameObject referenceObject)
+                            {
+                                UnityEngine.Object foundRef = ValidateObjectReference(referenceObject.GetComponents<UdonSharpBehaviour>(), objType, null);
+
+                                if (foundRef)
+                                    return foundRef;
+                            }
+                            else if (reference is UdonBehaviour referenceBehaviour && UdonSharpEditorUtility.IsUdonSharpBehaviour(referenceBehaviour))
+                            {
+                                UdonSharpBehaviour proxy = UdonSharpEditorUtility.GetProxyBehaviour(referenceBehaviour);
+
+                                if (proxy && objType.IsAssignableFrom(proxy.GetType()))
+                                    return proxy;
+                            }
+                        }
+                    }
+                }
+
+                return null;
+            }
+
+            delegate FieldInfo GetFieldInfoDelegate(SerializedProperty property, out System.Type type);
+            static GetFieldInfoDelegate getFieldInfoFunc;
+
+            public static bool DoObjectFieldProxy(ref System.Type objType, SerializedProperty property, ref object validator)
+            {
+                if (validator == null)
+                {
+                    if (objType != null && (objType == typeof(UdonSharpBehaviour) || objType.IsSubclassOf(typeof(UdonSharpBehaviour))))
+                        validator = validationDelegate;
+                    else if (property != null)
+                    {
+                        // Just in case, we don't want to blow up default Unity UI stuff if something goes wrong here.
+                        try
+                        {
+                            if (getFieldInfoFunc == null)
+                            {
+                                Assembly editorAssembly = AppDomain.CurrentDomain.GetAssemblies().First(e => e.GetName().Name == "UnityEditor");
+
+                                System.Type scriptAttributeUtilityType = editorAssembly.GetType("UnityEditor.ScriptAttributeUtility");
+
+                                MethodInfo fieldInfoMethod = scriptAttributeUtilityType.GetMethod("GetFieldInfoFromProperty", BindingFlags.NonPublic | BindingFlags.Static);
+
+                                getFieldInfoFunc = (GetFieldInfoDelegate)Delegate.CreateDelegate(typeof(GetFieldInfoDelegate), fieldInfoMethod);
+                            }
+
+                            getFieldInfoFunc(property, out System.Type fieldType);
+
+                            if (fieldType != null && (fieldType == typeof(UdonSharpBehaviour) || fieldType.IsSubclassOf(typeof(UdonSharpBehaviour))))
+                            {
+                                objType = fieldType;
+                                validator = validationDelegate;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            validator = null;
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            public static void PreBuildAssetBundles()
+            {
+                DestroyAllProxies();
+                _skipSceneOpen = true;
+            }
+
+            public static void PostBuildAssetBundles()
+            {
+                CreateProxyBehaviours(GetAllUdonBehaviours());
+                _skipSceneOpen = false;
+            }
         }
 
         static void OnChangePlayMode(PlayModeStateChange state)
@@ -72,7 +349,7 @@ namespace UdonSharpEditor
                 }
             }
 
-            if (state == PlayModeStateChange.EnteredEditMode || state == PlayModeStateChange.ExitingEditMode)
+            if (state == PlayModeStateChange.EnteredEditMode)
             {
                 UdonSharpEditorCache.ResetInstance();
                 if (UdonSharpEditorCache.Instance.LastBuildType == UdonSharpEditorCache.DebugInfoType.Client)
@@ -82,10 +359,21 @@ namespace UdonSharpEditor
 
                 RunAllUpdates();
             }
+            else if (state == PlayModeStateChange.ExitingEditMode)
+            {
+                if (UdonSharpEditorCache.Instance.LastBuildType == UdonSharpEditorCache.DebugInfoType.Client)
+                {
+                    UdonSharpProgramAsset.CompileAllCsPrograms(true);
+                }
+            }
+
+            UdonSharpEditorCache.SaveOnPlayExit(state);
         }
 
         static void RunAllUpdates(List<UdonBehaviour> allBehaviours = null)
         {
+            UdonSharpEditorUtility.SetIgnoreEvents(false);
+
             if (allBehaviours == null)
                 allBehaviours = GetAllUdonBehaviours();
 
@@ -126,13 +414,17 @@ namespace UdonSharpEditor
             for (int i = 0; i < sceneCount; ++i)
             {
                 Scene scene = EditorSceneManager.GetSceneAt(i);
-                int rootCount = scene.rootCount;
 
-                scene.GetRootGameObjects(rootObjects);
-
-                for (int j = 0; j < rootCount; ++j)
+                if (scene.isLoaded)
                 {
-                    behaviourList.AddRange(rootObjects[j].GetComponentsInChildren<UdonBehaviour>(true));
+                    int rootCount = scene.rootCount;
+
+                    scene.GetRootGameObjects(rootObjects);
+
+                    for (int j = 0; j < rootCount; ++j)
+                    {
+                        behaviourList.AddRange(rootObjects[j].GetComponentsInChildren<UdonBehaviour>(true));
+                    }
                 }
             }
 
@@ -268,10 +560,12 @@ namespace UdonSharpEditor
         /// <param name="jaggedArrayDimensionCount"></param>
         /// <param name="currentDepth"></param>
         /// <returns></returns>
-        static bool VerifyArrayValidity(object rootArray, System.Type rootArrayType, int arrayDimensionCount, int currentDepth, string behaviourName, string variableName)
+        static bool VerifyArrayValidity(ref object rootArray, ref bool modifiedArray, System.Type rootArrayType, System.Type currentTargetType, int arrayDimensionCount, int currentDepth, string behaviourName, string variableName)
         {
             if (rootArray == null)
                 return true;
+
+            System.Type arrayStorageType = UdonSharpUtils.UserTypeToUdonType(rootArrayType);
 
             if (arrayDimensionCount == currentDepth)
             {
@@ -301,8 +595,63 @@ namespace UdonSharpEditor
                             array.SetValue(null, i);
                     }
                 }
-                else if (rootArray.GetType() != rootArrayType)
-                    return false;
+                else if (rootArray.GetType() != arrayStorageType)
+                {
+                    System.Type targetElementType = arrayStorageType.GetElementType();
+
+                    if (!targetElementType.IsArray /*&& (rootArray.GetType().GetElementType() == null || !rootArray.GetType().GetElementType().IsArray)*/)
+                    {
+                        Array rootArrayArr = (Array)rootArray;
+                        int arrayLen = rootArrayArr.Length;
+                        Array newArray = (Array)Activator.CreateInstance(arrayStorageType, new object[] { arrayLen });
+                        rootArray = newArray;
+                        modifiedArray = true;
+
+                        for (int i = 0; i < arrayLen; ++i)
+                        {
+                            object oldValue = rootArrayArr.GetValue(i);
+
+                            if (!oldValue.IsUnityObjectNull())
+                            {
+                                System.Type oldType = oldValue.GetType();
+
+                                if (targetElementType.IsAssignableFrom(oldType))
+                                {
+                                    newArray.SetValue(oldValue, i);
+                                }
+                                else if (targetElementType.IsExplicitlyAssignableFrom(oldType))
+                                {
+                                    object newValue;
+                                    try
+                                    {
+                                        newValue = Convert.ChangeType(oldValue, targetElementType);
+                                    }
+                                    catch (Exception e) when (e is InvalidCastException || e is OverflowException)
+                                    {
+                                        MethodInfo castMethod = oldType.GetCastMethod(targetElementType);
+
+                                        if (castMethod != null)
+                                            newValue = castMethod.Invoke(null, new object[] { oldValue });
+                                        else
+                                            newValue = targetElementType.IsValueType ? Activator.CreateInstance(targetElementType) : null;
+                                    }
+
+                                    newArray.SetValue(newValue, i);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (currentDepth == 1)
+                            return false;
+                        else
+                        {
+                            rootArray = null;
+                            modifiedArray = true;
+                        }
+                    }
+                }
             }
             else
             {
@@ -310,10 +659,18 @@ namespace UdonSharpEditor
                 if (array == null)
                     return false;
 
-                foreach (object element in array)
+                if (array.GetType() != UdonSharpUtils.UserTypeToUdonType(currentTargetType))
+                    return false;
+
+                int arrayLen = array.Length;
+                for (int i = 0; i < arrayLen; ++i)
                 {
-                    if (!VerifyArrayValidity(element, rootArrayType, arrayDimensionCount, currentDepth + 1, behaviourName, variableName))
+                    object elementObj = array.GetValue(i);
+
+                    if (!VerifyArrayValidity(ref elementObj, ref modifiedArray, rootArrayType, currentTargetType.GetElementType(), arrayDimensionCount, currentDepth + 1, behaviourName, variableName))
                         return false;
+
+                    array.SetValue(elementObj, i);
                 }
             }
 
@@ -365,41 +722,74 @@ namespace UdonSharpEditor
                         if (!publicVariables.TryGetVariableType(variableSymbol, out System.Type publicFieldType))
                             continue;
 
-                        publicVariables.TryGetVariableValue(variableSymbol, out object symbolValue);
+                        bool foundValue = publicVariables.TryGetVariableValue(variableSymbol, out object symbolValue);
+
+                        // Remove this variable from the publicVariable list since UdonBehaviours set all null GameObjects, UdonBehaviours, and Transforms to the current behavior's equivalent object regardless of if it's marked as a `null` heap variable or `this`
+                        // This default behavior is not the same as Unity, where the references are just left null. And more importantly, it assumes that the user has interacted with the inspector on that object at some point which cannot be guaranteed. 
+                        // Specifically, if the user adds some public variable to a class, and multiple objects in the scene reference the program asset, 
+                        //   the user will need to go through each of the objects' inspectors to make sure each UdonBehavior has its `publicVariables` variable populated by the inspector
+                        if (foundValue &&
+                            symbolValue.IsUnityObjectNull() &&
+                            (publicFieldType == typeof(GameObject) || publicFieldType == typeof(UdonBehaviour) || publicFieldType == typeof(Transform)))
+                        {
+                            behaviour.publicVariables.RemoveVariable(variableSymbol);
+                            updatedBehaviourVariables++;
+                            continue;
+                        }
 
                         System.Type programSymbolType = fieldDefinition.fieldSymbol.symbolCsType;
-                        if (!publicFieldType.IsAssignableFrom(programSymbolType))
+
+                        if (!symbolValue.IsUnityObjectNull())
+                        {
+                            System.Type valueType = symbolValue.GetType();
+
+                            if (!programSymbolType.IsAssignableFrom(valueType))
+                            {
+                                updatedBehaviourVariables++;
+
+                                if (programSymbolType.IsExplicitlyAssignableFrom(valueType))
+                                {
+                                    object convertedValue;
+                                    try
+                                    {
+                                        convertedValue = Convert.ChangeType(symbolValue, programSymbolType);
+                                    }
+                                    catch (Exception e) when (e is InvalidCastException || e is OverflowException)
+                                    {
+                                        MethodInfo castMethod = valueType.GetCastMethod(programSymbolType);
+
+                                        if (castMethod != null)
+                                            convertedValue = castMethod.Invoke(null, new object[] { symbolValue });
+                                        else
+                                            convertedValue = programAsset.GetPublicVariableDefaultValue(variableSymbol);
+                                    }
+
+                                    publicVariables.RemoveVariable(variableSymbol);
+                                    IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, convertedValue });
+                                    publicVariables.TryAddVariable(newVariable);
+                                }
+                                else
+                                {
+                                    publicVariables.RemoveVariable(variableSymbol);
+                                    object defaultValue = programAsset.GetPublicVariableDefaultValue(variableSymbol);
+                                    IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, defaultValue });
+                                    publicVariables.TryAddVariable(newVariable);
+                                }
+                            }
+                            else if (publicFieldType != programSymbolType) // It's assignable but the storage type is wrong
+                            {
+                                updatedBehaviourVariables++;
+                                publicVariables.RemoveVariable(variableSymbol);
+                                IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, symbolValue });
+                                publicVariables.TryAddVariable(newVariable);
+                            }
+                        }
+                        else if (publicFieldType != programSymbolType) // It's a null value, but the storage type is wrong so reassign the correct storage type
                         {
                             updatedBehaviourVariables++;
-
-                            if (publicFieldType.IsExplicitlyAssignableFrom(programSymbolType))
-                            {
-                                object convertedValue;
-                                try
-                                {
-                                    convertedValue = Convert.ChangeType(symbolValue, programSymbolType);
-                                }
-                                catch (InvalidCastException)
-                                {
-                                    MethodInfo castMethod = publicFieldType.GetCastMethod(programSymbolType);
-
-                                    if (castMethod != null)
-                                        convertedValue = castMethod.Invoke(null, new object[] { symbolValue });
-                                    else
-                                        convertedValue = programAsset.GetPublicVariableDefaultValue(variableSymbol);
-                                }
-
-                                publicVariables.RemoveVariable(variableSymbol);
-                                IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, convertedValue });
-                                publicVariables.TryAddVariable(newVariable);
-                            }
-                            else
-                            {
-                                publicVariables.RemoveVariable(variableSymbol);
-                                object defaultValue = programAsset.GetPublicVariableDefaultValue(variableSymbol);
-                                IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, defaultValue });
-                                publicVariables.TryAddVariable(newVariable);
-                            }
+                            publicVariables.RemoveVariable(variableSymbol);
+                            IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, null });
+                            publicVariables.TryAddVariable(newVariable);
                         }
 
                         string behaviourName = behaviour.ToString();
@@ -424,11 +814,21 @@ namespace UdonSharpEditor
                                 currentType = currentType.GetElementType();
                             }
 
-                            if (!VerifyArrayValidity(symbolValue, currentType.MakeArrayType(), arrayDepth, 1, behaviourName, variableSymbol))
+                            bool modifiedArray = false;
+                            object arrayObject = symbolValue;
+
+                            if (!VerifyArrayValidity(ref arrayObject, ref modifiedArray, currentType.MakeArrayType(), userType, arrayDepth, 1, behaviourName, variableSymbol))
                             {
                                 publicVariables.RemoveVariable(variableSymbol);
                                 object defaultValue = programAsset.GetPublicVariableDefaultValue(variableSymbol);
                                 IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, defaultValue });
+                                publicVariables.TryAddVariable(newVariable);
+                                updatedBehaviourVariables++;
+                            }
+                            else if (modifiedArray)
+                            {
+                                publicVariables.RemoveVariable(variableSymbol);
+                                IUdonVariable newVariable = (IUdonVariable)Activator.CreateInstance(typeof(UdonVariable<>).MakeGenericType(programSymbolType), new object[] { variableSymbol, arrayObject });
                                 publicVariables.TryAddVariable(newVariable);
                                 updatedBehaviourVariables++;
                             }
@@ -455,8 +855,24 @@ namespace UdonSharpEditor
         {
             foreach (UdonBehaviour udonBehaviour in allBehaviours)
             {
-                if (udonBehaviour.programSource != null && udonBehaviour.programSource is UdonSharpProgramAsset)
+                if (UdonSharpEditorUtility.IsUdonSharpBehaviour(udonBehaviour))
                     UdonSharpEditorUtility.GetProxyBehaviour(udonBehaviour, ProxySerializationPolicy.NoSerialization);
+            }
+        }
+
+        static void DestroyAllProxies()
+        {
+            var allBehaviours = GetAllUdonBehaviours();
+
+            foreach (UdonBehaviour behaviour in allBehaviours)
+            {
+                if (UdonSharpEditorUtility.IsUdonSharpBehaviour(behaviour))
+                {
+                    UdonSharpBehaviour proxy = UdonSharpEditorUtility.FindProxyBehaviour(behaviour, ProxySerializationPolicy.NoSerialization);
+
+                    if (proxy)
+                        UnityEngine.Object.DestroyImmediate(proxy);
+                }
             }
         }
     }

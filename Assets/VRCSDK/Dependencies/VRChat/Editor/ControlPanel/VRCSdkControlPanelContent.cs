@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Networking;
 using VRC.Core;
 
 public partial class VRCSdkControlPanel : EditorWindow
@@ -63,8 +64,8 @@ public partial class VRCSdkControlPanel : EditorWindow
 
     IEnumerator FetchUploadedData()
     {
-        if (!RemoteConfig.IsInitialized())
-            RemoteConfig.Init();
+        if (!ConfigManager.RemoteConfig.IsInitialized())
+            ConfigManager.RemoteConfig.Init();
 
         if (!APIUser.IsLoggedInWithCredentials)
             yield break;
@@ -84,7 +85,6 @@ public partial class VRCSdkControlPanel : EditorWindow
         ApiAvatar.FetchList(
             delegate (IEnumerable<ApiAvatar> obj)
             {
-                Debug.LogFormat("<color=yellow>Fetching Avatar Bucket {0}</color>", offset);
                 if (obj.FirstOrDefault() != null)
                     fetchingAvatars = EditorCoroutine.Start(() =>
                     {
@@ -153,7 +153,6 @@ public partial class VRCSdkControlPanel : EditorWindow
         ApiWorld.FetchList(
             delegate (IEnumerable<ApiWorld> obj)
             {
-                Debug.LogFormat("<color=yellow>Fetching World Bucket {0}</color>", offset);
                 if (obj.FirstOrDefault() != null)
                     fetchingWorlds = EditorCoroutine.Start(() =>
                     {
@@ -231,28 +230,17 @@ public partial class VRCSdkControlPanel : EditorWindow
             return;
         if (ImageCache.ContainsKey(id) && ImageCache[id] != null)
             return;
-
-        System.Action<WWW> onDone = (www) =>
+        
+        System.Action<Texture2D> onDone = (texture) =>
         {
-            if (string.IsNullOrEmpty(www.error))
+            if (texture != null)
             {
-                try
-                {   // converting Texture2D to use linear color space fixes issue with SDK world & avatar thumbnails appearing too dark (also enables mipmaps to improve appearance of thumbnails)
-                    Texture2D newTexture2DWithLinearEnabled;
-                    newTexture2DWithLinearEnabled = new Texture2D(4, 4, TextureFormat.DXT1, true, true);
-                    www.LoadImageIntoTexture(newTexture2DWithLinearEnabled);
-                    ImageCache[id] = newTexture2DWithLinearEnabled;
-                }
-                catch (System.Exception e)
-                {
-                    Debug.LogException(e);
-                }
+                ImageCache[id] = texture;
             }
             else if (ImageCache.ContainsKey(id))
                 ImageCache.Remove(id);
         };
-
-        EditorCoroutine.Start(VRCCachedWWW.Get(url, onDone));
+        EditorCoroutine.Start(VRCCachedWWW.Get(url, (onDone)));
     }
 
     Vector2 contentScrollPos;
@@ -261,8 +249,8 @@ public partial class VRCSdkControlPanel : EditorWindow
     {
         bool updatedContent = false;
 
-        if (!RemoteConfig.IsInitialized())
-            RemoteConfig.Init();
+        if (!ConfigManager.RemoteConfig.IsInitialized())
+            ConfigManager.RemoteConfig.Init();
 
         if (APIUser.IsLoggedInWithCredentials && uploadedWorlds != null && uploadedAvatars != null && testAvatars != null)
         {

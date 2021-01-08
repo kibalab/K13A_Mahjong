@@ -21,9 +21,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
             ("VRC", "UdonCommonInterfacesIUdonEventReceiver")
         };
 
-        [Obsolete("Use the Initialize Method that passes UdonSearchManager")]
-        public override void Initialize(UdonGraphWindow editorWindow, UdonGraph graphView) => throw new Exception("The UdonRegistrySearchWindow needs to be Initialized with an UdonSearchManager");
-
         public void Initialize(UdonGraphWindow editorWindow, UdonGraph graphView, UdonSearchManager manager)
         {
             base.Initialize(editorWindow, graphView);

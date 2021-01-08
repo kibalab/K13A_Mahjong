@@ -11,8 +11,8 @@ public class AutoAddSpatialAudioComponents
 
     static AutoAddSpatialAudioComponents()
     {
-        EditorApplication.hierarchyWindowChanged += OnHierarchyWindowChanged;
-		EditorApplication.projectWindowChanged += OnProjectWindowChanged;
+        EditorApplication.hierarchyChanged += OnHierarchyWindowChanged;
+		EditorApplication.projectChanged += OnProjectWindowChanged;
 		RegisterCallbacks();
     }
 
@@ -20,7 +20,7 @@ public class AutoAddSpatialAudioComponents
     {
         if (!Enabled)
         {
-            EditorApplication.hierarchyWindowChanged -= OnHierarchyWindowChanged;
+            EditorApplication.hierarchyChanged -= OnHierarchyWindowChanged;
             return;
         }
 

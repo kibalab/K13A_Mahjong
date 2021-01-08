@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UdonSharp.Serialization
@@ -6,7 +7,8 @@ namespace UdonSharp.Serialization
     public class ArraySerializer<T> : Serializer<T[]>
     {
         private Serializer<T> elementSerializer;
-        private IValueStorage elementValueStorage;
+        
+        Stack<IValueStorage> arrayStorages = new Stack<IValueStorage>();
 
         public ArraySerializer(TypeSerializationMetadata typeMetadata)
             : base(typeMetadata)
@@ -23,11 +25,15 @@ namespace UdonSharp.Serialization
                 {
                     elementSerializer = null;
                 }
-                else
-                {
-                    elementValueStorage = ValueStorageUtil.CreateStorage(elementSerializer.GetUdonStorageType());
-                }
             }
+        }
+
+        private IValueStorage GetNextStorage()
+        {
+            if (arrayStorages.Count > 0)
+                return arrayStorages.Pop();
+            
+            return ValueStorageUtil.CreateStorage(elementSerializer.GetUdonStorageType());
         }
 
         public override bool HandlesTypeSerialization(TypeSerializationMetadata typeMetadata)
@@ -47,6 +53,12 @@ namespace UdonSharp.Serialization
         {
             VerifySerializationSanity();
 
+            //if (targetObject == null)
+            //{
+            //    Debug.LogError($"Field of type '{typeof(T[]).Name}' does not exist any longer, allow Unity to compile assemblies to fix this");
+            //    return;
+            //}
+
             if (sourceObject == null)
             {
                 targetObject.Value = null;
@@ -64,18 +76,29 @@ namespace UdonSharp.Serialization
             }
             else
             {
+                IValueStorage elementValueStorage = GetNextStorage();
+
                 for (int i = 0; i < sourceObject.Length; ++i)
                 {
                     elementValueStorage.Value = targetArray.GetValue(i);
                     elementSerializer.Write(elementValueStorage, in sourceObject[i]);
                     targetArray.SetValue(elementValueStorage.Value, i);
                 }
+
+                arrayStorages.Push(elementValueStorage);
             }
         }
 
         public override void Read(ref T[] targetObject, IValueStorage sourceObject)
         {
             VerifySerializationSanity();
+
+            //if (sourceObject == null)
+            //{
+            //    Debug.LogError($"Field of type '{typeof(T[]).Name}' does not exist any longer, allow Unity to compile assemblies to fix this");
+            //    targetObject = null;
+            //    return;
+            //}
 
             if (sourceObject.Value == null)
             {
@@ -96,6 +119,8 @@ namespace UdonSharp.Serialization
             }
             else // The elements need special handling so use the element serializer
             {
+                IValueStorage elementValueStorage = GetNextStorage();
+
                 for (int i = 0; i < sourceArray.Length; ++i)
                 {
                     T elementObj = targetObject[i];
@@ -103,6 +128,8 @@ namespace UdonSharp.Serialization
                     elementSerializer.Read(ref elementObj, elementValueStorage);
                     targetObject[i] = elementObj;
                 }
+
+                arrayStorages.Push(elementValueStorage);
             }
         }
 

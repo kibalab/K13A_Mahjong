@@ -13,7 +13,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 
         private VideoPlayer _player;
         private Scene _tempScene;
-        private bool _videoLoaded = false;
         private Toolbar _toolbar;
         private TextElement _header;
         private Image _videoProxy;

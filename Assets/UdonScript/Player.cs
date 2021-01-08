@@ -16,6 +16,7 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public AgariContext AgariContext;
     [SerializeField] public HandCalculator HandCalculator;
     [SerializeField] public Transform StashPositions;
+    [SerializeField] public Transform DiscardPoint;
     [SerializeField] public Transform nakiPoints;
     [SerializeField] public Transform nakiShapes;
     [SerializeField] public EventQueue EventQueue;
@@ -56,7 +57,15 @@ public class Player : UdonSharpBehaviour
         NetworkMessage = SerializeRiichi(false);
 
     }
-    
+
+    public override void OnPlayerJoined(VRCPlayerApi player)
+    {
+        if (player.isMaster)
+        {
+            Networking.SetOwner(player, gameObject);
+        }
+    }
+
     Transform[] FindPoints()
     {
         //배열의 0~13 은 소유카드 14는 추가카드
@@ -166,12 +175,14 @@ public class Player : UdonSharpBehaviour
 
         var point = StashPositions.GetChild(stashedCardIndex++);
         card.SetPosition(point.position, point.rotation);
+
         card.SetColliderActivate(false);
         playerStatus.IsFirstOrder = false;
 
         SortPosition();
 
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
+
     }
 
     public void setStashPositionRichMode()
@@ -411,7 +422,7 @@ public class Player : UdonSharpBehaviour
         NetworkMessage = SerializePlayerName(name);
     }
 
-    public void _SetPlayerName(string name)
+    public void l_SetPlayerName(string name)
     {
         TableViewer.setPlayerName(name, PlayerIndex);
     }
@@ -493,6 +504,8 @@ public class Player : UdonSharpBehaviour
 
     private void Update()
     {
+        if (!Networking.IsNetworkSettled) { return; }
+
         if (string.IsNullOrEmpty(NetworkMessage))
         {
             return;
@@ -512,7 +525,7 @@ public class Player : UdonSharpBehaviour
                     RiichiBon.SetActive(bool.Parse(splited[2]));
                     break;
                 case "Name":
-                    _SetPlayerName(splited[2]);
+                    l_SetPlayerName(splited[2]);
                     break;
             }
             

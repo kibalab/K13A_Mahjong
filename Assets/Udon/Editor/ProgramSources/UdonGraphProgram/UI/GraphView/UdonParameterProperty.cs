@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using VRC.Udon.Graph;
@@ -108,11 +109,17 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 			{
 				new Label("default value") { name = "default-value-label" }
 			};
-			var field = GetTheRightField(definition.type);
-			if(field != null)
+
+			// Generate Default Value Field
+			var value = TryGetValueObject(out object result);
+			_inputField = UdonFieldFactory.CreateField(
+				definition.type, 
+				result, 
+				newValue => SetNewValue(newValue, ValueIndices.value)
+			);
+			if (_inputField != null)
 			{
-				// TODO: need to handle cases where we can't generate the field above
-				defaultValueContainer.Add(field);
+				defaultValueContainer.Add(_inputField);
 				Add(defaultValueContainer);
 			}
 		}
@@ -151,90 +158,6 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 			nodeData.nodeValues[(int)index] = SerializableObjectContainer.Serialize(newValue);
 			graph.ReSerializeData();
 			graph.SaveGraphToDisk();
-		}
-
-		private VisualElement GetTheRightField(Type portType)
-		{
-			// Handle normal input fields
-			if (portType == typeof(Bounds))
-				return SetupField<EditorUI.BoundsField, Bounds>();
-			else if (portType == typeof(Color))
-				return SetupField<EditorUI.ColorField, Color>();
-			else if (portType == typeof(AnimationCurve))
-				return SetupField<EditorUI.CurveField, AnimationCurve>();
-			else if (portType == typeof(double))
-				return SetupField<EditorUI.DoubleField, double>();
-			else if (portType == typeof(float))
-				return SetupField<EditorUI.FloatField, float>();
-			else if (portType == typeof(Gradient))
-				return SetupField<EditorUI.GradientField, Gradient>();
-			else if (portType == typeof(int))
-				return SetupField<EditorUI.IntegerField, int>();
-			else if (portType == typeof(long))
-				return SetupField<EditorUI.LongField, long>();
-			else if (portType == typeof(Rect))
-				return SetupField<EditorUI.RectField, Rect>();
-			else if (portType == typeof(RectInt))
-				return SetupField<EditorUI.RectIntField, RectInt>();
-			else if (portType == typeof(System.String))
-				return SetupField<TextField, string>();
-			else if (portType == typeof(Vector2))
-				return SetupField<EditorUI.Vector2Field, Vector2>();
-			else if (portType == typeof(Vector3))
-				return SetupField<EditorUI.Vector3Field, Vector3>();
-			else if (portType == typeof(Vector4))
-				return SetupField<EditorUI.Vector4Field, Vector4>();
-			else if (portType == typeof(Vector2Int))
-				return SetupField<EditorUI.Vector2IntField, Vector2Int>();
-			else if (portType == typeof(Vector3Int))
-				return SetupField<EditorUI.Vector3IntField, Vector3Int>();
-			else if (portType == typeof(bool))
-				return SetupField<EngineUI.Toggle, bool>();
-			else if (portType != null && portType.IsEnum)
-				return SetupField<EditorUI.EnumField, Enum>(new EditorUI.EnumField(portType.GetEnumValues().GetValue(0) as Enum));
-			else if (portType != null && portType.IsArray)
-			{
-				_editArrayButton = new Button(() => EditArray(portType.GetElementType()))
-				{
-					text = "Edit",
-					name = "array-editor",
-				};
-				return _editArrayButton;
-			}
-			else return null;
-		}
-
-		// TODO: centralize this logic so it's not copied between here and UdonPort
-		private IArrayProvider _inspector;
-		private Button _editArrayButton;
-		private void EditArray(Type elementType)
-		{
-			// Update Values when 'Save' is clicked
-			if (_inspector != null)
-			{
-				// Update Values
-				SetNewValue(_inspector.GetValues(), ValueIndices.value);
-
-				// Remove Inspector
-				_inspector.RemoveFromHierarchy();
-				_inspector = null;
-
-				// Update Button Text
-				_editArrayButton.text = "Edit";
-				return;
-			}
-
-			// Otherwise set up the inspector
-			_editArrayButton.text = "Save";
-
-			// Get value object, null is ok
-			TryGetValueObject(out object value);
-
-			// Create it new
-			Type typedArrayInspector = (typeof(UdonArrayInspector<>)).MakeGenericType(elementType);
-			_inspector = (Activator.CreateInstance(typedArrayInspector, value) as IArrayProvider);
-
-			defaultValueContainer.Add(_inspector as VisualElement);
 		}
 
 		// Convenience wrapper for field types that don't need special initialization

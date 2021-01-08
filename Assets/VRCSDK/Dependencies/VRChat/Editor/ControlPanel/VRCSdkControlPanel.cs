@@ -10,10 +10,10 @@ public partial class VRCSdkControlPanel : EditorWindow
     [MenuItem("VRChat SDK/Show Control Panel", false, 600)]
     static void ShowControlPanel()
     {
-        if (!RemoteConfig.IsInitialized())
+        if (!ConfigManager.RemoteConfig.IsInitialized())
         {
             VRC.Core.API.SetOnlineMode(true, "vrchat");
-            RemoteConfig.Init(() => ShowControlPanel());
+            ConfigManager.RemoteConfig.Init(() => ShowControlPanel());
             return;
         }
 

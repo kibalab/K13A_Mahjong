@@ -28,6 +28,7 @@ public class UIContext : UdonSharpBehaviour
     [UdonSynced(UdonSyncMode.None)] public bool IsPonable;
     [UdonSynced(UdonSyncMode.None)] public bool IsKkanable;
 
+
     public bool IsAnythingActived()
     {
         return IsChiable || IsPonable || IsKkanable || IsRiichable || IsRonable || IsTsumoable;

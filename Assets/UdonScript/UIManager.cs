@@ -1,4 +1,4 @@
-
+ï»¿
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,8 +18,8 @@ public class UIManager : UdonSharpBehaviour
     [SerializeField] public CardSprites CardSprites;
     [SerializeField] public AudioQueue AudioQueue;
 
-    // ÇÃ·¹ÀÌ¾î°¡ [Âü¿©] ¹öÆ°À» ´©¸¦ ¶§ local¿¡¸¸ ÇÒ´çµÈ´Ù.
-    // ÀÏ´ÜÀº Å×½ºÆ®¸¦ À§ÇØ¼­ true·Î µÒ
+    // í”Œë ˆì´ì–´ê°€ [ì°¸ì—¬] ë²„íŠ¼ì„ ëˆ„ë¥¼ ë•Œ localì—ë§Œ í• ë‹¹ëœë‹¤.
+    // ì¼ë‹¨ì€ í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•´ì„œ trueë¡œ ë‘ 
     private bool isMyTable = true;
 
     private int AgariableMessageIndex = -1;
@@ -46,7 +46,7 @@ public class UIManager : UdonSharpBehaviour
                     var image = StatsUI.transform.GetChild(i++).GetChild(0).GetChild(0).GetComponent<Image>();
                     //image.sprite = CardSprites.FindSprite(card);
                 }
-
+                setShantenStats(i);
                 AgariableMessageIndex = UIContext.AgariableMessageIndex;
             }
 
@@ -71,7 +71,7 @@ public class UIManager : UdonSharpBehaviour
         {
             if (Networking.IsMaster)
             {
-                //µ¿±âÈ­¸¦ À§ÇØ ¸¸µé¾îµĞ °ø°£
+                //ë™ê¸°í™”ë¥¼ ìœ„í•´ ë§Œë“¤ì–´ë‘” ê³µê°„
             }
         }
 
@@ -95,22 +95,22 @@ public class UIManager : UdonSharpBehaviour
         switch (needCardCount)
         {
             case 0:
-                str = "<color=red>ÅÙÆÄÀÌ</color>";
+                str = "<color=red>í…íŒŒì´</color>";
                 break;
             case 1:
-                str = "<color=red>ÀÌ¼§ÅÙ</color>";
+                str = "<color=red>ì´ìƒ¹í…</color>";
                 break;
             case 2:
-                str = "<color=orange>·®¼§ÅÙ</color>";
+                str = "<color=orange>ëŸ‰ìƒ¹í…</color>";
                 break;
             case 3:
-                str = "<color=yellow>»ê¼§ÅÙ</color>";
+                str = "<color=yellow>ì‚°ìƒ¹í…</color>";
                 break;
             case 4:
-                str = "<color=blue>½º¼§ÅÙ</color>";
+                str = "<color=blue>ìŠ¤ìƒ¹í…</color>";
                 break;
             case 5:
-                str = "<color=green>¿ì¼§ÅÙ</color>";
+                str = "<color=green>ìš°ìƒ¹í…</color>";
                 break;
         }
 
@@ -198,17 +198,17 @@ public class UIManager : UdonSharpBehaviour
     {
         switch (uiName)
         {
-            case "Chi": return nameof(_ClickChiSelect1);
-            case "chiSelect_1": return nameof(_ClickChiSelect1);
-            case "chiSelect_2": return nameof(_ClickChiSelect2);
-            case "chiSelect_3": return nameof(_ClickChiSelect3);
+            case "Chi": return nameof(l_ClickChiSelect1);
+            case "chiSelect_1": return nameof(l_ClickChiSelect1);
+            case "chiSelect_2": return nameof(l_ClickChiSelect2);
+            case "chiSelect_3": return nameof(l_ClickChiSelect3);
             default: return null;
         }
     }
 
-    public void _ClickChiSelect1() { SetChiEvent(UIContext.ChiableIndex1); }
-    public void _ClickChiSelect2() { SetChiEvent(UIContext.ChiableIndex2); }
-    public void _ClickChiSelect3() { SetChiEvent(UIContext.ChiableIndex3); }
+    public void l_ClickChiSelect1() { SetChiEvent(UIContext.ChiableIndex1); }
+    public void l_ClickChiSelect2() { SetChiEvent(UIContext.ChiableIndex2); }
+    public void l_ClickChiSelect3() { SetChiEvent(UIContext.ChiableIndex3); }
 
     void SetChiEvent(Vector2 chiIndex)
     {
@@ -217,20 +217,20 @@ public class UIManager : UdonSharpBehaviour
 
     public void ClickOthers(string uiName)
     {
-        var funcName = $"_Click{uiName}";
+        var funcName = $"l_Click{uiName}";
         RequestCallFunctionToOwner(funcName);
     }
-    public void _ClickPon() { SetUIEvent("Pon"); }
-    public void _ClickKkan() { SetUIEvent("Kkan"); }
-    public void _ClickRon() { SetUIEvent("Ron"); }
-    public void _ClickTsumo() { SetUIEvent("Tsumo"); }
-    public void _ClickSkip() { SetUIEvent("Skip"); }
-    public void _ClickRich() { SetUIEvent("Rich"); }
+    public void l_ClickPon() { SetUIEvent("Pon"); }
+    public void l_ClickKkan() { SetUIEvent("Kkan"); }
+    public void l_ClickRon() { SetUIEvent("Ron"); }
+    public void l_ClickTsumo() { SetUIEvent("Tsumo"); }
+    public void l_ClickSkip() { SetUIEvent("Skip"); }
+    public void l_ClickRich() { SetUIEvent("Rich"); }
 
-    public void _ClickTsumoCut() { SetUIEvent("TsumoCut"); }
-    public void _ClickAutoAgari() { SetUIEvent("AutoAgari"); }
-    public void _ClickNoNaki() { SetUIEvent("NoNaki"); }
-    public void _ClickNotSort() { SetUIEvent("NotSort"); }
+    public void l_ClickTsumoCut() { SetUIEvent("TsumoCut"); }
+    public void l_ClickAutoAgari() { SetUIEvent("AutoAgari"); }
+    public void l_ClickNoNaki() { SetUIEvent("NoNaki"); }
+    public void l_ClickNotSort() { SetUIEvent("NotSort"); }
 
     void SetUIEvent(string eventName)
     {

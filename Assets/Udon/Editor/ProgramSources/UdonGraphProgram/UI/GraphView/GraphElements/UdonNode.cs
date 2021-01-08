@@ -11,6 +11,7 @@ using VRC.Udon.Graph.Interfaces;
 using VRC.Udon.Graph;
 using VRC.Udon.Serialization;
 using UnityEditor;
+using UnityEngine.Experimental.UIElements;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
 {
@@ -84,22 +85,46 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 Debug.LogWarning($"Couldn't find registry for {nodeDefinition.fullName}");
             }
 
+            VisualContainer titleContainer = new VisualContainer()
+            {
+                name = "title-container",
+            };
+            this.Q("title").Insert(0, titleContainer);
+
+            titleContainer.Add(this.Q("title-label"));
+            
+            var subtitle = new EngineUI.Label("")
+            {
+                name = "subtitle",
+            };
+            bool skipSubtitle = (
+                _specialFlows.Contains(nodeDefinition.fullName)
+                || nodeDefinition.fullName.EndsWith("et_Variable")
+                || nodeDefinition.fullName.StartsWithCached("Const_")
+            );
+            
+            if (!skipSubtitle)
+            {
+                titleContainer.Insert(0, subtitle);
+            }
+
             // Set Title
-            var title = UdonGraphExtensions.PrettyString(nodeDefinition.name).FriendlyNameify();
-            if (title == "Const_VRCUdonCommonInterfacesIUdonEventReceiver")
+            var displayTitle = UdonGraphExtensions.PrettyString(nodeDefinition.name).FriendlyNameify();
+            if (displayTitle == "Const_VRCUdonCommonInterfacesIUdonEventReceiver")
             {
-                title = "UdonBehaviour";
+                displayTitle = "UdonBehaviour";
             }
-            else if(title == "==" || title == "!=" || title == "+")
+            else if(displayTitle == "==" || displayTitle == "!=" || displayTitle == "+")
             {
-                title = $"{nodeDefinition.type.Name} {title}";
+                displayTitle = $"{nodeDefinition.type.Name} {displayTitle}";
             }
-            this.title = title;
+
+            if (displayTitle.StartsWith("Op ")) 
+                displayTitle = displayTitle.Replace("Op ", "");
+            
+            title = displayTitle;
 
             name = nodeDefinition.fullName;
-            // this name below makes for a better USS ID, but it breaks the Set Variable dropdown
-            //name = title.Replace(" ", "").ToLowerFirstChar();
-            //elementTypeColor = UdonGraphExtensions.MapTypeToColor(nodeDefinition.type);
             elementTypeColor = UnityEngine.Random.ColorHSV(0.5f, 0.6f, 0.1f, 0.2f, 0.8f, 0.9f);
 
             string className = nodeDefinition.name.Split(' ').FirstOrDefault().Split('_').FirstOrDefault();
@@ -114,10 +139,40 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 AddToClassList(nodeDefinition.type.Namespace);
                 AddToClassList(nodeDefinition.type.Name);
             }
-            AddToClassList(title.Replace(" ", "").ToLowerFirstChar());
+            AddToClassList(displayTitle.Replace(" ", "").ToLowerFirstChar());
             if (nodeDefinition.fullName.Contains('_'))
             {
                 AddToClassList(nodeDefinition.fullName.Substring(0, nodeDefinition.fullName.IndexOf('_')));
+            }
+
+            if (!skipSubtitle)
+            {
+                if (nodeDefinition.fullName.StartsWith("Event_"))
+                {
+                    subtitle.text = "Event";
+                }
+                else
+                {
+                    subtitle.text = className;
+                    // temp title shenanigans
+                    int firstSplit = nodeDefinition.fullName.IndexOf("__")+2;
+                    if (firstSplit > 1)
+                    {
+                        int lastSplit = nodeDefinition.fullName.IndexOf("__", firstSplit);
+                        int stringLength = (lastSplit > -1) ? lastSplit - firstSplit : nodeDefinition.fullName.Length - firstSplit;
+                        string line2 = nodeDefinition.fullName.Substring(firstSplit, stringLength).Replace("_", " ").UppercaseFirst();
+                        if (line2.StartsWith("Op "))
+                        {
+                            line2 = line2.Replace("Op ", "");
+                            subtitle.text = nodeDefinition.type.Name;
+                        }
+                        title = line2;
+                    }
+                    else
+                    {
+                        Debug.Log($"Couldn't find classname for {nodeDefinition.fullName}");
+                    }
+                }   
             }
 
             // Create or validate nodeData
@@ -620,6 +675,8 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 {
                     label = "UdonBehaviour";
                 }
+
+                if (item.name != null) label = $"{label} {item.name}";
                 UdonPort port = (UdonPort) UdonPort.Create(label, Direction.Output, this, type, data, i);
                 outputContainer.Add(port);
                 portsOut[i] = port;

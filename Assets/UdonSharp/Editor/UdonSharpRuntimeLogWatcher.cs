@@ -51,11 +51,34 @@ namespace UdonSharp
 
         static bool InitializeScriptLookup()
         {
-            if (scriptLookup != null)
-                return true;
-
             if (EditorApplication.isCompiling || EditorApplication.isUpdating)
                 return false;
+            
+            if (logDirectoryWatcher == null && ShouldListenForVRC())
+            {
+                AssemblyReloadEvents.beforeAssemblyReload += CleanupLogWatcher;
+
+                // Now setup the filesystem watcher
+                string[] splitPath = Application.persistentDataPath.Split('/', '\\');
+                string VRCDataPath = string.Join("\\", splitPath.Take(splitPath.Length - 2)) + "\\VRChat\\VRChat";
+
+                if (Directory.Exists(VRCDataPath))
+                {
+                    logDirectoryWatcher = new FileSystemWatcher(VRCDataPath, "output_log_*.txt");
+                    logDirectoryWatcher.IncludeSubdirectories = false;
+                    logDirectoryWatcher.NotifyFilter = NotifyFilters.LastWrite;
+                    logDirectoryWatcher.Changed += OnLogFileChanged;
+                    logDirectoryWatcher.InternalBufferSize = 1024;
+                    logDirectoryWatcher.EnableRaisingEvents = false;
+                }
+                else
+                {
+                    Debug.LogError("[UdonSharp] Could not locate VRChat data directory for exception watcher");
+                }
+            }
+
+            if (scriptLookup != null)
+                return true;
 
             scriptLookup = new Dictionary<long, (string, UdonSharpProgramAsset)>();
             string[] udonSharpDataAssets = AssetDatabase.FindAssets($"t:{typeof(UdonSharpProgramAsset).Name}");
@@ -96,32 +119,6 @@ namespace UdonSharp
                     continue;
 
                 scriptLookup.Add(programID, (AssetDatabase.GetAssetPath(programAsset.sourceCsScript), programAsset));
-            }
-
-            if (!ShouldListenForVRC())
-                return true;
-            
-            if (logDirectoryWatcher == null)
-            {
-                AssemblyReloadEvents.beforeAssemblyReload += CleanupLogWatcher;
-
-                // Now setup the filesystem watcher
-                string[] splitPath = Application.persistentDataPath.Split('/', '\\');
-                string VRCDataPath = string.Join("\\", splitPath.Take(splitPath.Length - 2)) + "\\VRChat\\VRChat";
-                
-                if (Directory.Exists(VRCDataPath))
-                {
-                    logDirectoryWatcher = new FileSystemWatcher(VRCDataPath, "output_log_*.txt");
-                    logDirectoryWatcher.IncludeSubdirectories = false;
-                    logDirectoryWatcher.NotifyFilter = NotifyFilters.LastWrite;
-                    logDirectoryWatcher.Changed += OnLogFileChanged;
-                    logDirectoryWatcher.InternalBufferSize = 1024;
-                    logDirectoryWatcher.EnableRaisingEvents = false;
-                }
-                else
-                {
-                    Debug.LogError("[UdonSharp] Could not locate VRChat data directory for exception watcher");
-                }
             }
 
             return true;
@@ -339,6 +336,20 @@ namespace UdonSharp
             }
         }
 
+        // Common messages that can spam the log and have no use for debugging
+        static readonly string[] filteredPrefixes = new string[]
+        {
+            "Received Notification: <Notification from username:",
+            "Received Message of type: notification content: {{\"id\":\"",
+            "[VRCFlowNetworkManager] Sending token from provider vrchat",
+            "[USpeaker] uSpeak [",
+            "Internal: JobTempAlloc has allocations",
+            "To Debug, enable the define: TLA_DEBUG_STACK_LEAK in ThreadsafeLinearAllocator.cpp.",
+            "PLAYLIST GET id=",
+            "Checking server time received at ",
+            "[RoomManager] Room metadata is unchanged, skipping update",
+        };
+
         static void HandleForwardedLog(string logMessage, LogFileState state, UdonSharpSettings settings)
         {
             const string FMT_STR = "0000.00.00 00:00:00 ";
@@ -346,10 +357,11 @@ namespace UdonSharp
             string trimmedStr = logMessage.Substring(FMT_STR.Length);
 
             string message = trimmedStr.Substring(trimmedStr.IndexOf('-') + 2);
+            string trimmedMessage = message.TrimStart(' ', '\t');
 
             if (settings.watcherMode == UdonSharpSettings.LogWatcherMode.Prefix)
             {
-                string prefixStr = message.TrimStart(' ', '\t');
+                string prefixStr = trimmedMessage;
                 bool prefixFound = false;
                 foreach (string prefix in settings.logWatcherMatchStrings)
                 {
@@ -361,6 +373,12 @@ namespace UdonSharp
                 }
 
                 if (!prefixFound)
+                    return;
+            }
+
+            foreach (string filteredPrefix in filteredPrefixes)
+            {
+                if (trimmedMessage.StartsWith(filteredPrefix))
                     return;
             }
 

@@ -45,7 +45,7 @@ namespace VRC.Udon.Serialization.OdinSerializer
             Architecture_Supports_All_Unaligned_ReadWrites = true;
             return;
 #endif
-
+#pragma warning disable 0162 // Unreachable Code Detected
             try
             {
                 // Try to perform some unaligned float reads.

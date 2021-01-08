@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: ToggleSync
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: e9e8306bbbc202247a414d8372aa8b9e,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d3554e790fe91be48ab0c142817bab17,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export uiToggle\r\n    .sync toggleValue,
     none\r\n    \r\n    instance_0: %UnityEngineUIToggle, null\r\n    value_0: %SystemBoolean,
@@ -24,7 +24,8 @@ MonoBehaviour:
     \       JUMP, 0xFFFFFFFC\r\n    \r\n    .export OnValueChanged\r\n    \r\n    OnValueChanged:\r\n
     \   \r\n        PUSH, uiToggle\r\n        PUSH, instance_1\r\n        COPY\r\n
     \       PUSH, instance_1\r\n        PUSH, toggleValue\r\n        EXTERN, \"UnityEngineUIToggle.__get_isOn__SystemBoolean\"\r\n
-    \       JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
+    \       PUSH, toggleValue\r\n        PUSH, toggleValue\r\n        COPY\r\n        JUMP,
+    0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:
     name: 
@@ -160,4 +161,8 @@ MonoBehaviour:
     jsonData: '{"uid":"9567e148-41d4-4e53-842d-76a9eee692b5","layout":{"serializedVersion":"2","x":-822.25,"y":-273.25,"width":336.0,"height":104.0},"title":"This
       event can have any name we want as long as we make it the same on the UI item
       that triggers it.","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
+  viewTransform:
+    position: {x: 0, y: 0}
+    scale: 1
+  version: 1.0.0
   showAssembly: 0
