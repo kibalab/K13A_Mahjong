@@ -5,7 +5,7 @@ using VRC.Udon.Common.Interfaces;
 
 public class Player : UdonSharpBehaviour
 {
-
+    #region Variables
     private const int FULL_CARD_COUNT = 14;
 
     [SerializeField] public UIManager UiManager;
@@ -43,6 +43,9 @@ public class Player : UdonSharpBehaviour
     int[] stashedCards;
     int stashedCardIndex;
 
+    #endregion
+
+    #region Events
     public void Initialize(int playerIndex)
     {
         Cards.Clear();
@@ -66,20 +69,40 @@ public class Player : UdonSharpBehaviour
         }
     }
 
-    Transform[] FindPoints()
+    private void Update()
     {
-        //배열의 0~13 은 소유카드 14는 추가카드
-        var cardPoints = new Transform[FULL_CARD_COUNT];
-        for (int i = 0; i < 14; i++)
-        {
-            var tr = CardPositions.transform.GetChild(i);
+        if (!Networking.IsNetworkSettled) { return; }
 
-            cardPoints[i] = tr;
+        if (string.IsNullOrEmpty(NetworkMessage))
+        {
+            return;
         }
-        plusCardPosition = cardPoints[13];
-        return cardPoints;
+
+        var splited = NetworkMessage.Split(',');
+        var networkMessageNumber = int.Parse(splited[0]);
+
+        if (lastMessageNumber != networkMessageNumber)
+        {
+            lastMessageNumber = networkMessageNumber;
+
+            switch (splited[1])
+            {
+                case "Riichi":
+                    Debug.Log($"[Player] RiichiBon setActive : {splited[2]}");
+                    RiichiBon.SetActive(bool.Parse(splited[2]));
+                    break;
+                case "Name":
+                    l_SetPlayerName(splited[2]);
+                    break;
+            }
+
+
+        }
     }
 
+    #endregion
+
+    #region Network and Serializers
     string SerializeRiichi(bool riichiMode)
     {
         var serializedString = $"{messageNumber++},Riichi,{riichiMode}";
@@ -91,6 +114,29 @@ public class Player : UdonSharpBehaviour
         return serializedString;
     }
 
+    void RequestCallFunctionToAll(string funcName)
+    {
+        if (Networking.LocalPlayer == null)
+        {
+            SendCustomEvent(funcName);
+        }
+        else
+        {
+            SendCustomNetworkEvent(NetworkEventTarget.All, funcName);
+        }
+    }
+    #endregion
+
+    #region Riichi
+    public void CheckRiichiable()
+    {
+        if (OpenendCards.Count() == 0)
+        {
+            AgariContext.Clear();
+            HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext, UIContext);
+        }
+    }
+
     public void ActiveRiichiMode()
     {
         playerStatus.IsRiichiMode = true;
@@ -98,6 +144,42 @@ public class Player : UdonSharpBehaviour
         setStashPositionRichMode();
         Debug.Log($"[Player] Request RiichiBon setActive : {true}");
         NetworkMessage = SerializeRiichi(true);
+    }
+
+    public void ActiveRiichiCreateCardColliders()
+    {
+        // 일단 다 끈다
+        SetColliderActive(false);
+
+        var debugStr = "RiichiCreationCards = ";
+
+        // 리치 만들어주는 것만 킨다
+        foreach (var card in AgariContext.RiichiCreationCards)
+        {
+            debugStr += $"({card.Type}, {card.CardNumber})";
+
+            card.SetColliderActivate(true);
+            card.IsDiscardedForRiichi = true;
+        }
+
+        Debug.Log(debugStr);
+    }
+
+    public void setStashPositionRichMode()
+    {
+        Transform[] positions;
+        var CurrentLine = stashedCardIndex / 6;
+        var l = 0;
+
+        var point = StashPositions.GetChild(stashedCardIndex);
+        point.rotation = Quaternion.Euler(point.rotation.eulerAngles - new Vector3(0, 90, 0));
+        point.position -= point.forward * 0.0085001f;
+
+        for (var i = stashedCardIndex + 1; i < CurrentLine + 6; i++, l++)
+        {
+            point = StashPositions.GetChild(i);
+            point.position += point.up * 0.0085001f * 2;
+        }
     }
 
     public bool IsRiichiMode()
@@ -110,6 +192,10 @@ public class Player : UdonSharpBehaviour
         playerStatus.IsOneShotRiichi = false;
     }
 
+
+    #endregion
+
+    #region General CardMove
     public void AddCard(Card newCard, bool isFristTsumo, bool isLastTsumo, bool isByRinshan)
     {
         playerStatus.IsFirstTsumo = isFristTsumo;
@@ -133,7 +219,7 @@ public class Player : UdonSharpBehaviour
         Cards.Add(newCard);
 
         newCard.SetOwnership(PlayerIndex);
-        newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation);
+        newCard.SetPosition(plusCardPosition.position, plusCardPosition.rotation, false);
 
         if (!UIContext.IsTsumoable && playerStatus.IsRiichiMode || playerStatus.isAutoDiscardMode)
         {
@@ -141,24 +227,6 @@ public class Player : UdonSharpBehaviour
             playerStatus.IsOneShotRiichi = false;
         }
     }
-
-    public void CheckRiichiable()
-    {
-        if (OpenendCards.Count() == 0)
-        {
-            AgariContext.Clear();
-            HandCalculator.RequestRiichiable(GetArray(Cards), AgariContext, UIContext);
-        }
-    }
-
-    public void CheckOpenOrAnkkanable(Card newCard)
-    {
-        var isAnkkanable = HandCalculator.IsAnKkanable(GetArray(Cards));
-        var isOpenKkanable = HandCalculator.IsOpenKkanable(newCard, GetArray(OpenendCards));
-
-        UIContext.IsKkanable = isAnkkanable || isOpenKkanable;
-    }
-
     public void Discard(Card card)
     {
         AgariContext.Clear();
@@ -174,7 +242,7 @@ public class Player : UdonSharpBehaviour
         stashedCards[card.GlobalOrder]++;
 
         var point = StashPositions.GetChild(stashedCardIndex++);
-        card.SetPosition(point.position, point.rotation);
+        card.SetPosition(point.position, point.rotation, true);
 
         card.SetColliderActivate(false);
         playerStatus.IsFirstOrder = false;
@@ -185,30 +253,23 @@ public class Player : UdonSharpBehaviour
 
     }
 
-    public void setStashPositionRichMode()
+    void SortPosition()
     {
-        Transform[] positions;
-        var CurrentLine = stashedCardIndex / 6;
-        var l = 0;
-
-        var point = StashPositions.GetChild(stashedCardIndex);
-        point.rotation = Quaternion.Euler(point.rotation.eulerAngles - new Vector3(0, 90, 0));
-        point.position -= point.forward * 0.0085001f;
-
-        for (var i = stashedCardIndex + 1; i < CurrentLine + 6; i++, l++)
+        if (!playerStatus.isNoSortMode)
         {
-            point = StashPositions.GetChild(i);
-            point.position += point.up * 0.0085001f * 2;
+            Cards.Sort();
+        }
+        for (var k = 0; k < Cards.Count(); ++k)
+        {
+            var card = (Card)Cards.At(k);
+            var cardPoint = cardPoints[k];
+            card.SetPosition(cardPoint.position, cardPoint.rotation, false);
         }
     }
 
-    public void RemoveStashedCard(Card card)
-    {
-        if (stashedCards[card.GlobalOrder] == 0) { Debug.Log("이러면... 안되는데?"); }
+    #endregion
 
-        --stashedCards[card.GlobalOrder];
-        --stashedCardIndex;
-    }
+    #region Naki
 
     public void OpenCards_Pon(Card[] openTargetCards, int shapeType)
     {
@@ -224,24 +285,13 @@ public class Player : UdonSharpBehaviour
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
     }
 
-    public void ActiveRiichiCreateCardColliders()
+    public void CheckOpenOrAnkkanable(Card newCard)
     {
-        // 일단 다 끈다
-        SetColliderActive(false);
+        var isAnkkanable = HandCalculator.IsAnKkanable(GetArray(Cards));
+        var isOpenKkanable = HandCalculator.IsOpenKkanable(newCard, GetArray(OpenendCards));
 
-        var debugStr = "RiichiCreationCards = ";
-
-        // 리치 만들어주는 것만 킨다
-        foreach (var card in AgariContext.RiichiCreationCards)
-        {
-            debugStr += $"({card.Type}, {card.CardNumber})";
-
-            card.SetColliderActivate(true);
-            card.IsDiscardedForRiichi = true;
-        }
-
-        Debug.Log(debugStr);
-    }
+        UIContext.IsKkanable = isAnkkanable || isOpenKkanable;
+    }    
 
     public void AddOpenKkan()
     {
@@ -253,7 +303,7 @@ public class Player : UdonSharpBehaviour
         OpenendCards.Add(card);
 
         var nakiCardPosition = nakiShape.GetChild(3).transform;
-        card.SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);
+        card.SetPosition(nakiCardPosition.position, nakiCardPosition.rotation, true);
 
         SortPosition();
     }
@@ -300,30 +350,8 @@ public class Player : UdonSharpBehaviour
             OpenendCards.Add(card);
 
             var nakiCardPosition = nakiShape.GetChild(index).transform;
-            openTargetCards[index].SetPosition(nakiCardPosition.position, nakiCardPosition.rotation);
+            openTargetCards[index].SetPosition(nakiCardPosition.position, nakiCardPosition.rotation, true);
         }
-    }
-
-    public Card[] FindCardByGlobalOrder(int globalOrder, int count)
-    {
-        var index = 0;
-        var arr = new Card[count];
-
-        foreach(var card in GetArray(Cards))
-        {
-            if (card.GlobalOrder == globalOrder)
-            {
-                arr[index++] = card;
-            }
-
-            if (index == count)
-            {
-                break;
-            }
-        }
-
-        if (index != count) { Debug.Log("error on FindCardByGlobalOrder"); }
-        return arr;
     }
 
     public int[] FindAnkkanableGlobalOrders()
@@ -352,6 +380,10 @@ public class Player : UdonSharpBehaviour
         }
     }
 
+    #endregion
+
+    #region UI
+
     public bool IsUIActived()
     {
         return UIContext.IsAnythingActived();
@@ -362,6 +394,52 @@ public class Player : UdonSharpBehaviour
         UIContext.Clear();
 
         UiManager.DisableButtonAll();
+    }
+
+    #endregion
+
+    #region Cards and Hands Util
+    public void RemoveStashedCard(Card card)
+    {
+        if (stashedCards[card.GlobalOrder] == 0) { Debug.Log("이러면... 안되는데?"); }
+
+        --stashedCards[card.GlobalOrder];
+        --stashedCardIndex;
+    }
+
+    public Card[] FindCardByGlobalOrder(int globalOrder, int count)
+    {
+        var index = 0;
+        var arr = new Card[count];
+
+        foreach (var card in GetArray(Cards))
+        {
+            if (card.GlobalOrder == globalOrder)
+            {
+                arr[index++] = card;
+            }
+
+            if (index == count)
+            {
+                break;
+            }
+        }
+
+        if (index != count) { Debug.Log("error on FindCardByGlobalOrder"); }
+        return arr;
+    }
+    Transform[] FindPoints()
+    {
+        //배열의 0~13 은 소유카드 14는 추가카드
+        var cardPoints = new Transform[FULL_CARD_COUNT];
+        for (int i = 0; i < 14; i++)
+        {
+            var tr = CardPositions.transform.GetChild(i);
+
+            cardPoints[i] = tr;
+        }
+        plusCardPosition = cardPoints[13];
+        return cardPoints;
     }
 
     public bool Contains(Card card)
@@ -378,7 +456,7 @@ public class Player : UdonSharpBehaviour
 
             Cards.Add(pickedCards[i]);
             pickedCard.SetOwnership(PlayerIndex);
-            pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation);
+            pickedCard.SetPosition(pointTransform.position, pointTransform.transform.rotation, false);
         }
 
         SortPosition();
@@ -395,71 +473,6 @@ public class Player : UdonSharpBehaviour
         foreach (Card card in Cards.Clone())
         {
             card.SetColliderActivate(active);
-        }
-    }
-
-    public PlayerStatus CalculateTsumoScore()
-    {
-        var cards = GetArray(Cards);
-        var openedCards = GetArray(OpenendCards);
-        HandCalculator.RequestTsumoScore(cards, openedCards, AgariContext, playerStatus);
-
-        return playerStatus;
-    }
-
-    public PlayerStatus CalculateRonScore()
-    {
-        var cards = GetArray(Cards);
-        var openedCards = GetArray(OpenendCards);
-        HandCalculator.RequestRonScore(cards, openedCards, AgariContext, playerStatus);
-
-        return playerStatus;
-    }
-
-    public void SetPlayerName(string name)
-    {
-        PlayerName = name;
-        NetworkMessage = SerializePlayerName(name);
-    }
-
-    public void l_SetPlayerName(string name)
-    {
-        TableViewer.setPlayerName(name, PlayerIndex);
-    }
-
-    public void SetWind(string wind)
-    {
-        playerStatus.Wind = wind;
-        TableViewer.setWInd(PlayerIndex, wind);
-    }
-
-    public void SetRoundWind(string roundWind)
-    {
-        playerStatus.RoundWind = roundWind;
-    }
-
-    void SortPosition()
-    {
-        if (!playerStatus.isNoSortMode)
-        {
-            Cards.Sort();
-        }
-        for (var k = 0; k < Cards.Count(); ++k)
-        {
-            var card = (Card)Cards.At(k);
-            var cardPoint = cardPoints[k];
-            card.SetPosition(cardPoint.position, cardPoint.rotation);
-        }
-    }
-    void RequestCallFunctionToAll(string funcName)
-    {
-        if (Networking.LocalPlayer == null)
-        {
-            SendCustomEvent(funcName);
-        }
-        else
-        {
-            SendCustomNetworkEvent(NetworkEventTarget.All, funcName);
         }
     }
 
@@ -489,6 +502,27 @@ public class Player : UdonSharpBehaviour
         return cards;
     }
 
+    #endregion and Hand
+
+    #region Calculate
+    public PlayerStatus CalculateTsumoScore()
+    {
+        var cards = GetArray(Cards);
+        var openedCards = GetArray(OpenendCards);
+        HandCalculator.RequestTsumoScore(cards, openedCards, AgariContext, playerStatus);
+
+        return playerStatus;
+    }
+
+    public PlayerStatus CalculateRonScore()
+    {
+        var cards = GetArray(Cards);
+        var openedCards = GetArray(OpenendCards);
+        HandCalculator.RequestRonScore(cards, openedCards, AgariContext, playerStatus);
+
+        return playerStatus;
+    }
+
     bool IsYakuNashi(Card tsumoCard, Card nakiCard)
     {
         // 야쿠나시 검사는 13장일 때 함
@@ -501,35 +535,29 @@ public class Player : UdonSharpBehaviour
             playerStatus);
         return playerStatus.TotalHan == 0;
     }
+    #endregion
 
-    private void Update()
+    #region PlayerInfo
+    public void SetPlayerName(string name)
     {
-        if (!Networking.IsNetworkSettled) { return; }
-
-        if (string.IsNullOrEmpty(NetworkMessage))
-        {
-            return;
-        }
-
-        var splited = NetworkMessage.Split(',');
-        var networkMessageNumber = int.Parse(splited[0]);
-
-        if (lastMessageNumber != networkMessageNumber)
-        {
-            lastMessageNumber = networkMessageNumber;
-
-            switch (splited[1])
-            {
-                case "Riichi":
-                    Debug.Log($"[Player] RiichiBon setActive : {splited[2]}");
-                    RiichiBon.SetActive(bool.Parse(splited[2]));
-                    break;
-                case "Name":
-                    l_SetPlayerName(splited[2]);
-                    break;
-            }
-            
-
-        }
+        PlayerName = name;
+        NetworkMessage = SerializePlayerName(name);
     }
+
+    public void l_SetPlayerName(string name)
+    {
+        TableViewer.setPlayerName(name, PlayerIndex);
+    }
+
+    public void SetWind(string wind)
+    {
+        playerStatus.Wind = wind;
+        TableViewer.setWInd(PlayerIndex, wind);
+    }
+
+    public void SetRoundWind(string roundWind)
+    {
+        playerStatus.RoundWind = roundWind;
+    }
+    #endregion
 }

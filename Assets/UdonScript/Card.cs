@@ -8,7 +8,7 @@ public class Card : UdonSharpBehaviour
 {
 
     [UdonSynced(UdonSyncMode.None)] public string Type = "None";
-    [UdonSynced(UdonSyncMode.None)] public int CardNumber = -1;
+    [UdonSynced(UdonSyncMode.None)] public uint CardNumber = 99;
     [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = "None";
 
     [UdonSynced(UdonSyncMode.None)] public Vector3 Position;
@@ -91,7 +91,7 @@ public class Card : UdonSharpBehaviour
     {
         resetCard();
         Type = type;
-        CardNumber = cardNumber;
+        CardNumber = (uint)cardNumber;
         IsDora = isRedDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
         SpriteNamePostfix = isRedDora ? "도라" : "";
@@ -112,10 +112,17 @@ public class Card : UdonSharpBehaviour
         IsColliderActive = t;
     }
 
-    public void SetPosition(Vector3 position, Quaternion rotation)
+    public void SetPosition(Vector3 position, Quaternion rotation, bool synced)
     {
-        Position = position;
-        Rotation = rotation;
+        if (synced)
+        {
+            Position = position;
+            Rotation = rotation;
+        }
+        else
+        {
+            transform.SetPositionAndRotation(position, rotation);
+        }
     }
 
     public string GetCardSpriteName()
@@ -200,7 +207,7 @@ public class Card : UdonSharpBehaviour
     {
         return SpriteRenderer != null
             && Type != "None"
-            && CardNumber != -1
+            && CardNumber != 99
             && SpriteNamePostfix != "None";
     }
 }
