@@ -446,6 +446,8 @@ namespace UdonSharpEditor
 
                 if (chosenFilePath.Length > 0)
                 {
+                    chosenFilePath = UdonSharpSettings.SanitizeScriptFilePath(chosenFilePath);
+
                     string fileContents = UdonSharpSettings.GetProgramTemplateString(Path.GetFileNameWithoutExtension(chosenFilePath));
 
                     File.WriteAllText(chosenFilePath, fileContents, System.Text.Encoding.UTF8);
@@ -592,8 +594,8 @@ namespace UdonSharpEditor
             {
                 UdonBehaviour targetBehaviour = objectFieldValue as UdonBehaviour;
                 UdonSharpProgramAsset targetProgramAsset = targetBehaviour?.programSource as UdonSharpProgramAsset;
-                if (targetProgramAsset?.sourceCsScript?.GetClass() != null)
-                    variableType = targetProgramAsset.sourceCsScript.GetClass();
+                if (targetProgramAsset?.GetClass() != null)
+                    variableType = targetProgramAsset.GetClass();
 
                 labelText = $"{objectFieldValue.name} ({variableType.Name})";
             }

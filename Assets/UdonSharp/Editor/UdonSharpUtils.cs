@@ -485,6 +485,11 @@ namespace UdonSharp
                    IsUserJaggedArray(type);
         }
 
+        public static bool IsUdonWorkaroundType(System.Type type)
+        {
+            return type == typeof(VRC.SDK3.Video.Components.VRCUnityVideoPlayer) || type == typeof(VRC.SDK3.Video.Components.AVPro.VRCAVProVideoPlayer);
+        }
+
         public static System.Type GetRootElementType(System.Type type)
         {
             while (type.IsArray)
@@ -544,12 +549,21 @@ namespace UdonSharp
 
             return type;
         }
-
-        // Doesn't work in a multi threaded context, todo: consider making this a concurrent collection or making one for each thread.
-        //private static Dictionary<System.Type, System.Type> userTypeToUdonTypeCache = new Dictionary<System.Type, System.Type>();
+        
+        [ThreadStatic]
+        private static Dictionary<System.Type, System.Type> userTypeToUdonTypeCache;
 
         public static System.Type UserTypeToUdonType(System.Type type)
         {
+            if (type == null)
+                return null;
+
+            if (userTypeToUdonTypeCache == null)
+                userTypeToUdonTypeCache = new Dictionary<Type, Type>();
+
+            if (userTypeToUdonTypeCache.TryGetValue(type, out System.Type foundType))
+                return foundType;
+            
             System.Type udonType = null;
 
             if (IsUserDefinedType(type))
@@ -575,6 +589,8 @@ namespace UdonSharp
                 udonType = type;
 
             udonType = RemapBaseType(udonType);
+            
+            userTypeToUdonTypeCache.Add(type, udonType);
 
             return udonType;
         }

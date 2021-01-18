@@ -25,6 +25,7 @@ namespace UdonSharpEditor
             EditorSceneManager.sceneOpened += OnSceneOpened;
             EditorApplication.update += OnEditorUpdate;
             EditorApplication.playModeStateChanged += OnChangePlayMode;
+            AssemblyReloadEvents.beforeAssemblyReload += BeforeAssemblyReloadCleanup;
             AssemblyReloadEvents.afterAssemblyReload += RunPostAssemblyBuildRefresh;
         }
 
@@ -56,6 +57,14 @@ namespace UdonSharpEditor
             InjectUnityEventInterceptors();
         }
 
+        const string HARMONY_ID = "UdonSharp.Editor.EventPatch";
+
+        private static void BeforeAssemblyReloadCleanup()
+        {
+            Harmony harmony = new Harmony(HARMONY_ID);
+            harmony.UnpatchAll(HARMONY_ID);
+        }
+
         static void InjectUnityEventInterceptors()
         {
             List<System.Type> udonSharpBehaviourTypes = new List<Type>();
@@ -68,10 +77,9 @@ namespace UdonSharpEditor
                         udonSharpBehaviourTypes.Add(type);
                 }
             }
-
-            const string harmonyID = "UdonSharp.Editor.EventPatch";
-            Harmony harmony = new Harmony(harmonyID);
-            harmony.UnpatchAll(harmonyID);
+            
+            Harmony harmony = new Harmony(HARMONY_ID);
+            harmony.UnpatchAll(HARMONY_ID);
 
             MethodInfo injectedEvent = typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.EventInterceptor), BindingFlags.Static | BindingFlags.Public);
             HarmonyMethod injectedMethod = new HarmonyMethod(injectedEvent);
@@ -184,6 +192,26 @@ namespace UdonSharpEditor
             HarmonyMethod preBuildHarmonyMethod = new HarmonyMethod(preBuildMethod);
 
             harmony.Patch(buildAssetbundlesMethod, preBuildHarmonyMethod, postBuildHarmonyMethod);
+
+#if ODIN_INSPECTOR_3
+            try
+            {
+                Assembly odinEditorAssembly = UdonSharpUtils.GetLoadedEditorAssemblies().FirstOrDefault(assembly => assembly.GetName().Name == "Sirenix.OdinInspector.Editor");
+
+                System.Type editorUtilityType = odinEditorAssembly.GetType("Sirenix.OdinInspector.Editor.CustomEditorUtility");
+
+                MethodInfo resetCustomEditorsMethod = editorUtilityType.GetMethod("ResetCustomEditors");
+
+                MethodInfo odinInspectorOverrideMethod = typeof(InjectedMethods).GetMethod(nameof(InjectedMethods.OdinInspectorOverride), BindingFlags.Public | BindingFlags.Static);
+                HarmonyMethod odinInspectorOverrideHarmonyMethod = new HarmonyMethod(odinInspectorOverrideMethod);
+
+                harmony.Patch(resetCustomEditorsMethod, null, odinInspectorOverrideHarmonyMethod);
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Failed to patch Odin inspector fix for U#\nException: {e}");
+            }
+#endif
         }
 
         static class InjectedMethods
@@ -243,6 +271,9 @@ namespace UdonSharpEditor
                     {
                         foreach (UnityEngine.Object reference in references)
                         {
+                            if (reference == null)
+                                continue;
+
                             System.Type refType = reference.GetType();
 
                             if (objType.IsAssignableFrom(refType))
@@ -324,6 +355,13 @@ namespace UdonSharpEditor
                 CreateProxyBehaviours(GetAllUdonBehaviours());
                 _skipSceneOpen = false;
             }
+
+#if ODIN_INSPECTOR_3
+            public static void OdinInspectorOverride()
+            {
+                UdonBehaviourDrawerOverride.OverrideUdonBehaviourDrawer();
+            }
+#endif
         }
 
         static void OnChangePlayMode(PlayModeStateChange state)
@@ -527,7 +565,7 @@ namespace UdonSharpEditor
             if (behaviourProgramAsset is UdonSharpProgramAsset behaviourUSharpAsset && 
                 expectedType != typeof(UdonBehaviour)) // Leave references to UdonBehaviours intact to prevent breaks on old behaviours, this may be removed in 1.0 to enforce the correct division in types in C# land
             {
-                System.Type symbolUSharpType = behaviourUSharpAsset.sourceCsScript?.GetClass();
+                System.Type symbolUSharpType = behaviourUSharpAsset.GetClass();
 
                 if (symbolUSharpType != null &&
                     symbolUSharpType != expectedType &&
