@@ -1459,7 +1459,7 @@ public class HandCalculator : UdonSharpBehaviour
     Card TEST__SetTestData(Card card, string type, int cardNumber)
     {
         card.Type = type;
-        card.CardNumber = cardNumber;
+        card.CardNumber = (uint)cardNumber;
         card.GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
         return card;
     }
