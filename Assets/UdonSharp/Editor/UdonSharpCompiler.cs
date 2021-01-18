@@ -62,6 +62,39 @@ namespace UdonSharp.Compiler
             isEditorBuild = editorBuild;
         }
 
+        void CheckProgramAssetCollisions(UdonSharpProgramAsset[] programs)
+        {
+            EditorUtility.DisplayProgressBar("UdonSharp Compile", "Validating Program Assets...", 0f);
+
+            Dictionary<MonoScript, List<UdonSharpProgramAsset>> scriptToAssetMap = new Dictionary<MonoScript, List<UdonSharpProgramAsset>>();
+
+            foreach (UdonSharpProgramAsset programAsset in programs)
+            {
+                if (programAsset == null || programAsset.sourceCsScript == null)
+                    continue;
+
+                // Add program asset to map to check if there are any duplicate program assets that point to the same script
+                List<UdonSharpProgramAsset> programAssetList;
+                if (!scriptToAssetMap.TryGetValue(programAsset.sourceCsScript, out programAssetList))
+                {
+                    programAssetList = new List<UdonSharpProgramAsset>();
+                    scriptToAssetMap.Add(programAsset.sourceCsScript, programAssetList);
+                }
+
+                programAssetList.Add(programAsset);
+            }
+            
+            foreach (var scriptAssetMapping in scriptToAssetMap)
+            {
+                if (scriptAssetMapping.Value.Count > 1)
+                {
+                    Debug.LogWarning($"[<color=#FF00FF>UdonSharp</color>] Script {Path.GetFileName(AssetDatabase.GetAssetPath(scriptAssetMapping.Key))} is referenced by {scriptAssetMapping.Value.Count} UdonSharpProgramAssets, scripts should only be referenced by 1 program asset. This will cause issues.\n" +
+                        "Referenced program assets:\n" +
+                        string.Join(",\n", scriptAssetMapping.Value.Select(e => AssetDatabase.GetAssetPath(e))));
+                }
+            }
+        }
+
         public void Compile()
         {
             Profiler.BeginSample("UdonSharp Compile");
@@ -73,20 +106,32 @@ namespace UdonSharp.Compiler
 
             try
             {
-                EditorUtility.DisplayProgressBar("UdonSharp Compile", "Parsing Syntax Trees...", 0f);
-                
+                EditorUtility.DisplayProgressBar("UdonSharp Compile", "Initializing...", 0f);
+
                 UdonSharpProgramAsset[] allPrograms = UdonSharpProgramAsset.GetAllUdonSharpPrograms();
                 List<(UdonSharpProgramAsset, string)> programAssetsAndPaths = new List<(UdonSharpProgramAsset, string)>();
 
                 foreach (UdonSharpProgramAsset programAsset in allPrograms)
                 {
-                    if (programAsset == null || programAsset.sourceCsScript == null)
+                    if (programAsset == null)
                         continue;
 
+                    if (programAsset.sourceCsScript == null)
+                    {
+                        Debug.LogWarning($"[<color=#FF00FF>UdonSharp</color>] Program asset '{AssetDatabase.GetAssetPath(programAsset)}' is missing a source C# script");
+                        continue;
+                    }
+
                     programAssetsAndPaths.Add((programAsset, AssetDatabase.GetAssetPath(programAsset.sourceCsScript)));
+
+                    programAsset.compileErrors.Clear(); // Clear compile errors to keep them from stacking if not resolved
                 }
 
+                CheckProgramAssetCollisions(allPrograms);
+
                 UdonSharpProgramAsset[] programAssetsToCompile = modules.Select(e => e.programAsset).Where(e => e != null && e.sourceCsScript != null).ToArray();
+                
+                EditorUtility.DisplayProgressBar("UdonSharp Compile", "Executing pre-build events...", 0f);
 
                 try
                 {
@@ -96,6 +141,8 @@ namespace UdonSharp.Compiler
                 {
                     Debug.LogError($"Exception thrown by pre compile listener\n{e}");
                 }
+
+                EditorUtility.DisplayProgressBar("UdonSharp Compile", "Parsing Syntax Trees...", 0f);
 
                 object syntaxTreeLock = new object();
                 List<(UdonSharpProgramAsset, Microsoft.CodeAnalysis.SyntaxTree)> programsAndSyntaxTrees = new List<(UdonSharpProgramAsset, Microsoft.CodeAnalysis.SyntaxTree)>();
@@ -259,6 +306,8 @@ namespace UdonSharp.Compiler
                         UdonSharpEditorCache.Instance.ClearSourceHash(module.programAsset);
                     }
                 }
+                
+                EditorUtility.DisplayProgressBar("UdonSharp Compile", "Executing post-build events...", 1f);
 
                 try
                 {
@@ -335,6 +384,12 @@ namespace UdonSharp.Compiler
                 if (bindResult.compileErrors.Count == 0)
                 {
                     classDefinitions.Add(bindResult.classDefinition);
+
+                    if (bindResult.sourceScript.GetClass() == null && 
+                        bindResult.classDefinition.userClassType.Name != Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(bindResult.sourceScript)))
+                    {
+                        Debug.LogWarning($"[<color=#FF00FF>UdonSharp</color>] {AssetDatabase.GetAssetPath(bindResult.sourceScript)}: Class name does not match file name, Unity requires that both names match exactly for the editor to work properly.", bindResult.sourceScript);
+                    }
                 }
                 else
                 {
@@ -478,6 +533,8 @@ namespace UdonSharp.Compiler
             return namespaceStr + nestedTypeStr + type.Name;
         }
 
+        private static List<MetadataReference> metadataReferences;
+
         private int RunFieldInitalizers(CompilationModule[] compiledModules)
         {
             CompilationModule[] modulesToInitialize = compiledModules.Where(e => e.fieldsWithInitializers.Count > 0).ToArray();
@@ -575,32 +632,36 @@ namespace UdonSharp.Compiler
                 initializerTrees[moduleIdx] = syntaxTree;
             }
 
-            var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
-            var references = new List<MetadataReference>();
-            for (int i = 0; i < assemblies.Length; i++)
+            if (metadataReferences == null)
             {
-                if (!assemblies[i].IsDynamic && assemblies[i].Location.Length > 0)
+                var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
+                metadataReferences = new List<MetadataReference>();
+
+                for (int i = 0; i < assemblies.Length; i++)
                 {
-                    PortableExecutableReference executableReference = null;
-
-                    try
+                    if (!assemblies[i].IsDynamic && assemblies[i].Location.Length > 0)
                     {
-                        executableReference = MetadataReference.CreateFromFile(assemblies[i].Location);
-                    }
-                    catch (System.Exception e)
-                    {
-                        Debug.LogError($"Unable to locate assembly {assemblies[i].Location} Exception: {e}");
-                    }
+                        PortableExecutableReference executableReference = null;
 
-                    if (executableReference != null)
-                        references.Add(executableReference);
+                        try
+                        {
+                            executableReference = MetadataReference.CreateFromFile(assemblies[i].Location);
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogError($"Unable to locate assembly {assemblies[i].Location} Exception: {e}");
+                        }
+
+                        if (executableReference != null)
+                            metadataReferences.Add(executableReference);
+                    }
                 }
             }
 
             CSharpCompilation compilation = CSharpCompilation.Create(
                 $"UdonSharpInitAssembly{initAssemblyCounter++}",
                 syntaxTrees: initializerTrees,
-                references: references,
+                references: metadataReferences,
                 options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
             using (var memoryStream = new MemoryStream())
@@ -636,7 +697,17 @@ namespace UdonSharp.Compiler
 
                         System.Type cls = assembly.GetType($"FieldInitialzers.Initializer{moduleIdx}");
                         MethodInfo methodInfo = cls.GetMethod("DoInit", BindingFlags.Public | BindingFlags.Static);
-                        methodInfo.Invoke(null, new object[] { program, typeof(UdonSharpCompiler).GetMethod("SetHeapField", BindingFlags.NonPublic | BindingFlags.Static) });
+
+                        try
+                        {
+                            methodInfo.Invoke(null, new object[] { program, typeof(UdonSharpCompiler).GetMethod("SetHeapField", BindingFlags.NonPublic | BindingFlags.Static) });
+                        }
+                        catch (System.Exception e)
+                        {
+                            UdonSharpUtils.LogBuildError($"Exception encountered in field initializer: {e}", AssetDatabase.GetAssetPath(module.programAsset.sourceCsScript), 0, 0);
+                            initializerErrorCount++;
+                            break;
+                        }
 
                         foreach (var fieldDeclarationSyntax in module.fieldsWithInitializers)
                         {
