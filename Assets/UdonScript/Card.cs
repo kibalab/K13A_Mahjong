@@ -7,14 +7,14 @@ using UnityEngine.SocialPlatforms;
 public class Card : UdonSharpBehaviour
 {
 
-    [UdonSynced(UdonSyncMode.None)] public string Type = "None";
-    [UdonSynced(UdonSyncMode.None)] public uint CardNumber = 99;
-    [UdonSynced(UdonSyncMode.None)] public string SpriteNamePostfix = "None";
+    public string Type = "None";
+    public int CardNumber = 99;
+    public string SpriteNamePostfix = "None";
 
-    [UdonSynced(UdonSyncMode.None)] public Vector3 Position;
-    [UdonSynced(UdonSyncMode.None)] public Quaternion Rotation;
-    [UdonSynced(UdonSyncMode.None)] public bool IsColliderActive;
-    [UdonSynced(UdonSyncMode.None)] public bool IsDora;
+    public Vector3 Position;
+    public Quaternion Rotation;
+    public bool IsColliderActive;
+    public bool IsDora;
 
     public bool IsRinShan;
     public int YamaIndex;
@@ -36,9 +36,10 @@ public class Card : UdonSharpBehaviour
     public override void Interact()
     {
         LogViewer.Log($"Call Interact() from {ToString()}", 0);
-        RequestCallFunctionToOwner(nameof(l_Interact));
+        RequestCallFunctionToAll(nameof(l_Interact));
         RequestCallFunctionToAll(nameof(l_playTabSound));
     }
+
 
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
@@ -91,7 +92,7 @@ public class Card : UdonSharpBehaviour
     {
         resetCard();
         Type = type;
-        CardNumber = (uint)cardNumber;
+        CardNumber = cardNumber;
         IsDora = isRedDora;
         GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
         SpriteNamePostfix = isRedDora ? "도라" : "";
@@ -114,15 +115,8 @@ public class Card : UdonSharpBehaviour
 
     public void SetPosition(Vector3 position, Quaternion rotation, bool synced)
     {
-        if (synced)
-        {
-            Position = position;
-            Rotation = rotation;
-        }
-        else
-        {
-            transform.SetPositionAndRotation(position, rotation);
-        }
+        Position = position;
+        Rotation = rotation;
     }
 
     public string GetCardSpriteName()
@@ -207,7 +201,7 @@ public class Card : UdonSharpBehaviour
     {
         return SpriteRenderer != null
             && Type != "None"
-            && CardNumber != 99
+            && CardNumber != -1
             && SpriteNamePostfix != "None";
     }
 }

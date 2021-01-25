@@ -348,6 +348,15 @@ public class HandCalculator : UdonSharpBehaviour
         var souCtxs = Find(localGlobalOrders, HandUtil.GetSouStartGlobalOrder(), HandUtil.GetSouEndGlobalOrder());
         var wordCtxs = Find(localGlobalOrders, HandUtil.GetWordsStartGlobalOrder(), HandUtil.GetWordsEndGlobalOrder());
 
+        /*if (manCtxs[0] == null)
+            Debug.Log("[HandCalculator] manCtxs 이게 대체 뭔데 NULL이야!!!");
+        if (pinCtxs[0] == null)
+            Debug.Log("[HandCalculator] pinCtxs 이게 대체 뭔데 NULL이야!!!");
+        if (souCtxs[0] == null)
+            Debug.Log("[HandCalculator] souCtxs 이게 대체 뭔데 NULL이야!!!");
+        if (wordCtxs[0] == null)
+            Debug.Log("[HandCalculator] wordCtxs 이게 대체 뭔데 NULL이야!!!");*/
+
         // 111222333의 경우, 123/123/123과 111/222/333이 있을 수 있다
         // 따라서 (만의 슌커쯔)x(삭의 슌커쯔)x(통의 슌커쯔)가 경우의 수가 된다
         // 자패는 커쯔밖에 없으니 바뀔 일이 없음
@@ -379,14 +388,14 @@ public class HandCalculator : UdonSharpBehaviour
                                 maxChiPonCount = chiPonCount;
                                 Result.Clear();
                             }
-
                             Result.Add(ctx);
                         }
                     }
                 }
             }
         }
-
+        
+        
         return Result.Clone();
     }
 
@@ -1459,7 +1468,7 @@ public class HandCalculator : UdonSharpBehaviour
     Card TEST__SetTestData(Card card, string type, int cardNumber)
     {
         card.Type = type;
-        card.CardNumber = (uint)cardNumber;
+        card.CardNumber = cardNumber;
         card.GlobalOrder = HandUtil.GetGlobalOrder(type, cardNumber);
         return card;
     }

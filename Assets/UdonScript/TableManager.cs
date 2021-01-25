@@ -17,7 +17,9 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject DoraViewer;
     [SerializeField] public TableViewer TableViewer;
 
-    [UdonSynced(UdonSyncMode.None)] public int currentTurnPlayer = 0;
+    
+
+    public int currentTurnPlayer = 0;
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
 
     public string lastedDoraSpriteName = "";
@@ -328,6 +330,7 @@ public class TableManager : UdonSharpBehaviour
 
         while (yetShuffledCount >= 0)
         {
+            
             var picked = Random.Range(0, yetShuffledCount + 1);
             shuffledCards[shuffledIndex] = cards[picked];
             cards[picked] = cards[yetShuffledCount];
@@ -402,7 +405,7 @@ public class TableManager : UdonSharpBehaviour
 
         lastedDoraSpriteName = nextCard.GetCardSpriteName();
 
-        NetworkMessage = SerializeDora(lastedDoraSpriteName);
+        //NetworkMessage = SerializeDora(lastedDoraSpriteName);
 
 
 

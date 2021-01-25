@@ -191,7 +191,7 @@ public class UIManager : UdonSharpBehaviour
     void ClickChiSelect(string uiName)
     {
         var funcName = GetChiFuncByUIName(uiName);
-        RequestCallFunctionToOwner(funcName);
+        RequestCallFunctionToAll(funcName);
     }
 
     string GetChiFuncByUIName(string uiName)
@@ -218,7 +218,7 @@ public class UIManager : UdonSharpBehaviour
     public void ClickOthers(string uiName)
     {
         var funcName = $"l_Click{uiName}";
-        RequestCallFunctionToOwner(funcName);
+        RequestCallFunctionToAll(funcName);
     }
     public void l_ClickPon() { SetUIEvent("Pon"); }
     public void l_ClickKkan() { SetUIEvent("Kkan"); }
@@ -237,7 +237,7 @@ public class UIManager : UdonSharpBehaviour
         EventQueue.SetUIEvent(eventName, PlayerIndex);
     }
 
-    void RequestCallFunctionToOwner(string funcName)
+    void RequestCallFunctionToAll(string funcName)
     {
         if (Networking.LocalPlayer == null)
         {
@@ -245,7 +245,7 @@ public class UIManager : UdonSharpBehaviour
         }
         else
         {
-            SendCustomNetworkEvent(NetworkEventTarget.Owner, funcName);
+            SendCustomNetworkEvent(NetworkEventTarget.All, funcName);
         }
     }
 
