@@ -846,13 +846,17 @@
       <Project>{92DBFDDD-9A81-2345-2594-92B3FB60A86D}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="VRC.Udon.Editor.UPMImporter.csproj">
-      <Project>{9762FD49-E70D-8E84-4874-822FD7AF0B61}</Project>
-      <Name>VRC.Udon.Editor.UPMImporter</Name>
-    </ProjectReference>
     <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
       <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
       <Name>VRC.Udon.Serialization.OdinSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
+      <Name>UdonSharp.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UdonSharp.Editor.csproj">
+      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
+      <Name>UdonSharp.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="VRC.Udon.csproj">
       <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>
@@ -870,17 +874,13 @@
       <Project>{4740F001-1A05-D2E1-8AA9-3DBE3935793B}</Project>
       <Name>VRC.SDKBase.Editor.BuildPipeline</Name>
     </ProjectReference>
+    <ProjectReference Include="VRC.Udon.Editor.UPMImporter.csproj">
+      <Project>{9762FD49-E70D-8E84-4874-822FD7AF0B61}</Project>
+      <Name>VRC.Udon.Editor.UPMImporter</Name>
+    </ProjectReference>
     <ProjectReference Include="VRCSDK.ShaderStripping.csproj">
       <Project>{E904A13C-84E8-D6AF-4BBD-3ED67634E3F2}</Project>
       <Name>VRCSDK.ShaderStripping</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
-      <Name>UdonSharp.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Editor.csproj">
-      <Project>{CFF47F0A-0B0F-B60F-7194-1C0DCEE2893C}</Project>
-      <Name>UdonSharp.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

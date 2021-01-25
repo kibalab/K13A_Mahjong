@@ -143,7 +143,7 @@ public class Player : UdonSharpBehaviour
         playerStatus.IsOneShotRiichi = true;
         setStashPositionRichMode();
         Debug.Log($"[Player] Request RiichiBon setActive : {true}");
-        NetworkMessage = SerializeRiichi(true);
+        NetworkMessage = SerializeRiichi(true); 
     }
 
     public void ActiveRiichiCreateCardColliders()
@@ -248,6 +248,10 @@ public class Player : UdonSharpBehaviour
         playerStatus.IsFirstOrder = false;
 
         SortPosition();
+        foreach (Card debugCard in (Card[])OpenendCards.Clone())
+        {
+            Debug.Log(debugCard.ToString());
+        }
 
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
 
@@ -381,7 +385,7 @@ public class Player : UdonSharpBehaviour
     }
 
     #endregion
-
+     
     #region UI
 
     public bool IsUIActived()

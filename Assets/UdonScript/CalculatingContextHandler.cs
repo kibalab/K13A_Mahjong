@@ -120,6 +120,10 @@ public class CalculatingContextHandler : UdonSharpBehaviour
 
     public int[] ReadGlobalOrders(object[] context)
     {
+        if(context == null)
+        {
+            Debug.LogError("[Debug] 어어 왜 NULL이지??");
+        }
         return (int[])context[GLOBALORDERS];
     }
 

@@ -33,8 +33,8 @@ public class ScoreCalculator : UdonSharpBehaviour
         var maxHan = 0;
         var maxFu = 0;
 
-        Debug.Log($"openedCards Lenght : {openedCards.Length}");
-        
+        Debug.Log($"[ScoreCalculator] openedCards Lenght : {openedCards.Length}");
+
         foreach (object[] ctx in ctxs)
         {
             var globalOrders = Ctx.ReadGlobalOrders(ctx);

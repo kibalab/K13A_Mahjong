@@ -16,13 +16,15 @@ public class GameManager : UdonSharpBehaviour
     [SerializeField] public JoinStatus JoinStatus;
     [SerializeField] public ResultViewer ResultViewer;
 
+    [UdonSynced(UdonSyncMode.None)] public int seed = 0;
+
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
     const string State_WaitForNaki = "WaitForNaki";
     const string State_EndOfRound = "EndOfRound";
     const string State_EndOfGame = "EndOfGame";
 
-    private bool isRunOnMasterScript = false;
+    private bool ReadyForGame = false;
     private bool isNetworkReady;
 
     private int registeredPlayerCount = 0;
@@ -40,6 +42,7 @@ public class GameManager : UdonSharpBehaviour
         if (Networking.LocalPlayer == null)
         {
             Initialize_Master();
+            Initialize_Local();
             ActiveTestMode();
         }
 
@@ -53,6 +56,7 @@ public class GameManager : UdonSharpBehaviour
             Networking.SetOwner(player, gameObject);
 
             Initialize_Master();
+            Initialize_Local();
             if (testMode)
             {
                 ActiveTestMode();
@@ -67,19 +71,29 @@ public class GameManager : UdonSharpBehaviour
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
             LogViewer.Log($"Player Joined. {player.displayName}", 1);
+            //Initialize_Local();
+            
         }
     }
 
     public void Initialize_Master() 
     {
+        seed = UnityEngine.Random.Range(1, 2147483647);
+        LogViewer.Log($"Create Seed : {seed}", 0);
+    }
+
+    public void Initialize_Local()
+    {
+        UnityEngine.Random.InitState(seed);
+        LogViewer.Log($"Set Seed : {seed}", 0);
         ChangeGameState(State_WaitForStart);
         TableManager.Initialize();
         EventQueue.Initialize();
         registeredPlayers = new VRCPlayerApi[4];
         winds = new string[] { "East", "South", "West", "North" };
 
-        isRunOnMasterScript = true;
-        LogViewer.Log("Master Initalized", 0);
+        ReadyForGame = true;
+        LogViewer.Log("Game Initalized", 0);
     }
 
     void ActiveTestMode()
@@ -98,7 +112,16 @@ public class GameManager : UdonSharpBehaviour
 
         if (!IsReady()) { return; }
 
-        if (!isRunOnMasterScript) { return; }
+        if (!ReadyForGame && seed != 0) { 
+            Initialize_Local();
+            if (testMode)
+            {
+                ActiveTestMode();
+            }
+            return;
+        }
+
+        if (!ReadyForGame) { return; }
 
         if (pauseQueueTime > 0.0f)
         {

@@ -6,27 +6,27 @@ using VRC.Udon;
 
 public class UIContext : UdonSharpBehaviour
 {
-    [UdonSynced(UdonSyncMode.None)] public int ChiableCount;
-    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex1;
-    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex2;
-    [UdonSynced(UdonSyncMode.None)] public Vector2 ChiableIndex3;
+    public int ChiableCount;
+    public Vector2 ChiableIndex1;
+    public Vector2 ChiableIndex2;
+    public Vector2 ChiableIndex3;
 
-    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite11;
-    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite12;
-    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite21;
-    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite22;
-    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite31;
-    [UdonSynced(UdonSyncMode.None)] public string ChiableSprite32;
+    public string ChiableSprite11;
+    public string ChiableSprite12;
+    public string ChiableSprite21;
+    public string ChiableSprite22;
+    public string ChiableSprite31;
+    public string ChiableSprite32;
 
-    [UdonSynced(UdonSyncMode.None)] public string AgariableCards;
-    [UdonSynced(UdonSyncMode.None)] public int AgariableMessageIndex;
+    public string AgariableCards;
+    public int AgariableMessageIndex;
 
-    [UdonSynced(UdonSyncMode.None)] public bool IsTsumoable;
-    [UdonSynced(UdonSyncMode.None)] public bool IsRonable;
-    [UdonSynced(UdonSyncMode.None)] public bool IsRiichable;
-    [UdonSynced(UdonSyncMode.None)] public bool IsChiable;
-    [UdonSynced(UdonSyncMode.None)] public bool IsPonable;
-    [UdonSynced(UdonSyncMode.None)] public bool IsKkanable;
+    public bool IsTsumoable;
+    public bool IsRonable;
+    public bool IsRiichable;
+    public bool IsChiable;
+    public bool IsPonable;
+    public bool IsKkanable;
 
 
     public bool IsAnythingActived()
