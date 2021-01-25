@@ -18,7 +18,9 @@ MonoBehaviour:
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 4971171d7443a3f4bbcc13fa171a5760, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors: []
+  compileErrors:
+  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/EventQueue.cs(2,0): System.Reflection.ReflectionTypeLoadException:
+    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

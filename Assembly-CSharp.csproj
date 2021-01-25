@@ -88,8 +88,6 @@
     <Compile Include="Assets\UdonScript\MahjongMessageType.cs" />
     <Compile Include="Assets\UdonScript\MenuUI.cs" />
     <Compile Include="Assets\UdonScript\NakiInput.cs" />
-    <Compile Include="Assets\UdonScript\NetDataProcessor.cs" />
-    <Compile Include="Assets\UdonScript\NetSync.cs" />
     <Compile Include="Assets\UdonScript\NormalYaku.cs" />
     <Compile Include="Assets\UdonScript\Player.cs" />
     <Compile Include="Assets\UdonScript\PlayerStatus.cs" />
@@ -99,7 +97,6 @@
     <Compile Include="Assets\UdonScript\SubtitleComponent.cs" />
     <Compile Include="Assets\UdonScript\TableManager.cs" />
     <Compile Include="Assets\UdonScript\TableViewer.cs" />
-    <Compile Include="Assets\UdonScript\UdonSerializer.cs" />
     <Compile Include="Assets\UdonScript\UdonSharpAttribute.cs" />
     <Compile Include="Assets\UdonScript\UIButton.cs" />
     <Compile Include="Assets\UdonScript\UIContext.cs" />

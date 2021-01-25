@@ -18,7 +18,10 @@ MonoBehaviour:
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c8b2c2c2ae1475b4f957edf7a7b6b84d, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors: []
+  compileErrors:
+  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/ScoreCalculator.cs(2,0):
+    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
+    was thrown.'
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

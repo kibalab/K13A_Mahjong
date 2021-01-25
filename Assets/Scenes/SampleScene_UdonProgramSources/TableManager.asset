@@ -19,9 +19,8 @@ MonoBehaviour:
   sourceCsScript: {fileID: 11500000, guid: 6b8e8a335ea8ad942bed53263609d322, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
   compileErrors:
-  - 
-  - '[<color=#FF00FF>UdonSharp</color>] Assets\UdonScript\TableManager.cs(188,23):
-    System.Exception: ''Player'' does not contain a definition for ''CheckAgariable'''
+  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/TableManager.cs(2,0): System.Reflection.ReflectionTypeLoadException:
+    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

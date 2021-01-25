@@ -18,7 +18,9 @@ MonoBehaviour:
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 9f7534553de33e44daf6ad7c9594b1f0, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors: []
+  compileErrors:
+  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/MenuUI.cs(2,0): System.Reflection.ReflectionTypeLoadException:
+    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

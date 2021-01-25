@@ -18,7 +18,10 @@ MonoBehaviour:
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: b815d5b2013e9fb48a2d7856e2255209, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors: []
+  compileErrors:
+  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/CalculatingContextHandler.cs(2,0):
+    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
+    was thrown.'
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

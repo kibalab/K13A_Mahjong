@@ -18,7 +18,10 @@ MonoBehaviour:
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c145dd4792c31da4b83d542b11ca2b66, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors: []
+  compileErrors:
+  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonSharp/Examples/Utilities/InteractToggle.cs(2,0):
+    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
+    was thrown.'
   hasInteractEvent: 1
   serializationData:
     SerializedFormat: 2

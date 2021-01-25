@@ -492,7 +492,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         if (Result.Count() == 0)
         {
-            Result.Insert(0, null);
+            Result.Insert(0, first);
         }
 
         return Result.Clone();
@@ -1237,9 +1237,10 @@ public class HandCalculator : UdonSharpBehaviour
         {
                     TEST__SetTestData(TestComponents[0], "동", 1),
                     TEST__SetTestData(TestComponents[1], "동", 1),
-                    TEST__SetTestData(TestComponents[2], "남", 2),
 
+                    TEST__SetTestData(TestComponents[2], "남", 2),
                     TEST__SetTestData(TestComponents[3], "남", 2),
+
                     TEST__SetTestData(TestComponents[4], "서", 3),
                     TEST__SetTestData(TestComponents[5], "서", 3),
 
@@ -1251,6 +1252,7 @@ public class HandCalculator : UdonSharpBehaviour
 
                     TEST__SetTestData(TestComponents[10], "발", 6),
                     TEST__SetTestData(TestComponents[11], "발", 6),
+
                     TEST__SetTestData(TestComponents[12], "중", 7),
         };
 
