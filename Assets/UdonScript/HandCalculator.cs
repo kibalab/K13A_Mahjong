@@ -78,17 +78,21 @@ public class HandCalculator : UdonSharpBehaviour
         var chiableList = GetChiableAll(cards, discardedCard);
         var isChiable = chiableList.Length > 0 && isDiscardedByLeftPlayer;
 
-        if (!playerStatus.isNoNakiMode)
+        if (!playerStatus.IsRiichiMode)
         {
-            uiContext.IsChiable = isChiable;
-            uiContext.IsPonable = IsPonable(cards, discardedCard);
-            uiContext.IsKkanable = IsKkanable(cards, discardedCard);
+            if (!playerStatus.isNoNakiMode)
+            {
+                uiContext.IsChiable = isChiable;
+                uiContext.IsPonable = IsPonable(cards, discardedCard);
+                uiContext.IsKkanable = IsKkanable(cards, discardedCard);
+            }
+
+            if (isChiable)
+            {
+                SetChiableOnUiContext(uiContext, chiableList);
+            }
         }
 
-        if (isChiable)
-        {
-            SetChiableOnUiContext(uiContext, chiableList);
-        }
 
         uiContext.IsRonable = agariContext.IsAgariable(discardedCard);
         uiContext.IsTsumoable = false;

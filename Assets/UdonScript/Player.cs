@@ -381,10 +381,6 @@ public class Player : UdonSharpBehaviour
                 UIContext.Clear();
                 EventQueue.SetUIEvent("Tsumo", PlayerIndex); 
             }
-            else
-            {
-                UIContext.IsRonable = AgariContext.IsAgariable(card);
-            }
         }
     }
 
