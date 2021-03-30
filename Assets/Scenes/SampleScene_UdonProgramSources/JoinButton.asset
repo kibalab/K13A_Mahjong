@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: JoinButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 11c6e8e9eb964794ea930a5f85fcf300,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3dbb6d3a9d7a4064981862c2ec946d6f,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: bc6ced6e5465f6e458fbe07b0e45b698, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/JoinButton.cs(2,0): System.Reflection.ReflectionTypeLoadException:
-    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
+  compileErrors: []
   hasInteractEvent: 1
   serializationData:
     SerializedFormat: 2

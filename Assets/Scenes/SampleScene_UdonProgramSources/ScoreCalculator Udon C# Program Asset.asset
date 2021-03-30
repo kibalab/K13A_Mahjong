@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: ScoreCalculator Udon C# Program Asset
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: f2368d5a13d0673488e8705ef68ac5ee,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: afaf344ee7b9fa343acaa538308b9c96,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c8b2c2c2ae1475b4f957edf7a7b6b84d, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/ScoreCalculator.cs(2,0):
-    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
-    was thrown.'
+  compileErrors: []
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

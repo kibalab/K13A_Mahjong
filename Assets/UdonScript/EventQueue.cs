@@ -75,6 +75,8 @@ public class EventQueue : UdonSharpBehaviour
     {
         var inputEvent = GetNextInputEvent();
 
+        inputEvent.EventType = "Draw";
+
         inputEvent.DrawReason = reason;
     }
 

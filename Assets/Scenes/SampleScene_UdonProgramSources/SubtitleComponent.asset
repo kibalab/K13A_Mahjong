@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: SubtitleComponent
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: fb87120f638123f4195abe85615640cf,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 5085ad4a40cfb7a4491ec0e2db3ab131,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 82af53b18dc1fa1408a0cf0e1383244e, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/SubtitleComponent.cs(2,0):
-    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
-    was thrown.'
+  compileErrors: []
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

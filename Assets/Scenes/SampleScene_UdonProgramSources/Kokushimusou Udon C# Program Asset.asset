@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: Kokushimusou Udon C# Program Asset
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: c4f607a061fa07c46bb235da3c41d3c1,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 950c84ee852dbdd41b4da829c3311b8f,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 03ea7b773fba10642bed820b4e498972, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/Kokushimusou.cs(2,0): System.Reflection.ReflectionTypeLoadException:
-    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
+  compileErrors: []
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

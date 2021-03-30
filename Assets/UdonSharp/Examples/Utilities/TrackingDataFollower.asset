@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: TrackingDataFollower
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 1d169a3e1afe968438031dd484574d6e,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: c80295c51572f334caa2785a6df4e81f,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: cfa6b6afca5fc44419a259edec93cea2, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonSharp/Examples/Utilities/TrackingDataFollower.cs(2,0):
-    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
-    was thrown.'
+  compileErrors: []
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

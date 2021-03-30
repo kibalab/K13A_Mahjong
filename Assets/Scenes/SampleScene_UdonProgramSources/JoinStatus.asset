@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: JoinStatus
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 726a82c6e8b4ce84f91e49ff273d96fd,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 39a67acfa934df745a7e064bc42420ff,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 9262acaece621cd4e94214801fd01c73, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/JoinStatus.cs(2,0): System.Reflection.ReflectionTypeLoadException:
-    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
+  compileErrors: []
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

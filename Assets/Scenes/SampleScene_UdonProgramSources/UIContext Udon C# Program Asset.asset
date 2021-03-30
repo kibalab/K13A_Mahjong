@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: UIContext Udon C# Program Asset
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: f4e1e652fc0bc8e4fb9d446b0eff4499,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 1e54aa392d51ab44f86122d6edb6f078,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: f929d42149d50e143b83b7aea0ffd3e5, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/UIContext.cs(2,0): System.Reflection.ReflectionTypeLoadException:
-    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
+  compileErrors: []
   hasInteractEvent: 0
   serializationData:
     SerializedFormat: 2

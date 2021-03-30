@@ -148,8 +148,8 @@ public class Player : UdonSharpBehaviour
 
     public void ActiveRiichiCreateCardColliders()
     {
-        // 일단 다 끈다
-        SetColliderActive(false);
+        // 일단 다 끈다 ( 리치모드에서는 메소드가 예외처리됨으로 강제(Boolean) 인수를 추가함 )
+        SetColliderActive(false, true);
 
         var debugStr = "RiichiCreationCards = ";
 
@@ -470,10 +470,10 @@ public class Player : UdonSharpBehaviour
         SortPosition();
     }
 
-    public void SetColliderActive(bool active)
+    public void SetColliderActive(bool active, bool force)
     {
         // 리치 중일 때는 조작이 불가능하게 함
-        if (playerStatus.IsRiichiMode)
+        if (playerStatus.IsRiichiMode && !force)
         {
             return;
         }

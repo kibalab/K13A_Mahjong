@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: InteractToggle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 1ba155e2d2ae59e46b3774326050f0fb,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 406358c5b126f9c438d1623d04823e53,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c145dd4792c31da4b83d542b11ca2b66, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonSharp/Examples/Utilities/InteractToggle.cs(2,0):
-    System.Reflection.ReflectionTypeLoadException: Exception of type ''System.Reflection.ReflectionTypeLoadException''
-    was thrown.'
+  compileErrors: []
   hasInteractEvent: 1
   serializationData:
     SerializedFormat: 2

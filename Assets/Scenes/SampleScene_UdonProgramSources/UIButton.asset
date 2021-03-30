@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: UIButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 01324ffc2433f9040a3e382bf48097b3,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: a1331dde462f2e94493223464e0c8676,
     type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 52e8a7abf623cef49a6d9671b19928e0, type: 3}
   behaviourIDHeapVarName: __refl_const_intnl_udonTypeID
-  compileErrors:
-  - '[<color=#FF00FF>UdonSharp</color>] Assets/UdonScript/UIButton.cs(2,0): System.Reflection.ReflectionTypeLoadException:
-    Exception of type ''System.Reflection.ReflectionTypeLoadException'' was thrown.'
+  compileErrors: []
   hasInteractEvent: 1
   serializationData:
     SerializedFormat: 2

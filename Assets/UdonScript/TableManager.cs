@@ -67,9 +67,9 @@ public class TableManager : UdonSharpBehaviour
     {
         LogViewer.Log($"Turn Changed {currentTurnPlayer} -> {playerIndex}", 1);
 
-        players[currentTurnPlayer].SetColliderActive(false);
+        players[currentTurnPlayer].SetColliderActive(false, false);
         currentTurnPlayer = playerIndex;
-        players[playerIndex].SetColliderActive(true);
+        players[playerIndex].SetColliderActive(true, false);
     }
 
     public void SetRoundWind(string roundWind)
@@ -141,6 +141,7 @@ public class TableManager : UdonSharpBehaviour
             }
 
             SetDoraMaterials(doraGlobalIndex);
+            setDoraViewerNextCard(dora.GetCardSpriteName());
 
             ActiveCurrentPlayerColliders();
         }
@@ -150,10 +151,7 @@ public class TableManager : UdonSharpBehaviour
     {
         foreach (Card card in yama)
         {
-            if (card.GlobalOrder == globalOrder)
-            {
-                card.SetAsDora();
-            }
+            card.SetAsDora(card.GlobalOrder == globalOrder);
         }
     }
 
@@ -162,7 +160,7 @@ public class TableManager : UdonSharpBehaviour
         for (var i = 0; i < 4; i++)
         {
             var active = i == currentTurnPlayer;
-            players[i].SetColliderActive(active);
+            players[i].SetColliderActive(active, false);
         }
     }
 
@@ -226,6 +224,14 @@ public class TableManager : UdonSharpBehaviour
         currentRinShanCardIndex = 0;
         currentDorasCardIndex = 0;
         Initialize();
+
+        foreach (Player p in players)
+        {
+            p.AgariContext.Clear();
+        }
+
+        SetTurnOf(0);
+
         AddNextCard();
     }
 
@@ -264,9 +270,8 @@ public class TableManager : UdonSharpBehaviour
         }
 
         SetDoraMaterials(doraGlobalIndex);
-
+        setDoraViewerNextCard(firstDora.GetCardSpriteName());
         LogViewer.Log($"Set First Dora : {firstDora}", 0);
-
 
         for (int i = 0; i < players.Length; ++i)
         {
@@ -278,6 +283,7 @@ public class TableManager : UdonSharpBehaviour
         }
         LogViewer.Log("PlayersInfo Initalized", 0);
 
+        
     }
 
     public void InitializeYama()
@@ -290,6 +296,7 @@ public class TableManager : UdonSharpBehaviour
             {
                 for (int i = 0; i < 4; ++i)
                 {
+                    yama[index].resetCard();
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
                     yama[index++].Initialize_Master(type, number, isDora);
                 }
@@ -417,11 +424,11 @@ public class TableManager : UdonSharpBehaviour
         var player = GetCurrentTurnPlayer();
         if (player.UIContext.IsAnythingActived())
         {
-            player.SetColliderActive(false);
+            player.SetColliderActive(false, false);
         }
         else
         {
-            player.SetColliderActive(true);
+            player.SetColliderActive(true, false);
         }
 
         if (string.IsNullOrEmpty(NetworkMessage))

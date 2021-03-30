@@ -51,11 +51,11 @@ public class Card : UdonSharpBehaviour
 
     public void resetCard()
     {
-        /*Type = "None";
+        Type = "None";
         CardNumber = -1;
         SpriteNamePostfix = "None";
         IsColliderActive = true;
-        IsDora = false;*/
+        IsDora = false;
         Position = new Vector3(0, 0, 0);
         Rotation = new Quaternion(0, 0, 0, 0);
         IsRinShan = false;
@@ -90,7 +90,6 @@ public class Card : UdonSharpBehaviour
 
     public void Initialize_Master(string type, int cardNumber, bool isRedDora)
     {
-        resetCard();
         Type = type;
         CardNumber = cardNumber;
         IsDora = isRedDora;
@@ -98,9 +97,9 @@ public class Card : UdonSharpBehaviour
         SpriteNamePostfix = isRedDora ? "도라" : "";
     }
 
-    public void SetAsDora()
+    public void SetAsDora(bool b)
     {
-        IsDora = true;
+        IsDora = b;
     }
 
     public void SetOwnership(int playerIndex)
@@ -111,6 +110,8 @@ public class Card : UdonSharpBehaviour
     public void SetColliderActivate(bool t)
     {
         IsColliderActive = t;
+        var meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.materials[1].color = t ? Color.white : new Color(0.9f, 0.9f, 0.9f);
     }
 
     public void SetPosition(Vector3 position, Quaternion rotation, bool synced)
@@ -155,6 +156,11 @@ public class Card : UdonSharpBehaviour
         {
             SpriteRenderer.material = CardSprites.doraMaterial;
             isDoraMaterialSetted = true;
+        }
+        else if(!IsDora)
+        {
+            SpriteRenderer.material = CardSprites.normalMaterial;
+            isDoraMaterialSetted = false;
         }
 
         transform.SetPositionAndRotation(Position, Rotation);

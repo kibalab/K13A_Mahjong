@@ -6,6 +6,7 @@ using VRC.Udon;
 public class CardSprites : UdonSharpBehaviour
 {
     [SerializeField] public Material doraMaterial;
+    [SerializeField] public Material normalMaterial;
     public Sprite FindSprite(string spriteName)
     {
         var spriteGameObject = transform.Find(spriteName);

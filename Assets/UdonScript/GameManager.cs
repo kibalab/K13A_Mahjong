@@ -78,7 +78,8 @@ public class GameManager : UdonSharpBehaviour
 
     public void Initialize_Master() 
     {
-        seed = UnityEngine.Random.Range(1, 2147483647);
+        if(seed == 0)
+            seed = UnityEngine.Random.Range(1, 2147483647);
         LogViewer.Log($"Create Seed : {seed}", 0);
     }
 
@@ -136,8 +137,9 @@ public class GameManager : UdonSharpBehaviour
 
             if (inputEvent.EventType == "Draw") // 유국
             {
-                Debug.Log($"DrawReason: {inputEvent.DrawReason}");
+                LogViewer.Log($"DrawReason: {inputEvent.DrawReason}", 0);
                 TableManager.TableViewer.activeDisplay("Draw", true);
+
 
                 switch (inputEvent.DrawReason)
                 {
@@ -363,7 +365,7 @@ public class GameManager : UdonSharpBehaviour
             // 리치 관련 처리 하고 일반적인 Discard로 이동
             EventQueue.SetDiscardEvent(inputEvent.DiscardedCardYamaIndex, inputEvent.PlayerIndex);
 
-            currentPlayer.SetColliderActive(false);
+            currentPlayer.SetColliderActive(false, false);
         }
         else if (eventType == "Discard")
         {
