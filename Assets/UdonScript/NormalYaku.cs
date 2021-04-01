@@ -90,7 +90,7 @@ public class NormalYaku : UdonSharpBehaviour
     void SetDoubleWaiting(AgariContext agariContext, int globalOrder1, int globalOrder2)
     {
         agariContext.IsSingleWaiting = false;
-        agariContext.AddAgariableGlobalOrder(globalOrder1);
-        agariContext.AddAgariableGlobalOrder(globalOrder2);
+        agariContext.AddAgariableGlobalOrder(globalOrder1-1);
+        agariContext.AddAgariableGlobalOrder(globalOrder2+1);
     }
 }

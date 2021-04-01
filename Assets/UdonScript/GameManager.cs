@@ -161,24 +161,24 @@ public class GameManager : UdonSharpBehaviour
                 case "TsumoCut":
                     {
                         requestPlayer.playerStatus.isAutoDiscardMode = !requestPlayer.playerStatus.isAutoDiscardMode;
-                        break;
+                        return; return;
                     }
 
                 case "AutoAgari":
                     {
                         requestPlayer.playerStatus.isAutoAgariMode = !requestPlayer.playerStatus.isAutoAgariMode;
-                        break;
+                        return;
                     }
 
                 case "NoNaki":
                     {
                         requestPlayer.playerStatus.isNoNakiMode = !requestPlayer.playerStatus.isNoNakiMode;
-                        break;
+                        return;
                     }
                 case "NotSort":
                     {
                         requestPlayer.playerStatus.isNoSortMode = !requestPlayer.playerStatus.isNoSortMode;
-                        break;
+                        return;
                     }
             }
 
