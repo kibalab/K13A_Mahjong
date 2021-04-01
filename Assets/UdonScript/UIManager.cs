@@ -18,11 +18,12 @@ public class UIManager : UdonSharpBehaviour
     [SerializeField] public CardSprites CardSprites;
     [SerializeField] public AudioQueue AudioQueue;
 
+    [SerializeField] public AgariContext AgariContext;
+
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
     private bool isMyTable = true;
 
-    private int AgariableMessageIndex = -1;
 
     void Start()
     {
@@ -36,19 +37,8 @@ public class UIManager : UdonSharpBehaviour
 
         if (isMyTable)
         {
-            if(UIContext.AgariableMessageIndex != AgariableMessageIndex)
-            {
-
-                var cards = UIContext.AgariableCards.Split(',');
-                var i = 0;
-                foreach(var card in cards)
-                {
-                    var image = StatsUI.transform.GetChild(i++).GetChild(0).GetChild(0).GetComponent<Image>();
-                    //image.sprite = CardSprites.FindSprite(card);
-                }
-                setShantenStats(i);
-                AgariableMessageIndex = UIContext.AgariableMessageIndex;
-            }
+            setAgariableViewer(AgariContext.AgariableCardGlobalOrders, AgariContext.AgariableCount, null);
+            setShantenStats(AgariContext.shantenIndex);
 
             if (UIContext.IsChiable)
             {
@@ -65,24 +55,23 @@ public class UIManager : UdonSharpBehaviour
         }
     }
 
-    public void setAgariableViewer(string[] cardNames, string[] cardStats)
+    public void setAgariableViewer(int[] GlobalOrders, int count, string[] cardStats)
     {
-        if(Networking.LocalPlayer != null)
+        for (var i = 0; i < 13; i++)
         {
-            if (Networking.IsMaster)
-            {
-                //동기화를 위해 만들어둔 공간
-            }
+            StatsUI.transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        for(var i = 0; i < cardNames.Length; i++)
+        for(var i = 0; i < count; i++)
         {
-            var plate = StatsUI.transform.Find(i.ToString());
+            var plate = StatsUI.transform.GetChild(i);
             var Img = plate.GetChild(0).GetChild(0).GetComponent<Image>();
             var txt = plate.GetChild(1).GetComponent<Text>();
             
-            Img.sprite = CardSprites.FindSprite(cardNames[i]);
-            txt.text = cardStats[i];
+            Img.sprite = CardSprites.FindSpriteWithInt(GlobalOrders[i]);
+            //txt.text = cardStats[i];
+
+            plate.gameObject.SetActive(true);
         }
         
     }
@@ -94,23 +83,35 @@ public class UIManager : UdonSharpBehaviour
         var str = "";
         switch (needCardCount)
         {
+            case 1:
+                str = "<color=gray>확인안됨</color>";
+                break;
             case 0:
                 str = "<color=red>텐파이</color>";
                 break;
-            case 1:
-                str = "<color=red>이샹텐</color>";
+            case -1:
+                str = "<color=red>이샹텐(1)</color>";
                 break;
-            case 2:
-                str = "<color=orange>량샹텐</color>";
+            case -2:
+                str = "<color=orange>량샹텐(2)</color>";
                 break;
-            case 3:
-                str = "<color=yellow>산샹텐</color>";
+            case -3:
+                str = "<color=yellow>산샹텐(3)</color>";
                 break;
-            case 4:
-                str = "<color=blue>스샹텐</color>";
+            case -4:
+                str = "<color=blue>스샹텐(4)</color>";
                 break;
-            case 5:
-                str = "<color=green>우샹텐</color>";
+            case -5:
+                str = "<color=green>우샹텐(5)</color>";
+                break;
+            case -6:
+                str = "<color=gray>로샹텐(6)</color>";
+                break;
+            case -7:
+                str = "<color=gray>치샹텐(7)</color>";
+                break;
+            case -8:
+                str = "<color=gray>파샹텐(8)</color>";
                 break;
         }
 

@@ -257,6 +257,15 @@ public class Player : UdonSharpBehaviour
 
     }
 
+    public void OpenHandCards()
+    {
+        for(var i = 0; i< Cards.Count(); i++)
+        {
+            ((Card)Cards.At(i)).transform.localEulerAngles += new Vector3(-90, -90, 90);
+            ((Card)Cards.At(i)).Rotation = ((Card)Cards.At(i)).transform.rotation;
+        }
+    }
+
     void SortPosition()
     {
         if (!playerStatus.isNoSortMode)

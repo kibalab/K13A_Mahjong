@@ -19,6 +19,8 @@ public class HandCalculator : UdonSharpBehaviour
     [SerializeField] public HandUtil HandUtil;
     [SerializeField] public ScoreCalculator ScoreCalculator;
 
+    [SerializeField] public CalculateShanten CalculateShanten;
+
     [SerializeField] public Chiitoitsu Chiitoitsu;
     [SerializeField] public Kokushimusou Kokushimusou;
     [SerializeField] public NormalYaku NormalYaku;
@@ -310,6 +312,8 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
         IsTenpai(agariContext, globalOrders);
+
+        agariContext.SetShantenCount(CalculateShanten.Calculate(globalOrders));
 
         //uIContext.SetAgarible(agariContext.AgariableCardGlobalOrders);
     }

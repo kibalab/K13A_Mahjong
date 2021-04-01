@@ -18,4 +18,16 @@ public class CardSprites : UdonSharpBehaviour
         var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
         return spriteRenderer.sprite;
     }
+
+    public Sprite FindSpriteWithInt(int globalOrder)
+    {
+        var spriteGameObject = transform.GetChild(globalOrder);
+        if (spriteGameObject == null)
+        {
+            return null;
+        }
+
+        var spriteRenderer = spriteGameObject.GetComponent<SpriteRenderer>();
+        return spriteRenderer.sprite;
+    }
 }

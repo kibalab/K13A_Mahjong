@@ -33,6 +33,7 @@ public class Card : UdonSharpBehaviour
     private bool isSpriteInitialized = false;
     private bool isDoraMaterialSetted = false;
 
+
     public override void Interact()
     {
         LogViewer.Log($"Call Interact() from {ToString()}", 0);
@@ -64,6 +65,7 @@ public class Card : UdonSharpBehaviour
         IsDiscardedForRiichi = false;
         GlobalOrder = -1;
         isSpriteInitialized = false;
+        SpriteRenderer.sprite = null;
         isDoraMaterialSetted = false;
     }
 
@@ -162,6 +164,7 @@ public class Card : UdonSharpBehaviour
             SpriteRenderer.material = CardSprites.normalMaterial;
             isDoraMaterialSetted = false;
         }
+        
 
         transform.SetPositionAndRotation(Position, Rotation);
     }

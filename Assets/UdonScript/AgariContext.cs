@@ -8,6 +8,10 @@ public class AgariContext : UdonSharpBehaviour
 
     public bool IsSingleWaiting;
 
+    public int shantenIndex = 1;
+
+    public int SetShantenCount(int i) => shantenIndex = i;
+
     public bool IsAgariable(Card card)
     {
         return IsAgariableGlobalOrder(card.GlobalOrder);

@@ -333,6 +333,7 @@ public class GameManager : UdonSharpBehaviour
         else if (eventType == "Tsumo")
         {
             TableManager.SetSubtitleAllPlayers(currentPlayer.gameObject.name, "쯔모");
+            currentPlayer.OpenHandCards();
             TableManager.TableViewer.activeDisplay("Tsumo", true);
             var playerStatus = currentPlayer.CalculateTsumoScore();
 
@@ -493,6 +494,7 @@ public class GameManager : UdonSharpBehaviour
             case "Ron":
                 {
                     TableManager.SetSubtitleAllPlayers(nakiPlayer.gameObject.name, "론!");
+                    nakiPlayer.OpenHandCards();
                     TableManager.TableViewer.activeDisplay("Ron", true);
                     var playerStatus = nakiPlayer.CalculateRonScore();
 

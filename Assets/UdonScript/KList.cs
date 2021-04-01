@@ -20,6 +20,15 @@ public class KList : UdonSharpBehaviour
         return components;
     }
 
+    public object[] AddArray(object[] newComponents)
+    {
+        foreach(object newComponent in newComponents)
+        {
+            Add(newComponent);
+        }
+        return components;
+    }
+
     public object[] Insert(int insertIndex, object component)
     {
         ResizeIfNeeded(true);

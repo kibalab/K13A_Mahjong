@@ -277,6 +277,7 @@ public class TableManager : UdonSharpBehaviour
             player.Initialize(i);
             player.SetCards(pickedCards);
         }
+
         LogViewer.Log("PlayersInfo Initalized", 0);
 
         

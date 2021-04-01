@@ -7,6 +7,7 @@ using VRC.Udon;
 public class NormalYaku : UdonSharpBehaviour
 {
     [SerializeField] public HandUtil HandUtil;
+    [SerializeField] public LogViewer LogViewer;
 
     public bool CheckTenpai(CalculatingContextHandler Ctx, object[] ctxs, AgariContext agariContext, int[] globalOrders)
     {
@@ -33,7 +34,7 @@ public class NormalYaku : UdonSharpBehaviour
                     {
                         SetSingleWaiting(agariContext, i);
 
-                        Debug.Log($"몸4 카드 1, 단면대기 텐파이 GlobalOrder:{i}");
+                        LogViewer.Log($"몸4 카드 1, 단면대기 텐파이 GlobalOrder:{i}", 1);
                         break;
                     }
                 }
@@ -43,7 +44,7 @@ public class NormalYaku : UdonSharpBehaviour
             {
                 SetDoubleWaiting(agariContext, pairs[0], pairs[1]);
 
-                Debug.Log($"몸4 머리 2, 양면대기 텐파이 GlobalOrder:{pairs[0]}, {pairs[1]}");
+                LogViewer.Log($"몸4 머리 2, 양면대기 텐파이 GlobalOrder:{pairs[0]}, {pairs[1]}", 1);
             }
             // 몸 3, 머리 1, 카드2개인 경우 -> 단면 or 양면 or 대기아님
             else if (bodies == 3 && pairs.Length == 1)
@@ -62,7 +63,7 @@ public class NormalYaku : UdonSharpBehaviour
                     {
                         SetDoubleWaiting(agariContext, i, i + 1);
 
-                        Debug.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i}, {i + 1}");
+                        LogViewer.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i}, {i + 1}", 1);
                         break;
                     }
 
@@ -71,7 +72,7 @@ public class NormalYaku : UdonSharpBehaviour
                     {
                         SetSingleWaiting(agariContext, i);
 
-                        Debug.Log($"몸3 머리 1 카드 2, 단면대기 텐파이 GlobalOrder:{i}");
+                        LogViewer.Log($"몸3 머리 1 카드 2, 단면대기 텐파이 GlobalOrder:{i}", 1);
                         break;
                     }
                 }
@@ -90,7 +91,7 @@ public class NormalYaku : UdonSharpBehaviour
     void SetDoubleWaiting(AgariContext agariContext, int globalOrder1, int globalOrder2)
     {
         agariContext.IsSingleWaiting = false;
-        agariContext.AddAgariableGlobalOrder(globalOrder1-1);
-        agariContext.AddAgariableGlobalOrder(globalOrder2+1);
+        agariContext.AddAgariableGlobalOrder(globalOrder1);
+        agariContext.AddAgariableGlobalOrder(globalOrder2);
     }
 }
