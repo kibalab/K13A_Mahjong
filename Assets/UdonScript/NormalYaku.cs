@@ -61,9 +61,10 @@ public class NormalYaku : UdonSharpBehaviour
                     // 2, 3같이 한 칸만 떨어져있는 경우
                     if (remainsGlobalOrders[i] == 1 && remainsGlobalOrders[i + 1] == 1)
                     {
-                        SetDoubleWaiting(agariContext, i, i + 1);
+                        SetDoubleWaiting(agariContext, i - 1, i + 2);
 
-                        LogViewer.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i}, {i + 1}", 1);
+                        LogViewer.Log($"몸3 머리 1 카드 2, 양면대기 텐파이 GlobalOrder:{i - 1}, {i + 2}", 1);
+
                         break;
                     }
 
@@ -93,5 +94,26 @@ public class NormalYaku : UdonSharpBehaviour
         agariContext.IsSingleWaiting = false;
         agariContext.AddAgariableGlobalOrder(globalOrder1);
         agariContext.AddAgariableGlobalOrder(globalOrder2);
+    }
+
+    public int CheckShantenFromTenpai(CalculatingContextHandler Ctx, object[] ctx)
+    {
+        var TENPAI_COUNT = 8;
+
+        var remainsGlobalOrders = Ctx.ReadGlobalOrders(ctx);
+        var pairs = HandUtil.FindPairs(remainsGlobalOrders);
+
+        foreach (var pair in pairs)
+        {
+            remainsGlobalOrders[pair] -= 2;
+        }
+
+        TENPAI_COUNT -= pairs.Length;
+
+        var bodies = Ctx.ReadChiCount(ctx) + Ctx.ReadPonCount(ctx);
+
+        //TENPAI_COUNT -= bodies * 2;
+
+        return TENPAI_COUNT;
     }
 }

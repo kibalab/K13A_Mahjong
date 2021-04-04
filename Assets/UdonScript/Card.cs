@@ -29,6 +29,7 @@ public class Card : UdonSharpBehaviour
     [SerializeField] private LogViewer LogViewer;
     [SerializeField] private EventQueue EventQueue;
     [SerializeField] private AudioQueue AudioQueue;
+    [SerializeField] private EventLog EventLog;
 
     private bool isSpriteInitialized = false;
     private bool isDoraMaterialSetted = false;
@@ -39,6 +40,7 @@ public class Card : UdonSharpBehaviour
         LogViewer.Log($"Call Interact() from {ToString()}", 0);
         RequestCallFunctionToAll(nameof(l_Interact));
         RequestCallFunctionToAll(nameof(l_playTabSound));
+        
     }
 
 
@@ -69,6 +71,11 @@ public class Card : UdonSharpBehaviour
         isDoraMaterialSetted = false;
     }
 
+    public void refreshSprite()
+    {
+        InitializeSprite();
+    }
+
     public void l_playTabSound()
     {
         if (AudioQueue != null)
@@ -88,6 +95,7 @@ public class Card : UdonSharpBehaviour
         {
             EventQueue.SetDiscardEvent(YamaIndex, PlayerIndex);
         }
+        EventLog.SetEvent($"C&{gameObject.name.Replace("Card (", "").Replace(")", "")}");
     }
 
     public void Initialize_Master(string type, int cardNumber, bool isRedDora)
@@ -120,6 +128,7 @@ public class Card : UdonSharpBehaviour
     {
         Position = position;
         Rotation = rotation;
+        transform.SetPositionAndRotation(Position, Rotation);
     }
 
     public string GetCardSpriteName()
@@ -139,10 +148,10 @@ public class Card : UdonSharpBehaviour
     private void Update()
     {
 
-        if (!Networking.IsNetworkSettled)
+        /*if (!Networking.IsNetworkSettled)
         {
             return;
-        }
+        }*/
 
         if (!isSpriteInitialized && IsCardSpriteInitializeReady())
         {
@@ -166,6 +175,11 @@ public class Card : UdonSharpBehaviour
         }
         
 
+        transform.SetPositionAndRotation(Position, Rotation);
+    }
+
+    private void Start()
+    {
         transform.SetPositionAndRotation(Position, Rotation);
     }
 

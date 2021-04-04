@@ -274,7 +274,9 @@ public class HandCalculator : UdonSharpBehaviour
             {
                 --globalOrders[card.GlobalOrder];
 
-                var isTenpai = IsTenpai(agariContext, globalOrders);
+                var ctxs = FindAll(globalOrders);
+
+                var isTenpai = IsTenpai(agariContext, ctxs, globalOrders);
                 if (isTenpai)
                 {
                     riichiableCards[riichiableCount++] = card;
@@ -311,14 +313,16 @@ public class HandCalculator : UdonSharpBehaviour
 
         var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
-        IsTenpai(agariContext, globalOrders);
+        var ctxs = FindAll(globalOrders);
 
-        agariContext.SetShantenCount(CalculateShanten.Calculate(globalOrders));
+        IsTenpai(agariContext, ctxs, globalOrders);
+
+        //agariContext.SetShantenCount(CheckShanten(ctxs)); //샹텐계산은 일단 기능 제외
 
         //uIContext.SetAgarible(agariContext.AgariableCardGlobalOrders);
     }
 
-    bool IsTenpai(AgariContext agariContext, int[] globalOrders)
+    bool IsTenpai(AgariContext agariContext, object[] ctxs, int[] globalOrders)
     {
         // 머리가 6개인가?
         if (Chiitoitsu.CheckTenpai(agariContext, globalOrders))
@@ -332,14 +336,31 @@ public class HandCalculator : UdonSharpBehaviour
             return true;
         }
 
-        var ctxs = FindAll(globalOrders);
-
         if (NormalYaku.CheckTenpai(Ctx, ctxs, agariContext, globalOrders))
         {
             return true;
         }
 
         return false;
+    }
+
+    int CheckShanten(object[] ctxs)
+    {
+        var min = 8;
+
+        foreach(object[] ctx in ctxs)
+        {
+            var shanten = NormalYaku.CheckShantenFromTenpai(Ctx, ctx);
+
+            if(shanten < min)
+            {
+                min = shanten;
+            }
+
+            Debug.Log($"[HandCalculator] shanten {shanten}");
+        }
+
+        return min * -1;
     }
 
     object[] FindAll(int[] globalOrders)
@@ -786,7 +807,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
+        //DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
         DebugHelper.IsFalse(AgariContextForTest.IsSingleWaiting, 2);
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 5, 3);
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[1], 7, 4);
@@ -821,7 +842,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
+        //DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
         DebugHelper.IsTrue(AgariContextForTest.IsSingleWaiting, 2);
         DebugHelper.Equal(AgariContextForTest.AgariableCount, 1, 2);
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 8, 4);
@@ -856,7 +877,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
-        DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
+        //DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
         DebugHelper.IsTrue(AgariContextForTest.IsSingleWaiting, 2);
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 17, 3);
 
@@ -897,7 +918,7 @@ public class HandCalculator : UdonSharpBehaviour
 
         var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
-        DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
+        //DebugHelper.IsTrue(IsTenpai(AgariContextForTest, globalOrders), 1);
         DebugHelper.IsTrue(AgariContextForTest.IsSingleWaiting, 2);
         DebugHelper.Equal(AgariContextForTest.AgariableCardGlobalOrders[0], 3, 3);
     }
@@ -938,12 +959,12 @@ public class HandCalculator : UdonSharpBehaviour
         // 쓰기 전에 Clear
         AgariContextForTest.Clear();
         // IsTenpai를 부르는 순간 AgariContext에 값이 할당됨
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
         // isTenpai값이 아니면 아래와 같은 메세지가 뜹니다
         // "Test_Tsumo1의 1번 라인이 참이어야 하는데 참이 아닙니다"
         // 내부 구현은 한번 보면 이해하실듯
-        DebugHelper.IsTrue(isTenpai, 1); // 맨뒤에 1은 라인번호
+        //DebugHelper.IsTrue(isTenpai, 1); // 맨뒤에 1은 라인번호
 
         // 새로받은 카드 할당
         TEST__SetTestData(TestComponents[13], "통", 3);
@@ -1008,9 +1029,9 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
         AgariContextForTest.Clear();
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1);
+        //DebugHelper.IsTrue(isTenpai, 1);
 
         TEST__SetTestData(TestComponents[13], "발", 6);
 
@@ -1071,9 +1092,9 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
         AgariContextForTest.Clear();
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1);
+        //DebugHelper.IsTrue(isTenpai, 1);
 
         TEST__SetTestData(TestComponents[13], "삭", 4);
 
@@ -1137,9 +1158,9 @@ public class HandCalculator : UdonSharpBehaviour
 
         AgariContextForTest.Clear();
 
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1);
+        //DebugHelper.IsTrue(isTenpai, 1);
 
         TEST__SetTestData(TestComponents[13], "만", 6);
 
@@ -1202,9 +1223,9 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
         AgariContextForTest.Clear();
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1);
+        //DebugHelper.IsTrue(isTenpai, 1);
 
         TEST__SetTestData(TestComponents[13], "만", 8);
 
@@ -1268,9 +1289,9 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
         AgariContextForTest.Clear();
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1); 
+        //DebugHelper.IsTrue(isTenpai, 1); 
 
         TEST__SetTestData(TestComponents[13], "중", 7);
 
@@ -1332,9 +1353,9 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.GetGlobalOrders(testSet);
 
         AgariContextForTest.Clear();
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1);
+        //DebugHelper.IsTrue(isTenpai, 1);
 
         TEST__SetTestData(TestComponents[13], "삭", 9);
 
@@ -1402,9 +1423,9 @@ public class HandCalculator : UdonSharpBehaviour
         var globalOrders = HandUtil.SumGlobalOrders(sealedGlobalOrders, openedGlobalOrders);
 
         AgariContextForTest.Clear();
-        var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
+        //var isTenpai = IsTenpai(AgariContextForTest, globalOrders);
 
-        DebugHelper.IsTrue(isTenpai, 1);
+        //DebugHelper.IsTrue(isTenpai, 1);
 
         TEST__SetTestData(TestComponents[13], "남", 2);
 

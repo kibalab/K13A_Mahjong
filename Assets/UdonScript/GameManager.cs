@@ -16,6 +16,10 @@ public class GameManager : UdonSharpBehaviour
     [SerializeField] public JoinStatus JoinStatus;
     [SerializeField] public ResultViewer ResultViewer;
 
+    [SerializeField] public EventLogHandler EventLogHandler;
+    [SerializeField] public EventLogger EventLogger;
+    [SerializeField] public EventLog EventLog;
+
     [UdonSynced(UdonSyncMode.None)] public int seed = 0;
 
     const string State_WaitForStart = "WaitForStart";
@@ -71,8 +75,8 @@ public class GameManager : UdonSharpBehaviour
         else if (player.playerId == Networking.LocalPlayer.playerId)
         {
             LogViewer.Log($"Player Joined. {player.displayName}", 1);
+            //EventLogHandler.Run();
             //Initialize_Local();
-            
         }
     }
 
@@ -81,6 +85,8 @@ public class GameManager : UdonSharpBehaviour
         if(seed == 0)
             seed = UnityEngine.Random.Range(1, 2147483647);
         LogViewer.Log($"Create Seed : {seed}", 0);
+
+        EventLog.SetEvent($"FI&{seed}");
     }
 
     public void Initialize_Local()
@@ -347,6 +353,8 @@ public class GameManager : UdonSharpBehaviour
 
             ResultViewer.setResult("쯔모", currentPlayer.PlayerName, count, yakuKeyList, hanList, fu);
 
+            EventLogger.DeleteToLastResetEvent();
+
             ChangeGameState(State_EndOfRound);
         }
         else if (eventType == "AutoDiscard")
@@ -398,13 +406,14 @@ public class GameManager : UdonSharpBehaviour
             {
                 ChangeGameState(State_WaitForNaki);
             }
-
         }
     }
 
     void WaitForNaki(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
+
+        TableManager.GetCurrentTurnPlayer().SetColliderActive(false, true);
 
         if (waitingNakiCard == null) { Debug.Log("이게 null이면.. 안되는데?"); }
 
@@ -505,6 +514,8 @@ public class GameManager : UdonSharpBehaviour
                     var count = playerStatus.YakuCount;
 
                     ResultViewer.setResult("론", nakiPlayer.PlayerName, count, yakuKeyList, hanList, fu);
+
+                    EventLogger.DeleteToLastResetEvent();
 
                     ChangeGameState(State_EndOfRound);
                     break;

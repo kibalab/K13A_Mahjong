@@ -20,6 +20,8 @@ public class UIManager : UdonSharpBehaviour
 
     [SerializeField] public AgariContext AgariContext;
 
+    [SerializeField] public EventLog EventLog;
+
     // 플레이어가 [참여] 버튼을 누를 때 local에만 할당된다.
     // 일단은 테스트를 위해서 true로 둠
     private bool isMyTable = true;
@@ -214,6 +216,7 @@ public class UIManager : UdonSharpBehaviour
     void SetChiEvent(Vector2 chiIndex)
     {
         EventQueue.SetChiEvent(chiIndex, "Chi", PlayerIndex);
+        EventLog.SetEvent($"IN&C&{chiIndex}&{PlayerIndex}");
     }
 
     public void ClickOthers(string uiName)
@@ -221,12 +224,12 @@ public class UIManager : UdonSharpBehaviour
         var funcName = $"l_Click{uiName}";
         RequestCallFunctionToAll(funcName);
     }
-    public void l_ClickPon() { SetUIEvent("Pon"); }
-    public void l_ClickKkan() { SetUIEvent("Kkan"); }
-    public void l_ClickRon() { SetUIEvent("Ron"); }
-    public void l_ClickTsumo() { SetUIEvent("Tsumo"); }
-    public void l_ClickSkip() { SetUIEvent("Skip"); }
-    public void l_ClickRich() { SetUIEvent("Rich"); }
+    public void l_ClickPon() { SetUIEvent("Pon"); EventLog.SetEvent($"IN&P&{PlayerIndex}"); }
+    public void l_ClickKkan() { SetUIEvent("Kkan"); EventLog.SetEvent($"IN&K&{PlayerIndex}"); }
+    public void l_ClickRon() { SetUIEvent("Ron"); EventLog.SetEvent($"IN&R&{PlayerIndex}"); }
+    public void l_ClickTsumo() { SetUIEvent("Tsumo"); EventLog.SetEvent($"IN&T&{PlayerIndex}"); }
+    public void l_ClickSkip() { SetUIEvent("Skip"); EventLog.SetEvent($"IN&S&{PlayerIndex}"); }
+    public void l_ClickRich() { SetUIEvent("Rich"); EventLog.SetEvent($"IN&RC&{PlayerIndex}"); }
 
     public void l_ClickTsumoCut() { SetUIEvent("TsumoCut"); }
     public void l_ClickAutoAgari() { SetUIEvent("AutoAgari"); }

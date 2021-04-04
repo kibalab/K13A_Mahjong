@@ -26,14 +26,6 @@ public class ResultViewer : UdonSharpBehaviour
         
     public void setResult(string agariType, string nickName, int count, string[] yakuKeyList, int[] hanList, int fu)
     {
-        if (Networking.LocalPlayer != null)
-        {
-            if (Networking.LocalPlayer.IsOwner(gameObject))
-            {
-                NetworkMessage = SerializeResult(agariType, nickName, count, yakuKeyList, hanList, fu);
-            }
-        }
-
         playerName.text = nickName;
         winType.text = agariType;
         resultYaku[0].text = "";
@@ -51,6 +43,14 @@ public class ResultViewer : UdonSharpBehaviour
         pointText.text = $"{(int)(mathPow(2, hanTotal + 2) * fu)} 점(임시)";
 
         setPointLevel(hanTotal, fu);
+
+        if (Networking.LocalPlayer != null)
+        {
+            if (Networking.LocalPlayer.IsOwner(gameObject))
+            {
+                NetworkMessage = SerializeResult(agariType, nickName, count, yakuKeyList, hanList, fu);
+            }
+        }
     }
 
     double pointCalculator(int han, int fu)
@@ -158,6 +158,7 @@ public class ResultViewer : UdonSharpBehaviour
 
         foreach (string str in list)
         {
+            if (str == null) continue;
             if (strings != "")
             {
                 strings += ",";

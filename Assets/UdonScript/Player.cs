@@ -482,7 +482,7 @@ public class Player : UdonSharpBehaviour
         {
             return;
         }
-
+        Debug.Log("HandCard Collider set : " + active);
         foreach (Card card in Cards.Clone())
         {
             card.SetColliderActivate(active);

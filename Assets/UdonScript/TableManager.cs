@@ -17,7 +17,6 @@ public class TableManager : UdonSharpBehaviour
     [SerializeField] public GameObject DoraViewer;
     [SerializeField] public TableViewer TableViewer;
 
-    
 
     public int currentTurnPlayer = 0;
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
@@ -113,11 +112,13 @@ public class TableManager : UdonSharpBehaviour
         var player = GetCurrentTurnPlayer();
         var nextCard = GetNextRinShanCard();
         var dora = GetNextDoraCard();
+
+        player.AddCard(nextCard, false, false, true);
+        player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
+        player.CheckRiichiable(); // 쯔모에서만 리치를 봄 
+
         if (nextCard != null && dora != null)
         {
-            player.AddCard(nextCard, false, false, true);
-            player.CheckOpenOrAnkkanable(nextCard); // 소명깡 or 안깡
-
             var doraGlobalIndex = -1;
             if(dora.GlobalOrder == HandUtil.GetManEndGlobalOrder())
             {
@@ -221,6 +222,8 @@ public class TableManager : UdonSharpBehaviour
         currentDorasCardIndex = 0;
         Initialize();
 
+        refreshSprites();
+
         foreach (Player p in players)
         {
             p.AgariContext.Clear();
@@ -229,6 +232,14 @@ public class TableManager : UdonSharpBehaviour
         SetTurnOf(0);
 
         AddNextCard();
+    }
+
+    public void refreshSprites()
+    {
+        foreach (Card card in yama)
+        {
+            card.refreshSprite();
+        }
     }
 
     public void Initialize()
@@ -409,7 +420,7 @@ public class TableManager : UdonSharpBehaviour
 
         lastedDoraSpriteName = nextCard.GetCardSpriteName();
 
-        //NetworkMessage = SerializeDora(lastedDoraSpriteName);
+        NetworkMessage = SerializeDora(lastedDoraSpriteName);
 
 
 
@@ -419,12 +430,15 @@ public class TableManager : UdonSharpBehaviour
     private void Update()
     {
         var player = GetCurrentTurnPlayer();
-        if (player.UIContext.IsAnythingActived())
+
+        if (GetPlayer(0).UIContext.IsAnythingActived() || GetPlayer(1).UIContext.IsAnythingActived() || GetPlayer(2).UIContext.IsAnythingActived() || GetPlayer(3).UIContext.IsAnythingActived())
         {
+            Debug.Log("UIActivate : " + player.UIContext.IsAnythingActived());
             player.SetColliderActive(false, false);
         }
         else
         {
+            Debug.Log("1UIActivate : " + player.UIContext.IsAnythingActived());
             player.SetColliderActive(true, false);
         }
 

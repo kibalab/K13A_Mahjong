@@ -76,6 +76,9 @@
     <Compile Include="Assets\UdonScript\CardSuffle.cs" />
     <Compile Include="Assets\UdonScript\Chiitoitsu.cs" />
     <Compile Include="Assets\UdonScript\DebugHelper.cs" />
+    <Compile Include="Assets\UdonScript\EventLog.cs" />
+    <Compile Include="Assets\UdonScript\EventLogger.cs" />
+    <Compile Include="Assets\UdonScript\EventLogHandler.cs" />
     <Compile Include="Assets\UdonScript\EventQueue.cs" />
     <Compile Include="Assets\UdonScript\GameManager.cs" />
     <Compile Include="Assets\UdonScript\HandCalculator.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Assets\UdonScript\ScoreCalculator.cs" />
     <Compile Include="Assets\UdonScript\Subtitle.cs" />
     <Compile Include="Assets\UdonScript\SubtitleComponent.cs" />
+    <Compile Include="Assets\UdonScript\SyncButton.cs" />
     <Compile Include="Assets\UdonScript\TableManager.cs" />
     <Compile Include="Assets\UdonScript\TableViewer.cs" />
     <Compile Include="Assets\UdonScript\UdonSharpAttribute.cs" />
