@@ -10,8 +10,10 @@ public class EventLogHandler : UdonSharpBehaviour
     [SerializeField] public EventLogger EventLogger;
     [SerializeField] public KList events;
 
-    [SerializeField] public TableManager TableManager;
+    [SerializeField] public GameManager GameManager;
     [SerializeField] public EventQueue EventQueue;
+
+    TableManager TableManager;
 
     [UdonSynced(UdonSyncMode.None)] string NetworkEvent = "";
     string ranNetworkEvent = "";
@@ -73,6 +75,7 @@ public class EventLogHandler : UdonSharpBehaviour
         {
             case "R": // Reset Game
                 var seed = int.Parse(parms[1]);
+                GameManager.seed = seed;
                 UnityEngine.Random.InitState(seed);
                 TableManager.resetTable();
                 return true;

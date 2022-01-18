@@ -24,6 +24,7 @@ public class ResetButton : UdonSharpBehaviour
     {
         UnityEngine.Random.InitState(GameManager.seed);
         TB.resetTable();
+
         EventLog.SetEvent("R&" + GameManager.seed);
     }
 }

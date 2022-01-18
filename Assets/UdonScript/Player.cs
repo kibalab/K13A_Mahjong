@@ -43,6 +43,8 @@ public class Player : UdonSharpBehaviour
     int[] stashedCards;
     int stashedCardIndex;
 
+    public int PlayerScore = 25000;
+
     #endregion
 
     #region Events
@@ -58,7 +60,7 @@ public class Player : UdonSharpBehaviour
         playerStatus.Initialize();
         Subtitle.SetPlaytime(12.0f);
         NetworkMessage = SerializeRiichi(false);
-
+        RefreshPlayerScore();
     }
 
     public override void OnPlayerJoined(VRCPlayerApi player)
@@ -482,7 +484,6 @@ public class Player : UdonSharpBehaviour
         {
             return;
         }
-        Debug.Log("HandCard Collider set : " + active);
         foreach (Card card in Cards.Clone())
         {
             card.SetColliderActivate(active);
@@ -524,6 +525,8 @@ public class Player : UdonSharpBehaviour
         var openedCards = GetArray(OpenendCards);
         HandCalculator.RequestTsumoScore(cards, openedCards, AgariContext, playerStatus);
 
+        //AddScore(((int)(mathPow(2, playerStatus.TotalHan + 2) * playerStatus.Fu)) * -1);
+
         return playerStatus;
     }
 
@@ -551,6 +554,18 @@ public class Player : UdonSharpBehaviour
     #endregion
 
     #region PlayerInfo
+    public void AddScore(int score)
+    {
+        PlayerScore += score;
+
+        RefreshPlayerScore();
+    }
+
+    public void RefreshPlayerScore()
+    {
+        TableViewer.setScore(PlayerIndex, PlayerScore);
+    }
+
     public void SetPlayerName(string name)
     {
         PlayerName = name;
@@ -572,5 +587,16 @@ public class Player : UdonSharpBehaviour
     {
         playerStatus.RoundWind = roundWind;
     }
+
+    private double mathPow(double x, double n)
+    {
+        double val = 1;
+        for (int i = 1; i <= n; i++)
+        {
+            val = x * val;
+        }
+        return val;
+    }
+
     #endregion
 }

@@ -24,7 +24,7 @@ public class ResultViewer : UdonSharpBehaviour
     private int lastMessageNumber = -1; // 모든 유저용
 
         
-    public void setResult(string agariType, string nickName, int count, string[] yakuKeyList, int[] hanList, int fu)
+    public void setResult(string agariType, string nickName, int count, string[] yakuKeyList, int[] hanList, int fu, int score)
     {
         playerName.text = nickName;
         winType.text = agariType;
@@ -40,17 +40,18 @@ public class ResultViewer : UdonSharpBehaviour
         hanText.text = $"{hanTotal}판";
         fuText.text = $"{fu}부";
 
-        pointText.text = $"{(int)(mathPow(2, hanTotal + 2) * fu)} 점(임시)";
+        pointText.text = $"{score} 점";
 
         setPointLevel(hanTotal, fu);
 
+        /*
         if (Networking.LocalPlayer != null)
         {
             if (Networking.LocalPlayer.IsOwner(gameObject))
             {
                 NetworkMessage = SerializeResult(agariType, nickName, count, yakuKeyList, hanList, fu);
             }
-        }
+        }*/
     }
 
     double pointCalculator(int han, int fu)
@@ -130,6 +131,8 @@ public class ResultViewer : UdonSharpBehaviour
             return;
         }
 
+        /*
+
         var splited = NetworkMessage.Split('&');
         var networkMessageNumber = int.Parse(splited[0]);
 
@@ -148,8 +151,8 @@ public class ResultViewer : UdonSharpBehaviour
             {
                 hanList[i] = int.Parse(hanList_strings[i]);
             }
-            setResult(agariType, nickName, count, yakuKeyList, hanList, fu);
-        }
+            setResult(agariType, nickName, count, yakuKeyList, hanList, fu, 0);
+        }*/
     }
 
     public string stringsToString(string[] list)

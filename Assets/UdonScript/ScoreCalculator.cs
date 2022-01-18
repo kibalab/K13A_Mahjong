@@ -22,6 +22,18 @@ public class ScoreCalculator : UdonSharpBehaviour
         return true;
     }
 
+    public int GetScore(PlayerStatus playerStatus)
+    {
+        var fu = playerStatus.Fu;
+        var han = playerStatus.TotalHan;
+
+        var score = fu * Mathf.Pow(2, han + 2) * (playerStatus.Wind == "East" ? 1.5f: 1);
+
+        score = ((int)score / 100) * 100;
+
+        return (int)score;
+    }
+
     public void CalculateTsumo(
         PlayerStatus playerStatus,
         AgariContext agariContext,
@@ -31,7 +43,7 @@ public class ScoreCalculator : UdonSharpBehaviour
     {
         int[] hanList = new int[0];
         var maxHan = 0;
-        var maxFu = 0;
+        var maxFu = 20; // 기본 20부
 
         Debug.Log($"[ScoreCalculator] openedCards Lenght : {openedCards.Length}");
 
@@ -42,7 +54,7 @@ public class ScoreCalculator : UdonSharpBehaviour
             if (pairs.Length == 0) { continue; }
 
             playerStatus.InitializeHanFu();
-            playerStatus.Fu = 20; // 기본 20부
+            playerStatus.Fu = 20; 
 
             
 
@@ -412,7 +424,19 @@ public class ScoreCalculator : UdonSharpBehaviour
             var pon = ponList[i];
             if (IsWhiteGreenRed(pon))
             {
-                playerStatus.AddHan("WhiteGreenRed", 1);
+                switch (pon)
+                {
+                    case 31:
+                        playerStatus.AddHan("White", 1);
+                        break;
+                    case 32:
+                        playerStatus.AddHan("Green", 1);
+                        break;
+                    case 33:
+                        playerStatus.AddHan("Red", 1);
+                        break;
+                }
+                
             }
 
             if (IsMyWindWordCard(playerStatus, pon))

@@ -17,10 +17,11 @@ public class EventLogger : UdonSharpBehaviour
         SaveSerializedEvents();
     }
 
-    public void DeleteToLastResetEvent()
+    public void DeleteEventLogs()
     {
+        events.Clear();
         var e = events.RemoveLast();
-        if ((string)e == "Reset" || e == "FI")
+        if (e == "FI") //(string)e == "Reset" ||
         {
             events.Add(e);
         }

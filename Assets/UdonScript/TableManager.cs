@@ -81,6 +81,18 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
+    public void SetNextRoundWind(string CurrentRoundWind)
+    {
+        string[] winds = new string[] { "East", "South", "West", "North", "East" };
+        for (var i = 0; i < 5; i++)
+        {
+            if (winds[i] == CurrentRoundWind)
+            {
+                SetRoundWind(winds[(i + 1) % 4]);
+            }
+        }
+    }
+
     public Player GetPlayer(int playerIndex)
     {
         return players[playerIndex];
@@ -227,6 +239,7 @@ public class TableManager : UdonSharpBehaviour
         foreach (Player p in players)
         {
             p.AgariContext.Clear();
+            p.playerStatus.Initialize();
         }
 
         SetTurnOf(0);
@@ -433,12 +446,10 @@ public class TableManager : UdonSharpBehaviour
 
         if (GetPlayer(0).UIContext.IsAnythingActived() || GetPlayer(1).UIContext.IsAnythingActived() || GetPlayer(2).UIContext.IsAnythingActived() || GetPlayer(3).UIContext.IsAnythingActived())
         {
-            Debug.Log("UIActivate : " + player.UIContext.IsAnythingActived());
             player.SetColliderActive(false, false);
         }
         else
         {
-            Debug.Log("1UIActivate : " + player.UIContext.IsAnythingActived());
             player.SetColliderActive(true, false);
         }
 

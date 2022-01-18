@@ -34,9 +34,9 @@ public class CardSprites : UdonSharpBehaviour
 
         if (4 < globalOrder)
             globalOrder += 1;
-        if (13 < globalOrder)
+        if (14 < globalOrder)
             globalOrder += 1;
-        if (21 < globalOrder)
+        if (24 < globalOrder)
             globalOrder += 1;
 
         var spriteGameObject = transform.GetChild(globalOrder);

@@ -343,6 +343,23 @@ public class GameManager : UdonSharpBehaviour
             TableManager.TableViewer.activeDisplay("Tsumo", true);
             var playerStatus = currentPlayer.CalculateTsumoScore();
 
+            var TsumoScore = TableManager.HandCalculator.ScoreCalculator.GetScore(playerStatus);
+
+            for (var i =0; i<4; i++)
+            {
+                var player = TableManager.GetPlayer(i);
+
+                { // 점수적용
+                    if (player.PlayerIndex == currentPlayer.PlayerIndex)
+                        currentPlayer.AddScore(TsumoScore);
+                    else
+                        currentPlayer.AddScore(currentPlayer.PlayerIndex == 0 ? TsumoScore / 2 * -1 : TsumoScore / 4 * -1);
+                }
+            }
+
+            
+            
+
             // 해야 한다...
             var yakuKeyList = playerStatus.YakuKey;
             var hanList = playerStatus.Han;
@@ -351,9 +368,9 @@ public class GameManager : UdonSharpBehaviour
 
             Debug.Log($"[GameManager] Tsumo Status \nYaku : {yakuKeyList.ToString()}, \nHan : {hanList.ToString()}, \nFu : {fu}");
 
-            ResultViewer.setResult("쯔모", currentPlayer.PlayerName, count, yakuKeyList, hanList, fu);
+            ResultViewer.setResult("쯔모", currentPlayer.PlayerName, count, yakuKeyList, hanList, fu, TsumoScore);
 
-            EventLogger.DeleteToLastResetEvent();
+            EventLogger.DeleteEventLogs();
 
             ChangeGameState(State_EndOfRound);
         }
@@ -507,15 +524,20 @@ public class GameManager : UdonSharpBehaviour
                     TableManager.TableViewer.activeDisplay("Ron", true);
                     var playerStatus = nakiPlayer.CalculateRonScore();
 
+                    var RonScore = TableManager.HandCalculator.ScoreCalculator.GetScore(playerStatus);
+
+                    nakiPlayer.AddScore(RonScore);
+                    formerPlayer.AddScore(RonScore * -1);
+
                     // 해야 한다...
                     var yakuKeyList = playerStatus.YakuKey;
                     var hanList = playerStatus.Han;
                     var fu = playerStatus.Fu;
                     var count = playerStatus.YakuCount;
 
-                    ResultViewer.setResult("론", nakiPlayer.PlayerName, count, yakuKeyList, hanList, fu);
+                    ResultViewer.setResult("론", nakiPlayer.PlayerName, count, yakuKeyList, hanList, fu, RonScore);
 
-                    EventLogger.DeleteToLastResetEvent();
+                    EventLogger.DeleteEventLogs();
 
                     ChangeGameState(State_EndOfRound);
                     break;
@@ -548,6 +570,8 @@ public class GameManager : UdonSharpBehaviour
     {
         //지금은 끝나면 바로 초기화하게 해뒀지만 나중엔 버튼을 누르면 초기화 하게 해야함
         TableManager.resetTable();
+        var lastRoundWInd = TableManager.GetPlayer(0).playerStatus.RoundWind;
+        TableManager.SetNextRoundWind(lastRoundWInd);
         ChangeGameState(State_WaitForDiscard);
     }
 

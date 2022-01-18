@@ -1115,7 +1115,7 @@ public class HandCalculator : UdonSharpBehaviour
         var han = PlayerStatusForTest.Han;
         var fu = PlayerStatusForTest.Fu;
 
-        ResultViewer.setResult("테스트 쯔모", "System", count, yaku, han, fu);
+        ResultViewer.setResult("테스트 쯔모", "System", count, yaku, han, fu, 0);
 
         for (var i = 0; i < count; ++i)
         {

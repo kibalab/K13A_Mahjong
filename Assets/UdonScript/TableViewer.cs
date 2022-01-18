@@ -12,6 +12,7 @@ public class TableViewer : UdonSharpBehaviour
     public Text roundText;
     public Image[] windTexts;
     public Text[] namePlates;
+    public Text[] scorePlates;
 
     public GameObject endDisplay;
 
@@ -36,6 +37,11 @@ public class TableViewer : UdonSharpBehaviour
         }
         */
 
+    }
+
+    public void setScore(int id, int score)
+    {
+        scorePlates[id].text = score.ToString();
     }
 
     public void activeDisplay(string type, bool active)
