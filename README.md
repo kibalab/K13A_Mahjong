@@ -1,5 +1,5 @@
 ![header](https://capsule-render.vercel.app/api?type=Waving&color=FF285B&height=300&section=header&text=UDON%20Mahjong&fontSize=90&fontColor=FFFFFF)
-[![Logo](https://lh4.googleusercontent.com/QXqW0rwpW8Ol7eTtLrgoDrxnWDwKTQrY5ApqhpsQPlMoTjNEP9XbisbFDvqr5aC97GQyTXqCZ5UuQFWc8-WV=w698-h969)]() 
+![Mahjong Logo](https://user-images.githubusercontent.com/31209389/149920896-32360aec-01e2-47cb-854b-27aa602e81e6.png)
 <br>
 [![UnityVersion](https://img.shields.io/badge/Unity-2018.4.20f1-blue?style=flat-square&logo=unity)](https://unity3d.com/kr/unity/whats-new/2018.4.20)
 [![Build](https://img.shields.io/appveyor/build/kibalab/K13A_Mahjong?style=flat-square)]()
