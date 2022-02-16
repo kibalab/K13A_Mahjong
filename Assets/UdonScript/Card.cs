@@ -4,6 +4,7 @@ using UdonSharp;
 using VRC.SDKBase;
 using UnityEngine.SocialPlatforms;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class Card : UdonSharpBehaviour
 {
 
@@ -11,8 +12,8 @@ public class Card : UdonSharpBehaviour
     public int CardNumber = 99;
     public string SpriteNamePostfix = "None";
 
-    public Vector3 Position;
-    public Quaternion Rotation;
+    [UdonSynced(UdonSyncMode.None), FieldChangeCallback(nameof(Network_Position))] public Vector3 Position;
+    [UdonSynced(UdonSyncMode.None), FieldChangeCallback(nameof(Network_Rotation))] public Quaternion Rotation;
     public bool IsColliderActive;
     public bool IsDora;
 
@@ -34,13 +35,34 @@ public class Card : UdonSharpBehaviour
     private bool isSpriteInitialized = false;
     private bool isDoraMaterialSetted = false;
 
+    public Vector3 Network_Position
+    {
+        set
+        {
+            Position = value;
+
+            transform.position = Position;
+
+            RequestSerialization();
+        }
+    }
+    public Quaternion Network_Rotation
+    {
+        set
+        {
+            Rotation = value;
+
+            transform.rotation = Rotation;
+
+            RequestSerialization();
+        }
+    }
 
     public override void Interact()
     {
         LogViewer.Log($"Call Interact() from {ToString()}", 0);
         RequestCallFunctionToAll(nameof(l_Interact));
         RequestCallFunctionToAll(nameof(l_playTabSound));
-        
     }
 
 
@@ -126,9 +148,9 @@ public class Card : UdonSharpBehaviour
 
     public void SetPosition(Vector3 position, Quaternion rotation, bool synced)
     {
-        Position = position;
-        Rotation = rotation;
-        transform.SetPositionAndRotation(Position, Rotation);
+        Network_Position = position;
+        Network_Rotation = rotation;
+        //transform.SetPositionAndRotation(Position, Rotation);
     }
 
     public string GetCardSpriteName()
