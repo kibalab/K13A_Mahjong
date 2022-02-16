@@ -22,7 +22,7 @@ public class GameManager : UdonSharpBehaviour
     [SerializeField] public EventLogger EventLogger;
     [SerializeField] public EventLog EventLog;
 
-    [UdonSynced(UdonSyncMode.None)] public int seed = 0;
+    [UdonSynced(UdonSyncMode.None), FieldChangeCallback(nameof(Seed))] public int seed = 0;
 
     const string State_WaitForStart = "WaitForStart";
     const string State_WaitForDiscard = "WaitForDiscard";
@@ -58,14 +58,12 @@ public class GameManager : UdonSharpBehaviour
 
     void Start()
     {
+#if UNITY_EDITOR
         // 로컬 테스트 환경일 때 
-        if (Networking.LocalPlayer == null)
-        {
-            Initialize_Master();
-            Initialize_Local();
-            ActiveTestMode();
-        }
-
+        Initialize_Master();
+        Initialize_Local();
+        ActiveTestMode();
+#endif
     }
 
     public override void OnPlayerJoined(VRCPlayerApi player)
@@ -282,7 +280,8 @@ public class GameManager : UdonSharpBehaviour
         {
             var index = (firstTurnIndex + i) % 4;
             var player = TableManager.GetPlayer(index);
-            player.SetPlayerName(registeredPlayers[index].displayName);
+            if(registeredPlayers[index] != null) player.SetPlayerName(registeredPlayers[index].displayName);
+            else player.SetPlayerName($"Player {index}");
             player.SetWind(winds[index]); // 방위 설정
         }
 
