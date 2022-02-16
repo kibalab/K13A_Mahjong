@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: PlayerTrigger
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 7fa208160e17d174fa5718820584d112,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 566b552e1a160014ba9f01e7db43d1bf,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export textField\r\n    \r\n    instance_0:
     %UnityEngineUIText, null\r\n    value_0: %SystemString, null\r\n    format_0:
@@ -164,6 +164,7 @@ MonoBehaviour:
       nodeValues:
       - unityObjectValue: {fileID: 0}
         stringValue: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|b8929c6f-0571-49ff-989b-e6fbe4357275
+    updateOrder: 0
   graphElementData:
   - type: 5
     uid: 1b29904b-1285-4990-adbe-16703c45b818

@@ -75,9 +75,9 @@ public class EventLogHandler : UdonSharpBehaviour
         {
             case "R": // Reset Game
                 var seed = int.Parse(parms[1]);
-                GameManager.seed = seed;
+                GameManager.Seed = seed;
                 UnityEngine.Random.InitState(seed);
-                TableManager.resetTable();
+                TableManager.ResetTable();
                 return true;
             case "FI": //First Initialize
                 UnityEngine.Random.InitState(int.Parse(parms[1]));

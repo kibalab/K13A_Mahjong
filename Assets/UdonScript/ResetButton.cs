@@ -17,14 +17,12 @@ public class ResetButton : UdonSharpBehaviour
     }
     public override void Interact()
     {
-        GameManager.seed = UnityEngine.Random.Range(1, 2147483647);
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(ResetTable));
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, nameof(ResetTable));
     }
     public void ResetTable()
     {
-        UnityEngine.Random.InitState(GameManager.seed);
-        TB.resetTable();
+        GameManager.Seed = UnityEngine.Random.Range(1, 2147483647);
 
-        EventLog.SetEvent("R&" + GameManager.seed);
+        EventLog.SetEvent("R&" + GameManager.Seed);
     }
 }

@@ -1,9 +1,11 @@
 ﻿
 using JetBrains.Annotations;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using UdonSharp;
 using UdonSharp.Serialization;
 using UnityEditor;
@@ -41,6 +43,25 @@ namespace UdonSharpEditor
 
             string programAssembly = UdonSharpEditorCache.Instance.GetUASMStr(udonSharpProgramAsset);
 
+            // Strip comments/inline code
+            StringBuilder asmBuilder = new StringBuilder();
+
+            using (StringReader reader = new StringReader(programAssembly))
+            {
+                string line = reader.ReadLine();
+
+                while (line != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(line) &&
+                        !line.TrimStart().StartsWith("#", System.StringComparison.Ordinal))
+                        asmBuilder.AppendFormat("{0}\n", line);
+
+                    line = reader.ReadLine();
+                }
+            }
+
+            programAssembly = asmBuilder.ToString();
+
             FieldInfo assemblyField = typeof(UdonAssemblyProgramAsset).GetField("udonAssembly", BindingFlags.NonPublic | BindingFlags.Instance);
             assemblyField.SetValue(newProgramAsset, programAssembly);
 
@@ -71,7 +92,7 @@ namespace UdonSharpEditor
             if (uSharpProgram == null || assemblyProgram == null)
                 return null;
 
-            string[] symbols = uSharpProgram.SymbolTable.GetSymbols();
+            ImmutableArray<string> symbols = uSharpProgram.SymbolTable.GetSymbols();
 
             foreach (string symbol in symbols)
             {
@@ -135,9 +156,9 @@ namespace UdonSharpEditor
         /// <param name="components"></param>
         /// <returns></returns>
         [PublicAPI]
-        public static UdonBehaviour[] ConvertToUdonBehaviours(UdonSharpBehaviour[] components)
+        public static UdonBehaviour[] ConvertToUdonBehaviours(UdonSharpBehaviour[] components, bool convertChildren = false)
         {
-            return ConvertToUdonBehavioursInternal(components, false, false);
+            return ConvertToUdonBehavioursInternal(components, false, false, convertChildren);
         }
 
         /// <summary>
@@ -147,9 +168,9 @@ namespace UdonSharpEditor
         /// <param name="components"></param>
         /// <returns></returns>
         [PublicAPI]
-        public static UdonBehaviour[] ConvertToUdonBehavioursWithUndo(UdonSharpBehaviour[] components)
+        public static UdonBehaviour[] ConvertToUdonBehavioursWithUndo(UdonSharpBehaviour[] components, bool convertChildren = false)
         {
-            return ConvertToUdonBehavioursInternal(components, true, false);
+            return ConvertToUdonBehavioursInternal(components, true, false, convertChildren);
         }
 
         static internal Dictionary<MonoScript, UdonSharpProgramAsset> _programAssetLookup;
@@ -586,11 +607,9 @@ namespace UdonSharpEditor
             }
         }
 
-        internal static UdonBehaviour[] ConvertToUdonBehavioursInternal(UdonSharpBehaviour[] components, bool shouldUndo, bool showPrompts)
+        internal static UdonBehaviour[] ConvertToUdonBehavioursInternal(UdonSharpBehaviour[] components, bool shouldUndo, bool showPrompts, bool convertChildren)
         {
             components = components.Distinct().ToArray();
-
-            bool convertChildren = true;
 
             if (showPrompts)
             {
@@ -700,6 +719,13 @@ namespace UdonSharpEditor
                     udonBehaviour = targetGameObject.AddComponent<UdonBehaviour>();
 
                 udonBehaviour.programSource = programAsset;
+#pragma warning disable CS0618 // Type or member is obsolete
+                udonBehaviour.SynchronizePosition = false;
+                udonBehaviour.AllowCollisionOwnershipTransfer = false;
+#pragma warning restore CS0618 // Type or member is obsolete
+
+                udonBehaviour.Reliable = programAsset.behaviourSyncMode == BehaviourSyncMode.Manual;
+                
 
                 //if (shouldUndo)
                 //    Undo.RegisterCompleteObjectUndo(targetObject, "Convert C# to U# behaviour");
@@ -709,7 +735,7 @@ namespace UdonSharpEditor
                 try
                 {
                     if (convertChildren)
-                        UdonSharpEditorUtility.CopyProxyToUdon(targetObject, shouldUndo ? ProxySerializationPolicy.AllWithCreateUndo : ProxySerializationPolicy.All);
+                        UdonSharpEditorUtility.CopyProxyToUdon(targetObject, shouldUndo ? ProxySerializationPolicy.AllWithCreateUndo : ProxySerializationPolicy.AllWithCreate);
                     else
                         UdonSharpEditorUtility.CopyProxyToUdon(targetObject, ProxySerializationPolicy.RootOnly);
                 }

@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -9,14 +10,14 @@ using UdonSharp;
 using UdonSharp.Compiler;
 using UnityEditor;
 using UnityEngine;
+using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common;
 using VRC.Udon.Common.Interfaces;
 
 namespace UdonSharpEditor
 {
-    #region Beta SDK sync mode menu editor
-#if UDON_BETA_SDK
+    #region Sync mode menu editor
     internal class SyncModeMenu : EditorWindow
     {
         static SyncModeMenu menu;
@@ -28,11 +29,12 @@ namespace UdonSharpEditor
         private static GUIStyle descriptionStyle;
 
         private static readonly List<(GUIContent, GUIContent)> Labels = new List<(GUIContent, GUIContent)>(new[] {
+            (new GUIContent("None"), new GUIContent("Replication will be disabled. Variables cannot be synced, and this behaviour will not receive network events.")),
             (new GUIContent("Continuous"), new GUIContent("Continuous replication is intended for frequently-updated variables of small size, and will be tweened.")),
             (new GUIContent("Manual"), new GUIContent("Manual replication is intended for infrequently-updated variables of small or large size, and will not be tweened.")),
         });
-        
-        static Rect GetAreaRect(Rect rect)
+
+        private static Rect GetAreaRect(Rect rect)
         {
             const float borderWidth = 1f;
 
@@ -68,7 +70,7 @@ namespace UdonSharpEditor
             checkboxStyle.padding.right = 0;
             checkboxStyle.margin.right = 0;
 
-            if (udonBehaviour.Reliable == (index == 1))
+            if (udonBehaviour.SyncMethod == (Networking.SyncType)(index + 1))
                 EditorGUILayout.LabelField("✔", checkboxStyle, GUILayout.Width(10f));
             else
                 EditorGUILayout.LabelField("", checkboxStyle, GUILayout.Width(10f));
@@ -103,14 +105,16 @@ namespace UdonSharpEditor
             }
         }
 
-        void SelectIndex(int idx)
+        private void SelectIndex(int idx)
         {
             selectedIdx = idx;
 
-            if (udonBehaviour.Reliable != (selectedIdx == 1))
+            if (udonBehaviour.SyncMethod != (Networking.SyncType)(selectedIdx + 1))
             {
                 Undo.RecordObject(udonBehaviour, "Change sync mode");
-                udonBehaviour.Reliable = selectedIdx == 1;
+                udonBehaviour.SyncMethod = (Networking.SyncType)(selectedIdx + 1);
+
+                PrefabUtility.RecordPrefabInstancePropertyModifications(udonBehaviour);
             }
 
             Close();
@@ -139,7 +143,7 @@ namespace UdonSharpEditor
             GUI.Box(new Rect(rect.x - outlineWidth, rect.y + rect.height + outlineWidth + 1f, rect.width + outlineWidth * 2f, outlineWidth), GUIContent.none, outlineStyle);
         }
 
-        internal static Rect GUIToScreenRect(Rect rect)
+        private static Rect GUIToScreenRect(Rect rect)
         {
             Vector2 point = GUIUtility.GUIToScreenPoint(new Vector2(rect.x, rect.y));
             rect.x = point.x;
@@ -188,7 +192,7 @@ namespace UdonSharpEditor
             menu.ShowDropDown(controlRect, dropdownSize);
         }
 
-        static Vector2 CalculateDropdownSize(Rect controlRect)
+        private static Vector2 CalculateDropdownSize(Rect controlRect)
         {
             Rect areaRect = GetAreaRect(controlRect);
             areaRect.width -= 30f; // Checkbox width
@@ -198,7 +202,7 @@ namespace UdonSharpEditor
             for (int i = 0; i < Labels.Count; ++i)
             {
                 totalHeight += EditorStyles.boldLabel.CalcHeight(Labels[i].Item1, areaRect.width);
-                totalHeight += 6f; // Space()
+                totalHeight += 13f; // Space()
                 totalHeight += descriptionStyle.CalcHeight(Labels[i].Item2, areaRect.width);
                 totalHeight += selectionStyle.margin.vertical;
                 totalHeight += selectionStyle.padding.vertical;
@@ -209,25 +213,24 @@ namespace UdonSharpEditor
             return new Vector2(controlRect.width, totalHeight);
         }
 
-        static Array popupLocationArray;
+        private static Array _popupLocationArray;
 
         void ShowDropDown(Rect controlRect, Vector2 size)
         {
-            if (popupLocationArray == null)
+            if (_popupLocationArray == null)
             {
                 System.Type popupLocationType = AppDomain.CurrentDomain.GetAssemblies().First(e => e.GetName().Name == "UnityEditor").GetType("UnityEditor.PopupLocation");
 
-                popupLocationArray = (Array)Activator.CreateInstance(popupLocationType.MakeArrayType(), 2);
-                popupLocationArray.SetValue(0, 0); // PopupLocation.Below
-                popupLocationArray.SetValue(4, 1); // PopupLocation.Overlay
+                _popupLocationArray = (Array)Activator.CreateInstance(popupLocationType.MakeArrayType(), 2);
+                _popupLocationArray.SetValue(0, 0); // PopupLocation.Below
+                _popupLocationArray.SetValue(4, 1); // PopupLocation.Overlay
             }
 
             MethodInfo showAsDropDownMethod = typeof(EditorWindow).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance).First(e => e.GetParameters().Length == 3);
 
-            showAsDropDownMethod.Invoke(this, new object[] { controlRect, size, popupLocationArray });
+            showAsDropDownMethod.Invoke(this, new object[] { controlRect, size, _popupLocationArray });
         }
     }
-#endif
     #endregion
 
     public static class UdonSharpGUI
@@ -439,10 +442,8 @@ namespace UdonSharpEditor
             if (GUILayout.Button("Create Script"))
             {
                 string thisPath = AssetDatabase.GetAssetPath(programAsset);
-                //string initialPath = Path.GetDirectoryName(thisPath);
                 string fileName = Path.GetFileNameWithoutExtension(thisPath).Replace(" Udon C# Program Asset", "").Replace(" ", "").Replace("#", "Sharp");
-
-                string chosenFilePath = EditorUtility.SaveFilePanelInProject("Save UdonSharp File", fileName, "cs", "Save UdonSharp file");
+                string chosenFilePath = EditorUtility.SaveFilePanelInProject("Save UdonSharp File", fileName, "cs", "Save UdonSharp file", Path.GetDirectoryName(thisPath));
 
                 if (chosenFilePath.Length > 0)
                 {
@@ -988,7 +989,7 @@ namespace UdonSharpEditor
             }
             else if (declaredType == typeof(AnimationCurve))
             {
-                return EditorGUILayout.CurveField(fieldLabel, (AnimationCurve)value);
+                return EditorGUILayout.CurveField(fieldLabel, (AnimationCurve)value ?? new AnimationCurve());
             }
             else if (declaredType == typeof(char))
             {
@@ -1196,7 +1197,7 @@ namespace UdonSharpEditor
 
             IUdonSymbolTable symbolTable = program.SymbolTable;
 
-            string[] exportedSymbolNames = symbolTable.GetExportedSymbols();
+            ImmutableArray<string> exportedSymbolNames = symbolTable.GetExportedSymbols();
 
             EditorGUI.BeginChangeCheck();
 
@@ -1341,66 +1342,155 @@ namespace UdonSharpEditor
 
         static readonly GUIContent ownershipTransferOnCollisionContent = new GUIContent("Allow Ownership Transfer on Collision",
                                                                                         "Transfer ownership on collision, requires a Collision component on the same game object");
-
-#if UDON_BETA_SDK
+        
         static MethodInfo dropdownButtonMethod;
-#endif
 
         internal static void DrawSyncSettings(UdonBehaviour behaviour)
         {
-#if UDON_BETA_SDK
             UdonSharpProgramAsset programAsset = (UdonSharpProgramAsset)behaviour.programSource;
 
-            bool allowsSyncConfig = programAsset.behaviourSyncMode == BehaviourSyncMode.Any;
+            EditorGUI.BeginDisabledGroup(Application.isPlaying);
 
-            EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying || !allowsSyncConfig);
+            UdonBehaviour[] behavioursOnObject = behaviour.GetComponents<UdonBehaviour>();
 
-            Rect syncMethodRect = EditorGUILayout.GetControlRect();
-            int id = GUIUtility.GetControlID("DropdownButton".GetHashCode(), FocusType.Keyboard, syncMethodRect);
-            Rect dropdownRect = EditorGUI.PrefixLabel(syncMethodRect, id, new GUIContent("Synchronization Method"));
-
-            if (dropdownButtonMethod == null)
-                dropdownButtonMethod = typeof(EditorGUI).GetMethod("DropdownButton", BindingFlags.NonPublic | BindingFlags.Static, null, new Type[] { typeof(int), typeof(Rect), typeof(GUIContent), typeof(GUIStyle) }, null);
-
-            if ((bool)dropdownButtonMethod.Invoke(null, new object[] { id, dropdownRect, new GUIContent(behaviour.Reliable ? "Manual" : "Continuous"), EditorStyles.miniPullDown }))
+            // Sanity checking for mixed sync modes
+            if (behavioursOnObject.Length > 1)
             {
-                SyncModeMenu.Show(syncMethodRect, new UdonBehaviour[] { behaviour });
+                bool hasContinuousSync = false;
+                bool hasReliableSync = false;
 
-                GUIUtility.ExitGUI();
+                foreach (UdonBehaviour otherBehaviour in behavioursOnObject)
+                {
+                    if (otherBehaviour.programSource is UdonSharpProgramAsset otherBehaviourProgram && otherBehaviourProgram.behaviourSyncMode == BehaviourSyncMode.NoVariableSync)
+                        continue;
+
+                    if (otherBehaviour.SyncMethod == Networking.SyncType.Manual)
+                        hasReliableSync = true;
+                    else
+                        hasContinuousSync = true;
+                }
+
+                if (hasContinuousSync && hasReliableSync)
+                {
+                    //if (programAsset.behaviourSyncMode == BehaviourSyncMode.NoVariableSync)
+                    //    EditorGUILayout.HelpBox("NoVariableSync mode uses Continuous sync mode internally. You are mixing sync methods between UdonBehaviours on the same game object, this will cause all behaviours to use the sync method of the last component on the game object.", MessageType.Error);
+                    //else
+                    if (programAsset.behaviourSyncMode != BehaviourSyncMode.NoVariableSync)
+                        EditorGUILayout.HelpBox("You are mixing sync methods between UdonBehaviours on the same game object, this will cause all behaviours to use the sync method of the last component on the game object.", MessageType.Error);
+                }
             }
 
-            EditorGUI.EndDisabledGroup();
-#else
+            // Dropdown for the sync settings
+            if (programAsset.behaviourSyncMode != BehaviourSyncMode.NoVariableSync && programAsset.behaviourSyncMode != BehaviourSyncMode.None)
+            {
+                bool allowsSyncConfig = programAsset.behaviourSyncMode == BehaviourSyncMode.Any;
+
+                EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying || !allowsSyncConfig);
+
+                Rect syncMethodRect = EditorGUILayout.GetControlRect();
+                int id = GUIUtility.GetControlID("DropdownButton".GetHashCode(), FocusType.Keyboard, syncMethodRect);
+                GUIContent dropdownContent = allowsSyncConfig ? new GUIContent("Synchronization Method") : new GUIContent("Synchronization Method", "This sync mode is currently set by the UdonBehaviourSyncMode attribute on the script");
+
+                Rect dropdownRect = EditorGUI.PrefixLabel(syncMethodRect, id, dropdownContent);
+
+                if (dropdownButtonMethod == null)
+                    dropdownButtonMethod = typeof(EditorGUI).GetMethod("DropdownButton", BindingFlags.NonPublic | BindingFlags.Static, null, new Type[] { typeof(int), typeof(Rect), typeof(GUIContent), typeof(GUIStyle) }, null);
+
+                string dropdownText;
+                switch (behaviour.SyncMethod)
+                {
+                    case Networking.SyncType.Continuous:
+                        dropdownText = "Continuous";
+                        break;
+                    case Networking.SyncType.Manual:
+                        dropdownText = "Manual";
+                        break;
+                    default:
+                        dropdownText = "None";
+                        break;
+                }
+                
+                if ((bool)dropdownButtonMethod.Invoke(null, new object[] { id, dropdownRect, new GUIContent(dropdownText), EditorStyles.miniPullDown }))
+                {
+                    SyncModeMenu.Show(syncMethodRect, new UdonBehaviour[] { behaviour });
+
+                    GUIUtility.ExitGUI();
+                }
+
+                EditorGUI.EndDisabledGroup();
+
+                bool newReliableState = behaviour.SyncMethod == Networking.SyncType.Manual;
+
+                // Handle auto setting of sync mode if the component has just been created
+                if (programAsset.behaviourSyncMode == BehaviourSyncMode.Continuous && behaviour.SyncMethod == Networking.SyncType.Manual)
+                    newReliableState = false;
+                else if (programAsset.behaviourSyncMode == BehaviourSyncMode.Manual && behaviour.SyncMethod != Networking.SyncType.Manual)
+                    newReliableState = true;
+
+                if (newReliableState != (behaviour.SyncMethod == Networking.SyncType.Manual))
+                {
+                    Undo.RecordObject(behaviour, "Update sync mode");
+                    behaviour.SyncMethod = newReliableState ? Networking.SyncType.Manual : Networking.SyncType.Continuous;
+                }
+            }
+
+            // Validate that we don't have a VRC Object Sync on continuous synced objects since it is not valid
+            if (behaviour.Reliable)
+            {
+                var objSync = behaviour.GetComponent<VRC.SDK3.Components.VRCObjectSync>();
+
+#pragma warning disable CS0618 // Type or member is obsolete
+                if (behaviour.SynchronizePosition)
+#pragma warning restore CS0618 // Type or member is obsolete
+                    EditorGUILayout.HelpBox("Manual sync cannot be used on GameObjects with Position Sync", MessageType.Error);
+                else if (objSync)
+                    EditorGUILayout.HelpBox("Manual sync cannot be used on GameObjects with VRC Object Sync", MessageType.Error);
+            }
+
             EditorGUI.BeginChangeCheck();
 
-            EditorGUI.BeginDisabledGroup(Application.isPlaying);
-            bool newSyncPos = EditorGUILayout.Toggle("Synchronize Position", behaviour.SynchronizePosition);
-            bool newCollisionTransfer = behaviour.AllowCollisionOwnershipTransfer;
-            if (behaviour.GetComponent<Collider>() != null)
+            // Position sync upgrade warnings & collision transfer handling
+#pragma warning disable CS0618 // Type or member is obsolete
+            // Force collision ownership transfer off on UdonBehaviours since it is no longer respected when used on UdonBehaviours.
+            if (behaviour.AllowCollisionOwnershipTransfer)
             {
-                newCollisionTransfer = EditorGUILayout.Toggle(ownershipTransferOnCollisionContent, behaviour.AllowCollisionOwnershipTransfer);
-
-                if (newCollisionTransfer)
-                    EditorGUILayout.HelpBox("Collision transfer is currently bugged and can cause network spam that lags your world, use at your own risk.", MessageType.Warning);
-            }
-            else if(newCollisionTransfer)
-            {
-                newCollisionTransfer = false;
-
+                behaviour.AllowCollisionOwnershipTransfer = false;
                 GUI.changed = true;
             }
-            EditorGUI.EndDisabledGroup();
+
+            // For now we'll do a warning, later on we may add a validation pass that just converts everything automatically
+            if (behaviour.SynchronizePosition)
+            {
+                var objectSync = behaviour.GetComponent<VRC.SDK3.Components.VRCObjectSync>();
+
+                if (!objectSync)
+                {
+                    EditorGUILayout.HelpBox("This behaviour has sync position enabled on it, sync position is deprecated and you should now use the VRC Object Sync script.", MessageType.Warning);
+                    if (GUILayout.Button("Switch to VRC Object Sync"))
+                    {
+                        var newObjSync = Undo.AddComponent<VRC.SDK3.Components.VRCObjectSync>(behaviour.gameObject);
+                        while (UnityEditorInternal.ComponentUtility.MoveComponentUp(newObjSync)) { }
+
+                        UdonBehaviour[] behaviours = behaviour.GetComponents<UdonBehaviour>();
+                        
+                        foreach (UdonBehaviour otherBehaviour in behaviours)
+                        {
+                            Undo.RecordObject(behaviour, "Convert to VRC Object Sync");
+                            behaviour.SynchronizePosition = false;
+                            behaviour.AllowCollisionOwnershipTransfer = false;
+                        }
+
+                        Undo.RecordObject(newObjSync, "Object sync collision transfer");
+                        newObjSync.AllowCollisionOwnershipTransfer = false;
+                    }
+                }
+            }
+#pragma warning restore CS0618 // Type or member is obsolete
 
             if (EditorGUI.EndChangeCheck())
-            {
-                Undo.RecordObject(behaviour, "Change sync setting");
-                behaviour.SynchronizePosition = newSyncPos;
-                behaviour.AllowCollisionOwnershipTransfer = newCollisionTransfer;
+                PrefabUtility.RecordPrefabInstancePropertyModifications(behaviour);
 
-                if (PrefabUtility.IsPartOfPrefabInstance(behaviour))
-                    PrefabUtility.RecordPrefabInstancePropertyModifications(behaviour);
-            }
-#endif
+            EditorGUI.EndDisabledGroup();
         }
 
         /// <summary>
@@ -1501,7 +1591,7 @@ namespace UdonSharpEditor
                 EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
                 if (GUILayout.Button("Convert to UdonBehaviour", GUILayout.Height(25)))
                 {
-                    UdonSharpEditorUtility.ConvertToUdonBehavioursInternal(new[] { behaviour }, true, true);
+                    UdonSharpEditorUtility.ConvertToUdonBehavioursInternal(new[] { behaviour }, true, true, true);
                     EditorGUI.EndDisabledGroup();
 
                     return true;
@@ -1546,7 +1636,7 @@ namespace UdonSharpEditor
                 EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
                 if (GUILayout.Button("Convert to UdonBehaviour", GUILayout.Height(25)))
                 {
-                    UdonSharpEditorUtility.ConvertToUdonBehavioursInternal(Array.ConvertAll(targets, e => e as UdonSharpBehaviour).Where(e => e != null && !UdonSharpEditorUtility.IsProxyBehaviour(e)).ToArray(), true, true);
+                    UdonSharpEditorUtility.ConvertToUdonBehavioursInternal(Array.ConvertAll(targets, e => e as UdonSharpBehaviour).Where(e => e != null && !UdonSharpEditorUtility.IsProxyBehaviour(e)).ToArray(), true, true, true);
                     EditorGUI.EndDisabledGroup();
 
                     return true;

@@ -67,11 +67,11 @@ public partial class VRCSdkControlPanel : EditorWindow
         if (!ConfigManager.RemoteConfig.IsInitialized())
             ConfigManager.RemoteConfig.Init();
 
-        if (!APIUser.IsLoggedInWithCredentials)
+        if (!APIUser.IsLoggedIn)
             yield break;
 
         ApiCache.ClearResponseCache();
-        VRCCachedWWW.ClearOld();
+        VRCCachedWebRequest.ClearOld();
 
         if (fetchingAvatars == null)
             fetchingAvatars = EditorCoroutine.Start(() => FetchAvatars());
@@ -124,7 +124,7 @@ public partial class VRCSdkControlPanel : EditorWindow
     private static void FetchTestAvatars()
     {
 #if VRC_SDK_VRCSDK3
-        string sdkAvatarFolder = VRC.SDK3.Editor.VRC_SdkBuilder.GetKnownFolderPath(VRC.SDK3.Editor.VRC_SdkBuilder.LocalLowGUID) + "/VRChat/vrchat/Avatars/";
+        string sdkAvatarFolder = VRC.SDKBase.Editor.VRC_SdkBuilder.GetKnownFolderPath(VRC.SDKBase.Editor.VRC_SdkBuilder.LocalLowGUID) + "/VRChat/vrchat/Avatars/";
         string[] sdkavatars = Directory.GetFiles(sdkAvatarFolder);
         string filename = "";
         List<ApiAvatar> avatars = new List<ApiAvatar>();
@@ -183,6 +183,7 @@ public partial class VRCSdkControlPanel : EditorWindow
             null,
             null,
             null,
+            null,
             "",
             ApiWorld.ReleaseStatus.All,
             null,
@@ -224,23 +225,30 @@ public partial class VRCSdkControlPanel : EditorWindow
         }
     }
 
-    static void DownloadImage(string id, string url)
+    private static void DownloadImage(string id, string url)
     {
         if (string.IsNullOrEmpty(url))
+        {
             return;
+        }
+
         if (ImageCache.ContainsKey(id) && ImageCache[id] != null)
+        {
             return;
+        }
         
-        System.Action<Texture2D> onDone = (texture) =>
+        EditorCoroutine.Start(VRCCachedWebRequest.Get(url, OnDone));
+        void OnDone(Texture2D texture)
         {
             if (texture != null)
             {
                 ImageCache[id] = texture;
             }
             else if (ImageCache.ContainsKey(id))
+            {
                 ImageCache.Remove(id);
-        };
-        EditorCoroutine.Start(VRCCachedWWW.Get(url, (onDone)));
+            }
+        }
     }
 
     Vector2 contentScrollPos;
@@ -252,7 +260,7 @@ public partial class VRCSdkControlPanel : EditorWindow
         if (!ConfigManager.RemoteConfig.IsInitialized())
             ConfigManager.RemoteConfig.Init();
 
-        if (APIUser.IsLoggedInWithCredentials && uploadedWorlds != null && uploadedAvatars != null && testAvatars != null)
+        if (APIUser.IsLoggedIn && uploadedWorlds != null && uploadedAvatars != null && testAvatars != null)
         {
 
             bool expandedLayout = false; // (position.width > MAX_ALL_INFORMATION_WIDTH);    // uncomment for future wide layouts

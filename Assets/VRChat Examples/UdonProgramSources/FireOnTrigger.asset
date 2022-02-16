@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: FireOnTrigger
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 97fe2429e86ace34fbfa7dd287b119a9,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: aeb7c5117acc7174d9ddbd7d69974781,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export eventName\r\n    .export target\r\n
     \   \r\n    instance_0: %VRCUdonUdonBehaviour, this\r\n    eventName_0: %SystemString,
@@ -138,6 +138,7 @@ MonoBehaviour:
         stringValue: 
       - unityObjectValue: {fileID: 0}
         stringValue: 
+    updateOrder: 0
   graphElementData:
   - type: 5
     uid: d0e23a1d-c279-4030-9fc1-914d63c63784

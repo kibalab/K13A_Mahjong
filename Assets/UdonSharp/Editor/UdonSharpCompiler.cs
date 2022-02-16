@@ -1,6 +1,6 @@
-﻿using System.CodeDom;
+﻿
+using System.CodeDom;
 using System.CodeDom.Compiler;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -154,7 +154,9 @@ namespace UdonSharp.Compiler
                 {
                     string programSource = UdonSharpUtils.ReadFileTextSync(currentProgram.Item2);
 
+#pragma warning disable CS1701 // Warning about System.Collections.Immutable versions potentially not matching
                     Microsoft.CodeAnalysis.SyntaxTree programSyntaxTree = CSharpSyntaxTree.ParseText(programSource, CSharpParseOptions.Default.WithDocumentationMode(DocumentationMode.None).WithPreprocessorSymbols(defines));
+#pragma warning restore CS1701
 
                     lock (syntaxTreeLock)
                     {
@@ -658,11 +660,13 @@ namespace UdonSharp.Compiler
                 }
             }
 
+#pragma warning disable CS1701 // Warning about System.Collections.Immutable versions potentially not matching
             CSharpCompilation compilation = CSharpCompilation.Create(
                 $"UdonSharpInitAssembly{initAssemblyCounter++}",
                 syntaxTrees: initializerTrees,
                 references: metadataReferences,
                 options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+#pragma warning restore CS1701
 
             using (var memoryStream = new MemoryStream())
             {
@@ -686,9 +690,10 @@ namespace UdonSharp.Compiler
                 }
                 else
                 {
-                    memoryStream.Seek(0, SeekOrigin.Begin);
+                    Assembly assembly;
 
-                    Assembly assembly = Assembly.Load(memoryStream.ToArray());
+                    using (var loadScope = new UdonSharpUtils.UdonSharpAssemblyLoadStripScope())
+                        assembly = Assembly.Load(memoryStream.ToArray());
 
                     for (int moduleIdx = 0; moduleIdx < modulesToInitialize.Length; ++moduleIdx)
                     {

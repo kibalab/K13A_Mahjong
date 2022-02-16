@@ -1,35 +1,23 @@
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UIElements;
+using System;
 using VRC.SDKBase;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
 {
-    public class VRCUrlField : TextInputFieldBase<VRCUrl>
+    public class VRCUrlField : BaseField<VRCUrl>
     {
-        public VRCUrlField()
-            : base(-1, char.MinValue)
+        public VRCUrlField():base(null,null)
         {
+            // Set up styling
             AddToClassList("UdonValueField");
-            RegisterCallback<BlurEvent>(OnBlur);
-        }
-
-        private void OnBlur(BlurEvent evt)
-        {
-            base.value = new VRCUrl(text);
-        }
-
-        public override VRCUrl value
-        {
-            get => base.value;
-            set
-            {
-                base.value = value;
-                text = value?.Get() ?? string.Empty;
-            }
-        }
-
-        ~VRCUrlField()
-        {
-            UnregisterCallback<BlurEvent>(OnBlur);
+            
+            // Create Text Editor and listen for changes
+            TextField field = new TextField(50, false, false, Char.MinValue);
+            field.RegisterValueChangedCallback(
+                e => 
+                    value = new VRCUrl(e.newValue)
+            );
+            Add(field);
         }
     }
 }

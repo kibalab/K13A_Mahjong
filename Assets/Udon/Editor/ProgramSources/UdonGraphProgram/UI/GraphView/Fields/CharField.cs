@@ -1,41 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+﻿using UnityEngine.UIElements;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI
 {
-    public class CharField : TextInputFieldBase<char>
+    public class CharField : BaseField<char>
     {
-        public CharField()
-            : base(1, char.MinValue)
+        public CharField():base(null,null)
         {
-            this.AddToClassList("UdonValueField");
-        }
-
-        public override char value
-        {
-            get
-            {
-                return base.value;
-            }
-            set
-            {
-                base.value = value;
-                this.text = value.ToString();
-            }
-        }
-
-        protected override void ExecuteDefaultAction(EventBase evt)
-        {
-            base.ExecuteDefaultAction(evt);
+            // Set up styling
+            AddToClassList("UdonValueField");
             
-            if (this.text.Length > 0)
+            // Create Char Editor and listen for changes
+            TextField field = new TextField
             {
-                this.value = this.text.ToCharArray()[0];
-            }
-            
-        }
+                maxLength = 1
+            };
+            field.RegisterValueChangedCallback(
+                e =>
+                    value = e.newValue.ToCharArray()[0]);
 
+            Add(field);
+        }
     }
 }

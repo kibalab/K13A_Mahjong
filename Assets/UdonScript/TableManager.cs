@@ -224,7 +224,7 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
-    public void resetTable()
+    public void ResetTable()
     {
         //다음라운드로 전환을 위한 테이블 전체 초기화
         TableViewer.hideDisplay();

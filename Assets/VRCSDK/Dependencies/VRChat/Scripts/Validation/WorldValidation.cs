@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+#if TextMeshPro
+using TMPro;
+#endif
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.UI;
 
-namespace VRCSDK2.Validation
+namespace VRC.SDKBase.Validation
 {
     public static class WorldValidation
     {
         private static readonly Lazy<int> _debugLevel = new Lazy<int>(InitializeLogging);
         private static int DebugLevel => _debugLevel.Value;
+
         private static int InitializeLogging()
         {
             int hashCode = typeof(WorldValidation).GetHashCode();
@@ -20,6 +25,7 @@ namespace VRCSDK2.Validation
         }
 
         static string[] ComponentTypeWhiteList = null;
+
         public enum WhiteListConfiguration
         {
             None,
@@ -27,14 +33,15 @@ namespace VRCSDK2.Validation
             VRCSDK3,
             Unchanged
         }
+
         static WhiteListConfiguration ComponentTypeWhiteListConfiguration = WhiteListConfiguration.None;
 
         static readonly string[] ComponentTypeWhiteListCommon = new string[]
         {
             #if UNITY_STANDALONE
-                "UnityEngine.Rendering.PostProcessing.PostProcessDebug",
-                "UnityEngine.Rendering.PostProcessing.PostProcessLayer",
-                "UnityEngine.Rendering.PostProcessing.PostProcessVolume",
+            "UnityEngine.Rendering.PostProcessing.PostProcessDebug",
+            "UnityEngine.Rendering.PostProcessing.PostProcessLayer",
+            "UnityEngine.Rendering.PostProcessing.PostProcessVolume",
             #endif
             "VRC.Core.PipelineManager",
             "UiInputField",
@@ -268,18 +275,18 @@ namespace VRCSDK2.Validation
         static readonly string[] ComponentTypeWhiteListSdk2 = new string[]
         {
             #if UNITY_STANDALONE
-                "VRCSDK2.VRC_CustomRendererBehaviour",
-                "VRCSDK2.VRC_MidiNoteIn",
-                "VRCSDK2.scripts.Scenes.VRC_Panorama",
-                "VRCSDK2.VRC_Water",
-                "UnityStandardAssets.Water.WaterBasic",
-                "UnityStandardAssets.Water.Displace",
-                "UnityStandardAssets.Water.GerstnerDisplace",
-                "UnityStandardAssets.Water.PlanarReflection",
-                "UnityStandardAssets.Water.SpecularLighting",
-                "UnityStandardAssets.Water.Water",
-                "UnityStandardAssets.Water.WaterBase",
-                "UnityStandardAssets.Water.WaterTile",
+            "VRCSDK2.VRC_CustomRendererBehaviour",
+            "VRCSDK2.VRC_MidiNoteIn",
+            "VRCSDK2.scripts.Scenes.VRC_Panorama",
+            "VRCSDK2.VRC_Water",
+            "UnityStandardAssets.Water.WaterBasic",
+            "UnityStandardAssets.Water.Displace",
+            "UnityStandardAssets.Water.GerstnerDisplace",
+            "UnityStandardAssets.Water.PlanarReflection",
+            "UnityStandardAssets.Water.SpecularLighting",
+            "UnityStandardAssets.Water.Water",
+            "UnityStandardAssets.Water.WaterBase",
+            "UnityStandardAssets.Water.WaterTile",
             #endif
             "VRCSDK2.VRCTriggerRelay",
             "VRCSDK2.VRC_AudioBank",
@@ -327,8 +334,10 @@ namespace VRCSDK2.Validation
             "VRCSDK2.VRC_UseEvents",
             "VRCSDK2.VRC_UiShape",
             "UnityEngine.Animation",
+            #if !UNITY_2019_4_OR_NEWER
             "UnityEngine.GUIText",
             "UnityEngine.GUITexture",
+            #endif
             "UnityEngine.Video.VideoPlayer",
             "PhysSound.PhysSoundBase",
             "PhysSound.PhysSoundObject",
@@ -378,7 +387,9 @@ namespace VRCSDK2.Validation
             "UnityStandardAssets.Utility.FPSCounter",
             "UnityStandardAssets.Utility.ObjectResetter",
             "UnityStandardAssets.Utility.ParticleSystemDestroyer",
+            #if !UNITY_2019_4_OR_NEWER
             "UnityStandardAssets.Utility.SimpleActivatorMenu",
+            #endif
             "UnityStandardAssets.Utility.SimpleMouseRotator",
             "UnityStandardAssets.Utility.SmoothFollow",
             "UnityStandardAssets.Utility.TimedObjectActivator",
@@ -434,11 +445,15 @@ namespace VRCSDK2.Validation
             "VRC.SDK3.Components.VRCSceneDescriptor",
             "VRC.SDK3.Components.VRCStation",
             "VRC.SDK3.Components.VRCUiShape",
+            "VRC.SDK3.Components.VRCObjectSync",
+            "VRC.SDK3.Components.VRCObjectPool",
             "VRC.SDK3.Video.Components.VRCUnityVideoPlayer",
             "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoPlayer",
             "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoScreen",
             "VRC.SDK3.Video.Components.AVPro.VRCAVProVideoSpeaker",
+            "VRC.SDK3.Midi.VRCMidiListener",
             "VRC.Udon.UdonBehaviour",
+            "VRC.Udon.AbstractUdonBehaviourEventProxy",
             "UnityEngine.Animations.AimConstraint",
             "UnityEngine.Animations.LookAtConstraint",
             "UnityEngine.Animations.ParentConstraint",
@@ -502,8 +517,8 @@ namespace VRCSDK2.Validation
 
         private static void ConfigureWhiteList(WhiteListConfiguration config)
         {
-            if (ComponentTypeWhiteListConfiguration == config ||
-                config == WhiteListConfiguration.Unchanged)
+            if(ComponentTypeWhiteListConfiguration == config ||
+               config == WhiteListConfiguration.Unchanged)
             {
                 return;
             }
@@ -526,13 +541,21 @@ namespace VRCSDK2.Validation
         }
 
         [PublicAPI]
-        public static void RemoveIllegalComponents(IEnumerable<GameObject> targets, WhiteListConfiguration config, bool retry = true)
+        public static void RemoveIllegalComponents(List<GameObject> targets, WhiteListConfiguration config, bool retry = true, HashSet<Type> tagWhitelistedTypes = null)
         {
             ConfigureWhiteList(config);
-            HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world" + config, ComponentTypeWhiteList);
+            
+            HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes($"world{config}", ComponentTypeWhiteList);
+
+            // combine whitelist types from world tags with cached whitelist
+            if (tagWhitelistedTypes != null)
+            {
+                tagWhitelistedTypes.UnionWith(whitelist);
+            }
+
             foreach(GameObject target in targets)
             {
-                ValidationUtils.RemoveIllegalComponents(target, whitelist, retry, true);
+                ValidationUtils.RemoveIllegalComponents(target, (tagWhitelistedTypes == null) ? whitelist : tagWhitelistedTypes, retry, true, true);
                 SecurityScan(target);
                 AddScanned(target);
             }
@@ -540,11 +563,13 @@ namespace VRCSDK2.Validation
 
         private static void AddScanned(GameObject obj)
         {
-            if (obj == null)
+            if(obj == null)
                 return;
-            if (!scannedObjects.Contains(obj.GetInstanceID()))
+
+            if(!scannedObjects.Contains(obj.GetInstanceID()))
                 scannedObjects.Add(obj.GetInstanceID());
-            for (int idx = 0; idx < obj.transform.childCount; ++idx)
+
+            for(int idx = 0; idx < obj.transform.childCount; ++idx)
                 AddScanned(obj.transform.GetChild(idx)?.gameObject);
         }
 
@@ -556,7 +581,7 @@ namespace VRCSDK2.Validation
         [PublicAPI]
         public static void ScanGameObject(GameObject target, WhiteListConfiguration config)
         {
-            if (WasScanned(target))
+            if(WasScanned(target))
             {
                 return;
             }
@@ -565,8 +590,10 @@ namespace VRCSDK2.Validation
             HashSet<Type> whitelist = ValidationUtils.WhitelistedTypes("world" + config, ComponentTypeWhiteList);
             ValidationUtils.RemoveIllegalComponents(target, whitelist);
             SecurityScan(target);
-
             AddScanned(target);
+
+            // Must be called after AddScanned to avoid infinite recursion.
+            ScanDropdownTemplates(target, config);
         }
 
         [PublicAPI]
@@ -583,24 +610,67 @@ namespace VRCSDK2.Validation
 
         private static void SecurityScan(GameObject target)
         {
-            PlayableDirector[] playabledirectors = target.GetComponentsInChildren<PlayableDirector>(true);
-            foreach (PlayableDirector playableDirector in playabledirectors)
+            PlayableDirector[] playableDirectors = target.GetComponentsInChildren<PlayableDirector>(true);
+            foreach(PlayableDirector playableDirector in playableDirectors)
+            {
                 StripPlayableDirectorWithPrefabs(playableDirector);
+            }
+        }
+
+        private static void ScanDropdownTemplates(GameObject target, WhiteListConfiguration config)
+        {
+            Dropdown[] dropdowns = target.GetComponentsInChildren<Dropdown>(true);
+            foreach(Dropdown dropdown in dropdowns)
+            {
+                if(dropdown == null)
+                {
+                    continue;
+                }
+
+                RectTransform dropdownTemplate = dropdown.template;
+                if(dropdownTemplate == null)
+                {
+                    continue;
+                }
+
+                ScanGameObject(dropdownTemplate.transform.root.gameObject, config);
+            }
+            
+            #if TextMeshPro
+            TMP_Dropdown[] tmpDropdowns = target.GetComponentsInChildren<TMP_Dropdown>(true);
+            foreach(TMP_Dropdown textMeshProDropdown in tmpDropdowns)
+            {
+                if(textMeshProDropdown == null)
+                {
+                    continue;
+                }
+
+                RectTransform dropdownTemplate = textMeshProDropdown.template;
+                if(dropdownTemplate == null)
+                {
+                    continue;
+                }
+
+                ScanGameObject(dropdownTemplate.transform.root.gameObject, config);
+            }
+            #endif
         }
 
         private static void StripPlayableDirectorWithPrefabs(PlayableDirector playableDirector)
         {
-            if (!(playableDirector.playableAsset is UnityEngine.Timeline.TimelineAsset timelineAsset))
+            if(!(playableDirector.playableAsset is UnityEngine.Timeline.TimelineAsset timelineAsset))
                 return;
+
             IEnumerable<TrackAsset> tracks = timelineAsset.GetOutputTracks();
-            foreach (TrackAsset track in tracks)
+            foreach(TrackAsset track in tracks)
             {
-                if (!(track is ControlTrack))
+                if(!(track is ControlTrack))
                     continue;
+
                 IEnumerable<TimelineClip> clips = track.GetClips();
-                foreach (TimelineClip clip in clips)
+                foreach(TimelineClip clip in clips)
                 {
-                    if (clip.asset is ControlPlayableAsset controlPlayableAsset && controlPlayableAsset.prefabGameObject != null)
+                    if(clip.asset is ControlPlayableAsset controlPlayableAsset && controlPlayableAsset.prefabGameObject != null)
                     {
                         UnityEngine.Object.Destroy(playableDirector);
                         VRC.Core.Logger.LogWarning("PlayableDirector containing prefab removed", DebugLevel, playableDirector.gameObject);

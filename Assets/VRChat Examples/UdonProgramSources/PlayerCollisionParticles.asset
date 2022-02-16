@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: PlayerCollisionParticles
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: b0c9bfa071c58dd46bc312fc0955290b,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: ec3eff0adbdaf9540848ec2ec853eada,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export textField\r\n    \r\n    instance_0:
     %UnityEngineUIText, null\r\n    value_0: %SystemString, null\r\n    format_0:
@@ -114,6 +114,7 @@ MonoBehaviour:
       nodeUIDs: []
       flowUIDs: []
       nodeValues: []
+    updateOrder: 0
   graphElementData:
   - type: 5
     uid: 4b8d8270-2843-4eba-a790-535f6ebc72af

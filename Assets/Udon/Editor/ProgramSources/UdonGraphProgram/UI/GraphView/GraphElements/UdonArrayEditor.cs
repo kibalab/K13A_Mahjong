@@ -1,4 +1,8 @@
-﻿using UnityEngine.Experimental.UIElements;
+﻿#if UNITY_2019_3_OR_NEWER
+using UnityEngine.UIElements;
+#else
+using UnityEngine.Experimental.UIElements;
+#endif
 using System;
 
 namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
@@ -7,12 +11,12 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
     {
         private IArrayProvider _inspector;
         private Button _editArrayButton;
-        private System.Action<object> _setValueCallback;
+        private Action<object> _setValueCallback;
         private Type _type;
         private object _value;
         private bool _inspectorOpen = false;
 
-        public UdonArrayEditor(Type t, System.Action<object> valueChangedAction, object value)
+        public UdonArrayEditor(Type t, Action<object> valueChangedAction, object value)
         {
             _setValueCallback = valueChangedAction;
             _value = value;
@@ -35,7 +39,7 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 Type typedArrayInspector = (typeof(UdonArrayInspector<>)).MakeGenericType(_type);
                 _inspector = (Activator.CreateInstance(typedArrayInspector, null, _value) as IArrayProvider);
 
-                Add(_inspector as VisualElement);
+                AddInspector();
                 _inspectorOpen = true;
                 _editArrayButton.text = "Save";
                 return;
@@ -61,13 +65,22 @@ namespace VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView
                 {
                     // Inspector exists, it's just removed
                     _inspectorOpen = true;
-                    Add(_inspector as VisualElement);
+                    AddInspector();
                     _editArrayButton.text = "Save";
                 }
             }
-
-
-
+        }
+        
+        private void AddInspector()
+        {
+            if (parent.GetType() == typeof(UdonPort))
+            {
+                parent.parent.Add(_inspector as VisualElement);
+            }
+            else
+            {
+                Add(_inspector as VisualElement);   
+            }
         }
     }
 }

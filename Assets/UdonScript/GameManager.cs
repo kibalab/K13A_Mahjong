@@ -7,6 +7,8 @@ using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
 
+
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class GameManager : UdonSharpBehaviour
 {
     [SerializeField] public EventQueue EventQueue;
@@ -40,6 +42,20 @@ public class GameManager : UdonSharpBehaviour
     private VRCPlayerApi[] registeredPlayers;
     private string[] winds;
 
+    public int Seed
+    {
+        set
+        {
+            seed = value;
+
+            Initialize_Local();
+
+            RequestSerialization();
+        }
+
+        get => seed;
+    }
+
     void Start()
     {
         // 로컬 테스트 환경일 때 
@@ -60,7 +76,6 @@ public class GameManager : UdonSharpBehaviour
             Networking.SetOwner(player, gameObject);
 
             Initialize_Master();
-            Initialize_Local();
             if (testMode)
             {
                 ActiveTestMode();
@@ -82,19 +97,19 @@ public class GameManager : UdonSharpBehaviour
 
     public void Initialize_Master() 
     {
-        if(seed == 0)
-            seed = UnityEngine.Random.Range(1, 2147483647);
-        LogViewer.Log($"Create Seed : {seed}", 0);
+        if(Seed == 0)
+            Seed = UnityEngine.Random.Range(1, 2147483647);
+        LogViewer.Log($"Create Seed : {Seed}", 0);
 
-        EventLog.SetEvent($"FI&{seed}");
+        EventLog.SetEvent($"FI&{Seed}");
     }
 
     public void Initialize_Local()
     {
-        UnityEngine.Random.InitState(seed);
-        LogViewer.Log($"Set Seed : {seed}", 0);
+        UnityEngine.Random.InitState(Seed);
+        LogViewer.Log($"Set Seed : {Seed}", 0);
         ChangeGameState(State_WaitForStart);
-        TableManager.Initialize();
+        TableManager.ResetTable();
         EventQueue.Initialize();
         registeredPlayers = new VRCPlayerApi[4];
         winds = new string[] { "East", "South", "West", "North" };
@@ -119,7 +134,7 @@ public class GameManager : UdonSharpBehaviour
 
         if (!IsReady()) { return; }
 
-        if (!ReadyForGame && seed != 0) { 
+        if (!ReadyForGame && Seed != 0) { 
             Initialize_Local();
             if (testMode)
             {
@@ -569,7 +584,7 @@ public class GameManager : UdonSharpBehaviour
     void EndOfRound()
     {
         //지금은 끝나면 바로 초기화하게 해뒀지만 나중엔 버튼을 누르면 초기화 하게 해야함
-        TableManager.resetTable();
+        TableManager.ResetTable();
         var lastRoundWInd = TableManager.GetPlayer(0).playerStatus.RoundWind;
         TableManager.SetNextRoundWind(lastRoundWInd);
         ChangeGameState(State_WaitForDiscard);
