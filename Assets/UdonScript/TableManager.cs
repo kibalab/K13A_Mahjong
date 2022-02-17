@@ -100,12 +100,11 @@ public class TableManager : UdonSharpBehaviour
 
     public void AddNextCard()
     {
-        LogViewer.Log($"AddNextCard Player:{currentTurnPlayer} YamaIndex:{currentCardIndex}", 1);
-
         var player = GetCurrentTurnPlayer();
         var index = currentCardIndex;
 
         var nextCard = GetNextCard();
+        LogViewer.Log($"AddNextCard {nextCard.ToString()} Player:{currentTurnPlayer} YamaIndex:{currentCardIndex}", 1);
         if (nextCard != null)
         {
             var isFirstTsumo = index == 0;
@@ -227,13 +226,12 @@ public class TableManager : UdonSharpBehaviour
     public void ResetTable()
     {
         //다음라운드로 전환을 위한 테이블 전체 초기화
+        ResetDoraViewer();
         TableViewer.hideDisplay();
         currentTurnPlayer = 0;
         currentCardIndex = 0;
         currentRinShanCardIndex = 0;
         currentDorasCardIndex = 0;
-
-        resetDoraViewer();
 
         Initialize();
 
@@ -246,8 +244,6 @@ public class TableManager : UdonSharpBehaviour
         }
 
         SetTurnOf(0);
-
-        AddNextCard();
     }
 
     public void refreshSprites()
@@ -320,7 +316,7 @@ public class TableManager : UdonSharpBehaviour
             {
                 for (int i = 0; i < 4; ++i)
                 {
-                    yama[index].resetCard();
+                    yama[index].ResetCard();
                     var isDora = number == 5 ? (i == 3 ? true : false) : false; // 5만, 5삭, 5통만 4개중 도라 하나를 가지고있음
                     yama[index++].Initialize_Master(type, number, isDora);
                 }
@@ -481,12 +477,12 @@ public class TableManager : UdonSharpBehaviour
         doraDisplay.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite(spriteName);
     }
 
-    void resetDoraViewer()
+    void ResetDoraViewer()
     {
         for(var i = 0; i< DoraViewer.transform.childCount; i++)
         {
             var doraDisplay = DoraViewer.transform.GetChild(i);
-            doraDisplay.GetComponent<Image>().color = new Color32(128, 128, 128, 128);
+            doraDisplay.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             doraDisplay.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite("None");
         }
     }

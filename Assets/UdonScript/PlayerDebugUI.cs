@@ -11,6 +11,8 @@ public class PlayerDebugUI : UdonSharpBehaviour
     public Text AgariableCardGlobalOrders, AgariableCount, RiichiCreationCards;
     public PlayerStatus playerStatus;
     public Text IsRiichiMode;
+    public Player player;
+    public Text Cards;
 
 
 
@@ -20,6 +22,11 @@ public class PlayerDebugUI : UdonSharpBehaviour
         AgariableCount.text = agariContext.AgariableCount.ToString();
         RiichiCreationCards.text = cardsToString(agariContext.RiichiCreationCards);
         IsRiichiMode.text = playerStatus.IsRiichiMode.ToString();
+        Cards.text = "";
+        for(var i = 0; i < player.Cards.Count(); i++)
+        {
+            Cards.text += ((Card)player.Cards.At(i)).ToString() + ", ";
+        }
     }
 
     string cardsToString(Card[] cards)

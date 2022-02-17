@@ -464,6 +464,7 @@ public class Player : UdonSharpBehaviour
 
     public void SetCards(Card[] pickedCards)
     {
+
         for (int i = 0; i< pickedCards.Length; ++i)
         {
             var pointTransform = cardPoints[i];
@@ -475,6 +476,15 @@ public class Player : UdonSharpBehaviour
         }
 
         SortPosition();
+    }
+
+    public void ClearHand()
+    {
+        for(var i = 0; i< Cards.Count(); i++)
+        {
+            ((Card)Cards.At(i)).ResetCard();
+        }
+        Cards.Clear();
     }
 
     public void SetColliderActive(bool active, bool force)

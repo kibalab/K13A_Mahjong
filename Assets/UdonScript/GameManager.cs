@@ -59,6 +59,7 @@ public class GameManager : UdonSharpBehaviour
     void Start()
     {
 #if UNITY_EDITOR
+        LogViewer.Log($"!Play Editor Mode!", 0);
         // 로컬 테스트 환경일 때 
         Initialize_Master();
         Initialize_Local();
@@ -584,6 +585,7 @@ public class GameManager : UdonSharpBehaviour
     {
         //지금은 끝나면 바로 초기화하게 해뒀지만 나중엔 버튼을 누르면 초기화 하게 해야함
         TableManager.ResetTable();
+        TableManager.AddNextCard();
         var lastRoundWInd = TableManager.GetPlayer(0).playerStatus.RoundWind;
         TableManager.SetNextRoundWind(lastRoundWInd);
         ChangeGameState(State_WaitForDiscard);

@@ -74,15 +74,14 @@ public class Card : UdonSharpBehaviour
         }
     }
 
-    public void resetCard()
+    public void ResetCard()
     {
         Type = "None";
         CardNumber = -1;
         SpriteNamePostfix = "None";
         IsColliderActive = true;
         IsDora = false;
-        Position = new Vector3(0, 0, 0);
-        Rotation = new Quaternion(0, 0, 0, 0);
+        ResetTranform();
         IsRinShan = false;
         YamaIndex = -1;
         PlayerIndex = -1;
@@ -202,7 +201,12 @@ public class Card : UdonSharpBehaviour
 
     private void Start()
     {
-        transform.SetPositionAndRotation(Position, Rotation);
+        ResetTranform();
+    }
+
+    public void ResetTranform()
+    {
+        SetPosition(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0), true);
     }
 
     void InitializeSprite()
