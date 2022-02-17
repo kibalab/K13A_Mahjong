@@ -486,7 +486,7 @@ public class TableManager : UdonSharpBehaviour
         for(var i = 0; i< DoraViewer.transform.childCount; i++)
         {
             var doraDisplay = DoraViewer.transform.GetChild(i);
-            doraDisplay.GetComponent<Image>().color = new Color32(128, 128, 128, 128)
+            doraDisplay.GetComponent<Image>().color = new Color32(128, 128, 128, 128);
             doraDisplay.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite("None");
         }
     }
