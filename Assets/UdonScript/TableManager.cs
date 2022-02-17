@@ -232,6 +232,9 @@ public class TableManager : UdonSharpBehaviour
         currentCardIndex = 0;
         currentRinShanCardIndex = 0;
         currentDorasCardIndex = 0;
+
+        resetDoraViewer();
+
         Initialize();
 
         refreshSprites();
@@ -476,6 +479,16 @@ public class TableManager : UdonSharpBehaviour
         var doraDisplay = DoraViewer.transform.GetChild(currentDorasCardIndex);
         doraDisplay.GetComponent<Image>().color = Color.white;
         doraDisplay.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite(spriteName);
+    }
+
+    void resetDoraViewer()
+    {
+        for(var i = 0; i< DoraViewer.transform.childCount; i++)
+        {
+            var doraDisplay = DoraViewer.transform.GetChild(i);
+            doraDisplay.GetComponent<Image>().color = new Color32(128, 128, 128, 128)
+            doraDisplay.GetChild(0).GetComponent<Image>().sprite = Sprites.FindSprite("None");
+        }
     }
 
     public bool IsReady()
