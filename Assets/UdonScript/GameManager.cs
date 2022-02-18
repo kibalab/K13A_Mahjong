@@ -266,7 +266,10 @@ public class GameManager : UdonSharpBehaviour
         // 등록한 순서를 적당히 섞는다
 
         // 4명 중 아무나 첫 턴으로 설정해준다
-        var firstTurnIndex = UnityEngine.Random.Range(0, 4);
+        //var firstTurnIndex = UnityEngine.Random.Range(0, 4);
+
+        // 동가부터 시작하게함
+        var firstTurnIndex = 0;
 
         for (var i = 0; i < 4; ++i)
         {
