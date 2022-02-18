@@ -262,6 +262,8 @@ public class GameManager : UdonSharpBehaviour
 
     void StartGame()
     {
+        LogViewer.Log($"[GameManager] Start Game With {registeredPlayers.Length} Players", 0);
+        LogViewer.Log($"[GameManager] Start Game With {registeredPlayers.Length} Players", 1);
         // 등록한 순서를 적당히 섞는다
         registeredPlayers = ShufflePlayers(registeredPlayers);
 
@@ -625,6 +627,12 @@ public class GameManager : UdonSharpBehaviour
 
         while (yetShuffledCount >= 0)
         {
+            var tmp = "";
+            foreach (var p in players)
+            {
+                tmp += p.displayName + ", ";
+            }
+            Debug.Log($"[GameManager] Shuffled Players : {tmp}");
             var picked = UnityEngine.Random.Range(0, yetShuffledCount + 1);
             shuffled[shuffledIndex] = players[picked];
             players[picked] = players[yetShuffledCount];
