@@ -41,7 +41,11 @@ public class EventLogHandler : UdonSharpBehaviour
     {
         if (!Networking.IsMaster && !Synced && NetworkEvent != ranNetworkEvent)
         {
-            runEvent(NetworkEvent.Split('#')[1]);
+            var parm = NetworkEvent.Split('#');
+
+            if (parm.Length <= 1) return;
+
+            runEvent(parm[1]);
 
             ranNetworkEvent = NetworkEvent;
 

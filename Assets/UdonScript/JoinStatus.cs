@@ -5,16 +5,9 @@ using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class JoinStatus : UdonSharpBehaviour
 {
-    [UdonSynced(UdonSyncMode.None)] public string NetworkMessage;
-
-    // 마스터 전용
-    private int messageNumber = 0;
-
-    // 모든 유저용
-    private int lastMessageNumber = -1;
-
     public Text server;
     public Text joinList;
     public Text joinCount;
@@ -22,67 +15,128 @@ public class JoinStatus : UdonSharpBehaviour
 
     public GameObject gameManager;
 
+    public JoinButton JoinButton;
+
     public LogViewer LogViewer;
+
+    public KList JoinnedPlayers;
+
+    public EventQueue EventQueue;
+
+    [UdonSynced(UdonSyncMode.None), FieldChangeCallback(nameof(Net_JoinnedPlayersID))] public int[] JoinnedPlayersID;
+
+    public int[] Net_JoinnedPlayersID
+    {
+        set
+        {
+            JoinnedPlayersID = value;
+
+            JoinnedPlayers.Clear();
+            foreach (var id in value)
+            {
+                var player = VRCPlayerApi.GetPlayerById(id);
+                JoinnedPlayers.Add(player);
+            }
+
+            
+
+            EventQueue.SetRegisterPlayerEvent((VRCPlayerApi[])JoinnedPlayers.Clone());
+
+            UpdateJoinIcon();
+        }
+    }
 
     private void Start()
     {
-        //setNetworkMessage("null [Test],null[Test]");
-        resetJoinIcon();
+        ResetJoinIcon();
         joinCount.text = "Wait for Join";
     }
 
-    public void setNetworkMessage(string data)
+    public void Join()
     {
-        NetworkMessage = SerializeJoinList(data);
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, nameof(Registering));
     }
 
-    public string SerializeJoinList(string list)
+    public void Registering()
     {
-        var serializedString = $"{messageNumber++},{list}";
-        return serializedString;
+        var ps = "";
+        for (var i = 0; i < JoinnedPlayers.Count(); i++)
+        {
+            ps += ((VRCPlayerApi)JoinnedPlayers.At(i)).displayName + ", ";
+            LogViewer.Log($"[JoinStatus] Current Joineed Players : {ps}", 1);
+        }
+
+        var player = Networking.GetOwner(JoinButton.gameManager);
+
+        LogViewer.Log($"[JoinStatus] {player.displayName} is already joinned.", 1);
+
+
+        for(var i = 0; i< JoinnedPlayers.Count(); i++)
+        {
+            if (((VRCPlayerApi)JoinnedPlayers.At(i)).Equals(player))
+            {
+                LogViewer.Log($"[JoinStatus] {player.displayName} is already joinned.", 1);
+                UpdateJoinIcon();
+                return;
+            }
+        }
+
+        LogViewer.Log($"[JoinStatus] {player.displayName} has joinned.", 1);
+        JoinnedPlayers.Add(player);
+
+        JoinnedPlayersID = GetJoinnedPlayerIDs();
+        RequestSerialization();
+
+        EventQueue.SetRegisterPlayerEvent((VRCPlayerApi[])JoinnedPlayers.Clone());
+
+        UpdateJoinIcon();
+    }
+
+    public void UpdateJoinIcon()
+    {
+        ResetJoinIcon();
+
+        joinList.text = "";
+
+        var ps = "";
+        var players = (VRCPlayerApi[])JoinnedPlayers.Clone();
+        for (var i = 0; i < players.Length; i++)
+        {
+            ps += players[i].displayName + "\n";
+            joinIcons[i++].color = Color.white;
+        }
+        LogViewer.Log($"[JoinStatus] Current Joined Players : {ps}", 1);
+        joinList.text = ps;
+        joinCount.text = (4 - players.Length) > 0 ? $"{4 - players.Length} Player Left" : "Player is All Ready";
     }
 
     private void Update()
     {
-        if (string.IsNullOrEmpty(NetworkMessage))
-        {
-            return;
-        }
         if (Networking.LocalPlayer != null)
         {
             var owner = Networking.GetOwner(gameManager);
             server.text = $"Instance Server : {owner.displayName}";
         }
 
-        
-
-        var splited = NetworkMessage.Split(',');
-        var networkMessageNumber = int.Parse(splited[0]);
-
-        if (lastMessageNumber != networkMessageNumber)
-        {
-
-            
-            lastMessageNumber = networkMessageNumber;
-
-            resetJoinIcon();
-            joinList.text = "";
-            for(int i=1, k=0; i < splited.Length; i++)
-            {
-                LogViewer.Log($"[JoinStatus] ListCount : {i}", 1);
-                joinList.text += $"{splited[i]}\n";  
-                joinIcons[k++].color = Color.white;
-                joinCount.text = (4 - i) > 0 ? $"{4 - i} Player Left" : "Player is All Ready";
-            }
-        }
+        UpdateJoinIcon();
     }
 
-    void resetJoinIcon()
+
+    int[] GetJoinnedPlayerIDs()
     {
-        foreach(Image icon in joinIcons)
+        int[] ids = new int[JoinnedPlayers.Count()];
+        for (var i = 0; i < ids.Length; i++)
         {
-            icon.color = new Color(0,0,0, 0.39f);
+            ids[i] = ((VRCPlayerApi)JoinnedPlayers.At(i)).playerId;
         }
+        return ids;
     }
 
+    void ResetJoinIcon()
+    {
+        foreach (Image icon in joinIcons)
+        {
+            icon.color = new Color(0, 0, 0, 0.39f);
+        }
+    }
 } 

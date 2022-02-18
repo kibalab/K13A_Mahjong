@@ -33,7 +33,6 @@ public class GameManager : UdonSharpBehaviour
     private bool ReadyForGame = false;
     private bool isNetworkReady;
 
-    private int registeredPlayerCount = 0;
     private int uiActivedCount = 0;
     private string gameState = "";
     private Card waitingNakiCard;
@@ -248,25 +247,14 @@ public class GameManager : UdonSharpBehaviour
     void WaitForStart(InputEvent inputEvent)
     {
         var eventType = inputEvent.EventType;
-        var player = inputEvent.NewPlayer;
+        var players = inputEvent.Players;
         if (eventType == "Register")
         {
-            registeredPlayers[registeredPlayerCount++] = player;
-            LogViewer.Log($"[GameManager] Registering Player : {player.displayName}", 0);
+            registeredPlayers = players;
+            LogViewer.Log($"[GameManager] Registering {registeredPlayers.Length} Players", 0);
         }
 
-        LogViewer.Log($"[GameManager] registeredPlayersCount : {registeredPlayerCount}", 1);
-        var joinedNetworkMessage = "";
-        for (var i = 0; i < registeredPlayerCount; ++i)
-        {
-            var p = registeredPlayers[i];
-            joinedNetworkMessage += $"{p.displayName}[Joined],";
-        }
-
-        LogViewer.Log($"[GameManager] Send JoinStatus Data : {joinedNetworkMessage}", 1);
-        JoinStatus.setNetworkMessage(joinedNetworkMessage);
-
-        if (registeredPlayerCount == 4 || testMode)
+        if (registeredPlayers.Length == 4 || testMode)
         {
             StartGame();
         }
