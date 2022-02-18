@@ -115,6 +115,9 @@ public class GameManager : UdonSharpBehaviour
 
         ReadyForGame = true;
         LogViewer.Log("Game Initalized", 0);
+#if UNITY_EDITOR
+        ActiveTestMode();
+#endif
     }
 
     void ActiveTestMode()
@@ -439,6 +442,8 @@ public class GameManager : UdonSharpBehaviour
                 ChangeGameState(State_WaitForNaki);
             }
         }
+
+        TableManager.UpdateAgariableCount();
     }
 
     void WaitForNaki(InputEvent inputEvent)

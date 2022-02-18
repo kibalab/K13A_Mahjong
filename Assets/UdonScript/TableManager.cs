@@ -487,6 +487,47 @@ public class TableManager : UdonSharpBehaviour
         }
     }
 
+    public void UpdateAgariableCount()
+    {
+        foreach(var player in players)
+        {
+            foreach(var globalOrder in player.AgariContext.AgariableCardGlobalOrders)
+            {
+                player.AgariContext.AgariableCardCounts[globalOrder] = GetHiddenCardCountByGlobalOrder(globalOrder) - HandUtil.GetGlobalOrders((Card[])player.Cards.Clone())[globalOrder];
+            }
+        }
+    }
+
+    int GetHiddenCardCountByGlobalOrder(int globalOrder)
+    {
+        var count = 0;
+
+        for (var i = 0; i < currentDorasCardIndex; i++)
+        {
+            count += (yama[i].GlobalOrder == globalOrder ? 1 : 0);
+        }
+
+        for (var i = 0; i < currentRinShanCardIndex; i++)
+        {
+            count += (yama[i].GlobalOrder == globalOrder ? 1 : 0);
+        }
+
+        foreach (var player in players)
+        {
+            foreach (var card in player.StashedCards)
+            {
+                count += (card == globalOrder ? 1 : 0);
+            }
+
+            foreach (var card in (Card[])player.OpenendCards.Clone())
+            {
+                count += (card.GlobalOrder == globalOrder ? 1 : 0);
+            }
+        }
+
+        return 4 - count;
+    }
+
     public bool IsReady()
     {
         if (!Networking.IsObjectReady(gameObject)) { return false; }

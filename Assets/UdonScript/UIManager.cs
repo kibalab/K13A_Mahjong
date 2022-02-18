@@ -39,7 +39,21 @@ public class UIManager : UdonSharpBehaviour
 
         if (isMyTable)
         {
-            setAgariableViewer(AgariContext.AgariableCardGlobalOrders, AgariContext.AgariableCount, null);
+            var AgariableCardsStates = new string[AgariContext.AgariableCardGlobalOrders.Length];
+            var AgariableCardsStates_Count = 0;
+            foreach (var AgariableCardGlobalOrder in AgariContext.AgariableCardGlobalOrders)
+            {
+                var state = "";
+                state = $"{AgariContext.AgariableCardCounts[AgariableCardGlobalOrder]}개";
+
+                /*
+                 * 여기 상태 표시 조건 들어갈 예정
+                 */
+
+                AgariableCardsStates[AgariableCardsStates_Count] = state;
+                AgariableCardsStates_Count++;
+            }
+            setAgariableViewer(AgariContext.AgariableCardGlobalOrders, AgariContext.AgariableCount, AgariableCardsStates);
             setShantenStats(AgariContext.shantenIndex);
 
             if (UIContext.IsChiable)
@@ -71,12 +85,12 @@ public class UIManager : UdonSharpBehaviour
             var txt = plate.GetChild(1).GetComponent<Text>();
             
             Img.sprite = CardSprites.FindSpriteWithInt(GlobalOrders[i]);
-            //txt.text = cardStats[i];
+            if(cardStats.Length > i) txt.text = cardStats[i];
 
             plate.gameObject.SetActive(true);
         }
         
-    }
+    } 
 
     public void setShantenStats(int needCardCount)
     {

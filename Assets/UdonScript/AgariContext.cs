@@ -3,6 +3,7 @@ using UdonSharp;
 public class AgariContext : UdonSharpBehaviour
 {
     public int[] AgariableCardGlobalOrders;
+    public int[] AgariableCardCounts = new int[34]; // TILE_COUNT => HandUtil
     public int AgariableCount;
     public Card[] RiichiCreationCards;
 

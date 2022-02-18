@@ -47,6 +47,15 @@ public class Player : UdonSharpBehaviour
 
     #endregion
 
+    #region Properties
+
+    public int[] StashedCards
+    {
+        get => stashedCards;
+    }
+
+    #endregion
+
     #region Events
     public void Initialize(int playerIndex)
     {
