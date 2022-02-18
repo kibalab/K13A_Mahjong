@@ -99,15 +99,13 @@ public class JoinStatus : UdonSharpBehaviour
         joinList.text = "";
 
         var ps = "";
-        var players = (VRCPlayerApi[])JoinnedPlayers.Clone();
-        for (var i = 0; i < players.Length; i++)
+        for (var i = 0; i < JoinnedPlayers.Count(); i++)
         {
-            ps += players[i].displayName + "\n";
-            joinIcons[i++].color = Color.white;
+            ps += ((VRCPlayerApi)JoinnedPlayers.At(i)).displayName + "\n";
+            joinIcons[i].color = Color.white;
         }
-        LogViewer.Log($"[JoinStatus] Current Joined Players : {ps}", 1);
         joinList.text = ps;
-        joinCount.text = (4 - players.Length) > 0 ? $"{4 - players.Length} Player Left" : "Player is All Ready";
+        joinCount.text = (4 - JoinnedPlayers.Count()) > 0 ? $"{4 - JoinnedPlayers.Count()} Player Left" : "Player is All Ready";
     }
 
     private void Update()
