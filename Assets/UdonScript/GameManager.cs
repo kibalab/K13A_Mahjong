@@ -38,7 +38,7 @@ public class GameManager : UdonSharpBehaviour
     private Card waitingNakiCard;
     private float pauseQueueTime = 0.0f;
 
-    private VRCPlayerApi[] registeredPlayers;
+    public VRCPlayerApi[] registeredPlayers;
     private string[] winds;
 
     public int Seed
@@ -250,12 +250,11 @@ public class GameManager : UdonSharpBehaviour
         var players = inputEvent.Players;
         if (eventType == "Register")
         {
-            registeredPlayers = players;
-            LogViewer.Log($"[GameManager] Registering {registeredPlayers.Length} Players", 0);
+            LogViewer.Log($"[GameManager] Registering {players.Length} Players", 0);
         }
-
-        if (registeredPlayers.Length == 4 || testMode)
+        if (players.Length == 4 || testMode)
         {
+            registeredPlayers = ShuffleRegisteredPlayers(players);
             StartGame();
         }
     }
@@ -265,7 +264,6 @@ public class GameManager : UdonSharpBehaviour
         LogViewer.Log($"[GameManager] Start Game With {registeredPlayers.Length} Players", 0);
         LogViewer.Log($"[GameManager] Start Game With {registeredPlayers.Length} Players", 1);
         // 등록한 순서를 적당히 섞는다
-        registeredPlayers = ShufflePlayers(registeredPlayers);
 
         // 4명 중 아무나 첫 턴으로 설정해준다
         var firstTurnIndex = UnityEngine.Random.Range(0, 4);
@@ -619,27 +617,30 @@ public class GameManager : UdonSharpBehaviour
         return isNetworkReady;
     }
 
-    public VRCPlayerApi[] ShufflePlayers(VRCPlayerApi[] players)
+    public VRCPlayerApi[] ShuffleRegisteredPlayers(object[] Players)
     {
-        var shuffled = new VRCPlayerApi[4];
+        VRCPlayerApi[] shuffled = new VRCPlayerApi[4];
         var yetShuffledCount = 4 - 1;
         var shuffledIndex = 0;
 
+        Debug.Log($"[GameManager] Player List Type : {registeredPlayers.GetType().FullName}");
+
         while (yetShuffledCount >= 0)
         {
-            var tmp = "";
-            foreach (var p in players)
-            {
-                tmp += p.displayName + ", ";
-            }
-            Debug.Log($"[GameManager] Shuffled Players : {tmp}");
             var picked = UnityEngine.Random.Range(0, yetShuffledCount + 1);
-            shuffled[shuffledIndex] = players[picked];
-            players[picked] = players[yetShuffledCount];
+            shuffled[shuffledIndex] = (VRCPlayerApi)Players[picked];
+            Players[picked] = Players[yetShuffledCount];
 
             yetShuffledCount--;
             shuffledIndex++;
         }
+        var tmp = "";
+        foreach (var p in shuffled)
+        {
+            tmp += $"{p.displayName}.{p.playerId}, ";
+        }
+        Debug.Log($"[GameManager] Shuffled Players : {tmp}");
+
         return shuffled;
     }
 }
