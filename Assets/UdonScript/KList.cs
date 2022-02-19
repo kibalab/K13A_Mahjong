@@ -44,6 +44,12 @@ public class KList : UdonSharpBehaviour
 
     public object RemoveLast()
     {
+        if (index >= components.Length)
+        {
+            Debug.LogError($"[KList] Cannot Remove value by index : {index}");
+            return null;
+        }
+
         var comp = components[index];
         components[index] = null;
         ResizeIfNeeded(false);
@@ -191,6 +197,12 @@ public class KList : UdonSharpBehaviour
 
     public object At(int i)
     {
+        if (i >= components.Length)
+        {
+            Debug.LogError($"[KList] Cannot load value by index : {index}");
+            return null;
+        }
+
         return components[i];
     }
 
