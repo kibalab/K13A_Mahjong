@@ -1,4 +1,5 @@
 using UdonSharp;
+using UnityEngine;
 
 public class AgariContext : UdonSharpBehaviour
 {
@@ -20,6 +21,11 @@ public class AgariContext : UdonSharpBehaviour
 
     public void AddAgariableGlobalOrder(int globalOrder)
     {
+        if (globalOrder < 0 || globalOrder >= 34)
+        {
+            Debug.Log($"[AgariContext] {globalOrder} is cannot Agariable!");
+        }
+
         if (!IsAgariableGlobalOrder(globalOrder))
         {
             AgariableCardGlobalOrders[AgariableCount++] = globalOrder;

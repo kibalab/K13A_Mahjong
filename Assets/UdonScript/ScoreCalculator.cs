@@ -27,9 +27,9 @@ public class ScoreCalculator : UdonSharpBehaviour
         var fu = playerStatus.Fu;
         var han = playerStatus.TotalHan;
 
-        var score = fu * Mathf.Pow(2, han + 2) * (playerStatus.Wind == "East" ? 1.5f: 1);
+        var score = fu * Mathf.Pow(2, han + 2) * (playerStatus.Wind == "East" ? 6: 4);
 
-        score = ((int)score / 100) * 100;
+        score = Mathf.Ceil(score);
 
         return (int)score;
     }
