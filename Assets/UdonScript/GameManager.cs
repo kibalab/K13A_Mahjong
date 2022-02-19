@@ -538,7 +538,7 @@ public class GameManager : UdonSharpBehaviour
                     var RonScore = TableManager.HandCalculator.ScoreCalculator.GetScore(playerStatus);
 
                     nakiPlayer.PlayerScore += RonScore;
-                    nakiPlayer.PlayerScore += RonScore * -1;
+                    formerPlayer.PlayerScore += RonScore * -1;
 
                     // 해야 한다...
                     var yakuKeyList = playerStatus.YakuKey;
