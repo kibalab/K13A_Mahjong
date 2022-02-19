@@ -298,6 +298,7 @@ public class TableManager : UdonSharpBehaviour
             var player = players[i];
 
             player.Initialize(i);
+            player.PlayerScore = 25000; //임시 기본점수
             player.SetCards(pickedCards);
         }
 

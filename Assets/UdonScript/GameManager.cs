@@ -360,9 +360,9 @@ public class GameManager : UdonSharpBehaviour
 
                 { // 점수적용
                     if (player.PlayerIndex == currentPlayer.PlayerIndex)
-                        currentPlayer.AddScore(TsumoScore);
+                        currentPlayer.PlayerScore += TsumoScore;
                     else
-                        currentPlayer.AddScore(currentPlayer.PlayerIndex == 0 ? TsumoScore / 2 * -1 : TsumoScore / 4 * -1);
+                        currentPlayer.PlayerScore += currentPlayer.PlayerIndex == 0 ? TsumoScore / 2 * -1 : TsumoScore / 4 * -1;
                 }
             }
 
@@ -537,8 +537,8 @@ public class GameManager : UdonSharpBehaviour
 
                     var RonScore = TableManager.HandCalculator.ScoreCalculator.GetScore(playerStatus);
 
-                    nakiPlayer.AddScore(RonScore);
-                    formerPlayer.AddScore(RonScore * -1);
+                    nakiPlayer.PlayerScore += RonScore;
+                    nakiPlayer.PlayerScore += RonScore * -1;
 
                     // 해야 한다...
                     var yakuKeyList = playerStatus.YakuKey;

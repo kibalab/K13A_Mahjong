@@ -24,6 +24,7 @@ public class Player : UdonSharpBehaviour
     [SerializeField] public Subtitle Subtitle;
     [SerializeField] public GameObject RiichiBon;
     [SerializeField] public TableViewer TableViewer;
+    [SerializeField] public LogViewer LogViewer;
 
     [UdonSynced(UdonSyncMode.None)] public string NetworkMessage = "";
     [UdonSynced(UdonSyncMode.None)] public string PlayerName;
@@ -43,7 +44,7 @@ public class Player : UdonSharpBehaviour
     int[] stashedCards;
     int stashedCardIndex;
 
-    public int PlayerScore = 25000;
+    private int playerScore = 25000;
 
     #endregion
 
@@ -52,6 +53,20 @@ public class Player : UdonSharpBehaviour
     public int[] StashedCards
     {
         get => stashedCards;
+    }
+
+    public int PlayerScore
+    {
+        set
+        {
+            LogViewer.Log($"[Player] Commit Player{PlayerIndex} Score {playerScore} => {value}", 0);
+
+            playerScore = value;
+
+            RefreshPlayerScore();
+        }
+
+        get => playerScore;
     }
 
     #endregion
@@ -573,16 +588,10 @@ public class Player : UdonSharpBehaviour
     #endregion
 
     #region PlayerInfo
-    public void AddScore(int score)
-    {
-        PlayerScore += score;
-
-        RefreshPlayerScore();
-    }
 
     public void RefreshPlayerScore()
     {
-        TableViewer.setScore(PlayerIndex, PlayerScore);
+        TableViewer.setScore(PlayerIndex, playerScore);
     }
 
     public void SetPlayerName(string name)
