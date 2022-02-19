@@ -44,7 +44,7 @@ public class KList : UdonSharpBehaviour
 
     public object RemoveLast()
     {
-        if (index >= components.Length)
+        if (index >= components.Length || index < 0)
         {
             Debug.LogError($"[KList] Cannot Remove value by index : {index}");
             return null;

@@ -233,13 +233,13 @@ public class Player : UdonSharpBehaviour
         
         HandCalculator.CheckTenpai(GetArray(Cards), GetArray(OpenendCards), AgariContext, UIContext);
 
-        if (playerStatus.isAutoAgariMode && AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null))
+        if (playerStatus.isAutoAgariMode && AgariContext.IsAgariable(newCard)) //  && !IsYakuNashi(newCard)
         {
             EventQueue.SetUIEvent("Tsumo", PlayerIndex);
         }
         else
         {
-            UIContext.IsTsumoable = AgariContext.IsAgariable(newCard) && !IsYakuNashi(newCard, null);
+            UIContext.IsTsumoable = AgariContext.IsAgariable(newCard); //  && !IsYakuNashi(newCard)
         }
 
         Cards.Add(newCard);
@@ -407,7 +407,7 @@ public class Player : UdonSharpBehaviour
 
             HandCalculator.RequestNakiable(GetArray(Cards), playerStatus, UIContext, AgariContext, card, isDiscardedByLeftPlayer);
 
-            var yakuNashi = IsYakuNashi(null, card);
+            var yakuNashi = IsYakuNashi(card);
 
             if (yakuNashi) { Debug.Log($"[Player{PlayerIndex}] Now YakuNashi"); }
 
@@ -573,13 +573,13 @@ public class Player : UdonSharpBehaviour
         return playerStatus;
     }
 
-    bool IsYakuNashi(Card tsumoCard, Card nakiCard)
+    bool IsYakuNashi(Card lastCard)
     {
         // 야쿠나시 검사는 13장일 때 함
         if (Cards.Count() + OpenendCards.Count() != 13) { Debug.Log(Cards.Count() + OpenendCards.Count() + "IsYakuNashi를 카드 추가 후 부른 듯"); }
 
         HandCalculator.RequestTsumoScore(
-            GetArrayWithAdditionalCard(Cards, nakiCard),
+            GetArrayWithAdditionalCard(Cards, lastCard),
             (Card[])OpenendCards.Clone(),
             AgariContext,
             playerStatus);
