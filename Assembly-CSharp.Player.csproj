@@ -421,11 +421,17 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UdonSharp.Editor">
+      <HintPath>Library\ScriptAssemblies\UdonSharp.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditorTests">
+      <HintPath>Library\ScriptAssemblies\UnityEditorTests.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -436,6 +442,9 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="VRC.SDKBase.Editor.ShaderStripping">
+      <HintPath>Library\ScriptAssemblies\VRC.SDKBase.Editor.ShaderStripping.dll</HintPath>
+    </Reference>
     <Reference Include="Analytics">
       <HintPath>Library\ScriptAssemblies\Analytics.dll</HintPath>
     </Reference>
@@ -444,6 +453,9 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="VRC.Udon.Editor">
+      <HintPath>Library\ScriptAssemblies\VRC.Udon.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
       <HintPath>Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
@@ -468,18 +480,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditorTests">
-      <HintPath>Library\ScriptAssemblies\UnityEditorTests.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.SDKBase.Editor.ShaderStripping">
-      <HintPath>Library\ScriptAssemblies\VRC.SDKBase.Editor.ShaderStripping.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.Udon.Editor">
-      <HintPath>Library\ScriptAssemblies\VRC.Udon.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UdonSharp.Editor">
-      <HintPath>Library\ScriptAssemblies\UdonSharp.Editor.dll</HintPath>
     </Reference>
     <Reference Include="VRC.Udon.ClientBindings">
       <HintPath>Assets\Udon\External\VRC.Udon.ClientBindings.dll</HintPath>
@@ -531,6 +531,9 @@
     </Reference>
     <Reference Include="VRCSDKBase">
       <HintPath>Assets\VRCSDK\Plugins\VRCSDKBase.dll</HintPath>
+    </Reference>
+    <Reference Include="clipper_library">
+      <HintPath>Library\PackageCache\com.unity.cinemachine@2.8.0\Runtime\ThirdParty\clipper_library.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>E:\UnityEditors\2019.4.31f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -899,6 +902,10 @@
       <Project>{650A2906-05E4-B657-F64D-303C858BBD27}</Project>
       <Name>UnityEngine.Monetization</Name>
     </ProjectReference>
+    <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
+      <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
+      <Name>VRC.Udon.Serialization.OdinSerializer</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEngine.Purchasing.Stores.csproj">
       <Project>{18FF5229-61DC-7035-EFC9-85926D45BD46}</Project>
       <Name>UnityEngine.Purchasing.Stores</Name>
@@ -911,9 +918,17 @@
       <Project>{F885087D-BF1D-C5D2-301B-C9228433ED9C}</Project>
       <Name>UnityEngine.Advertisements</Name>
     </ProjectReference>
+    <ProjectReference Include="UdonSharp.Runtime.csproj">
+      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
+      <Name>UdonSharp.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEngine.Purchasing.csproj">
       <Project>{F6F30EDB-920E-5F30-B4BC-0F7109080AD2}</Project>
       <Name>UnityEngine.Purchasing</Name>
+    </ProjectReference>
+    <ProjectReference Include="VRC.Udon.csproj">
+      <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>
+      <Name>VRC.Udon</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{5E03ED32-6DE8-59E8-EC65-AA158E9178E9}</Project>
@@ -951,6 +966,10 @@
       <Project>{447044A7-65D8-C534-D2BF-1AB293492E60}</Project>
       <Name>Unity.Analytics.DataPrivacy</Name>
     </ProjectReference>
+    <ProjectReference Include="VRC.SDKBase.Editor.BuildPipeline.csproj">
+      <Project>{4740F001-1A05-D2E1-8AA9-3DBE3935793B}</Project>
+      <Name>VRC.SDKBase.Editor.BuildPipeline</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEngine.Purchasing.SecurityStub.csproj">
       <Project>{340CACAC-AF7C-B4EE-51EA-ACAD7C303ED7}</Project>
       <Name>UnityEngine.Purchasing.SecurityStub</Name>
@@ -958,22 +977,6 @@
     <ProjectReference Include="com.unity.multiplayer-hlapi.Runtime.csproj">
       <Project>{379D950C-B57B-1F71-550F-A397EF23A9A7}</Project>
       <Name>com.unity.multiplayer-hlapi.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="VRC.Udon.Serialization.OdinSerializer.csproj">
-      <Project>{F7DA6981-64D4-2CB3-8789-B1396B382D5F}</Project>
-      <Name>VRC.Udon.Serialization.OdinSerializer</Name>
-    </ProjectReference>
-    <ProjectReference Include="VRC.Udon.csproj">
-      <Project>{A7FF2BE2-25E2-DC88-F379-445F0E454BDA}</Project>
-      <Name>VRC.Udon</Name>
-    </ProjectReference>
-    <ProjectReference Include="VRC.SDKBase.Editor.BuildPipeline.csproj">
-      <Project>{4740F001-1A05-D2E1-8AA9-3DBE3935793B}</Project>
-      <Name>VRC.SDKBase.Editor.BuildPipeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="UdonSharp.Runtime.csproj">
-      <Project>{B1FA1AB8-F590-3F42-51AA-264D14EECA17}</Project>
-      <Name>UdonSharp.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
